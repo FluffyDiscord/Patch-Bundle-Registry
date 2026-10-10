@@ -1,0 +1,2762 @@
+[
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the full-screen \"Make it your map\" page shown on first launch.",
+    "id": "a3ae747662e0862e3a35e28d:9",
+    "legacy_id": 22718,
+    "metadata_status": "verified",
+    "name": "Hide login promo",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Explore / Contribute / You strip at the bottom of the home screen. Can be switched back on on the Customization screen.",
+    "id": "a3ae747662e0862e3a35e28d:10",
+    "legacy_id": 22719,
+    "metadata_status": "verified",
+    "name": "Hide navigation tabs",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the \"More from this app\" label from the account sheet.",
+    "id": "a3ae747662e0862e3a35e28d:11",
+    "legacy_id": 22720,
+    "metadata_status": "verified",
+    "name": "Hide section title",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the \"Sign in\" pill from the account sheet.",
+    "id": "a3ae747662e0862e3a35e28d:12",
+    "legacy_id": 22721,
+    "metadata_status": "verified",
+    "name": "Hide sign-in button",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Returning from Settings or Customization, or tapping \"Your profile\", leaves the account sheet open instead of dropping back to the map.",
+    "id": "a3ae747662e0862e3a35e28d:13",
+    "legacy_id": 22722,
+    "metadata_status": "verified",
+    "name": "Keep account sheet open",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon.",
+    "id": "a3ae747662e0862e3a35e28d:14",
+    "legacy_id": 22723,
+    "metadata_status": "verified",
+    "name": "Legacy icon",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Location source choice to the Customization screen: Android's own location providers, or Google Play services' fused provider. With Android, Play services is never asked for a location. Play services is never used while it is missing or disabled, so location keeps working on phones without it.",
+    "id": "a3ae747662e0862e3a35e28d:15",
+    "legacy_id": 22724,
+    "metadata_status": "verified",
+    "name": "Location provider toggle",
+    "options": [
+      {
+        "default": true,
+        "description": "The location source Maps starts with. On: Google Play services' fused provider whenever Play services is installed and enabled, Android's own providers otherwise. Off: Android's own providers. Either can be changed later on the Customization screen.",
+        "key": "useFusedProvider",
+        "required": false,
+        "title": "Default to Play services location",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps the network (Wi-Fi/cell) location provider registered when no fused location provider answers, instead of GPS-only, so a fix does not go stale indoors.",
+    "id": "a3ae747662e0862e3a35e28d:16",
+    "legacy_id": 22725,
+    "metadata_status": "verified",
+    "name": "Network location fallback",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Customization screen"
+    ],
+    "description": "Adds a Proxy screen to Customization that sends Maps' own traffic, map data included, through an HTTP proxy -- for example Orbot's (127.0.0.1:8118) to use Tor. Map data never falls back to a direct connection: if the proxy stops, Maps stops loading. Needs a recent Play services network engine (Cronet); Maps warns when it cannot take the proxy.",
+    "id": "a3ae747662e0862e3a35e28d:17",
+    "legacy_id": 22726,
+    "metadata_status": "verified",
+    "name": "Proxy",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Squares off rounded corners across the UI, including the two round navigation buttons.",
+    "id": "a3ae747662e0862e3a35e28d:18",
+    "legacy_id": 22727,
+    "metadata_status": "verified",
+    "name": "Rectangle shapes",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes permissions that only serve Google-account features or Google's data collection: background location, physical activity, contacts, microphone (voice search stops working), camera (Lens and Live View stop working), car speed, advertising ID, push messages and Google services settings.",
+    "id": "a3ae747662e0862e3a35e28d:19",
+    "legacy_id": 22728,
+    "metadata_status": "verified",
+    "name": "Remove permissions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the \"Tired of typing?\" sign-in card from the search screen.",
+    "id": "a3ae747662e0862e3a35e28d:20",
+    "legacy_id": 22729,
+    "metadata_status": "verified",
+    "name": "Remove sign-in promo",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Points the Firebase Installations and Play services compliance check-ins at an unresolvable host, stops every ad impression and click ping from being sent, and deregisters Google's logging, performance-monitoring, survey and Location History libraries and the on-device federated-learning services.",
+    "id": "a3ae747662e0862e3a35e28d:21",
+    "legacy_id": 22730,
+    "metadata_status": "verified",
+    "name": "Remove telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets a re-signed Maps load tiles, search and routing, by sending Google's own package and certificate in the identity headers the Maps backend checks, and by degrading instead of crashing when Play services rejects the re-signed app -- including skipping a view property that fails for that reason instead of crashing the screen.",
+    "id": "a3ae747662e0862e3a35e28d:22",
+    "legacy_id": 22731,
+    "metadata_status": "verified",
+    "name": "Restore map data",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "The \"Sign in\" pill shows a \"Can't sign in\" toast instead of failing silently.",
+    "id": "a3ae747662e0862e3a35e28d:23",
+    "legacy_id": 22732,
+    "metadata_status": "verified",
+    "name": "Sign-in toast",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet.",
+    "id": "a3ae747662e0862e3a35e28d:24",
+    "legacy_id": 22733,
+    "metadata_status": "verified",
+    "name": "Trim account menu",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Tapping \"Your profile\" shows a \"Can't sign in\" toast instead of opening nothing.",
+    "id": "a3ae747662e0862e3a35e28d:25",
+    "legacy_id": 22734,
+    "metadata_status": "verified",
+    "name": "Your profile toast",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a3ae747662e0862e3a35e28d",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds +, − and reset tiles during turn-by-turn that change the navigation zoom while the camera keeps following the car.",
+    "id": "a3ae747662e0862e3a35e28d:26",
+    "legacy_id": 22735,
+    "metadata_status": "verified",
+    "name": "Zoom controls in navigation",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes Steam Link fully functional on Samsung Galaxy XR. Adds Android XR / OpenXR permissions and features, HMD and controller identity configs, Galaxy XR bridge native libraries, the permission-bootstrap launcher activity, and the XR spatial-pointer SDL input bridge. This patch is required for Galaxy XR operation.",
+    "id": "a52148f5aacbf2a5109286ea:0",
+    "legacy_id": 22736,
+    "metadata_status": "verified",
+    "name": "Android XR compatibility",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Renames the app package so it can be installed alongside the original Steam Link. Default appends '.gxr'. Changing the package name may break features that rely on the original identity.",
+    "id": "a52148f5aacbf2a5109286ea:1",
+    "legacy_id": 22737,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "New package name, e.g. com.valvesoftware.steamlink.gxr. Leave 'Default' to append '.gxr' automatically.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": false
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces VRLink's RequestAndroidPermissions with a no-op (return true) to prevent stream teardown on Galaxy XR.",
+    "id": "a52148f5aacbf2a5109286ea:2",
+    "legacy_id": 22738,
+    "metadata_status": "verified",
+    "name": "Disable permission prompt",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a fixed offset to VRLink's frame-queue latency budget to compensate for wireless pipeline delay. 'full' adds +32.768 ms; 'half' adds +16.384 ms.",
+    "id": "a52148f5aacbf2a5109286ea:3",
+    "legacy_id": 22739,
+    "metadata_status": "verified",
+    "name": "Frame queue latency offset",
+    "options": [
+      {
+        "default": "half",
+        "description": "'full' (+32.768 ms) suits ~25-30 ms wireless pipelines; 'half' (+16.384 ms) suits ~15-20 ms pipelines.",
+        "key": "size",
+        "required": true,
+        "title": "Offset size",
+        "type": "kotlin.String",
+        "values": {
+          "full": "full",
+          "half": "half"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": false
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds 78 ms to the HMD OpenXR pose-query time and zeroes all six exported HMD velocity fields. Does not affect controller paths.",
+    "id": "a52148f5aacbf2a5109286ea:4",
+    "legacy_id": 22740,
+    "metadata_status": "verified",
+    "name": "HMD-only pose fix",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": false
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores the 5001712-era two-layer XR stream topology by skipping underside swapchain creation and submission added in 5002244.",
+    "id": "a52148f5aacbf2a5109286ea:5",
+    "legacy_id": 22741,
+    "metadata_status": "verified",
+    "name": "Legacy two-layer renderer",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": false
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces findBestDecoder() to always select the low-latency hardware decoder (KEY_LOW_LATENCY), reducing decode jitter from ~11 ms median to ≤8 ms on Galaxy XR.",
+    "id": "a52148f5aacbf2a5109286ea:6",
+    "legacy_id": 22742,
+    "metadata_status": "verified",
+    "name": "Low-latency decoder",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes SYSTEM_ALERT_WINDOW usage so Steam Link installs and runs without the overlay permission prompt that tears down the XR stream.",
+    "id": "a52148f5aacbf2a5109286ea:7",
+    "legacy_id": 22743,
+    "metadata_status": "verified",
+    "name": "No overlay permission",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces VRLink's embedded GLSL fragment shader with a Galaxy XR OLED-tuned version. Profile 'initial': gamma 1.06/sat 1.12. Profile 'final-balanced': gamma 1.20/sat 1.45.",
+    "id": "a52148f5aacbf2a5109286ea:8",
+    "legacy_id": 22744,
+    "metadata_status": "verified",
+    "name": "OLED color calibration",
+    "options": [
+      {
+        "default": "initial",
+        "description": "'initial' applies conservative correction; 'final-balanced' applies full correction.",
+        "key": "profile",
+        "required": true,
+        "title": "Calibration profile",
+        "type": "kotlin.String",
+        "values": {
+          "final-balanced": "final-balanced",
+          "initial": "initial"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": false
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds +16.77 ms to the XrTime argument passed to xrLocateSpace, compensating for the Android XR runtime's local-display prediction being too early for a wireless stream.",
+    "id": "a52148f5aacbf2a5109286ea:9",
+    "legacy_id": 22745,
+    "metadata_status": "verified",
+    "name": "Pose prediction offset",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": false
+  },
+  {
+    "bundle_id": "a52148f5aacbf2a5109286ea",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables (or disables) the dormant GLSL dither term in VRLink's video fragment shader. Reduces 8-bit contouring on OLED displays.",
+    "id": "a52148f5aacbf2a5109286ea:10",
+    "legacy_id": 22746,
+    "metadata_status": "verified",
+    "name": "Video dither",
+    "options": [
+      {
+        "default": true,
+        "description": "True to uncomment the dither line; false to recomment it.",
+        "key": "enable",
+        "required": true,
+        "title": "Enable dither",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents Google Play Store from automatically replacing the patched APK with the official unpatched version.",
+    "id": "a77a067c09182c53c847601f:0",
+    "legacy_id": 22747,
+    "metadata_status": "verified",
+    "name": "Disable auto-updates",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.disney.disneyplus": [
+        "26.6.0+rc5-2026.04.21",
+        "26.8.0+rc6-2026.05.20",
+        "26.9.2+rc1-2026.06.12"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes mid-roll / pre-roll ads and pause ads.",
+    "id": "a77a067c09182c53c847601f:1",
+    "legacy_id": 22748,
+    "metadata_status": "verified",
+    "name": "Disney+ Android TV",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.disney.disneyplus",
+        "versions": [
+          "26.6.0+rc5-2026.04.21",
+          "26.8.0+rc6-2026.05.20",
+          "26.9.2+rc1-2026.06.12"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.wbd.hbomax": [
+        "7.5.0.73",
+        "7.2.0.41"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses nonlinear overlay ads (Bolt), SSAI linear ad timeline registration (GMSS/AdSparx), and live stream preroll ad timeline entry generation for all content types.",
+    "id": "a77a067c09182c53c847601f:2",
+    "legacy_id": 22749,
+    "metadata_status": "verified",
+    "name": "HBO Max - Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.wbd.hbomax",
+        "versions": [
+          "7.5.0.73",
+          "7.2.0.41"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.bamnetworks.mobile.android.gameday.atbat": [
+        "26.8.1.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes VOD ads and shows a commercial-break overlay over live gambling ads while preserving live game playback.",
+    "id": "a77a067c09182c53c847601f:3",
+    "legacy_id": 22750,
+    "metadata_status": "verified",
+    "name": "MLB At Bat Android TV",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.bamnetworks.mobile.android.gameday.atbat",
+        "versions": [
+          "26.8.1.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows HTTPS traffic inspection tools like AdGuard Premium to intercept app connections. Enables consistent pre-roll suppression when used alongside AdGuard Premium.",
+    "id": "a77a067c09182c53c847601f:4",
+    "legacy_id": 22751,
+    "metadata_status": "verified",
+    "name": "Override certificate pinning",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.cbs.ott": [
+        "16.12.0",
+        "16.8.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes VOD ads and pause ads while preserving live TV.",
+    "id": "a77a067c09182c53c847601f:5",
+    "legacy_id": 22752,
+    "metadata_status": "verified",
+    "name": "Paramount+ Android TV",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.cbs.ott",
+        "versions": [
+          "16.12.0",
+          "16.8.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Integrates the Prime Video ATV extension for ad group skipping.",
+    "id": "a77a067c09182c53c847601f:6",
+    "legacy_id": 22753,
+    "metadata_status": "verified",
+    "name": "Prime Video extension",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.fox.foxone": [
+        "1.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses all ad delivery systems in Fox One Android TV: Google IMA/DAI for VOD, Yospace SSAI for live content.",
+    "id": "a77a067c09182c53c847601f:7",
+    "legacy_id": 22754,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.fox.foxone",
+        "versions": [
+          "1.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.peacocktv.peacockandroid": [
+        "7.5.102",
+        "7.6.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables ad delivery via Sky SDK surgical targets (FreeWheel DI module skip, MediaTailor SSAI layers, ad-break-started no-op), OkHttp interceptor, and WebView shouldInterceptRequest wrapper. Validated v7.5.102 and v7.6.100.",
+    "id": "a77a067c09182c53c847601f:8",
+    "legacy_id": 22755,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.peacocktv.peacockandroid",
+        "versions": [
+          "7.5.102",
+          "7.6.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a"
+      ]
+    },
+    "dependencies": [
+      "Prime Video extension"
+    ],
+    "description": "Multi-layer ad suppression targeting the SSAI schedule, impression reporting, and the Volley network chokepoint.",
+    "id": "a77a067c09182c53c847601f:9",
+    "legacy_id": 22756,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.tubitv": [
+        "10.20.5000"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses all ad delivery systems in Tubi Android TV.",
+    "id": "a77a067c09182c53c847601f:10",
+    "legacy_id": 22757,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.tubitv",
+        "versions": [
+          "10.20.5000"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "a77a067c09182c53c847601f",
+    "compatiblePackages": {
+      "com.univision.prendetv": [
+        "4.46.0_tv"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses ViX ad delivery by disabling the FreeWheel ad provider at the config level and preventing the Innovid SSAI overlay from mounting.",
+    "id": "a77a067c09182c53c847601f:11",
+    "legacy_id": 22758,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.univision.prendetv",
+        "versions": [
+          "4.46.0_tv"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks promotional and marketing prompts and modals.",
+    "id": "b1cc123e34f8306c2616473f:0",
+    "legacy_id": 22759,
+    "metadata_status": "verified",
+    "name": "Block marketing notifications",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.95.104"
+      ]
+    },
+    "dependencies": [
+      "Brave Origin Resource Defaults"
+    ],
+    "description": "Unlocks Brave Origin and enables feature toggle controls.",
+    "id": "b1cc123e34f8306c2616473f:1",
+    "legacy_id": 22760,
+    "metadata_status": "verified",
+    "name": "Brave Origin",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.brave.browser",
+        "versions": [
+          "1.95.104"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppLovin interstitial ads.",
+    "id": "b1cc123e34f8306c2616473f:2",
+    "legacy_id": 22761,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "easynotes.notes.notepad.notebook.privatenotes.note": [
+        "1.3.61.0907"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 'notes_edit_banner' unit from utils/AdManager and the app-open ad from App$AppOpenAdManager. Both are gated on the single App.isAdFree() check, which normally depends on a VIP subscription.",
+    "id": "b1cc123e34f8306c2616473f:3",
+    "legacy_id": 22762,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "easynotes.notes.notepad.notebook.privatenotes.note",
+        "versions": [
+          "1.3.61.0907"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "eu.livesport.FlashScore_com": [
+        "26.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:4",
+    "legacy_id": 22763,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "eu.livesport.FlashScore_com",
+        "versions": [
+          "26.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.futbin": [
+        "27.02"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:5",
+    "legacy_id": 22764,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.futbin",
+        "versions": [
+          "27.02"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "ru.iptvremote.android.iptv": [
+        "9.1.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Wortise ad SDK initialization, blocking banner, interstitial, native and mediated ads (AppLovin, Yandex, Google Mobile Ads, etc.).",
+    "id": "b1cc123e34f8306c2616473f:6",
+    "legacy_id": 22765,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "ru.iptvremote.android.iptv",
+        "versions": [
+          "9.1.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.livescore": [
+        "10.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces AdsRemovalSettings.areAdsDisabled() to return true, disabling banner, interstitial, MPU, hero placement, coverage sponsorship and announcement ads.",
+    "id": "b1cc123e34f8306c2616473f:7",
+    "legacy_id": 22766,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.livescore",
+        "versions": [
+          "10.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "de.motain.iliga": [
+        "15.142.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:8",
+    "legacy_id": 22767,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "de.motain.iliga",
+        "versions": [
+          "15.142.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.pocketcolorwheel.PCW": [
+        "3.26"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:9",
+    "legacy_id": 22768,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.pocketcolorwheel.PCW",
+        "versions": [
+          "3.26"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.Project100Pi.themusicplayer": [
+        "3.2.0.0_release_2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:10",
+    "legacy_id": 22769,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Project100Pi.themusicplayer",
+        "versions": [
+          "3.2.0.0_release_2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.4",
+        "14.9.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Google Mobile Ads (AdMob) initialization, blocking banner, interstitial, rewarded, native and mediated ads.",
+    "id": "b1cc123e34f8306c2616473f:11",
+    "legacy_id": 22770,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.scores365",
+        "versions": [
+          "14.9.4",
+          "14.9.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.streema.simpleradio": [
+        "6.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:12",
+    "legacy_id": 22771,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.streema.simpleradio",
+        "versions": [
+          "6.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, feed, native, preroll and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:13",
+    "legacy_id": 22772,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.farproc.wifi.analyzer": [
+        "3.10.5-L"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the banner ad.",
+    "id": "b1cc123e34f8306c2616473f:14",
+    "legacy_id": 22773,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.farproc.wifi.analyzer",
+        "versions": [
+          "3.10.5-L"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "net.zedge.android": [
+        "9.38.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "b1cc123e34f8306c2616473f:15",
+    "legacy_id": 22774,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "net.zedge.android",
+        "versions": [
+          "9.38.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14"
+      ]
+    },
+    "dependencies": [
+      "Disable Facebook telemetry"
+    ],
+    "description": "Blocks Facebook Audience Network ads and disables Facebook event tracking while keeping Facebook Login working.",
+    "id": "b1cc123e34f8306c2616473f:16",
+    "legacy_id": 22775,
+    "metadata_status": "verified",
+    "name": "Disable Facebook SDK",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppsFlyer, Firebase Analytics and Crashlytics event logging.",
+    "id": "b1cc123e34f8306c2616473f:17",
+    "legacy_id": 22776,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "my.saphelink": [
+        "6.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Braze custom event tracking. Firebase Analytics/Crashlytics are covered by the universal \"Disable Firebase Analytics & Crashlytics\" patch.",
+    "id": "b1cc123e34f8306c2616473f:18",
+    "legacy_id": 22777,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "my.saphelink",
+        "versions": [
+          "6.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppsFlyer and Firebase Analytics event logging, plus Crashlytics crash reporting.",
+    "id": "b1cc123e34f8306c2616473f:19",
+    "legacy_id": 22778,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.mobilefootie.wc2010": [
+        "237.17536.20260911",
+        "236.17398.20260827",
+        "236.17338.20260822"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "b1cc123e34f8306c2616473f:20",
+    "legacy_id": 22779,
+    "metadata_status": "verified",
+    "name": "Enable FotMob+",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.mobilefootie.wc2010",
+        "versions": [
+          "237.17536.20260911",
+          "236.17398.20260827",
+          "236.17338.20260822"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "net.dinglisch.android.taskerm": [
+        "6.6.18"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the Play license check so the paid app runs as licensed.",
+    "id": "b1cc123e34f8306c2616473f:21",
+    "legacy_id": 22780,
+    "metadata_status": "verified",
+    "name": "Enable Full Version",
+    "options": [],
+    "packages": [
+      {
+        "name": "net.dinglisch.android.taskerm",
+        "versions": [
+          "6.6.18"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.anydesk.anydeskandroid": [
+        "9.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables premium features by making the app treat the free license as paid.",
+    "id": "b1cc123e34f8306c2616473f:22",
+    "legacy_id": 22781,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.anydesk.anydeskandroid",
+        "versions": [
+          "9.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "org.kman.AquaMail": [
+        "2.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Pro/Premium features and lifts the free-version feature locks.",
+    "id": "b1cc123e34f8306c2616473f:23",
+    "legacy_id": 22782,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "org.kman.AquaMail",
+        "versions": [
+          "2.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.rammigsoftware.bluecoins": [
+        "13.1.79"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the premium version (removes ads and lifts premium limits).",
+    "id": "b1cc123e34f8306c2616473f:24",
+    "legacy_id": 22783,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.rammigsoftware.bluecoins",
+        "versions": [
+          "13.1.79"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features by bypassing RevenueCat subscription checks.",
+    "id": "b1cc123e34f8306c2616473f:25",
+    "legacy_id": 22784,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "easynotes.notes.notepad.notebook.privatenotes.note": [
+        "1.3.61.0907"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the VIP-only fonts, note backgrounds, stickers and drawing tools. The app checks entitlement entirely locally — there is no license server — so forcing the App.isVip() gate to return true unlocks everything, and stays unlocked even though BillingManager resets the underlying purchase flags from Play on every startup.",
+    "id": "b1cc123e34f8306c2616473f:26",
+    "legacy_id": 22785,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "easynotes.notes.notepad.notebook.privatenotes.note",
+        "versions": [
+          "1.3.61.0907"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "no.fishbuddy_playground.app": [
+        "11.0.101"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces User.hasPremium() to return true, unlocking premium features locked behind the RevenueCat subscription entitlement.",
+    "id": "b1cc123e34f8306c2616473f:27",
+    "legacy_id": 22786,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "no.fishbuddy_playground.app",
+        "versions": [
+          "11.0.101"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "ru.iptvremote.android.iptv": [
+        "9.1.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces IptvFreeApplication's pro/trial gate to return true, keeping pro features unlocked after the 20-minute trial expires and suppressing the in-app review / buy-pro upsell prompts.",
+    "id": "b1cc123e34f8306c2616473f:28",
+    "legacy_id": 22787,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "ru.iptvremote.android.iptv",
+        "versions": [
+          "9.1.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "me.kavishdevar.librepods": [
+        "1.0.0-rc1-play"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the 'Advanced device settings' features (Personalized Volume, Adaptive Audio, accessibility configs, hearing protection, etc.) that LibrePods gates behind the Play Store 'Unlock advanced features' one-time purchase. The patch forces the premium entitlement (PlayBillingProvider's _isPremium StateFlow) to always be true.",
+    "id": "b1cc123e34f8306c2616473f:29",
+    "legacy_id": 22788,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "me.kavishdevar.librepods",
+        "versions": [
+          "1.0.0-rc1-play"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.monefy.app.lite": [
+        "1.22.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Monefy Pro features.",
+    "id": "b1cc123e34f8306c2616473f:30",
+    "legacy_id": 22789,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.monefy.app.lite",
+        "versions": [
+          "1.22.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "net.osmand": [
+        "5.4.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks OsmAnd Pro, Maps+ and live updates.",
+    "id": "b1cc123e34f8306c2616473f:31",
+    "legacy_id": 22790,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "net.osmand",
+        "versions": [
+          "5.4.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.Project100Pi.themusicplayer": [
+        "3.2.0.0_release_2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Pi Music Player Premium (ad-free) by forcing the local purchase-state checks to true.",
+    "id": "b1cc123e34f8306c2616473f:32",
+    "legacy_id": 22791,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Project100Pi.themusicplayer",
+        "versions": [
+          "3.2.0.0_release_2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "my.saphelink": [
+        "6.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all features locked behind the Saphe subscription paywall (navigation, car integration, speed limits, voice alarms, roadwork detection, animal nearby, slow-moving traffic, emergency vehicle, etc.).",
+    "id": "b1cc123e34f8306c2616473f:33",
+    "legacy_id": 22792,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "my.saphelink",
+        "versions": [
+          "6.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.streema.simpleradio": [
+        "6.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Simple Radio Premium (ad-free listening) by forcing the local subscription checks to true.",
+    "id": "b1cc123e34f8306c2616473f:34",
+    "legacy_id": 22793,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.streema.simpleradio",
+        "versions": [
+          "6.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks AI insights and premium features locked behind the Sofascore Plus/Pro subscription.",
+    "id": "b1cc123e34f8306c2616473f:35",
+    "legacy_id": 22794,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.myfitnesspal.android": [
+        "26.37.0",
+        "26.38.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "b1cc123e34f8306c2616473f:36",
+    "legacy_id": 22795,
+    "metadata_status": "verified",
+    "name": "Enable Premium+",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.myfitnesspal.android",
+        "versions": [
+          "26.37.0",
+          "26.38.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "eu.faircode.email": [
+        "1.2337"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the FairEmail pro features.",
+    "id": "b1cc123e34f8306c2616473f:37",
+    "legacy_id": 22796,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "eu.faircode.email",
+        "versions": [
+          "1.2337"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.jetappfactory.jetaudio": [
+        "13.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks jetAudio Premium, all plugins and the ad unlocker.",
+    "id": "b1cc123e34f8306c2616473f:38",
+    "legacy_id": 22797,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.jetappfactory.jetaudio",
+        "versions": [
+          "13.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.textra": [
+        "4.85"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Textra Pro: removes ads and unlocks the paid features.",
+    "id": "b1cc123e34f8306c2616473f:39",
+    "legacy_id": 22798,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.textra",
+        "versions": [
+          "4.85"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.Relmtech.Remote": [
+        "3.25.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Unified Remote Full by forcing the local license status check.",
+    "id": "b1cc123e34f8306c2616473f:40",
+    "legacy_id": 22799,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Relmtech.Remote",
+        "versions": [
+          "3.25.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.camerasideas.trimmer": [
+        "1.716.1222"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks YouCut Pro: watermark-free export and all paid features.",
+    "id": "b1cc123e34f8306c2616473f:41",
+    "legacy_id": 22800,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.camerasideas.trimmer",
+        "versions": [
+          "1.716.1222"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "b1cc123e34f8306c2616473f",
+    "compatiblePackages": {
+      "com.wunderground.android.weather": [
+        "6.20.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the ad-free purchase.",
+    "id": "b1cc123e34f8306c2616473f:42",
+    "legacy_id": 22801,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.wunderground.android.weather",
+        "versions": [
+          "6.20.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.5",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "bfb5f12e751628136e96a163:0",
+    "legacy_id": 22802,
+    "metadata_status": "verified",
+    "name": "Bypass signature check",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks analytics requests sent to Instagram and Facebook servers.",
+    "id": "bfb5f12e751628136e96a163:1",
+    "legacy_id": 22803,
+    "metadata_status": "verified",
+    "name": "Disable analytics",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables screenshot detection in direct messages and stories.",
+    "id": "bfb5f12e751628136e96a163:2",
+    "legacy_id": 22804,
+    "metadata_status": "verified",
+    "name": "Disable screenshot detection",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides categories of stories from the story tray.",
+    "id": "bfb5f12e751628136e96a163:3",
+    "legacy_id": 22805,
+    "metadata_status": "verified",
+    "name": "Filter stories",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides advertisements from the story tray.",
+        "key": "hideAdsStories",
+        "required": false,
+        "title": "Hide ad stories",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides suggested users and creators from the story tray.",
+        "key": "hideSuggestedStories",
+        "required": false,
+        "title": "Hide suggested stories",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides resurfaced highlights from the story tray.",
+        "key": "hideHighlightStories",
+        "required": false,
+        "title": "Hide highlights",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides ads in the feed.",
+    "id": "bfb5f12e751628136e96a163:4",
+    "legacy_id": 22806,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Instants from DMs page.",
+    "id": "bfb5f12e751628136e96a163:5",
+    "legacy_id": 22807,
+    "metadata_status": "verified",
+    "name": "Hide Instants",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": false
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Choose the suggested content to hide using the patch options.",
+    "id": "bfb5f12e751628136e96a163:6",
+    "legacy_id": 22808,
+    "metadata_status": "verified",
+    "name": "Hide suggested content",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides suggested reels from feed and reels tab.",
+        "key": "hideSuggestedReels",
+        "required": false,
+        "title": "Hide suggested reels",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides suggested stories/users from story tray.",
+        "key": "hideSuggestedStories",
+        "required": false,
+        "title": "Hide suggested stories",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides highlighted stories from story tray, sponsored stories which have no set expiration.",
+        "key": "hideHighlightStories",
+        "required": false,
+        "title": "Hide highlights in stories",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides suggested accounts from the list of followers and from other profiles.",
+        "key": "hideSuggestedAccount",
+        "required": false,
+        "title": "Hide suggested accounts",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Threads button from the profile page action bar (top right of the profile page).",
+    "id": "bfb5f12e751628136e96a163:7",
+    "legacy_id": 22809,
+    "metadata_status": "verified",
+    "name": "Hide Threads profile button",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": false
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Requests the maximum resolution images from the server.",
+    "id": "bfb5f12e751628136e96a163:8",
+    "legacy_id": 22810,
+    "metadata_status": "verified",
+    "name": "Improve image viewing",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens links in the system browser instead of the in-app browser.",
+    "id": "bfb5f12e751628136e96a163:9",
+    "legacy_id": 22811,
+    "metadata_status": "verified",
+    "name": "Open links externally",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.37.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Reddit Pro section from the community drawer, and the Reddit Pro promos: the post creation and subreddit join upsell sheets, and the Reddit Pro banner on the profile feed.",
+    "id": "bfb5f12e751628136e96a163:10",
+    "legacy_id": 22812,
+    "metadata_status": "verified",
+    "name": "Remove Reddit Pro section",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.37.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.37.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Resources and Games on Reddit sections from the community drawer.",
+    "id": "bfb5f12e751628136e96a163:11",
+    "legacy_id": 22813,
+    "metadata_status": "verified",
+    "name": "Remove Resources and Games on Reddit sections",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.37.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": true
+  },
+  {
+    "bundle_id": "bfb5f12e751628136e96a163",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "439.0.0.37.89"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes tracking parameters from links shared out of the app. Off by default: an earlier build crashed the app when copying a link.",
+    "id": "bfb5f12e751628136e96a163:12",
+    "legacy_id": 22814,
+    "metadata_status": "verified",
+    "name": "Sanitize share links",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.instagram.android",
+        "versions": [
+          "439.0.0.37.89"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.1-dev.2",
+    "source_id": "2d7b929ffc6870d6",
+    "use": false
+  },
+  {
+    "bundle_id": "c66f1f18db59d57863b261aa",
+    "compatiblePackages": {
+      "com.blockerhero": [
+        "1.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the premium features (uninstall protection, focus mode, custom blocklists, daily/weekly time limits, block-on-restart, block recent-apps screen, etc.) without a subscription or Google login.",
+    "id": "c66f1f18db59d57863b261aa:0",
+    "legacy_id": 22815,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.blockerhero",
+        "versions": [
+          "1.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.2",
+    "source_id": "fd320dfafd4a15e1",
+    "use": true
+  },
+  {
+    "bundle_id": "d6a9eb8f9169b0aff7d02e5c",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Bring back old twitter logo and name",
+    "id": "d6a9eb8f9169b0aff7d02e5c:0",
+    "legacy_id": 22816,
+    "metadata_status": "verified",
+    "name": "Bring back twitter",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.23.0-dev.6",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "d6a9eb8f9169b0aff7d02e5c",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Removes tracking parameters when sharing links",
+    "id": "d6a9eb8f9169b0aff7d02e5c:1",
+    "legacy_id": 22817,
+    "metadata_status": "verified",
+    "name": "Clear tracking params",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.23.0-dev.6",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  }
+]
