@@ -1,0 +1,3007 @@
+[
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Installs Gboard as a clone by appending \".clone\" to the package name (configurable), so it installs next to the stock Gboard. Changing an app's package name can lead to unexpected issues.",
+    "id": "5a2b9ac78b3d569ece548b11:3",
+    "legacy_id": 24318,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The package name to rename the app to. \"Default\" appends \".clone\".",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": true,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update other permissions declared by the app. Enabling this can fix installation errors, but can also break features in certain apps.",
+        "key": "updateOtherPermissions",
+        "required": false,
+        "title": "Update other permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update content provider URI authorities. Enabling this can fix installation errors, but can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update content providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": false
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": [
+        "88600 (8.8.6)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns off analytics, collection and removes the advertising-ID / ad-services permissions. Pair with \"Block Internet Patch\" to fully block trackers.",
+    "id": "5a2b9ac78b3d569ece548b11:4",
+    "legacy_id": 24319,
+    "metadata_status": "verified",
+    "name": "Disable Analytics & AD Tracking",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.teslacoilsw.launcher",
+        "versions": [
+          "88600 (8.8.6)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": false
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.fossor.panels": [
+        "1.596"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable Signature Verification So The App Doesn't Crash When The APK Signature Changes After Patching",
+    "id": "5a2b9ac78b3d569ece548b11:5",
+    "legacy_id": 24320,
+    "metadata_status": "verified",
+    "name": "Disable Signature Verification",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.fossor.panels",
+        "versions": [
+          "1.596"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "ak.alizandro.smartaudiobookplayer": [
+        "11.8.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the full version of Smart AudioBook Player",
+    "id": "5a2b9ac78b3d569ece548b11:6",
+    "legacy_id": 24321,
+    "metadata_status": "verified",
+    "name": "Enable Full Version",
+    "options": [],
+    "packages": [
+      {
+        "name": "ak.alizandro.smartaudiobookplayer",
+        "versions": [
+          "11.8.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "armworkout.armworkoutformen.armexercises": [
+        "2.4.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Arm Workout Premium. Use with Spoof App Signature",
+    "id": "5a2b9ac78b3d569ece548b11:7",
+    "legacy_id": 24322,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "armworkout.armworkoutformen.armexercises",
+        "versions": [
+          "2.4.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.joaomgcd.autolocation": [
+        "1.2.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks AutoLocation's full version",
+    "id": "5a2b9ac78b3d569ece548b11:8",
+    "legacy_id": 24323,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.joaomgcd.autolocation",
+        "versions": [
+          "1.2.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.joaomgcd.autotools": [
+        "2.3.19"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks AutoTools",
+    "id": "5a2b9ac78b3d569ece548b11:9",
+    "legacy_id": 24324,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.joaomgcd.autotools",
+        "versions": [
+          "2.3.19"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.boostedproductivity.app": [
+        "1.6.21"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Boosted Premium",
+    "id": "5a2b9ac78b3d569ece548b11:10",
+    "legacy_id": 24325,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.boostedproductivity.app",
+        "versions": [
+          "1.6.21"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.mediocre.commute": [
+        "1.5.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Does Not Commute Premium. Just Tap Get Premium and Restore Purchase When Prompted",
+    "id": "5a2b9ac78b3d569ece548b11:11",
+    "legacy_id": 24326,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.mediocre.commute",
+        "versions": [
+          "1.5.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "org.eobdfacile.android": [
+        "3.87.1179"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks EOBD Facile Premium",
+    "id": "5a2b9ac78b3d569ece548b11:12",
+    "legacy_id": 24327,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "org.eobdfacile.android",
+        "versions": [
+          "3.87.1179"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.hopefactory2021.fakegpslocation": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Fake GPS Location Premium",
+    "id": "5a2b9ac78b3d569ece548b11:13",
+    "legacy_id": 24328,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.hopefactory2021.fakegpslocation",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.subtlesignals.gradientweather": [
+        "1.1.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Gradient Weather Premium. Use With Spoof Install Source",
+    "id": "5a2b9ac78b3d569ece548b11:14",
+    "legacy_id": 24329,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.subtlesignals.gradientweather",
+        "versions": [
+          "1.1.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "homeworkout.homeworkouts.noequipment": [
+        "1.7.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Home Workout Premium. Use with Spoof Signature Verification",
+    "id": "5a2b9ac78b3d569ece548b11:15",
+    "legacy_id": 24330,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "homeworkout.homeworkouts.noequipment",
+        "versions": [
+          "1.7.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.codium.hydrocoach": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Hydro Coach Pro",
+    "id": "5a2b9ac78b3d569ece548b11:16",
+    "legacy_id": 24331,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.codium.hydrocoach",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.sillens.shapeupclub": [
+        "20.8.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock Lifesum Premium",
+    "id": "5a2b9ac78b3d569ece548b11:17",
+    "legacy_id": 24332,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sillens.shapeupclub",
+        "versions": [
+          "20.8.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.vodemn.lightmeter": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Lightmeter Pro. Use With Spoof Install Source.",
+    "id": "5a2b9ac78b3d569ece548b11:18",
+    "legacy_id": 24333,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.vodemn.lightmeter",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.simyasolutions.ling.universal": [
+        "8.4.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Ling Pro",
+    "id": "5a2b9ac78b3d569ece548b11:19",
+    "legacy_id": 24334,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.simyasolutions.ling.universal",
+        "versions": [
+          "8.4.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "pro.listy": [
+        "1.3.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Listy Premium",
+    "id": "5a2b9ac78b3d569ece548b11:20",
+    "legacy_id": 24335,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "pro.listy",
+        "versions": [
+          "1.3.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "menloseweight.loseweightappformen.weightlossformen": [
+        "2.4.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Lose Weight App for Men Premium. Use with Spoof App Signature",
+    "id": "5a2b9ac78b3d569ece548b11:21",
+    "legacy_id": 24336,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "menloseweight.loseweightappformen.weightlossformen",
+        "versions": [
+          "2.4.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.arlosoft.macrodroid": [
+        "5.65.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks MacroDroid Pro, Use With Spoof App Signature",
+    "id": "5a2b9ac78b3d569ece548b11:22",
+    "legacy_id": 24337,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.arlosoft.macrodroid",
+        "versions": [
+          "5.65.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.elm.elm327.obd2.eobd.obd.car.scanner.diagnostics.tool.dashboard.doctor.check.engine.torque.speed.trouble.codes.mary": [
+        "1.318"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Obd Mary's Paid Features, Including the Diagnostics Edition",
+    "id": "5a2b9ac78b3d569ece548b11:23",
+    "legacy_id": 24338,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.elm.elm327.obd2.eobd.obd.car.scanner.diagnostics.tool.dashboard.doctor.check.engine.torque.speed.trouble.codes.mary",
+        "versions": [
+          "1.318"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "dev.hemanths.paisa": [
+        "2026.06.230"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Paisa Premium. Use With Spoof Install Source",
+    "id": "5a2b9ac78b3d569ece548b11:24",
+    "legacy_id": 24339,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "dev.hemanths.paisa",
+        "versions": [
+          "2026.06.230"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.fossor.panels": [
+        "1.596"
+      ]
+    },
+    "dependencies": [
+      "Disable Signature Verification"
+    ],
+    "description": "Unlocks Premium. Use With Spoof Install Source.",
+    "id": "5a2b9ac78b3d569ece548b11:25",
+    "legacy_id": 24340,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.fossor.panels",
+        "versions": [
+          "1.596"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.launcher.hype": [
+        "3.5.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Phi Launcher Pro",
+    "id": "5a2b9ac78b3d569ece548b11:26",
+    "legacy_id": 24341,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.launcher.hype",
+        "versions": [
+          "3.5.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.hinnka.mycamera": [
+        "1.25.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Photon Camera Pro",
+    "id": "5a2b9ac78b3d569ece548b11:27",
+    "legacy_id": 24342,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.hinnka.mycamera",
+        "versions": [
+          "1.25.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "dev.sasikanth.pinnit2": [
+        "1.13.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Pinnit Pro. Just Tap Restore Purchase When Prompted. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
+    "id": "5a2b9ac78b3d569ece548b11:28",
+    "legacy_id": 24343,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "dev.sasikanth.pinnit2",
+        "versions": [
+          "1.13.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.mediocre.pinout": [
+        "1.0.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks PinOut Premium. Just Tap Get Premium and Restore Purchase When Prompted",
+    "id": "5a2b9ac78b3d569ece548b11:29",
+    "legacy_id": 24344,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.mediocre.pinout",
+        "versions": [
+          "1.0.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "sixpack.sixpackabs.absworkout": [
+        "1.4.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium",
+    "id": "5a2b9ac78b3d569ece548b11:30",
+    "legacy_id": 24345,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "sixpack.sixpackabs.absworkout",
+        "versions": [
+          "1.4.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.urbandroid.sleep": [
+        "20260616"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Sleep as Android Premium. Tap Wait I already Paid when Prompted",
+    "id": "5a2b9ac78b3d569ece548b11:31",
+    "legacy_id": 24346,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.urbandroid.sleep",
+        "versions": [
+          "20260616"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.mediocre.smashhit": [
+        "1.5.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Smash Hit. Just Tap Get Premium and Restore Purchase When Prompted",
+    "id": "5a2b9ac78b3d569ece548b11:32",
+    "legacy_id": 24347,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.mediocre.smashhit",
+        "versions": [
+          "1.5.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.prismtree.sponge": [
+        "2.8.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock Sponge Premium",
+    "id": "5a2b9ac78b3d569ece548b11:33",
+    "legacy_id": 24348,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.prismtree.sponge",
+        "versions": [
+          "2.8.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.tombayley.statusbar": [
+        "2.13.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Super Status Bar Premium. Use with Spoof Install Source",
+    "id": "5a2b9ac78b3d569ece548b11:34",
+    "legacy_id": 24349,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.tombayley.statusbar",
+        "versions": [
+          "2.13.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "xyz.thefor.habits.habits": null
+    },
+    "dependencies": [],
+    "description": "Unlocks TheFor Pro",
+    "id": "5a2b9ac78b3d569ece548b11:35",
+    "legacy_id": 24350,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "xyz.thefor.habits.habits",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.undefined.mate": [
+        "5.15.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Todo Mate Premium. Use With Spoof Install Source",
+    "id": "5a2b9ac78b3d569ece548b11:36",
+    "legacy_id": 24351,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.undefined.mate",
+        "versions": [
+          "5.15.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "eu.toneiv.ubktouch": [
+        "1.17.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks UbikiTouch Premium. Must be installed with either ADB/InstallerX Revived/Inure so it is not in Restricted Mode",
+    "id": "5a2b9ac78b3d569ece548b11:37",
+    "legacy_id": 24352,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "eu.toneiv.ubktouch",
+        "versions": [
+          "1.17.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.hrd.vocabulary": [
+        "5.5.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Vocabulary Premium",
+    "id": "5a2b9ac78b3d569ece548b11:38",
+    "legacy_id": 24353,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.hrd.vocabulary",
+        "versions": [
+          "5.5.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.tombayley.volumepanel": [
+        "5.2.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Volume Styles Premium. Use with Spoof Install Source",
+    "id": "5a2b9ac78b3d569ece548b11:39",
+    "legacy_id": 24354,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.tombayley.volumepanel",
+        "versions": [
+          "5.2.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": [
+        "88600 (8.8.6)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Nova Launcher Prime",
+    "id": "5a2b9ac78b3d569ece548b11:40",
+    "legacy_id": 24355,
+    "metadata_status": "verified",
+    "name": "Enable Prime",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.teslacoilsw.launcher",
+        "versions": [
+          "88600 (8.8.6)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "net.tsapps.appsales": [
+        "12.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables Appsales Premium.",
+    "id": "5a2b9ac78b3d569ece548b11:41",
+    "legacy_id": 24356,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "net.tsapps.appsales",
+        "versions": [
+          "12.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Extracts and Base64-encodes the original app's signing certificate. Applied automatically by 'Spoof signature verification'; you normally do not need to touch it. Use 'Certificate source' to control where the certificate comes from.",
+    "id": "5a2b9ac78b3d569ece548b11:42",
+    "legacy_id": 24357,
+    "metadata_status": "verified",
+    "name": "Provide original app certificate",
+    "options": [
+      {
+        "default": "auto",
+        "description": "Where to read the original signing certificate from.\n• Automatic: reads the APK you're patching (v1 META-INF), then an 'Original APK file' if set, then the installed app. Works for most apps with no extra input.\n• Simple / decoded APK only: v1 META-INF of the APK being patched (same as the basic extractor). Fails on v2/v3-only apps that have no v1 signature.\n• Original APK file: reads the certificate (incl. v2/v3) from the APK you point to below.\n• Installed app: reads it from the stock app installed on this device (on-device only).",
+        "key": "certificateSource",
+        "required": true,
+        "title": "Certificate source",
+        "type": "kotlin.String",
+        "values": {
+          "Automatic (recommended)": "auto",
+          "Installed app": "installed",
+          "Original APK file": "apkFile",
+          "Simple / decoded APK only": "simple"
+        }
+      },
+      {
+        "default": null,
+        "description": "The original, unmodified APK (or .apks/.xapk bundle) to read the certificate from. Select a file or paste the full file path. Required when 'Certificate source' is 'Original APK file'; also used as a fallback in 'Automatic'.",
+        "key": "originalApkPath",
+        "required": false,
+        "title": "Original APK file",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": false
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.delphicoder.flud": null
+    },
+    "dependencies": [],
+    "description": "Ad Free Flud",
+    "id": "5a2b9ac78b3d569ece548b11:43",
+    "legacy_id": 24358,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.delphicoder.flud",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the INTERNET permission so the app cannot access the network at all. Blocks all trackers, analytics and ads from phoning home, but also disables any legitimate online features. Only enable for apps you want fully offline.",
+    "id": "5a2b9ac78b3d569ece548b11:44",
+    "legacy_id": 24359,
+    "metadata_status": "verified",
+    "name": "Remove internet permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": false
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes the app think it was installed from a specific store (default: Google Play). Useful when an app blocks features or errors because it detects it was not installed from the Play Store. Only affects what the app sees, not the real system record.",
+    "id": "5a2b9ac78b3d569ece548b11:45",
+    "legacy_id": 24360,
+    "metadata_status": "verified",
+    "name": "Spoof install source",
+    "options": [
+      {
+        "default": "com.android.vending",
+        "description": "Most apps only check for the Google Play Store, so the default is usually correct. Pick from the list, or type any package name directly.",
+        "key": "installerPackageName",
+        "required": true,
+        "title": "Store to impersonate",
+        "type": "kotlin.String",
+        "values": {
+          "Amazon Appstore": "com.amazon.venezia",
+          "F-Droid": "org.fdroid.fdroid",
+          "Google Play Store": "com.android.vending",
+          "Huawei AppGallery": "com.huawei.appmarket",
+          "Samsung Galaxy Store": "com.sec.android.app.samsungapps"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": false
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide original app certificate"
+    ],
+    "description": "Spoofs the signature verification",
+    "id": "5a2b9ac78b3d569ece548b11:46",
+    "legacy_id": 24361,
+    "metadata_status": "verified",
+    "name": "Spoof signature verification",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The package name of the app, if modified. This must match the package name defined when the 'Change package name' patch is selected or as defined in the AndroidManifest.xml.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": "Default",
+        "description": "The base64-encoded signature from the original, unmodified APK. Leave as \"Default\" to auto-extract the certificate from the APK. Otherwise, clear it and paste the full Base64 signature to override auto-extraction.",
+        "key": "signature",
+        "required": true,
+        "title": "Base64-encoded signature",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": false
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.kevinforeman.nzb360": null
+    },
+    "dependencies": [],
+    "description": "Unlocks nzb360",
+    "id": "5a2b9ac78b3d569ece548b11:47",
+    "legacy_id": 24362,
+    "metadata_status": "verified",
+    "name": "Unlock All Access",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.kevinforeman.nzb360",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.trieudadlovestun.ai900exam": [
+        "1.0.1"
+      ],
+      "com.trieudadlovestun.aifc01exam": [
+        "1.0.1"
+      ],
+      "com.trieudadlovestun.az104": [
+        "1.0.16"
+      ],
+      "com.trieudadlovestun.az204ver2022": [
+        "1.0.9"
+      ],
+      "com.trieudadlovestun.az400": [
+        "1.0.8"
+      ],
+      "com.trieudadlovestun.az500": [
+        "1.0.8"
+      ],
+      "com.trieudadlovestun.az700exam": [
+        "1.0.1"
+      ],
+      "com.trieudadlovestun.az900ver3": [
+        "1.0.23"
+      ],
+      "com.trieudadlovestun.capm": [
+        "1.0.8"
+      ],
+      "com.trieudadlovestun.ccna200301": [
+        "1.0.15"
+      ],
+      "com.trieudadlovestun.ccnp350401": [
+        "1.0.18"
+      ],
+      "com.trieudadlovestun.cehv11": [
+        "1.0.20"
+      ],
+      "com.trieudadlovestun.cism": [
+        "1.0.9"
+      ],
+      "com.trieudadlovestun.cissp": [
+        "1.0.10"
+      ],
+      "com.trieudadlovestun.clfc01": [
+        "1.0.20"
+      ],
+      "com.trieudadlovestun.comptiacore1": [
+        "1.0.11"
+      ],
+      "com.trieudadlovestun.comptiacore2": [
+        "1.0.12"
+      ],
+      "com.trieudadlovestun.comptiacysa": [
+        "1.0.12"
+      ],
+      "com.trieudadlovestun.comptiaitf": [
+        "1.0.14"
+      ],
+      "com.trieudadlovestun.comptialinuxplusexam": [
+        "1.0.2"
+      ],
+      "com.trieudadlovestun.comptiasecai": [
+        "1.0.1"
+      ],
+      "com.trieudadlovestun.comptiasecurityplus": [
+        "1.0.16"
+      ],
+      "com.trieudadlovestun.comptiasecux": [
+        "1.0.1"
+      ],
+      "com.trieudadlovestun.comptiaserverplus": [
+        "1.0.10"
+      ],
+      "com.trieudadlovestun.dasm": [
+        "1.0.9"
+      ],
+      "com.trieudadlovestun.dopc01": [
+        "1.0.6"
+      ],
+      "com.trieudadlovestun.dp203": [
+        "1.0.9"
+      ],
+      "com.trieudadlovestun.dp300": [
+        "1.0.6"
+      ],
+      "com.trieudadlovestun.dp900": [
+        "1.0.10"
+      ],
+      "com.trieudadlovestun.dvac01ver3": [
+        "1.0.12"
+      ],
+      "com.trieudadlovestun.gcpassociatecloudengineer": [
+        "1.0.8"
+      ],
+      "com.trieudadlovestun.istqbfoundation": [
+        "1.0.15"
+      ],
+      "com.trieudadlovestun.mlac01exam": [
+        "1.0.3"
+      ],
+      "com.trieudadlovestun.pcep3002": [
+        "1.0.9"
+      ],
+      "com.trieudadlovestun.pentestplusexam": [
+        "1.0.1"
+      ],
+      "com.trieudadlovestun.pmiacp": [
+        "1.0.6"
+      ],
+      "com.trieudadlovestun.psm2": [
+        "1.0.9"
+      ],
+      "com.trieudadlovestun.pspooneexam": [
+        "1.0.1"
+      ],
+      "com.trieudadlovestun.saac02ver3": [
+        "1.0.18"
+      ],
+      "com.trieudadlovestun.salesforceadmin": [
+        "1.0.16"
+      ],
+      "com.trieudadlovestun.sapc01": [
+        "1.0.8"
+      ],
+      "com.trieudadlovestun.sc200exam": [
+        "1.0.2"
+      ],
+      "com.trieudadlovestun.sc900": [
+        "1.0.10"
+      ],
+      "com.trieudadlovestun.scor350701": [
+        "1.0.8"
+      ],
+      "com.trieudadlovestun.scsc01": [
+        "1.0.14"
+      ],
+      "com.trieudadlovestun.servicenowsystemadmin": [
+        "1.0.10"
+      ],
+      "com.trieudadlovestun.snowprocore": [
+        "1.0.10"
+      ],
+      "com.trieudadlovestun.soac02": [
+        "1.0.9"
+      ],
+      "com.trieudadlovestun.tableaudesktop": [
+        "1.0.8"
+      ],
+      "com.trieudadlovestun.terraform": [
+        "1.0.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all exam questions",
+    "id": "5a2b9ac78b3d569ece548b11:48",
+    "legacy_id": 24363,
+    "metadata_status": "verified",
+    "name": "Unlock all questions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.trieudadlovestun.ai900exam",
+        "versions": [
+          "1.0.1"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.aifc01exam",
+        "versions": [
+          "1.0.1"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.az104",
+        "versions": [
+          "1.0.16"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.az204ver2022",
+        "versions": [
+          "1.0.9"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.az400",
+        "versions": [
+          "1.0.8"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.az500",
+        "versions": [
+          "1.0.8"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.az700exam",
+        "versions": [
+          "1.0.1"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.az900ver3",
+        "versions": [
+          "1.0.23"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.capm",
+        "versions": [
+          "1.0.8"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.ccna200301",
+        "versions": [
+          "1.0.15"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.ccnp350401",
+        "versions": [
+          "1.0.18"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.cehv11",
+        "versions": [
+          "1.0.20"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.cism",
+        "versions": [
+          "1.0.9"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.cissp",
+        "versions": [
+          "1.0.10"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.clfc01",
+        "versions": [
+          "1.0.20"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiacore1",
+        "versions": [
+          "1.0.11"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiacore2",
+        "versions": [
+          "1.0.12"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiacysa",
+        "versions": [
+          "1.0.12"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiaitf",
+        "versions": [
+          "1.0.14"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptialinuxplusexam",
+        "versions": [
+          "1.0.2"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiasecai",
+        "versions": [
+          "1.0.1"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiasecurityplus",
+        "versions": [
+          "1.0.16"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiasecux",
+        "versions": [
+          "1.0.1"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.comptiaserverplus",
+        "versions": [
+          "1.0.10"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.dasm",
+        "versions": [
+          "1.0.9"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.dopc01",
+        "versions": [
+          "1.0.6"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.dp203",
+        "versions": [
+          "1.0.9"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.dp300",
+        "versions": [
+          "1.0.6"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.dp900",
+        "versions": [
+          "1.0.10"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.dvac01ver3",
+        "versions": [
+          "1.0.12"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.gcpassociatecloudengineer",
+        "versions": [
+          "1.0.8"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.istqbfoundation",
+        "versions": [
+          "1.0.15"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.mlac01exam",
+        "versions": [
+          "1.0.3"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.pcep3002",
+        "versions": [
+          "1.0.9"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.pentestplusexam",
+        "versions": [
+          "1.0.1"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.pmiacp",
+        "versions": [
+          "1.0.6"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.psm2",
+        "versions": [
+          "1.0.9"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.pspooneexam",
+        "versions": [
+          "1.0.1"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.saac02ver3",
+        "versions": [
+          "1.0.18"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.salesforceadmin",
+        "versions": [
+          "1.0.16"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.sapc01",
+        "versions": [
+          "1.0.8"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.sc200exam",
+        "versions": [
+          "1.0.2"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.sc900",
+        "versions": [
+          "1.0.10"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.scor350701",
+        "versions": [
+          "1.0.8"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.scsc01",
+        "versions": [
+          "1.0.14"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.servicenowsystemadmin",
+        "versions": [
+          "1.0.10"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.snowprocore",
+        "versions": [
+          "1.0.10"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.soac02",
+        "versions": [
+          "1.0.9"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.tableaudesktop",
+        "versions": [
+          "1.0.8"
+        ]
+      },
+      {
+        "name": "com.trieudadlovestun.terraform",
+        "versions": [
+          "1.0.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "je.fit": [
+        "17.2.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks JEFIT Elite",
+    "id": "5a2b9ac78b3d569ece548b11:49",
+    "legacy_id": 24364,
+    "metadata_status": "verified",
+    "name": "Unlock Elite",
+    "options": [],
+    "packages": [
+      {
+        "name": "je.fit",
+        "versions": [
+          "17.2.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.llamalab.automate": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Automate Premium",
+    "id": "5a2b9ac78b3d569ece548b11:50",
+    "legacy_id": 24365,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.llamalab.automate",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "com.spocky.projengmenu": [
+        "4.71"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Projectivy Launcher Premium",
+    "id": "5a2b9ac78b3d569ece548b11:51",
+    "legacy_id": 24366,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.spocky.projengmenu",
+        "versions": [
+          "4.71"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5a2b9ac78b3d569ece548b11",
+    "compatiblePackages": {
+      "eu.darken.bluemusic": null
+    },
+    "dependencies": [],
+    "description": "Unlocks the Pro",
+    "id": "5a2b9ac78b3d569ece548b11:52",
+    "legacy_id": 24367,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "eu.darken.bluemusic",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.16.0",
+    "source_id": "a3f0df8b4ab8a70f",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": null
+    },
+    "dependencies": [],
+    "description": "Bypasses PairIP DRM license verification to prevent forced app shutdown on non-Play-licensed installs.",
+    "id": "5cce228007690060b5ba0152:0",
+    "legacy_id": 24368,
+    "metadata_status": "verified",
+    "name": "Bypass License Check",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.newsbreak.crimeradar",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": null
+    },
+    "dependencies": [],
+    "description": "Bypasses the subscription paywall in-app.",
+    "id": "5cce228007690060b5ba0152:1",
+    "legacy_id": 24369,
+    "metadata_status": "verified",
+    "name": "Bypass Subscription Paywall",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.newsbreak.crimeradar",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "sensustech.universal.tv.remote.control": null
+    },
+    "dependencies": [],
+    "description": "Prevents the AppOpen ad preloader from initialising.",
+    "id": "5cce228007690060b5ba0152:2",
+    "legacy_id": 24370,
+    "metadata_status": "verified",
+    "name": "Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "sensustech.universal.tv.remote.control",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": null
+    },
+    "dependencies": [],
+    "description": "Disables App Analytics / Telemetry.",
+    "id": "5cce228007690060b5ba0152:3",
+    "legacy_id": 24371,
+    "metadata_status": "verified",
+    "name": "Disable Analytics / Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.saldous.casetracker": null
+    },
+    "dependencies": [],
+    "description": "Removes interstitial, app-open and native ads.",
+    "id": "5cce228007690060b5ba0152:4",
+    "legacy_id": 24372,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.saldous.casetracker",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": null
+    },
+    "dependencies": [],
+    "description": "Removes all  item limits in-app.",
+    "id": "5cce228007690060b5ba0152:5",
+    "legacy_id": 24373,
+    "metadata_status": "verified",
+    "name": "Remove Item Limits",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.newsbreak.crimeradar",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": null
+    },
+    "dependencies": [],
+    "description": "Unlocks WARP+ UI locally.",
+    "id": "5cce228007690060b5ba0152:6",
+    "legacy_id": 24374,
+    "metadata_status": "verified",
+    "name": "Spoof WARP+ Unlimited UI",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "sensustech.universal.tv.remote.control": null
+    },
+    "dependencies": [],
+    "description": "Suppresses the in-app paywall.",
+    "id": "5cce228007690060b5ba0152:7",
+    "legacy_id": 24375,
+    "metadata_status": "verified",
+    "name": "Suppress Paywall",
+    "options": [],
+    "packages": [
+      {
+        "name": "sensustech.universal.tv.remote.control",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": null
+    },
+    "dependencies": [],
+    "description": "Supress all premium promotions in-app.",
+    "id": "5cce228007690060b5ba0152:8",
+    "legacy_id": 24376,
+    "metadata_status": "verified",
+    "name": "Suppress Premium Promotions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.newsbreak.crimeradar",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "verbosus.pialytic": [
+        "1.2.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses PairIP DRM license check, removes all paywalls, and unlocks all premium features including cloud sync and remote access.",
+    "id": "5cce228007690060b5ba0152:9",
+    "legacy_id": 24377,
+    "metadata_status": "verified",
+    "name": "Unlock All Features",
+    "options": [],
+    "packages": [
+      {
+        "name": "verbosus.pialytic",
+        "versions": [
+          "1.2.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.oasisfeng.greenify": null
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium donation features in Greenify.",
+    "id": "5cce228007690060b5ba0152:10",
+    "legacy_id": 24378,
+    "metadata_status": "verified",
+    "name": "Unlock Donation Features",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.oasisfeng.greenify",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": null
+    },
+    "dependencies": [],
+    "description": "Unlocks the Followed Locations premium feature.",
+    "id": "5cce228007690060b5ba0152:11",
+    "legacy_id": 24379,
+    "metadata_status": "verified",
+    "name": "Unlock Followed Locations",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.newsbreak.crimeradar",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.catalinagroup.callrecorder": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium Features In the App.",
+    "id": "5cce228007690060b5ba0152:12",
+    "legacy_id": 24380,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.catalinagroup.callrecorder",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.saldous.casetracker": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium Features In the App.",
+    "id": "5cce228007690060b5ba0152:13",
+    "legacy_id": 24381,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.saldous.casetracker",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium Features In the App.",
+    "id": "5cce228007690060b5ba0152:14",
+    "legacy_id": 24382,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.newsbreak.crimeradar",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "sensustech.universal.tv.remote.control": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium Features In the App.",
+    "id": "5cce228007690060b5ba0152:15",
+    "legacy_id": 24383,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "sensustech.universal.tv.remote.control",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "sp0n.citizen": null
+    },
+    "dependencies": [],
+    "description": "Unlocks all Citizen Plus/Protect features: Safety Network, Safety Center, Zones, Live Agent, Offender alerts, Clarity crime map, incident video, and more.",
+    "id": "5cce228007690060b5ba0152:16",
+    "legacy_id": 24384,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "sp0n.citizen",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "5cce228007690060b5ba0152",
+    "compatiblePackages": {
+      "com.Splitwise.SplitwiseMobile": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Splitwise Pro features, removes ad banners, and suppresses all upgrade upsell prompts.",
+    "id": "5cce228007690060b5ba0152:17",
+    "legacy_id": 24385,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Splitwise.SplitwiseMobile",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.4.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.pikpok.dr2.play": [
+        "1.87.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Grants rewarded-video rewards instantly",
+    "id": "78c2ea799b7c0740a451169a:0",
+    "legacy_id": 24386,
+    "metadata_status": "verified",
+    "name": "AD Instant Rewards",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.pikpok.dr2.play",
+        "versions": [
+          "1.87.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.sidheinteractive.sif.DR": [
+        "2.9.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes all ads (interstitials, banners, app-open) and grants rewarded-video perk boosts instantly on tap (no ad watch) using the correct reward name PERKS_BOOST, verified against a real rewarded event.",
+    "id": "78c2ea799b7c0740a451169a:1",
+    "legacy_id": 24387,
+    "metadata_status": "verified",
+    "name": "Ad Removal & Instant Boost Rewards",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sidheinteractive.sif.DR",
+        "versions": [
+          "2.9.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.adda247.app": [
+        "12.7.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks all Google AdMob ads (banner, interstitial, rewarded, rewarded interstitial, native, app open and Ad Manager) by neutralizing the Flutter Google Mobile Ads plugin: no ad is ever requested and no ad can ever be shown.",
+    "id": "78c2ea799b7c0740a451169a:2",
+    "legacy_id": 24388,
+    "metadata_status": "verified",
+    "name": "Adda247 Ad Removal",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.adda247.app",
+        "versions": [
+          "12.7.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.adda247.app": [
+        "12.7.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks the app's own MoEngage in-app promotions (the recurring \"recommended for you\" nudge with no close button, and full-screen standard in-app messages) by no-oping MoEngage's HTML render chokepoint, so no in-app WebView is ever built or attached. Separate from the Google AdMob block.",
+    "id": "78c2ea799b7c0740a451169a:3",
+    "legacy_id": 24389,
+    "metadata_status": "verified",
+    "name": "Adda247 MoEngage In-App Blocker",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.adda247.app",
+        "versions": [
+          "12.7.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.vng.g6.a.zombie": [
+        "4.183.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Every gun, skin, glove and drone shows as unlocked, and you can equip any of them. Your save file is not changed.",
+    "id": "78c2ea799b7c0740a451169a:4",
+    "legacy_id": 24390,
+    "metadata_status": "verified",
+    "name": "All items owned",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.vng.g6.a.zombie",
+        "versions": [
+          "4.183.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.kakarod.bighunter": [
+        "3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Tapping any store item grants the product immediately (via the game's own confirmed-purchase path -> native applyProduct) without opening Google Play billing. Entitlements persist across restarts.",
+    "id": "78c2ea799b7c0740a451169a:5",
+    "legacy_id": 24391,
+    "metadata_status": "verified",
+    "name": "Big Hunter Fake Purchase",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.kakarod.bighunter",
+        "versions": [
+          "3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.kakarod.bighunter": [
+        "3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the PairIP license check (installer verification + Google Play licensing service validation + paywall/exit dialog). Required for patched APKs — the original check fails on any non-Play signature and force-closes the app.",
+    "id": "78c2ea799b7c0740a451169a:6",
+    "legacy_id": 24392,
+    "metadata_status": "verified",
+    "name": "Big Hunter PairIP License Bypass",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.kakarod.bighunter",
+        "versions": [
+          "3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.kakarod.bighunter": [
+        "3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Interstitial ads are never shown (show() short-circuits via the ad-not-ready path on all three network bridges: AdMob, AppLovin, Unity Ads).",
+    "id": "78c2ea799b7c0740a451169a:7",
+    "legacy_id": 24393,
+    "metadata_status": "verified",
+    "name": "Big Hunter Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.kakarod.bighunter",
+        "versions": [
+          "3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.kakarod.bighunter": [
+        "3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Rewarded video requests grant the reward immediately via the game's own native rewardCallback() without loading or showing any ad (AdMob, AppLovin, Unity Ads).",
+    "id": "78c2ea799b7c0740a451169a:8",
+    "legacy_id": 24394,
+    "metadata_status": "verified",
+    "name": "Big Hunter Rewards Without Ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.kakarod.bighunter",
+        "versions": [
+          "3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.madfingergames.deadtrigger": [
+        "2.3.4"
+      ]
+    },
+    "dependencies": [
+      "Dead Trigger Native IAP Verifier Bypass"
+    ],
+    "description": "Free store: tap any gold or money pack in the shop and it's yours instantly.",
+    "id": "78c2ea799b7c0740a451169a:9",
+    "legacy_id": 24395,
+    "metadata_status": "verified",
+    "name": "Dead Trigger Free Store",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.madfingergames.deadtrigger",
+        "versions": [
+          "2.3.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.cv.docscanner": [
+        "6.9.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features, removes ads, and enables pro themes.",
+    "id": "78c2ea799b7c0740a451169a:10",
+    "legacy_id": 24396,
+    "metadata_status": "verified",
+    "name": "Doc Scanner Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.cv.docscanner",
+        "versions": [
+          "6.9.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.lima.doodlejump": [
+        "3.11.38",
+        "3.11.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the full game by bypassing Google Play billing.",
+    "id": "78c2ea799b7c0740a451169a:11",
+    "legacy_id": 24397,
+    "metadata_status": "verified",
+    "name": "Doodle Jump Billing Bypass",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.lima.doodlejump",
+        "versions": [
+          "3.11.38",
+          "3.11.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.lima.doodlejump": [
+        "3.11.38",
+        "3.11.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Resurrect instantly after death without watching a rewarded ad.",
+    "id": "78c2ea799b7c0740a451169a:12",
+    "legacy_id": 24398,
+    "metadata_status": "verified",
+    "name": "Doodle Jump Resurrection Bypass",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.lima.doodlejump",
+        "versions": [
+          "3.11.38",
+          "3.11.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.ansangha.drdriving": [
+        "1.73"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes all Google AdMob ads (banner, interstitial, rewarded).",
+    "id": "78c2ea799b7c0740a451169a:13",
+    "legacy_id": 24399,
+    "metadata_status": "verified",
+    "name": "Dr. Driving Ad Removal",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.ansangha.drdriving",
+        "versions": [
+          "1.73"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.ansangha.drdriving": [
+        "1.73"
+      ]
+    },
+    "dependencies": [],
+    "description": "Coins inflated to 1,000,000,000 on save load; purchases, upgrades, rentals and repairs never cost coins.",
+    "id": "78c2ea799b7c0740a451169a:14",
+    "legacy_id": 24400,
+    "metadata_status": "verified",
+    "name": "Dr. Driving Unlimited Coins",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.ansangha.drdriving",
+        "versions": [
+          "1.73"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.ansangha.drdriving": [
+        "1.73"
+      ]
+    },
+    "dependencies": [],
+    "description": "Gold is inflated to 1,000,000,000 on save load; gold packs in the store also grant gold.",
+    "id": "78c2ea799b7c0740a451169a:15",
+    "legacy_id": 24401,
+    "metadata_status": "verified",
+    "name": "Dr. Driving Unlimited Gold",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.ansangha.drdriving",
+        "versions": [
+          "1.73"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.notdoppler.earntodie2": [
+        "1.5.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Intercepts all in-app purchases and calls the native on_purchase(String[], String) grant directly, unlocking paid content (cash doubler) for free without Play Billing.",
+    "id": "78c2ea799b7c0740a451169a:16",
+    "legacy_id": 24402,
+    "metadata_status": "verified",
+    "name": "Earn to Die 2 Free IAP",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.notdoppler.earntodie2",
+        "versions": [
+          "1.5.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.notdoppler.earntodie2": [
+        "1.5.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes interstitial and rewarded ads, and grants rewarded-video rewards instantly by firing the native callbacks.",
+    "id": "78c2ea799b7c0740a451169a:17",
+    "legacy_id": 24403,
+    "metadata_status": "verified",
+    "name": "Earn to Die 2 No Ads + Instant Rewards",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.notdoppler.earntodie2",
+        "versions": [
+          "1.5.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.notdoppler.earntodie2": [
+        "1.5.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the native Google Play distribution checks (installer package + signing signature) so the app runs when sideloaded.",
+    "id": "78c2ea799b7c0740a451169a:18",
+    "legacy_id": 24404,
+    "metadata_status": "verified",
+    "name": "Earn to Die 2 Remove Google Play Check",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.notdoppler.earntodie2",
+        "versions": [
+          "1.5.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.overthetopgames.fancypants": [
+        "1.0.30"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium, wardrobe, world 1 and world 2 by forcing OTTBilling.isPurchased to always return true.",
+    "id": "78c2ea799b7c0740a451169a:19",
+    "legacy_id": 24405,
+    "metadata_status": "verified",
+    "name": "Fancy Pants Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.overthetopgames.fancypants",
+        "versions": [
+          "1.0.30"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.kongregate.mobile.burritobison3.google": [
+        "3.75"
+      ]
+    },
+    "dependencies": [],
+    "description": "Required so the modified app opens without crashing — skips signature, root and emulator checks.",
+    "id": "78c2ea799b7c0740a451169a:20",
+    "legacy_id": 24406,
+    "metadata_status": "verified",
+    "name": "Fix app opening",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.kongregate.mobile.burritobison3.google",
+        "versions": [
+          "3.75"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.dnddream.HeadBasketball": [
+        "4.6.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Get your ad rewards for free. Every \"watch ad\" button gives you the reward right away — no ad to sit through, no waiting.",
+    "id": "78c2ea799b7c0740a451169a:21",
+    "legacy_id": 24407,
+    "metadata_status": "verified",
+    "name": "Free Ad Rewards",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.dnddream.HeadBasketball",
+        "versions": [
+          "4.6.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.dnddream.headsoccer.android": [
+        "7.1.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Every \"watch ad\" reward is granted instantly — no ad appears, no \"failed to load advertisement\" popup, and nothing to wait for.",
+    "id": "78c2ea799b7c0740a451169a:22",
+    "legacy_id": 24408,
+    "metadata_status": "verified",
+    "name": "Free Ad Rewards",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.dnddream.headsoccer.android",
+        "versions": [
+          "7.1.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.kongregate.mobile.burritobison3.google": [
+        "3.75"
+      ]
+    },
+    "dependencies": [],
+    "description": "Get paid items for free — tapping buy grants the item instantly without Google Play payment popup.",
+    "id": "78c2ea799b7c0740a451169a:23",
+    "legacy_id": 24409,
+    "metadata_status": "verified",
+    "name": "Free purchases",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.kongregate.mobile.burritobison3.google",
+        "versions": [
+          "3.75"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.dnddream.HeadBasketball": [
+        "4.6.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Everything in the shop is free. Tap an item and you get it instantly — no paying, no waiting, no Google Play involved.",
+    "id": "78c2ea799b7c0740a451169a:24",
+    "legacy_id": 24410,
+    "metadata_status": "verified",
+    "name": "Free Store",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.dnddream.HeadBasketball",
+        "versions": [
+          "4.6.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.dnddream.headsoccer.android": [
+        "7.1.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Everything in the shop is free. Tap an item and you get it right away — points, characters and presents — with no Google Play payment screen and nothing charged.",
+    "id": "78c2ea799b7c0740a451169a:25",
+    "legacy_id": 24411,
+    "metadata_status": "verified",
+    "name": "Free Store",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.dnddream.headsoccer.android",
+        "versions": [
+          "7.1.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.outfit7.movingeye.swampattack": [
+        "4.8.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Everything in the shop is granted instantly and free — double coins, more gifts and the any-purchase perks — with no Google Play payment screen, no account and nothing charged.",
+    "id": "78c2ea799b7c0740a451169a:26",
+    "legacy_id": 24412,
+    "metadata_status": "verified",
+    "name": "Free Store",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.outfit7.movingeye.swampattack",
+        "versions": [
+          "4.8.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.yodo1.crossyroad": [
+        "7.13.2"
+      ]
+    },
+    "dependencies": [
+      "Free store (character branch)"
+    ],
+    "description": "The in-game store is free. Just tap \"Buy\" and the item is yours — no payment needed. For an ad-free game, just buy the ad-block item from the store.",
+    "id": "78c2ea799b7c0740a451169a:27",
+    "legacy_id": 24413,
+    "metadata_status": "verified",
+    "name": "Free store",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.yodo1.crossyroad",
+        "versions": [
+          "7.13.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.freejobalert": [
+        "1.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes all Google AdMob ads (banner, interstitial, rewarded, app open, native).",
+    "id": "78c2ea799b7c0740a451169a:28",
+    "legacy_id": 24414,
+    "metadata_status": "verified",
+    "name": "FreeJobAlert Ad Removal",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.freejobalert",
+        "versions": [
+          "1.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.freejobalert": [
+        "1.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the Pairip Play Store installation check so the app launches normally.",
+    "id": "78c2ea799b7c0740a451169a:29",
+    "legacy_id": 24415,
+    "metadata_status": "verified",
+    "name": "FreeJobAlert License Bypass",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.freejobalert",
+        "versions": [
+          "1.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.direlight.grimvalor": [
+        "1.2.13"
+      ]
+    },
+    "dependencies": [],
+    "description": "Full Game Unlocked.",
+    "id": "78c2ea799b7c0740a451169a:30",
+    "legacy_id": 24416,
+    "metadata_status": "verified",
+    "name": "Full game unlock",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.direlight.grimvalor",
+        "versions": [
+          "1.2.13"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  },
+  {
+    "bundle_id": "78c2ea799b7c0740a451169a",
+    "compatiblePackages": {
+      "com.pikpok.dr2.play": [
+        "1.87.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks every purchase in the game for free. Tap buy and it is yours — no Google Play payment screen appears and you are never charged. Subscriptions like VIP membership show as pre-owned, so just open them, no purchase needed.",
+    "id": "78c2ea799b7c0740a451169a:31",
+    "legacy_id": 24417,
+    "metadata_status": "verified",
+    "name": "Full IAP Unlock",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.pikpok.dr2.play",
+        "versions": [
+          "1.87.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0-dev.4",
+    "source_id": "b149043aa62e2c0a",
+    "use": true
+  }
+]
