@@ -1,0 +1,3846 @@
+[
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services.",
+    "id": "f3360866cf09c4a24321544b:56",
+    "legacy_id": 37351,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [
+      {
+        "default": "app.revanced",
+        "description": "The vendor's group ID for GmsCore.",
+        "name": "gmsCoreVendorGroupId",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "ReVanced": "app.revanced"
+        }
+      },
+      {
+        "default": true,
+        "description": "Check if GmsCore is installed on the device and has battery optimizations disabled when the app starts. \n\nIf GmsCore is not installed the app will not work, so disabling this is not recommended.",
+        "name": "checkGmsCore",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "anddea.youtube",
+        "description": "The name of the package to use in GmsCore support.",
+        "name": "packageNameYouTube",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Clone": "bill.youtube",
+          "Default": "anddea.youtube"
+        }
+      },
+      {
+        "default": "anddea.youtube.music",
+        "description": "The name of the package to use in GmsCore support.",
+        "name": "packageNameYouTubeMusic",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Clone": "bill.youtube.music",
+          "Default": "anddea.youtube.music"
+        }
+      },
+      {
+        "default": true,
+        "description": "Patch all permissions, intents and content provider authorities supported by GmsCore.",
+        "name": "patchAllManifest",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'.",
+    "id": "f3360866cf09c4a24321544b:57",
+    "legacy_id": 37352,
+    "metadata_status": "verified",
+    "name": "Hide accessibility controls dialog",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to hide components related to the account menu.",
+    "id": "f3360866cf09c4a24321544b:58",
+    "legacy_id": 37353,
+    "metadata_status": "verified",
+    "name": "Hide account components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to hide action bar components and replace the offline download button with an external download button.",
+    "id": "f3360866cf09c4a24321544b:59",
+    "legacy_id": 37354,
+    "metadata_status": "verified",
+    "name": "Hide action bar components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide action buttons under videos.",
+    "id": "f3360866cf09c4a24321544b:60",
+    "legacy_id": 37355,
+    "metadata_status": "verified",
+    "name": "Hide action buttons",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music",
+      "Navigation bar components"
+    ],
+    "description": "Adds options to hide ads.",
+    "id": "f3360866cf09c4a24321544b:61",
+    "legacy_id": 37356,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds options to hide ads.",
+    "id": "f3360866cf09c4a24321544b:62",
+    "legacy_id": 37357,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide ads.",
+    "id": "f3360866cf09c4a24321544b:63",
+    "legacy_id": 37358,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide components related to comments.",
+    "id": "f3360866cf09c4a24321544b:64",
+    "legacy_id": 37359,
+    "metadata_status": "verified",
+    "name": "Hide comments components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide components related to feeds.",
+    "id": "f3360866cf09c4a24321544b:65",
+    "legacy_id": 37360,
+    "metadata_status": "verified",
+    "name": "Hide feed components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds the ability to hide feed flyout menu components using a custom filter.",
+    "id": "f3360866cf09c4a24321544b:66",
+    "legacy_id": 37361,
+    "metadata_status": "verified",
+    "name": "Hide feed flyout menu",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to hide general layout components.",
+    "id": "f3360866cf09c4a24321544b:67",
+    "legacy_id": 37362,
+    "metadata_status": "verified",
+    "name": "Hide layout components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide general layout components.",
+    "id": "f3360866cf09c4a24321544b:68",
+    "legacy_id": 37363,
+    "metadata_status": "verified",
+    "name": "Hide layout components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds options to hide buttons in the navigation bar.",
+    "id": "f3360866cf09c4a24321544b:69",
+    "legacy_id": 37364,
+    "metadata_status": "verified",
+    "name": "Hide navigation buttons",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Removes, at compile time, the dark overlay that appears when player flyout menus are open.",
+    "id": "f3360866cf09c4a24321544b:70",
+    "legacy_id": 37365,
+    "metadata_status": "verified",
+    "name": "Hide overlay filter",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide buttons in the video player.",
+    "id": "f3360866cf09c4a24321544b:71",
+    "legacy_id": 37366,
+    "metadata_status": "verified",
+    "name": "Hide player buttons",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide player flyout menu components.",
+    "id": "f3360866cf09c4a24321544b:72",
+    "legacy_id": 37367,
+    "metadata_status": "verified",
+    "name": "Hide player flyout menu",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes, at compile time, the dark overlay that appears when single-tapping in the player.",
+    "id": "f3360866cf09c4a24321544b:73",
+    "legacy_id": 37368,
+    "metadata_status": "verified",
+    "name": "Hide player overlay filter",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds an option to hide the Recently Visited shelf in the sidebar.",
+    "id": "f3360866cf09c4a24321544b:74",
+    "legacy_id": 37369,
+    "metadata_status": "verified",
+    "name": "Hide Recently Visited shelf",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds an option to hide the recommended communities shelves in subreddits.",
+    "id": "f3360866cf09c4a24321544b:75",
+    "legacy_id": 37370,
+    "metadata_status": "verified",
+    "name": "Hide recommended communities shelf",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed.",
+    "id": "f3360866cf09c4a24321544b:76",
+    "legacy_id": 37371,
+    "metadata_status": "verified",
+    "name": "Hide shortcuts",
+    "options": [
+      {
+        "default": false,
+        "description": "Hide Explore from shortcuts.",
+        "name": "explore",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hide Subscriptions from shortcuts.",
+        "name": "subscriptions",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hide Search from shortcuts.",
+        "name": "search",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Shorts from shortcuts.",
+        "name": "shorts",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Removes, at compile time, the dimming effect at the top and bottom of Shorts videos.",
+    "id": "f3360866cf09c4a24321544b:77",
+    "legacy_id": 37372,
+    "metadata_status": "verified",
+    "name": "Hide Shorts dimming",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds support to download videos with an external downloader app using the in-app download button.",
+    "id": "f3360866cf09c4a24321544b:78",
+    "legacy_id": 37373,
+    "metadata_status": "verified",
+    "name": "Hook download actions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds support for opening music in RVX Music using the in-app YouTube Music button.",
+    "id": "f3360866cf09c4a24321544b:79",
+    "legacy_id": 37374,
+    "metadata_status": "verified",
+    "name": "Hook YouTube Music actions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Applies the MaterialYou theme for Android 12+ devices.",
+    "id": "f3360866cf09c4a24321544b:80",
+    "legacy_id": 37375,
+    "metadata_status": "verified",
+    "name": "MaterialYou",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers.",
+    "id": "f3360866cf09c4a24321544b:81",
+    "legacy_id": 37376,
+    "metadata_status": "verified",
+    "name": "Miniplayer",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Change start page",
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to hide or change components related to the navigation bar.",
+    "id": "f3360866cf09c4a24321544b:82",
+    "legacy_id": 37377,
+    "metadata_status": "verified",
+    "name": "Navigation bar components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to the navigation bar.",
+    "id": "f3360866cf09c4a24321544b:83",
+    "legacy_id": 37378,
+    "metadata_status": "verified",
+    "name": "Navigation bar components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds an option to skip over redirection URLs in external links.",
+    "id": "f3360866cf09c4a24321544b:84",
+    "legacy_id": 37379,
+    "metadata_status": "verified",
+    "name": "Open links directly",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
+    "id": "f3360866cf09c4a24321544b:85",
+    "legacy_id": 37380,
+    "metadata_status": "verified",
+    "name": "Open links externally",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to always open links in your browser instead of the in-app browser.",
+    "id": "f3360866cf09c4a24321544b:86",
+    "legacy_id": 37381,
+    "metadata_status": "verified",
+    "name": "Open links externally",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to display useful overlay buttons in the video player.",
+    "id": "f3360866cf09c4a24321544b:87",
+    "legacy_id": 37382,
+    "metadata_status": "verified",
+    "name": "Overlay buttons",
+    "options": [
+      {
+        "default": "rounded",
+        "description": "The icon type.",
+        "name": "iconType",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Bold": "bold",
+          "Rounded": "rounded",
+          "Thin": "thin"
+        }
+      },
+      {
+        "default": "2.5dip",
+        "description": "The bottom margin for the overlay buttons and timestamp.",
+        "name": "bottomMargin",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Default": "2.5dip",
+          "Minimum": "0.1dip",
+          "Wider": "5.0dip"
+        }
+      },
+      {
+        "default": false,
+        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
+        "name": "widerButtonsSpace",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Change the icons at the top of the player.",
+        "name": "changeTopButtons",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to hide or change components related to the player.",
+    "id": "f3360866cf09c4a24321544b:88",
+    "legacy_id": 37383,
+    "metadata_status": "verified",
+    "name": "Player components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to the video player.",
+    "id": "f3360866cf09c4a24321544b:89",
+    "legacy_id": 37384,
+    "metadata_status": "verified",
+    "name": "Player components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium app icons.",
+    "id": "f3360866cf09c4a24321544b:90",
+    "legacy_id": 37385,
+    "metadata_status": "verified",
+    "name": "Premium icon",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Removes restrictions on background playback, including for kids videos.",
+    "id": "f3360866cf09c4a24321544b:91",
+    "legacy_id": 37386,
+    "metadata_status": "verified",
+    "name": "Remove background playback restrictions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Removes restrictions on background playback, including for music and kids videos.",
+    "id": "f3360866cf09c4a24321544b:92",
+    "legacy_id": 37387,
+    "metadata_status": "verified",
+    "name": "Remove background playback restrictions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Removes the 'Create' (Plus) tab from the bottom navigation bar.",
+    "id": "f3360866cf09c4a24321544b:93",
+    "legacy_id": 37388,
+    "metadata_status": "verified",
+    "name": "Remove Create tab",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds options to remove the NSFW community warning and notifications suggestion dialogs by dismissing them automatically.",
+    "id": "f3360866cf09c4a24321544b:94",
+    "legacy_id": 37389,
+    "metadata_status": "verified",
+    "name": "Remove subreddit dialog",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction.",
+    "id": "f3360866cf09c4a24321544b:95",
+    "legacy_id": 37390,
+    "metadata_status": "verified",
+    "name": "Remove viewer discretion dialog",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction.",
+    "id": "f3360866cf09c4a24321544b:96",
+    "legacy_id": 37391,
+    "metadata_status": "verified",
+    "name": "Remove viewer discretion dialog",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds an option to return the Library tab to the old style.",
+    "id": "f3360866cf09c4a24321544b:97",
+    "legacy_id": 37392,
+    "metadata_status": "verified",
+    "name": "Restore old style library shelf",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds an option to show the dislike count of songs using the Return YouTube Dislike API.",
+    "id": "f3360866cf09c4a24321544b:98",
+    "legacy_id": 37393,
+    "metadata_status": "verified",
+    "name": "Return YouTube Dislike",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to show the dislike count of videos using the Return YouTube Dislike API.",
+    "id": "f3360866cf09c4a24321544b:99",
+    "legacy_id": 37394,
+    "metadata_status": "verified",
+    "name": "Return YouTube Dislike",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3.",
+    "id": "f3360866cf09c4a24321544b:100",
+    "legacy_id": 37395,
+    "metadata_status": "verified",
+    "name": "Return YouTube Username",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3.",
+    "id": "f3360866cf09c4a24321544b:101",
+    "legacy_id": 37396,
+    "metadata_status": "verified",
+    "name": "Return YouTube Username",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "id": "f3360866cf09c4a24321544b:102",
+    "legacy_id": 37397,
+    "metadata_status": "verified",
+    "name": "Sanitize sharing links",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "id": "f3360866cf09c4a24321544b:103",
+    "legacy_id": 37398,
+    "metadata_status": "verified",
+    "name": "Sanitize sharing links",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "id": "f3360866cf09c4a24321544b:104",
+    "legacy_id": 37399,
+    "metadata_status": "verified",
+    "name": "Sanitize sharing links",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to the seekbar.",
+    "id": "f3360866cf09c4a24321544b:105",
+    "legacy_id": 37400,
+    "metadata_status": "verified",
+    "name": "Seekbar components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "f3360866cf09c4a24321544b:106",
+    "legacy_id": 37401,
+    "metadata_status": "verified",
+    "name": "Settings for Reddit",
+    "options": [
+      {
+        "default": "RVX",
+        "description": "The name of the RVX settings menu.",
+        "name": "rvxSettingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "RVX": "RVX",
+          "ReVanced Extended": "ReVanced Extended"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2024.17.0",
+          "2025.05.1",
+          "2025.12.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "f3360866cf09c4a24321544b:107",
+    "legacy_id": 37402,
+    "metadata_status": "verified",
+    "name": "Settings for YouTube",
+    "options": [
+      {
+        "default": "@string/parent_tools_key",
+        "description": "The settings menu name that the RVX settings menu should be above.",
+        "name": "insertPosition",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "About": "@string/about_key",
+          "Accessibility": "@string/accessibility_settings_key",
+          "Account": "@string/account_switcher_key",
+          "Autoplay": "@string/auto_play_key",
+          "Background": "@string/offline_key",
+          "Billing & payments": "@string/billing_and_payment_key",
+          "Billing and payments": "@string/billing_and_payment_key",
+          "Captions": "@string/captions_key",
+          "Connected apps": "@string/connected_accounts_browse_page_key",
+          "Data saving": "@string/data_saving_settings_key",
+          "General": "@string/general_key",
+          "History & privacy": "@string/privacy_key",
+          "Live chat": "@string/live_chat_key",
+          "Manage all history": "@string/history_key",
+          "Notifications": "@string/notification_key",
+          "Parent settings": "@string/parent_tools_key",
+          "Privacy": "@string/privacy_key",
+          "Purchases and memberships": "@string/subscription_product_setting_key",
+          "Try experimental new features": "@string/premium_early_access_browse_page_key",
+          "Video quality preferences": "@string/video_quality_settings_key",
+          "Watch on TV": "@string/pair_with_tv_key",
+          "Your data in YouTube": "@string/your_data_key"
+        }
+      },
+      {
+        "default": "RVX",
+        "description": "The name of the RVX settings menu.",
+        "name": "rvxSettingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "RVX": "RVX",
+          "ReVanced Extended": "ReVanced Extended"
+        }
+      },
+      {
+        "default": true,
+        "description": "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        "name": "settingsSummaries",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "f3360866cf09c4a24321544b:108",
+    "legacy_id": 37403,
+    "metadata_status": "verified",
+    "name": "Settings for YouTube Music",
+    "options": [
+      {
+        "default": "RVX",
+        "description": "The name of the RVX settings menu.",
+        "name": "rvxSettingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "RVX": "RVX",
+          "ReVanced Extended": "ReVanced Extended"
+        }
+      },
+      {
+        "default": true,
+        "description": "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        "name": "settingsSummaries",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to YouTube Shorts.",
+    "id": "f3360866cf09c4a24321544b:109",
+    "legacy_id": 37404,
+    "metadata_status": "verified",
+    "name": "Shorts components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to the snack bar.",
+    "id": "f3360866cf09c4a24321544b:110",
+    "legacy_id": 37405,
+    "metadata_status": "verified",
+    "name": "Snack bar components",
+    "options": [
+      {
+        "default": "8.0dip",
+        "description": "Specify a corner radius for the snack bar.",
+        "name": "cornerRadius",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Whether to apply the same corner radius to the bottom bar of the playlist as the snack bar.",
+        "name": "applyCornerRadiusToPlaylistBottomBar",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "@color/yt_black3",
+        "description": "Specify a background color for the snack bar. You can specify hex color (#AARRGGBB) or color resource reference.",
+        "name": "darkThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Amoled Black": "@android:color/black",
+          "Catppuccin (Mocha)": "#FF181825",
+          "Dark Blue": "#FF001029",
+          "Dark Green": "#FF002905",
+          "Dark Orange": "#FF291800",
+          "Dark Pink": "#FF290025",
+          "Dark Red": "#FF290000",
+          "Dark Yellow": "#FF282900",
+          "YouTube Dark": "@color/yt_black3"
+        }
+      },
+      {
+        "default": "@color/yt_white3",
+        "description": "Specify a background color for the snack bar. You can specify hex color (#AARRGGBB) or color resource reference.",
+        "name": "lightThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Latte)": "#FFE6E9EF",
+          "Light Blue": "#FFD1E0FF",
+          "Light Green": "#FFCCFFCC",
+          "Light Orange": "#FFFFE6CC",
+          "Light Pink": "#FFFCCFF3",
+          "Light Red": "#FFFFD6D6",
+          "Light Yellow": "#FFFDFFCC",
+          "White": "@android:color/white",
+          "YouTube Light": "@color/yt_white3"
+        }
+      },
+      {
+        "default": "",
+        "description": "Specify a stroke color for the snack bar. You can specify hex color.",
+        "name": "strokeColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Blue": "?attr/ytThemedBlue",
+          "Chip": "?attr/ytChipBackground",
+          "None": ""
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections.",
+    "id": "f3360866cf09c4a24321544b:111",
+    "legacy_id": 37406,
+    "metadata_status": "verified",
+    "name": "SponsorBlock",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content.",
+    "id": "f3360866cf09c4a24321544b:112",
+    "legacy_id": 37407,
+    "metadata_status": "verified",
+    "name": "SponsorBlock",
+    "options": [
+      {
+        "default": true,
+        "description": "Apply the outline icon.",
+        "name": "outlineIcon",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "right",
+        "description": "Align new segment window.",
+        "name": "NewSegmentAlignment",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Left": "left",
+          "Right": "right"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.10.52"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features.",
+    "id": "f3360866cf09c4a24321544b:113",
+    "legacy_id": 37408,
+    "metadata_status": "verified",
+    "name": "Spoof app version",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.10.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features.",
+    "id": "f3360866cf09c4a24321544b:114",
+    "legacy_id": 37409,
+    "metadata_status": "verified",
+    "name": "Spoof app version",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to spoof player parameter to allow playback.",
+    "id": "f3360866cf09c4a24321544b:115",
+    "legacy_id": 37410,
+    "metadata_status": "verified",
+    "name": "Spoof player parameter",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Spoofs the signature of the app to fix various functions of the app.",
+    "id": "f3360866cf09c4a24321544b:116",
+    "legacy_id": 37411,
+    "metadata_status": "verified",
+    "name": "Spoof signature",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to spoof the streaming data to allow playback.",
+    "id": "f3360866cf09c4a24321544b:117",
+    "legacy_id": 37412,
+    "metadata_status": "verified",
+    "name": "Spoof streaming data",
+    "options": [
+      {
+        "default": false,
+        "description": "Add setting to set iOS client (Deprecated) as default client.",
+        "name": "useIOSClient",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to change the domain of the watch history or check its status.",
+    "id": "f3360866cf09c4a24321544b:118",
+    "legacy_id": 37413,
+    "metadata_status": "verified",
+    "name": "Spoof watch history",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs an existing Wi-Fi connection.",
+    "id": "f3360866cf09c4a24321544b:119",
+    "legacy_id": 37414,
+    "metadata_status": "verified",
+    "name": "Spoof Wi-Fi connection",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player.",
+    "id": "f3360866cf09c4a24321544b:120",
+    "legacy_id": 37415,
+    "metadata_status": "verified",
+    "name": "Swipe controls",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Changes the app's themes to the values specified in patch options.",
+    "id": "f3360866cf09c4a24321544b:121",
+    "legacy_id": 37416,
+    "metadata_status": "verified",
+    "name": "Theme",
+    "options": [
+      {
+        "default": "@android:color/black",
+        "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        "name": "darkThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Amoled Black": "@android:color/black",
+          "Catppuccin (Mocha)": "#FF181825",
+          "Classic (Old YouTube)": "#FF212121",
+          "Dark Blue": "#FF001029",
+          "Dark Green": "#FF002905",
+          "Dark Orange": "#FF291800",
+          "Dark Pink": "#FF290025",
+          "Dark Red": "#FF290000",
+          "Dark Yellow": "#FF282900"
+        }
+      },
+      {
+        "default": "@android:color/white",
+        "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        "name": "lightThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Latte)": "#FFE6E9EF",
+          "Light Blue": "#FFD1E0FF",
+          "Light Green": "#FFCCFFCC",
+          "Light Orange": "#FFFFE6CC",
+          "Light Pink": "#FFFCCFF3",
+          "Light Red": "#FFFFD6D6",
+          "Light Yellow": "#FFFDFFCC",
+          "Pale Blue": "#FFD4FFF8",
+          "Pale Green": "#FFD1FFCC",
+          "Pale Yellow": "#FFFFE9AA",
+          "White": "@android:color/white"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons.",
+    "id": "f3360866cf09c4a24321544b:122",
+    "legacy_id": 37417,
+    "metadata_status": "verified",
+    "name": "Toolbar components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Add translations or remove string resources.",
+    "id": "f3360866cf09c4a24321544b:123",
+    "legacy_id": 37418,
+    "metadata_status": "verified",
+    "name": "Translations for YouTube",
+    "options": [
+      {
+        "default": "",
+        "description": "The path to the 'strings.xml' file.\nPlease note that applying the 'strings.xml' file will overwrite all existing translations.",
+        "name": "customTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "ar, bg-rBG, de-rDE, el-rGR, es-rES, fr-rFR, hu-rHU, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "name": "selectedTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "name": "selectedStringResources",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Add translations or remove string resources.",
+    "id": "f3360866cf09c4a24321544b:124",
+    "legacy_id": 37419,
+    "metadata_status": "verified",
+    "name": "Translations for YouTube Music",
+    "options": [
+      {
+        "default": "",
+        "description": "The path to the 'strings.xml' file.\nPlease note that applying the 'strings.xml' file will overwrite all existing translations.",
+        "name": "customTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "bg-rBG, bn, cs-rCZ, el-rGR, es-rES, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, nl-rNL, pl-rPL, pt-rBR, ro-rRO, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "name": "selectedTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "name": "selectedStringResources",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
+    "id": "f3360866cf09c4a24321544b:125",
+    "legacy_id": 37420,
+    "metadata_status": "verified",
+    "name": "Unlock Spotify Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
+    "id": "f3360866cf09c4a24321544b:126",
+    "legacy_id": 37421,
+    "metadata_status": "verified",
+    "name": "Video playback",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
+    "id": "f3360866cf09c4a24321544b:127",
+    "legacy_id": 37422,
+    "metadata_status": "verified",
+    "name": "Video playback",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds icons to specific preferences in the settings.",
+    "id": "f3360866cf09c4a24321544b:128",
+    "legacy_id": 37423,
+    "metadata_status": "verified",
+    "name": "Visual preferences icons for YouTube",
+    "options": [
+      {
+        "default": "extension",
+        "description": "The icon for the RVX settings menu.",
+        "name": "settingsMenuIcon",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Custom branding icon": "custom_branding_icon",
+          "Extension": "extension",
+          "Gear": "gear",
+          "RVX Letters": "rvx_letters",
+          "RVX Letters Bold": "rvx_letters_bold",
+          "ReVanced": "revanced",
+          "ReVanced Colored": "revanced_colored",
+          "YT alt": "yt_alt"
+        }
+      },
+      {
+        "default": true,
+        "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
+        "name": "applyToAll",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds icons to specific preferences in the settings.",
+    "id": "f3360866cf09c4a24321544b:129",
+    "legacy_id": 37424,
+    "metadata_status": "verified",
+    "name": "Visual preferences icons for YouTube Music",
+    "options": [
+      {
+        "default": "extension",
+        "description": "The icon for the RVX settings menu.",
+        "name": "settingsMenuIcon",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Custom branding icon": "custom_branding_icon",
+          "Extension": "extension",
+          "Gear": "gear",
+          "RVX Letters": "rvx_letters",
+          "RVX Letters Bold": "rvx_letters_bold",
+          "ReVanced": "revanced",
+          "ReVanced Colored": "revanced_colored",
+          "YT alt": "yt_alt"
+        }
+      },
+      {
+        "default": true,
+        "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
+        "name": "applyToAll",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f3360866cf09c4a24321544b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds an option to change the domain of the watch history or check its status.",
+    "id": "f3360866cf09c4a24321544b:130",
+    "legacy_id": 37425,
+    "metadata_status": "verified",
+    "name": "Watch history",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.6.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks in-app promotional prompts, modals and promotion banners. Note: this only affects in-app promotions. Match-alert push delivery on re-signed builds needs working push delivery - use MicroG integration + signature spoofing where Play Services is absent (issue #25).",
+    "id": "07beddf11e45451dc6072984:0",
+    "legacy_id": 37426,
+    "metadata_status": "verified",
+    "name": "Block marketing notifications",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.95.104",
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [
+      "Brave Origin Resource Defaults"
+    ],
+    "description": "Unlocks Brave Origin and enables feature toggle controls.",
+    "id": "07beddf11e45451dc6072984:1",
+    "legacy_id": 37427,
+    "metadata_status": "verified",
+    "name": "Brave Origin",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.brave.browser",
+        "versions": [
+          "1.95.104",
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.alarmclock.xtreme.free": [
+        "26.06.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns on the ad-free entitlement so Alarm Clock Xtreme shows no banner, interstitial or consent ads. Only the ad-free feature is changed; the other shop features keep their purchase state.",
+    "id": "07beddf11e45451dc6072984:2",
+    "legacy_id": 37428,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.alarmclock.xtreme.free",
+        "versions": [
+          "26.06.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.resultadosfutbol.mobile": [
+        "6.6.0"
+      ]
+    },
+    "dependencies": [
+      "Disable license check"
+    ],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads and hides empty banner slots.",
+    "id": "07beddf11e45451dc6072984:3",
+    "legacy_id": 37429,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.resultadosfutbol.mobile",
+        "versions": [
+          "6.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.appgenix.bizcal": [
+        "2.55.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns off Business Calendar 2's ad-serving gate, so the mediation SDKs never start and no interstitial is shown. Pro features are not changed.",
+    "id": "07beddf11e45451dc6072984:4",
+    "legacy_id": 37430,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.appgenix.bizcal",
+        "versions": [
+          "2.55.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9",
+        "5.4.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppLovin interstitial ads.",
+    "id": "07beddf11e45451dc6072984:5",
+    "legacy_id": 37431,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9",
+          "5.4.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Experimental: hides sponsored new tab images (including full-page takeovers) and the \"Earn BAT for viewing ads\" Rewards signup popup.",
+    "id": "07beddf11e45451dc6072984:6",
+    "legacy_id": 37432,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.brave.browser",
+        "versions": [
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": false
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "fm.castbox.audiobook.radio.podcast": [
+        "11.26.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:7",
+    "legacy_id": 37433,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "fm.castbox.audiobook.radio.podcast",
+        "versions": [
+          "11.26.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "easynotes.notes.notepad.notebook.privatenotes.note": [
+        "1.3.61.0907",
+        "1.3.63.0921"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 'notes_edit_banner' unit from utils/AdManager and the app-open ad from App$AppOpenAdManager. Both are gated on the single App.isAdFree() check, which normally depends on a VIP subscription.",
+    "id": "07beddf11e45451dc6072984:8",
+    "legacy_id": 37434,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "easynotes.notes.notepad.notebook.privatenotes.note",
+        "versions": [
+          "1.3.61.0907",
+          "1.3.63.0921"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "eu.livesport.FlashScore_com": [
+        "26.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:9",
+    "legacy_id": 37435,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "eu.livesport.FlashScore_com",
+        "versions": [
+          "26.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.futbin": [
+        "27.02",
+        "27.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:10",
+    "legacy_id": 37436,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.futbin",
+        "versions": [
+          "27.02",
+          "27.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "ru.iptvremote.android.iptv": [
+        "9.1.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Switches the app to its built-in no-ads provider, removing banner, interstitial and video pre-roll ads (Yandex, Wortise and mediated networks).",
+    "id": "07beddf11e45451dc6072984:11",
+    "legacy_id": 37437,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "ru.iptvremote.android.iptv",
+        "versions": [
+          "9.1.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.foobnix.pdf.reader": [
+        "9.4.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Librera's banner, interstitial and rewarded ads by reporting ads as switched off and the reward window as open, so the Google Mobile Ads SDK never starts.",
+    "id": "07beddf11e45451dc6072984:12",
+    "legacy_id": 37438,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.foobnix.pdf.reader",
+        "versions": [
+          "9.4.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.livescore": [
+        "10.1",
+        "10.2.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces AdsRemovalSettings.areAdsDisabled() to return true, disabling banner, interstitial, MPU, hero placement, coverage sponsorship and announcement ads.",
+    "id": "07beddf11e45451dc6072984:13",
+    "legacy_id": 37439,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.livescore",
+        "versions": [
+          "10.1",
+          "10.2.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.flyersoft.moonreader": [
+        "10.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Moon+ Reader's banner, interstitial, exit and native ads by forcing the central ad gate to always report ads as disabled.",
+    "id": "07beddf11e45451dc6072984:14",
+    "legacy_id": 37440,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.flyersoft.moonreader",
+        "versions": [
+          "10.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "one.cricket.app": [
+        "26.08.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native/inline and app-open ads and hides the empty ad slots.",
+    "id": "07beddf11e45451dc6072984:15",
+    "legacy_id": 37441,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "one.cricket.app",
+        "versions": [
+          "26.08.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "de.motain.iliga": [
+        "15.142.0",
+        "15.145.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:16",
+    "legacy_id": 37442,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "de.motain.iliga",
+        "versions": [
+          "15.142.0",
+          "15.145.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.pocketcolorwheel.PCW": [
+        "3.26"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:17",
+    "legacy_id": 37443,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.pocketcolorwheel.PCW",
+        "versions": [
+          "3.26"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.Project100Pi.themusicplayer": [
+        "3.2.0.0_release_2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:18",
+    "legacy_id": 37444,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Project100Pi.themusicplayer",
+        "versions": [
+          "3.2.0.0_release_2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.podcast.podcasts": [
+        "9.17.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:19",
+    "legacy_id": 37445,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.podcast.podcasts",
+        "versions": [
+          "9.17.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.4",
+        "14.9.5",
+        "14.9.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Google Mobile Ads (AdMob) initialization, blocking banner, interstitial, rewarded, native and mediated ads.",
+    "id": "07beddf11e45451dc6072984:20",
+    "legacy_id": 37446,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.scores365",
+        "versions": [
+          "14.9.4",
+          "14.9.5",
+          "14.9.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.streema.simpleradio": [
+        "6.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:21",
+    "legacy_id": 37447,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.streema.simpleradio",
+        "versions": [
+          "6.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, feed, native, preroll and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:22",
+    "legacy_id": 37448,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.melodis.midomiMusicIdentifier.freemium": [
+        "10.5.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "07beddf11e45451dc6072984:23",
+    "legacy_id": 37449,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.melodis.midomiMusicIdentifier.freemium",
+        "versions": [
+          "10.5.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "07beddf11e45451dc6072984",
+    "compatiblePackages": {
+      "com.farproc.wifi.analyzer": [
+        "3.10.5-L"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the banner ad.",
+    "id": "07beddf11e45451dc6072984:24",
+    "legacy_id": 37450,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.farproc.wifi.analyzer",
+        "versions": [
+          "3.10.5-L"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.3",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  }
+]
