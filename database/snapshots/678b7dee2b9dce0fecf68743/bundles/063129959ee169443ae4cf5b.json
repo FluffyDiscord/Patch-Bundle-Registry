@@ -1,0 +1,48 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "dev",
+    "latest"
+  ],
+  "created_at": "2026-10-10T19:07:39Z",
+  "description": "## [2.7.0-experimental.2](https://github.com/kveld9/kveld-morphe-patches/compare/v2.7.0-experimental.1...v2.7.0-experimental.2) (2026-10-10)\n\n### Bug Fixes\n\n* **tiktok:** gate promotional filter on active promote signals to stop feed wipe ([59b1d1b](https://github.com/kveld9/kveld-morphe-patches/commit/59b1d1b1ab30e84d46def908346b20a423c92456))\n* **tiktok:** hide feed descriptions via desc visibility call redirect ([86f4fee](https://github.com/kveld9/kveld-morphe-patches/commit/86f4feed0d20fd32ef2d12ce46809f9a6c1b1e86))\n\n### New Features\n\n* **gboard:** add adwords and reporting widget host blocking to Block Telemetry ([cf80fae](https://github.com/kveld9/kveld-morphe-patches/commit/cf80fae0759727072052468ed52c14aa3b8a13d6))\n* **gboard:** harden manifest with cronet opt-out, metrics service disable and initializer purge ([3cda29a](https://github.com/kveld9/kveld-morphe-patches/commit/3cda29a2a8e844681ee98890db4898e1ff12e352))\n",
+  "download_url": "https://github.com/kveld9/kveld-morphe-patches/releases/download/v2.7.0-experimental.2/patches-2.7.0-experimental.2.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:df3ff37c21ecfc1a910623b2a9ce92abbe7a05b137cec997df1ef7e2f4f27f04",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "df3ff37c21ecfc1a910623b2a9ce92abbe7a05b137cec997df1ef7e2f4f27f04",
+  "id": "063129959ee169443ae4cf5b",
+  "import_urls": {
+    "dev": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fkveld9%2Fkveld-morphe-patches&version=latest&channel=prerelease",
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fkveld9%2Fkveld-morphe-patches&version=latest&channel=any"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": true,
+  "legacy_id": 8555,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.brave.browser",
+    "com.google.android.inputmethod.latin",
+    "com.hevy",
+    "com.mi.earphone",
+    "com.nokoprint",
+    "com.zhiliaoapp.musically"
+  ],
+  "patch_count": 136,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v2.7.0-experimental.2",
+  "patch_refresh_attempted_at": "2026-10-10T20:38:11.209294768Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:df3ff37c21ecfc1a910623b2a9ce92abbe7a05b137cec997df1ef7e2f4f27f04",
+  "release_status": "unverified",
+  "release_url": "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v2.7.0-experimental.2",
+  "signature_download_url": null,
+  "source_id": "789f3d8b840196ce",
+  "version": "v2.7.0-experimental.2"
+}
