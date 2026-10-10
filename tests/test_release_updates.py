@@ -330,7 +330,7 @@ def test_historical_extraction_keeps_current_legacy_integration_metadata(
             {
                 "patches": {"version": "v1", "url": "https://example.test/patches.jar"},
                 "integrations": integrations,
-                "bundle_type": "ReVanced:V3",
+                "bundle_type": "ReVanced:v21",
             },
         )
     registry = save_history(

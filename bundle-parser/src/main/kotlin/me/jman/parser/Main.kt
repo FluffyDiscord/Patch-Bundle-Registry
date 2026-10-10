@@ -191,7 +191,7 @@ private fun parseBundleMetadata(variant: BundleVariant): ParsedBundle? {
             Logger.warning("Download URL is invalid.")
             return null
         }
-        return ParsedBundle(version, downloadUrl, BundleFormat.MODERN, modern.bundleType, modern.providerDigest)
+        return ParsedBundle(version, downloadUrl, BundleFormat.MODERN, canonicalBundleFamily(modern.bundleType), modern.providerDigest)
     }
 
     val parsedLegacy = try {
@@ -451,7 +451,9 @@ private fun writePatchList(outputFile: File, version: String, patches: JsonArray
 }
 
 private fun generateFallbackPatchList(downloadUri: URI, version: String, family: String? = null): JsonArray? =
-    if (family == "Morphe:V1" || isMorphePatchBundle(downloadUri)) {
+    if (family == "ReSeam") {
+        null // Only the signed catalog supplies ReSeam metadata.
+    } else if (family == "Morphe:V1" || isMorphePatchBundle(downloadUri)) {
         generateMorphePatchListFromSource(downloadUri, version)
             ?: generatePatchListFromReleaseAsset(downloadUri, version)
     } else {
@@ -494,8 +496,9 @@ internal fun processBundle(
             val generated = run {
                 Logger.info("Resolving patch list for ${parsedBundle.downloadUrl}...")
                 val legacy = parsedBundle.format == BundleFormat.LEGACY
-                val family = parsedBundle.family ?: if (legacy) "ReVanced:V3"
-                    else if (isMorphePatchBundle(downloadUri)) "Morphe:V1" else "ReVanced:V4"
+                val family = parsedBundle.family ?: if (legacy) "ReVanced:v21"
+                    else if (downloadUri.path.lowercase().endsWith(".reseam")) "ReSeam"
+                    else if (isMorphePatchBundle(downloadUri)) "Morphe:V1" else "ReVanced:v22"
                 val recordFile = File(bundleFolder, "$bundleName-${variant.releaseTag}-extraction.json")
                 val previous = runCatching {
                     parsingJson.decodeFromString<ExtractionRecord>(recordFile.readText())
@@ -519,7 +522,7 @@ internal fun processBundle(
                 // Keep existing metadata fallback behavior; only binary extraction receives artifact proof.
                 val created = extraction.patches?.let(::canonicalizePatchArray)
                     ?: if (fallback != null) fallback(downloadUri, parsedBundle.version)
-                    else generateFallbackPatchList(downloadUri, parsedBundle.version, parsedBundle.family)
+                    else generateFallbackPatchList(downloadUri, parsedBundle.version, family)
                 if (created == null) {
                     recordExtraction(recordFile, outputPatchesFile, parsedBundle.version,
                     downloadUri, extraction, parsedBundle.providerDigest, family)

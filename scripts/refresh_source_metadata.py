@@ -3,7 +3,7 @@
 import argparse
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import quote, urljoin, urlparse
 
 import httpx
 from generate_database import ROOT, encoded, normalize_source, read_json
@@ -35,6 +35,64 @@ def metadata_for(url, payload):
         "repo_pushed_at": payload.get("last_activity_at"),
         "is_repo_archived": payload.get("archived"),
     }
+
+
+def morphe_sources(root):
+    manifest = read_json(root / "database/manifest.json", {})
+    snapshot = manifest.get("snapshot", "")
+    if not snapshot.startswith("snapshots/") or "." in snapshot:
+        return set()
+    folder = root / "database" / snapshot
+    bundles = read_json(folder / "bundles.json", [])
+    sources = read_json(folder / "sources.json", [])
+    identities = {row["source_id"] for row in bundles
+                  if str(row.get("bundle_type", "")).startswith("Morphe:")}
+    return {row["url"].lower() for row in sources if row["id"] in identities}
+
+
+def icon_url(url, metadata, branch):
+    parsed = urlparse(url)
+    namespace = metadata["owner_name"]
+    repo = metadata["repo_name"]
+    path = "/".join(quote(part, safe="") for part in (namespace + "/" + repo).split("/"))
+    ref = quote(branch, safe="")
+    kind = hosts()[parsed.netloc]
+    if parsed.netloc == "github.com":
+        return f"https://raw.githubusercontent.com/{path}/refs/heads/{ref}/patches-bundle.png"
+    origin = parsed.scheme + "://" + parsed.netloc
+    if kind == "gitlab":
+        return f"{origin}/{path}/-/raw/{ref}/patches-bundle.png"
+    if kind == "gitea":
+        return f"{origin}/{path}/raw/branch/{ref}/patches-bundle.png"
+    return None
+
+
+def refresh_icon(client, url, updated, now):
+    metadata = updated.get("source_metadatum", {})
+    branch = updated.get("default_branch")
+    if not branch or not metadata:
+        return
+    target = icon_url(url, metadata, branch)
+    if not target:
+        return
+    headers = {"User-Agent": "Patch-Bundle-Registry"}
+    if updated.get("icon_url") == target and updated.get("icon_etag"):
+        headers["If-None-Match"] = updated["icon_etag"]
+    try:
+        # Public raw HEADs do not consume GitHub's REST quota or download images.
+        # Never send repository API credentials to a raw/content host.
+        response = client.head(target, headers=headers, follow_redirects=True)
+        updated["icon_checked_at"] = now.isoformat()
+        content_type = response.headers.get("content-type", "").split(";")[0].strip().lower()
+        if response.status_code == 200 and content_type == "image/png":
+            metadata["bundle_icon_url"] = target
+            updated.update(icon_url=target, icon_etag=response.headers.get("etag"))
+        elif response.status_code in {200, 404, 410}:
+            metadata["bundle_icon_url"] = None
+            updated.update(icon_url=target, icon_etag=None)
+        # A 304 or transient outage keeps the last known icon.
+    except httpx.HTTPError:
+        updated["icon_checked_at"] = now.isoformat()
 
 
 def fetch_metadata(client, api, headers):
@@ -81,6 +139,7 @@ def refresh(root, client, limit=None, now=None):
     checks = read_json(root / "internal/cache/release-checks.json", {})
     recovered = {url for url, completed in checks.items() if completed is True}
     result = {url.lower(): previous.get(url.lower(), {}) for url in sorted(urls)}
+    morphe = morphe_sources(root)
     attempted = 0
     for url in sorted(urls):
         cached = result[url.lower()]
@@ -88,7 +147,12 @@ def refresh(root, client, limit=None, now=None):
             continue
         try:
             checked = datetime.fromisoformat(cached.get("checked_at", ""))
-            if url.lower() not in availability and now - checked < timedelta(days=1):
+            icon_checked = (
+                datetime.fromisoformat(cached.get("icon_checked_at", ""))
+                if url.lower() in morphe else now
+            )
+            if (url.lower() not in availability and now - checked < timedelta(days=1)
+                    and now - icon_checked < timedelta(days=1)):
                 continue
         except (ValueError, TypeError):
             pass
@@ -97,7 +161,7 @@ def refresh(root, client, limit=None, now=None):
         attempted += 1
         api = endpoint(url, releases=False)
         headers = auth_headers(url)
-        if cached.get("etag"):
+        if cached.get("etag") and (url.lower() not in morphe or cached.get("default_branch")):
             headers["If-None-Match"] = cached["etag"]
         updated = {**cached, "checked_at": now.isoformat()}
         try:
@@ -109,7 +173,10 @@ def refresh(root, client, limit=None, now=None):
                 payload = response.json()
                 if not isinstance(payload, dict):
                     raise ValueError("Expected repository metadata")
-                updated["source_metadatum"] = metadata_for(url, payload)
+                updated["source_metadatum"] = {
+                    **cached.get("source_metadatum", {}), **metadata_for(url, payload)
+                }
+                updated["default_branch"] = payload.get("default_branch")
                 updated["etag"] = response.headers.get("etag")
                 if url.lower() in recovered:
                     availability.pop(url.lower(), None)
@@ -121,6 +188,8 @@ def refresh(root, client, limit=None, now=None):
         except (httpx.HTTPError, ValueError, TypeError, AttributeError):
             updated["http_status"] = None
             print(f"Repository metadata unavailable: {url}")
+        if url.lower() in morphe and updated.get("http_status") in {200, 304}:
+            refresh_icon(client, url, updated, now)
         result[url.lower()] = updated
         if updated.get("http_status") in {401, 429} or (
             updated.get("http_status") == 403

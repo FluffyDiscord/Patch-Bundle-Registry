@@ -17,6 +17,7 @@ API base: `https://patch-bundles.api.jmancentral.com`. [OpenAPI specification](h
 | GET `/patches`, `/bundles/:id/patches` | Patch descriptions and app compatibility. |
 | GET `/availability` | Unavailable channels and retired source records. |
 | GET `/api/v3/bundle?source_url=...&version=...&channel=...` | Manager import information. |
+| GET `/api/reseam/bundle?source_url=...&version=...&channel=...` | ReSeam Manager patch-source index with the verified publisher signing key. |
 | GET `/api/v1/bundle/:id` | Legacy import using a numeric bundle ID. |
 | GET `/api/v1/bundle/:owner/:repo/:version` | Legacy repository import for an exact tag or `latest`. |
 | GET `/api/v2/bundle/:owner/:repo/latest?channel=...` | Legacy repository channel import. |
@@ -27,7 +28,7 @@ Disabled sources remain in source queries with `enabled: false` and an `unavaila
 
 For v3 imports, use an exact release tag or `version=latest`. Latest requires `channel=any|stable|prerelease`; `latest` and `dev` are accepted aliases. Channel values accept surrounding whitespace and any capitalization. Exact-version requests can omit channel. Latest imports and default website cards use the newest stable release and newest prerelease across retained history, independently of configured channel pointers.
 
-V1 latest defaults to stable; `prerelease=true` selects prereleases. V2 requires a channel. V1/V2 owner and repository paths use recorded repository metadata, including current names after a rename and sources on other supported hosts. V1/V2 return the upstream five-field response: `created_at`, `description`, `version`, `download_url` and `signature_download_url`. V3 adds bundle format, source information and metadata status.
+V1 latest defaults to stable; `prerelease=true` selects prereleases. V2 requires a channel. V1/V2 owner and repository paths use recorded repository metadata, including current names after a rename and sources on other supported hosts. V1/V2 retain the upstream fields: `created_at`, `description`, `version`, `download_url` and `signature_download_url`. V3 adds bundle format, source information and metadata status. All manager import endpoints also return `icon_url` (the preferred bundle image) and `owner_avatar_url` (the fallback owner image); either can be null. ReSeam returns these alongside its native `bundle` and `releases` fields.
 
 Collection/detail endpoints also accept `/api/v1`, for example `/api/v1/patches`. REST records retain their catalog hash in `id`; `legacy_id` supplies the numeric ID used by legacy imports and GraphQL. Numeric IDs remain stable across refreshes and belong to this catalog. IDs from another catalog installation cannot be reused here.
 
@@ -36,6 +37,10 @@ Lists return `{data,total,limit,offset}`. Defaults: limit 25, offset 0. Limits: 
 Patch search accepts `q`, exact `package`, `app_version`, `bundle_id`, source/ecosystem/channel filters and `include_unverified=true`. REST patch results default to verified metadata. A null version restriction means every app version is compatible. An explicitly empty version collection means no versions are supported and creates no package relationship. Legacy annotation defaults retain their unrestricted meaning.
 
 Patch searches return one window of candidate shards. Follow `next_cursor` as `page_cursor`, keeping filters unchanged. Use offset to read additional rows within that window. Counts and sorting apply to the current window.
+
+Bundle collections/details and GraphQL bundle records expose the same `icon_url` and `owner_avatar_url`. For Morphe, `icon_url` prefers `patches-bundle.png` at the root of the repository's default branch. Otherwise it uses the owner avatar, as ReVanced and ReSeam do. Source metadata includes the discovered `bundle_icon_url`. Images are checked during the daily repository-metadata refresh; temporary upstream failures preserve the last known image. The website falls back to the owner avatar if the preferred image fails to load, then to initials.
+
+The website loads the complete bundle index directly from catalog snapshots, independently of API request budgets. Default browsing shows current stable and prerelease releases; selecting a source exposes its retained historical versions. Cards render as they enter the viewport, and patch lists load on demand.
 
 ## GraphQL
 
@@ -114,3 +119,5 @@ Phase UUIDs remain queryable across catalog refreshes, including older completed
 Repository availability is reported in each source's `unavailable_reason`: permanent upstream errors include `404: Not Found`, `410: Gone` and `451: Unavailable For Legal Reasons`. The reason clears after release discovery and repository metadata both recover. A temporary upstream outage preserves previously published releases; the configured `disabled` switch remains separate.
 
 Release replacements update the existing source/version/category record and preserve its public ID. Provider asset digests invalidate extracted patch metadata when an artifact changes at the same URL.
+
+Bundle types are `ReVanced:v21`, `ReVanced:v22`, `Morphe:V1`, and `ReSeam`. Use `bundle_type` to filter REST bundle and patch lists, or `ecosystem=reseam` for ReSeam. The ReSeam import endpoint uses the same source/version/channel selection as v3 and returns ReSeam's native `bundle` and `releases` index. It returns 503 until the selected bundle's signing metadata has been verified.

@@ -100,7 +100,7 @@ public class PatchKt {
             "runtimes": [
                 {
                     "id": "unavailable",
-                    "family": "ReVanced:V4",
+                    "family": "ReVanced:v22",
                     "loader": "revanced-modern",
                     "coordinate": "test:unavailable:1",
                     "dependencies": [],
@@ -109,7 +109,7 @@ public class PatchKt {
                 },
                 {
                     "id": "working",
-                    "family": "ReVanced:V4",
+                    "family": "ReVanced:v22",
                     "loader": "revanced-modern",
                     "coordinate": "test:working:1",
                     "dependencies": [],
@@ -312,6 +312,82 @@ public class PatchKt {
             if status == "runtime_timeout":
                 # Includes the parent CLI startup, but not another full worker timeout.
                 assert elapsed < settings["timeout_seconds"] + 1.5, (label, elapsed)
+        # Use a JVM executable as a portable native-process fixture. Its default
+        # classpath supplies the CLI's "bundle" command without changing launch arguments.
+        native_artifact = folder / "fixture.reseam"
+        native_artifact.write_bytes(b"native fixture")
+        native_source = folder / "bundle.java"
+        publisher = {
+            "bundles": [
+                {
+                    "name": "fixture",
+                    "author": "test",
+                    "description": "",
+                    "public_key": "a" * 64,
+                    "problem": None,
+                }
+            ],
+            "patches": [],
+        }
+        native_config = {
+            "worker": fixture_config["worker"],
+            "runtimes": [
+                {
+                    "id": "native",
+                    "family": "ReSeam",
+                    "loader": "reseam",
+                    "coordinate": "test:native:1",
+                    "dependencies": [],
+                    "fallback": True,
+                }
+            ],
+        }
+        native_manifest = {"native": {"available": True, "executable": java}}
+        original_classpath = os.environ.get("CLASSPATH")
+        os.environ["CLASSPATH"] = str(classes)
+        try:
+            for label, body, status in (
+                (
+                    "native crash recovers immediately",
+                    "if (attempt == 1) System.exit(7); System.out.println(RESPONSE);",
+                    "verified",
+                ),
+                (
+                    "native crash remains retryable",
+                    "System.exit(7);",
+                    "runtime_initialization_failure",
+                ),
+            ):
+                marker.unlink(missing_ok=True)
+                native_source.write_text(
+                    "public class bundle { "
+                    "public static void main(String[] args) throws Exception {"
+                    + counter
+                    + body.replace("RESPONSE", json.dumps(json.dumps(publisher)))
+                    + "} }"
+                )
+                run([javac, "-d", str(classes), str(native_source)])
+                result = extract(native_artifact, label, native_config, native_manifest)
+                assert result["status"] == status and not result["terminal"], result
+                assert int(marker.read_text()) == 2, label
+        finally:
+            if original_classpath is None:
+                os.environ.pop("CLASSPATH", None)
+            else:
+                os.environ["CLASSPATH"] = original_classpath
+        # An installed native inspector must classify a rejected archive explicitly.
+        reseam_runtime = next(
+            runtime for runtime in config["runtimes"] if runtime["loader"] == "reseam"
+        )
+        if installed.get(reseam_runtime["id"], {}).get("available"):
+            invalid_reseam = folder / "invalid.reseam"
+            invalid_reseam.write_bytes(b"invalid archive")
+            rejected = extract(invalid_reseam, "ReSeam rejects invalid archive", config, installed)
+            assert rejected["terminal"] and rejected["status"] == "runtime_parsing_failure"
+            # Local live-validation artifacts are optional and never committed.
+            for artifact in (ROOT / "internal/reseam-fixtures").glob("*.reseam"):
+                inspected = extract(artifact, "real ReSeam " + artifact.name, config, installed)
+                assert inspected["status"] == "verified" and inspected["patch_count"] > 0
         if real:
             import httpx
 

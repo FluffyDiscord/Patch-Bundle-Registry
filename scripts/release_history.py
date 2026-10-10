@@ -15,6 +15,7 @@ try:
         BUNDLE_TYPES,
         artifact_signature,
         asset_extension,
+        canonical_bundle_type,
         choose_patch_bundle,
         release_assets,
         release_date,
@@ -25,6 +26,7 @@ except ModuleNotFoundError:
         BUNDLE_TYPES,
         artifact_signature,
         asset_extension,
+        canonical_bundle_type,
         choose_patch_bundle,
         release_assets,
         release_date,
@@ -51,11 +53,11 @@ def mark_latest_history(root, registry, inventory):
         legacy = raw.get("patches")
         legacy = legacy if isinstance(legacy, dict) else {}
         download = raw.get("download_url") or legacy.get("url")
-        family = raw.get("bundle_type") or (
-            "ReVanced:V3"
+        family = canonical_bundle_type(raw.get("bundle_type")) or (
+            "ReVanced:v21"
             if legacy
             else BUNDLE_TYPES.get(
-                asset_extension({"url": download or "", "name": ""}), "ReVanced:V4"
+                asset_extension({"url": download or "", "name": ""}), "ReVanced:v22"
             )
         )
         return (

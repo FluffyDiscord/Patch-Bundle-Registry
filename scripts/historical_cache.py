@@ -3,6 +3,11 @@
 import hashlib
 import json
 
+try:
+    from scripts.release_assets import canonical_bundle_type
+except ModuleNotFoundError:
+    from release_assets import canonical_bundle_type
+
 
 def restore_history(root, history, inventory):
     directory = root / "internal/cache/history"
@@ -17,7 +22,8 @@ def restore_history(root, history, inventory):
         key=lambda item: item["bundle"]["metadata_status"] == "verified",
         reverse=True,
     ):
-        bundle = item["bundle"]
+        bundle = dict(item["bundle"])
+        bundle["bundle_type"] = canonical_bundle_type(bundle["bundle_type"])
         source = inventory.get(bundle["source_id"])
         if bundle["source_id"] not in active or source is None:
             continue
@@ -54,7 +60,7 @@ def restore_history(root, history, inventory):
         }
         if raw.get("integrations") is None:
             raw.pop("integrations", None)
-        if bundle["bundle_type"] == "ReVanced:V3":
+        if bundle["bundle_type"] == "ReVanced:v21":
             raw["patches"] = {"version": raw["version"], "url": raw.pop("download_url")}
         raw_path.write_text(json.dumps(raw, indent=2) + "\n", encoding="utf-8")
         patch_path = folder / f"{key}-patches-list.json"
@@ -76,6 +82,7 @@ def restore_history(root, history, inventory):
             "download_url": bundle["download_url"],
             "status": bundle["extraction_status"],
             "runtime": bundle["patcher_runtime"],
+            "reseam_bundle": bundle.get("reseam_bundle"),
             "provider_digest": bundle.get("extracted_provider_digest"),
             "file_hash": bundle["file_hash"],
             "attempted_at": bundle.get("patch_refresh_attempted_at"),

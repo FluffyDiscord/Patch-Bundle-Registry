@@ -195,3 +195,106 @@ def test_metadata_redirect_loop_is_bounded_and_other_sources_continue(tmp_path):
         result = metadata.refresh(tmp_path, client)
     assert len(calls) <= 12
     assert result["https://github.com/demo/b"]["source_metadatum"]["repo_name"] == "b"
+
+
+def morphe_catalog(root, url):
+    folder = root / "database/snapshots/test"
+    folder.mkdir(parents=True)
+    (root / "database/manifest.json").write_bytes(metadata.encoded({"snapshot": "snapshots/test"}))
+    (folder / "sources.json").write_bytes(metadata.encoded([{"id": "one", "url": url}]))
+    (folder / "bundles.json").write_bytes(metadata.encoded([
+        {"source_id": "one", "bundle_type": "Morphe:V1"}
+    ]))
+
+
+def test_morphe_root_icon_is_cached_and_removed_on_404(tmp_path, monkeypatch):
+    monkeypatch.setenv("GH_PAT", "private-api-token")
+    url = "https://github.com/demo/patches"
+    inventory(tmp_path, [url])
+    morphe_catalog(tmp_path, url)
+    requests = []
+    icon_status = 200
+
+    def handler(request):
+        requests.append(request)
+        if request.method == "HEAD":
+            assert request.url == "https://raw.githubusercontent.com/demo/patches/refs/heads/main/patches-bundle.png"
+            assert "authorization" not in request.headers
+            assert "private-token" not in request.headers
+            if icon_status != 200:
+                assert request.headers["if-none-match"] == "icon-etag"
+            return httpx.Response(
+                icon_status, headers={"content-type": "image/png", "etag": "icon-etag"}
+            )
+        assert request.headers["authorization"] == "Bearer private-api-token"
+        if len(requests) > 2:
+            assert request.headers["if-none-match"] == "repo-etag"
+            return httpx.Response(304)
+        return httpx.Response(200, headers={"etag": "repo-etag"}, json={
+            "name": "patches", "owner": {"login": "demo", "avatar_url": "https://avatar.test/demo"},
+            "default_branch": "main"
+        })
+
+    now = datetime(2026, 10, 10, tzinfo=UTC)
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        result = metadata.refresh(tmp_path, client, now=now)
+        icon = result[url]["source_metadatum"]["bundle_icon_url"]
+        assert icon.endswith("/patches-bundle.png")
+        metadata.refresh(tmp_path, client, now=now + timedelta(hours=1))
+        assert len(requests) == 2
+        icon_status = 304
+        result = metadata.refresh(tmp_path, client, now=now + timedelta(days=1))
+        assert result[url]["source_metadatum"]["bundle_icon_url"] == icon
+        icon_status = 503
+        result = metadata.refresh(tmp_path, client, now=now + timedelta(days=2))
+        assert result[url]["source_metadatum"]["bundle_icon_url"] == icon
+        icon_status = 404
+        result = metadata.refresh(tmp_path, client, now=now + timedelta(days=3))
+        assert result[url]["source_metadatum"]["bundle_icon_url"] is None
+
+
+@pytest.mark.parametrize("url, expected", [
+    ("https://gitlab.com/team/patches", "https://gitlab.com/team/patches/-/raw/dev%2Fnext/patches-bundle.png"),
+    ("https://codeberg.org/team/patches", "https://codeberg.org/team/patches/raw/branch/dev%2Fnext/patches-bundle.png"),
+])
+def test_other_hosts_use_default_branch_root_icon(tmp_path, url, expected):
+    inventory(tmp_path, [url])
+    morphe_catalog(tmp_path, url)
+    requests = []
+
+    def handler(request):
+        requests.append(request)
+        if request.method == "HEAD":
+            assert str(request.url) == expected
+            return httpx.Response(200, headers={"content-type": "image/png"})
+        return httpx.Response(200, json={
+            "owner": {"login": "team"}, "namespace": {"full_path": "team"},
+            "name": "patches", "path": "patches", "default_branch": "dev/next"
+        })
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        result = metadata.refresh(tmp_path, client)
+    assert len(requests) == 2
+    assert result[url]["source_metadatum"]["bundle_icon_url"] == expected
+
+
+def test_old_etag_cache_backfills_branch_and_ignores_html_icon(tmp_path):
+    url = "https://github.com/demo/patches"
+    inventory(tmp_path, [url])
+    morphe_catalog(tmp_path, url)
+    path = tmp_path / "database/repository-metadata.json"
+    now = datetime(2026, 10, 10, tzinfo=UTC)
+    path.write_bytes(metadata.encoded({url: {
+        "etag": "old", "checked_at": now.isoformat(),
+        "source_metadatum": {"bundle_icon_url": "https://raw.test/previous.png"}
+    }}))
+
+    def handler(request):
+        if request.method == "HEAD":
+            return httpx.Response(200, headers={"content-type": "text/html"})
+        assert "if-none-match" not in request.headers
+        return httpx.Response(200, json={"name": "patches", "default_branch": "main"})
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        result = metadata.refresh(tmp_path, client, now=now)
+    assert not result[url]["source_metadatum"].get("bundle_icon_url")

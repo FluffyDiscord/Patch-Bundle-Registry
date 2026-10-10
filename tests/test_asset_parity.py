@@ -40,7 +40,7 @@ def test_signatures_use_query_then_unique_names_and_single_bundle_fallback():
         ]
     ]
     assert artifact_signature(url, assets) == url.replace(".rvp?", ".rvp.asc?")
-    ambiguous = assets[:2] + [{"url": "https://example.test/patches.rvp.asc", "name": ""}]
+    ambiguous = [*assets[:2], {"url": "https://example.test/patches.rvp.asc", "name": ""}]
     assert artifact_signature(url, ambiguous) is None
     named = [
         {"url": "https://example.test/download/123", "name": "patches.rvp"},
@@ -104,7 +104,7 @@ def test_extensionless_assets_survive_discovery_history_and_restore(
     assert "stable" in current["channels"]
     assert (
         current["bundle_type"]
-        == {"rvp": "ReVanced:V4", "mpp": "Morphe:V1", "jar": "ReVanced:V3"}[extension]
+        == {"rvp": "ReVanced:v22", "mpp": "Morphe:V1", "jar": "ReVanced:v21"}[extension]
     )
     assert current["signature_download_url"] == "https://example.test/124"
     assert current["created_at"] == release["published_at"]

@@ -12,13 +12,13 @@ from urllib.parse import urlencode, urlparse
 try:
     from scripts.git_hosts import hosts
     from scripts.git_hosts import normalize_source as normalize_repository
-    from scripts.release_assets import digest_matches
+    from scripts.release_assets import canonical_bundle_type, digest_matches, migrate_bundle_types
     from scripts.release_history import release_is_prerelease
     from scripts.snapshot_retention import apply_retention, published_snapshots, retention_plan
 except ModuleNotFoundError:
     from git_hosts import hosts
     from git_hosts import normalize_source as normalize_repository
-    from release_assets import digest_matches
+    from release_assets import canonical_bundle_type, digest_matches, migrate_bundle_types
     from release_history import release_is_prerelease
     from snapshot_retention import apply_retention, published_snapshots, retention_plan
 
@@ -67,7 +67,7 @@ def paused_failure(root, status, raw, family):
         status.get("terminal") is True
         and status.get("status") != "verified"
         and status.get("file_hash")
-        and status.get("bundle_type") == family
+        and canonical_bundle_type(status.get("bundle_type")) == family
         and status.get("failure_fingerprint")
         and status.get("runtime_config_hash") == runtime_config_hash(root)
         and (not manifest.is_file() or status["failure_fingerprint"] == runtime_fingerprint(root))
@@ -137,7 +137,7 @@ def restore_catalog_cache(root=ROOT):
     snapshot = manifest.get("snapshot", "")
     if not re.fullmatch(r"snapshots/[a-f0-9]{24}", snapshot):
         return
-    history = read_json(root / "database" / snapshot / "history.json", {})
+    history = migrate_bundle_types(read_json(root / "database" / snapshot / "history.json", {}))
     availability = read_json(root / "database" / snapshot / "availability.json", {})
     missing_channels = {
         (row["source_id"], row["channel"])
@@ -181,7 +181,7 @@ def restore_catalog_cache(root=ROOT):
             continue
         bundle = item["bundle"]
         folder.mkdir(parents=True, exist_ok=True)
-        if bundle["bundle_type"] == "ReVanced:V3":
+        if bundle["bundle_type"] == "ReVanced:v21":
             raw = {
                 "patches": {"version": bundle["version"], "url": bundle["download_url"]},
                 "integrations": bundle.get("integrations"),
@@ -223,6 +223,7 @@ def restore_catalog_cache(root=ROOT):
             "download_url": bundle["download_url"],
             "status": bundle["extraction_status"],
             "runtime": bundle["patcher_runtime"],
+            "reseam_bundle": bundle.get("reseam_bundle"),
             "provider_digest": bundle.get("extracted_provider_digest"),
             "file_hash": bundle["file_hash"],
             "attempted_at": bundle.get("patch_refresh_attempted_at"),
@@ -269,7 +270,7 @@ def build_database(root=ROOT, *, restore=True):
     previous_path = previous.get("snapshot", "")
     history = {}
     if re.fullmatch(r"snapshots/[a-f0-9]{24}", previous_path):
-        history = read_json(output / previous_path / "history.json", {})
+        history = migrate_bundle_types(read_json(output / previous_path / "history.json", {}))
     disabled = disabled_sources(inventory, root)
     unavailable = unavailable_sources(inventory, root)
     configured_urls = {
@@ -323,6 +324,7 @@ def build_database(root=ROOT, *, restore=True):
                     "owner_name": namespace,
                     "repo_name": repo,
                     "owner_avatar_url": None,
+                    "bundle_icon_url": None,
                     "repo_description": None,
                     "repo_stars": None,
                     "repo_pushed_at": None,
@@ -411,12 +413,14 @@ def build_database(root=ROOT, *, restore=True):
             )
         )
         same_version = isinstance(patches, dict) and patches.get("version") == version
-        family = raw.get("bundle_type") or (
-            "Morphe:V1"
+        family = canonical_bundle_type(raw.get("bundle_type")) or (
+            "ReSeam"
+            if urlparse(download).path.lower().endswith(".reseam")
+            else "Morphe:V1"
             if urlparse(download).path.lower().endswith(".mpp")
-            else ("ReVanced:V4" if modern else "ReVanced:V3")
+            else ("ReVanced:v22" if modern else "ReVanced:v21")
         )
-        if family not in {"Morphe:V1", "ReVanced:V4", "ReVanced:V3"}:
+        if family not in {"Morphe:V1", "ReVanced:v22", "ReVanced:v21", "ReSeam"}:
             raise ValueError("Unsupported bundle type: " + str(family))
         # Older extraction could overwrite repeated compatibility entries.
         # Keep its list readable, but re-extract before trusting its compatibility.
@@ -478,6 +482,7 @@ def build_database(root=ROOT, *, restore=True):
                 "patch_metadata_version": patches.get("version"),
                 "patch_metadata_schema_version": patches.get("metadata_schema_version", 0),
                 "patcher_runtime": status.get("runtime"),
+                "reseam_bundle": status.get("reseam_bundle"),
                 "extraction_status": status.get("status", "unverified"),
                 "patch_refresh_attempted_at": status.get("attempted_at"),
                 "patcher_failure_fingerprint": status.get("failure_fingerprint"),
@@ -496,6 +501,7 @@ def build_database(root=ROOT, *, restore=True):
                     extraction_status=status.get("status", "unverified"),
                     extracted_provider_digest=status.get("provider_digest"),
                     patcher_runtime=status.get("runtime"),
+                    reseam_bundle=status.get("reseam_bundle"),
                     extraction_terminal=paused,
                     patcher_failure_fingerprint=status.get("failure_fingerprint"),
                     patcher_failure_config_hash=status.get("runtime_config_hash"),
@@ -527,6 +533,7 @@ def build_database(root=ROOT, *, restore=True):
                 patcher_failure_fingerprint=None,
                 patch_count=len(patch_array),
                 patcher_runtime=status.get("runtime"),
+                reseam_bundle=status.get("reseam_bundle"),
                 extracted_provider_digest=status.get("provider_digest"),
                 extraction_status=status.get("status"),
                 patch_metadata_version=patches.get("version"),
@@ -541,7 +548,7 @@ def build_database(root=ROOT, *, restore=True):
                 bundle["channels"].append(channel)
             bundle["import_urls"][channel] = (
                 config["api"].rstrip("/")
-                + "/api/v3/bundle?"
+                + ("/api/reseam/bundle?" if family == "ReSeam" else "/api/v3/bundle?")
                 + urlencode(
                     {
                         "source_url": url,
@@ -740,6 +747,8 @@ def build_database(root=ROOT, *, restore=True):
             id=numeric_id("source_metadata", source["id"]), source_fk=source["legacy_id"]
         )
     for bundle in sorted(bundles.values(), key=lambda item: item["id"]):
+        if bundle["bundle_type"] != "ReSeam":
+            bundle.pop("reseam_bundle", None)
         bundle["legacy_id"] = numeric_id("bundle", bundle["id"])
     summaries = []
     for bundle in bundles.values():
@@ -749,6 +758,14 @@ def build_database(root=ROOT, *, restore=True):
         summary = {**bundle, "detail_file": files_name}
         summaries.append(summary)
     files = {"sources.json": list(sources.values()), "bundles.json": summaries}
+    # Manager imports need one source's release selection, not the global history.
+    import_fields = ("id", "source_id", "bundle_type", "version", "created_at",
+                     "is_latest", "is_prerelease", "channels")
+    for source in sources.values():
+        files[f"imports/{source['id']}.json"] = [
+            {field: bundles[key][field] for field in import_fields}
+            for key in source["bundles"] if key in bundles
+        ]
     files.update({f"bundles/{key}.json": value for key, value in bundles.items()})
     index = {"packages": {}, "bundles": {}, "patch_ids": {}, "pages": []}
     search = {str(bucket): {} for bucket in range(16)}

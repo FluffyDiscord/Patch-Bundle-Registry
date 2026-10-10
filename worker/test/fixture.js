@@ -4,7 +4,7 @@ export function fixture(overrides = {}) {
   const source = { id: "s1", legacy_id: 1, url: "https://github.com/owner/repo", host: "github.com",
     namespace: "owner", repo: "repo", aliases: ["demo"], bundles: ["a".repeat(24), "b".repeat(24)],
     enabled: true, source_metadatum: { owner_name: "owner", repo_name: "repo", repo_stars: 12 } };
-  const bundle = { id: "a".repeat(24), legacy_id: 1, source_id: "s1", version: "v1", bundle_type: "ReVanced:V4",
+  const bundle = { id: "a".repeat(24), legacy_id: 1, source_id: "s1", version: "v1", bundle_type: "ReVanced:v22",
     description: "Video patches", download_url: "https://example.test/bundle.rvp",
     signature_download_url: "https://example.test/bundle.asc", file_hash: "c".repeat(64),
     channels: ["latest", "stable"], import_urls: { latest: "https://example.test/import.json" },

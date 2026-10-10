@@ -5,6 +5,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonObject
 import java.io.File
 import java.net.URI
 import java.security.MessageDigest
@@ -16,16 +17,20 @@ internal data class WorkerSettings(
     val timeout_seconds: Long = 90, val max_heap: String = "512m", val restart_attempts: Int = 1
 )
 @Serializable
+internal data class RuntimeExecutable(val url: String, val sha256: String)
+@Serializable
 internal data class RuntimeDefinition(
     val id: String, val family: String, val loader: String, val coordinate: String,
-    val dependencies: List<String>, val range: String? = null, val fallback: Boolean = false
+    val dependencies: List<String>, val range: String? = null, val fallback: Boolean = false,
+    val executables: Map<String, RuntimeExecutable> = emptyMap()
 )
 @Serializable
 internal data class RuntimeConfiguration(
     val worker: WorkerSettings, val runtimes: List<RuntimeDefinition>
 )
 @Serializable
-internal data class InstalledRuntime(val classpath: String = "", val available: Boolean = false)
+internal data class InstalledRuntime(val classpath: String = "", val available: Boolean = false,
+                                     val executable: String = "")
 @Serializable
 internal data class ExtractionRecord(
     val version: String, val download_url: String, val status: String,
@@ -34,11 +39,12 @@ internal data class ExtractionRecord(
     val attempted_at: String? = null, val failure_fingerprint: String? = null,
     val provider_digest: String? = null,
     val terminal: Boolean = false, val bundle_type: String? = null,
-    val runtime_config_hash: String? = null
+    val runtime_config_hash: String? = null, val reseam_bundle: JsonObject? = null
 )
 internal data class RuntimeResult(val patches: JsonArray?, val status: String,
                                   val hash: String? = null, val runtime: String? = null,
-                                  val terminal: Boolean = false, val paused: Boolean = false)
+                                  val terminal: Boolean = false, val paused: Boolean = false,
+                                  val reseamBundle: JsonObject? = null)
 
 private val runtimeJson = Json { ignoreUnknownKeys = true; prettyPrint = true }
 private val runtimeResults = mutableMapOf<String, RuntimeResult>()
@@ -106,7 +112,7 @@ internal fun selectRuntimes(config: RuntimeConfiguration, family: String, declar
     require(config.worker.restart_attempts in 0..3)
     require(Regex("^[1-9][0-9]*[mMgG]$").matches(config.worker.max_heap))
     require(config.runtimes.all { it.loader in setOf("revanced-modern", "revanced-legacy",
-                                                   "morphe", "revanced-v3", "legacy-bytecode") })
+                                                   "morphe", "revanced-v3", "legacy-bytecode", "reseam") })
     // Only Morphe declares a version that selects a runtime range. ReVanced
     // bundles use the ordered fallback chain, including older V3 APIs.
     val ranged = family == "Morphe:V1" && declared != null
@@ -157,7 +163,11 @@ private fun extractWithRuntime(
         try {
             val java = File(System.getProperty("java.home"), "bin/java").absolutePath
             // Some patchers use the system loader as parent; isolate one runtime per JVM.
-            process = ProcessBuilder(
+            val builder = if (runtime.loader == "reseam") {
+                require(installation.executable.isNotBlank())
+                ProcessBuilder(installation.executable, "bundle", "list", artifact.absolutePath, "--json")
+                    .redirectOutput(output).redirectError(log)
+            } else ProcessBuilder(
                 java, "-Xmx${settings.max_heap}",
                 "-Drevanced.patcher22.classpath=${installation.classpath}",
                 "-Drevanced.patcher21.classpath=${installation.classpath}",
@@ -166,10 +176,23 @@ private fun extractWithRuntime(
                     .filter(String::isNotBlank).joinToString(File.pathSeparator),
                 "me.jman.parser.MainKt", "--runtime-worker", runtime.loader,
                 artifact.absolutePath, output.absolutePath
-            ).redirectErrorStream(true).redirectOutput(log).start()
+            ).redirectErrorStream(true).redirectOutput(log)
+            process = builder.start()
             val remaining = deadline - System.nanoTime()
             if (remaining <= 0 || !process.waitFor(remaining, TimeUnit.NANOSECONDS))
                 return RuntimeResult(null, "runtime_timeout", hash)
+            if (runtime.loader == "reseam") {
+                // Bundle rejections arrive in successful JSON responses. A process
+                // failure is transient: restart it without permanently pausing the artifact.
+                if (process.exitValue() != 0) continue
+                if (output.length() > 32L * 1024 * 1024)
+                    return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
+                return try {
+                    parseReSeamInspection(output.readText(), hash, runtime.coordinate)
+                } catch (_: Exception) {
+                    RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
+                }
+            }
             when (process.exitValue()) {
                 // Explicit responses mean the worker ran and rejected this bundle.
                 2 -> return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true)
@@ -204,11 +227,13 @@ private fun extractWithRuntime(
 internal fun extractWithRuntimes(
     uri: URI, legacy: Boolean, familyHint: String? = null, previous: ExtractionRecord? = null
 ): RuntimeResult {
+    val hint = canonicalBundleFamily(familyHint)
     val family = when {
-        legacy -> "ReVanced:V3"
-        familyHint in setOf("Morphe:V1", "ReVanced:V4") -> familyHint!!
+        legacy -> "ReVanced:v21"
+        hint in setOf("Morphe:V1", "ReVanced:v22", "ReSeam") -> hint!!
+        uri.path.lowercase().endsWith(".reseam") -> "ReSeam"
         uri.path.lowercase().endsWith(".mpp") -> "Morphe:V1"
-        uri.path.lowercase().endsWith(".rvp") -> "ReVanced:V4"
+        uri.path.lowercase().endsWith(".rvp") -> "ReVanced:v22"
         else -> return RuntimeResult(null, "unsupported_format")
     }
     val cacheKey = "$family:$uri"
@@ -224,10 +249,10 @@ internal fun extractWithRuntimes(
         // Download current releases to notice replacements even at an unchanged URL,
         // but do not run workers again for an unchanged, permanently rejected binary.
         if (previous?.terminal == true && previous.file_hash == hash &&
-            previous.bundle_type == family && previous.failure_fingerprint == runtimeFingerprint()) {
+            canonicalBundleFamily(previous.bundle_type) == family && previous.failure_fingerprint == runtimeFingerprint()) {
             return RuntimeResult(null, previous.status, hash, terminal = true, paused = true)
         }
-        val declared = try {
+        val declared = if (family == "ReSeam") null else try {
             JarFile(artifact).use { it.manifest?.mainAttributes?.getValue("Patcher-Version") }
                 ?.trim()?.takeIf(String::isNotEmpty)
         } catch (_: Exception) {
@@ -271,7 +296,7 @@ internal fun recordExtraction(
                                   result.runtime, if (result.status == "verified") sha256(list) else null,
                                   java.time.Instant.now().toString(),
                                   if (result.status == "verified") null else runtimeFingerprint(), providerDigest,
-                                  result.terminal, family, runtimeConfigHash())
+                                  result.terminal, family, runtimeConfigHash(), result.reseamBundle)
     atomicWriteText(output, runtimeJson.encodeToString(record) + "\n")
 }
 

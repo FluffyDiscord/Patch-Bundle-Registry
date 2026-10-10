@@ -78,7 +78,7 @@ class ExtractionFailureTest {
             assertEquals(sha256(artifact), record.file_hash)
             assertEquals("unsupported_format", extractWithRuntimes(artifact.toURI(), false).status)
             assertEquals("missing_compatible_runtime",
-                extractWithRuntimes(artifact.toURI(), false, "ReVanced:V4").status)
+                extractWithRuntimes(artifact.toURI(), false, "ReVanced:v22").status)
         } finally {
             if (oldConfig == null) System.clearProperty(configProperty)
             else System.setProperty(configProperty, oldConfig)

@@ -324,7 +324,7 @@ async def get_latest_release(
     prerelease: bool,
     latest_flag: bool = False,
     *,
-    required_extensions: tuple[str, ...] = (".jar", ".rvp", ".mpp"),
+    required_extensions: tuple[str, ...] = (".jar", ".rvp", ".mpp", ".reseam"),
 ) -> tuple[
     str | None,
     str | None,
@@ -345,7 +345,7 @@ async def get_latest_release(
         bundle = choose_patch_bundle(assets)
         for asset in assets:
             extension = asset_extension(asset)
-            if extension in file_types and extension not in {".jar", ".rvp", ".mpp"}:
+            if extension in file_types and extension not in {".jar", ".rvp", ".mpp", ".reseam"}:
                 download_urls[extension] = asset["url"]
         if bundle:
             download_urls[asset_extension(bundle)] = bundle["url"]
@@ -379,7 +379,7 @@ async def get_latest_release(
             key=_release_sort_time,
             reverse=True,
         )
-    file_types = (".jar", ".apk", ".rvp", ".mpp")
+    file_types = (".jar", ".apk", ".rvp", ".mpp", ".reseam")
     for release in filtered_releases:
         (
             version,
@@ -438,7 +438,18 @@ async def fetch_release_data(
                 "signature_url": patches_signature_url or "",
             },
         }
-        if patches_download_urls[".mpp"]:
+        if patches_download_urls[".reseam"]:
+            info_dict = {
+                "created_at": patches_created_at,
+                "description": patches_description or "",
+                "download_url": patches_download_urls[".reseam"],
+                "bundle_type": "ReSeam",
+                "signature_download_url": patches_signature_url or "N/A",
+                "version": patches_version,
+            }
+            metadata_entry["type"] = "reseam"
+            metadata_entry["patches"]["download_url"] = patches_download_urls[".reseam"]
+        elif patches_download_urls[".mpp"]:
             info_dict = {
                 "created_at": patches_created_at,
                 "description": patches_description or "",
@@ -454,7 +465,7 @@ async def fetch_release_data(
                 "created_at": patches_created_at,
                 "description": patches_description or "",
                 "download_url": patches_download_urls[".rvp"],
-                "bundle_type": "ReVanced:V4",
+                "bundle_type": "ReVanced:v22",
                 "signature_download_url": patches_signature_url if patches_signature_url else "N/A",
                 "version": patches_version,
             }
@@ -471,7 +482,7 @@ async def fetch_release_data(
                     "description": patches_description or "",
                     "signature_download_url": patches_signature_url,
                     "patches": {"version": patches_version, "url": jar_url},
-                    "bundle_type": "ReVanced:V3",
+                    "bundle_type": "ReVanced:v21",
                 }
                 metadata_entry["type"] = "split"
                 metadata_entry["patches"]["download_url"] = jar_url
@@ -508,7 +519,7 @@ async def fetch_release_data(
                         "signature_url": integrations_signature_url or "",
                     }
             else:
-                print(f"No relevant .rvp, .mpp, or .jar assets found for {source}")
+                print(f"No relevant .rvp, .mpp, .reseam, or .jar assets found for {source}")
                 DISCOVERY_STATUS[source] = "no_matching_release"
                 return None
         base_source = re.sub(r"-(latest|stable|dev)$", "", source)

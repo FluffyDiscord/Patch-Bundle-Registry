@@ -463,7 +463,7 @@ def terminal_fixture(root):
                 "download_url": "https://example.test/demo.rvp",
                 "file_hash": "a" * 64,
                 "terminal": True,
-                "bundle_type": "ReVanced:V4",
+                "bundle_type": "ReVanced:v22",
                 "failure_fingerprint": db.runtime_fingerprint(root),
                 "runtime_config_hash": db.runtime_config_hash(root),
                 "attempted_at": "2026-10-10T00:00:00Z",
@@ -476,7 +476,7 @@ def test_terminal_rejection_survives_fresh_runner_restore_without_reporting_veri
     from scripts.validate_database import validate
 
     folder = terminal_fixture(tmp_path)
-    path, bundles = snapshot(tmp_path, db.build_database(tmp_path))
+    _path, bundles = snapshot(tmp_path, db.build_database(tmp_path))
     bundle = bundles[0]
     assert bundle["extraction_terminal"]
     assert not bundle["need_patches_update"]
@@ -704,7 +704,7 @@ def test_empty_compatible_versions_do_not_create_unrestricted_packages(tmp_path)
 
 
 def test_old_morphe_and_legacy_compatibility_proof_requires_reextraction(tmp_path):
-    for family in ("Morphe:V1", "ReVanced:V3", "ReVanced:V4"):
+    for family in ("Morphe:V1", "ReVanced:v21", "ReVanced:v22"):
         root = tmp_path / family.replace(":", "-")
         folder = fixture(root, metadata_schema_version=2)
         for channel in ("latest", "stable"):
@@ -773,3 +773,18 @@ def test_repeated_package_compatibility_retains_all_public_relationships(tmp_pat
         {"name": "com.app", "versions": ["1.0", "2.0"]},
         {"name": "com.app", "versions": []},
     ]
+
+
+def test_bundle_icon_metadata_is_published_for_site_and_api(tmp_path):
+    fixture(tmp_path)
+    write(tmp_path / "database/repository-metadata.json", {
+        "https://github.com/owner/demo": {"source_metadatum": {
+            "owner_avatar_url": "https://avatars.test/owner.png",
+            "bundle_icon_url": "https://raw.test/patches-bundle.png"
+        }}
+    })
+    manifest = db.build_database(tmp_path)
+    folder, _ = snapshot(tmp_path, manifest)
+    source = next(row for row in db.read_json(folder / "sources.json") if row["repo"] == "demo")
+    assert source["source_metadatum"]["bundle_icon_url"] == "https://raw.test/patches-bundle.png"
+    assert source["source_metadatum"]["owner_avatar_url"] == "https://avatars.test/owner.png"

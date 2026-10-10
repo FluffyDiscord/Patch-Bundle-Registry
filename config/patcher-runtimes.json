@@ -7,7 +7,7 @@
   "runtimes": [
     {
       "id": "revanced-22",
-      "family": "ReVanced:V4",
+      "family": "ReVanced:v22",
       "loader": "revanced-modern",
       "coordinate": "app.revanced:patcher-jvm:22.1.0-dev.1",
       "dependencies": [
@@ -18,7 +18,7 @@
     },
     {
       "id": "revanced-21",
-      "family": "ReVanced:V4",
+      "family": "ReVanced:v22",
       "loader": "revanced-legacy",
       "coordinate": "app.revanced:revanced-patcher:21.1.0-dev.5",
       "dependencies": [
@@ -29,7 +29,7 @@
     },
     {
       "id": "revanced-20",
-      "family": "ReVanced:V4",
+      "family": "ReVanced:v22",
       "loader": "revanced-legacy",
       "coordinate": "app.revanced:revanced-patcher:20.0.2",
       "dependencies": [
@@ -73,7 +73,7 @@
     },
     {
       "id": "revanced-v3-19",
-      "family": "ReVanced:V3",
+      "family": "ReVanced:v21",
       "loader": "revanced-v3",
       "coordinate": "app.revanced:revanced-patcher:19.3.1",
       "dependencies": [
@@ -84,7 +84,7 @@
     },
     {
       "id": "revanced-v3-15",
-      "family": "ReVanced:V3",
+      "family": "ReVanced:v21",
       "loader": "revanced-v3",
       "coordinate": "app.revanced:revanced-patcher:15.0.3",
       "dependencies": [
@@ -95,7 +95,7 @@
     },
     {
       "id": "revanced-v3-11",
-      "family": "ReVanced:V3",
+      "family": "ReVanced:v21",
       "loader": "revanced-v3",
       "coordinate": "app.revanced:revanced-patcher:11.0.4",
       "dependencies": [
@@ -106,12 +106,31 @@
     },
     {
       "id": "revanced-v3-bytecode",
-      "family": "ReVanced:V3",
+      "family": "ReVanced:v21",
       "loader": "legacy-bytecode",
       "coordinate": "builtin:annotation-reader:1",
       "dependencies": [],
       "range": "*",
       "fallback": true
+    },
+    {
+      "id": "reseam-020",
+      "family": "ReSeam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.20.1",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "windows-x64": {
+          "url": "https://cdn.reseam.app/engine/v0.20.1/reseam-windows-x64.exe",
+          "sha256": "e42d3d44b5f86e0261dadfb6783c4d0dfd4d8fabfe0b2a18817bde767eb22627"
+        },
+        "linux-x64": {
+          "url": "https://cdn.reseam.app/engine/v0.20.1/reseam-linux-x64",
+          "sha256": "7263142668d93f0df19cf227d063724f6c04dcb88ba2b8530c82c8e4a0e5a312"
+        }
+      }
     }
   ]
 }

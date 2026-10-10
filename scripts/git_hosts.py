@@ -90,7 +90,7 @@ def auth_headers(value, root=ROOT):
         if parsed.netloc == "gitlab.com"
         else None
     )
-    headers = {"Accept": "application/json"}
+    headers = {"Accept": "application/json", "User-Agent": "Patch-Bundle-Registry"}
     if token:
         if kind == "gitlab":
             headers["PRIVATE-TOKEN"] = token

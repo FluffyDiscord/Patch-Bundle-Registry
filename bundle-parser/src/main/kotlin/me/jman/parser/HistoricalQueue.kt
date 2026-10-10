@@ -35,7 +35,7 @@ internal fun pausedFailure(
     providerDigest: String?, fingerprint: String
 ): Boolean = record?.terminal == true && record.file_hash != null &&
     record.version == version && record.download_url == download &&
-    record.bundle_type == family && record.failure_fingerprint == fingerprint &&
+    canonicalBundleFamily(record.bundle_type) == family && record.failure_fingerprint == fingerprint &&
     matchesProviderDigest(providerDigest, record.file_hash, record.provider_digest)
 
 internal data class HistoricalWork(val latest: List<File>, val historical: List<File>)
@@ -78,10 +78,11 @@ internal fun historicalWork(root: File, limit: Int, fingerprint: String, disable
                 ?: metadata?.get("patches")?.jsonObject?.get("url")?.jsonPrimitive?.contentOrNull
         }.getOrNull()
         val providerDigest = (metadata?.get("provider_digest") as? JsonPrimitive)?.contentOrNull
-        val family = (metadata?.get("bundle_type") as? JsonPrimitive)?.contentOrNull
-            ?: if (metadata?.get("patches") != null) "ReVanced:V3"
+        val family = canonicalBundleFamily((metadata?.get("bundle_type") as? JsonPrimitive)?.contentOrNull)
+            ?: if (metadata?.get("patches") != null) "ReVanced:v21"
+            else if (download?.substringBefore('?')?.endsWith(".reseam", ignoreCase = true) == true) "ReSeam"
             else if (download?.substringBefore('?')?.endsWith(".mpp", ignoreCase = true) == true) "Morphe:V1"
-            else "ReVanced:V4"
+            else "ReVanced:v22"
         val verified = record?.status == "verified" && record.file_hash != null &&
             record.version == version && record.download_url == download &&
             matchesProviderDigest(providerDigest, record.file_hash, record.provider_digest) &&

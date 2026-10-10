@@ -79,7 +79,7 @@ class HistoricalQueueTest {
             val recordFile = File(folder, "rejected-stable-extraction.json")
             val record = Json.decodeFromString<ExtractionRecord>(recordFile.readText()).copy(
                 status = "runtime_parsing_failure", terminal = true,
-                bundle_type = "ReVanced:V4", file_hash = "a".repeat(64))
+                bundle_type = "ReVanced:v22", file_hash = "a".repeat(64))
             recordFile.writeText(Json.encodeToString(record))
             assertEquals(emptyList(), historicalCandidates(directory, 1, "runtime"))
             assertEquals(listOf(folder), historicalCandidates(directory, 1, "new-runtime"))
@@ -99,7 +99,7 @@ class HistoricalQueueTest {
     }
 
     @Test fun `old Morphe and legacy compatibility metadata is refreshed once`() {
-        for (family in listOf("Morphe:V1", "ReVanced:V3", "ReVanced:V4")) {
+        for (family in listOf("Morphe:V1", "ReVanced:v21", "ReVanced:v22")) {
             val folder = entry("schema", null, null, true)
             val input = File(folder, "schema-stable-patches-bundle.json")
             input.writeText("""{"version":"v1","download_url":"https://example.test/bundle.rvp","bundle_type":"$family"}""")

@@ -1,5 +1,5 @@
 import site from "../../config/site.json" with { type: "json" };
-import { Catalog, CatalogError, catalogOrigins, compareReleaseDates, normalizeSource, pagination, selectRows } from "../../shared/catalog.js";
+import { Catalog, CatalogError, bundleImages, catalogOrigins, compareReleaseDates, normalizeSource, pagination, selectRows } from "../../shared/catalog.js";
 import { runGraphQL, withPostgresLocale } from "./graphql.js";
 import { openapi } from "./openapi.js";
 import { liveJobs, mergeJobs } from "./jobs.js";
@@ -89,7 +89,7 @@ function dto(bundle) {
   return { created_at: String(bundle.created_at ?? "").split("Z")[0], description: bundle.description,
     version: bundle.version, download_url: bundle.download_url,
     signature_download_url: bundle.signature_download_url === "N/A" ? "" : (bundle.signature_download_url ?? ""),
-    bundle_type: bundle.bundle_type,
+    bundle_type: bundle.bundle_type, ...bundleImages(bundle),
     source: { url: bundle.source.url, host: bundle.source.host,
       namespace: bundle.source.namespace, repo: bundle.source.repo },
     file_hash: bundle.file_hash, need_patches_update: bundle.need_patches_update,
@@ -99,7 +99,8 @@ function legacyDto(bundle) {
   return { created_at: String(bundle.created_at ?? "").split("Z")[0],
     description: bundle.description ?? "", version: bundle.version,
     download_url: bundle.download_url, signature_download_url:
-      bundle.signature_download_url === "N/A" ? "" : (bundle.signature_download_url ?? "") };
+      bundle.signature_download_url === "N/A" ? "" : (bundle.signature_download_url ?? ""),
+    ...bundleImages(bundle) };
 }
 function filteredBundles(bundles, params) {
   const q = (params.get("q") ?? "").toLowerCase();
@@ -112,6 +113,7 @@ function filteredBundles(bundles, params) {
     (!source || b.source_id === source || b.source.aliases.includes(source) ||
       b.source.url.toLowerCase() === canonical) &&
     (!params.has("ecosystem") || b.ecosystem === params.get("ecosystem")) &&
+    (!params.has("bundle_type") || b.bundle_type === params.get("bundle_type")) &&
     (!params.has("version") || b.version === params.get("version")) &&
     (!params.has("package") || b.packages.includes(params.get("package"))) &&
     (!selectedChannel || b.channels.includes(selectedChannel)) &&
@@ -132,7 +134,7 @@ async function rest(catalog, url) {
   const params = url.searchParams;
   if (path === "/health") return { ok: true, generation: catalog.manifest.generation,
                                   counts: catalog.manifest.counts };
-  if (path === "/api/v3/bundle") {
+  if (path === "/api/v3/bundle" || path === "/api/reseam/bundle") {
     const sourceUrl = params.get("source_url");
     const version = params.get("version")?.trim();
     if (!sourceUrl || !version) throw new CatalogError("source_url and version are required");
@@ -142,7 +144,7 @@ async function rest(catalog, url) {
     if (latest && !params.get("channel")?.trim())
       throw new CatalogError("channel is required for version=latest");
     const selectedChannel = channel(mode);
-    const bundles = (await catalog.bundles()).filter(b => b.source.url.toLowerCase() === source &&
+    const bundles = (await catalog.importBundles(source)).filter(b => b.source.url.toLowerCase() === source &&
       (latest ? b.is_latest : b.version === version) &&
       (mode === "any" || selectedChannel === "latest" ||
         (selectedChannel === "stable" ? !b.is_prerelease : b.is_prerelease)));
@@ -150,8 +152,24 @@ async function rest(catalog, url) {
       compareReleaseDates(a, b) ||
       Number(b.channels.length > 0) - Number(a.channels.length > 0));
     if (!bundles.length) throw new CatalogError("No cached bundle matches source and version", 404);
-    return dto({ ...bundles[0], ...(await catalog.file("bundles/" + bundles[0].id + ".json")),
-                 source: bundles[0].source });
+    const bundle = { ...bundles[0], ...(await catalog.file("bundles/" + bundles[0].id + ".json")),
+                     source: bundles[0].source };
+    if (path === "/api/reseam/bundle") {
+      if (bundle.bundle_type !== "ReSeam") throw new CatalogError("Source has no matching ReSeam bundle", 404);
+      const publisher = bundle.reseam_bundle;
+      if (bundle.metadata_status !== "verified" || !publisher ||
+          !["name", "author", "description", "public_key"].every(key => typeof publisher[key] === "string") ||
+          !/^[a-f0-9]{64}$/i.test(publisher.public_key))
+        throw new CatalogError("ReSeam signing metadata is not available yet", 503);
+      return {
+        ...bundleImages(bundle),
+        bundle: { ...publisher, homepage: bundle.source.url },
+        releases: [{ version: bundle.version, created_at: bundle.created_at,
+          description: bundle.description ?? "", download_url: bundle.download_url,
+          prerelease: bundle.is_prerelease }]
+      };
+    }
+    return dto(bundle);
   }
   const numeric = path.match(/^\/api\/v1\/bundle\/([0-9]+)$/);
   if (numeric) {
@@ -206,7 +224,7 @@ async function rest(catalog, url) {
   if (normalized === "/patches" || patchesMatch) {
     const bundleId = patchesMatch?.[1] ?? params.get("bundle_id");
     const eligibleBundles = filteredBundles(await catalog.bundles(), new URLSearchParams(
-      [...params].filter(([key]) => ["source", "source_url", "ecosystem", "channel"].includes(key))));
+      [...params].filter(([key]) => ["source", "source_url", "ecosystem", "bundle_type", "channel"].includes(key))));
     const result = await catalog.patchRows({ q: params.get("q") ?? "",
       bundle_ids: eligibleBundles.map(b => b.id),
       package: params.get("package"), bundle_id: bundleId,

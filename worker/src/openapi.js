@@ -30,6 +30,10 @@ export const openapi = {
       parameter("source_url","Repository URL on a supported Git host",undefined,true),
       parameter("version","Exact release tag or latest",undefined,true),
       parameter("channel","Required for latest",{type:"string",enum:["any","stable","prerelease"]})]),
+    "/api/reseam/bundle": get("ReSeam Manager patch-source index", [
+      parameter("source_url","Repository URL on a supported Git host",undefined,true),
+      parameter("version","Exact release tag or latest",undefined,true),
+      parameter("channel","Required for latest",{type:"string",enum:["any","stable","prerelease"]})]),
     "/api/v1/bundle/{id}": get("Legacy numeric-ID import", [
       parameter("id","Stable catalog bundle ID",{type:"integer"},true,"path")]),
     "/api/v1/bundle/{owner}/{repo}/{version}": get("Legacy repository exact-version or latest import", [
@@ -44,7 +48,8 @@ export const openapi = {
     "/sources": get("Browse source repositories", [...list,parameter("source_url","Exact repository URL")]),
     "/sources/{id}": get("Source details",[parameter("id","Catalog source hash",undefined,true,"path")]),
     "/bundles": get("Browse releases", [...list,parameter("source","Source ID, alias or repository URL"),
-      parameter("ecosystem","revanced or morphe"),parameter("version","Exact release tag"),
+      parameter("ecosystem","revanced, morphe or reseam"),
+      parameter("bundle_type","ReVanced:v21, ReVanced:v22, Morphe:V1 or ReSeam"),parameter("version","Exact release tag"),
       parameter("channel","latest, stable or dev"),parameter("package","Compatible package name"),
       parameter("metadata_status","verified, stale, unverified or missing")]),
     "/releases": get("Browse releases (bundle alias)",list),
@@ -54,7 +59,8 @@ export const openapi = {
       parameter("id","Catalog bundle hash",undefined,true,"path"),...list,
       parameter("include_unverified","Include fallback metadata",{type:"boolean"})]),
     "/patches": get("Browse indexed patches", [...list,parameter("source","Source ID or alias"),
-      parameter("ecosystem","revanced or morphe"),parameter("channel","latest, stable or dev"),
+      parameter("ecosystem","revanced, morphe or reseam"),
+      parameter("bundle_type","ReVanced:v21, ReVanced:v22, Morphe:V1 or ReSeam"),parameter("channel","latest, stable or dev"),
       parameter("bundle_id","Catalog bundle hash"),parameter("package","Exact package name"),
       parameter("app_version","Compatible application version"),
       parameter("page_cursor","Continue loading candidate shards",{type:"integer",minimum:0}),
@@ -75,3 +81,15 @@ for (const alias of ["/v1/graphql","/hasura/v1/graphql"])
   openapi.paths[alias] = openapi.paths["/graphql"];
 for (const name of ["sources","bundles","releases","patches","packages","availability"])
   openapi.paths["/api/v1/" + name] = openapi.paths["/" + name];
+
+for (const path of ["/api/v3/bundle", "/api/reseam/bundle", "/api/v1/bundle/{id}",
+  "/api/v1/bundle/{owner}/{repo}/{version}", "/api/v2/bundle/{owner}/{repo}/latest"]) {
+  openapi.paths[path].get.responses = { ...responses, 200: {
+    description: "Import information with preferred bundle icon and fallback owner avatar URLs",
+    content: { "application/json": { schema: { type: "object", properties: {
+      icon_url: { type: "string", format: "uri", nullable: true,
+        description: "Morphe root patches-bundle.png when available, otherwise the owner avatar" },
+      owner_avatar_url: { type: "string", format: "uri", nullable: true }
+    } } } }
+  } };
+}

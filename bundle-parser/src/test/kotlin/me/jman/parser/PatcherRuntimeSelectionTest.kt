@@ -15,8 +15,8 @@ class PatcherRuntimeSelectionTest {
     private val configuration = RuntimeConfiguration(WorkerSettings(), listOf(
         definition("early", "Morphe:V1", ">=1.0.0 <=1.2.0", true),
         definition("new", "Morphe:V1", ">1.2.0 <=1.14.1", true),
-        definition("v4", "ReVanced:V4", "*", true),
-        definition("v3", "ReVanced:V3", "*", true)
+        definition("v4", "ReVanced:v22", "*", true),
+        definition("v3", "ReVanced:v21", "*", true)
     ))
 
     @Test fun shippedConfigurationKeepsAllLegacyAndModernFallbacks() {
@@ -24,9 +24,9 @@ class PatcherRuntimeSelectionTest {
             File("../config/patcher-runtimes.json").readText()
         )
         assertEquals(listOf("revanced-v3-19", "revanced-v3-15", "revanced-v3-11", "revanced-v3-bytecode"),
-            selectRuntimes(shipped, "ReVanced:V3", "legacy").map { it.id })
+            selectRuntimes(shipped, "ReVanced:v21", "legacy").map { it.id })
         assertEquals(listOf("revanced-22", "revanced-21", "revanced-20"),
-            selectRuntimes(shipped, "ReVanced:V4", "22.1.0-dev.1").map { it.id })
+            selectRuntimes(shipped, "ReVanced:v22", "22.1.0-dev.1").map { it.id })
     }
 
     @Test fun shippedConfigurationSelectsMorpheRuntimes() {
@@ -68,8 +68,8 @@ class PatcherRuntimeSelectionTest {
     @Test fun undeclaredBundlesRetainOrderedFallbacks() {
         assertEquals(listOf("early", "new"),
                      selectRuntimes(configuration, "Morphe:V1", null).map { it.id })
-        assertEquals("v4", selectRuntimes(configuration, "ReVanced:V4", null).single().id)
-        assertEquals("v3", selectRuntimes(configuration, "ReVanced:V3", null).single().id)
+        assertEquals("v4", selectRuntimes(configuration, "ReVanced:v22", null).single().id)
+        assertEquals("v3", selectRuntimes(configuration, "ReVanced:v21", null).single().id)
     }
     @Test fun prereleaseOrderingIsSemantic() {
         assertTrue(matchesPatcherRange(">=21.1.0-dev.5 <22.0.0", "21.1.0-dev.10"))
@@ -79,7 +79,7 @@ class PatcherRuntimeSelectionTest {
     }
     @Test fun wildcardReaderRetainsLegacyManifestDeclarations() {
         assertTrue(matchesPatcherRange("*", "legacy"))
-        assertEquals("v3", selectRuntimes(configuration, "ReVanced:V3", "legacy").single().id)
+        assertEquals("v3", selectRuntimes(configuration, "ReVanced:v21", "legacy").single().id)
     }
     @Test fun conflictingRulesFailWithoutChoosingAnArbitraryRuntime() {
         val overlap = configuration.copy(runtimes = configuration.runtimes +

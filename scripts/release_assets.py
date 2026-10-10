@@ -9,7 +9,20 @@ from collections.abc import Mapping
 from pathlib import PurePosixPath
 from urllib.parse import urlsplit
 
-BUNDLE_TYPES = {".rvp": "ReVanced:V4", ".mpp": "Morphe:V1", ".jar": "ReVanced:V3"}
+BUNDLE_TYPES = {".rvp": "ReVanced:v22", ".mpp": "Morphe:V1", ".jar": "ReVanced:v21",
+                ".reseam": "ReSeam"}
+
+
+def canonical_bundle_type(value):
+    # Read old snapshots/caches without rewriting their immutable bytes.
+    return {"ReVanced:V3": "ReVanced:v21", "ReVanced:V4": "ReVanced:v22"}.get(value, value)
+
+
+def migrate_bundle_types(history):
+    for item in history.values():
+        bundle = item["bundle"]
+        bundle["bundle_type"] = canonical_bundle_type(bundle.get("bundle_type"))
+    return history
 
 
 def release_assets(release):
@@ -46,7 +59,7 @@ def asset_extension(asset):
 
 def choose_patch_bundle(assets):
     """Prefer the first explicit bundle in provider order, then the first JAR."""
-    for extensions in ({".rvp", ".mpp"}, {".jar"}):
+    for extensions in ({".rvp", ".mpp", ".reseam"}, {".jar"}):
         for asset in assets:
             if asset_extension(asset) in extensions:
                 return asset

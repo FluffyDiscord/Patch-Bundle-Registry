@@ -176,8 +176,17 @@ val prepareCatalogRuntimes = tasks.register("prepareCatalogRuntimes") {
     outputs.file(runtimeManifest)
     outputs.upToDateWhen { false } // Retry runtime artifact outages on the next workflow run.
     doLast {
+        val nativeManifest = layout.buildDirectory.file("native-runtimes.json").get().asFile
+        val nativeInstaller = ProcessBuilder(
+            providers.environmentVariable("PYTHON").orElse("python").get(),
+            rootDir.parentFile.resolve("scripts/prepare_native_runtimes.py").absolutePath,
+            nativeManifest.absolutePath
+        ).directory(rootDir.parentFile).inheritIO().start()
+        check(nativeInstaller.waitFor() == 0) { "Native runtime installation failed" }
+        @Suppress("UNCHECKED_CAST")
+        val native = JsonSlurper().parse(nativeManifest) as Map<String, Map<String, Any>>
         val installed = configurableRuntimeDependencies.mapValues { (id, configuration) ->
-            try {
+            if (native.containsKey(id)) native.getValue(id) else try {
                 mapOf("available" to true,
                       "classpath" to configuration.files.joinToString(File.pathSeparator) { it.absolutePath })
             } catch (failure: Exception) {

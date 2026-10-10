@@ -32,11 +32,47 @@ export function catalogOrigins(config, fallback) {
   return ["https://raw.githubusercontent.com/" + repo + "/" +
     encodeURIComponent(config.data_branch) + "/" + (config.database_path ?? "database") + "/", fallback];
 }
+export function canonicalBundleType(value) {
+  if (value === "ReVanced:V3") return "ReVanced:v21";
+  if (value === "ReVanced:V4") return "ReVanced:v22";
+  return value;
+}
+export function bundleTypeLabel(value) {
+  value = canonicalBundleType(value);
+  if (value === "ReVanced:v21") return "ReVanced v21";
+  if (value === "ReVanced:v22") return "ReVanced v22";
+  if (value?.startsWith("Morphe:")) return "Morphe";
+  if (value === "ReSeam" || value?.startsWith("ReSeam:")) return "ReSeam";
+  return value;
+}
+export function bundleImages(bundle) {
+  const source = bundle.source ?? {};
+  const metadata = source.source_metadatum ?? {};
+  const valid = value => {
+    try {
+      const url = new URL(value);
+      return ["https:", "http:"].includes(url.protocol) && !url.username && !url.password ? url.href : null;
+    } catch { return null; }
+  };
+  let owner = valid(metadata.owner_avatar_url);
+  // Public GitHub owner images remain usable without repository metadata.
+  if (!owner) {
+    try {
+      const url = new URL(source.url);
+      const namespace = metadata.owner_name || source.namespace || url.pathname.split("/")[1];
+      if (url.hostname === "github.com" && namespace)
+        owner = "https://github.com/" + encodeURIComponent(namespace) + ".png?size=96";
+    } catch { /* Unknown host: use the website's initials fallback. */ }
+  }
+  const morphe = bundle.bundle_type?.startsWith("Morphe:");
+  return { icon_url: (morphe && valid(metadata.bundle_icon_url)) || owner,
+    owner_avatar_url: owner };
+}
 export function bundleImportPath(bundle, pinned = false) {
   const params = new URLSearchParams({ source_url: bundle.sourceUrl,
     version: pinned ? bundle.version : "latest",
     channel: bundle.isPrerelease ? "prerelease" : "stable" });
-  return "/api/v3/bundle?" + params;
+  return (bundle.bundleType === "ReSeam" || bundle.bundle_type === "ReSeam" ? "/api/reseam/bundle?" : "/api/v3/bundle?") + params;
 }
 export function releaseTimestamp(value) {
   let date = String(value ?? "");
@@ -276,18 +312,33 @@ export class Catalog {
         const hash = [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))]
           .map(n => n.toString(16).padStart(2, "0")).join("");
         if (hash !== metadata.sha256) throw new CatalogError("Catalog integrity mismatch", 503);
-        return JSON.parse(new TextDecoder().decode(bytes));
+        const data = JSON.parse(new TextDecoder().decode(bytes));
+        if (name === "bundles.json" || name.startsWith("imports/")) return data.map(row => ({
+          ...row, bundle_type: canonicalBundleType(row.bundle_type)
+        }));
+        if (/^bundles\//.test(name)) data.bundle_type = canonicalBundleType(data.bundle_type);
+        return data;
       })());
     }
     try { return await this.loaded.get(name); }
     catch (error) { this.loaded.delete(name); throw error; }
   }
   async sources() { return this.file("sources.json"); }
+  async importBundles(sourceUrl) {
+    const canonical = normalizeSource(sourceUrl).toLowerCase();
+    const source = (await this.sources()).find(row => row.url.toLowerCase() === canonical);
+    if (!source || source.enabled === false) return [];
+    const name = "imports/" + source.id + ".json";
+    // Older published snapshots predate the compact source index.
+    const rows = await this.file(this.manifest.files[name] ? name : "bundles.json");
+    return rows.filter(bundle => bundle.source_id === source.id).map(bundle => ({ ...bundle, source }));
+  }
   async bundles() {
     const sources = new Map((await this.sources()).map(source => [source.id, source]));
     return (await this.file("bundles.json"))
       .filter(bundle => sources.get(bundle.source_id)?.enabled !== false).map(bundle => ({
-      ...bundle, source: sources.get(bundle.source_id)
+      ...bundle, source: sources.get(bundle.source_id),
+      ...bundleImages({ ...bundle, source: sources.get(bundle.source_id) })
     }));
   }
   async patchRows({ q = "", package: packageName, bundle_id: bundleId, bundle_ids: bundleIds, page_cursor = 0,

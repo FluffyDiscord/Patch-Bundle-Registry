@@ -10,7 +10,7 @@ Find community patches for your favorite Android apps.
 
 ---
 
-Patch Bundle Registry brings ReVanced and Morphe patch sources together in one searchable catalog. Explore available patches, check app compatibility, and find the right bundle for your manager.
+Patch Bundle Registry brings ReVanced, Morphe, and ReSeam patch sources together in one searchable catalog. Explore available patches, check app compatibility, and find the right bundle for your manager.
 
 ## Find your patches
 
@@ -28,6 +28,8 @@ Switch between list and grid views to browse the way you prefer.
 3. Click **Copy remote bundle URL** and paste it into your manager's patch source settings.
 
 The default remote URL follows new releases in the selected channel. Select a historical bundle version to copy a URL pinned to that version.
+
+ReVanced formats appear as **ReVanced v21** and **ReVanced v22**. Morphe bundles appear as **Morphe**. ReSeam bundles use a ReSeam Manager patch-source URL with the bundle publisher's signing key.
 
 You can also download the bundle directly from its card. Available formats and import support depend on the manager you use.
 

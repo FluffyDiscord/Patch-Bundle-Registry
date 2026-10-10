@@ -4,7 +4,7 @@
  * Changes: static snapshot loading, indexed search, lazy metadata, freshness labels,
  * catalog API import URLs, and GitHub source management. See COPYING.
  */
-import { Catalog, catalogOrigins, bundleImportPath, compareReleaseDates, packageFilterMatches, releaseTimestamp } from "./shared/catalog.js";
+import { bundleTypeLabel, bundleImages, Catalog, catalogOrigins, bundleImportPath, compareReleaseDates, packageFilterMatches, releaseTimestamp } from "./shared/catalog.js";
 import { gitHosts } from "./shared/hosts.js";
 import {
     Virtualizer,
@@ -425,7 +425,7 @@ function populateBundleTypeOptions() {
     });
 
     const options = [new Option("All types", "")];
-    [...types].sort().forEach(type => options.push(new Option(type, type)));
+    [...types].sort().forEach(type => options.push(new Option(bundleTypeLabel(type), type)));
     bundleTypeFilter.replaceChildren(...options);
     bundleTypeFilter.value = selectedType;
 }
@@ -463,9 +463,18 @@ function installAvatarFallback(card, label) {
     const initial = escapeHtml(label.trim()[0] || "?").toUpperCase();
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="#eee" width="100" height="100"/><text x="50" y="50" font-size="40" text-anchor="middle" dy=".3em" fill="#999">${initial}</text></svg>`;
     if (!image.getAttribute("src")) image.src = `data:image/svg+xml,${encodeURIComponent(svg)}`;
-    image.addEventListener("error", () => {
-        image.src = `data:image/svg+xml,${encodeURIComponent(svg)}`;
-    }, { once: true });
+    const fallback = () => {
+        const owner = card.dataset.ownerAvatar;
+        if (owner && image.src !== owner) {
+            delete card.dataset.ownerAvatar;
+            image.src = owner;
+        } else {
+            delete card.dataset.ownerAvatar;
+            image.removeEventListener("error", fallback);
+            image.src = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+        }
+    };
+    image.addEventListener("error", fallback);
 }
 
 function transformBundle(bundle) {
@@ -476,7 +485,8 @@ function transformBundle(bundle) {
         signatureDownloadUrl: bundle.signature_download_url === "N/A" ? null : bundle.signature_download_url,
         isPrerelease: bundle.is_prerelease, version: bundle.version,
         sourceUrl: bundle.source?.url || "",
-        ownerName: metadata.owner_name || "", ownerAvatarUrl: metadata.owner_avatar_url || "",
+        ownerName: metadata.owner_name || "", ownerAvatarUrl: bundleImages(bundle).owner_avatar_url || "",
+        iconUrl: bundleImages(bundle).icon_url || "", unavailableReason: bundle.source?.unavailable_reason,
         repoName: metadata.repo_name || "", repoDescription: metadata.repo_description || "",
         repoStars: metadata.repo_stars,
         isRepoArchived: metadata.is_repo_archived, patches: [],
@@ -560,9 +570,13 @@ function renderBundle(bundle, target) {
     const card = document.createElement("article");
     card.className = "bundle-item";
 
+    if (bundle.ownerAvatarUrl && bundle.iconUrl !== bundle.ownerAvatarUrl)
+        card.dataset.ownerAvatar = bundle.ownerAvatarUrl;
+    const availabilityWarning = bundle.unavailableReason
+        ? `<div class="v3-warning">Repository unavailable: ${escapeHtml(bundle.unavailableReason)}. Showing retained release information.</div>` : "";
     const metadataWarning = bundle.metadataStatus !== "verified"
         ? `<div class="v3-warning">Patch metadata: ${escapeHtml(bundle.metadataStatus)}${bundle.metadataVersion ? " · " + escapeHtml(bundle.metadataVersion) : ""}. Compatibility is unverified for this artifact.</div>` : "";
-    const v3WarningHtml = bundle.bundleType === "ReVanced:V3"
+    const v3WarningHtml = bundle.bundleType === "ReVanced:v21"
         ? `<div class="v3-warning">
                 ⚠️ It will not be usable in URV and the patches list can be empty.
            </div>`
@@ -586,10 +600,11 @@ function renderBundle(bundle, target) {
     card.innerHTML = `
         ${v3WarningHtml}
         ${metadataWarning}
+        ${availabilityWarning}
 
         <div class="bundle-header">
             <a href="${escapeHtml(bundle.sourceUrl)}" target="_blank" rel="noopener" class="owner-avatar-link" aria-label="Open ${escapeHtml(bundle.ownerName || 'source')} repository">
-                <img src="${escapeHtml(bundle.ownerAvatarUrl)}"
+                <img src="${escapeHtml(bundle.iconUrl)}"
                      alt="${escapeHtml(bundle.ownerName)}"
                      class="owner-avatar"
                      loading="lazy"
@@ -609,7 +624,7 @@ function renderBundle(bundle, target) {
                     <span class="bundle-badge ${bundle.isPrerelease ? 'badge-prerelease' : 'badge-release'}">
                         ${bundle.isPrerelease ? 'Prerelease' : 'Release'}
                     </span>
-                    <span class="bundle-badge badge-type">${escapeHtml(bundle.bundleType)}</span>
+                    <span class="bundle-badge badge-type">${escapeHtml(bundleTypeLabel(bundle.bundleType))}</span>
                     ${bundle.isRepoArchived ? `<span class="bundle-badge badge-archived">Archived</span>` : ''}
                     <span class="created-date">${formatDate(bundle.createdAt)}</span>
                 </div>
@@ -627,7 +642,7 @@ function renderBundle(bundle, target) {
                 </a>
             ` : ''}
             <span>•</span>
-            <button class="copy-btn" ${bundle.bundleType === "ReVanced:V3" ? 'disabled' : ''} data-url="${bundleImportPath(bundle, Boolean(currentBundleVersion))}">
+            <button class="copy-btn" ${bundle.bundleType === "ReVanced:v21" || (bundle.bundleType === "ReSeam" && bundle.metadataStatus !== "verified") ? 'disabled' : ''} data-url="${bundleImportPath(bundle, Boolean(currentBundleVersion))}">
                 ${currentBundleVersion ? "Copy this version URL" : "Copy remote bundle URL"}
             </button>
         </div>
