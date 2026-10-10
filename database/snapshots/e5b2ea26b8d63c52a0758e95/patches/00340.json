@@ -1,0 +1,2854 @@
+[
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to the seekbar.",
+    "id": "f0bbbb7af76ba17674b83ac7:95",
+    "legacy_id": 34419,
+    "metadata_status": "verified",
+    "name": "Seekbar components",
+    "options": [
+      {
+        "default": "#FFFF2791",
+        "description": "Set Cairo start color for the seekbar.",
+        "name": "cairoStartColor",
+        "required": false,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FFFF0033",
+        "description": "Set Cairo end color for the seekbar.",
+        "name": "cairoEndColor",
+        "required": false,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "f0bbbb7af76ba17674b83ac7:96",
+    "legacy_id": 34420,
+    "metadata_status": "verified",
+    "name": "Settings for Reddit",
+    "options": [
+      {
+        "default": "ReVanced Extended",
+        "description": "The name of the RVX settings menu.",
+        "name": "settingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "f0bbbb7af76ba17674b83ac7:97",
+    "legacy_id": 34421,
+    "metadata_status": "verified",
+    "name": "Settings for YouTube",
+    "options": [
+      {
+        "default": "@string/about_key",
+        "description": "The settings menu name that the RVX settings menu should be above.",
+        "name": "insertPosition",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "About": "@string/about_key",
+          "Accessibility": "@string/accessibility_settings_key",
+          "Account": "@string/account_switcher_key",
+          "Autoplay": "@string/auto_play_key",
+          "Background": "@string/offline_key",
+          "Billing & payments": "@string/billing_and_payment_key",
+          "Billing and payments": "@string/billing_and_payment_key",
+          "Captions": "@string/captions_key",
+          "Connected apps": "@string/connected_accounts_browse_page_key",
+          "Data saving": "@string/data_saving_settings_key",
+          "General": "@string/general_key",
+          "History & privacy": "@string/privacy_key",
+          "Live chat": "@string/live_chat_key",
+          "Manage all history": "@string/history_key",
+          "Notifications": "@string/notification_key",
+          "Parent settings": "@string/parent_tools_key",
+          "Privacy": "@string/privacy_key",
+          "Purchases and memberships": "@string/subscription_product_setting_key",
+          "Try experimental new features": "@string/premium_early_access_browse_page_key",
+          "Video quality preferences": "@string/video_quality_settings_key",
+          "Watch on TV": "@string/pair_with_tv_key",
+          "Your data in YouTube": "@string/your_data_key"
+        }
+      },
+      {
+        "default": "ReVanced Extended",
+        "description": "The name of the RVX settings menu.",
+        "name": "settingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        "name": "settingsSummaries",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "f0bbbb7af76ba17674b83ac7:98",
+    "legacy_id": 34422,
+    "metadata_status": "verified",
+    "name": "Settings for YouTube Music",
+    "options": [
+      {
+        "default": "ReVanced Extended",
+        "description": "The name of the RVX settings menu.",
+        "name": "settingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        "name": "settingsSummaries",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to YouTube Shorts.",
+    "id": "f0bbbb7af76ba17674b83ac7:99",
+    "legacy_id": 34423,
+    "metadata_status": "verified",
+    "name": "Shorts components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections.",
+    "id": "f0bbbb7af76ba17674b83ac7:100",
+    "legacy_id": 34424,
+    "metadata_status": "verified",
+    "name": "SponsorBlock",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content.",
+    "id": "f0bbbb7af76ba17674b83ac7:101",
+    "legacy_id": 34425,
+    "metadata_status": "verified",
+    "name": "SponsorBlock",
+    "options": [
+      {
+        "default": true,
+        "description": "Apply the outline icon.",
+        "name": "outlineIcon",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "right",
+        "description": "Align new segment window.",
+        "name": "NewSegmentAlignment",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Left": "left",
+          "Right": "right"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53"
+      ]
+    },
+    "dependencies": [
+      "Restore old style library shelf",
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics.",
+    "id": "f0bbbb7af76ba17674b83ac7:102",
+    "legacy_id": 34426,
+    "metadata_status": "verified",
+    "name": "Spoof app version",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features.",
+    "id": "f0bbbb7af76ba17674b83ac7:103",
+    "legacy_id": 34427,
+    "metadata_status": "verified",
+    "name": "Spoof app version",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to spoof the client to allow playback.",
+    "id": "f0bbbb7af76ba17674b83ac7:104",
+    "legacy_id": 34428,
+    "metadata_status": "verified",
+    "name": "Spoof client",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to spoof the streaming data to allow playback.",
+    "id": "f0bbbb7af76ba17674b83ac7:105",
+    "legacy_id": 34429,
+    "metadata_status": "verified",
+    "name": "Spoof streaming data",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to spoof the streaming data to allow playback.",
+    "id": "f0bbbb7af76ba17674b83ac7:106",
+    "legacy_id": 34430,
+    "metadata_status": "verified",
+    "name": "Spoof streaming data",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to change the domain of the watch history or check its status.",
+    "id": "f0bbbb7af76ba17674b83ac7:107",
+    "legacy_id": 34431,
+    "metadata_status": "verified",
+    "name": "Spoof watch history",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player.",
+    "id": "f0bbbb7af76ba17674b83ac7:108",
+    "legacy_id": 34432,
+    "metadata_status": "verified",
+    "name": "Swipe controls",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Changes the app's theme to the values specified in patch options.",
+    "id": "f0bbbb7af76ba17674b83ac7:109",
+    "legacy_id": 34433,
+    "metadata_status": "verified",
+    "name": "Theme",
+    "options": [
+      {
+        "default": "@android:color/black",
+        "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        "name": "darkThemeBackgroundColor",
+        "required": false,
+        "type": "kotlin.String",
+        "values": {
+          "Amoled Black": "@android:color/black",
+          "Catppuccin (Mocha)": "#FF181825",
+          "Classic (Old YouTube)": "#FF212121",
+          "Dark Blue": "#FF001029",
+          "Dark Green": "#FF002905",
+          "Dark Orange": "#FF291800",
+          "Dark Pink": "#FF290025",
+          "Dark Red": "#FF290000",
+          "Dark Yellow": "#FF282900"
+        }
+      },
+      {
+        "default": "@android:color/white",
+        "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        "name": "lightThemeBackgroundColor",
+        "required": false,
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Latte)": "#FFE6E9EF",
+          "Light Blue": "#FFD1E0FF",
+          "Light Green": "#FFCCFFCC",
+          "Light Orange": "#FFFFE6CC",
+          "Light Pink": "#FFFCCFF3",
+          "Light Red": "#FFFFD6D6",
+          "Light Yellow": "#FFFDFFCC",
+          "Pale Blue": "#FFD4FFF8",
+          "Pale Green": "#FFD1FFCC",
+          "Pale Yellow": "#FFFFE9AA",
+          "White": "@android:color/white"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components located on the toolbar, such as toolbar buttons, search bar, and header.",
+    "id": "f0bbbb7af76ba17674b83ac7:110",
+    "legacy_id": 34434,
+    "metadata_status": "verified",
+    "name": "Toolbar components",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Add translations or remove string resources.",
+    "id": "f0bbbb7af76ba17674b83ac7:111",
+    "legacy_id": 34435,
+    "metadata_status": "verified",
+    "name": "Translations for YouTube",
+    "options": [
+      {
+        "default": "",
+        "description": "The path to the 'strings.xml' file.\nPlease note that applying the 'strings.xml' file will overwrite all existing translations.",
+        "name": "customTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "ar, bg-rBG, de-rDE, el-rGR, es-rES, fr-rFR, hu-rHU, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "name": "selectedTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "name": "selectedStringResources",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Add translations or remove string resources.",
+    "id": "f0bbbb7af76ba17674b83ac7:112",
+    "legacy_id": 34436,
+    "metadata_status": "verified",
+    "name": "Translations for YouTube Music",
+    "options": [
+      {
+        "default": "",
+        "description": "The path to the 'strings.xml' file.\nPlease note that applying the 'strings.xml' file will overwrite all existing translations.",
+        "name": "customTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "bg-rBG, bn, cs-rCZ, el-rGR, es-rES, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, nl-rNL, pl-rPL, pt-rBR, ro-rRO, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "name": "selectedTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "name": "selectedStringResources",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
+    "id": "f0bbbb7af76ba17674b83ac7:113",
+    "legacy_id": 34437,
+    "metadata_status": "verified",
+    "name": "Video playback",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
+    "id": "f0bbbb7af76ba17674b83ac7:114",
+    "legacy_id": 34438,
+    "metadata_status": "verified",
+    "name": "Video playback",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds icons to specific preferences in the settings.",
+    "id": "f0bbbb7af76ba17674b83ac7:115",
+    "legacy_id": 34439,
+    "metadata_status": "verified",
+    "name": "Visual preferences icons for YouTube",
+    "options": [
+      {
+        "default": "extension",
+        "description": "The icon for the RVX settings menu.",
+        "name": "settingsMenuIcon",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Custom branding icon": "custom_branding_icon",
+          "Extension": "extension",
+          "Gear": "gear",
+          "RVX Letters": "rvx_letters",
+          "RVX Letters Bold": "rvx_letters_bold",
+          "ReVanced": "revanced",
+          "ReVanced Colored": "revanced_colored",
+          "YT alt": "yt_alt"
+        }
+      },
+      {
+        "default": false,
+        "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
+        "name": "applyToAll",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.29.38",
+          "18.33.40",
+          "18.38.44",
+          "18.48.39",
+          "19.05.36",
+          "19.16.39",
+          "19.44.39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "f0bbbb7af76ba17674b83ac7",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds icons to specific preferences in the settings.",
+    "id": "f0bbbb7af76ba17674b83ac7:116",
+    "legacy_id": 34440,
+    "metadata_status": "verified",
+    "name": "Visual preferences icons for YouTube Music",
+    "options": [
+      {
+        "default": "extension",
+        "description": "The icon for the RVX settings menu.",
+        "name": "settingsMenuIcon",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Custom branding icon": "custom_branding_icon",
+          "Extension": "extension",
+          "Gear": "gear",
+          "ReVanced": "revanced",
+          "ReVanced Colored": "revanced_colored"
+        }
+      },
+      {
+        "default": false,
+        "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
+        "name": "applyToAll",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0-dev.8",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "948d483d6d6b05162c5ebd84",
+    "compatiblePackages": {
+      "fr.keepcool.memberapp": [
+        "1.8.21"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allow + in the local email part without changing the input or login request. Keepcool 1.8.21 only.",
+    "id": "948d483d6d6b05162c5ebd84:0",
+    "legacy_id": 34441,
+    "metadata_status": "stale",
+    "name": "Keepcool: allow plus in email",
+    "options": [],
+    "packages": [
+      {
+        "name": "fr.keepcool.memberapp",
+        "versions": [
+          "1.8.21"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "624b72040816bcbe",
+    "use": true
+  },
+  {
+    "bundle_id": "948d483d6d6b05162c5ebd84",
+    "compatiblePackages": {
+      "fr.keepcool.memberapp": [
+        "1.8.21"
+      ]
+    },
+    "dependencies": [],
+    "description": "Show a green dot on calendar dates having at least one booking slot with a free place. Keepcool 1.8.21 only.",
+    "id": "948d483d6d6b05162c5ebd84:1",
+    "legacy_id": 34442,
+    "metadata_status": "stale",
+    "name": "Keepcool: booking availability dots",
+    "options": [],
+    "packages": [
+      {
+        "name": "fr.keepcool.memberapp",
+        "versions": [
+          "1.8.21"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "624b72040816bcbe",
+    "use": true
+  },
+  {
+    "bundle_id": "948d483d6d6b05162c5ebd84",
+    "compatiblePackages": {
+      "fr.leboncoin": [
+        "100.125.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps the category, keywords, seller type, price, sort order, location and dynamic filters from the previous search when starting a new one. Leboncoin 100.125.0 only.",
+    "id": "948d483d6d6b05162c5ebd84:2",
+    "legacy_id": 34443,
+    "metadata_status": "stale",
+    "name": "Leboncoin: persistent search filters",
+    "options": [],
+    "packages": [
+      {
+        "name": "fr.leboncoin",
+        "versions": [
+          "100.125.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "624b72040816bcbe",
+    "use": true
+  },
+  {
+    "bundle_id": "948d483d6d6b05162c5ebd84",
+    "compatiblePackages": {
+      "fr.leboncoin": [
+        "100.125.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppress behavioral analytics and attribution events sent through Firebase Analytics, Piano Analytics, Adjust and mParticle, and disable Datadog telemetry. Keeps consent, notifications and required SDK startup intact. Leboncoin 100.125.0 only.",
+    "id": "948d483d6d6b05162c5ebd84:3",
+    "legacy_id": 34444,
+    "metadata_status": "stale",
+    "name": "Leboncoin: privacy mode",
+    "options": [],
+    "packages": [
+      {
+        "name": "fr.leboncoin",
+        "versions": [
+          "100.125.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "624b72040816bcbe",
+    "use": true
+  },
+  {
+    "bundle_id": "948d483d6d6b05162c5ebd84",
+    "compatiblePackages": {
+      "fr.leboncoin": [
+        "100.124.1",
+        "100.125.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Use Leboncoin's built-in ad-free paths to suppress banners, native ads and interstitials. Supports Leboncoin 100.124.1 and 100.125.0.",
+    "id": "948d483d6d6b05162c5ebd84:4",
+    "legacy_id": 34445,
+    "metadata_status": "stale",
+    "name": "Leboncoin: remove ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "fr.leboncoin",
+        "versions": [
+          "100.124.1",
+          "100.125.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "624b72040816bcbe",
+    "use": true
+  },
+  {
+    "bundle_id": "948d483d6d6b05162c5ebd84",
+    "compatiblePackages": {
+      "com.meteoconsult.androidapp": [
+        "1.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Open weather videos paused; manual play still works. Ad videos are handled by the cleanup patch. Meteo Consult 1.1.4 only.",
+    "id": "948d483d6d6b05162c5ebd84:5",
+    "legacy_id": 34446,
+    "metadata_status": "stale",
+    "name": "Meteo Consult: disable video autoplay",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.meteoconsult.androidapp",
+        "versions": [
+          "1.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "624b72040816bcbe",
+    "use": true
+  },
+  {
+    "bundle_id": "948d483d6d6b05162c5ebd84",
+    "compatiblePackages": {
+      "com.meteoconsult.androidapp": [
+        "1.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remove advertisements and automatic subscription prompts, including the end-of-forecast screen. Also bypass the Play installation check for locally signed builds. Meteo Consult 1.1.4 only. Does not unlock or extend forecasts.",
+    "id": "948d483d6d6b05162c5ebd84:6",
+    "legacy_id": 34447,
+    "metadata_status": "stale",
+    "name": "Meteo Consult: remove ads and subscription prompts",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.meteoconsult.androidapp",
+        "versions": [
+          "1.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "624b72040816bcbe",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks in-app promotional prompts, modals and promotion banners. Note: this only affects in-app promotions. Match-alert push delivery on re-signed builds needs working push delivery - use MicroG integration + signature spoofing where Play Services is absent (issue #25).",
+    "id": "95ac59a3c0ad51407ed29391:0",
+    "legacy_id": 34448,
+    "metadata_status": "verified",
+    "name": "Block marketing notifications",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.95.104",
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [
+      "Brave Origin Resource Defaults"
+    ],
+    "description": "Unlocks Brave Origin and enables feature toggle controls.",
+    "id": "95ac59a3c0ad51407ed29391:1",
+    "legacy_id": 34449,
+    "metadata_status": "verified",
+    "name": "Brave Origin",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.brave.browser",
+        "versions": [
+          "1.95.104",
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.alarmclock.xtreme.free": [
+        "26.06.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns on the ad-free entitlement so Alarm Clock Xtreme shows no banner, interstitial or consent ads. Only the ad-free feature is changed; the other shop features keep their purchase state.",
+    "id": "95ac59a3c0ad51407ed29391:2",
+    "legacy_id": 34450,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.alarmclock.xtreme.free",
+        "versions": [
+          "26.06.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.resultadosfutbol.mobile": [
+        "6.6.0"
+      ]
+    },
+    "dependencies": [
+      "Disable license check"
+    ],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads and hides empty banner slots.",
+    "id": "95ac59a3c0ad51407ed29391:3",
+    "legacy_id": 34451,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.resultadosfutbol.mobile",
+        "versions": [
+          "6.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9",
+        "5.4.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppLovin interstitial ads.",
+    "id": "95ac59a3c0ad51407ed29391:4",
+    "legacy_id": 34452,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9",
+          "5.4.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Experimental: hides sponsored new tab images (including full-page takeovers) and the \"Earn BAT for viewing ads\" Rewards signup popup.",
+    "id": "95ac59a3c0ad51407ed29391:5",
+    "legacy_id": 34453,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.brave.browser",
+        "versions": [
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": false
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "fm.castbox.audiobook.radio.podcast": [
+        "11.26.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:6",
+    "legacy_id": 34454,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "fm.castbox.audiobook.radio.podcast",
+        "versions": [
+          "11.26.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "easynotes.notes.notepad.notebook.privatenotes.note": [
+        "1.3.61.0907",
+        "1.3.63.0921"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 'notes_edit_banner' unit from utils/AdManager and the app-open ad from App$AppOpenAdManager. Both are gated on the single App.isAdFree() check, which normally depends on a VIP subscription.",
+    "id": "95ac59a3c0ad51407ed29391:7",
+    "legacy_id": 34455,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "easynotes.notes.notepad.notebook.privatenotes.note",
+        "versions": [
+          "1.3.61.0907",
+          "1.3.63.0921"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "eu.livesport.FlashScore_com": [
+        "26.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:8",
+    "legacy_id": 34456,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "eu.livesport.FlashScore_com",
+        "versions": [
+          "26.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.futbin": [
+        "27.02",
+        "27.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:9",
+    "legacy_id": 34457,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.futbin",
+        "versions": [
+          "27.02",
+          "27.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "ru.iptvremote.android.iptv": [
+        "9.1.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Switches the app to its built-in no-ads provider, removing banner, interstitial and video pre-roll ads (Yandex, Wortise and mediated networks).",
+    "id": "95ac59a3c0ad51407ed29391:10",
+    "legacy_id": 34458,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "ru.iptvremote.android.iptv",
+        "versions": [
+          "9.1.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.foobnix.pdf.reader": [
+        "9.4.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Librera's banner, interstitial and rewarded ads by reporting ads as switched off and the reward window as open, so the Google Mobile Ads SDK never starts.",
+    "id": "95ac59a3c0ad51407ed29391:11",
+    "legacy_id": 34459,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.foobnix.pdf.reader",
+        "versions": [
+          "9.4.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.livescore": [
+        "10.1",
+        "10.2.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces AdsRemovalSettings.areAdsDisabled() to return true, disabling banner, interstitial, MPU, hero placement, coverage sponsorship and announcement ads.",
+    "id": "95ac59a3c0ad51407ed29391:12",
+    "legacy_id": 34460,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.livescore",
+        "versions": [
+          "10.1",
+          "10.2.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.flyersoft.moonreader": [
+        "10.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Moon+ Reader's banner, interstitial, exit and native ads by forcing the central ad gate to always report ads as disabled.",
+    "id": "95ac59a3c0ad51407ed29391:13",
+    "legacy_id": 34461,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.flyersoft.moonreader",
+        "versions": [
+          "10.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "one.cricket.app": [
+        "26.08.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native/inline and app-open ads and hides the empty ad slots.",
+    "id": "95ac59a3c0ad51407ed29391:14",
+    "legacy_id": 34462,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "one.cricket.app",
+        "versions": [
+          "26.08.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "de.motain.iliga": [
+        "15.142.0",
+        "15.145.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:15",
+    "legacy_id": 34463,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "de.motain.iliga",
+        "versions": [
+          "15.142.0",
+          "15.145.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.pocketcolorwheel.PCW": [
+        "3.26"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:16",
+    "legacy_id": 34464,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.pocketcolorwheel.PCW",
+        "versions": [
+          "3.26"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.Project100Pi.themusicplayer": [
+        "3.2.0.0_release_2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:17",
+    "legacy_id": 34465,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Project100Pi.themusicplayer",
+        "versions": [
+          "3.2.0.0_release_2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.podcast.podcasts": [
+        "9.17.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:18",
+    "legacy_id": 34466,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.podcast.podcasts",
+        "versions": [
+          "9.17.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.4",
+        "14.9.5",
+        "14.9.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Google Mobile Ads (AdMob) initialization, blocking banner, interstitial, rewarded, native and mediated ads.",
+    "id": "95ac59a3c0ad51407ed29391:19",
+    "legacy_id": 34467,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.scores365",
+        "versions": [
+          "14.9.4",
+          "14.9.5",
+          "14.9.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.streema.simpleradio": [
+        "6.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:20",
+    "legacy_id": 34468,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.streema.simpleradio",
+        "versions": [
+          "6.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, feed, native, preroll and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:21",
+    "legacy_id": 34469,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.melodis.midomiMusicIdentifier.freemium": [
+        "10.5.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "95ac59a3c0ad51407ed29391:22",
+    "legacy_id": 34470,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.melodis.midomiMusicIdentifier.freemium",
+        "versions": [
+          "10.5.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.farproc.wifi.analyzer": [
+        "3.10.5-L"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the banner ad.",
+    "id": "95ac59a3c0ad51407ed29391:23",
+    "legacy_id": 34471,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.farproc.wifi.analyzer",
+        "versions": [
+          "3.10.5-L"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.ztnstudio.notepad": [
+        "5.4.3.19019"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops the bundled Calldorado ad SDK: no in-app ads and no after-call ad screen.",
+    "id": "95ac59a3c0ad51407ed29391:24",
+    "legacy_id": 34472,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.ztnstudio.notepad",
+        "versions": [
+          "5.4.3.19019"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [
+      "Disable Facebook telemetry"
+    ],
+    "description": "Blocks Facebook Audience Network ads and disables Facebook event tracking while keeping Facebook Login working.",
+    "id": "95ac59a3c0ad51407ed29391:25",
+    "legacy_id": 34473,
+    "metadata_status": "verified",
+    "name": "Disable Facebook SDK",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.resultadosfutbol.mobile": [
+        "6.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the Play Store license check so the patched app starts.",
+    "id": "95ac59a3c0ad51407ed29391:26",
+    "legacy_id": 34474,
+    "metadata_status": "verified",
+    "name": "Disable license check",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.resultadosfutbol.mobile",
+        "versions": [
+          "6.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.rawcam.app": [
+        "1.4.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the Play Store license check so the patched app starts.",
+    "id": "95ac59a3c0ad51407ed29391:27",
+    "legacy_id": 34475,
+    "metadata_status": "verified",
+    "name": "Disable license check",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.rawcam.app",
+        "versions": [
+          "1.4.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9",
+        "5.4.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppsFlyer event logging, app-logged Firebase Analytics events and Crashlytics exception reporting.",
+    "id": "95ac59a3c0ad51407ed29391:28",
+    "legacy_id": 34476,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9",
+          "5.4.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Experimental: turns off P3A analytics and the usage ping on every start (overriding the in-app switches), stops crash report uploads and drops the install-referrer attribution code.",
+    "id": "95ac59a3c0ad51407ed29391:29",
+    "legacy_id": 34477,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.brave.browser",
+        "versions": [
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": false
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.shazam.android": [
+        "16.62.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Firebase Analytics event logging and Crashlytics crash reporting.",
+    "id": "95ac59a3c0ad51407ed29391:30",
+    "legacy_id": 34478,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.shazam.android",
+        "versions": [
+          "16.62.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppsFlyer and Firebase Analytics event logging, plus Crashlytics crash reporting.",
+    "id": "95ac59a3c0ad51407ed29391:31",
+    "legacy_id": 34479,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.mobilefootie.wc2010": [
+        "238.17666.20260928",
+        "237.17536.20260911",
+        "236.17398.20260827",
+        "236.17338.20260822"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "95ac59a3c0ad51407ed29391:32",
+    "legacy_id": 34480,
+    "metadata_status": "verified",
+    "name": "Enable FotMob+",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.mobilefootie.wc2010",
+        "versions": [
+          "238.17666.20260928",
+          "237.17536.20260911",
+          "236.17398.20260827",
+          "236.17338.20260822"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "net.dinglisch.android.taskerm": [
+        "6.6.18"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the Play license check so the paid app runs as licensed.",
+    "id": "95ac59a3c0ad51407ed29391:33",
+    "legacy_id": 34481,
+    "metadata_status": "verified",
+    "name": "Enable Full Version",
+    "options": [],
+    "packages": [
+      {
+        "name": "net.dinglisch.android.taskerm",
+        "versions": [
+          "6.6.18"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.onesports.score": [
+        "4.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the VIP interface and removes ads. Premium data the AiScore server delivers (e.g. predictions, dropping odds) is validated server-side and is not unlocked.",
+    "id": "95ac59a3c0ad51407ed29391:34",
+    "legacy_id": 34482,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.onesports.score",
+        "versions": [
+          "4.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "org.kman.AquaMail": [
+        "2.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Pro/Premium features and lifts the free-version feature locks.",
+    "id": "95ac59a3c0ad51407ed29391:35",
+    "legacy_id": 34483,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "org.kman.AquaMail",
+        "versions": [
+          "2.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.rammigsoftware.bluecoins": [
+        "13.1.79",
+        "13.1.149"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the premium version (removes ads and lifts premium limits).",
+    "id": "95ac59a3c0ad51407ed29391:36",
+    "legacy_id": 34484,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.rammigsoftware.bluecoins",
+        "versions": [
+          "13.1.79",
+          "13.1.149"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9",
+        "5.4.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features by bypassing RevenueCat subscription checks.",
+    "id": "95ac59a3c0ad51407ed29391:37",
+    "legacy_id": 34485,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9",
+          "5.4.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "easynotes.notes.notepad.notebook.privatenotes.note": [
+        "1.3.61.0907",
+        "1.3.63.0921"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the VIP-only fonts, note backgrounds, stickers and drawing tools. The app checks entitlement entirely locally — there is no license server — so forcing the App.isVip() gate to return true unlocks everything, and stays unlocked even though BillingManager resets the underlying purchase flags from Play on every startup.",
+    "id": "95ac59a3c0ad51407ed29391:38",
+    "legacy_id": 34486,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "easynotes.notes.notepad.notebook.privatenotes.note",
+        "versions": [
+          "1.3.61.0907",
+          "1.3.63.0921"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "no.fishbuddy_playground.app": [
+        "11.0.101",
+        "11.0.125"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces User.hasPremium() to return true, unlocking premium features locked behind the RevenueCat subscription entitlement.",
+    "id": "95ac59a3c0ad51407ed29391:39",
+    "legacy_id": 34487,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "no.fishbuddy_playground.app",
+        "versions": [
+          "11.0.101",
+          "11.0.125"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.gregacucnik.fishingpoints": [
+        "4.7.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Fishing Points premium features and removes ads.",
+    "id": "95ac59a3c0ad51407ed29391:40",
+    "legacy_id": 34488,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.gregacucnik.fishingpoints",
+        "versions": [
+          "4.7.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "ru.iptvremote.android.iptv": [
+        "9.1.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Pro-only access control settings (parental PIN, locking playlist/EPG/proxy/import-export/recording settings, hiding playlist URLs) and suppresses the in-app review prompt. Start on boot and autoplay last channel are only implemented in the separate IPTV Pro app and stay unavailable.",
+    "id": "95ac59a3c0ad51407ed29391:41",
+    "legacy_id": 34489,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "ru.iptvremote.android.iptv",
+        "versions": [
+          "9.1.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "me.kavishdevar.librepods": [
+        "1.0.0-rc1-play"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the 'Advanced device settings' features (Personalized Volume, Adaptive Audio, accessibility configs, hearing protection, etc.) that LibrePods gates behind the Play Store 'Unlock advanced features' one-time purchase. The patch forces the premium entitlement (PlayBillingProvider's _isPremium StateFlow) to always be true.",
+    "id": "95ac59a3c0ad51407ed29391:42",
+    "legacy_id": 34490,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "me.kavishdevar.librepods",
+        "versions": [
+          "1.0.0-rc1-play"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.monefy.app.lite": [
+        "1.22.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Monefy Pro features.",
+    "id": "95ac59a3c0ad51407ed29391:43",
+    "legacy_id": 34491,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.monefy.app.lite",
+        "versions": [
+          "1.22.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.rawcam.app": [
+        "1.4.3"
+      ]
+    },
+    "dependencies": [
+      "Disable license check"
+    ],
+    "description": "Unlocks Native Camera premium (RAW DNG, 10-bit/HLG/UHDR video, boosted modes and the higher bitrate cap). Premium is a local flag; the license check is disabled as well so the patched app starts.",
+    "id": "95ac59a3c0ad51407ed29391:44",
+    "legacy_id": 34492,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.rawcam.app",
+        "versions": [
+          "1.4.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "net.osmand": [
+        "5.4.5",
+        "5.4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks OsmAnd Pro, Maps+ and live updates.",
+    "id": "95ac59a3c0ad51407ed29391:45",
+    "legacy_id": 34493,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "net.osmand",
+        "versions": [
+          "5.4.5",
+          "5.4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.Project100Pi.themusicplayer": [
+        "3.2.0.0_release_2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Pi Music Player Premium (ad-free) by forcing the local purchase-state checks to true.",
+    "id": "95ac59a3c0ad51407ed29391:46",
+    "legacy_id": 34494,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Project100Pi.themusicplayer",
+        "versions": [
+          "3.2.0.0_release_2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.streema.simpleradio": [
+        "6.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Simple Radio Premium (ad-free listening) by forcing the local subscription checks to true.",
+    "id": "95ac59a3c0ad51407ed29391:47",
+    "legacy_id": 34495,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.streema.simpleradio",
+        "versions": [
+          "6.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Marks the account as premium in the app. Note: AI insights and other premium content are served by Sofascore's servers for paying accounts and are not unlocked; use \"Disable ads\" for an ad-free app.",
+    "id": "95ac59a3c0ad51407ed29391:48",
+    "legacy_id": 34496,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.ztnstudio.notepad": [
+        "5.4.3.19019"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks #Notepad premium and hides the paywall and in-app ad slots.",
+    "id": "95ac59a3c0ad51407ed29391:49",
+    "legacy_id": 34497,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.ztnstudio.notepad",
+        "versions": [
+          "5.4.3.19019"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.myfitnesspal.android": [
+        "26.37.0",
+        "26.38.0",
+        "26.39.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "95ac59a3c0ad51407ed29391:50",
+    "legacy_id": 34498,
+    "metadata_status": "verified",
+    "name": "Enable Premium+",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.myfitnesspal.android",
+        "versions": [
+          "26.37.0",
+          "26.38.0",
+          "26.39.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "eu.faircode.email": [
+        "1.2337",
+        "1.2338"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the FairEmail pro features.",
+    "id": "95ac59a3c0ad51407ed29391:51",
+    "legacy_id": 34499,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "eu.faircode.email",
+        "versions": [
+          "1.2337",
+          "1.2338"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.jetappfactory.jetaudio": [
+        "13.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks jetAudio Premium, all plugins and the ad unlocker.",
+    "id": "95ac59a3c0ad51407ed29391:52",
+    "legacy_id": 34500,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.jetappfactory.jetaudio",
+        "versions": [
+          "13.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.textra": [
+        "4.85",
+        "4.87"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Textra Pro: removes ads and unlocks the paid features.",
+    "id": "95ac59a3c0ad51407ed29391:53",
+    "legacy_id": 34501,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.textra",
+        "versions": [
+          "4.85",
+          "4.87"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.Relmtech.Remote": [
+        "3.25.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Unified Remote Full by forcing the local license status check.",
+    "id": "95ac59a3c0ad51407ed29391:54",
+    "legacy_id": 34502,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.Relmtech.Remote",
+        "versions": [
+          "3.25.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Experimental: stops the recurring \"Set Brave as default browser\" dialog, the \"Rate Brave\" dialog and card, retention and Rewards promo notifications, the search widget promo and the VPN card in Settings.",
+    "id": "95ac59a3c0ad51407ed29391:55",
+    "legacy_id": 34503,
+    "metadata_status": "verified",
+    "name": "Hide promotional prompts",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.brave.browser",
+        "versions": [
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": false
+  },
+  {
+    "bundle_id": "95ac59a3c0ad51407ed29391",
+    "compatiblePackages": {
+      "com.wunderground.android.weather": [
+        "6.20.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the ad-free purchase.",
+    "id": "95ac59a3c0ad51407ed29391:56",
+    "legacy_id": 34504,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.wunderground.android.weather",
+        "versions": [
+          "6.20.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0-dev.2",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  }
+]
