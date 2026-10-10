@@ -1,0 +1,2549 @@
+[
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents TikTok from reacting to screenshots and screen recordings.",
+    "id": "f9372615341e701bf75058c9:22",
+    "legacy_id": 21920,
+    "metadata_status": "verified",
+    "name": "Disable screen capture detection",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a switch on the Privacy page that stops ByteDance AppLog analytics, AppsFlyer attribution, explicit Firebase screen reports and TikTok's Npth or MonitorCrash startup reporting. TikTok's own diagnostics go quiet with them. Off by default. Switch: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:23",
+    "legacy_id": 21921,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps long-pressing Share from opening TikTok's quick-share interaction. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:24",
+    "legacy_id": 21922,
+    "metadata_status": "verified",
+    "name": "Disable the long press quick share",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps holding Like from opening TikTok's repost action. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:25",
+    "legacy_id": 21923,
+    "metadata_status": "verified",
+    "name": "Disable the long press repost",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Lets double taps do nothing or open the current video's comments. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:26",
+    "legacy_id": 21924,
+    "metadata_status": "verified",
+    "name": "Double-tap controls",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds watermark-free downloads, comment sticker saving, configurable folders, and filename templates. It ignores the flag TikTok sets when a creator turns downloading off, so those videos save too. Network fetches accept public HTTPS addresses and follow at most five checked redirects. Switch: Hushfeed settings > Downloads.",
+    "id": "f9372615341e701bf75058c9:27",
+    "legacy_id": 21925,
+    "metadata_status": "verified",
+    "name": "Downloads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes TikTok's reviewed Fresco animated-frame cache lookups return no cached frame. This can increase decoding work or change animation playback.",
+    "id": "f9372615341e701bf75058c9:28",
+    "legacy_id": 21926,
+    "metadata_status": "verified",
+    "name": "Drop the animated image cache",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns on TikTok's own voice comment recording and publishing entry points for accounts that do not have them.",
+    "id": "f9372615341e701bf75058c9:29",
+    "legacy_id": 21927,
+    "metadata_status": "verified",
+    "name": "Enable voice comments",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Show the full Activity and New followers lists instead of collapsing them behind a View all button. Switch: Hushfeed settings > Inbox.",
+    "id": "f9372615341e701bf75058c9:30",
+    "legacy_id": 21928,
+    "metadata_status": "verified",
+    "name": "Expand activity list",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a menu for viewing and overriding supported TikTok feature flags and configuration values.",
+    "id": "f9372615341e701bf75058c9:31",
+    "legacy_id": 21929,
+    "metadata_status": "verified",
+    "name": "Feature Gate Lab",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Feature Gate Lab"
+    ],
+    "description": "Records feature gate reads while you use TikTok and compares them with their previous values. Switch: Hushfeed settings > Diagnostics.",
+    "id": "f9372615341e701bf75058c9:32",
+    "legacy_id": 21930,
+    "metadata_status": "verified",
+    "name": "Feature Gate Recorder",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides feed ads, including videos with creator commission disclosures, TikTok Shop items, livestreams, LIVE replays, stories, photo posts, paid partnerships, AI labeled videos, location-tagged videos, verified accounts, series, mini dramas, playlists, the playlist bar, the floating event badge and inserted cards. Videos can also be filtered by your own caption words, creator handles or patterns, sound names, length, the country they were posted from, the language of their original caption and their view, like, comment, favorite and share counts. A short list of creator exceptions lets chosen accounts through the filters on the kind of post, its labels, age, length and counts. Ads, blocked creators, words, sounds, countries and caption languages, paid and Shop content, LIVE and seen videos still apply to them. Sponsored cards are dropped from the profile video viewer, the search grids and the Friends tab as well as the feed, and so are the mid-roll ads TikTok splices into a video pager after the list has loaded and the ads a creator's video pager asks for on its own. The share prompt that appears after a like can be hidden too, and so can TikTok Shop's Products block and product cards in search results. Switch: Hushfeed settings > Feed filter.",
+    "id": "f9372615341e701bf75058c9:33",
+    "legacy_id": 21931,
+    "metadata_status": "verified",
+    "name": "Feed filter",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Controls which loaded top and bottom navigation tabs remain visible, blocks newly added tabs when requested, can hide the Following and For You names above the feed while swiping between them keeps working, can hide the Tako AI bubble and the unread badges on the bottom tabs, can keep For You from reloading on a Home tap or a pull down, brings TikTok's LIVE button back to the feed's corner when the LIVE tab is taken off either bar, can open TikTok on Following, Friends, Inbox or Profile, can show TikTok's own feed buttons without a screen reader, and opens Hushfeed's settings from a long press on Home. Switch: Hushfeed settings > Feed tabs.",
+    "id": "f9372615341e701bf75058c9:34",
+    "legacy_id": 21932,
+    "metadata_status": "verified",
+    "name": "Feed tab navigation",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Puts the whole of a vertical video on screen instead of cropping it to the window. On a 9:16 phone nothing changes, because the video already fills it. On a Fold opened up, a squarer phone or a split view the sides or the ends stop being cut off. A second switch, Fill the screen with the video, does the opposite and crops the video until it covers the screen, for the phones where TikTok leaves a black strip under a 9:16 video. Switches: Hushfeed settings > Playback.",
+    "id": "f9372615341e701bf75058c9:35",
+    "legacy_id": 21933,
+    "metadata_status": "verified",
+    "name": "Fit the video to the screen",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores Google account sign-in after patching.",
+    "id": "f9372615341e701bf75058c9:36",
+    "legacy_id": 21934,
+    "metadata_status": "verified",
+    "name": "Fix Google login",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Shows comments beside the video on windows wider than a configurable threshold. Off by default. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:37",
+    "legacy_id": 21935,
+    "metadata_status": "verified",
+    "name": "Foldable split comment view",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reads what the server said about a follow. A follow TikTok turns down comes back looking like a success, so this reports the refusal and its reason once per session and, with diagnostic logging on, writes the whole exchange to the report.",
+    "id": "f9372615341e701bf75058c9:38",
+    "legacy_id": 21936,
+    "metadata_status": "verified",
+    "name": "Follow diagnostics",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Block hooked story, profile and typing reports. The switch shows local activity and retains a warning after a known story-reporting failure. Viewer-list privacy still needs a two-account check. Online status is unchanged. Switch and diagnostics: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:39",
+    "legacy_id": 21937,
+    "metadata_status": "verified",
+    "name": "Ghost mode",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Feed filter"
+    ],
+    "description": "Keeps a local record of the videos you have watched and hides them when the feed sends them again. The record never leaves the device and can be cleared from settings. Switch: Hushfeed settings > Feed filter.",
+    "id": "f9372615341e701bf75058c9:40",
+    "legacy_id": 21938,
+    "metadata_status": "verified",
+    "name": "Hide already seen videos",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a default-off setting to hide the CAPTCHA dialogs raised while browsing or watching LIVE. Login and account verification stay visible, and so does any CAPTCHA the server raised over a follow, like, comment or repost, because hiding one of those makes the action fail with no message. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:41",
+    "legacy_id": 21939,
+    "metadata_status": "verified",
+    "name": "Hide CAPTCHA popups",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops the brand animation that plays over the comment sheet when a comment matches an advertiser's trigger word or emoji. Switch: Hushfeed settings > Comments.",
+    "id": "f9372615341e701bf75058c9:42",
+    "legacy_id": 21940,
+    "metadata_status": "verified",
+    "name": "Hide comment popup ads",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides automatic emoji and sticker suggestions above the comment box. Manual buttons stay available. Switch: Hushfeed settings > Comments.",
+    "id": "f9372615341e701bf75058c9:43",
+    "legacy_id": 21941,
+    "metadata_status": "verified",
+    "name": "Hide comment typing suggestions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hide the + follow button below creator avatars in video feeds. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:44",
+    "legacy_id": 21942,
+    "metadata_status": "verified",
+    "name": "Hide feed follow button",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hide the LIVE button at the top left of video feeds. Shares its switch with the LIVE entrance option of Hide video overlays, and stops the button before it is built rather than hiding it once it is on screen. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:45",
+    "legacy_id": 21943,
+    "metadata_status": "verified",
+    "name": "Hide feed LIVE button",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hide the save button from video feeds. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:46",
+    "legacy_id": 21944,
+    "metadata_status": "verified",
+    "name": "Hide feed save button",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hide the search button at the top right of video feeds. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:47",
+    "legacy_id": 21945,
+    "metadata_status": "verified",
+    "name": "Hide feed search button",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Removes floating promotional badges from the feed and can hide the rewards shortcut on Profile. Switches: Hushfeed settings > Feed screen and App.",
+    "id": "f9372615341e701bf75058c9:48",
+    "legacy_id": 21946,
+    "metadata_status": "verified",
+    "name": "Hide floating promotions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a switch for each row and header control on the Inbox tab, so message requests, TikTok Tako, TikTok Shop, the stories tray and the rest can be hidden individually. Switch: Hushfeed settings > Inbox.",
+    "id": "f9372615341e701bf75058c9:49",
+    "legacy_id": 21947,
+    "metadata_status": "verified",
+    "name": "Hide inbox items",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides the stories tray at the top of the Inbox and restores it immediately when the switch is turned off. Shares its switch with Hide inbox items. Switch: Hushfeed settings > Inbox.",
+    "id": "f9372615341e701bf75058c9:50",
+    "legacy_id": 21948,
+    "metadata_status": "verified",
+    "name": "Hide inbox stories",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Gives the patched APK the highest Android version code so Play shows Open instead of Update. TikTok's visible version stays the same in Morphe Manager. Off by default. Android won't install a lower-code APK over it, and uninstalling to return to a lower code can remove local TikTok data.",
+    "id": "f9372615341e701bf75058c9:51",
+    "legacy_id": 21949,
+    "metadata_status": "verified",
+    "name": "Hide Play Store update offer",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides the suggested searches TikTok offers on the search page before you type, and stops the page asking for them. Your own search history is left alone. A separate switch hides the search rewards banner and coin counter some regions get. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:52",
+    "legacy_id": 21950,
+    "metadata_status": "verified",
+    "name": "Hide search suggestions",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops the suggested accounts list from being built on the Activity, New followers and Inbox pages, and collapses every other People you may like card: the profile header, the Friends tab and the feed. Shares its switch with Hide inbox items. Switch: Hushfeed settings > Inbox.",
+    "id": "f9372615341e701bf75058c9:53",
+    "legacy_id": 21951,
+    "metadata_status": "verified",
+    "name": "Hide suggested accounts",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Empties the menu that opens on pressing and holding TikTok's icon on the home screen. The entries are built while the app runs rather than declared in it, and TikTok only rewrites them when it notices a difference, so this removes what is already published and answers the handover that would publish more. Turning it off asks TikTok to build them again. Tapping the icon still opens the app, and a shortcut pinned to a home screen is left alone. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:54",
+    "legacy_id": 21952,
+    "metadata_status": "verified",
+    "name": "Hide the launcher shortcuts",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Hide CAPTCHA popups"
+    ],
+    "description": "Hides TikTok's risk control CAPTCHA dialog, raised by its BdTuring service, which the browsing CAPTCHA patch does not cover. Answers the Hide CAPTCHA popups setting, never touches SMS or two factor verification, and never hides a check the server raised over a follow, like, comment or repost. Off by default.",
+    "id": "f9372615341e701bf75058c9:55",
+    "legacy_id": 21953,
+    "metadata_status": "verified",
+    "name": "Hide the risk control CAPTCHA",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides the visual search prompt TikTok lays over videos, the LIVE entrance in the top left corner, caption and music text, selected action buttons or their counts in the right column, survey cards and the status bar, which can also be hidden only while a LIVE room is open. Separate switches hide the Full screen button, location labels, the effect, template and CapCut tags above descriptions, and the Report button some regions get above the creator's picture, without removing videos or changing location permissions. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:56",
+    "legacy_id": 21954,
+    "metadata_status": "verified",
+    "name": "Hide video overlays",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Enables TikTok's own hold, pull down and release gesture to lock the hold speed, 2x unless Playback speed sets another. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:57",
+    "legacy_id": 21955,
+    "metadata_status": "verified",
+    "name": "Hold-and-slide 2x lock",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps TikTok's JavaScript bridge off external pages in its in-app browser while leaving Activity center, Watch history, shop checkout and CAPTCHA working. The switch is off until you turn it on. Switch: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:58",
+    "legacy_id": 21956,
+    "metadata_status": "verified",
+    "name": "In-app browser privacy guard",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Sends one message a day to a person you pick, at a time you pick, so a message streak with them keeps going on days you don't open TikTok. The message goes through TikTok's own notification reply. Adds the exact alarm and start at boot permissions the daily alarm needs. Off until you turn it on: Hushfeed settings > Inbox.",
+    "id": "f9372615341e701bf75058c9:59",
+    "legacy_id": 21957,
+    "metadata_status": "verified",
+    "name": "Keep a streak going",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps TikTok's own background play on, whatever its server says, so the video you're watching keeps playing after you leave the app or turn the screen off, and TikTok's media notification pauses and resumes it. It also covers photo posts and the videos on your own profile, private ones included, which TikTok leaves out. A feed video plays to its end, because TikTok doesn't loop or move on in the feed while it's in the background, and another app's sound still pauses it. TikTok's own background play switch in the long-press menu stays on while this is on. Off by default. Restart TikTok after changing it. Switch: Hushfeed settings > Playback.",
+    "id": "f9372615341e701bf75058c9:60",
+    "legacy_id": 21958,
+    "metadata_status": "verified",
+    "name": "Keep playing in the background",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps the Favorites tab on your profile when TikTok's server puts the account into an experiment that empties it. Two people saw that after patching: the tab was there and the saved videos were not. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:61",
+    "legacy_id": 21959,
+    "metadata_status": "verified",
+    "name": "Keep the Favorites tab",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops TikTok asking the screen to run slower than it can, which it does by asking for the frame rate of the video it is playing. On a 90 or 120 Hz phone that ask takes the whole app down to that rate, scrolling included. A request that is not slower than the screen is left alone. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:62",
+    "legacy_id": 21960,
+    "metadata_status": "verified",
+    "name": "Keep the screen's refresh rate",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns off TikTok's buffer-preload gate and skips its push initialization task. Videos may start buffering later, and TikTok push notifications may stop.",
+    "id": "f9372615341e701bf75058c9:63",
+    "legacy_id": 21961,
+    "metadata_status": "verified",
+    "name": "Limit background traffic",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Answers TikTok's location requests with nothing: the last known location comes back empty and update requests never fire. The SIM and region spoof change the locale and timezone, not the coordinates. This patch stops the coordinates. Switch: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:64",
+    "legacy_id": 21962,
+    "metadata_status": "verified",
+    "name": "Location access governor",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button",
+      "Double-tap controls"
+    ],
+    "description": "Lets a long press on a video keep TikTok's own action, do nothing, open the video's comments, save the original sound, copy the link to the video or its sound, or look the sound up on YouTube Music. It can also turn a press on the left or right third of the screen into a jump back or forward, and make a long press on Comment, Share or Favorites play at the hold speed instead of opening TikTok's menu. Brings Double-tap controls with it, which supplies the comment control. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:65",
+    "legacy_id": 21963,
+    "metadata_status": "verified",
+    "name": "Long-press controls",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Answers TikTok's own checks of how it was signed and installed the way the Play Store app would. Its signature hash reads as TikTok's certificate and its installer reads as the Play Store. For a follow or a like that undoes itself on a refresh on a patched build. TikTok can also read the APK from native code, which no patch reaches, so it may not be enough on its own. Off by default. Switch: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:66",
+    "legacy_id": 21964,
+    "metadata_status": "verified",
+    "name": "Look like the store app",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Adds a movable button that mutes feed videos without touching the phone's volume, and a switch that does the same. The button also shows on a video opened from a profile, a hashtag or a sound, and mutes that one too. While muted, music from another app keeps playing, and DMs, stories and LIVE keep their sound. Switch: Hushfeed settings > Playback.",
+    "id": "f9372615341e701bf75058c9:67",
+    "legacy_id": 21965,
+    "metadata_status": "verified",
+    "name": "Mute feed videos",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Counts the requests TikTok's own API client sends, by domain and kind, and adds them to the diagnostic export. Video and image downloads and other companies' SDKs keep their own connections and aren't counted. Nothing about the requests is changed.",
+    "id": "f9372615341e701bf75058c9:68",
+    "legacy_id": 21966,
+    "metadata_status": "verified",
+    "name": "Network request report",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Adds a movable button that tells TikTok you aren't interested in the current video. It hides while comments are open. Off by default. Switch: Hushfeed settings > Feed filter.",
+    "id": "f9372615341e701bf75058c9:69",
+    "legacy_id": 21967,
+    "metadata_status": "verified",
+    "name": "Not interested button",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a switch for the notification saying somebody new followed you, and one for message streaks, neither of which TikTok lets you turn off. The follower switch drops the notification before Android is asked to post it, so nothing else in the drawer is affected. Switch: Hushfeed settings > Inbox.",
+    "id": "f9372615341e701bf75058c9:70",
+    "legacy_id": 21968,
+    "metadata_status": "verified",
+    "name": "Notification controls",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Opens profile and story website links in the system browser instead of TikTok's in-app browser. Switch: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:71",
+    "legacy_id": 21969,
+    "metadata_status": "verified",
+    "name": "Open external links directly",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Selects the lowest, highest or a target video quality for playback, adaptive streams included. A second choice caps quality on mobile data and only ever lowers it. Download quality has its own setting. Switch: Hushfeed settings > Playback.",
+    "id": "f9372615341e701bf75058c9:72",
+    "legacy_id": 21970,
+    "metadata_status": "verified",
+    "name": "Playback quality",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Remembers playback speed or applies a default to each new video, with custom menu choices up to 3x and your own speed for the hold gesture. Switch: Hushfeed settings > Playback.",
+    "id": "f9372615341e701bf75058c9:73",
+    "legacy_id": 21971,
+    "metadata_status": "verified",
+    "name": "Playback speed",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "SIM spoof"
+    ],
+    "description": "Matches locale, timezone and native region getters to the SIM preset, with a separate experimental store-region switch. Switch: Hushfeed settings > Region.",
+    "id": "f9372615341e701bf75058c9:74",
+    "legacy_id": 21972,
+    "metadata_status": "verified",
+    "name": "Region spoof",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Remembers clear display between videos, or enters it automatically after a chosen delay. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:75",
+    "legacy_id": 21973,
+    "metadata_status": "verified",
+    "name": "Remember clear display",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Empties TikTok's bundled C2PA and Microblink card-scanning assets, the Pitaya AI model libraries, the live-cast dynamic feature, and the ART log monitor probe. Saves about 12.5 MB of storage.",
+    "id": "f9372615341e701bf75058c9:76",
+    "legacy_id": 21974,
+    "metadata_status": "verified",
+    "name": "Remove content credential and card scanner assets",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Empties TikTok's reviewed editor, camera-effect and face-model assets. The Create tab and all recording, editing and effects tools stop working. Saves about 40 MB of storage. Switch: Hushfeed settings > App behavior.",
+    "id": "f9372615341e701bf75058c9:77",
+    "legacy_id": 21975,
+    "metadata_status": "verified",
+    "name": "Remove creation tools",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Empties TikTok's link-mic and LIVE match or minigame assets, then skips its gift-effect widget setup. Co-hosting, games and animated gifts may stop. The APK gets about 3 MB smaller.",
+    "id": "f9372615341e701bf75058c9:78",
+    "legacy_id": 21976,
+    "metadata_status": "verified",
+    "name": "Remove LIVE extras",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Empties unselected TikTok language bundles while always keeping English. Selected language codes are checked before any file changes. With the default choices it saves about 26 MB of storage.",
+    "id": "f9372615341e701bf75058c9:79",
+    "legacy_id": 21977,
+    "metadata_status": "verified",
+    "name": "Remove unused language packs",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes such as en, es, pt, fr or de. English is always kept.",
+        "key": "locales",
+        "required": false,
+        "title": "Languages to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Follow diagnostics"
+    ],
+    "description": "With diagnostic logging on, records a repost request, TikTok's answer, and the next repost-list read without recording the video's ID or note.",
+    "id": "f9372615341e701bf75058c9:80",
+    "legacy_id": 21978,
+    "metadata_status": "verified",
+    "name": "Repost diagnostics",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops TikTok listening to the motion sensors it polls for device fingerprinting: the accelerometer, gyroscope, magnetometer, rotation, gravity and linear acceleration sensors. Switch: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:81",
+    "legacy_id": 21979,
+    "metadata_status": "verified",
+    "name": "Resource and battery governor",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Continues supported videos from where playback stopped when returning after a scroll. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:82",
+    "legacy_id": 21980,
+    "metadata_status": "verified",
+    "name": "Resume videos after scrolling",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Removes tracking parameters from TikTok links before they are shared, and can put a host of your choosing in place of tiktok.com. Switch: Hushfeed settings > Privacy.",
+    "id": "f9372615341e701bf75058c9:83",
+    "legacy_id": 21981,
+    "metadata_status": "verified",
+    "name": "Sanitize sharing links",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds the Hushfeed settings screen to TikTok and keeps its entry first in Settings and privacy.",
+    "id": "f9372615341e701bf75058c9:84",
+    "legacy_id": 21982,
+    "metadata_status": "verified",
+    "name": "Settings",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides chosen people, share options or the whole Send to row of the share sheet, and a profile's or a LIVE's share sheet can hide a different set from a video's. Apps you pick can be added to the Share via row. Switch: Hushfeed settings > Share sheet.",
+    "id": "f9372615341e701bf75058c9:85",
+    "legacy_id": 21983,
+    "metadata_status": "verified",
+    "name": "Share sheet tools",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Show the country a video was posted from next to the creator's name on the feed. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:86",
+    "legacy_id": 21984,
+    "metadata_status": "verified",
+    "name": "Show author region",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows TikTok's search entry in the LIVE drawer where supported.",
+    "id": "f9372615341e701bf75058c9:87",
+    "legacy_id": 21985,
+    "metadata_status": "verified",
+    "name": "Show LIVE search",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Shows TikTok's native video seekbar where it would normally be hidden, including when one of TikTok's experiments takes it off every video but paid content. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:88",
+    "legacy_id": 21986,
+    "metadata_status": "verified",
+    "name": "Show the progress bar",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows TikTok's video preview thumbnail while dragging the seekbar.",
+    "id": "f9372615341e701bf75058c9:89",
+    "legacy_id": 21987,
+    "metadata_status": "verified",
+    "name": "Show the progress bar thumbnail",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Spoofs SIM country and operator information retrieved by TikTok, with country presets for easier setup. Switch: Hushfeed settings > Region.",
+    "id": "f9372615341e701bf75058c9:90",
+    "legacy_id": 21988,
+    "metadata_status": "verified",
+    "name": "SIM spoof",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Play videos TikTok has classified without the warning overlay asking to be tapped through first. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:91",
+    "legacy_id": 21989,
+    "metadata_status": "verified",
+    "name": "Skip content warnings",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops TikTok's splash-ad preload tasks and returns false from its reviewed splash and TopView gates. Other startup behavior is left in place.",
+    "id": "f9372615341e701bf75058c9:92",
+    "legacy_id": 21990,
+    "metadata_status": "verified",
+    "name": "Skip the splash ad",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips TikTok's background and boot-finished device-ID update-check tasks. This may suppress some in-app update checks. Play Store updates are unaffected.",
+    "id": "f9372615341e701bf75058c9:93",
+    "legacy_id": 21991,
+    "metadata_status": "verified",
+    "name": "Skip update checks",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps TikTok's full-screen viewer on a video when it ends instead of moving to the next one, and leaves out its next-video countdown. Swiping still moves on. Switch: Hushfeed settings > Playback.",
+    "id": "f9372615341e701bf75058c9:94",
+    "legacy_id": 21992,
+    "metadata_status": "verified",
+    "name": "Stay on the video in full screen",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps TikTok's Pitaya on-device AI plugin from starting, so its native engine doesn't load and it doesn't get a copy of every analytics event TikTok logs. TikTok carries on as if the Pitaya plugin weren't installed. Remove content credential and card scanner assets also empties some of Pitaya's libraries.",
+    "id": "f9372615341e701bf75058c9:95",
+    "legacy_id": 21993,
+    "metadata_status": "verified",
+    "name": "Stop on-device AI profiling",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops videos at the end instead of replaying them. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:96",
+    "legacy_id": 21994,
+    "metadata_status": "verified",
+    "name": "Stop video looping",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Advanced downloads",
+      "Block author button"
+    ],
+    "description": "Saves subtitle files beside downloaded videos and adds caption size, background, and clear-display options. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:97",
+    "legacy_id": 21995,
+    "metadata_status": "verified",
+    "name": "Subtitle tools",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button",
+      "Double-tap controls"
+    ],
+    "description": "Lets a left swipe on a feed video do nothing or open its comments instead of opening the creator's profile. Switch: Hushfeed settings > Feed screen.",
+    "id": "f9372615341e701bf75058c9:98",
+    "legacy_id": 21996,
+    "metadata_status": "verified",
+    "name": "Swipe-left controls",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds comment translation controls using TikTok's translation system, with selectable language exclusions. Switch: Hushfeed settings > Comments.",
+    "id": "f9372615341e701bf75058c9:99",
+    "legacy_id": 21997,
+    "metadata_status": "verified",
+    "name": "Translate comments",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Uses TikTok's non-personalized search mode instead of its saved account choice. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:100",
+    "legacy_id": 21998,
+    "metadata_status": "verified",
+    "name": "Use non-personalized search",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "f9372615341e701bf75058c9",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.0.3",
+        "47.1.3",
+        "47.1.4"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Draws TikTok's text in your device's font instead of TikTok Sans. The icons, the gift animations and the @ and # glyphs keep their own fonts. Off by default. Restart after changing. Switch: Hushfeed settings > App.",
+    "id": "f9372615341e701bf75058c9:101",
+    "legacy_id": 21999,
+    "metadata_status": "verified",
+    "name": "Use system font",
+    "options": [],
+    "packages": [
+      {
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3",
+          "47.1.3",
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.66.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  }
+]
