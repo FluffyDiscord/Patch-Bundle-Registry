@@ -7623,7 +7623,7 @@
     "patcher_runtime": null,
     "provider_digest": "sha256:72f6631c9c1ccf5a85381f11b6c8436a8f9b38f9808de0ffd5f58e1025068593",
     "release_status": "available",
-    "release_url": null,
+    "release_url": "https://github.com/sashade8-ship-it/dual-vot-patches/releases/tag/v1.47.0-dualvot.8.5.3",
     "signature_download_url": "N/A",
     "source_id": "56bd51655ff0d965",
     "version": "v1.47.0-dualvot.8.5.3"
@@ -31711,6 +31711,48 @@
     "signature_download_url": null,
     "source_id": "8fc032e236d8f5a5",
     "version": "v1.46.0"
+  },
+  {
+    "bundle_type": "Morphe:V1",
+    "channels": [
+      "dev"
+    ],
+    "created_at": "2026-10-11T19:23:26Z",
+    "description": "## [1.31.1-dev.1](https://github.com/Zanuaimi/UniPatches/compare/v1.31.0...v1.31.1-dev.1) (2026-10-11)\n\n### 🔧 Improvements\n\n* **compatibility:** Improve legacy app compatibility patch by replacing hardcoded solutions with generic, and adding more presets like android 4 and 5 ([21e5e44](https://github.com/Zanuaimi/UniPatches/commit/21e5e44f3608bc033b3612fe797a345b3c7548bb))\n",
+    "detail_file": "bundles/b49beacc378e33ce863d5c4e.json",
+    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.1-dev.1/patches-1.31.1-dev.1.mpp",
+    "ecosystem": "morphe",
+    "extracted_provider_digest": null,
+    "extraction_status": "unverified",
+    "extraction_terminal": false,
+    "file_hash": null,
+    "id": "b49beacc378e33ce863d5c4e",
+    "import_urls": {
+      "dev": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=prerelease"
+    },
+    "integrations": null,
+    "is_latest": true,
+    "is_prerelease": true,
+    "legacy_id": 8925,
+    "metadata_status": "stale",
+    "need_patches_update": true,
+    "packages": [
+      "com.fingersoft.hillclimb"
+    ],
+    "patch_count": 0,
+    "patch_list_available": true,
+    "patch_metadata_schema_version": 3,
+    "patch_metadata_version": "v1.31.0-dev.1",
+    "patch_refresh_attempted_at": null,
+    "patcher_failure_config_hash": null,
+    "patcher_failure_fingerprint": null,
+    "patcher_runtime": null,
+    "provider_digest": "sha256:f43a8c5977ea9f3ef93c5053e1c65a216d504e0c83e0e6b0f6690d8b3f991ce4",
+    "release_status": "unverified",
+    "release_url": null,
+    "signature_download_url": null,
+    "source_id": "308c1f9a8278402c",
+    "version": "v1.31.1-dev.1"
   },
   {
     "bundle_type": "Morphe:V1",
@@ -85183,6 +85225,50 @@
   },
   {
     "bundle_type": "Morphe:V1",
+    "channels": [
+      "latest",
+      "stable"
+    ],
+    "created_at": "2026-10-11T19:27:06Z",
+    "description": "## [1.31.1](https://github.com/Zanuaimi/UniPatches/compare/v1.31.0...v1.31.1) (2026-10-11)\n\n### 🔧 Improvements\n\n* **compatibility:** Improve legacy app compatibility patch by replacing hardcoded solutions with generic, and adding more presets like android 4 and 5 ([21e5e44](https://github.com/Zanuaimi/UniPatches/commit/21e5e44f3608bc033b3612fe797a345b3c7548bb))\n",
+    "detail_file": "bundles/883f730476f93bf1e2a87c1e.json",
+    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.1/patches-1.31.1.mpp",
+    "ecosystem": "morphe",
+    "extracted_provider_digest": null,
+    "extraction_status": "unverified",
+    "extraction_terminal": false,
+    "file_hash": null,
+    "id": "883f730476f93bf1e2a87c1e",
+    "import_urls": {
+      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=any",
+      "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=stable"
+    },
+    "integrations": null,
+    "is_latest": true,
+    "is_prerelease": false,
+    "legacy_id": 8923,
+    "metadata_status": "stale",
+    "need_patches_update": true,
+    "packages": [
+      "com.fingersoft.hillclimb"
+    ],
+    "patch_count": 0,
+    "patch_list_available": true,
+    "patch_metadata_schema_version": 3,
+    "patch_metadata_version": "v1.31.0",
+    "patch_refresh_attempted_at": null,
+    "patcher_failure_config_hash": null,
+    "patcher_failure_fingerprint": null,
+    "patcher_runtime": null,
+    "provider_digest": "sha256:4feff79ba4be76a12d7a8708b6565f7ea2973e16ac34613d5917d57d8ac48fe8",
+    "release_status": "unverified",
+    "release_url": null,
+    "signature_download_url": null,
+    "source_id": "308c1f9a8278402c",
+    "version": "v1.31.1"
+  },
+  {
+    "bundle_type": "Morphe:V1",
     "channels": [],
     "created_at": "2026-10-09T05:50:40Z",
     "description": "## [1.3.0-dev.1](https://github.com/JacksonJones2003/immersive-keyboard-patches/compare/v1.2.2...v1.3.0-dev.1) (2026-10-09)\n\n### ✨ New Features\n\n* Square off the keyboard's top corners and add Emoji Key On Right patch ([4a56910](https://github.com/JacksonJones2003/immersive-keyboard-patches/commit/4a56910fc17a96d328c7e4443682ed724d138fee))\n",
@@ -128022,6 +128108,51 @@
     "signature_download_url": null,
     "source_id": "e18e169dae6ee763",
     "version": "v2.2.0-dev.1"
+  },
+  {
+    "bundle_type": "Morphe:V1",
+    "channels": [
+      "dev",
+      "latest"
+    ],
+    "created_at": "2026-10-11T19:15:30Z",
+    "description": "## [1.28.0-dev.11](https://github.com/AngelDark92/xr-porting-hub/compare/v1.28.0-dev.10...v1.28.0-dev.11) (2026-10-11)\n\n### 🐛 Bug Fixes\n\n* Keep 4XVR HDR surface routing verifiable so video playback runs ([01c1d3e](https://github.com/AngelDark92/xr-porting-hub/commit/01c1d3edfa2b287cb9a4caa5a58fa510596b8c43))\n",
+    "detail_file": "bundles/d43a5f7f372024b69708f38e.json",
+    "download_url": "https://github.com/AngelDark92/xr-porting-hub/releases/download/v1.28.0-dev.11/patches-1.28.0-dev.11.mpp",
+    "ecosystem": "morphe",
+    "extracted_provider_digest": null,
+    "extraction_status": "unverified",
+    "extraction_terminal": false,
+    "file_hash": null,
+    "id": "d43a5f7f372024b69708f38e",
+    "import_urls": {
+      "dev": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FAngelDark92%2Fsteamlink-patches&version=latest&channel=prerelease",
+      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FAngelDark92%2Fsteamlink-patches&version=latest&channel=any"
+    },
+    "integrations": null,
+    "is_latest": true,
+    "is_prerelease": true,
+    "legacy_id": 8926,
+    "metadata_status": "stale",
+    "need_patches_update": true,
+    "packages": [
+      "cn.vr4p.oculus4xvrplayerov",
+      "com.valvesoftware.steamlinkvr"
+    ],
+    "patch_count": 0,
+    "patch_list_available": true,
+    "patch_metadata_schema_version": 3,
+    "patch_metadata_version": "v1.28.0-dev.10",
+    "patch_refresh_attempted_at": null,
+    "patcher_failure_config_hash": null,
+    "patcher_failure_fingerprint": null,
+    "patcher_runtime": null,
+    "provider_digest": "sha256:ff06fbfb614ed3c64d4d7cc74fa3b476d0a0d2ebfbf4269fdc33cd29b983feb6",
+    "release_status": "unverified",
+    "release_url": null,
+    "signature_download_url": null,
+    "source_id": "951aef0d0813783c",
+    "version": "v1.28.0-dev.11"
   },
   {
     "bundle_type": "Morphe:V1",
@@ -330495,137 +330626,6 @@
     "signature_download_url": null,
     "source_id": "56bd51655ff0d965",
     "version": "v1.40.0-dev.6-dualvot.8.3"
-  },
-  {
-    "bundle_type": "Morphe:V1",
-    "channels": [
-      "dev",
-      "latest"
-    ],
-    "created_at": "2026-10-11T19:15:30Z",
-    "description": "## [1.28.0-dev.11](https://github.com/AngelDark92/xr-porting-hub/compare/v1.28.0-dev.10...v1.28.0-dev.11) (2026-10-11)\n\n### 🐛 Bug Fixes\n\n* Keep 4XVR HDR surface routing verifiable so video playback runs ([01c1d3e](https://github.com/AngelDark92/xr-porting-hub/commit/01c1d3edfa2b287cb9a4caa5a58fa510596b8c43))\n",
-    "detail_file": "bundles/d43a5f7f372024b69708f38e.json",
-    "download_url": "https://github.com/AngelDark92/xr-porting-hub/releases/download/v1.28.0-dev.11/patches-1.28.0-dev.11.mpp",
-    "ecosystem": "morphe",
-    "extracted_provider_digest": null,
-    "extraction_status": "unverified",
-    "extraction_terminal": false,
-    "file_hash": null,
-    "id": "d43a5f7f372024b69708f38e",
-    "import_urls": {
-      "dev": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FAngelDark92%2Fsteamlink-patches&version=latest&channel=prerelease",
-      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FAngelDark92%2Fsteamlink-patches&version=latest&channel=any"
-    },
-    "integrations": null,
-    "is_latest": true,
-    "is_prerelease": true,
-    "legacy_id": 8926,
-    "metadata_status": "stale",
-    "need_patches_update": true,
-    "packages": [
-      "cn.vr4p.oculus4xvrplayerov",
-      "com.valvesoftware.steamlinkvr"
-    ],
-    "patch_count": 0,
-    "patch_list_available": true,
-    "patch_metadata_schema_version": 3,
-    "patch_metadata_version": "v1.28.0-dev.10",
-    "patch_refresh_attempted_at": null,
-    "patcher_failure_config_hash": null,
-    "patcher_failure_fingerprint": null,
-    "patcher_runtime": null,
-    "provider_digest": "sha256:ff06fbfb614ed3c64d4d7cc74fa3b476d0a0d2ebfbf4269fdc33cd29b983feb6",
-    "release_status": "unverified",
-    "release_url": null,
-    "signature_download_url": "N/A",
-    "source_id": "951aef0d0813783c",
-    "version": "v1.28.0-dev.11"
-  },
-  {
-    "bundle_type": "Morphe:V1",
-    "channels": [
-      "dev"
-    ],
-    "created_at": "2026-10-11T19:23:26Z",
-    "description": "## [1.31.1-dev.1](https://github.com/Zanuaimi/UniPatches/compare/v1.31.0...v1.31.1-dev.1) (2026-10-11)\n\n### 🔧 Improvements\n\n* **compatibility:** Improve legacy app compatibility patch by replacing hardcoded solutions with generic, and adding more presets like android 4 and 5 ([21e5e44](https://github.com/Zanuaimi/UniPatches/commit/21e5e44f3608bc033b3612fe797a345b3c7548bb))\n",
-    "detail_file": "bundles/b49beacc378e33ce863d5c4e.json",
-    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.1-dev.1/patches-1.31.1-dev.1.mpp",
-    "ecosystem": "morphe",
-    "extracted_provider_digest": null,
-    "extraction_status": "unverified",
-    "extraction_terminal": false,
-    "file_hash": null,
-    "id": "b49beacc378e33ce863d5c4e",
-    "import_urls": {
-      "dev": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=prerelease"
-    },
-    "integrations": null,
-    "is_latest": true,
-    "is_prerelease": true,
-    "legacy_id": 8925,
-    "metadata_status": "stale",
-    "need_patches_update": true,
-    "packages": [
-      "com.fingersoft.hillclimb"
-    ],
-    "patch_count": 0,
-    "patch_list_available": true,
-    "patch_metadata_schema_version": 3,
-    "patch_metadata_version": "v1.31.0-dev.1",
-    "patch_refresh_attempted_at": null,
-    "patcher_failure_config_hash": null,
-    "patcher_failure_fingerprint": null,
-    "patcher_runtime": null,
-    "provider_digest": "sha256:f43a8c5977ea9f3ef93c5053e1c65a216d504e0c83e0e6b0f6690d8b3f991ce4",
-    "release_status": "unverified",
-    "release_url": null,
-    "signature_download_url": "N/A",
-    "source_id": "308c1f9a8278402c",
-    "version": "v1.31.1-dev.1"
-  },
-  {
-    "bundle_type": "Morphe:V1",
-    "channels": [
-      "latest",
-      "stable"
-    ],
-    "created_at": "2026-10-11T19:27:06Z",
-    "description": "## [1.31.1](https://github.com/Zanuaimi/UniPatches/compare/v1.31.0...v1.31.1) (2026-10-11)\n\n### 🔧 Improvements\n\n* **compatibility:** Improve legacy app compatibility patch by replacing hardcoded solutions with generic, and adding more presets like android 4 and 5 ([21e5e44](https://github.com/Zanuaimi/UniPatches/commit/21e5e44f3608bc033b3612fe797a345b3c7548bb))\n",
-    "detail_file": "bundles/883f730476f93bf1e2a87c1e.json",
-    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.1/patches-1.31.1.mpp",
-    "ecosystem": "morphe",
-    "extracted_provider_digest": null,
-    "extraction_status": "unverified",
-    "extraction_terminal": false,
-    "file_hash": null,
-    "id": "883f730476f93bf1e2a87c1e",
-    "import_urls": {
-      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=any",
-      "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=stable"
-    },
-    "integrations": null,
-    "is_latest": true,
-    "is_prerelease": false,
-    "legacy_id": 8923,
-    "metadata_status": "stale",
-    "need_patches_update": true,
-    "packages": [
-      "com.fingersoft.hillclimb"
-    ],
-    "patch_count": 0,
-    "patch_list_available": true,
-    "patch_metadata_schema_version": 3,
-    "patch_metadata_version": "v1.31.0",
-    "patch_refresh_attempted_at": null,
-    "patcher_failure_config_hash": null,
-    "patcher_failure_fingerprint": null,
-    "patcher_runtime": null,
-    "provider_digest": "sha256:4feff79ba4be76a12d7a8708b6565f7ea2973e16ac34613d5917d57d8ac48fe8",
-    "release_status": "unverified",
-    "release_url": null,
-    "signature_download_url": "N/A",
-    "source_id": "308c1f9a8278402c",
-    "version": "v1.31.1"
   },
   {
     "bundle_type": "Morphe:V1",
