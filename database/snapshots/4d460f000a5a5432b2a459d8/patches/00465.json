@@ -1,0 +1,3299 @@
+[
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables orphan Huawei HMS, AGConnect and OTA update SDK components: the HMS bridge and enable-service activities, AGConnect service discovery and initializer, Huawei's in-app OTA updater, package installer and file provider, and the account sign-in hub activities. Strips the AppGallery common-data permission. Inert without Huawei AppGallery installed.",
+    "id": "28b229e2c4ca1edf66a1d791:8",
+    "legacy_id": 49565,
+    "metadata_status": "verified",
+    "name": "Disable Huawei store components",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Sets android:requestLegacyExternalStorage=false on the application element, confining the app to scoped storage — its own directories and media collections instead of raw access to every app's shared files. Only affects apps targeting Android 10; file-manager-style apps lose raw shared-storage paths.",
+    "id": "28b229e2c4ca1edf66a1d791:9",
+    "legacy_id": 49566,
+    "metadata_status": "verified",
+    "name": "Disable legacy external storage",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables android:showWhenLocked and android:turnScreenOn on every activity that declared them, so no app screen can display over the lock screen and no activity can wake the screen by itself. Stalkerware and scareware use lock-screen overlays to fake unlock prompts and push alerts while the phone is locked; alarm, incoming-call and 2FA screens lose their over-lock UX. Both removals are on by default — open the patch options (gear) to deselect one.",
+    "id": "28b229e2c4ca1edf66a1d791:10",
+    "legacy_id": 49567,
+    "metadata_status": "verified",
+    "name": "Disable lock-screen display",
+    "options": [
+      {
+        "default": true,
+        "description": "No app screen can display over the lock screen anymore — the lock-screen overlay channel dies with it.",
+        "key": "stripShowWhenLocked",
+        "required": false,
+        "title": "Disable show-when-locked",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "No activity can wake the screen by itself anymore — ad and spyware screen-wake behavior goes with it.",
+        "key": "stripTurnScreenOn",
+        "required": false,
+        "title": "Disable turn-screen-on",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables orphan OneStore (Korean GAA SDK) components: the IAP proxy activity and sign-in activity. Inert without OneStore installed.",
+    "id": "28b229e2c4ca1edf66a1d791:11",
+    "legacy_id": 49568,
+    "metadata_status": "verified",
+    "name": "Disable OneStore components",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.samruston.hurry": [
+        "30.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the signature-tamper crash and the Play-licensing error dialog and shutdown that fire without Google Play services.",
+    "id": "28b229e2c4ca1edf66a1d791:12",
+    "legacy_id": 49569,
+    "metadata_status": "verified",
+    "name": "Disable Pairip integrity and license checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.samruston.hurry",
+        "icon_url": null,
+        "name": "com.samruston.hurry",
+        "versions": [
+          "30.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables orphan RuStore SDK components: the payment activity, pay and imaging content providers, and the metrics event job service. Inert without RuStore installed.",
+    "id": "28b229e2c4ca1edf66a1d791:13",
+    "legacy_id": 49570,
+    "metadata_status": "verified",
+    "name": "Disable RuStore components",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables orphan Samsung In-App Purchase SDK components: the dialog, package-check, account, payment and subscription-plan activities. Strips the Samsung IAP billing permission. Inert without Samsung Galaxy Store installed.",
+    "id": "28b229e2c4ca1edf66a1d791:14",
+    "legacy_id": 49571,
+    "metadata_status": "verified",
+    "name": "Disable Samsung IAP components",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": [
+        "81006 (8.1.6)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Nova Launcher 8.1.6's Sesame third-party integrations (Spotify, OneDrive, Twitch, Slack, Discord, Dropbox, Deezer, GitHub): the integration ingest always returns 0 items, so no background or manual data pulls run and their APIs are never contacted. The Sesame engine and local search indexing continue to work.",
+    "id": "28b229e2c4ca1edf66a1d791:15",
+    "legacy_id": 49572,
+    "metadata_status": "verified",
+    "name": "Disable Sesame integrations",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.teslacoilsw.launcher",
+        "icon_url": null,
+        "name": "com.teslacoilsw.launcher",
+        "versions": [
+          "81006 (8.1.6)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": [
+        "81006 (8.1.6)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the bundled Sesame (Branch) deep-shortcut results from Nova Launcher's search on 8.1.6 by no-op'ing its results provider. Search still returns apps, contacts and settings.",
+    "id": "28b229e2c4ca1edf66a1d791:16",
+    "legacy_id": 49573,
+    "metadata_status": "verified",
+    "name": "Disable Sesame search results",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.teslacoilsw.launcher",
+        "icon_url": null,
+        "name": "com.teslacoilsw.launcher",
+        "versions": [
+          "81006 (8.1.6)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.appgenix.bizcal": [
+        "2.55.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Firebase completely (init provider, analytics, Crashlytics, Remote Config wiring, install UUID), turns off the sale promo push notifications, and prevents Fyber's crash handler from installing at process start.",
+    "id": "28b229e2c4ca1edf66a1d791:17",
+    "legacy_id": 49574,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.appgenix.bizcal",
+        "icon_url": null,
+        "name": "com.appgenix.bizcal",
+        "versions": [
+          "2.55.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables orphan Xiaomi billing client and Common IAP components: the proxy billing activities and payment/extra web activities they register. Inert without Xiaomi's store and payment service installed.",
+    "id": "28b229e2c4ca1edf66a1d791:18",
+    "legacy_id": 49575,
+    "metadata_status": "verified",
+    "name": "Disable Xiaomi store components",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "A cross-app IPC barrier for suspect apps: outbound intents to other packages are dropped (own-package traffic passes through), ContentResolver access to foreign authorities is blocked, runtime receivers become not-exported, and notification PendingIntents aimed at other apps become no-ops. The manifest sweep (providers unexported, <queries> stripped, HCE removed) always applies. Breaks share sheets, link opens, pickers and cross-app logins unless the destination package is in the allowlist. All guards are on by default — open the patch options (gear) to deselect or allowlist.",
+    "id": "28b229e2c4ca1edf66a1d791:19",
+    "legacy_id": 49576,
+    "metadata_status": "verified",
+    "name": "IPC guard (cross-app exfil barrier)",
+    "options": [
+      {
+        "default": true,
+        "description": "Rewrites startActivity/startService/bindService/sendBroadcast call sites through the allowlist — the main choke point for explicit cross-app transitions.",
+        "key": "guardIntents",
+        "required": false,
+        "title": "Guard outbound intents",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Rewrites ContentResolver query/insert/update/delete/call/open* call sites — foreign authorities blocked, own package and platform authorities allowed.",
+        "key": "guardProviders",
+        "required": false,
+        "title": "Guard content providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Rewrites registerReceiver call sites to add RECEIVER_NOT_EXPORTED on API 33+, closing the invisible-export receiver door.",
+        "key": "guardReceivers",
+        "required": false,
+        "title": "Force receivers not-exported",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Rewrites PendingIntent creation sites — foreign targets become self-targeted no-ops, so notification lures cannot reach other apps when the system fires them.",
+        "key": "guardPendingIntents",
+        "required": false,
+        "title": "Guard PendingIntents",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Comma-separated destination packages to allow through the barrier (your browser, gallery picker, etc.). The first entry is used as the browser for implicit ACTION_VIEW links.",
+        "key": "ipcGuardAllowedPackages",
+        "required": false,
+        "title": "Allowed packages",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Blocks all of the app's DNS resolution except the domains you allow: every non-allowlisted host resolves to 0.0.0.0, so no traffic leaves the device except to the hosts you list in the options (gear). Entries are suffix-matched — example.com also allows its subdomains. Unlike literal-based host blocking, this catches hosts the app fetches from configuration or redirects, not just shipped literals. The allowlist is baked at patch time; re-patch to change it.",
+    "id": "28b229e2c4ca1edf66a1d791:20",
+    "legacy_id": 49577,
+    "metadata_status": "verified",
+    "name": "Network host allowlist",
+    "options": [
+      {
+        "default": "",
+        "description": "Comma-separated domains allowed through the barrier (e.g. 'api.example.com, cdn.example.net'). An entry also allows every subdomain. Everything else resolves to 0.0.0.0. Leave empty to skip the patch — a full offline block is the Remove INTERNET permission patch's job.",
+        "key": "allowedDomains",
+        "required": false,
+        "title": "Allowed domains",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces android:allowBackup on the application element in the chosen direction. Disable excludes the app's private data — databases, preferences, tokens — from cloud auto backup, adb backup and device transfers (the privacy direction). Enable restores the platform default for apps that opted out, overriding the developer's protection of secrets and license tokens. Pick the direction in the patch options (gear); default is Disable.",
+    "id": "28b229e2c4ca1edf66a1d791:21",
+    "legacy_id": 49578,
+    "metadata_status": "verified",
+    "name": "Override auto backup",
+    "options": [
+      {
+        "default": "disable",
+        "description": "Which direction to force android:allowBackup.",
+        "key": "backupOverride",
+        "required": false,
+        "title": "Backup override",
+        "type": "kotlin.String",
+        "values": {
+          "Disable auto backup": "disable",
+          "Enable auto backup": "enable"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hardens the app against task-hijacking overlays (StrandHogg): clears the cloneable task affinity, disables activity re-parenting and pins launcher activities to singleTask so no other app can interleave phishing UI in front of this one. Recents behavior can change (relaunch resumes instead of restarting; splash launchers may act differently). All mitigations are on by default — open the patch options (gear) to deselect.",
+    "id": "28b229e2c4ca1edf66a1d791:22",
+    "legacy_id": 49579,
+    "metadata_status": "verified",
+    "name": "Prevent task hijacking (StrandHogg)",
+    "options": [
+      {
+        "default": true,
+        "description": "Sets android:taskAffinity to empty on the application element — nothing left for a malicious app to clone.",
+        "key": "stripTaskAffinity",
+        "required": false,
+        "title": "Clear task affinity",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Sets allowTaskReparenting=false on the application element and on every activity that declared it — the mechanism StrandHogg 2.0 used.",
+        "key": "stripTaskReparenting",
+        "required": false,
+        "title": "Disable task re-parenting",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Sets launchMode=singleTask on launcher activities, pinning the app's root so no other activity can share its task. The highest-impact toggle of the three on app behavior.",
+        "key": "forceSingleTaskLauncher",
+        "required": false,
+        "title": "Force launcher singleTask",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's ad-stack declarations — interest profiling, the advertising identifier and cross-app attribution measurement. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:23",
+    "legacy_id": 49580,
+    "metadata_status": "verified",
+    "name": "Remove ad & Privacy Sandbox permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Privacy Sandbox Topics — your advertising-interest profile.",
+        "key": "stripAdTopics",
+        "required": false,
+        "title": "ACCESS_ADSERVICES_TOPICS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The Privacy Sandbox advertising ID used for attribution and profiling.",
+        "key": "stripAdId",
+        "required": false,
+        "title": "ACCESS_AD_SERVICES_AD_ID",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Cross-app attribution measurement — install and conversion matching.",
+        "key": "stripAdAttribution",
+        "required": false,
+        "title": "ACCESS_ADSERVICES_ATTRIBUTION",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's calendar declarations — the read side harvests schedules offline, the write side injects phantom events into the trusted Calendar UI. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:24",
+    "legacy_id": 49581,
+    "metadata_status": "verified",
+    "name": "Remove calendar permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Schedules, attendees, meeting links and locations — rich metadata harvested offline.",
+        "key": "stripReadCalendar",
+        "required": false,
+        "title": "READ_CALENDAR",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Integrity attack: injects phantom events with attacker links into the trusted Calendar UI.",
+        "key": "stripWriteCalendar",
+        "required": false,
+        "title": "WRITE_CALENDAR",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's camera and flashlight permission declarations, capture included. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:25",
+    "legacy_id": 49582,
+    "metadata_status": "verified",
+    "name": "Remove camera & flashlight permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Capture of faces, documents and surroundings — works fully offline for later exfiltration.",
+        "key": "stripCamera",
+        "required": false,
+        "title": "CAMERA",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 14+ service-context camera capture behind a persistent-process notification.",
+        "key": "stripFgsCamera",
+        "required": false,
+        "title": "FOREGROUND_SERVICE_CAMERA",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy normal permission, deprecated since Android 6 — the modern torch (setTorchMode) needs no permission, so the declaration is dead weight; stripping is hygiene. Apps that branch on the permission check may hide their own torch button.",
+        "key": "stripFlashlight",
+        "required": false,
+        "title": "FLASHLIGHT",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's social-graph and account-enum declarations — the read side harvests offline, the write side is an integrity attack vector. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:26",
+    "legacy_id": 49583,
+    "metadata_status": "verified",
+    "name": "Remove contacts & accounts permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Your full social graph — names, numbers, emails, addresses — harvested offline.",
+        "key": "stripReadContacts",
+        "required": false,
+        "title": "READ_CONTACTS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Integrity attack: swaps bank and support contacts for attacker numbers, no network needed.",
+        "key": "stripWriteContacts",
+        "required": false,
+        "title": "WRITE_CONTACTS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enumerates on-device accounts for cross-service identity linkage; deprecated, pure hardening.",
+        "key": "stripGetAccounts",
+        "required": false,
+        "title": "GET_ACCOUNTS",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the Google Play-defined permission declarations from the manifest: advertising ID, Play Billing, legacy license checks, install referrer attribution, push (C2DM), legacy account auth scopes, legacy activity recognition and Google Services Framework sync. Inert on devices without Google Play; on Play devices it kills the matching capability. All removals are on by default — open the patch options (gear) to deselect specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:27",
+    "legacy_id": 49584,
+    "metadata_status": "verified",
+    "name": "Remove GMS permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "The cross-app advertising identifier ad SDKs profile against. With the declaration gone, apps read a zeroed ID.",
+        "key": "stripAdId",
+        "required": false,
+        "title": "Remove AD_ID (Google Play Services)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Play Billing gate for in-app purchases and subscriptions — already broken in re-signed patched APKs regardless.",
+        "key": "stripBilling",
+        "required": false,
+        "title": "Remove BILLING (Google Play)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The legacy License Verification Library gate, still declared by old paid apps. On Play devices a stripped declaration makes the license check throw — the wall that unlock patches replace. Inert without Play.",
+        "key": "stripCheckLicense",
+        "required": false,
+        "title": "Remove CHECK_LICENSE (Play Licensing)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Play Install Referrer API: the campaign and attribution token that matches installs to ad clicks.",
+        "key": "stripInstallReferrer",
+        "required": false,
+        "title": "Remove BIND_GET_INSTALL_REFERRER_SERVICE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "GCM/FCM push delivery (com.google.android.c2dm.permission.RECEIVE) and the sender-side SEND permission. On devices with Play — including GrapheneOS's sandboxed Play Services — removal silences the app's push notifications.",
+        "key": "stripPush",
+        "required": false,
+        "title": "Remove C2DM permissions (push)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The per-app signature permission from the classic GCM client setup (<package>.permission.C2D_MESSAGE) that locks registration to the app's signature. Pairs with push removal; the matching receiver declaration is left untouched.",
+        "key": "stripC2dMessage",
+        "required": false,
+        "title": "Remove C2D_MESSAGE (app-scoped push lock)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The legacy Google Services Framework account-data gate, still declared by play-services era apps.",
+        "key": "stripGoogleServicesFramework",
+        "required": false,
+        "title": "Remove READ_GSERVICES (Google Services Framework)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The GMS-defined alias fitness apps declared before Android 10 — gait and motion profiling via play services. The modern platform ACTIVITY_RECOGNITION permission is covered by its own separate patch.",
+        "key": "stripLegacyActivityRecognition",
+        "required": false,
+        "title": "Remove legacy ACTIVITY_RECOGNITION (Google Play Services)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The pre-Firebase account auth-scope family (GOOGLE_AUTH and its service variants like GOOGLE_AUTH.writely, GOOGLE_AUTH.wise, GOOGLE_AUTH.ALL_SERVICES) — account-token gates held by the Google stack. Old Google-integrated apps may fail account flows on Play devices once stripped; test per app.",
+        "key": "stripGoogleAuth",
+        "required": false,
+        "title": "Remove GOOGLE_AUTH scopes (legacy account tokens)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's Health Connect declarations — background reads granted without a separate prompt, and history reaching back before install. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:28",
+    "legacy_id": 49585,
+    "metadata_status": "verified",
+    "name": "Remove Health Connect permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Background health reads — steps, sleep, heart rate — granted without a separate prompt.",
+        "key": "stripHealthBackground",
+        "required": false,
+        "title": "READ_HEALTH_DATA_IN_BACKGROUND",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "History access reaching back to health data from before the app was installed.",
+        "key": "stripHealthHistory",
+        "required": false,
+        "title": "READ_HEALTH_DATA_HISTORY",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the android.permission.INTERNET permission from the manifest. Blocks every socket the app opens, so bundled ad, analytics and telemetry SDKs cannot phone home. Also disables any legitimate online features — only enable for apps you want fully offline.",
+    "id": "28b229e2c4ca1edf66a1d791:29",
+    "legacy_id": 49586,
+    "metadata_status": "verified",
+    "name": "Remove INTERNET permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's location permission declarations, GNSS and service-context capture included. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:30",
+    "legacy_id": 49587,
+    "metadata_status": "verified",
+    "name": "Remove location permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "A GNSS pattern-of-life trail — home, work, habits — receive-only, works fully offline.",
+        "key": "stripFineLocation",
+        "required": false,
+        "title": "ACCESS_FINE_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Approximate position stream — the same pattern-of-life leak at lower fidelity.",
+        "key": "stripCoarseLocation",
+        "required": false,
+        "title": "ACCESS_COARSE_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Silent 24/7 location trail with no visible app use — the highest-risk location grant.",
+        "key": "stripBackgroundLocation",
+        "required": false,
+        "title": "ACCESS_BACKGROUND_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 14+ service-context continuous location behind a persistent-process notification.",
+        "key": "stripFgsLocation",
+        "required": false,
+        "title": "FOREGROUND_SERVICE_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's media and shared-storage declarations — the full library including PII screenshots, EXIF GPS location history, and legacy shared-storage integrity. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:31",
+    "legacy_id": 49588,
+    "metadata_status": "verified",
+    "name": "Remove media & storage permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Your entire photo library, including PII screenshots, captured offline.",
+        "key": "stripReadMediaImages",
+        "required": false,
+        "title": "READ_MEDIA_IMAGES",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Your entire video library, harvested offline.",
+        "key": "stripReadMediaVideo",
+        "required": false,
+        "title": "READ_MEDIA_VIDEO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Voice notes and recordings, harvested offline.",
+        "key": "stripReadMediaAudio",
+        "required": false,
+        "title": "READ_MEDIA_AUDIO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The specific media items granted in the partial-photo-access flow.",
+        "key": "stripReadMediaVisualUserSelected",
+        "required": false,
+        "title": "READ_MEDIA_VISUAL_USER_SELECTED",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "EXIF GPS from shared media — a location-history leak bypassing location permissions.",
+        "key": "stripAccessMediaLocation",
+        "required": false,
+        "title": "ACCESS_MEDIA_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy (API ≤32) shared-storage read, including other apps' Download dropboxes.",
+        "key": "stripReadExternalStorage",
+        "required": false,
+        "title": "READ_EXTERNAL_STORAGE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy (API ≤32) shared-storage write — an integrity surface over every app's Downloads.",
+        "key": "stripWriteExternalStorage",
+        "required": false,
+        "title": "WRITE_EXTERNAL_STORAGE",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's audio declarations — microphone capture, service-context capture, and global audio-state modification. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:32",
+    "legacy_id": 49589,
+    "metadata_status": "verified",
+    "name": "Remove microphone & audio permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Ambient eavesdropping and long background capture — the stalkerware staple.",
+        "key": "stripRecordAudio",
+        "required": false,
+        "title": "RECORD_AUDIO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 14+ service-context background audio capture behind a persistent-process notification.",
+        "key": "stripFgsMicrophone",
+        "required": false,
+        "title": "FOREGROUND_SERVICE_MICROPHONE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Granted at install with no prompt: the app can modify global audio state — volume, ringer mode and audio routing during calls. An integrity surface over the device's audio configuration; call and voice apps lose their adjustments.",
+        "key": "stripModifyAudioSettings",
+        "required": false,
+        "title": "MODIFY_AUDIO_SETTINGS",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's Bluetooth, UWB, Wi-Fi Aware and NFC declarations — beacon presence mapping, discoverability and direct RF exfiltration links, all offline-capable. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:33",
+    "legacy_id": 49590,
+    "metadata_status": "verified",
+    "name": "Remove nearby radio permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Legacy (pre-12) Bluetooth access — discovery reveals nearby devices and MAC addresses for fingerprinting.",
+        "key": "stripBluetooth",
+        "required": false,
+        "title": "BLUETOOTH",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy (pre-12) Bluetooth admin — initiates discovery and makes the device discoverable.",
+        "key": "stripBluetoothAdmin",
+        "required": false,
+        "title": "BLUETOOTH_ADMIN",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Scans for nearby devices and beacons — a retail-tracker presence census, no internet needed.",
+        "key": "stripBluetoothScan",
+        "required": false,
+        "title": "BLUETOOTH_SCAN",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Direct RF data link to nearby hardware — an offline exfiltration path.",
+        "key": "stripBluetoothConnect",
+        "required": false,
+        "title": "BLUETOOTH_CONNECT",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Broadcasts a presence beacon your device can be tracked by over RF.",
+        "key": "stripBluetoothAdvertise",
+        "required": false,
+        "title": "BLUETOOTH_ADVERTISE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Ultra-wideband fine-ranging — precise proximity and motion analytics, collected offline.",
+        "key": "stripUwbRanging",
+        "required": false,
+        "title": "UWB_RANGING",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Wi-Fi Aware NAN peer links — direct device-to-device transfer with no access point.",
+        "key": "stripNearbyWifiDevices",
+        "required": false,
+        "title": "NEARBY_WIFI_DEVICES",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The NFC radio gate — tag reads and short-range RF peer links off the internet stack.",
+        "key": "stripNfc",
+        "required": false,
+        "title": "NFC",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's network-visibility declarations — Wi-Fi identity, VPN detection and LAN inventory. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:34",
+    "legacy_id": 49591,
+    "metadata_status": "verified",
+    "name": "Remove network state permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Wi-Fi connection details — network names and BSSIDs identify and locate you.",
+        "key": "stripAccessWifiState",
+        "required": false,
+        "title": "ACCESS_WIFI_STATE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Current network type and availability; lets ad SDKs detect active VPNs.",
+        "key": "stripAccessNetworkState",
+        "required": false,
+        "title": "ACCESS_NETWORK_STATE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 16+ gate for LAN access — inventories your home network, every device a fingerprint.",
+        "key": "stripAccessLocalNetwork",
+        "required": false,
+        "title": "ACCESS_LOCAL_NETWORK",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the android.permission.POST_NOTIFICATIONS permission from the manifest — a lure and phishing delivery channel into your notification shade. Apps go quiet; that is the point.",
+    "id": "28b229e2c4ca1edf66a1d791:35",
+    "legacy_id": 49592,
+    "metadata_status": "verified",
+    "name": "Remove notification permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's persistence and wake-scheduling declarations — boot auto-start, CPU hold and precise periodic wakeups, the backbone of always-on background telemetry. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:36",
+    "legacy_id": 49593,
+    "metadata_status": "verified",
+    "name": "Remove persistence & wakeup permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Auto-start on every boot — the persistence backbone of always-on telemetry.",
+        "key": "stripBootCompleted",
+        "required": false,
+        "title": "RECEIVE_BOOT_COMPLETED",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Holds the CPU awake — the enabler of unbounded background processing and beacons.",
+        "key": "stripWakeLock",
+        "required": false,
+        "title": "WAKE_LOCK",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Precise scheduled wakeups — the backbone of periodic telemetry beacons.",
+        "key": "stripScheduleExactAlarm",
+        "required": false,
+        "title": "SCHEDULE_EXACT_ALARM",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Non-revocable exact-alarm bypass; removal is the only way to revoke it.",
+        "key": "stripUseExactAlarm",
+        "required": false,
+        "title": "USE_EXACT_ALARM",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's telephony declarations — silent dialing, identity correlation, call hijacking and call-record tampering. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:37",
+    "legacy_id": 49594,
+    "metadata_status": "verified",
+    "name": "Remove phone & call permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Silent dialing without the dialer — premium-rate fraud and tracking callbacks.",
+        "key": "stripCallPhone",
+        "required": false,
+        "title": "CALL_PHONE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Phone identifiers and call state for identity correlation, harvested offline.",
+        "key": "stripReadPhoneState",
+        "required": false,
+        "title": "READ_PHONE_STATE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Your phone number — identity linkage and SIM-swap prep.",
+        "key": "stripReadPhoneNumbers",
+        "required": false,
+        "title": "READ_PHONE_NUMBERS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Answer and control incoming calls — a call-hijack primitive.",
+        "key": "stripAnswerPhoneCalls",
+        "required": false,
+        "title": "ANSWER_PHONE_CALLS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Your who-talks-to-whom call history, captured offline.",
+        "key": "stripReadCallLog",
+        "required": false,
+        "title": "READ_CALL_LOG",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Integrity attack: edits or deletes call records to cover tracks.",
+        "key": "stripWriteCallLog",
+        "required": false,
+        "title": "WRITE_CALL_LOG",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Internet telephony; neutralized once INTERNET is removed, stripped as hardening.",
+        "key": "stripUseSip",
+        "required": false,
+        "title": "USE_SIP",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the android.permission.DETECT_SCREEN_CAPTURE permission from the manifest (Android 15+) — banking apps scold you and surveillance apps learn that evidence is being collected. Removing it makes your screenshots silent. Pair with the Universal Screenshot Protection Bypass to also clear FLAG_SECURE.",
+    "id": "28b229e2c4ca1edf66a1d791:38",
+    "legacy_id": 49595,
+    "metadata_status": "verified",
+    "name": "Remove screenshot detection permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's motion and body-sensor declarations — activity inference, tap logging, gait profiling and device fingerprinting. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:39",
+    "legacy_id": 49596,
+    "metadata_status": "verified",
+    "name": "Remove sensor & motion permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Android 15+ 'other' sensors — accelerometer, magnetometer: activity inference and fingerprinting.",
+        "key": "stripOtherSensors",
+        "required": false,
+        "title": "OTHER_SENSORS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Gait and motion-state profiling — a cheap, continuous passive fingerprint.",
+        "key": "stripActivityRecognition",
+        "required": false,
+        "title": "ACTIVITY_RECOGNITION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Health signals such as heart rate where sensors exist.",
+        "key": "stripBodySensors",
+        "required": false,
+        "title": "BODY_SENSORS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Continuous background body-sensor reads with no visible app use.",
+        "key": "stripBodySensorsBackground",
+        "required": false,
+        "title": "BODY_SENSORS_BACKGROUND",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes android.permission.DOWNLOAD_WITHOUT_NOTIFICATION — the grant apps declare to run DownloadManager transfers with hidden visibility, so payload pulls (including dropper self-updates) happen with no visible notification. Once stripped, a hidden download request fails loudly at enqueue (SecurityException: Invalid value for visibility: 2) instead of hiding — the transfer can no longer be invisible. Pairs with the REQUEST_INSTALL_PACKAGES toggle in the special-access patch; apps that legitimately download quietly in the background (e.g. podcast auto-updates) will surface notifications or fail at the attempt — smoke test per app.",
+    "id": "28b229e2c4ca1edf66a1d791:40",
+    "legacy_id": 49597,
+    "metadata_status": "verified",
+    "name": "Remove silent download permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's messaging declarations — premium-SMS fraud, OTP interception and the carrier push channel, all of which bypass the internet stack entirely. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:41",
+    "legacy_id": 49598,
+    "metadata_status": "verified",
+    "name": "Remove SMS & MMS permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "The premium-SMS billing fraud channel — carrier-billed, never touches the internet.",
+        "key": "stripSendSms",
+        "required": false,
+        "title": "SEND_SMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Message content, including bank and 2FA codes, harvested offline.",
+        "key": "stripReadSms",
+        "required": false,
+        "title": "READ_SMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Intercepts incoming messages — including OTP codes — the moment they arrive.",
+        "key": "stripReceiveSms",
+        "required": false,
+        "title": "RECEIVE_SMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Auto-retrieves MMS payloads — a media-parser attack surface on the radio path.",
+        "key": "stripReceiveMms",
+        "required": false,
+        "title": "RECEIVE_MMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Carrier OMA provisioning pushes — a silent configuration channel off the internet.",
+        "key": "stripReceiveWapPush",
+        "required": false,
+        "title": "RECEIVE_WAP_PUSH",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's special-access declarations — usage-history surveillance, overlay tapjacking, all-files access, the dropper channel and settings hijacking; removal means the app can never reach its Settings grant state. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:42",
+    "legacy_id": 49599,
+    "metadata_status": "verified",
+    "name": "Remove special-access permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "The Usage Access grant — your full app-usage history; the parental-control/stalkerware channel.",
+        "key": "stripPackageUsageStats",
+        "required": false,
+        "title": "PACKAGE_USAGE_STATS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The overlay grant — tapjacking, fake-dialog phishing and ad spam over other apps.",
+        "key": "stripSystemAlertWindow",
+        "required": false,
+        "title": "SYSTEM_ALERT_WINDOW",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The All-files-access grant — read and write over the entire shared storage.",
+        "key": "stripManageExternalStorage",
+        "required": false,
+        "title": "MANAGE_EXTERNAL_STORAGE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The Media-management grant — modify and delete all media without per-item grants.",
+        "key": "stripManageMedia",
+        "required": false,
+        "title": "MANAGE_MEDIA",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The dropper channel — silently self-update and sideload further APKs.",
+        "key": "stripRequestInstallPackages",
+        "required": false,
+        "title": "REQUEST_INSTALL_PACKAGES",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The system-settings grant — an integrity surface over ringtone, DND and default apps.",
+        "key": "stripWriteSettings",
+        "required": false,
+        "title": "WRITE_SETTINGS",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the BIND_* family — system-signature declarations no third-party app can ever be granted, kept in the manifest only as intent markers for accessibility scraping, device admin, notification listening and keylogging. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "28b229e2c4ca1edf66a1d791:43",
+    "legacy_id": 49600,
+    "metadata_status": "verified",
+    "name": "Remove surveillance service declarations",
+    "options": [
+      {
+        "default": true,
+        "description": "System-signature declaration no third-party app can hold — the accessibility-scraping stalkerware marker.",
+        "key": "stripBindAccessibilityService",
+        "required": false,
+        "title": "BIND_ACCESSIBILITY_SERVICE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "System-signature declaration signaling device-admin intent — remote lock, wipe, enforced policy.",
+        "key": "stripBindDeviceAdmin",
+        "required": false,
+        "title": "BIND_DEVICE_ADMIN",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "System-signature declaration signaling a notification listener — every notification, including 2FA codes.",
+        "key": "stripBindNotificationListener",
+        "required": false,
+        "title": "BIND_NOTIFICATION_LISTENER_SERVICE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "System-signature declaration signaling a keyboard — every keystroke in every app.",
+        "key": "stripBindInputMethod",
+        "required": false,
+        "title": "BIND_INPUT_METHOD",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Nops every logging call site — android.util.Log writers, System.out/err print and println, and Throwable.printStackTrace — so tokens, credentials and PII never reach the logcat ring buffer, where adb, bug reports and forensic capture read them. Bundled wrappers like Timber funnel through android.util.Log and are silenced transitively. Log-based debug features and in-app log viewers go empty — that is the point.",
+    "id": "28b229e2c4ca1edf66a1d791:44",
+    "legacy_id": 49601,
+    "metadata_status": "verified",
+    "name": "Silence app logging",
+    "options": [
+      {
+        "default": true,
+        "description": "Nop all Log.v/d/i/w/e/wtf/println call sites — every overload, including format-string and throwable variants.",
+        "key": "silenceAndroidLog",
+        "required": false,
+        "title": "Silence android.util.Log",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Nop all PrintStream print/println call sites. Default is false: this rewrites every PrintStream call site, not only System.out/err — an app writing text files through PrintStream.println would lose those writes.",
+        "key": "silenceSystemStreams",
+        "required": false,
+        "title": "Silence System.out / System.err",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Nop Throwable.printStackTrace call sites — exception messages often carry the very secret being handled when the error occurred.",
+        "key": "silenceStackTraces",
+        "required": false,
+        "title": "Silence printStackTrace",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.meteoblue.droid": [
+        "Cirrus Uncinus 3.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all meteoblue Weather premium features by making the billing data source's purchase-state flow always report an active purchase.",
+    "id": "28b229e2c4ca1edf66a1d791:45",
+    "legacy_id": 49602,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.meteoblue.droid",
+        "icon_url": null,
+        "name": "com.meteoblue.droid",
+        "versions": [
+          "Cirrus Uncinus 3.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": [
+        "81006 (8.1.6)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Nova Launcher Prime on 8.1.6 by forcing the runtime prime flags (Lzg/t1;->y / ->t) to true at every write — the settings initializer and the Prime-unlocker package-change handler.",
+    "id": "28b229e2c4ca1edf66a1d791:46",
+    "legacy_id": 49603,
+    "metadata_status": "verified",
+    "name": "Unlock Prime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.teslacoilsw.launcher",
+        "icon_url": null,
+        "name": "com.teslacoilsw.launcher",
+        "versions": [
+          "81006 (8.1.6)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.appgenix.bizcal": [
+        "2.55.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Business Calendar 2 Pro by forcing the complete pro status and the force-pro override to return true, routing every feature gate to the full package (7) without touching billing.",
+    "id": "28b229e2c4ca1edf66a1d791:47",
+    "legacy_id": 49604,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.appgenix.bizcal",
+        "icon_url": null,
+        "name": "com.appgenix.bizcal",
+        "versions": [
+          "2.55.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.otp.octopilauncher": [
+        "1.92"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Octopi Launcher Pro by returning true from the isPro LiveData getter, bypassing all pro feature gates without modifying billing or database logic.",
+    "id": "28b229e2c4ca1edf66a1d791:48",
+    "legacy_id": 49605,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.otp.octopilauncher",
+        "icon_url": null,
+        "name": "com.otp.octopilauncher",
+        "versions": [
+          "1.92"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "28b229e2c4ca1edf66a1d791",
+    "compatiblePackages": {
+      "com.pittvandewitt.wavelet": [
+        "26.05"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Wavelet's pro features (Reverberation, Virtualizer, Bass tuner, Equal loudness) by initializing the purchase-verified state flow to true and making the purchase processor always report a verified purchase, which also suppresses the purchase flow.",
+    "id": "28b229e2c4ca1edf66a1d791:49",
+    "legacy_id": 49606,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.pittvandewitt.wavelet",
+        "icon_url": null,
+        "name": "com.pittvandewitt.wavelet",
+        "versions": [
+          "26.05"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Unpacks bundled save-data zip(s) into the app's storage on first launch.",
+    "id": "2ddeb126e7c72badab58bff6:0",
+    "legacy_id": 49607,
+    "metadata_status": "verified",
+    "name": "Add Save Data",
+    "options": [
+      {
+        "default": null,
+        "description": "Zip of the app's internal storage. Restored to /data/data/<package> on first launch.",
+        "key": "internalDataZip",
+        "required": false,
+        "title": "1. Select data/data zip",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Zip of the app's external storage folder. Restored to Android/data/<package> on first launch.",
+        "key": "externalDataZip",
+        "required": false,
+        "title": "2. Select Android/data zip",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Zip of the app's OBB files. Restored to Android/obb/<package> on first launch.",
+        "key": "obbZip",
+        "required": false,
+        "title": "3. Select Android/obb zip",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Also show a toast message on first launch.",
+        "key": "addToast",
+        "required": false,
+        "title": "Add toast",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "Mod By BlazeFTL",
+        "description": "Only used if 'Add toast' is on.",
+        "key": "message",
+        "required": false,
+        "title": "Toast message",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "On: the toast only shows on the first launch. Off: it shows on every launch.",
+        "key": "showOnce",
+        "required": false,
+        "title": "Show toast once",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Shows a custom toast message when the app starts. Works on any app.",
+    "id": "2ddeb126e7c72badab58bff6:1",
+    "legacy_id": 49608,
+    "metadata_status": "verified",
+    "name": "Add Toast",
+    "options": [
+      {
+        "default": "Mod By BlazeFTL",
+        "description": "Text shown in the toast.",
+        "key": "message",
+        "required": false,
+        "title": "Toast message",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "On: the toast only shows on the first launch. Off: it shows on every launch.",
+        "key": "showOnce",
+        "required": false,
+        "title": "Show once",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes junk and useless files with no runtime purpose inside apk. Native libraries are left untouched unless the 'Strip native architectures' toggle is enabled.",
+    "id": "2ddeb126e7c72badab58bff6:2",
+    "legacy_id": 49609,
+    "metadata_status": "verified",
+    "name": "APK Junk Cleanup",
+    "options": [
+      {
+        "default": false,
+        "description": "OFF (default): libs are left completely untouched. ON: deletes libs of every architecture except the one selected below.",
+        "key": "stripLibs",
+        "required": false,
+        "title": "Strip native architectures",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "arm64-v8a",
+        "description": "Used only when 'Strip native architectures' is ON. Deletes libs of every other architecture from the patched APK. Requires patcher v1.13.0+ (delete() on unstaged entries).",
+        "key": "keepAbi",
+        "required": false,
+        "title": "Architecture to keep",
+        "type": "kotlin.String",
+        "values": {
+          "Keep only arm64-v8a (most phones)": "arm64-v8a",
+          "Keep only armeabi-v7a (old 32-bit phones)": "armeabi-v7a",
+          "Keep only x86 (old emulators)": "x86",
+          "Keep only x86_64 (emulators)": "x86_64"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "videoplayer.videodownloader.downloader": [
+        "1.9.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Fixes Remove Ads And Remove Ads Lite Gettings Stuck In Splash Screen Useless if you also select skip splash and language activity patch. Also stops the splash from hiding the on-screen navigation buttons.",
+    "id": "2ddeb126e7c72badab58bff6:3",
+    "legacy_id": 49610,
+    "metadata_status": "verified",
+    "name": "Boost Splash Screen",
+    "options": [
+      {
+        "default": 100,
+        "description": "How long the splash screen stays visible before continuing.",
+        "key": "boostDelayMs",
+        "required": false,
+        "title": "Splash duration (ms)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "videoplayer.videodownloader.downloader",
+        "icon_url": null,
+        "name": "videoplayer.videodownloader.downloader",
+        "versions": [
+          "1.9.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": [
+        "3.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Dont Apply These Patches Over Some Other Persons Mod, Use Untouched Apk. Disables MX Player's welcome/splash ad so playback starts immediately.",
+    "id": "2ddeb126e7c72badab58bff6:4",
+    "legacy_id": 49611,
+    "metadata_status": "verified",
+    "name": "Boost Splash Screen Time",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.ad",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": [
+          "3.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "files.fileexplorer.filemanager": [
+        "1.5.5.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes first-run defaults: hides the Image, Video, Audio and Cleaner tabs, and shows hidden files by default. Only affects users who have never changed the setting themselves - the preference override still takes priority.",
+    "id": "2ddeb126e7c72badab58bff6:5",
+    "legacy_id": 49612,
+    "metadata_status": "verified",
+    "name": "Change Cleaner & Media Tab Defaults",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "files.fileexplorer.filemanager",
+        "icon_url": null,
+        "name": "files.fileexplorer.filemanager",
+        "versions": [
+          "1.5.5.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Change any app's display size without touching your phone's system settings. Make it bigger if things look too small, or smaller to fit more on screen. You Need To Configure 100(No Change), 90(10% Smaller App Ui), 110(10% Bigger App Ui).",
+    "id": "2ddeb126e7c72badab58bff6:6",
+    "legacy_id": 49613,
+    "metadata_status": "verified",
+    "name": "Change Display Size",
+    "options": [
+      {
+        "default": "100",
+        "description": "Scales this app's display relative to the device's own setting. 100% = no change, 150% = 1.5x larger, 50% = half size. Range 25-300%.",
+        "key": "dpi",
+        "required": true,
+        "title": "Display scale",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Removes Lock and Add to playlist from the video and folder 3-dot bottom sheets and from the selection toolbar menus. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:7",
+    "legacy_id": 49614,
+    "metadata_status": "verified",
+    "name": "Clean 3 Dot Menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "cn.xender": [
+        "18.8.0.prime"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the bottom navigation bar, the top-right guide icon, and the Rate/Help/About drawer items, keeps the connect/create/join buttons on top, and stops them from being auto-hidden.",
+    "id": "2ddeb126e7c72badab58bff6:8",
+    "legacy_id": 49615,
+    "metadata_status": "verified",
+    "name": "Clean main UI",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "cn.xender",
+        "icon_url": null,
+        "name": "cn.xender",
+        "versions": [
+          "18.8.0.prime"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": [
+        "3.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds Mod Settings switches, on by default, that hide promo rows, unused tiles, and Private Folder / File Transfer / Add to Playlist entries.",
+    "id": "2ddeb126e7c72badab58bff6:9",
+    "legacy_id": 49616,
+    "metadata_status": "verified",
+    "name": "Clean Me Tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.ad",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": [
+          "3.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.rs.explorer.filemanager": [
+        "2.3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Bookmarks, remote-connection and Category sections from the navigation sidebar, and hides Encrypt and Downloader from the Storage section.",
+    "id": "2ddeb126e7c72badab58bff6:10",
+    "legacy_id": 49617,
+    "metadata_status": "verified",
+    "name": "Clean sidebar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.rs.explorer.filemanager",
+        "icon_url": null,
+        "name": "com.rs.explorer.filemanager",
+        "versions": [
+          "2.3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.snaptube.premium": [
+        "7.64.0.76450210"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Download tools and Phone clean categories, and their sub-items, from Settings.",
+    "id": "2ddeb126e7c72badab58bff6:11",
+    "legacy_id": 49618,
+    "metadata_status": "verified",
+    "name": "Clean SnapTube Settings Page",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.snaptube.premium",
+        "icon_url": null,
+        "name": "com.snaptube.premium",
+        "versions": [
+          "7.64.0.76450210"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "org.mozilla.fenix": [
+        "159.0a1",
+        "160.0a1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds Close duplicate tabs to the tab tray 3 dot menu. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:12",
+    "legacy_id": 49619,
+    "metadata_status": "verified",
+    "name": "Close duplicate tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.mozilla.fenix",
+        "icon_url": null,
+        "name": "org.mozilla.fenix",
+        "versions": [
+          "159.0a1",
+          "160.0a1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": [
+        "3.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Smart Enhance disable toast and adds Mod Settings switches for the intro popup and the enable toast.",
+    "id": "2ddeb126e7c72badab58bff6:13",
+    "legacy_id": 49620,
+    "metadata_status": "verified",
+    "name": "Configure Smart Enhance",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.ad",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": [
+          "3.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": [
+        "3.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Fixes the stock leftover-visible-view bug in the long-press SpeedUp overlay. \"No UI\" is toggled in Me tab > Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:14",
+    "legacy_id": 49621,
+    "metadata_status": "verified",
+    "name": "Configure SpeedUp overlay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.ad",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": [
+          "3.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "videoplayer.videodownloader.downloader": [
+        "1.9.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the full-screen \"loading ad\" dialog from appearing when the app is reopened after being minimized.",
+    "id": "2ddeb126e7c72badab58bff6:15",
+    "legacy_id": 49622,
+    "metadata_status": "verified",
+    "name": "Disable ad dialog when reopening app",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "videoplayer.videodownloader.downloader",
+        "icon_url": null,
+        "name": "videoplayer.videodownloader.downloader",
+        "versions": [
+          "1.9.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.snaptube.premium": [
+        "7.64.0.76450210"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns off the Toolbar, Recommended contents, and Tool notifications channels by default.",
+    "id": "2ddeb126e7c72badab58bff6:16",
+    "legacy_id": 49623,
+    "metadata_status": "verified",
+    "name": "Disable Annoying Snaptube Notifications",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.snaptube.premium",
+        "icon_url": null,
+        "name": "com.snaptube.premium",
+        "versions": [
+          "7.64.0.76450210"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": [
+        "3.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a permanent Me tab button to the toolbar. Hiding the bottom bar itself is toggled live in Me tab > Mod Settings, not here - the Me tab button always stays wired, on purpose, since Mod Settings lives behind it and turning it off should never be able to lock you out of turning it back on.",
+    "id": "2ddeb126e7c72badab58bff6:17",
+    "legacy_id": 49624,
+    "metadata_status": "verified",
+    "name": "Disable Bottom Bar And Add Me Tab To Top",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.ad",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": [
+          "3.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "videoplayer.videodownloader.downloader": [
+        "1.9.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips WebDownloadActivity's intent-filter data so it no longer offers itself as a handler in the system download/\"complete action using\" chooser.",
+    "id": "2ddeb126e7c72badab58bff6:18",
+    "legacy_id": 49625,
+    "metadata_status": "verified",
+    "name": "Disable downloader from download menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "videoplayer.videodownloader.downloader",
+        "icon_url": null,
+        "name": "videoplayer.videodownloader.downloader",
+        "versions": [
+          "1.9.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.rs.explorer.filemanager": [
+        "2.3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips RsDownloadActivity's intent filters so it no longer offers itself as a handler in the system download/\"complete action using\" chooser.",
+    "id": "2ddeb126e7c72badab58bff6:19",
+    "legacy_id": 49626,
+    "metadata_status": "verified",
+    "name": "Disable downloader from download menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.rs.explorer.filemanager",
+        "icon_url": null,
+        "name": "com.rs.explorer.filemanager",
+        "versions": [
+          "2.3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.downloader.videodownloader": null
+    },
+    "dependencies": [],
+    "description": "Removes the http/https <data> entries from BrowserDownloaderActivity's so the app stops offering itself in the system \"Download file with\" chooser for ordinary web downloads.",
+    "id": "2ddeb126e7c72badab58bff6:20",
+    "legacy_id": 49627,
+    "metadata_status": "verified",
+    "name": "Disable downloader from download menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.downloader.videodownloader",
+        "icon_url": null,
+        "name": "video.downloader.videodownloader",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mixplorer": null
+    },
+    "dependencies": [],
+    "description": "Removes only the http/https <data> entries from MiXplorer's Explore/Download/Copy to/Extract to shell activities' VIEW intent filters, so the app stops showing up multiple times in browsers download link chooser.",
+    "id": "2ddeb126e7c72badab58bff6:21",
+    "legacy_id": 49628,
+    "metadata_status": "verified",
+    "name": "Disable From Download Menu Of Browsers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mixplorer",
+        "icon_url": null,
+        "name": "com.mixplorer",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the rate dialog counters so it never appears.",
+    "id": "2ddeb126e7c72badab58bff6:22",
+    "legacy_id": 49629,
+    "metadata_status": "verified",
+    "name": "Disable Rate Dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "videoplayer.videodownloader.downloader": null
+    },
+    "dependencies": [],
+    "description": "Prevents the rate and star rating dialogs from showing.",
+    "id": "2ddeb126e7c72badab58bff6:23",
+    "legacy_id": 49630,
+    "metadata_status": "verified",
+    "name": "Disable rate dialogs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "videoplayer.videodownloader.downloader",
+        "icon_url": null,
+        "name": "videoplayer.videodownloader.downloader",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "files.fileexplorer.filemanager": [
+        "1.5.5.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the in-app rate-us dialog from ever being shown.",
+    "id": "2ddeb126e7c72badab58bff6:24",
+    "legacy_id": 49631,
+    "metadata_status": "verified",
+    "name": "Disable Rate Us Dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "files.fileexplorer.filemanager",
+        "icon_url": null,
+        "name": "files.fileexplorer.filemanager",
+        "versions": [
+          "1.5.5.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.rs.explorer.filemanager": [
+        "2.3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Overrides show() on the in-app \"rate us\" dialog so it's still built but never displayed.",
+    "id": "2ddeb126e7c72badab58bff6:25",
+    "legacy_id": 49632,
+    "metadata_status": "verified",
+    "name": "Disable rate us dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.rs.explorer.filemanager",
+        "icon_url": null,
+        "name": "com.rs.explorer.filemanager",
+        "versions": [
+          "2.3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.estrongs.android.pop": [
+        "4.4.3.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes BookMark, New Files, Cleaner Row In HomePage, Cleans More menu actions",
+    "id": "2ddeb126e7c72badab58bff6:26",
+    "legacy_id": 49633,
+    "metadata_status": "verified",
+    "name": "ES File Explorer Ui Cleanup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.estrongs.android.pop",
+        "icon_url": null,
+        "name": "com.estrongs.android.pop",
+        "versions": [
+          "4.4.3.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Shows resolution, date, size and last played on video rows, and video count, size and path on folder rows. Fixes the gap above Recent Added and adds a Mod Settings option to hide the Recent Added and Directory rows. Toggles in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:27",
+    "legacy_id": 49634,
+    "metadata_status": "verified",
+    "name": "Extra File Info",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Hides the bottom tab bar on the home screen. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:28",
+    "legacy_id": 49635,
+    "metadata_status": "verified",
+    "name": "Hide Bottom Bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.allformatplayer.streamvideoplayer": [
+        "1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the bottom navigation bar.",
+    "id": "2ddeb126e7c72badab58bff6:29",
+    "legacy_id": 49636,
+    "metadata_status": "verified",
+    "name": "Hide bottom bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.allformatplayer.streamvideoplayer",
+        "icon_url": null,
+        "name": "com.allformatplayer.streamvideoplayer",
+        "versions": [
+          "1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Hides the cast button in the toolbar menus. Toggle it in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:30",
+    "legacy_id": 49637,
+    "metadata_status": "verified",
+    "name": "Hide Cast Button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Hides the cast, custom and 10 second forward/backward buttons in the player. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:31",
+    "legacy_id": 49638,
+    "metadata_status": "verified",
+    "name": "Hide Cast FF FB In Player",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.pro": null
+    },
+    "dependencies": [],
+    "description": "Removes the File Transfer, Video Playlist, and Private Folder tiles from settings Page.",
+    "id": "2ddeb126e7c72badab58bff6:32",
+    "legacy_id": 49639,
+    "metadata_status": "verified",
+    "name": "Hide File Transfer, Video Playlist, Private Folder tiles",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes the File Transfer tile.",
+        "key": "hideFileTransfer",
+        "required": false,
+        "title": "Hide File Transfer",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the Private Folder tile.",
+        "key": "hidePrivateFolder",
+        "required": false,
+        "title": "Hide Private Folder",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the Video Playlists tile.",
+        "key": "hideVideoPlaylists",
+        "required": false,
+        "title": "Hide Video Playlists",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.pro",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.pro",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "org.mozilla.fenix": [
+        "159.0a1",
+        "160.0a1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the toast shown when a video goes fullscreen. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:33",
+    "legacy_id": 49640,
+    "metadata_status": "verified",
+    "name": "Hide fullscreen toast",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.mozilla.fenix",
+        "icon_url": null,
+        "name": "org.mozilla.fenix",
+        "versions": [
+          "159.0a1",
+          "160.0a1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Hides the tile row at the top of the home page (All Videos, Downloader, Privacy, Cleaner...) and the Move to Trash option in the delete dialog. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:34",
+    "legacy_id": 49641,
+    "metadata_status": "verified",
+    "name": "Hide Home Tiles",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.rs.explorer.filemanager": [
+        "2.3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Hide, Add to desktop, Encrypt, Decrypt, Add bookmark, Web Search, Copy to, Move to, Transfer, and Playing from the \"More actions\" menu.",
+    "id": "2ddeb126e7c72badab58bff6:35",
+    "legacy_id": 49642,
+    "metadata_status": "verified",
+    "name": "Hide more actions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.rs.explorer.filemanager",
+        "icon_url": null,
+        "name": "com.rs.explorer.filemanager",
+        "versions": [
+          "2.3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.rs.explorer.filemanager": [
+        "2.3.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Network, Tools and Bookmarks sections from the home page section list.",
+    "id": "2ddeb126e7c72badab58bff6:36",
+    "legacy_id": 49643,
+    "metadata_status": "verified",
+    "name": "Hide network, tools and bookmarks on home page",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.rs.explorer.filemanager",
+        "icon_url": null,
+        "name": "com.rs.explorer.filemanager",
+        "versions": [
+          "2.3.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Hides the recent videos row on the home page. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:37",
+    "legacy_id": 49644,
+    "metadata_status": "verified",
+    "name": "Hide Recent Videos",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "videoplayer.videodownloader.downloader": null
+    },
+    "dependencies": [],
+    "description": "Removes the Scan (AD) row from the browser overflow menu.",
+    "id": "2ddeb126e7c72badab58bff6:38",
+    "legacy_id": 49645,
+    "metadata_status": "verified",
+    "name": "Hide Scan (AD) menu item",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "videoplayer.videodownloader.downloader",
+        "icon_url": null,
+        "name": "videoplayer.videodownloader.downloader",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.pro": null
+    },
+    "dependencies": [],
+    "description": "Collapses the WhatsApp, Legal, and Help entries on the Me tab.",
+    "id": "2ddeb126e7c72badab58bff6:39",
+    "legacy_id": 49646,
+    "metadata_status": "verified",
+    "name": "Hide Settings Page UseLess Buttons",
+    "options": [
+      {
+        "default": true,
+        "description": "Collapses the WhatsApp entry.",
+        "key": "hideWhatsApp",
+        "required": false,
+        "title": "Hide WhatsApp",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Collapses the Legal entry.",
+        "key": "hideLegal",
+        "required": false,
+        "title": "Hide Legal",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Collapses the Help entry.",
+        "key": "hideHelp",
+        "required": false,
+        "title": "Hide Help",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.pro",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.pro",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.pro": null
+    },
+    "dependencies": [],
+    "description": "Hides the top tiles that appears in top of video folders in homescreen",
+    "id": "2ddeb126e7c72badab58bff6:40",
+    "legacy_id": 49647,
+    "metadata_status": "verified",
+    "name": "Hide top tiles",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.pro",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.pro",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Widgets from the home 3-dot menu.",
+    "id": "2ddeb126e7c72badab58bff6:41",
+    "legacy_id": 49648,
+    "metadata_status": "verified",
+    "name": "Hide Widgets Menu Item",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": [
+        "3.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Patches libmx-bh.so to kill signature verification.",
+    "id": "2ddeb126e7c72badab58bff6:42",
+    "legacy_id": 49649,
+    "metadata_status": "verified",
+    "name": "Kill Signature Verification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mxtech.videoplayer.ad",
+        "icon_url": null,
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": [
+          "3.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.gombosdev.ampere": null
+    },
+    "dependencies": [],
+    "description": "Updates Accent/Primary/CardBgDark to the newer Material color palette.",
+    "id": "2ddeb126e7c72badab58bff6:43",
+    "legacy_id": 49650,
+    "metadata_status": "verified",
+    "name": "Material Colors Upgrade Peach And Purple",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.gombosdev.ampere",
+        "icon_url": null,
+        "name": "com.gombosdev.ampere",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Mod Settings entry below Settings in the home 3-dot menu.",
+    "id": "2ddeb126e7c72badab58bff6:44",
+    "legacy_id": 49651,
+    "metadata_status": "verified",
+    "name": "Mod Settings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "org.mozilla.fenix": [
+        "159.0a1",
+        "160.0a1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens new tabs right after the current tab and adds a > button beside + that opens a tab at the end. Both are toggles in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:45",
+    "legacy_id": 49652,
+    "metadata_status": "verified",
+    "name": "New tab next to current tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.mozilla.fenix",
+        "icon_url": null,
+        "name": "org.mozilla.fenix",
+        "versions": [
+          "159.0a1",
+          "160.0a1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "org.mozilla.fenix": [
+        "159.0a1",
+        "160.0a1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds \"Mod Settings\" to the 3 dot menu: switch between the stock bottom sheet menu and the old style popup menu, and pin extensions to the search bar.",
+    "id": "2ddeb126e7c72badab58bff6:46",
+    "legacy_id": 49653,
+    "metadata_status": "verified",
+    "name": "Old style 3 dot menu And Extension Pinning",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.mozilla.fenix",
+        "icon_url": null,
+        "name": "org.mozilla.fenix",
+        "versions": [
+          "159.0a1",
+          "160.0a1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [
+      "Mod Settings"
+    ],
+    "description": "Cleans the player side menu: audio, subtitle, cast, bookmark, favorite, play mode, brightness and volume. Applied while the menu inflates so remaining items stay aligned. Toggle in Mod Settings.",
+    "id": "2ddeb126e7c72badab58bff6:47",
+    "legacy_id": 49654,
+    "metadata_status": "verified",
+    "name": "Player Side Cleaned",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.player.videoplayer",
+        "icon_url": null,
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Quantizes PNG images to a 64-color palette (matching pngquant) and re-picks the optimal per-row filter before recompressing at maximum zlib compression (matching optipng), stripping hidden metadata along the way.",
+    "id": "2ddeb126e7c72badab58bff6:48",
+    "legacy_id": 49655,
+    "metadata_status": "verified",
+    "name": "Png Optimizer",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.downloader.videodownloader": null
+    },
+    "dependencies": [],
+    "description": "Blocks popups and popunder redirects with Allow / Block / Always Block prompts. Adds \"Manage popup rules\" as the last item of the 3-dot menu.",
+    "id": "2ddeb126e7c72badab58bff6:49",
+    "legacy_id": 49656,
+    "metadata_status": "verified",
+    "name": "Popup blocker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "video.downloader.videodownloader",
+        "icon_url": null,
+        "name": "video.downloader.videodownloader",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "org.mozilla.fenix": [
+        "159.0a1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps the tab tray scroll position when it is closed and reopened.",
+    "id": "2ddeb126e7c72badab58bff6:50",
+    "legacy_id": 49657,
+    "metadata_status": "verified",
+    "name": "Remember tab scroll position",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.mozilla.fenix",
+        "icon_url": null,
+        "name": "org.mozilla.fenix",
+        "versions": [
+          "159.0a1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Cleans Apps Code From Ads Junk. Works In Most Apps Where There Isn't Any Check For Ads Loaded Or Not. If There Is A Check You Will Be Stuck In SplashActivity Due To Custom Ads Load Checks But It Is Superior.",
+    "id": "2ddeb126e7c72badab58bff6:51",
+    "legacy_id": 49658,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Based On (Adobo's Block Ads+Mobile Ads) Use When Remove Ads Patch Caused Problem. It Is Weaker But Effective, No Need To Select A Host File Or Configure Anything. In Future It May Replace Remove Ads Patch If I Find No Problems.",
+    "id": "2ddeb126e7c72badab58bff6:52",
+    "legacy_id": 49659,
+    "metadata_status": "verified",
+    "name": "Remove Ads Lite (Adobo)",
+    "options": [
+      {
+        "default": "0.0.0.0",
+        "description": "The IP address to redirect blocked domains to.",
+        "key": "redirectionIp",
+        "required": false,
+        "title": "Redirection IP",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "0.0.0.0",
+          "localhost": "127.0.0.1"
+        }
+      },
+      {
+        "default": null,
+        "description": "Optionally add your own hosts file to block extra domains on top of the bundled list. Select a file or paste the full file path. Leave empty to use only the bundled list.",
+        "key": "customHostsFile",
+        "required": false,
+        "title": "Additional hosts file (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Call finish on ad activities. Use Where Remove Ads And Remove Ads Lite (Adobo) Caused Problem. Its In Very Early Stage So Test And Provide FeedBack If You Still See Ads In Some App.",
+    "id": "2ddeb126e7c72badab58bff6:53",
+    "legacy_id": 49660,
+    "metadata_status": "verified",
+    "name": "Remove Ads Ultra Lite",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables tracking and crash-reporting tools, corrupts analytics web links inside the code, and removes background tracking services.",
+    "id": "2ddeb126e7c72badab58bff6:54",
+    "legacy_id": 49661,
+    "metadata_status": "verified",
+    "name": "Remove Analytics",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "DONT CHOOSE 2 SAME PATCHES...Corrupts analytics network URLs and split-scheme string obfuscation inside the code, and strips matching manifest components.",
+    "id": "2ddeb126e7c72badab58bff6:55",
+    "legacy_id": 49662,
+    "metadata_status": "verified",
+    "name": "Remove Analytics New",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes debug information (line numbers, variable names, source file references) from every class in the .dex files to reduce overall APK size.",
+    "id": "2ddeb126e7c72badab58bff6:56",
+    "legacy_id": 49663,
+    "metadata_status": "verified",
+    "name": "Remove Debug Info",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Keeps only one screen-density copy of every duplicated drawable/mipmap file, Mipmaps follow this same order. Optionally strips device-specific resources (smartwatch, Android TV, etc.) entirely.",
+    "id": "2ddeb126e7c72badab58bff6:57",
+    "legacy_id": 49664,
+    "metadata_status": "verified",
+    "name": "Remove Duplicate Graphics",
+    "options": [
+      {
+        "default": "xhdpi",
+        "description": "Density bucket to prefer for images and other graphics; duplicates are stripped from every other bucket. If a particular resource was never shipped at this density, the next higher density available for it is kept instead, falling back to a lower one only if nothing higher exists either. Launcher icons ignore this setting and always keep their highest-quality copy.",
+        "key": "targetDensity",
+        "required": false,
+        "title": "Target density",
+        "type": "kotlin.String",
+        "values": {
+          "hdpi": "hdpi",
+          "ldpi": "ldpi",
+          "mdpi": "mdpi",
+          "xhdpi": "xhdpi",
+          "xxhdpi": "xxhdpi",
+          "xxxhdpi": "xxxhdpi"
+        }
+      },
+      {
+        "default": false,
+        "description": "Entirely removes resources qualified for smartwatches -- not just duplicate copies, all of them -- regardless of density. Off by default since it changes what device types the app supports.",
+        "key": "stripSmartwatch",
+        "required": false,
+        "title": "Remove smartwatch (Wear OS) resources",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Entirely removes resources qualified for Android TV -- not just duplicate copies, all of them -- regardless of density. Off by default since it changes what device types the app supports.",
+        "key": "stripAndroidTv",
+        "required": false,
+        "title": "Remove Android TV resources",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Entirely removes resources qualified for car head units, desk docks, or VR headsets -- not just duplicate copies, all of them -- regardless of density. Off by default since it changes what device types the app supports.",
+        "key": "stripOtherFormFactors",
+        "required": false,
+        "title": "Remove other device-specific resources (car, desk dock, VR headset)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  }
+]
