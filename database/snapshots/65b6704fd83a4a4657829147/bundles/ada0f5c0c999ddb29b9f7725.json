@@ -1,0 +1,43 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-10T02:42:36Z",
+  "description": "Bug fixes and less work. Nothing new to learn. Things that went wrong in a few places now work, and Discord does a little less in the background.\n\n### Fixed\n- **Read All no longer brings back an older server list.** A later render of the server list could get an earlier render's list settings back. Each render now keeps its own, and the list still doesn't redraw.\n- **Quest Completer names the game again after a dropped connection.** If the lookup for which of a game's files to report failed once, that game went unnamed until Discord restarted. Only Discord's real answer is remembered now.\n- **A dropped connection no longer parks a Quest for 6 hours.** If accepting a Quest failed because you were offline, it was treated as if Discord had refused it. It's now tried again after about 5 minutes. A real refusal or captcha still waits hours.\n- **Quest Completer stops on a Quest Discord has stopped counting.** It used to send a heartbeat every minute for as long as Discord stayed open. After 5 heartbeats with no new time, it stops and tries again later.\n- **The ReviewDB review menu closes properly.** Its close button didn't close anything.\n\n### Less work\n- **Opening Discord doesn't rewrite your saved deleted messages.** With **Save permanently** on, the whole file was written again on every start. It's only written now when something changed.\n- **The Quest Completer page doesn't redraw every 5 seconds.** It updates when a Quest starts, finishes or fails.\n\n### Install\nPatch the **original Discord 348.10 - Stable** APKM. Import `patches-1.4.4.mpp` under **Sources → + → Local**, or update the Venus Patches source in Morphe. Your settings carry over.\n\nChecked by patching the original 348.10 APKM with Morphe Desktop 1.18.0 (22 applied, 0 failed) and verifying the signed APK.\n\nSHA-256 `b7dbc94145427c5ad06effdf3307201aa9ee9333746d98a1ba7c0661c09e9818`  patches-1.4.4.mpp\n",
+  "download_url": "https://github.com/VenusIsJaded/Venus-Patches/releases/download/v1.4.4/patches-1.4.4.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:b7dbc94145427c5ad06effdf3307201aa9ee9333746d98a1ba7c0661c09e9818",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "b7dbc94145427c5ad06effdf3307201aa9ee9333746d98a1ba7c0661c09e9818",
+  "id": "ada0f5c0c999ddb29b9f7725",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FVenusIsJaded%2FVenus-Patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FVenusIsJaded%2FVenus-Patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8611,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.discord"
+  ],
+  "patch_count": 22,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v1.4.4",
+  "patch_refresh_attempted_at": "2026-10-11T06:05:14.193864974Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:b7dbc94145427c5ad06effdf3307201aa9ee9333746d98a1ba7c0661c09e9818",
+  "release_status": "available",
+  "release_url": "https://github.com/VenusIsJaded/Venus-Patches/releases/tag/v1.4.4",
+  "signature_download_url": "N/A",
+  "source_id": "56ff9014abe6222d",
+  "version": "v1.4.4"
+}
