@@ -1,0 +1,44 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-11T19:46:06Z",
+  "description": "## [1.1.1](https://github.com/rahaaatul/morphe-patches/compare/v1.1.0...v1.1.1) (2026-10-11)\n\n### 🐛 Bug Fixes\n\n* Proton VPN Auth issues ([6aaa469](https://github.com/rahaaatul/morphe-patches/commit/6aaa469c198d734195f0fa14c5a1f1535aa8d97f))\n* Proton VPN Auth issues ([b74e3f3](https://github.com/rahaaatul/morphe-patches/commit/b74e3f36fa6f3581f7ff589f477e5ddfbd83baa0))\n* remove HasAccessToServer/HaveAccessWith patches to fix auth error, countries tab now shows free only ([0123a0c](https://github.com/rahaaatul/morphe-patches/commit/0123a0c64b57e72b13067e0d8c1368dd1a6e0980))\n",
+  "download_url": "https://github.com/rahaaatul/morphe-patches/releases/download/v1.1.1/patches-1.1.1.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:d311fff810737e31c921bd82a6522e0374f2fbe6a7a4c7eade5b975777da9654",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "d311fff810737e31c921bd82a6522e0374f2fbe6a7a4c7eade5b975777da9654",
+  "id": "f5642b8c120914239d1a5219",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Frahaaatul%2Fmorphe-patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Frahaaatul%2Fmorphe-patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8930,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "ch.protonvpn.android",
+    "com.sal.privacykit"
+  ],
+  "patch_count": 2,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v1.1.1",
+  "patch_refresh_attempted_at": "2026-10-11T20:41:57.083026539Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:d311fff810737e31c921bd82a6522e0374f2fbe6a7a4c7eade5b975777da9654",
+  "release_status": "unverified",
+  "release_url": "https://github.com/rahaaatul/morphe-patches/releases/tag/v1.1.1",
+  "signature_download_url": null,
+  "source_id": "f1279b78b6e94a88",
+  "version": "v1.1.1"
+}
