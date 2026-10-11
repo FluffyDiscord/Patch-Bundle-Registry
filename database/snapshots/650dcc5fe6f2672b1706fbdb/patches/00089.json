@@ -1,0 +1,4069 @@
+[
+  {
+    "bundle_id": "e13bcd586a0410edcf8e2c2f",
+    "compatiblePackages": {
+      "at.gv.oe.app": null
+    },
+    "dependencies": [],
+    "description": "Removes the check for root permissions and unlocked bootloader.",
+    "id": "e13bcd586a0410edcf8e2c2f:1",
+    "legacy_id": 10621,
+    "metadata_status": "verified",
+    "name": "Remove root detection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "at.gv.oe.app",
+        "icon_url": null,
+        "name": "at.gv.oe.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "1f18136e1cbebe3d",
+    "use": true
+  },
+  {
+    "bundle_id": "e13bcd586a0410edcf8e2c2f",
+    "compatiblePackages": {
+      "at.gv.oe.app": null
+    },
+    "dependencies": [],
+    "description": "Spoofs the signature of the app.",
+    "id": "e13bcd586a0410edcf8e2c2f:2",
+    "legacy_id": 10622,
+    "metadata_status": "verified",
+    "name": "Spoof signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "at.gv.oe.app",
+        "icon_url": null,
+        "name": "at.gv.oe.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "1f18136e1cbebe3d",
+    "use": true
+  },
+  {
+    "bundle_id": "e1ccaf7573f188e31889d121",
+    "compatiblePackages": {
+      "com.miruronative": null
+    },
+    "dependencies": [],
+    "description": "Fixes recycled bitmap crashes on Android 14/15+ during media playback metadata updates and notification creation.",
+    "id": "e1ccaf7573f188e31889d121:0",
+    "legacy_id": 10623,
+    "metadata_status": "verified",
+    "name": "Fix Recycled Bitmap Crash",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.miruronative",
+        "icon_url": null,
+        "name": "com.miruronative",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "d063815fef056be6",
+    "use": true
+  },
+  {
+    "bundle_id": "e22839eecc56dc699b09d733",
+    "compatiblePackages": {
+      "com.sankakucomplex.channel.black": [
+        "4.23",
+        "4.24",
+        "4.25",
+        "4.26"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the \"Want unlimited access? Get Sankaku Infinite!\" upsell popup that periodically appears while browsing the app.",
+    "id": "e22839eecc56dc699b09d733:0",
+    "legacy_id": 10624,
+    "metadata_status": "verified",
+    "name": "Disable Infinite Upgrade Popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.sankakucomplex.channel.black",
+        "icon_url": null,
+        "name": "com.sankakucomplex.channel.black",
+        "versions": [
+          "4.23",
+          "4.24",
+          "4.25",
+          "4.26"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.2-dev.1",
+    "source_id": "3a581a8d3f891e0d",
+    "use": true
+  },
+  {
+    "bundle_id": "e2a56df27ae09c0fab6194c8",
+    "compatiblePackages": {
+      "com.isaakhanimann.journal": null
+    },
+    "dependencies": [],
+    "description": "Renames the package and app label so the patched build installs alongside a stock Journal instead of replacing it.",
+    "id": "e2a56df27ae09c0fab6194c8:0",
+    "legacy_id": 10625,
+    "metadata_status": "verified",
+    "name": "Clone",
+    "options": [
+      {
+        "default": "com.isaakhanimann.journal.morphe",
+        "description": "A new package name for the patched app.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "Journal Morphe",
+        "description": "A new app name (label). Entering \"Journal\" skips changing the label.",
+        "key": "appName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Journal",
+        "icon_url": "https://f-droid.org/repo/com.isaakhanimann.journal/en-US/icon_mPArullU-JoeSvjm6m31Adx21qJZ7o5w-Gc1eWdU9Yk%3D.png",
+        "name": "com.isaakhanimann.journal",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "3e6779d1fd62e4fa",
+    "use": false
+  },
+  {
+    "bundle_id": "e2a56df27ae09c0fab6194c8",
+    "compatiblePackages": {
+      "com.isaakhanimann.journal": null
+    },
+    "dependencies": [],
+    "description": "Replaces the bundled Substances.json asset with your own file.",
+    "id": "e2a56df27ae09c0fab6194c8:1",
+    "legacy_id": 10626,
+    "metadata_status": "verified",
+    "name": "Custom substances database",
+    "options": [
+      {
+        "default": "",
+        "description": "Absolute path on your machine to the replacement Substances.json file.",
+        "key": "substancesFile",
+        "required": true,
+        "title": "Substances JSON path",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Journal",
+        "icon_url": "https://f-droid.org/repo/com.isaakhanimann.journal/en-US/icon_mPArullU-JoeSvjm6m31Adx21qJZ7o5w-Gc1eWdU9Yk%3D.png",
+        "name": "com.isaakhanimann.journal",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "3e6779d1fd62e4fa",
+    "use": false
+  },
+  {
+    "bundle_id": "e2a56df27ae09c0fab6194c8",
+    "compatiblePackages": {
+      "com.isaakhanimann.journal": null
+    },
+    "dependencies": [],
+    "description": "Lets you individually hide the Stats, Drugs and Safer tabs from the bottom navigation bar. Journal and Settings can't be hidden.",
+    "id": "e2a56df27ae09c0fab6194c8:2",
+    "legacy_id": 10627,
+    "metadata_status": "verified",
+    "name": "Hide bottom tabs",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes the Stats tab from the bottom navigation bar.",
+        "key": "hideStats",
+        "required": false,
+        "title": "Hide Stats tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the Drugs tab from the bottom navigation bar.",
+        "key": "hideDrugs",
+        "required": false,
+        "title": "Hide Drugs tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the Safer tab from the bottom navigation bar.",
+        "key": "hideSafer",
+        "required": false,
+        "title": "Hide Safer tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Journal",
+        "icon_url": "https://f-droid.org/repo/com.isaakhanimann.journal/en-US/icon_mPArullU-JoeSvjm6m31Adx21qJZ7o5w-Gc1eWdU9Yk%3D.png",
+        "name": "com.isaakhanimann.journal",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "3e6779d1fd62e4fa",
+    "use": true
+  },
+  {
+    "bundle_id": "e2a56df27ae09c0fab6194c8",
+    "compatiblePackages": {
+      "com.isaakhanimann.journal": null
+    },
+    "dependencies": [],
+    "description": "Removes the \"Feedback\" section (FAQ, bug report, copy support info) from Settings.",
+    "id": "e2a56df27ae09c0fab6194c8:3",
+    "legacy_id": 10628,
+    "metadata_status": "verified",
+    "name": "Hide feedback section",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Journal",
+        "icon_url": "https://f-droid.org/repo/com.isaakhanimann.journal/en-US/icon_mPArullU-JoeSvjm6m31Adx21qJZ7o5w-Gc1eWdU9Yk%3D.png",
+        "name": "com.isaakhanimann.journal",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "3e6779d1fd62e4fa",
+    "use": true
+  },
+  {
+    "bundle_id": "e2a56df27ae09c0fab6194c8",
+    "compatiblePackages": {
+      "com.isaakhanimann.journal": null
+    },
+    "dependencies": [],
+    "description": "Stops the app from ever talking to RevenueCat's servers: skips SDK initialization on startup and neuters the app's periodic \"refresh entitlement\" network calls. Requires Unlock premium to also be enabled - without it, premium status has no way to ever resolve as active.",
+    "id": "e2a56df27ae09c0fab6194c8:4",
+    "legacy_id": 10629,
+    "metadata_status": "verified",
+    "name": "Purge RevenueCat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Journal",
+        "icon_url": "https://f-droid.org/repo/com.isaakhanimann.journal/en-US/icon_mPArullU-JoeSvjm6m31Adx21qJZ7o5w-Gc1eWdU9Yk%3D.png",
+        "name": "com.isaakhanimann.journal",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "3e6779d1fd62e4fa",
+    "use": false
+  },
+  {
+    "bundle_id": "e2a56df27ae09c0fab6194c8",
+    "compatiblePackages": {
+      "com.isaakhanimann.journal": null
+    },
+    "dependencies": [],
+    "description": "Removes the ACCESS_NETWORK_STATE permission, and optionally INTERNET too.",
+    "id": "e2a56df27ae09c0fab6194c8:5",
+    "legacy_id": 10630,
+    "metadata_status": "verified",
+    "name": "Remove internet permission",
+    "options": [
+      {
+        "default": false,
+        "description": "Also removes the INTERNET permission. Requires \"Purge RevenueCat\" to also be enabled - without it, RevenueCat's SDK crashes on startup when it can't find INTERNET declared in the manifest.",
+        "key": "removeInternet",
+        "required": false,
+        "title": "Also remove INTERNET",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Journal",
+        "icon_url": "https://f-droid.org/repo/com.isaakhanimann.journal/en-US/icon_mPArullU-JoeSvjm6m31Adx21qJZ7o5w-Gc1eWdU9Yk%3D.png",
+        "name": "com.isaakhanimann.journal",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "3e6779d1fd62e4fa",
+    "use": true
+  },
+  {
+    "bundle_id": "e2a56df27ae09c0fab6194c8",
+    "compatiblePackages": {
+      "com.isaakhanimann.journal": null
+    },
+    "dependencies": [],
+    "description": "Forces the RevenueCat \"premium\" entitlement check to always resolve as active, including before the app has ever reached RevenueCat's servers.",
+    "id": "e2a56df27ae09c0fab6194c8:6",
+    "legacy_id": 10631,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Journal",
+        "icon_url": "https://f-droid.org/repo/com.isaakhanimann.journal/en-US/icon_mPArullU-JoeSvjm6m31Adx21qJZ7o5w-Gc1eWdU9Yk%3D.png",
+        "name": "com.isaakhanimann.journal",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "3e6779d1fd62e4fa",
+    "use": true
+  },
+  {
+    "bundle_id": "e2b3940278aafdc42089991a",
+    "compatiblePackages": {
+      "com.spocky.projengmenu": null
+    },
+    "dependencies": [],
+    "description": "Disables analytics and crash reporting.",
+    "id": "e2b3940278aafdc42089991a:0",
+    "legacy_id": 10632,
+    "metadata_status": "verified",
+    "name": "Disable tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Projectivy Launcher",
+        "icon_url": "https://play-lh.googleusercontent.com/Qo3kWBOmNFWGcGxiBHs-tR2_0uVcrGGUzKXb_e_JwpbwwzsYHAs-qvNhE-QDr2c8B4_8w0bq8yl5uo88pTdb",
+        "name": "com.spocky.projengmenu",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "e2b3940278aafdc42089991a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "4.15.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the 'Upgrade to Mail Plus' entry from the sidebar.",
+    "id": "e2b3940278aafdc42089991a:1",
+    "legacy_id": 10633,
+    "metadata_status": "verified",
+    "name": "Hide sidebar upselling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "4.15.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "e2b3940278aafdc42089991a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "4.15.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 'Sent from Proton Mail mobile' signature from emails.",
+    "id": "e2b3940278aafdc42089991a:2",
+    "legacy_id": 10634,
+    "metadata_status": "verified",
+    "name": "Remove 'Sent from' signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "4.15.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "e2b3940278aafdc42089991a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "4.15.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the limit for maximum free accounts logged in.",
+    "id": "e2b3940278aafdc42089991a:3",
+    "legacy_id": 10635,
+    "metadata_status": "verified",
+    "name": "Remove free accounts limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "4.15.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "e2b3940278aafdc42089991a",
+    "compatiblePackages": {
+      "com.myvitale.forus": null
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "e2b3940278aafdc42089991a:4",
+    "legacy_id": 10636,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ForusApp",
+        "icon_url": "https://play-lh.googleusercontent.com/HQl7wIZjPOMZHojduQcS9jOnT_vsDIYp3ydapBQzBbuVpAsqtkcaxUP24VXmDAa4CM3q2AaqbG0EGYawBFVf-_M",
+        "name": "com.myvitale.forus",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "e2b3940278aafdc42089991a",
+    "compatiblePackages": {
+      "com.spocky.projengmenu": null
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "e2b3940278aafdc42089991a:5",
+    "legacy_id": 10637,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Projectivy Launcher",
+        "icon_url": "https://play-lh.googleusercontent.com/Qo3kWBOmNFWGcGxiBHs-tR2_0uVcrGGUzKXb_e_JwpbwwzsYHAs-qvNhE-QDr2c8B4_8w0bq8yl5uo88pTdb",
+        "name": "com.spocky.projengmenu",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "e2b3940278aafdc42089991a",
+    "compatiblePackages": {
+      "com.michaldrabik.showly2": null
+    },
+    "dependencies": [],
+    "description": "Unlocks ad removal, light theme, custom images, list view types, quick ratings, and transparent widgets.",
+    "id": "e2b3940278aafdc42089991a:6",
+    "legacy_id": 10638,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Showly: Track Shows & Movies",
+        "icon_url": "https://play-lh.googleusercontent.com/MVI1pUoJSh7hnO-8BSb67Ojq9wh8r9V0Imqm-AC5gdT-ohOaPnQ4JexvUy6a-gFZadTV27usj2bwQJlnntnJJQ",
+        "name": "com.michaldrabik.showly2",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "e31fd4dff64860c9c5c3bbda",
+    "compatiblePackages": {
+      "com.iptvprostreamplayer.v1": [
+        "1.2.7",
+        "2.7.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Deactivates subscription_needed, forces the pro entitlement active, and spoofs Google Play for app-internal installer-source checks.",
+    "id": "e31fd4dff64860c9c5c3bbda:0",
+    "legacy_id": 10639,
+    "metadata_status": "verified",
+    "name": "Unlock Pro (IPTV)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.iptvprostreamplayer.v1",
+        "icon_url": null,
+        "name": "com.iptvprostreamplayer.v1",
+        "versions": [
+          "1.2.7",
+          "2.7.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.2-dev.1",
+    "source_id": "8551b3a1add92525",
+    "use": true
+  },
+  {
+    "bundle_id": "e35901348ad6a4f0f96e2d8c",
+    "compatiblePackages": {
+      "nextapp.fx": null
+    },
+    "dependencies": [],
+    "description": "Unlock features like 'Web Access', 'Network' and 'FX Connect'.",
+    "id": "e35901348ad6a4f0f96e2d8c:0",
+    "legacy_id": 10640,
+    "metadata_status": "verified",
+    "name": "Unlock FX Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "nextapp.fx",
+        "icon_url": null,
+        "name": "nextapp.fx",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0-dev.5",
+    "source_id": "87b9d6dc7405e4c9",
+    "use": true
+  },
+  {
+    "bundle_id": "e35901348ad6a4f0f96e2d8c",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Nova Prime and all functions of the app.",
+    "id": "e35901348ad6a4f0f96e2d8c:1",
+    "legacy_id": 10641,
+    "metadata_status": "verified",
+    "name": "Unlock prime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Nova Launcher: Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/EihoqDPSzditTLnmP-N0GjXmbvNdnZyW7YZKxRocA_kVIsaXhM9lBlfPrJmhBcSQmiydPXgise1ZTAlOOH7ZsQ",
+        "name": "com.teslacoilsw.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0-dev.5",
+    "source_id": "87b9d6dc7405e4c9",
+    "use": true
+  },
+  {
+    "bundle_id": "e35901348ad6a4f0f96e2d8c",
+    "compatiblePackages": {
+      "net.dinglisch.android.taskerm": null
+    },
+    "dependencies": [],
+    "description": "Unlocks the trial version.",
+    "id": "e35901348ad6a4f0f96e2d8c:2",
+    "legacy_id": 10642,
+    "metadata_status": "verified",
+    "name": "Unlock trial",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Tasker",
+        "icon_url": "https://play-lh.googleusercontent.com/wjXpkVLT-LAzfcYOfhH0hF8ghU79nDHtqVLxBNmWOQJ2ghb4pgp_IBNfGdCTw-aQgh3WwA3Gp1k8Y4waZkGobmA",
+        "name": "net.dinglisch.android.taskerm",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0-dev.5",
+    "source_id": "87b9d6dc7405e4c9",
+    "use": true
+  },
+  {
+    "bundle_id": "e3c401eef404fd055baf8727",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 AI 撰寫工具，支援所有語言\nEnable AI writing tools with support for all languages.",
+    "id": "e3c401eef404fd055baf8727:0",
+    "legacy_id": 10643,
+    "metadata_status": "verified",
+    "name": "AI Writing Tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "ba130bb19b3d2105",
+    "use": true
+  },
+  {
+    "bundle_id": "e3c401eef404fd055baf8727",
+    "compatiblePackages": {
+      "com.example.app": [
+        "2.0.0",
+        "1.0.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Example patch to start with.",
+    "id": "e3c401eef404fd055baf8727:1",
+    "legacy_id": 10644,
+    "metadata_status": "verified",
+    "name": "Example Patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.example.app",
+        "icon_url": null,
+        "name": "com.example.app",
+        "versions": [
+          "2.0.0",
+          "1.0.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "ba130bb19b3d2105",
+    "use": true
+  },
+  {
+    "bundle_id": "e3c401eef404fd055baf8727",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "將 Gboard 內部讀取的裝置型號與產品名稱改為 Pixel 9 Pro，藉此解除 Pixel 8 等舊裝置的官方限制。\nSpoof Gboard's device model, device name, and product name to Pixel 9 Pro to bypass model restrictions natively.",
+    "id": "e3c401eef404fd055baf8727:2",
+    "legacy_id": 10645,
+    "metadata_status": "verified",
+    "name": "Gboard Model Spoof (Pixel 9 Pro)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "ba130bb19b3d2105",
+    "use": false
+  },
+  {
+    "bundle_id": "e3c401eef404fd055baf8727",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "將套件名稱改成 dev.jason.com.google.android.inputmethod.latin 以便在 Pixel 等裝置共存安裝，並更名自訂權限防止衝突。\nRename the package to dev.jason.com.google.android.inputmethod.latin for co-existence on Pixel/system-Gboard devices, and rename custom permissions to avoid installation conflicts.",
+    "id": "e3c401eef404fd055baf8727:3",
+    "legacy_id": 10646,
+    "metadata_status": "verified",
+    "name": "Gboard Package Rename (Pixel)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "ba130bb19b3d2105",
+    "use": true
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".rivanced\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
+    "id": "e41368ebbe4c9312bae9a169:0",
+    "legacy_id": 10647,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "Package name",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "Update permissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "Update providers",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Changes the version code of the app. This will turn off app store updates and allows downgrading an existing app install to an older app version.",
+    "id": "e41368ebbe4c9312bae9a169:1",
+    "legacy_id": 10648,
+    "metadata_status": "verified",
+    "name": "Change version code",
+    "options": [
+      {
+        "default": 2147483647,
+        "description": "The version code to use. Using the highest value turns off app store updates and allows downgrading an existing app install to an older app version.",
+        "key": "Version code",
+        "required": true,
+        "title": "Version code",
+        "type": "kotlin.Int",
+        "values": {
+          "Highest": 2147483647,
+          "Lowest": 1
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Allows trusting custom certificate authorities for a specific domain.",
+    "id": "e41368ebbe4c9312bae9a169:2",
+    "legacy_id": 10649,
+    "metadata_status": "verified",
+    "name": "Custom network security",
+    "options": [
+      {
+        "default": "[example.com]",
+        "description": "List of domains to which the custom trust configuration will be applied (one domain per entry).",
+        "key": "Target domains",
+        "required": true,
+        "title": "Target domains",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Applies the configuration to all subdomains of the target domains.",
+        "key": "Include subdomains",
+        "required": true,
+        "title": "Include subdomains",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "List of paths to files in PEM or DER format (one file path per entry).\n\nMakes an app trust the provided custom certificate authorities (CAs),\nfor the specified domains, and if the option \"Include Subdomains\" is enabled then also the subdomains.\n\n\nCA files will be bundled in res/raw/ of resulting APK",
+        "key": "Custom CA file paths",
+        "required": false,
+        "title": "Custom CA file paths",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Makes an app trust certificates from the Android user store for the specified domains, and if the option \"Include Subdomains\" is enabled then also the subdomains.",
+        "key": "Trust user added CAs",
+        "required": true,
+        "title": "Trust user added CAs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Makes an app trust certificates from the Android system store for the specified domains, and and if the option \"Include Subdomains\" is enabled then also the subdomains.",
+        "key": "Trust system CAs",
+        "required": true,
+        "title": "Trust system CAs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Allows unencrypted HTTP traffic for the specified domains, and if \"Include Subdomains\" is enabled then also the subdomains.",
+        "key": "Allow cleartext traffic (HTTP)",
+        "required": true,
+        "title": "Allow cleartext traffic (HTTP)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Overrides certificate pinning for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled to allow inspecting app traffic via a proxy.",
+        "key": "Override certificate pinning",
+        "required": true,
+        "title": "Override certificate pinning",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disable PairIP license and VM checks.",
+    "id": "e41368ebbe4c9312bae9a169:3",
+    "legacy_id": 10650,
+    "metadata_status": "verified",
+    "name": "Disable PairIP license check",
+    "options": [
+      {
+        "default": false,
+        "description": "Enables detailed native library and VM logging for debugging PairIP.",
+        "key": "Enable VM logging",
+        "required": false,
+        "title": "Enable VM logging",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Prevents apps from using Play Integrity by pretending it is not available.",
+    "id": "e41368ebbe4c9312bae9a169:4",
+    "legacy_id": 10651,
+    "metadata_status": "verified",
+    "name": "Disable Play Integrity",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables Sentry telemetry. See https://sentry.io/for/android/ for more information.",
+    "id": "e41368ebbe4c9312bae9a169:5",
+    "legacy_id": 10652,
+    "metadata_status": "verified",
+    "name": "Disable Sentry telemetry",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Enables Android debugging capabilities. This can slow down the app.",
+    "id": "e41368ebbe4c9312bae9a169:6",
+    "legacy_id": 10653,
+    "metadata_status": "verified",
+    "name": "Enable Android debugging",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the signature via the manifest meta-data \"fake-signature\". This patch only works with ROMs that support signature spoofing.",
+    "id": "e41368ebbe4c9312bae9a169:7",
+    "legacy_id": 10654,
+    "metadata_status": "verified",
+    "name": "Enable ROM signature spoofing",
+    "options": [
+      {
+        "default": null,
+        "description": "The hex-encoded signature or path to an APK file with the desired signature.",
+        "key": "Signature or APK file path",
+        "required": true,
+        "title": "Signature or APK file path",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes all app activities exportable.",
+    "id": "e41368ebbe4c9312bae9a169:8",
+    "legacy_id": 10655,
+    "metadata_status": "verified",
+    "name": "Export all activities",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Exports a documents provider that grants access to the internal data directory of this app to file managers and other apps that support the Storage Access Framework.",
+    "id": "e41368ebbe4c9312bae9a169:9",
+    "legacy_id": 10656,
+    "metadata_status": "verified",
+    "name": "Export internal data documents provider",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Replaces a hexadecimal patterns of bytes of files in an APK.",
+    "id": "e41368ebbe4c9312bae9a169:10",
+    "legacy_id": 10657,
+    "metadata_status": "verified",
+    "name": "Hex",
+    "options": [
+      {
+        "default": null,
+        "description": "Hexadecimal patterns to search for and replace with another in a target file.\n\nA pattern is a sequence of case insensitive strings, each representing hexadecimal bytes, separated by spaces.\nAn example pattern is 'aa 01 02 FF'.\n\nEvery pattern must be followed by a pipe ('|'), the replacement pattern,\nanother pipe ('|'), and the path to the file to make the changes in relative to the APK root. \nThe replacement pattern must be shorter or equal in length to the pattern.\n\nFull example of a valid replacement:\n'01 02 aa FF|03 04|path/to/file'",
+        "key": "Replacements",
+        "required": true,
+        "title": "Replacements",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides enabled development settings and/or ADB.",
+    "id": "e41368ebbe4c9312bae9a169:11",
+    "legacy_id": 10658,
+    "metadata_status": "verified",
+    "name": "Hide ADB status",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides the app icon from the Android launcher.",
+    "id": "e41368ebbe4c9312bae9a169:12",
+    "legacy_id": 10659,
+    "metadata_status": "verified",
+    "name": "Hide app icon",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Prevents the app from knowing the device location is being mocked by a third party app.",
+    "id": "e41368ebbe4c9312bae9a169:13",
+    "legacy_id": 10660,
+    "metadata_status": "verified",
+    "name": "Hide mock location",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Enable Android debugging"
+    ],
+    "description": "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
+    "id": "e41368ebbe4c9312bae9a169:14",
+    "legacy_id": 10661,
+    "metadata_status": "verified",
+    "name": "Override certificate pinning",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Enables the predictive back gesture introduced on Android 13.",
+    "id": "e41368ebbe4c9312bae9a169:15",
+    "legacy_id": 10662,
+    "metadata_status": "verified",
+    "name": "Predictive back gesture",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the registration of all screen capture callbacks. This prevents the app from detecting screenshots.",
+    "id": "e41368ebbe4c9312bae9a169:16",
+    "legacy_id": 10663,
+    "metadata_status": "verified",
+    "name": "Prevent screenshot detection",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the restriction of capturing audio from apps that normally wouldn't allow it.",
+    "id": "e41368ebbe4c9312bae9a169:17",
+    "legacy_id": 10664,
+    "metadata_status": "verified",
+    "name": "Remove screen capture restriction",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the restriction of taking screenshots in apps that normally wouldn't allow it.",
+    "id": "e41368ebbe4c9312bae9a169:18",
+    "legacy_id": 10665,
+    "metadata_status": "verified",
+    "name": "Remove screenshot restriction",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes share targets like directly sharing to a frequent contact.",
+    "id": "e41368ebbe4c9312bae9a169:19",
+    "legacy_id": 10666,
+    "metadata_status": "verified",
+    "name": "Remove share targets",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Changes the target SDK to version 34 (Android 14). For devices running Android 15+, this will disable edge-to-edge display.",
+    "id": "e41368ebbe4c9312bae9a169:20",
+    "legacy_id": 10667,
+    "metadata_status": "verified",
+    "name": "Set target SDK version 34",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the information about the current build.",
+    "id": "e41368ebbe4c9312bae9a169:21",
+    "legacy_id": 10668,
+    "metadata_status": "verified",
+    "name": "Spoof build info",
+    "options": [
+      {
+        "default": null,
+        "description": "The name of the underlying board, like \"goldfish\".",
+        "key": "Board",
+        "required": false,
+        "title": "Board",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The system bootloader version number.",
+        "key": "Bootloader",
+        "required": false,
+        "title": "Bootloader",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The consumer-visible brand with which the product/hardware will be associated, if any.",
+        "key": "Brand",
+        "required": false,
+        "title": "Brand",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "This field was deprecated in API level 21. Use SUPPORTED_ABIS instead.",
+        "key": "CPU ABI",
+        "required": false,
+        "title": "CPU ABI",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "This field was deprecated in API level 21. Use SUPPORTED_ABIS instead.",
+        "key": "CPU ABI 2",
+        "required": false,
+        "title": "CPU ABI 2",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The name of the industrial design.",
+        "key": "Device",
+        "required": false,
+        "title": "Device",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "A build ID string meant for displaying to the user.",
+        "key": "Display",
+        "required": false,
+        "title": "Display",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "A string that uniquely identifies this build.",
+        "key": "Fingerprint",
+        "required": false,
+        "title": "Fingerprint",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The name of the hardware (from the kernel command line or /proc).",
+        "key": "Hardware",
+        "required": false,
+        "title": "Hardware",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The host.",
+        "key": "Host",
+        "required": false,
+        "title": "Host",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Either a changelist number, or a label like \"M4-rc20\".",
+        "key": "ID",
+        "required": false,
+        "title": "ID",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The manufacturer of the product/hardware.",
+        "key": "Manufacturer",
+        "required": false,
+        "title": "Manufacturer",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The end-user-visible name for the end product.",
+        "key": "Model",
+        "required": false,
+        "title": "Model",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The SKU of the device as set by the original design manufacturer (ODM).",
+        "key": "ODM SKU",
+        "required": false,
+        "title": "ODM SKU",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The name of the overall product.",
+        "key": "Product",
+        "required": false,
+        "title": "Product",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "This field was deprecated in API level 15. The radio firmware version is frequently not available when this class is initialized, leading to a blank or \"unknown\" value for this string. Use getRadioVersion() instead.",
+        "key": "Radio",
+        "required": false,
+        "title": "Radio",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "This field was deprecated in API level 26. Use getSerial() instead.",
+        "key": "Serial",
+        "required": false,
+        "title": "Serial",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The SKU of the hardware (from the kernel command line).",
+        "key": "SKU",
+        "required": false,
+        "title": "SKU",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The manufacturer of the device's primary system-on-chip.",
+        "key": "SOC manufacturer",
+        "required": false,
+        "title": "SOC manufacturer",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The model name of the device's primary system-on-chip.",
+        "key": "SOC model",
+        "required": false,
+        "title": "SOC model",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Comma-separated tags describing the build, like \"unsigned,debug\".",
+        "key": "Tags",
+        "required": false,
+        "title": "Tags",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The time at which the build was produced, given in milliseconds since the UNIX epoch.",
+        "key": "Time",
+        "required": false,
+        "title": "Time",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The type of build, like \"user\" or \"eng\".",
+        "key": "Type",
+        "required": false,
+        "title": "Type",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The user.",
+        "key": "User",
+        "required": false,
+        "title": "User",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces apps to see Keymaster and Attestation security levels as 'StrongBox' (Level 2).",
+    "id": "e41368ebbe4c9312bae9a169:22",
+    "legacy_id": 10669,
+    "metadata_status": "verified",
+    "name": "Spoof keystore security level",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs Google Play data about the user's age and verification status.",
+    "id": "e41368ebbe4c9312bae9a169:23",
+    "legacy_id": 10670,
+    "metadata_status": "verified",
+    "name": "Spoof Play Age Signals",
+    "options": [
+      {
+        "default": 18,
+        "description": "A positive integer.",
+        "key": "Lower age bound",
+        "required": false,
+        "title": "Lower age bound",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 2147483647,
+        "description": "A positive integer. Must be greater than the lower age bound.",
+        "key": "Upper age bound",
+        "required": false,
+        "title": "Upper age bound",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 0,
+        "description": "An integer representing the user status.",
+        "key": "User status",
+        "required": false,
+        "title": "User status",
+        "type": "kotlin.Int",
+        "values": {
+          "DECLARED": 5,
+          "SUPERVISED": 1,
+          "SUPERVISED_APPROVAL_DENIED": 3,
+          "SUPERVISED_APPROVAL_PENDING": 2,
+          "UNKNOWN": 4,
+          "VERIFIED": 0
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs device integrity states (Locked Bootloader, Verified OS) for apps that perform local certificate attestation.",
+    "id": "e41368ebbe4c9312bae9a169:24",
+    "legacy_id": 10671,
+    "metadata_status": "verified",
+    "name": "Spoof root of trust",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs information about the SIM card provider.",
+    "id": "e41368ebbe4c9312bae9a169:25",
+    "legacy_id": 10672,
+    "metadata_status": "verified",
+    "name": "Spoof SIM provider",
+    "options": [
+      {
+        "default": null,
+        "description": "",
+        "key": "Network ISO country code",
+        "required": false,
+        "title": "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
+        "type": "kotlin.String",
+        "values": {
+          "Afghanistan": "AF",
+          "Albania": "AL",
+          "Algeria": "DZ",
+          "American Samoa": "AS",
+          "Andorra": "AD",
+          "Angola": "AO",
+          "Anguilla": "AI",
+          "Antarctica": "AQ",
+          "Antigua & Barbuda": "AG",
+          "Argentina": "AR",
+          "Armenia": "AM",
+          "Aruba": "AW",
+          "Australia": "AU",
+          "Austria": "AT",
+          "Azerbaijan": "AZ",
+          "Bahamas": "BS",
+          "Bahrain": "BH",
+          "Bangladesh": "BD",
+          "Barbados": "BB",
+          "Belarus": "BY",
+          "Belgium": "BE",
+          "Belize": "BZ",
+          "Benin": "BJ",
+          "Bermuda": "BM",
+          "Bhutan": "BT",
+          "Bolivia": "BO",
+          "Bosnia & Herzegovina": "BA",
+          "Botswana": "BW",
+          "Bouvet Island": "BV",
+          "Brazil": "BR",
+          "British Indian Ocean Territory": "IO",
+          "British Virgin Islands": "VG",
+          "Brunei": "BN",
+          "Bulgaria": "BG",
+          "Burkina Faso": "BF",
+          "Burundi": "BI",
+          "Cambodia": "KH",
+          "Cameroon": "CM",
+          "Canada": "CA",
+          "Cape Verde": "CV",
+          "Caribbean Netherlands": "BQ",
+          "Cayman Islands": "KY",
+          "Central African Republic": "CF",
+          "Chad": "TD",
+          "Chile": "CL",
+          "China": "CN",
+          "Christmas Island": "CX",
+          "Cocos (Keeling) Islands": "CC",
+          "Colombia": "CO",
+          "Comoros": "KM",
+          "Congo - Brazzaville": "CG",
+          "Congo - Kinshasa": "CD",
+          "Cook Islands": "CK",
+          "Costa Rica": "CR",
+          "Croatia": "HR",
+          "Cuba": "CU",
+          "Curaçao": "CW",
+          "Cyprus": "CY",
+          "Czechia": "CZ",
+          "Côte d’Ivoire": "CI",
+          "Denmark": "DK",
+          "Djibouti": "DJ",
+          "Dominica": "DM",
+          "Dominican Republic": "DO",
+          "Ecuador": "EC",
+          "Egypt": "EG",
+          "El Salvador": "SV",
+          "Equatorial Guinea": "GQ",
+          "Eritrea": "ER",
+          "Estonia": "EE",
+          "Eswatini": "SZ",
+          "Ethiopia": "ET",
+          "Falkland Islands": "FK",
+          "Faroe Islands": "FO",
+          "Fiji": "FJ",
+          "Finland": "FI",
+          "France": "FR",
+          "French Guiana": "GF",
+          "French Polynesia": "PF",
+          "French Southern Territories": "TF",
+          "Gabon": "GA",
+          "Gambia": "GM",
+          "Georgia": "GE",
+          "Germany": "DE",
+          "Ghana": "GH",
+          "Gibraltar": "GI",
+          "Greece": "GR",
+          "Greenland": "GL",
+          "Grenada": "GD",
+          "Guadeloupe": "GP",
+          "Guam": "GU",
+          "Guatemala": "GT",
+          "Guernsey": "GG",
+          "Guinea": "GN",
+          "Guinea-Bissau": "GW",
+          "Guyana": "GY",
+          "Haiti": "HT",
+          "Heard & McDonald Islands": "HM",
+          "Honduras": "HN",
+          "Hong Kong SAR China": "HK",
+          "Hungary": "HU",
+          "Iceland": "IS",
+          "India": "IN",
+          "Indonesia": "ID",
+          "Iran": "IR",
+          "Iraq": "IQ",
+          "Ireland": "IE",
+          "Isle of Man": "IM",
+          "Israel": "IL",
+          "Italy": "IT",
+          "Jamaica": "JM",
+          "Japan": "JP",
+          "Jersey": "JE",
+          "Jordan": "JO",
+          "Kazakhstan": "KZ",
+          "Kenya": "KE",
+          "Kiribati": "KI",
+          "Kuwait": "KW",
+          "Kyrgyzstan": "KG",
+          "Laos": "LA",
+          "Latvia": "LV",
+          "Lebanon": "LB",
+          "Lesotho": "LS",
+          "Liberia": "LR",
+          "Libya": "LY",
+          "Liechtenstein": "LI",
+          "Lithuania": "LT",
+          "Luxembourg": "LU",
+          "Macao SAR China": "MO",
+          "Madagascar": "MG",
+          "Malawi": "MW",
+          "Malaysia": "MY",
+          "Maldives": "MV",
+          "Mali": "ML",
+          "Malta": "MT",
+          "Marshall Islands": "MH",
+          "Martinique": "MQ",
+          "Mauritania": "MR",
+          "Mauritius": "MU",
+          "Mayotte": "YT",
+          "Mexico": "MX",
+          "Micronesia": "FM",
+          "Moldova": "MD",
+          "Monaco": "MC",
+          "Mongolia": "MN",
+          "Montenegro": "ME",
+          "Montserrat": "MS",
+          "Morocco": "MA",
+          "Mozambique": "MZ",
+          "Myanmar (Burma)": "MM",
+          "Namibia": "NA",
+          "Nauru": "NR",
+          "Nepal": "NP",
+          "Netherlands": "NL",
+          "New Caledonia": "NC",
+          "New Zealand": "NZ",
+          "Nicaragua": "NI",
+          "Niger": "NE",
+          "Nigeria": "NG",
+          "Niue": "NU",
+          "Norfolk Island": "NF",
+          "North Korea": "KP",
+          "North Macedonia": "MK",
+          "Northern Mariana Islands": "MP",
+          "Norway": "NO",
+          "Oman": "OM",
+          "Pakistan": "PK",
+          "Palau": "PW",
+          "Palestinian Territories": "PS",
+          "Panama": "PA",
+          "Papua New Guinea": "PG",
+          "Paraguay": "PY",
+          "Peru": "PE",
+          "Philippines": "PH",
+          "Pitcairn Islands": "PN",
+          "Poland": "PL",
+          "Portugal": "PT",
+          "Puerto Rico": "PR",
+          "Qatar": "QA",
+          "Romania": "RO",
+          "Russia": "RU",
+          "Rwanda": "RW",
+          "Réunion": "RE",
+          "Samoa": "WS",
+          "San Marino": "SM",
+          "Saudi Arabia": "SA",
+          "Senegal": "SN",
+          "Serbia": "RS",
+          "Seychelles": "SC",
+          "Sierra Leone": "SL",
+          "Singapore": "SG",
+          "Sint Maarten": "SX",
+          "Slovakia": "SK",
+          "Slovenia": "SI",
+          "Solomon Islands": "SB",
+          "Somalia": "SO",
+          "South Africa": "ZA",
+          "South Georgia & South Sandwich Islands": "GS",
+          "South Korea": "KR",
+          "South Sudan": "SS",
+          "Spain": "ES",
+          "Sri Lanka": "LK",
+          "St. Barthélemy": "BL",
+          "St. Helena": "SH",
+          "St. Kitts & Nevis": "KN",
+          "St. Lucia": "LC",
+          "St. Martin": "MF",
+          "St. Pierre & Miquelon": "PM",
+          "St. Vincent & Grenadines": "VC",
+          "Sudan": "SD",
+          "Suriname": "SR",
+          "Svalbard & Jan Mayen": "SJ",
+          "Sweden": "SE",
+          "Switzerland": "CH",
+          "Syria": "SY",
+          "São Tomé & Príncipe": "ST",
+          "Taiwan": "TW",
+          "Tajikistan": "TJ",
+          "Tanzania": "TZ",
+          "Thailand": "TH",
+          "Timor-Leste": "TL",
+          "Togo": "TG",
+          "Tokelau": "TK",
+          "Tonga": "TO",
+          "Trinidad & Tobago": "TT",
+          "Tunisia": "TN",
+          "Turkey": "TR",
+          "Turkmenistan": "TM",
+          "Turks & Caicos Islands": "TC",
+          "Tuvalu": "TV",
+          "U.S. Outlying Islands": "UM",
+          "U.S. Virgin Islands": "VI",
+          "Uganda": "UG",
+          "Ukraine": "UA",
+          "United Arab Emirates": "AE",
+          "United Kingdom": "GB",
+          "United States": "US",
+          "Uruguay": "UY",
+          "Uzbekistan": "UZ",
+          "Vanuatu": "VU",
+          "Vatican City": "VA",
+          "Venezuela": "VE",
+          "Vietnam": "VN",
+          "Wallis & Futuna": "WF",
+          "Western Sahara": "EH",
+          "Yemen": "YE",
+          "Zambia": "ZM",
+          "Zimbabwe": "ZW",
+          "Åland Islands": "AX"
+        }
+      },
+      {
+        "default": null,
+        "description": "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
+        "key": "MCC+MNC network operator code",
+        "required": false,
+        "title": "MCC+MNC network operator code",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The full name of the network operator.",
+        "key": "Network operator name",
+        "required": false,
+        "title": "Network operator name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "",
+        "key": "SIM ISO country code",
+        "required": false,
+        "title": "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
+        "type": "kotlin.String",
+        "values": {
+          "Afghanistan": "AF",
+          "Albania": "AL",
+          "Algeria": "DZ",
+          "American Samoa": "AS",
+          "Andorra": "AD",
+          "Angola": "AO",
+          "Anguilla": "AI",
+          "Antarctica": "AQ",
+          "Antigua & Barbuda": "AG",
+          "Argentina": "AR",
+          "Armenia": "AM",
+          "Aruba": "AW",
+          "Australia": "AU",
+          "Austria": "AT",
+          "Azerbaijan": "AZ",
+          "Bahamas": "BS",
+          "Bahrain": "BH",
+          "Bangladesh": "BD",
+          "Barbados": "BB",
+          "Belarus": "BY",
+          "Belgium": "BE",
+          "Belize": "BZ",
+          "Benin": "BJ",
+          "Bermuda": "BM",
+          "Bhutan": "BT",
+          "Bolivia": "BO",
+          "Bosnia & Herzegovina": "BA",
+          "Botswana": "BW",
+          "Bouvet Island": "BV",
+          "Brazil": "BR",
+          "British Indian Ocean Territory": "IO",
+          "British Virgin Islands": "VG",
+          "Brunei": "BN",
+          "Bulgaria": "BG",
+          "Burkina Faso": "BF",
+          "Burundi": "BI",
+          "Cambodia": "KH",
+          "Cameroon": "CM",
+          "Canada": "CA",
+          "Cape Verde": "CV",
+          "Caribbean Netherlands": "BQ",
+          "Cayman Islands": "KY",
+          "Central African Republic": "CF",
+          "Chad": "TD",
+          "Chile": "CL",
+          "China": "CN",
+          "Christmas Island": "CX",
+          "Cocos (Keeling) Islands": "CC",
+          "Colombia": "CO",
+          "Comoros": "KM",
+          "Congo - Brazzaville": "CG",
+          "Congo - Kinshasa": "CD",
+          "Cook Islands": "CK",
+          "Costa Rica": "CR",
+          "Croatia": "HR",
+          "Cuba": "CU",
+          "Curaçao": "CW",
+          "Cyprus": "CY",
+          "Czechia": "CZ",
+          "Côte d’Ivoire": "CI",
+          "Denmark": "DK",
+          "Djibouti": "DJ",
+          "Dominica": "DM",
+          "Dominican Republic": "DO",
+          "Ecuador": "EC",
+          "Egypt": "EG",
+          "El Salvador": "SV",
+          "Equatorial Guinea": "GQ",
+          "Eritrea": "ER",
+          "Estonia": "EE",
+          "Eswatini": "SZ",
+          "Ethiopia": "ET",
+          "Falkland Islands": "FK",
+          "Faroe Islands": "FO",
+          "Fiji": "FJ",
+          "Finland": "FI",
+          "France": "FR",
+          "French Guiana": "GF",
+          "French Polynesia": "PF",
+          "French Southern Territories": "TF",
+          "Gabon": "GA",
+          "Gambia": "GM",
+          "Georgia": "GE",
+          "Germany": "DE",
+          "Ghana": "GH",
+          "Gibraltar": "GI",
+          "Greece": "GR",
+          "Greenland": "GL",
+          "Grenada": "GD",
+          "Guadeloupe": "GP",
+          "Guam": "GU",
+          "Guatemala": "GT",
+          "Guernsey": "GG",
+          "Guinea": "GN",
+          "Guinea-Bissau": "GW",
+          "Guyana": "GY",
+          "Haiti": "HT",
+          "Heard & McDonald Islands": "HM",
+          "Honduras": "HN",
+          "Hong Kong SAR China": "HK",
+          "Hungary": "HU",
+          "Iceland": "IS",
+          "India": "IN",
+          "Indonesia": "ID",
+          "Iran": "IR",
+          "Iraq": "IQ",
+          "Ireland": "IE",
+          "Isle of Man": "IM",
+          "Israel": "IL",
+          "Italy": "IT",
+          "Jamaica": "JM",
+          "Japan": "JP",
+          "Jersey": "JE",
+          "Jordan": "JO",
+          "Kazakhstan": "KZ",
+          "Kenya": "KE",
+          "Kiribati": "KI",
+          "Kuwait": "KW",
+          "Kyrgyzstan": "KG",
+          "Laos": "LA",
+          "Latvia": "LV",
+          "Lebanon": "LB",
+          "Lesotho": "LS",
+          "Liberia": "LR",
+          "Libya": "LY",
+          "Liechtenstein": "LI",
+          "Lithuania": "LT",
+          "Luxembourg": "LU",
+          "Macao SAR China": "MO",
+          "Madagascar": "MG",
+          "Malawi": "MW",
+          "Malaysia": "MY",
+          "Maldives": "MV",
+          "Mali": "ML",
+          "Malta": "MT",
+          "Marshall Islands": "MH",
+          "Martinique": "MQ",
+          "Mauritania": "MR",
+          "Mauritius": "MU",
+          "Mayotte": "YT",
+          "Mexico": "MX",
+          "Micronesia": "FM",
+          "Moldova": "MD",
+          "Monaco": "MC",
+          "Mongolia": "MN",
+          "Montenegro": "ME",
+          "Montserrat": "MS",
+          "Morocco": "MA",
+          "Mozambique": "MZ",
+          "Myanmar (Burma)": "MM",
+          "Namibia": "NA",
+          "Nauru": "NR",
+          "Nepal": "NP",
+          "Netherlands": "NL",
+          "New Caledonia": "NC",
+          "New Zealand": "NZ",
+          "Nicaragua": "NI",
+          "Niger": "NE",
+          "Nigeria": "NG",
+          "Niue": "NU",
+          "Norfolk Island": "NF",
+          "North Korea": "KP",
+          "North Macedonia": "MK",
+          "Northern Mariana Islands": "MP",
+          "Norway": "NO",
+          "Oman": "OM",
+          "Pakistan": "PK",
+          "Palau": "PW",
+          "Palestinian Territories": "PS",
+          "Panama": "PA",
+          "Papua New Guinea": "PG",
+          "Paraguay": "PY",
+          "Peru": "PE",
+          "Philippines": "PH",
+          "Pitcairn Islands": "PN",
+          "Poland": "PL",
+          "Portugal": "PT",
+          "Puerto Rico": "PR",
+          "Qatar": "QA",
+          "Romania": "RO",
+          "Russia": "RU",
+          "Rwanda": "RW",
+          "Réunion": "RE",
+          "Samoa": "WS",
+          "San Marino": "SM",
+          "Saudi Arabia": "SA",
+          "Senegal": "SN",
+          "Serbia": "RS",
+          "Seychelles": "SC",
+          "Sierra Leone": "SL",
+          "Singapore": "SG",
+          "Sint Maarten": "SX",
+          "Slovakia": "SK",
+          "Slovenia": "SI",
+          "Solomon Islands": "SB",
+          "Somalia": "SO",
+          "South Africa": "ZA",
+          "South Georgia & South Sandwich Islands": "GS",
+          "South Korea": "KR",
+          "South Sudan": "SS",
+          "Spain": "ES",
+          "Sri Lanka": "LK",
+          "St. Barthélemy": "BL",
+          "St. Helena": "SH",
+          "St. Kitts & Nevis": "KN",
+          "St. Lucia": "LC",
+          "St. Martin": "MF",
+          "St. Pierre & Miquelon": "PM",
+          "St. Vincent & Grenadines": "VC",
+          "Sudan": "SD",
+          "Suriname": "SR",
+          "Svalbard & Jan Mayen": "SJ",
+          "Sweden": "SE",
+          "Switzerland": "CH",
+          "Syria": "SY",
+          "São Tomé & Príncipe": "ST",
+          "Taiwan": "TW",
+          "Tajikistan": "TJ",
+          "Tanzania": "TZ",
+          "Thailand": "TH",
+          "Timor-Leste": "TL",
+          "Togo": "TG",
+          "Tokelau": "TK",
+          "Tonga": "TO",
+          "Trinidad & Tobago": "TT",
+          "Tunisia": "TN",
+          "Turkey": "TR",
+          "Turkmenistan": "TM",
+          "Turks & Caicos Islands": "TC",
+          "Tuvalu": "TV",
+          "U.S. Outlying Islands": "UM",
+          "U.S. Virgin Islands": "VI",
+          "Uganda": "UG",
+          "Ukraine": "UA",
+          "United Arab Emirates": "AE",
+          "United Kingdom": "GB",
+          "United States": "US",
+          "Uruguay": "UY",
+          "Uzbekistan": "UZ",
+          "Vanuatu": "VU",
+          "Vatican City": "VA",
+          "Venezuela": "VE",
+          "Vietnam": "VN",
+          "Wallis & Futuna": "WF",
+          "Western Sahara": "EH",
+          "Yemen": "YE",
+          "Zambia": "ZM",
+          "Zimbabwe": "ZW",
+          "Åland Islands": "AX"
+        }
+      },
+      {
+        "default": null,
+        "description": "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
+        "key": "MCC+MNC SIM operator code",
+        "required": false,
+        "title": "MCC+MNC SIM operator code",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The full name of the SIM operator.",
+        "key": "SIM operator name",
+        "required": false,
+        "title": "SIM operator name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "15-digit IMEI to spoof, blank to skip, or 'random'.",
+        "key": "IMEI value",
+        "required": false,
+        "title": "IMEI value",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "14-char hex MEID to spoof, blank to skip, or 'random'.",
+        "key": "MEID value",
+        "required": false,
+        "title": "MEID value",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "15-digit IMSI to spoof, blank to skip, or 'random'.",
+        "key": "IMSI (Subscriber ID)",
+        "required": false,
+        "title": "IMSI (Subscriber ID)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "19-digit ICCID to spoof, blank to skip, or 'random'.",
+        "key": "ICCID (SIM Serial)",
+        "required": false,
+        "title": "ICCID (SIM Serial)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Phone number to spoof, blank to skip, or 'random'.",
+        "key": "Phone number",
+        "required": false,
+        "title": "Phone number",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e41368ebbe4c9312bae9a169",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs an existing Wi-Fi connection.",
+    "id": "e41368ebbe4c9312bae9a169:26",
+    "legacy_id": 10673,
+    "metadata_status": "verified",
+    "name": "Spoof Wi-Fi connection",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.0.3",
+    "source_id": "a954c0c54d12fb9a",
+    "use": false
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Lifts the 60 Hz limit Maps puts on itself, on the app and on the map, so it can run at your screen's full refresh rate (such as 120 Hz). Uses more battery, most of all while navigating. Off by default: switch it on on the Customization screen.",
+    "id": "e4428e13258e75e949ffb6d0:0",
+    "legacy_id": 10675,
+    "metadata_status": "unverified",
+    "name": "120 refresh rate",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Removes the \"More from this app\" label from the account sheet, and keeps the sheet open when you come back from Settings or Customization or tap \"Your profile\", instead of dropping back to the map.",
+    "id": "e4428e13258e75e949ffb6d0:1",
+    "legacy_id": 10676,
+    "metadata_status": "unverified",
+    "name": "Account sheet cleanup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": "microG",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": false,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "description": "Builds microG Maps, a separate app (org.ungoogled.android.apps.maps.microg) that signs in to your Google account through microG: saved places and lists, Timeline, location sharing, contributions and push messages. Remove sign-in prompts, Trim account menu and Remove permissions are left out of this build, Offline saved places keeps only its Local saved screen, which copies your account's saved lists to the phone (Pull from Google account), and its icon carries microG's C. Needs microG: MicroG-RE or ReVanced GmsCore. Not for root (mount) installs.",
+    "id": "e4428e13258e75e949ffb6d0:2",
+    "legacy_id": 10677,
+    "metadata_status": "unverified",
+    "name": "Add microG support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Reworks the offline area picker: zooming out really selects more instead of being shrunk to Google's size cap, the box can be resized by dragging its edges and corners, a large area is split into several downloads whose true total size is shown, and areas already downloaded are drawn on the map. Can be turned off on the Customization screen.",
+    "id": "e4428e13258e75e949ffb6d0:3",
+    "legacy_id": 10678,
+    "metadata_status": "unverified",
+    "name": "Better offline maps",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "description": "AMOLED-black theme. Pins Maps' own dark mode and its separate navigation colour scheme, and remaps colour resources, drawable fills and draw-time paints so no surface is left grey.",
+    "id": "e4428e13258e75e949ffb6d0:4",
+    "legacy_id": 10679,
+    "metadata_status": "unverified",
+    "name": "Black theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Chromium-coloured flat map pin on every in-app product logo and the search bar's leading icon.",
+    "id": "e4428e13258e75e949ffb6d0:5",
+    "legacy_id": 10680,
+    "metadata_status": "unverified",
+    "name": "Blue pin",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Makes Maps' bundled Play services signature and availability checks always pass, so it runs re-signed and with Play services disabled or absent, and lets it load tiles, search and routing by sending Google's own package and certificate in the identity headers the Maps backend checks. Where Play services rejects the re-signed app, Maps degrades instead of crashing.",
+    "id": "e4428e13258e75e949ffb6d0:6",
+    "legacy_id": 10681,
+    "metadata_status": "unverified",
+    "name": "Bypass Play Services checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Sets the launcher and in-app app name.",
+    "id": "e4428e13258e75e949ffb6d0:7",
+    "legacy_id": 10682,
+    "metadata_status": "unverified",
+    "name": "Change app name",
+    "options": [
+      {
+        "default": "Ungoogled Maps",
+        "description": "The name shown under the launcher icon and in the app switcher. Left at Ungoogled Maps, Add microG support names the app microG Maps instead.",
+        "key": "appName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Installs alongside stock Google Maps under its own package name. On by default, because stock Maps comes built into most phones and cannot be replaced by a patched copy.",
+    "id": "e4428e13258e75e949ffb6d0:8",
+    "legacy_id": 10683,
+    "metadata_status": "unverified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "org.ungoogled.android.apps.maps",
+        "description": "The package name to install under. Must be a valid Android package name. Left at org.ungoogled.android.apps.maps, Add microG support installs under org.ungoogled.android.apps.maps.microg instead.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "description": "Adds a Customization row under Settings on the account sheet, with switches for the patches here that can be turned back off inside the app.",
+    "id": "e4428e13258e75e949ffb6d0:9",
+    "legacy_id": 10684,
+    "metadata_status": "unverified",
+    "name": "Customization screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Hides promoted map pins and \"Sponsored\" search results, Gemini's AI summaries (\"Know before you go\" and the review summary), the row of businesses under an address on its place sheet, the home tab's Explore feed and the Explore / Contribute / You tabs. Each can be switched back on on the Customization screen.",
+    "id": "e4428e13258e75e949ffb6d0:10",
+    "legacy_id": 10685,
+    "metadata_status": "unverified",
+    "name": "Hide ads and clutter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon and on the screen Maps opens with. With Add microG support, microG's C sits in the pin's circle.",
+    "id": "e4428e13258e75e949ffb6d0:11",
+    "legacy_id": 10686,
+    "metadata_status": "unverified",
+    "name": "Legacy icon",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Adds a Location source choice to the Customization screen: Android's own location providers, or Google Play services' fused provider. With Android, Play services is never asked for a location. Play services is never used while it is missing or disabled, so location keeps working on phones without it. Also keeps the network (Wi-Fi/cell) provider registered when no fused provider answers, instead of GPS only, so a fix does not go stale indoors.",
+    "id": "e4428e13258e75e949ffb6d0:12",
+    "legacy_id": 10687,
+    "metadata_status": "unverified",
+    "name": "Location provider toggle",
+    "options": [
+      {
+        "default": false,
+        "description": "The location source Maps starts with. On: Google Play services' fused provider whenever Play services is installed and enabled, Android's own providers otherwise. Off: Android's own providers. Either can be changed later on the Customization screen.",
+        "key": "useFusedProvider",
+        "required": false,
+        "title": "Default to Play services location",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Save places without a Google account, kept only on the phone: Save opens Maps' own \"Place saved\" sheet (Want to go, Travel plans, Starred places, Favorites, your own lists, a note), and a \"Local saved\" row on the account sheet rebuilds Maps' You tab -- your recent places, your lists and labels (Home, Work, your own) -- with export and import (backup file, KML, Google Takeout's Saved Places.json). It also has a Timeline: where the phone has been, grouped into days and visits, kept only on the phone, with GPX export. Recording is off until switched on there; it shows a notification while it runs. With Add microG support, Maps' own Save keeps syncing to your account and Local saved instead copies the account's saved lists to the phone (Pull from Google account).",
+    "id": "e4428e13258e75e949ffb6d0:13",
+    "legacy_id": 10688,
+    "metadata_status": "unverified",
+    "name": "Offline saved places",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Brings the Pixel-only power saving mode to every phone: while driving with navigation, press the power button and Maps shows only key information such as the next turn on a black screen. Turn it on or off in Settings > Navigation > Power saving mode. Pixels that have it built in keep Google's own version unless Power saving mode is turned on in Power Saving Options, a row on the account sheet under Customization, which also has: a navigation button that opens the power saving screen without locking the phone, switching to it by itself when idle, a speedometer on it, a lower frame rate, and its black map in navigation or all over Maps.",
+    "id": "e4428e13258e75e949ffb6d0:14",
+    "legacy_id": 10689,
+    "metadata_status": "unverified",
+    "name": "Power saving mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "description": "Adds a Proxy screen to Customization that sends Maps' own traffic, map data included, through an HTTP proxy -- for example Orbot's (127.0.0.1:8118) to use Tor. Map data never falls back to a direct connection: if the proxy stops, Maps stops loading. Needs a recent Play services network engine (Cronet); Maps warns when it cannot take the proxy.",
+    "id": "e4428e13258e75e949ffb6d0:15",
+    "legacy_id": 10690,
+    "metadata_status": "unverified",
+    "name": "Proxy",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "description": "Squares off rounded corners across the UI, including the two round navigation buttons.",
+    "id": "e4428e13258e75e949ffb6d0:16",
+    "legacy_id": 10691,
+    "metadata_status": "unverified",
+    "name": "Rectangle shapes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Removes permissions that only serve Google-account features or Google's data collection: background location, physical activity, contacts, microphone (voice search stops working), camera (Lens and Live View stop working), car speed, advertising ID, push messages and Google services settings. Left out with Add microG support, whose account features need them.",
+    "id": "e4428e13258e75e949ffb6d0:17",
+    "legacy_id": 10692,
+    "metadata_status": "unverified",
+    "name": "Remove permissions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Removes Google's sign-in prompts: the first-launch \"Make it your map\" page, the search screen's \"Tired of typing?\" card and the account sheet's \"Sign in\" pill. Tapping \"Your profile\" (or the pill, where it still shows) answers with a \"Can't sign in\" toast instead of nothing. Left out with Add microG support, which signs in.",
+    "id": "e4428e13258e75e949ffb6d0:18",
+    "legacy_id": 10693,
+    "metadata_status": "unverified",
+    "name": "Remove sign-in prompts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "ResourcePatch"
+    ],
+    "description": "Points the Firebase Installations and Play services compliance check-ins at an unresolvable host, stops every ad impression and click ping from being sent, and deregisters Google's logging, performance-monitoring, survey and Location History libraries and the on-device federated-learning services. With Add microG support, Firebase Installations and Location History are left alone, so Timeline, account sync and push messages keep working.",
+    "id": "e4428e13258e75e949ffb6d0:19",
+    "legacy_id": 10694,
+    "metadata_status": "unverified",
+    "name": "Remove telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet. Left out with Add microG support, whose account features need them.",
+    "id": "e4428e13258e75e949ffb6d0:20",
+    "legacy_id": 10695,
+    "metadata_status": "unverified",
+    "name": "Trim account menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e4428e13258e75e949ffb6d0",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "apkFileType": "APKM",
+        "appIconColor": "#FFFFFF",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "26.36.04.973607363"
+          }
+        ],
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Adds +, − and reset tiles during turn-by-turn that change the navigation zoom while the camera keeps following the car.",
+    "id": "e4428e13258e75e949ffb6d0:21",
+    "legacy_id": 10696,
+    "metadata_status": "unverified",
+    "name": "Zoom controls in navigation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": null,
+        "name": "Google Maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.3",
+    "source_id": "6da25d54b19c98a0"
+  },
+  {
+    "bundle_id": "e44c5c03344c7ebb34a4d03e",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK",
+        "appIconColor": "#FF0000",
+        "description": null,
+        "name": "YouTube",
+        "packageName": "com.google.android.youtube",
+        "signatures": null,
+        "targets": [
+          {
+            "description": null,
+            "isExperimental": false,
+            "minSdk": null,
+            "version": "20.40.45"
+          }
+        ],
+        "versions": [
+          "20.40.45"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Hooks YouTube video time, speed, status, and player controls overlay buttons.",
+    "id": "e44c5c03344c7ebb34a4d03e:0",
+    "legacy_id": 10697,
+    "metadata_status": "unverified",
+    "name": "Voice Over Translation Bytecode Hooks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": null,
+        "name": "YouTube",
+        "versions": [
+          "20.40.45"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v6.2.1",
+    "source_id": "283ae6e448b3a06c"
+  },
+  {
+    "bundle_id": "e44c5c03344c7ebb34a4d03e",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK",
+        "appIconColor": "#FF0000",
+        "description": null,
+        "name": "YouTube",
+        "packageName": "com.google.android.youtube",
+        "signatures": null,
+        "targets": [
+          {
+            "description": null,
+            "isExperimental": false,
+            "minSdk": null,
+            "version": "20.40.45"
+          }
+        ],
+        "versions": [
+          "20.40.45"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Hooks AudioTrack.setVolume to dim original audio when voice-over translation is playing.",
+    "id": "e44c5c03344c7ebb34a4d03e:1",
+    "legacy_id": 10698,
+    "metadata_status": "unverified",
+    "name": "VOT Original Audio Volume Hook",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": null,
+        "name": "YouTube",
+        "versions": [
+          "20.40.45"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v6.2.1",
+    "source_id": "283ae6e448b3a06c"
+  },
+  {
+    "bundle_id": "e44c5c03344c7ebb34a4d03e",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK",
+        "appIconColor": "#FF0000",
+        "description": null,
+        "name": "YouTube",
+        "packageName": "com.google.android.youtube",
+        "signatures": null,
+        "targets": [
+          {
+            "description": null,
+            "isExperimental": false,
+            "minSdk": null,
+            "version": "20.40.45"
+          }
+        ],
+        "versions": [
+          "20.40.45"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Adds Yandex Voice Over Translation to YouTube.",
+    "id": "e44c5c03344c7ebb34a4d03e:2",
+    "legacy_id": 10699,
+    "metadata_status": "unverified",
+    "name": "Yandex Voice Over Translation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": null,
+        "name": "YouTube",
+        "versions": [
+          "20.40.45"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v6.2.1",
+    "source_id": "283ae6e448b3a06c"
+  },
+  {
+    "bundle_id": "e620fa11a64c3494f88394d1",
+    "compatiblePackages": {
+      "co.swasth.dbtcoach": [
+        "6.4.2",
+        "6.4.1",
+        "6.4.0",
+        "6.1.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Déverrouille toutes les fonctionnalités premium de DBT Coach en court-circuitant la vérification d'abonnement RevenueCat.",
+    "id": "e620fa11a64c3494f88394d1:0",
+    "legacy_id": 10700,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "co.swasth.dbtcoach",
+        "icon_url": null,
+        "name": "co.swasth.dbtcoach",
+        "versions": [
+          "6.4.2",
+          "6.4.1",
+          "6.4.0",
+          "6.1.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.1",
+    "source_id": "ca2850a147d2292a",
+    "use": true
+  },
+  {
+    "bundle_id": "e67f9b6d94dc8585ebaad4ed",
+    "compatiblePackages": {
+      "cz.mafra.jizdnirady": [
+        "3.8.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables ads in Mafra AdView.",
+    "id": "e67f9b6d94dc8585ebaad4ed:0",
+    "legacy_id": 10701,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "cz.mafra.jizdnirady",
+        "icon_url": null,
+        "name": "cz.mafra.jizdnirady",
+        "versions": [
+          "3.8.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "4fe7f2f21cb5842d",
+    "use": true
+  },
+  {
+    "bundle_id": "e6d6fbb296605f0e11d44ede",
+    "compatiblePackages": {
+      "com.grindrapp.android": [
+        "24.9.0",
+        "24.10.0",
+        "24.11.0",
+        "24.12.0",
+        "24.13.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the grindr version number",
+    "id": "e6d6fbb296605f0e11d44ede:0",
+    "legacy_id": 10702,
+    "metadata_status": "verified",
+    "name": "Spoof versions",
+    "options": [
+      {
+        "default": "24.12.0",
+        "description": "The grindr version to spoof.",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": null
+      },
+      {
+        "default": "127593",
+        "description": "The grindr version identifier to spoof.",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.grindrapp.android",
+        "icon_url": null,
+        "name": "com.grindrapp.android",
+        "versions": [
+          "24.9.0",
+          "24.10.0",
+          "24.11.0",
+          "24.12.0",
+          "24.13.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.2",
+    "source_id": "34a5e295897a444f",
+    "use": true
+  },
+  {
+    "bundle_id": "e6d6fbb296605f0e11d44ede",
+    "compatiblePackages": {
+      "com.grindrapp.android": [
+        "24.9.0",
+        "24.10.0",
+        "24.11.0",
+        "24.12.0",
+        "24.13.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks unlimited features.",
+    "id": "e6d6fbb296605f0e11d44ede:1",
+    "legacy_id": 10703,
+    "metadata_status": "verified",
+    "name": "Unlock unlimited",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.grindrapp.android",
+        "icon_url": null,
+        "name": "com.grindrapp.android",
+        "versions": [
+          "24.9.0",
+          "24.10.0",
+          "24.11.0",
+          "24.12.0",
+          "24.13.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.2",
+    "source_id": "34a5e295897a444f",
+    "use": true
+  },
+  {
+    "bundle_id": "e7bd0f1e1ee03a723daedc56",
+    "compatiblePackages": {
+      "com.diskwalaapp": [
+        "24.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stubs AppLovin, AdMob, InMobi and other ad SDKs at the bytecode level to prevent ads from loading without breaking the app.",
+    "id": "e7bd0f1e1ee03a723daedc56:0",
+    "legacy_id": 10704,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.diskwalaapp",
+        "icon_url": null,
+        "name": "com.diskwalaapp",
+        "versions": [
+          "24.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.1",
+    "source_id": "f183e841efcc1f53",
+    "use": true
+  },
+  {
+    "bundle_id": "e7bd0f1e1ee03a723daedc56",
+    "compatiblePackages": {
+      "com.diskwalaapp": [
+        "24.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses PairIP license check ('Download from Play Store'), Play Integrity, and signature verification to allow modified and sideloaded app usage.",
+    "id": "e7bd0f1e1ee03a723daedc56:1",
+    "legacy_id": 10705,
+    "metadata_status": "verified",
+    "name": "Disable forced update",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.diskwalaapp",
+        "icon_url": null,
+        "name": "com.diskwalaapp",
+        "versions": [
+          "24.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.1",
+    "source_id": "f183e841efcc1f53",
+    "use": true
+  },
+  {
+    "bundle_id": "e7bd0f1e1ee03a723daedc56",
+    "compatiblePackages": {
+      "com.diskwalaapp": [
+        "24.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes PairIP traps in native .so libraries and patches Hermes bundle.",
+    "id": "e7bd0f1e1ee03a723daedc56:2",
+    "legacy_id": 10706,
+    "metadata_status": "verified",
+    "name": "Patch native libraries",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.diskwalaapp",
+        "icon_url": null,
+        "name": "com.diskwalaapp",
+        "versions": [
+          "24.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.1",
+    "source_id": "f183e841efcc1f53",
+    "use": true
+  },
+  {
+    "bundle_id": "e7bd0f1e1ee03a723daedc56",
+    "compatiblePackages": {
+      "com.diskwalaapp": [
+        "24.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes RevenueCat entitlements appear active so ads-free and premium features are unlocked.",
+    "id": "e7bd0f1e1ee03a723daedc56:3",
+    "legacy_id": 10707,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.diskwalaapp",
+        "icon_url": null,
+        "name": "com.diskwalaapp",
+        "versions": [
+          "24.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.1",
+    "source_id": "f183e841efcc1f53",
+    "use": true
+  },
+  {
+    "bundle_id": "e8c1a89abcdd7bd25ed8a661",
+    "compatiblePackages": {
+      "com.kevinforeman.nzb360": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8c1a89abcdd7bd25ed8a661:0",
+    "legacy_id": 10902,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.kevinforeman.nzb360",
+        "icon_url": null,
+        "name": "com.kevinforeman.nzb360",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "e8f9a3dd97a3af44",
+    "use": true
+  },
+  {
+    "bundle_id": "e9806f04941581f2a79ed741",
+    "compatiblePackages": {
+      "com.iptvprostreamplayer.v1": [
+        "1.2.7",
+        "2.7.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Deactivates subscription_needed, forces the pro entitlement active, and spoofs Google Play for app-internal installer-source checks.",
+    "id": "e9806f04941581f2a79ed741:0",
+    "legacy_id": 10903,
+    "metadata_status": "verified",
+    "name": "Unlock Pro (IPTV)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.iptvprostreamplayer.v1",
+        "icon_url": null,
+        "name": "com.iptvprostreamplayer.v1",
+        "versions": [
+          "1.2.7",
+          "2.7.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.2",
+    "source_id": "8551b3a1add92525",
+    "use": true
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "10x Viewfinder Quick Zoom button in Photo mode",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Unlocks the discrete 10x quick zoom button on viewfinder in Photo mode.",
+    "id": "eac4a5a0d5923df903df2c4d:0",
+    "legacy_id": 10904,
+    "metadata_status": "unverified",
+    "name": "10x Viewfinder Quick Zoom",
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "Google Camera 11.0 with Tensor G5 Look processing backport",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Enables Google Pixel 11's 10 signature Camera Looks (Sauce & Tomte) on Pixel 6 through Pixel 10, fixes Portrait Mode blur on all cameras, and resolves Pixel 10 photo saving.",
+    "id": "eac4a5a0d5923df903df2c4d:1",
+    "legacy_id": 10905,
+    "metadata_status": "unverified",
+    "name": "Camera Looks Backport",
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "Permanent Portrait Mode fix across front and rear cameras",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Fixes front camera total blur and rear camera flat/bokeh-less portraits by routing portrait processing to Google's pure-TFLite monocular depth pipeline across all cameras.",
+    "id": "eac4a5a0d5923df903df2c4d:2",
+    "legacy_id": 10906,
+    "metadata_status": "unverified",
+    "name": "Permanent Portrait Mode Fix",
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "Crash-proof FinishShot, Flare Removal fix, binned RAW stream dimensions, and photo saving fix for Pixel 10 & Pro",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Resolves Pixel 10 & Pro 12MP photos not saving by disabling failing Flare Removal (ceftazidime) and Eclipse AE, mapping binned RAW stream dimensions, and guarding telephoto streams.",
+    "id": "eac4a5a0d5923df903df2c4d:3",
+    "legacy_id": 10907,
+    "metadata_status": "unverified",
+    "name": "Pixel 10 Photo Saving Fix",
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "Non-root dual installation clone",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Changes package identifier to com.google.android.GoogleCamera.morphe to allow side-by-side installation alongside stock Camera.",
+    "id": "eac4a5a0d5923df903df2c4d:4",
+    "legacy_id": 10908,
+    "metadata_status": "unverified",
+    "name": "Pixel Camera Clone (Non-Root)",
+    "options": [
+      {
+        "default": "com.google.android.GoogleCamera.morphe",
+        "description": "Package name to use for the cloned app.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "STRING"
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "Creator Suite features",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Enables Teleprompter HUD (Biotite), Live Audio VU Meter (Mica), and Social Framing Guides (Slate).",
+    "id": "eac4a5a0d5923df903df2c4d:5",
+    "legacy_id": 10909,
+    "metadata_status": "unverified",
+    "name": "Pixel Camera Creator Suite",
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "Pro manual controls (Focus, Shutter Speed, ISO, Peaking, Badges)",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Enables Pro Manual Controls (Manual Focus, Shutter Speed, ISO, Focus Peaking, and Live Badges) on non-Pro Pixel models.",
+    "id": "eac4a5a0d5923df903df2c4d:6",
+    "legacy_id": 10910,
+    "metadata_status": "unverified",
+    "name": "Pro Manual Controls",
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eac4a5a0d5923df903df2c4d",
+    "compatiblePackages": [
+      {
+        "apkFileType": "APK_REQUIRED",
+        "appIconColor": "#4285F4",
+        "description": "Viewfinder shortcuts and slider controls",
+        "name": "Pixel Camera",
+        "packageName": "com.google.android.GoogleCamera",
+        "targets": [
+          {
+            "description": "Official Pixel Camera 11.0 APKM bundle",
+            "isExperimental": false,
+            "minSdk": 31,
+            "version": "11.0.073.972752740.32",
+            "versionCodes": [
+              69623294
+            ]
+          }
+        ],
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [
+      "Camera Looks Backport"
+    ],
+    "description": "Enables customizable Left/Right viewfinder quick-access shortcut slots and interactive 10-tick slider.",
+    "id": "eac4a5a0d5923df903df2c4d:7",
+    "legacy_id": 10911,
+    "metadata_status": "unverified",
+    "name": "Viewfinder Quick Access Controls",
+    "packages": [
+      {
+        "app_name": "Pixel Camera",
+        "icon_url": null,
+        "name": "Pixel Camera",
+        "versions": [
+          "11.0.073.972752740.32"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.0.3",
+    "source_id": "9ad0ec934e3016db"
+  },
+  {
+    "bundle_id": "eb41ae0510a9601021cf3ae2",
+    "compatiblePackages": {
+      "com.persapps.multitimer": [
+        "1.12"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents PairIP license check from running so the app does not redirect to the Play Store paywall on launch.",
+    "id": "eb41ae0510a9601021cf3ae2:0",
+    "legacy_id": 10912,
+    "metadata_status": "verified",
+    "name": "Bypass DRM",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.persapps.multitimer",
+        "icon_url": null,
+        "name": "com.persapps.multitimer",
+        "versions": [
+          "1.12"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "62b1a663a6515e63",
+    "use": true
+  },
+  {
+    "bundle_id": "eb41ae0510a9601021cf3ae2",
+    "compatiblePackages": {
+      "com.ihealthlabs.MyVitalsPro": [
+        "4.14.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the rotating ad banner from appearing at the bottom of the Devices screen.",
+    "id": "eb41ae0510a9601021cf3ae2:1",
+    "legacy_id": 10913,
+    "metadata_status": "verified",
+    "name": "Disable ad banner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.ihealthlabs.MyVitalsPro",
+        "icon_url": null,
+        "name": "com.ihealthlabs.MyVitalsPro",
+        "versions": [
+          "4.14.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "62b1a663a6515e63",
+    "use": true
+  },
+  {
+    "bundle_id": "eb41ae0510a9601021cf3ae2",
+    "compatiblePackages": {
+      "com.ihealthlabs.MyVitalsPro": [
+        "4.14.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the AI-generated motivational modal from appearing after a blood pressure reading.",
+    "id": "eb41ae0510a9601021cf3ae2:2",
+    "legacy_id": 10914,
+    "metadata_status": "verified",
+    "name": "Disable AI motivational modal",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.ihealthlabs.MyVitalsPro",
+        "icon_url": null,
+        "name": "com.ihealthlabs.MyVitalsPro",
+        "versions": [
+          "4.14.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "62b1a663a6515e63",
+    "use": true
+  },
+  {
+    "bundle_id": "eb41ae0510a9601021cf3ae2",
+    "compatiblePackages": {
+      "com.persapps.multitimer": [
+        "1.12"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all PRO features by short-circuiting the purchase status check to always return true.",
+    "id": "eb41ae0510a9601021cf3ae2:3",
+    "legacy_id": 10915,
+    "metadata_status": "verified",
+    "name": "Enable PRO",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.persapps.multitimer",
+        "icon_url": null,
+        "name": "com.persapps.multitimer",
+        "versions": [
+          "1.12"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.1",
+    "source_id": "62b1a663a6515e63",
+    "use": true
+  }
+]

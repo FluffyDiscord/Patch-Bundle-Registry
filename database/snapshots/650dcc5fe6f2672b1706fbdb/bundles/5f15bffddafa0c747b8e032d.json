@@ -1,0 +1,43 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-11T06:21:08Z",
+  "description": "A tidier Settings page, your phone's font and emojis, and less clutter. Venus settings are easier to find and read, three new switches clear things out of Discord's way, and Quest Completer now waits until you turn it on.\n\n### Settings\n- **Plugins is now Settings.** It's listed first under **Venus** in Discord's settings, above **About**.\n- **No more plugin names.** Each switch says what it does, like **Send audio files as voice messages**, **Hide that you're typing** or just **Force system font**.\n- **Grouped so it's easy to scan:** Chat, Profiles and people, Servers and channels, and More.\n- **Settings with more options have a switch and a button.** The switch turns it on or off right there. The round arrow button, or tapping the row, opens its options.\n- **Options are greyed out while their main switch is off,** and option pages no longer repeat an \"Enable\" switch.\n\n### What's new\n- **Force system font.** Discord uses your phone's font instead of gg sans, in chat and everywhere else, keeping bold and italic. Code blocks use your phone's monospace font, and fonts people pick for their display name stay as they are. Needs Android 9 or newer. It starts off.\n- **Force system emojis.** Discord shows your phone's emojis instead of its own, in chat, reactions, statuses and the emoji picker. An emoji your phone doesn't have yet stays Discord's, and custom server emojis aren't changed. It starts on.\n- **Hide the gift button.** The Nitro gift button on the message bar is gone. It starts on.\n- **Hide the Quests promotion.** The Quest banner above your profile bar, under the server list, is gone, along with the space kept for it. It starts on.\n\n### Good to know\n- **Changing the font or emojis offers to reopen Discord,** so every screen switches at once. Choose **Later** to switch next time you open Discord.\n- **Quests still work with the promotion hidden.** You can still open them from Discord, and Quest Completer still completes them.\n- **Quest Completer starts off.** It's still selected in Morphe, but does nothing until you turn on **Complete Quests automatically** in Venus settings. If you already turned it on, it stays on.\n- Your other settings carry over, so nothing else turns on or off.\n\n### Install\nPatch the **original Discord 348.10 - Stable** APKM. Import `patches-1.5.0.mpp` under **Sources → + → Local**, or update the Venus Patches source in Morphe. Your settings carry over.\n\nChecked by patching the original 348.10 APKM with Morphe Desktop 1.18.0 (26 applied, 0 failed) and verifying the signed APK.\n\nSHA-256 `a93f8c10c1c15873205622c6ae081ccc1a31ce9ec576bb3af2571d3617266e60`  patches-1.5.0.mpp\n",
+  "download_url": "https://github.com/VenusIsJaded/Venus-Patches/releases/download/v1.5.0/patches-1.5.0.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:a93f8c10c1c15873205622c6ae081ccc1a31ce9ec576bb3af2571d3617266e60",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "a93f8c10c1c15873205622c6ae081ccc1a31ce9ec576bb3af2571d3617266e60",
+  "id": "5f15bffddafa0c747b8e032d",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FVenusIsJaded%2FVenus-Patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FVenusIsJaded%2FVenus-Patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8851,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.discord"
+  ],
+  "patch_count": 26,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v1.5.0",
+  "patch_refresh_attempted_at": "2026-10-11T14:28:41.768399595Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:a93f8c10c1c15873205622c6ae081ccc1a31ce9ec576bb3af2571d3617266e60",
+  "release_status": "available",
+  "release_url": "https://github.com/VenusIsJaded/Venus-Patches/releases/tag/v1.5.0",
+  "signature_download_url": "N/A",
+  "source_id": "56ff9014abe6222d",
+  "version": "v1.5.0"
+}
