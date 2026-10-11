@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import os
 import re
 import shutil
 from datetime import UTC, datetime
@@ -759,12 +760,21 @@ def build_database(root=ROOT, *, restore=True):
         summaries.append(summary)
     files = {"sources.json": list(sources.values()), "bundles.json": summaries}
     # Manager imports need one source's release selection, not the global history.
-    import_fields = ("id", "source_id", "bundle_type", "version", "created_at",
-                     "is_latest", "is_prerelease", "channels")
+    import_fields = (
+        "id",
+        "source_id",
+        "bundle_type",
+        "version",
+        "created_at",
+        "is_latest",
+        "is_prerelease",
+        "channels",
+    )
     for source in sources.values():
         files[f"imports/{source['id']}.json"] = [
             {field: bundles[key][field] for field in import_fields}
-            for key in source["bundles"] if key in bundles
+            for key in source["bundles"]
+            if key in bundles
         ]
     files.update({f"bundles/{key}.json": value for key, value in bundles.items()})
     index = {"packages": {}, "bundles": {}, "patch_ids": {}, "pages": []}
@@ -911,6 +921,50 @@ def build_database(root=ROOT, *, restore=True):
     return manifest
 
 
+def version_site_assets(destination):
+    """Keep HTML, styles and the full local module graph on the same release."""
+    assets = sorted(
+        path
+        for path in destination.rglob("*")
+        if path.is_file()
+        and path.suffix in {".js", ".css", ".json"}
+        and path.relative_to(destination).parts[0] != "database"
+    )
+    if not assets:
+        return
+    fingerprint = digest(
+        encoded(
+            [
+                [path.relative_to(destination).as_posix(), digest(path.read_bytes())]
+                for path in assets
+            ]
+        )
+    )[:16]
+    renamed = {path: path.with_name(f"{path.stem}.{fingerprint}{path.suffix}") for path in assets}
+    documents = sorted(destination.rglob("*.html")) + [
+        path for path in assets if path.suffix in {".js", ".css"}
+    ]
+    for document in documents:
+        content = document.read_text(encoding="utf-8")
+        for original, target in renamed.items():
+            relative = os.path.relpath(original, document.parent).replace("\\", "/")
+            replacement = os.path.relpath(target, document.parent).replace("\\", "/")
+            for prefix in ("", "./"):
+                for quote in ('"', "'"):
+                    content = content.replace(
+                        f"{quote}{prefix}{relative}{quote}",
+                        f"{quote}{prefix}{replacement}{quote}",
+                    )
+        renamed.get(document, document).write_text(content, encoding="utf-8")
+    # Cached pages from before asset versioning still request the stable URLs.
+    # Keep aliases with the same rewritten contents as the versioned assets.
+    for original, target in renamed.items():
+        if original.suffix == ".json":
+            shutil.copyfile(original, target)
+        else:
+            shutil.copyfile(target, original)
+
+
 def build_site(root=ROOT):
     destination = root / "site-dist"
     if destination.exists():
@@ -934,6 +988,7 @@ def build_site(root=ROOT):
     (destination / "config/git-hosts.json").write_bytes(encoded(hosts(root)))
     (destination / "CNAME").write_text(urlparse(config["website"]).hostname + "\n")
     (destination / ".nojekyll").touch()
+    version_site_assets(destination)
 
 
 if __name__ == "__main__":

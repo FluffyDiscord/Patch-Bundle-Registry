@@ -93,6 +93,24 @@ repositories {
             create<org.gradle.authentication.http.BasicAuthentication>("basic")
         }
     }
+    // Older patchers used these repositories before the shared registry.
+    // https://github.com/ReVanced/revanced-patcher/blob/cbfb9ba02f3bb3d30047332d1fbd9ed95dd7f06d/settings.gradle.kts
+    listOf("multidexlib2", "apktool").forEach { legacyRepository ->
+        maven {
+            name = "ReVancedLegacy_" + legacyRepository
+            url = uri("https://maven.pkg.github.com/revanced/" + legacyRepository)
+            content {
+                includeGroup("app.revanced")
+            }
+            credentials {
+                username = resolvedGprUser
+                password = resolvedGprKey
+            }
+            authentication {
+                create<org.gradle.authentication.http.BasicAuthentication>("basic")
+            }
+        }
+    }
     maven {
         name = "MorphePackages"
         url = uri("https://maven.pkg.github.com/MorpheApp/morphe-patcher")
@@ -190,8 +208,26 @@ val prepareCatalogRuntimes = tasks.register("prepareCatalogRuntimes") {
                 mapOf("available" to true,
                       "classpath" to configuration.files.joinToString(File.pathSeparator) { it.absolutePath })
             } catch (failure: Exception) {
-                logger.warn("Runtime {} unavailable ({}). GitHub Packages requires a valid token with read:packages; " +
-                    "set GITHUB_PACKAGES_TOKEN or gpr.key.", id, failure.javaClass.simpleName)
+                // Report coordinates, not raw exception messages that may contain credentials.
+                val unresolved = runCatching {
+                    configuration.incoming.resolutionResult.allDependencies
+                        .filterIsInstance<org.gradle.api.artifacts.result.UnresolvedDependencyResult>()
+                }.getOrDefault(emptyList())
+                val coordinates = unresolved.map { it.attempted.displayName }.distinct()
+                val httpStatuses = (listOf(failure) + unresolved.map { it.failure })
+                    .flatMap { problem -> generateSequence(problem as Throwable) { it.cause }.take(10).toList() }
+                    .flatMap { problem -> Regex("status code (\\d{3})", RegexOption.IGNORE_CASE)
+                        .findAll(problem.message.orEmpty()).map { it.groupValues[1] }.toList() }.distinct()
+                val hint = if (resolvedGprKey.isNullOrBlank()) {
+                    "No package token configured; set GITHUB_PACKAGES_TOKEN or gpr.key with read:packages."
+                } else {
+                    "Check artifact availability, repository access and transitive dependencies; " +
+                        "a resolution failure does not necessarily mean the token is invalid."
+                }
+                logger.warn("Runtime {} unavailable ({}). Unresolved dependencies: {}. HTTP status: {}. {}",
+                    id, failure.javaClass.simpleName,
+                    coordinates.ifEmpty { listOf("artifact download or variant selection") }.joinToString(),
+                    httpStatuses.ifEmpty { listOf("not reported") }.joinToString(), hint)
                 mapOf("available" to false, "classpath" to "")
             }
         }

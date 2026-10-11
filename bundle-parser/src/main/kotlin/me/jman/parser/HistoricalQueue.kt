@@ -86,7 +86,7 @@ internal fun historicalWork(root: File, limit: Int, fingerprint: String, disable
         val verified = record?.status == "verified" && record.file_hash != null &&
             record.version == version && record.download_url == download &&
             matchesProviderDigest(providerDigest, record.file_hash, record.provider_digest) &&
-            content?.version == version && content != null && isUsablePatchArray(content.patches) &&
+            content != null && content.version == version && isUsablePatchArray(content.patches) &&
             content.metadata_schema_version == PATCH_METADATA_SCHEMA_VERSION &&
             patches.isFile && record.patch_list_hash == sha256(patches)
         if (verified || pausedFailure(record, version, download, family,

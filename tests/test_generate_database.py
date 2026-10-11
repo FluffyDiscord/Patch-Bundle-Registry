@@ -777,14 +777,99 @@ def test_repeated_package_compatibility_retains_all_public_relationships(tmp_pat
 
 def test_bundle_icon_metadata_is_published_for_site_and_api(tmp_path):
     fixture(tmp_path)
-    write(tmp_path / "database/repository-metadata.json", {
-        "https://github.com/owner/demo": {"source_metadatum": {
-            "owner_avatar_url": "https://avatars.test/owner.png",
-            "bundle_icon_url": "https://raw.test/patches-bundle.png"
-        }}
-    })
+    write(
+        tmp_path / "database/repository-metadata.json",
+        {
+            "https://github.com/owner/demo": {
+                "source_metadatum": {
+                    "owner_avatar_url": "https://avatars.test/owner.png",
+                    "bundle_icon_url": "https://raw.test/patches-bundle.png",
+                }
+            }
+        },
+    )
     manifest = db.build_database(tmp_path)
     folder, _ = snapshot(tmp_path, manifest)
     source = next(row for row in db.read_json(folder / "sources.json") if row["repo"] == "demo")
     assert source["source_metadatum"]["bundle_icon_url"] == "https://raw.test/patches-bundle.png"
     assert source["source_metadatum"]["owner_avatar_url"] == "https://avatars.test/owner.png"
+
+
+def test_site_versions_complete_asset_graph_and_invalidates_cached_modules(tmp_path):
+    import re
+    import shutil
+
+    fixture(tmp_path)
+    for directory in ("web", "shared"):
+        shutil.copytree(db.ROOT / directory, tmp_path / directory)
+    manifest = db.build_database(tmp_path)
+    db.build_site(tmp_path)
+    site = tmp_path / "site-dist"
+    html = (site / "index.html").read_text(encoding="utf-8")
+    entry_urls = re.findall(r'(?:src|href)="([^"]+\.(?:js|css))"', html)
+    local_urls = [url for url in entry_urls if not url.startswith("https:")]
+    assert len(local_urls) == 3  # Theme, stylesheet and application entry.
+    assert all(re.fullmatch(r"[\w-]+\.[a-f0-9]{16}\.(?:js|css)", url) for url in local_urls)
+    assert all((site / url).is_file() for url in local_urls)
+    # Every transitive local import and configuration fetch must exist.
+    for document in list(site.rglob("*.js")) + list(site.rglob("*.html")):
+        for relative in re.findall(
+            r"""["']((?:\./|\.\./)[^"']+\.(?:js|json))["']""",
+            document.read_text(encoding="utf-8"),
+        ):
+            assert (document.parent / relative).is_file(), (document, relative)
+            assert re.search(r"\.[a-f0-9]{16}\.", relative), relative
+    assert db.read_json(site / "database/manifest.json") == manifest
+    for url in local_urls:
+        stable_url = re.sub(r"\.[a-f0-9]{16}(?=\.)", "", url)
+        assert (site / stable_url).read_bytes() == (site / url).read_bytes()
+    # Unchanged publications reuse URLs.
+    db.build_site(tmp_path)
+    assert (site / "index.html").read_text(encoding="utf-8") == html
+    # A change only in a transitive module must invalidate the entry script too.
+    module = tmp_path / "shared/catalog.js"
+    module.write_text(
+        module.read_text(encoding="utf-8") + "\n// Updated bundle labels.\n", encoding="utf-8"
+    )
+    db.build_site(tmp_path)
+    updated = (site / "index.html").read_text(encoding="utf-8")
+    assert updated != html
+    assert all(url not in updated for url in local_urls)
+    # Publication never edits development source references.
+    assert 'src="app.js"' in (tmp_path / "web/index.html").read_text(encoding="utf-8")
+
+
+def test_cached_unversioned_pages_can_still_load_after_publication(tmp_path):
+    import shutil
+
+    fixture(tmp_path)
+    for directory in ("web", "shared"):
+        shutil.copytree(db.ROOT / directory, tmp_path / directory)
+    db.build_database(tmp_path)
+    db.build_site(tmp_path)
+    site = tmp_path / "site-dist"
+    # Previously published HTML and modules can remain cached independently.
+    # Their old asset URLs must still resolve during the migration.
+    for relative in (
+        "theme.js", "style.css", "app.js", "config.json",
+        "shared/catalog.js", "shared/hosts.js", "config/git-hosts.json",
+    ):
+        assert (site / relative).is_file(), relative
+
+
+def test_header_svg_dimensions_do_not_depend_on_cached_css():
+    from html.parser import HTMLParser
+
+    class Icons(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.icons = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag == "svg":
+                self.icons.append(dict(attrs))
+
+    markup = Icons()
+    markup.feed((db.ROOT / "web/index.html").read_text(encoding="utf-8"))
+    assert len(markup.icons) == 3
+    assert all(icon["width"] == icon["height"] == "20" for icon in markup.icons)

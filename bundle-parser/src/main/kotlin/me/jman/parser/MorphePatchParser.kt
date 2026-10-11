@@ -151,7 +151,7 @@ private fun retainNamedPatch(candidate: Any?): Any? {
 private fun convertMorphePatch(patch: Any): JsonObject {
     val packages = readMemberValue(patch, "compatiblePackages")
     require(packages == null || packages is Iterable<*>) { "Compatible packages are not iterable" }
-    val compatiblePackages = convertMorpheCompatiblePackages(packages as? Iterable<*>)
+    val compatiblePackages = convertMorpheCompatiblePackages(packages)
     val dependencies = JsonArray(
         asIterable(readMemberValue(patch, "dependencies"))
             .mapNotNull(::retainNamedPatch)
