@@ -1,0 +1,46 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-10T22:14:59Z",
+  "description": "## Naolib vélo 3.6.1\n\n### ✨ Fonctionnalités\n\n- Affichage de la carte avec Morphe microG, avec un lien de téléchargement si le composant nécessaire est absent.\n- Fenêtre au premier appui sur un parking : nom, état, places disponibles, capacité et heure de réception des données, lorsque ces informations sont fournies par Naolib. Le bouton « Voir le parking » ouvre ses détails.\n- Parkings favoris enregistrés sur le téléphone : ajout, suppression et liste classée par nom. La sélection d’un favori recentre la carte sur le parking et affiche sa fenêtre.\n- Mémorisation de la dernière position de la carte, du zoom, de l’orientation et de l’inclinaison.\n- Suppression des contrôles locaux de proximité pour ouvrir les véloparcs (500 m) et déverrouiller les vélos (100 m). Un compte, la localisation et un accès valide au service restent nécessaires.\n- Présélection des quatre patchs Naolib dans Morphe.\n\n### 🐛 Corrections\n\n- Maintien des parkings déjà chargés lorsque leur actualisation renvoie une liste vide, grâce au patch « Conserver les parkings ».\n- Correction du démarrage de l’application modifiée et du plantage introduit par l’intégration de la carte.\n- Interception de l’ouverture directe des détails d’un parking pour afficher d’abord sa fenêtre d’information.\n- Utilisation des dernières données reçues pour les favoris ; la disponibilité est indiquée comme non actualisée lorsqu’aucune donnée récente n’est chargée.\n\n### 📝 Textes et nettoyage\n\n- Noms et descriptions des patchs Naolib, Keepcool et Leboncoin en français.\n- Suppression des anciens patchs expérimentaux liés à la signature et à la carte.\n- Documentation d’installation et d’utilisation de Naolib mise à jour.\n\nLe patch de carte nécessite [Morphe microG](https://morphe.software/microg) avec son moteur de carte ; la version 7.2.1 est compatible. Les services Google Play doivent rester installés. Le chargement d’une nouvelle zone de carte dépend toujours du réseau et du moteur de carte.\n\n[Changements du code depuis v1.5.0](https://github.com/yann-soliman/morphe-patches/compare/v1.5.0...v1.6.0)\n",
+  "download_url": "https://github.com/yann-soliman/morphe-patches/releases/download/v1.6.0/patches-1.6.0.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:955cfde9a3f9d52b9a2d4618737c1f61bc7c03ddf9457d8135583471909e8047",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "955cfde9a3f9d52b9a2d4618737c1f61bc7c03ddf9457d8135583471909e8047",
+  "id": "948d483d6d6b05162c5ebd84",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fyann-soliman%2Fmorphe-patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fyann-soliman%2Fmorphe-patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8568,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.jcdecaux.vls.nantes",
+    "com.meteoconsult.androidapp",
+    "fr.keepcool.memberapp",
+    "fr.leboncoin"
+  ],
+  "patch_count": 11,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v1.6.0",
+  "patch_refresh_attempted_at": "2026-10-11T17:11:54.123481167Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:955cfde9a3f9d52b9a2d4618737c1f61bc7c03ddf9457d8135583471909e8047",
+  "release_status": "unverified",
+  "release_url": "https://github.com/yann-soliman/morphe-patches/releases/tag/v1.6.0",
+  "signature_download_url": null,
+  "source_id": "624b72040816bcbe",
+  "version": "v1.6.0"
+}
