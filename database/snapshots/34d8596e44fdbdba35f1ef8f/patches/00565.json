@@ -1,0 +1,584 @@
+[
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "Other people's star ratings in a film's \"Watched by\" row use a very dark grey (#445566) that is hard to read, especially on a black theme. This switches them to the lighter grey (#99AABB) the rest of the app already uses for other people's ratings. A small legibility fix, on by default.",
+    "id": "de5af630636907ed09f54dd4:1",
+    "legacy_id": 59495,
+    "metadata_status": "verified",
+    "name": "Brighter Watched-by stars",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": true
+  },
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "Adds a \"Custom poster\" row under the existing Change poster button on a film's action sheet. Pick a poster from TMDB or paste any image URL, and it will be used on your device for that film — saved locally and included in Mod settings export/import. Works on every film regardless of Patron tier.",
+    "id": "de5af630636907ed09f54dd4:2",
+    "legacy_id": 59496,
+    "metadata_status": "verified",
+    "name": "Custom poster (local)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": false
+  },
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "Tightens the spacing around posters in grids so they render larger and closer together. Does not change the number of columns.",
+    "id": "de5af630636907ed09f54dd4:3",
+    "legacy_id": 59497,
+    "metadata_status": "verified",
+    "name": "Denser poster grid",
+    "options": [
+      {
+        "default": "compact",
+        "description": "How tightly posters are packed.",
+        "key": "density",
+        "required": false,
+        "title": "Grid density",
+        "type": "kotlin.String",
+        "values": {
+          "Compact": "compact",
+          "Cozy (near default)": "cozy",
+          "Dense": "dense"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": true
+  },
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "Makes the app treat your own account as Patron locally, so Patron-only screens and pickers appear. Purely cosmetic — the server still knows the real tier, so anything that saves (posters, backdrops) or fetches Patron-only data will not actually work. Off by default.",
+    "id": "de5af630636907ed09f54dd4:4",
+    "legacy_id": 59498,
+    "metadata_status": "verified",
+    "name": "Force Patron (local)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": false
+  },
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "Stops the Google AdMob banners shown to free accounts from loading anywhere in the app. On by default.",
+    "id": "de5af630636907ed09f54dd4:5",
+    "legacy_id": 59499,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": true
+  },
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "Repaints Letterboxd's dark chrome — window background, surfaces, cards, the top bar, tab strip, bottom nav and sheets — from the device's Material You palette on Android 12+ (no effect below). No accent or OLED options here; those live in the \"Mod settings\" screen — but that screen's \"Pure black (OLED)\" and \"Match bottom nav\" switches turn themselves off while this patch is applied, since it already repaints those surfaces on its own. No effect on Jetpack Compose screens.",
+    "id": "de5af630636907ed09f54dd4:6",
+    "legacy_id": 59500,
+    "metadata_status": "verified",
+    "name": "Material You theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": false
+  },
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "HOW TO OPEN: long-press the settings gear on your profile tab. — This adds a \"Letterboxd Mods\" screen that collects the other patches' options (theme, accent, hide ratings, hide video store, hide where to watch, open in player, match bottom nav, etc.) so you can change them inside the app instead of re-patching. Some changes apply immediately, others after a restart, and you'll be prompted either way.",
+    "id": "de5af630636907ed09f54dd4:7",
+    "legacy_id": 59501,
+    "metadata_status": "verified",
+    "name": "Mod settings",
+    "options": [
+      {
+        "default": "panel",
+        "description": "How the hidden rating is covered, before you've changed it from the Mods screen. 'Frosted panel' is an opaque panel with an eye glyph; 'Tap-to-show link' is a plain text link under the section title; 'Shimmer' is a continuously animating particle field; 'Tap to burst' is a static particle field that scatters when tapped. The Mods screen also has a separate \"Reveal animation\" (default / crumble / confetti) that changes how tapping any of the three opaque covers disappears, independent of which one you pick here.",
+        "key": "revealStyle",
+        "required": false,
+        "title": "Cover",
+        "type": "kotlin.String",
+        "values": {
+          "Frosted panel": "panel",
+          "Shimmer (Telegram-style)": "shimmer",
+          "Tap to burst": "burst",
+          "Tap-to-show link": "link"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": true
+  },
+  {
+    "bundle_id": "de5af630636907ed09f54dd4",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": "Bakes a dark surface theme directly into the APK at patch time. Works on every Android version, including below 12 where the runtime \"Appearance\" theme picker can't run. Changing theme later requires re-patching.",
+    "id": "de5af630636907ed09f54dd4:8",
+    "legacy_id": 59502,
+    "metadata_status": "verified",
+    "name": "Theme (baked in)",
+    "options": [
+      {
+        "default": "stock",
+        "description": "Which surface theme to bake into the APK.",
+        "key": "theme",
+        "required": false,
+        "title": "Theme",
+        "type": "kotlin.String",
+        "values": {
+          "Midnight Blue": "midnight",
+          "Pure Black (OLED)": "oled",
+          "Purple": "purple",
+          "Stock (Letterboxd's own colours)": "stock"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.12.0",
+    "source_id": "581f9a59e950dc4b",
+    "use": false
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "DEV diagnostic: only disables MainFeedCSRDataLoaderImpl async-ad tail-load dispatch.",
+    "id": "f6f674c8e54402f225fa6147:0",
+    "legacy_id": 59503,
+    "metadata_status": "verified",
+    "name": "[Diag A1] Facebook 573 ads - CSR tail-load",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": false
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "DEV diagnostic: only nulls the bZU Feed CSR response converter.",
+    "id": "f6f674c8e54402f225fa6147:1",
+    "legacy_id": 59504,
+    "metadata_status": "verified",
+    "name": "[Diag A2] Facebook 573 ads - CSR converter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": false
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "DEV diagnostic: only replaces FeedAsyncAdsController output with an empty C6Ke.",
+    "id": "f6f674c8e54402f225fa6147:2",
+    "legacy_id": 59505,
+    "metadata_status": "verified",
+    "name": "[Diag A3] Facebook 573 ads - Async controller",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": false
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "DEV diagnostic: only filters SPONSORED/PROMOTION feed edges and MultiAds sponsored data.",
+    "id": "f6f674c8e54402f225fa6147:3",
+    "legacy_id": 59506,
+    "metadata_status": "verified",
+    "name": "[Diag B] Facebook 573 ads - Final feed filter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": false
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "DEV diagnostic: only disables Reels/video and commercial-break ad fetch/success paths.",
+    "id": "f6f674c8e54402f225fa6147:4",
+    "legacy_id": 59507,
+    "metadata_status": "verified",
+    "name": "[Diag C] Facebook 573 ads - Reels/video",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": false
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "DEV diagnostic: logs Story bucket publication, cached replay and viewer notification without changing behavior.",
+    "id": "f6f674c8e54402f225fa6147:5",
+    "legacy_id": 59508,
+    "metadata_status": "verified",
+    "name": "[Diag D] Facebook 573 Stories - publication lifecycle",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": false
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops feed, Reels/video, and commercial-break ads without modifying the Story viewer pipeline.",
+    "id": "f6f674c8e54402f225fa6147:6",
+    "legacy_id": 59509,
+    "metadata_status": "verified",
+    "name": "Block Facebook ads (573)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": true
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses lifecycle feed refresh while preserving explicit refresh paths.",
+    "id": "f6f674c8e54402f225fa6147:7",
+    "legacy_id": 59510,
+    "metadata_status": "verified",
+    "name": "Block Facebook automatic refresh (573)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": true
+  },
+  {
+    "bundle_id": "f6f674c8e54402f225fa6147",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "573.0.0.37.74"
+      ]
+    },
+    "dependencies": [],
+    "description": "Pre-release experiment: filters Story ad buckets immediately after the Story Ads provider returns.",
+    "id": "f6f674c8e54402f225fa6147:8",
+    "legacy_id": 59511,
+    "metadata_status": "verified",
+    "name": "Block Facebook Story ads (573)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "573.0.0.37.74"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.9",
+    "source_id": "4a1fa2985702394f",
+    "use": false
+  },
+  {
+    "bundle_id": "f7501239de60367fa37f0473",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "31.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Kizu Twitch enhancements: third-party emotes in chat and the native picker, animated emote playback, live ad blocking, appearance controls, privacy controls, and patched-app compatibility.",
+    "id": "f7501239de60367fa37f0473:0",
+    "legacy_id": 59512,
+    "metadata_status": "verified",
+    "name": "Twitch Enhancement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "31.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.6",
+    "source_id": "6af02e4c275751fe",
+    "use": true
+  },
+  {
+    "bundle_id": "f8a879858803e44016558e3d",
+    "compatiblePackages": {
+      "com.traviangames.travianlegendsmobile": [
+        "4.0.0",
+        "4.0.1",
+        "4.0.2"
+      ]
+    },
+    "dependencies": [
+      "Travian notifier manifest entry"
+    ],
+    "description": "Notifies you when a building upgrade or troop training queue finishes, with the building/unit name, level, and village, and warns you about incoming attacks and raids (who, from where, and when they arrive) with a second warning about a minute before they land, tells you when an attack was called off, warns you when a warehouse or granary is about to fill up, tells you when your hero has a new adventure, is back home, died or is low on health, and tells you when reinforcements or your own returning troops arrive. Tapping a notification opens the game, and a second \"Travian Tools\" icon opens a home screen where you switch each type of notification on or off, see what is building and training, and see your recent ones. Uses the session you're already logged in with in the game — no separate login, no password ever handled by this patch. Checks run quietly in the background: one is scheduled for just after each build/training is due to finish, plus a regular check every 5 minutes (Android may delay background work slightly). Nothing is shown unless something actually finished. The first time you open the app it asks once for notification permission and to exempt the app from battery optimization, so the background checks aren't killed by the system.",
+    "id": "f8a879858803e44016558e3d:0",
+    "legacy_id": 59513,
+    "metadata_status": "verified",
+    "name": "Build/troop queue notifications",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Travian: Legends Strategy MMO",
+        "icon_url": "https://play-lh.googleusercontent.com/PZGAc3vxwxWzE7XDDYezZuyujep8EW6xpTMNPiEiR5hJJOnVPBgiZi5Ri5KS_xsPZ5j7B7e5blhDgv9FCv3LGl8",
+        "name": "com.traviangames.travianlegendsmobile",
+        "versions": [
+          "4.0.0",
+          "4.0.1",
+          "4.0.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1",
+    "source_id": "04786cfe5241afe4",
+    "use": true
+  },
+  {
+    "bundle_id": "f8a879858803e44016558e3d",
+    "compatiblePackages": {
+      "com.traviangames.travianlegendsmobile": [
+        "4.0.0",
+        "4.0.1",
+        "4.0.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds the permission needed to ask for a battery optimization exemption, and the Travian Tools screens.",
+    "id": "f8a879858803e44016558e3d:1",
+    "legacy_id": 59514,
+    "metadata_status": "verified",
+    "name": "Travian notifier manifest entry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Travian: Legends Strategy MMO",
+        "icon_url": "https://play-lh.googleusercontent.com/PZGAc3vxwxWzE7XDDYezZuyujep8EW6xpTMNPiEiR5hJJOnVPBgiZi5Ri5KS_xsPZ5j7B7e5blhDgv9FCv3LGl8",
+        "name": "com.traviangames.travianlegendsmobile",
+        "versions": [
+          "4.0.0",
+          "4.0.1",
+          "4.0.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1",
+    "source_id": "04786cfe5241afe4",
+    "use": true
+  }
+]
