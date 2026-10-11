@@ -1,0 +1,2854 @@
+[
+  {
+    "bundle_id": "d6271dd9bdf0ed3353169eb1",
+    "compatiblePackages": {
+      "com.jazz.jazzworld": [
+        "3.3.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Simosa's anti-tamper signature check so a re-signed APK launches normally instead of stalling on the splash / \"version is not correct\" dialog.",
+    "id": "d6271dd9bdf0ed3353169eb1:1",
+    "legacy_id": 68200,
+    "metadata_status": "verified",
+    "name": "Bypass signature verification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SIMOSA - All in one",
+        "icon_url": "https://play-lh.googleusercontent.com/zJzp3VpEwpbBSonC7xY8f0O7Mwc3f490tFqO2lj6qfR4RjLKlD0-az0ZiUQ72QaCwL4g1fml-UjPV-i8OwrJCt0",
+        "name": "com.jazz.jazzworld",
+        "versions": [
+          "3.3.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.5.0",
+    "source_id": "a4b8645cb6754a72",
+    "use": true
+  },
+  {
+    "bundle_id": "d6271dd9bdf0ed3353169eb1",
+    "compatiblePackages": {
+      "com.zong.customercare": [
+        "5.19.19.112"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes every ad (AdMob) and every tracker (Firebase Analytics, AppsFlyer, Facebook, TikTok, and the Veridium SDK's own Google Analytics) — event sends, full SDK init (AppsFlyer init, TikTok initializeSdk/startTrack, MobileAds.initialize), and auto-collection. Pushwoosh push is left intact. The app then phones home only to its own Zong API.",
+    "id": "d6271dd9bdf0ed3353169eb1:2",
+    "legacy_id": 68201,
+    "metadata_status": "verified",
+    "name": "Remove ads & tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "My Zong",
+        "icon_url": "https://play-lh.googleusercontent.com/DLt6nmeZ-ibGGaudFHT9dwkMN5IjNO64mdp26Ya4NsgiLlej3vE6jid8K1Ncw_TuyC4ShhTTfqYQgfMoyI1BTQ",
+        "name": "com.zong.customercare",
+        "versions": [
+          "5.19.19.112"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.5.0",
+    "source_id": "a4b8645cb6754a72",
+    "use": true
+  },
+  {
+    "bundle_id": "d6271dd9bdf0ed3353169eb1",
+    "compatiblePackages": {
+      "com.jazz.jazzworld": [
+        "3.3.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes every ad (interstitial, banner, daily-reward) and every tracker (Mixpanel, Firebase, Facebook, AppsFlyer) — app events, network sends, ad-SDK requests (Google Ads / AppLovin / AnyMind / Prebid), SDK auto-collection, and the ipify IP leak. The app then phones home only to its own Jazz API.",
+    "id": "d6271dd9bdf0ed3353169eb1:3",
+    "legacy_id": 68202,
+    "metadata_status": "verified",
+    "name": "Remove ads & tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SIMOSA - All in one",
+        "icon_url": "https://play-lh.googleusercontent.com/zJzp3VpEwpbBSonC7xY8f0O7Mwc3f490tFqO2lj6qfR4RjLKlD0-az0ZiUQ72QaCwL4g1fml-UjPV-i8OwrJCt0",
+        "name": "com.jazz.jazzworld",
+        "versions": [
+          "3.3.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.5.0",
+    "source_id": "a4b8645cb6754a72",
+    "use": true
+  },
+  {
+    "bundle_id": "d6271dd9bdf0ed3353169eb1",
+    "compatiblePackages": {
+      "com.daraz.android": [
+        "9.36.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "⚠️ WORK IN PROGRESS — not yet fully verified on-device; use at your own risk. No-ops the analytics/ad/fingerprint egress in Daraz — Alibaba UserTrack clickstream, AUDID/UTDID fingerprint upload, Behavix behavior collection, Meta/Facebook App Events + GAID, Firebase Analytics, Zalo device-tracking, Motu crash/APM, and the UCWeb webview telemetry uploaders — plus manifest auto-collection flags. Login, push (ACCS/FCM), eKYC and the app's own commerce API are left intact. Known gaps: Firebase Analytics runs inside Google Play Services (relies on the manifest flag, not a code stub), residual native UCWeb telemetry needs a DNS/host block, and the split-APK install is still being validated.",
+    "id": "d6271dd9bdf0ed3353169eb1:4",
+    "legacy_id": 68203,
+    "metadata_status": "verified",
+    "name": "Remove analytics & tracking (WIP)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Daraz Online Shopping App",
+        "icon_url": "https://play-lh.googleusercontent.com/9TsiJAH3aOaYHFmYbV5UfWDGVW2ob1VicZZ1vjTwlUCSzKyHV-9GEWb2FA8Ldg2J7DnibJQ8ujh-t26-WOeVSA",
+        "name": "com.daraz.android",
+        "versions": [
+          "9.36.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.5.0",
+    "source_id": "a4b8645cb6754a72",
+    "use": true
+  },
+  {
+    "bundle_id": "d6271dd9bdf0ed3353169eb1",
+    "compatiblePackages": {
+      "com.zong.customercare": [
+        "5.19.19.112"
+      ]
+    },
+    "dependencies": [],
+    "description": "Claim MyZong's daily reward with no 'watch ad' popup and no ad. Forces the reward-bubble tap to take the app's own direct-claim branch (the same claim call the post-ad path makes), upstream of both the popup and the rewarded ad.",
+    "id": "d6271dd9bdf0ed3353169eb1:5",
+    "legacy_id": 68204,
+    "metadata_status": "verified",
+    "name": "Unlock daily reward (skip ad)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "My Zong",
+        "icon_url": "https://play-lh.googleusercontent.com/DLt6nmeZ-ibGGaudFHT9dwkMN5IjNO64mdp26Ya4NsgiLlej3vE6jid8K1Ncw_TuyC4ShhTTfqYQgfMoyI1BTQ",
+        "name": "com.zong.customercare",
+        "versions": [
+          "5.19.19.112"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.5.0",
+    "source_id": "a4b8645cb6754a72",
+    "use": true
+  },
+  {
+    "bundle_id": "d6271dd9bdf0ed3353169eb1",
+    "compatiblePackages": {
+      "cz.mroczis.netmonster": [
+        "3.4.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks NetMonster Premium — forces the premium repo's derived flows so real-time LTE/NR-NSA location calculation is unlocked, ads are removed, and the status shows Active (far-future expiry) without an Adapty subscription.",
+    "id": "d6271dd9bdf0ed3353169eb1:6",
+    "legacy_id": 68205,
+    "metadata_status": "verified",
+    "name": "Unlock premium (NetMonster)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NetMonster",
+        "icon_url": "https://play-lh.googleusercontent.com/CqbD-BOBTN64AVq7YWKJZ2z-Oc42aNcpR9zZnLrkthY3BwfXd17nbGn-2y3AQwS-q5Xz8-lmTBwQ7nESyHl2lQ",
+        "name": "cz.mroczis.netmonster",
+        "versions": [
+          "3.4.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.5.0",
+    "source_id": "a4b8645cb6754a72",
+    "use": true
+  },
+  {
+    "bundle_id": "d6271dd9bdf0ed3353169eb1",
+    "compatiblePackages": {
+      "com.blueinklabs.investifystocks.free": [
+        "5.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Investify premium — forces the backend `no_ads` entitlement getter to report true in both the model and its Realm proxy, so the app treats the account as ad-free without any purchase. Ad SDK loads are gated on this flag app-wide.",
+    "id": "d6271dd9bdf0ed3353169eb1:7",
+    "legacy_id": 68206,
+    "metadata_status": "verified",
+    "name": "Unlock premium (remove ads)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Investify PSX Stocks Pakistan",
+        "icon_url": "https://play-lh.googleusercontent.com/vEzQQLVO50YaUAM2pOvjQjTy_DUkou5to3Wru4cfPgtaaV9Gh31n_PbqlJLpcXC_9WxBi69ouwtn55OB-Q6AkQ",
+        "name": "com.blueinklabs.investifystocks.free",
+        "versions": [
+          "5.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "1.5.0",
+    "source_id": "a4b8645cb6754a72",
+    "use": true
+  },
+  {
+    "bundle_id": "d6343d747aed6efcfd728d8b",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".morphe\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
+    "id": "d6343d747aed6efcfd728d8b:0",
+    "legacy_id": 68207,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.2.3",
+    "source_id": "0622524438df25e6",
+    "use": false
+  },
+  {
+    "bundle_id": "d6343d747aed6efcfd728d8b",
+    "compatiblePackages": {
+      "com.google.android.apps.magazines": [
+        "5.154.0.880997081"
+      ]
+    },
+    "dependencies": [
+      "Change package name"
+    ],
+    "description": "Enables CustomTabs to open articles in your default browser.",
+    "id": "d6343d747aed6efcfd728d8b:1",
+    "legacy_id": 68208,
+    "metadata_status": "verified",
+    "name": "Enable CustomTabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google News - Daily Headlines",
+        "icon_url": "https://play-lh.googleusercontent.com/m2k0X_fhgmj2MjDn_9rStPF9ngsXMO-DsC1ZhG3bcYl7hvJ9rwAOo7cKs9j5wnl-RNuDh-sfCUtF2sYzjcgzIg",
+        "name": "com.google.android.apps.magazines",
+        "versions": [
+          "5.154.0.880997081"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.3",
+    "source_id": "0622524438df25e6",
+    "use": true
+  },
+  {
+    "bundle_id": "d6343d747aed6efcfd728d8b",
+    "compatiblePackages": {
+      "com.google.android.apps.magazines": [
+        "5.154.0.880997081"
+      ]
+    },
+    "dependencies": [
+      "GmsCore support resources",
+      "Change package name"
+    ],
+    "description": "Allows Google News to sign in via MicroG (GmsCore) instead of Google Play Services when installed under a renamed package.",
+    "id": "d6343d747aed6efcfd728d8b:2",
+    "legacy_id": 68209,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google News - Daily Headlines",
+        "icon_url": "https://play-lh.googleusercontent.com/m2k0X_fhgmj2MjDn_9rStPF9ngsXMO-DsC1ZhG3bcYl7hvJ9rwAOo7cKs9j5wnl-RNuDh-sfCUtF2sYzjcgzIg",
+        "name": "com.google.android.apps.magazines",
+        "versions": [
+          "5.154.0.880997081"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.3",
+    "source_id": "0622524438df25e6",
+    "use": true
+  },
+  {
+    "bundle_id": "d6343d747aed6efcfd728d8b",
+    "compatiblePackages": {
+      "com.ebay.kleinanzeigen": null
+    },
+    "dependencies": [],
+    "description": "Hides sponsored ads and Google Ads. Also disables Microsoft Clarity analytics.",
+    "id": "d6343d747aed6efcfd728d8b:3",
+    "legacy_id": 68210,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Kleinanzeigen - Marketplace",
+        "icon_url": "https://play-lh.googleusercontent.com/PuqeuAmOMsDoB9gRCVr-EQHthinCbtaKPzMbxabfmCY9RI9r1fmWncCb4k6umBszzPaszT_o2RopSpIhy9BAiQ",
+        "name": "com.ebay.kleinanzeigen",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.2.3",
+    "source_id": "0622524438df25e6",
+    "use": true
+  },
+  {
+    "bundle_id": "d6343d747aed6efcfd728d8b",
+    "compatiblePackages": {
+      "com.ebay.kleinanzeigen": null
+    },
+    "dependencies": [],
+    "description": "Hides the Pur ad-free subscription option from the settings menu.",
+    "id": "d6343d747aed6efcfd728d8b:4",
+    "legacy_id": 68211,
+    "metadata_status": "verified",
+    "name": "Hide Pur",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Kleinanzeigen - Marketplace",
+        "icon_url": "https://play-lh.googleusercontent.com/PuqeuAmOMsDoB9gRCVr-EQHthinCbtaKPzMbxabfmCY9RI9r1fmWncCb4k6umBszzPaszT_o2RopSpIhy9BAiQ",
+        "name": "com.ebay.kleinanzeigen",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.2.3",
+    "source_id": "0622524438df25e6",
+    "use": true
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [
+      "Mod settings",
+      "Match bottom nav to top bar color"
+    ],
+    "description": "In-app appearance controls, adjustable from the Letterboxd Mods screen without re-patching: a true-black OLED surface, a custom accent colour (presets or any hex), and the bottom-navigation selected style. Applied at runtime via resource overlays on Android 12 and later. Needs the \"Mod settings\" patch.",
+    "id": "dfb2c55cda46c26a73b8403a:0",
+    "legacy_id": 68212,
+    "metadata_status": "verified",
+    "name": "Appearance",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": true
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Other people's star ratings in a film's \"Watched by\" row use a very dark grey (#445566) that is hard to read, especially on a black theme. This switches them to the lighter grey (#99AABB) the rest of the app already uses for other people's ratings. A small legibility fix, on by default.",
+    "id": "dfb2c55cda46c26a73b8403a:1",
+    "legacy_id": 68213,
+    "metadata_status": "verified",
+    "name": "Brighter Watched-by stars",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": true
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Tightens the spacing around posters in grids so they render larger and closer together. Does not change the number of columns.",
+    "id": "dfb2c55cda46c26a73b8403a:2",
+    "legacy_id": 68214,
+    "metadata_status": "verified",
+    "name": "Denser poster grid",
+    "options": [
+      {
+        "default": "compact",
+        "description": "How tightly posters are packed.",
+        "key": "density",
+        "required": false,
+        "title": "Grid density",
+        "type": "kotlin.String",
+        "values": {
+          "Compact": "compact",
+          "Cozy (near default)": "cozy",
+          "Dense": "dense"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": true
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the community rating (average + histogram) on a film's page until you have marked that film as watched, covering it with a tap-to-reveal control. The reveal is per visit — leave the film and come back and it is hidden again. Only the film page is affected; ratings shown in lists, search and elsewhere are unchanged.",
+    "id": "dfb2c55cda46c26a73b8403a:3",
+    "legacy_id": 68215,
+    "metadata_status": "verified",
+    "name": "Hide ratings until watched",
+    "options": [
+      {
+        "default": "panel",
+        "description": "How the hidden rating is covered. 'Frosted panel' is an opaque panel with a label; 'Tap-to-show link' is a plain text link under the section title; 'Shimmer' is a continuously animating particle field; 'Tap to burst' is a static particle field that scatters when tapped.",
+        "key": "revealStyle",
+        "required": false,
+        "title": "Reveal style",
+        "type": "kotlin.String",
+        "values": {
+          "Frosted panel": "panel",
+          "Shimmer (Telegram-style)": "shimmer",
+          "Tap to burst": "burst",
+          "Tap-to-show link": "link"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": true
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the \"Letterboxd Video Store\" promo row from the Films tab. The Video Store itself, its settings and every other entry point are left untouched. Can be toggled from the \"Mod settings\" screen if that patch is also enabled.",
+    "id": "dfb2c55cda46c26a73b8403a:4",
+    "legacy_id": 68216,
+    "metadata_status": "verified",
+    "name": "Hide Video Store on home",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": true
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Paints Letterboxd's bottom navigation bar black (#000000), matching the top bar, instead of the default slate. Can be toggled from the \"Mod settings\" screen if that patch is also enabled; the change applies on the next app start. With \"Material You theme\" also on, this wins — turn it off to keep the Material You nav tint.",
+    "id": "dfb2c55cda46c26a73b8403a:5",
+    "legacy_id": 68217,
+    "metadata_status": "verified",
+    "name": "Match bottom nav to top bar color",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": true
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Repaints Letterboxd's dark chrome — window background, surfaces, cards, the top bar, tab strip, bottom nav and sheets — from the device's Material You palette on Android 12+ (no effect below). No accent or OLED options here; those live in the \"Mod settings\" screen. No effect on Jetpack Compose screens.",
+    "id": "dfb2c55cda46c26a73b8403a:6",
+    "legacy_id": 68218,
+    "metadata_status": "verified",
+    "name": "Material You theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": false
+  },
+  {
+    "bundle_id": "dfb2c55cda46c26a73b8403a",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": [
+        "3.5.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "HOW TO OPEN: long-press the settings gear on your profile tab. — This adds a \"Letterboxd Mods\" screen that collects the other patches' options (theme, accent, hide ratings, hide video store, etc.) so you can change them inside the app instead of re-patching. Some changes apply immediately, others after a restart, and you'll be prompted either way.",
+    "id": "dfb2c55cda46c26a73b8403a:7",
+    "legacy_id": 68219,
+    "metadata_status": "verified",
+    "name": "Mod settings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Letterboxd",
+        "icon_url": "https://play-lh.googleusercontent.com/2MmhfegR5NlTay7FQjgEfBR83-sBuGdyMVlNvpSKVmW3EjbI762_va69gxmoI0P5BfIGDWtlpXU7qYg_zxE2Kl0",
+        "name": "com.letterboxd.letterboxd",
+        "versions": [
+          "3.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0-dev.1",
+    "source_id": "b96e652ad363034b",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.github.android": [
+        "1.267.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes the default dark theme to use true blacks for AMOLED screens.",
+    "id": "e10db86971bb0d4aa60dc39f:0",
+    "legacy_id": 68220,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "GitHub",
+        "icon_url": "https://play-lh.googleusercontent.com/nxpwi4UD84GNJuJ42S9U0f3lGDsHu8VkIDPCccFmJL6kyNVb1O3pTY1rl1YZICLBk6EcWIaX6n9prCbdUoQEOw",
+        "name": "com.github.android",
+        "versions": [
+          "1.267.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.soundcloud.android": [
+        "2026.04.27-release"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes the default dark theme to use true blacks for AMOLED screens.",
+    "id": "e10db86971bb0d4aa60dc39f:1",
+    "legacy_id": 68221,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SoundCloud: Discover Music",
+        "icon_url": "https://play-lh.googleusercontent.com/rfmCNUApzYntPTdAVmor5vpaOGxIUJWNlpED2pwKcDuCTUaf_2vJlOALNzX1PiejSgZIuAT8k0F5xIBU58JG3g",
+        "name": "com.soundcloud.android",
+        "versions": [
+          "2026.04.27-release"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "org.languageapp.lingory": [
+        "1.2.75"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks the request of notification permissions on load of app.",
+    "id": "e10db86971bb0d4aa60dc39f:2",
+    "legacy_id": 68222,
+    "metadata_status": "verified",
+    "name": "Block Permissions Request",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lingory - Learn Korean",
+        "icon_url": "https://play-lh.googleusercontent.com/ykjhdcK-_e-9NTSC398_THnIDa4LzKb2tjPAj8aEOQ4EVwaaFM6_7MqmM5N_DoYaEGWCp5iUnaKmZltQXVyn",
+        "name": "org.languageapp.lingory",
+        "versions": [
+          "1.2.75"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.4.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows app use without login. BUT breaks many features. There is a strict version requirement for this patch and only arm64-v8a devices are supported.",
+    "id": "e10db86971bb0d4aa60dc39f:3",
+    "legacy_id": 68223,
+    "metadata_status": "verified",
+    "name": "Bypass login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.4.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".morphe\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
+    "id": "e10db86971bb0d4aa60dc39f:4",
+    "legacy_id": 68224,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.goodreads": [
+        "2.75.0 Build 3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables all ads contained within the UI.",
+    "id": "e10db86971bb0d4aa60dc39f:5",
+    "legacy_id": 68225,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Goodreads: Book Tracker & More",
+        "icon_url": "https://play-lh.googleusercontent.com/lPjI_6cWcHfAR_wBRggfgH9sS_WLyuq37558Q3a_38gvnLEgQNjT6w4UQ2_U0wqZeS2H2-__cslXy1zL6K09egU",
+        "name": "com.goodreads",
+        "versions": [
+          "2.75.0 Build 3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.pandora.android": null
+    },
+    "dependencies": [],
+    "description": "Disables ads during audio streaming.",
+    "id": "e10db86971bb0d4aa60dc39f:6",
+    "legacy_id": 68226,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pandora - Music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/XgDrpaSgIZyml9rjxwY2ZIkVQvhqrSh7FCkD2FDYUJgUWZt33gbVaeqMZLl8UhJGkmObLwivCMPAPY-jlpcp_PQ",
+        "name": "com.pandora.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "25.12.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables all ads contained within the UI.",
+    "id": "e10db86971bb0d4aa60dc39f:7",
+    "legacy_id": 68227,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sofascore: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/V5evYzdmAVEFl9Gy9fh4-XTIb_mPnMPzNdV8rhDyZ31yftOncktYxWnI5xbX4QlAnoCd1fcBvGTzGJU_MxtY",
+        "name": "com.sofascore.results",
+        "versions": [
+          "25.12.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "cn.wps.moffice_eng": [
+        "18.24"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables various anti-tamper checks that causes the app to force-close.",
+    "id": "e10db86971bb0d4aa60dc39f:8",
+    "legacy_id": 68228,
+    "metadata_status": "verified",
+    "name": "Disable anti-tamper",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "WPS Office-PDF, Word, Sheet",
+        "icon_url": "https://play-lh.googleusercontent.com/IrviqpGmCduI8CYHUyUVPa2V4a8e1FOxO8tYCUUvaYSHGhih4BdPyjtInBf8SZokbpT6-NImQP6-BM2rQu_UgA",
+        "name": "cn.wps.moffice_eng",
+        "versions": [
+          "18.24"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.duolingo": [
+        "6.86.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents Duolingo from changing the app icon. Only the default icon will be available.",
+    "id": "e10db86971bb0d4aa60dc39f:9",
+    "legacy_id": 68229,
+    "metadata_status": "verified",
+    "name": "Disable dynamic app icon",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": [
+          "6.86.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables Play Integrity API (pairip) client-side license check. This patch does not bypass Play Integrity attestation or pairipcore virtualization.",
+    "id": "e10db86971bb0d4aa60dc39f:10",
+    "legacy_id": 68230,
+    "metadata_status": "verified",
+    "name": "Disable Pairip license check",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "ginlemon.flowerfree": [
+        "6.6 build 014"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the anti-tamper protection, which verifies apk signature, causing the app to force close.",
+    "id": "e10db86971bb0d4aa60dc39f:11",
+    "legacy_id": 68231,
+    "metadata_status": "verified",
+    "name": "Disable signature check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Smart Launcher 6 ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/AM7MidChVOk5Uj7Vf7xM0ZaOYnGBea4PZBH5O5wlllmksRKCdMgRzPnPSgg-K7bQ0DXv2Bb7F9-kfyCVyG3JNtQ",
+        "name": "ginlemon.flowerfree",
+        "versions": [
+          "6.6 build 014"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.intsig.camscanner": [
+        "7.20.0.2606230000"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables CamScanner's custom telemetry system.",
+    "id": "e10db86971bb0d4aa60dc39f:12",
+    "legacy_id": 68232,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CamScanner- scanner, PDF maker",
+        "icon_url": "https://play-lh.googleusercontent.com/XSoqEDquJuenUosbMN_EA2n2U5lsomPEUdCKj4j9bUdPfdWMCtRqXlyPgQ6zxQxWaDFIXrqbqyFjwXQ5FMYubw",
+        "name": "com.intsig.camscanner",
+        "versions": [
+          "7.20.0.2606230000"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "nom.vrd": [
+        "1.9.3-GooglePlay",
+        "1.9.3-storage"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables event logging sent to the app's custom endpoint.",
+    "id": "e10db86971bb0d4aa60dc39f:13",
+    "legacy_id": 68233,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NOMone Desktop - Linux and VR",
+        "icon_url": "https://play-lh.googleusercontent.com/3y0UG2xKQSxK-Nduy0BE4xlZORVtblwP7GzFH_sff2JZIbxFyd9fVvaiAJsERgwM8JWarVRQUoETOAAnMed93g",
+        "name": "nom.vrd",
+        "versions": [
+          "1.9.3-GooglePlay",
+          "1.9.3-storage"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.soundcloud.android": [
+        "2026.04.27-release"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables SoundCloud's telemetry system.",
+    "id": "e10db86971bb0d4aa60dc39f:14",
+    "legacy_id": 68234,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SoundCloud: Discover Music",
+        "icon_url": "https://play-lh.googleusercontent.com/rfmCNUApzYntPTdAVmor5vpaOGxIUJWNlpED2pwKcDuCTUaf_2vJlOALNzX1PiejSgZIuAT8k0F5xIBU58JG3g",
+        "name": "com.soundcloud.android",
+        "versions": [
+          "2026.04.27-release"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.superchinese": [
+        "6.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks SuperChinese's custom telemetry reporting.",
+    "id": "e10db86971bb0d4aa60dc39f:15",
+    "legacy_id": 68235,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SuperChinese: Learn Chinese",
+        "icon_url": "https://play-lh.googleusercontent.com/pfITNr8ebUtLg2_MHZReC7zjbsaUpxwVnbniKj8C7oXUYGiDVPE7iNL8Gzt5vYKdnvVlfE9ytUfBa1dXHl4Sj6Y",
+        "name": "com.superchinese",
+        "versions": [
+          "6.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.google.android.apps.magazines": [
+        "5.161.0.931240252"
+      ]
+    },
+    "dependencies": [],
+    "description": "Open articles using your default browser.",
+    "id": "e10db86971bb0d4aa60dc39f:16",
+    "legacy_id": 68236,
+    "metadata_status": "verified",
+    "name": "Enable custom tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google News - Daily Headlines",
+        "icon_url": "https://play-lh.googleusercontent.com/m2k0X_fhgmj2MjDn_9rStPF9ngsXMO-DsC1ZhG3bcYl7hvJ9rwAOo7cKs9j5wnl-RNuDh-sfCUtF2sYzjcgzIg",
+        "name": "com.google.android.apps.magazines",
+        "versions": [
+          "5.161.0.931240252"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Enables debugging on the app by setting android:debuggable=\"true\".",
+    "id": "e10db86971bb0d4aa60dc39f:17",
+    "legacy_id": 68237,
+    "metadata_status": "verified",
+    "name": "Enable debug",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.duolingo": [
+        "6.86.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables hidden debug menu in settings.",
+    "id": "e10db86971bb0d4aa60dc39f:18",
+    "legacy_id": 68238,
+    "metadata_status": "verified",
+    "name": "Enable debug mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": [
+          "6.86.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.mobilefootie.wc2010": [
+        "226.16092.20260302"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:19",
+    "legacy_id": 68239,
+    "metadata_status": "verified",
+    "name": "Enable FotMob+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "FotMob - Soccer Live Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/uA97ujyyS5PtfLsJviTN7tW1vcSQgRoN_wM0IMEO3tzn_JUAJGGMv66YxSzPF5uiP2Ysjh_F9YZzknOwKrSS",
+        "name": "com.mobilefootie.wc2010",
+        "versions": [
+          "226.16092.20260302"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "bitpit.launcher": [
+        "1.16.7",
+        "1.16.15"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:20",
+    "legacy_id": 68240,
+    "metadata_status": "verified",
+    "name": "Enable Niagara Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": [
+          "1.16.7",
+          "1.16.15"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": [
+        "26.3.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables some app features locked behind the subscription paywall. Not all premium functionality is available.",
+    "id": "e10db86971bb0d4aa60dc39f:21",
+    "legacy_id": 68241,
+    "metadata_status": "verified",
+    "name": "Enable Peak membership",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": [
+          "26.3.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "me.mycake": [
+        "6.4.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enable Plus membership (not all features are available). There is a strict version requirement for this patch.",
+    "id": "e10db86971bb0d4aa60dc39f:22",
+    "legacy_id": 68242,
+    "metadata_status": "verified",
+    "name": "Enable Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Cake - Learn English & Korean",
+        "icon_url": "https://play-lh.googleusercontent.com/AMalhKJA23u0m1Lr-Z7apiuDcSvrDvfrwRuw3CW2qcagbkzcTABm0X6SmSAanNjtgJvtzrrg7IL2D52Kfia5Ng",
+        "name": "me.mycake",
+        "versions": [
+          "6.4.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.adguard.android": [
+        "4.13.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:23",
+    "legacy_id": 68243,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adguard.android",
+        "icon_url": null,
+        "name": "com.adguard.android",
+        "versions": [
+          "4.13.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.avocards": [
+        "3.0.18"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:24",
+    "legacy_id": 68244,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Korean Flashcards & Vocabulary",
+        "icon_url": "https://play-lh.googleusercontent.com/b-wUuXGV3mPW6wrtlqL2TPPcMvUZn7HbnSf8ky7Uc-ZGBwFQRMIpSTAtAxqUP8vriPoG_HIsJciLRA5oiFsX",
+        "name": "com.avocards",
+        "versions": [
+          "3.0.18"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.busuu.android.enc": [
+        "32.30.0(1575420)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:25",
+    "legacy_id": 68245,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Busuu: Learn & Speak Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/bodOsAH2LLt33V_Y43_f5HcH7oPf77s8LV2cWjXTHz3DMOeKlnWZStVgW9LjFODWPD0a9lI_zalvkmr1gG5W",
+        "name": "com.busuu.android.enc",
+        "versions": [
+          "32.30.0(1575420)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.intsig.camscanner": [
+        "7.20.0.2606230000"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables some app features locked behind the subscription paywall. Certain server-side functionality may be unavailable.",
+    "id": "e10db86971bb0d4aa60dc39f:26",
+    "legacy_id": 68246,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CamScanner- scanner, PDF maker",
+        "icon_url": "https://play-lh.googleusercontent.com/XSoqEDquJuenUosbMN_EA2n2U5lsomPEUdCKj4j9bUdPfdWMCtRqXlyPgQ6zxQxWaDFIXrqbqyFjwXQ5FMYubw",
+        "name": "com.intsig.camscanner",
+        "versions": [
+          "7.20.0.2606230000"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "kr.co.yjteam.dailypay": [
+        "6.0.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:27",
+    "legacy_id": 68247,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "DAILY POCKET - Budget Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/j9td5GPhbNX9sJ2-XSzsLs0Zmq5Q71IW9yOblBtG7skncZsJiZI5lNCeHo_9xI5OLFQCrPsMMwAhhSL0o6AaeU8",
+        "name": "kr.co.yjteam.dailypay",
+        "versions": [
+          "6.0.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.duolingo": [
+        "6.86.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:28",
+    "legacy_id": 68248,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [
+      {
+        "default": "SUPER",
+        "description": "Choose which type of premium Duolingo subscription to enable.",
+        "key": "premiumVariant",
+        "required": true,
+        "title": "Type",
+        "type": "kotlin.String",
+        "values": {
+          "Duolingo MAX": "MAX",
+          "Duolingo Super": "SUPER"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": [
+          "6.86.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "kr.eggbun.eggconvo": [
+        "4.12.19"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:29",
+    "legacy_id": 68249,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Eggbun: Learn Korean Fun",
+        "icon_url": "https://play-lh.googleusercontent.com/jEhof2oqOAMtSKVWGGLyiywNWe7pPqCkWZV_mX1Uo9ZBmsiadHX8vn2VuC-Ht9F9aDIW615es740Huk2i7tbANY",
+        "name": "kr.eggbun.eggconvo",
+        "versions": [
+          "4.12.19"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.qbis.guessthecountry": [
+        "3.34.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:30",
+    "legacy_id": 68250,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "World Map Quiz",
+        "icon_url": "https://play-lh.googleusercontent.com/B6F6bSdd0F4RFHgnvjDPAi2Sv3RSnFFmtagBWJ6ZrlMqoL6klPffaDj7phK6eFXuFvuQKy4KBBxWruadP75IUQ",
+        "name": "com.qbis.guessthecountry",
+        "versions": [
+          "3.34.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.hellochinese": [
+        "7.10.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:31",
+    "legacy_id": 68251,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "HelloChinese: Learn Chinese",
+        "icon_url": "https://play-lh.googleusercontent.com/MJdDpys1xjryToj2RQNKXdaRf4ouJz6XCogxZPrREifIhVGxZn2ZH2c6eQkR5CVTyeeuwsuRmHZx0uUgXOpB",
+        "name": "com.hellochinese",
+        "versions": [
+          "7.10.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.rp.hypertrophy": [
+        "1.1.0"
+      ]
+    },
+    "dependencies": [
+      "Disable Pairip license check"
+    ],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:32",
+    "legacy_id": 68252,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RP Hypertrophy",
+        "icon_url": "https://play-lh.googleusercontent.com/62vJSsCoVmBr-6aywdtDuHG_-55SiX_h9mH5rbSrv7Q0f2rIaq6YzKKzpFoj0Vn08lWPSE3IDd0DzB-lU7KYEQ",
+        "name": "com.rp.hypertrophy",
+        "versions": [
+          "1.1.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "org.languageapp.lingory": [
+        "1.2.75"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall. There is a strict version requirement for this patch and only arm64-v8a devices are supported.",
+    "id": "e10db86971bb0d4aa60dc39f:33",
+    "legacy_id": 68253,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lingory - Learn Korean",
+        "icon_url": "https://play-lh.googleusercontent.com/ykjhdcK-_e-9NTSC398_THnIDa4LzKb2tjPAj8aEOQ4EVwaaFM6_7MqmM5N_DoYaEGWCp5iUnaKmZltQXVyn",
+        "name": "org.languageapp.lingory",
+        "versions": [
+          "1.2.75"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.lyfta": [
+        "1.551"
+      ]
+    },
+    "dependencies": [
+      "Disable Pairip license check"
+    ],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:34",
+    "legacy_id": 68254,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lyfta: Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/AX-6eXLHm5zP_VdCnZR5l0JCKpfkA2SgUHHtiLKl-o4zzh5Z21mDbHrjeUYEasrSjDYGWBJDhcKK8e1WjKEM",
+        "name": "com.lyfta",
+        "versions": [
+          "1.551"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.sbs.diet": [
+        "5.7.9"
+      ],
+      "com.sbs.train": [
+        "1.2.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "REQUIRES ROOT MOUNT INSTALL! Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:35",
+    "legacy_id": 68255,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MacroFactor - Macro Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/4gfovnH1uoLSJr-ga0iswuqW-jR7Go1iQdJTVWblLLrb3DeAGj1VqtF8n-lFi2e6hWEIBVshkGqTqjjIl99AptM",
+        "name": "com.sbs.diet",
+        "versions": [
+          "5.7.9"
+        ]
+      },
+      {
+        "app_name": "MacroFactor Workouts - Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/F3t0pahlU3r8-6Hf9iWw07KXH_ye4-nEZYNht7RZlMBdWJGUwPdkxrPWii_jqMg6WWc0v0TdYBofI7IG8xj0u5k",
+        "name": "com.sbs.train",
+        "versions": [
+          "1.2.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.bambuna.podcastaddict": [
+        "2026.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:36",
+    "legacy_id": 68256,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Podcast Addict: Podcast player",
+        "icon_url": "https://play-lh.googleusercontent.com/l-QEyMvM3s6v_YHEau0IcmjWMDbK-FT1kLcCWqPXZSTbFBcMnsSRQu8geMGsnY_BwlDBVyObs2S6Ds9gh5bv5A",
+        "name": "com.bambuna.podcastaddict",
+        "versions": [
+          "2026.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "ru.iiec.pydroid3": [
+        "8.3_arm64"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:37",
+    "legacy_id": 68257,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pydroid 3 - IDE for Python 3",
+        "icon_url": "https://play-lh.googleusercontent.com/FC9X7N7hEjg8VgF3lNj4KJm4VpGktP4Ei3F9vd2EfInnHURB8XnyLX6gBM2nc8iadPZjGNAqEjeL3eMifZQNSA",
+        "name": "ru.iiec.pydroid3",
+        "versions": [
+          "8.3_arm64"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.michaldrabik.showly2": [
+        "3.70.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:38",
+    "legacy_id": 68258,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Showly: Track Shows & Movies",
+        "icon_url": "https://play-lh.googleusercontent.com/MVI1pUoJSh7hnO-8BSb67Ojq9wh8r9V0Imqm-AC5gdT-ohOaPnQ4JexvUy6a-gFZadTV27usj2bwQJlnntnJJQ",
+        "name": "com.michaldrabik.showly2",
+        "versions": [
+          "3.70.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.urbandroid.sleep": [
+        "20260526"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:39",
+    "legacy_id": 68259,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sleep as Android: Smart alarm",
+        "icon_url": "https://play-lh.googleusercontent.com/LsHymWZZyoDfB1R5AEetD2E2PDspZGeVCkwE8jxCcP5XyTxBRkJsVx_OG2w2oIuK58Btnpz5eIczbCWDjvZkCw",
+        "name": "com.urbandroid.sleep",
+        "versions": [
+          "20260526"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.snorelab.app": [
+        "2.27.3.6291"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:40",
+    "legacy_id": 68260,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SnoreLab : Record Your Snoring",
+        "icon_url": "https://play-lh.googleusercontent.com/sP9A7lxcRSzMtOKiM-O0HIDTfhVh_CGa5bQVqr3lj2_U9vr5af2rtf1HGK2hdQaQI75R1qhFQf27pNkFY3yPTA",
+        "name": "com.snorelab.app",
+        "versions": [
+          "2.27.3.6291"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "app.ttmikstories.android": [
+        "1.16.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall. There is a strict version requirement for this patch.",
+    "id": "e10db86971bb0d4aa60dc39f:41",
+    "legacy_id": 68261,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Korean Reading: TTMIK Stories",
+        "icon_url": "https://play-lh.googleusercontent.com/dAKqS5d1pmmttkZBqlwofwDCzaeOkUY8Ae4scFxmXrNn4TTXeowpI8Yu8X59UZBOs8EFKAzfghJtEYrhq1ES",
+        "name": "app.ttmikstories.android",
+        "versions": [
+          "1.16.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "cz.ackee.ventusky": [
+        "53.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:42",
+    "legacy_id": 68262,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Ventusky: Weather Forecast",
+        "icon_url": "https://play-lh.googleusercontent.com/5wbJvwNT1AlSydWxzjP4kMJag8KhJEBavf9YCFIMDW2pJ6leTb482zcbFUrYTMXbs4hqYh44CIUxWNPvJu-LoQ",
+        "name": "cz.ackee.ventusky",
+        "versions": [
+          "53.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.wallpaperscraft.wallpaper": [
+        "3.61.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:43",
+    "legacy_id": 68263,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Wallpaper 4K HD – Wallcraft",
+        "icon_url": "https://play-lh.googleusercontent.com/ODzoUL00p-GnKUwWAh7ca7-ISRxWrTeYGq6KUu3jqIuI0CO2sotGqjsVPjCYU6xHOZMsOqGZWDdr7TcD-kRC",
+        "name": "com.wallpaperscraft.wallpaper",
+        "versions": [
+          "3.61.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.merriamwebster": null
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:44",
+    "legacy_id": 68264,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Dictionary - Merriam-Webster",
+        "icon_url": "https://play-lh.googleusercontent.com/nF597-W-wB7IsAXJYMI6gPykeA_jOWhbbNCInjsIO0GkPwSyUQGcAVIo0iCb9ZknaVx59Wc0nUshoyVZ_QXOIQ",
+        "name": "com.merriamwebster",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.windyty.android": [
+        "50.1.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables some app features locked behind the subscription paywall. Not all premium functionality is available.",
+    "id": "e10db86971bb0d4aa60dc39f:45",
+    "legacy_id": 68265,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Windy.com - Weather Forecast",
+        "icon_url": "https://play-lh.googleusercontent.com/u-KmXMFiH9SLeIpYeNBKzHrwRX3Fi53H4ij3240cuOqxnrMMTpb8n0bVEC25VzqTKU90m43l4UaBg8ahP9RcUg",
+        "name": "com.windyty.android",
+        "versions": [
+          "50.1.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.myfitnesspal.android": [
+        "26.21.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:46",
+    "legacy_id": 68266,
+    "metadata_status": "verified",
+    "name": "Enable Premium+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MyFitnessPal: Calorie Counter",
+        "icon_url": "https://play-lh.googleusercontent.com/iGPZDsKZoF58BABAEIebIQk_X1sdYHviEJAwUyoYyJO4L-bN8XA6yWiXuBJcVJwIEc4wHSvxWjbFU23Y7cn1sMo",
+        "name": "com.myfitnesspal.android",
+        "versions": [
+          "26.21.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": [
+        "88600 (8.8.6)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enable Nova Launcher Prime and app locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:47",
+    "legacy_id": 68267,
+    "metadata_status": "verified",
+    "name": "Enable Prime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Nova Launcher: Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/EihoqDPSzditTLnmP-N0GjXmbvNdnZyW7YZKxRocA_kVIsaXhM9lBlfPrJmhBcSQmiydPXgise1ZTAlOOH7ZsQ",
+        "name": "com.teslacoilsw.launcher",
+        "versions": [
+          "88600 (8.8.6)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "jp.ne.ibis.ibispaintx.app": [
+        "14.0.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:48",
+    "legacy_id": 68268,
+    "metadata_status": "verified",
+    "name": "Enable Prime membership",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ibis Paint X",
+        "icon_url": "https://play-lh.googleusercontent.com/OCUAuT3z9O_YGN6LX3fBIS4S2sv1ArhtMO1PRYqoyDRqEJnILt_rIvfsjYakxRnuc9mAtDwbBYUb4r2h2ubvzrc",
+        "name": "jp.ne.ibis.ibispaintx.app",
+        "versions": [
+          "14.0.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.simyasolutions.ling.universal": [
+        "8.4.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:49",
+    "legacy_id": 68269,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Ling - Language Learning",
+        "icon_url": "https://play-lh.googleusercontent.com/_NI_4bwyV1bxnLOXrwSLV5NHAq8mgbAPjf_AaKEQNlRx0Y65YsLqxc852YU8rO8bDAgdFl8fJKTUlYPip--Esg",
+        "name": "com.simyasolutions.ling.universal",
+        "versions": [
+          "8.4.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.zombodroid.MemeGenerator": [
+        "4.6826"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:50",
+    "legacy_id": 68270,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Meme Generator",
+        "icon_url": "https://play-lh.googleusercontent.com/DK7aQ7tXOAbG5lz7t7Q7rwkq8UpJ1SUiQUT5brACDf0qT__dcWqiJs-a56ELtwOu7wXIsdI6ZEgPJ4-8r7qG",
+        "name": "com.zombodroid.MemeGenerator",
+        "versions": [
+          "4.6826"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.getmimo": [
+        "9.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:51",
+    "legacy_id": 68271,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Learn Python Coding - Mimo",
+        "icon_url": "https://play-lh.googleusercontent.com/L6b68qSB3yeqDkTd9cmBvImYgPmn4bHujX75G-3mdXgeXi6ZAzaUPkKD-bvj3_HNOVpaRRymixZQ0-22xLra",
+        "name": "com.getmimo",
+        "versions": [
+          "9.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.mirinae.mirinae": [
+        "2.2.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:52",
+    "legacy_id": 68272,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Mirinae - Learn Korean with AI",
+        "icon_url": "https://play-lh.googleusercontent.com/5bIaEX9fGHToL9l-G1ehHPeoomNL9McMpSatYv1iZdvvkCmP6lgLT1luLH5iMf-RDWlBpAN_SHxjFngFCrG78w",
+        "name": "com.mirinae.mirinae",
+        "versions": [
+          "2.2.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "org.totschnig.myexpenses": [
+        "3.9.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:53",
+    "legacy_id": 68273,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "My Expenses",
+        "icon_url": "https://f-droid.org/repo/org.totschnig.myexpenses/en-US/icon_zWawBtP0U6S03MdPDF6m-Zh9Tbt6MmuSM-w68Ug-58o%3D.png",
+        "name": "org.totschnig.myexpenses",
+        "versions": [
+          "3.9.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "ginlemon.flowerfree": [
+        "6.6 build 014"
+      ]
+    },
+    "dependencies": [
+      "Disable signature check"
+    ],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:54",
+    "legacy_id": 68274,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Smart Launcher 6 ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/AM7MidChVOk5Uj7Vf7xM0ZaOYnGBea4PZBH5O5wlllmksRKCdMgRzPnPSgg-K7bQ0DXv2Bb7F9-kfyCVyG3JNtQ",
+        "name": "ginlemon.flowerfree",
+        "versions": [
+          "6.6 build 014"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "pl.solidexplorer2": [
+        "3.5.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:55",
+    "legacy_id": 68275,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Solid Explorer File Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/8TYqGVCV5BgN623s6nBzxatxLlmRotCINOvZHr4BrVvvdIV9RGWR97tAtwdpDtdm9d7hWgLh1d0A0PbqfLwLEkc",
+        "name": "pl.solidexplorer2",
+        "versions": [
+          "3.5.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "cn.wps.moffice_eng": [
+        "18.24"
+      ]
+    },
+    "dependencies": [
+      "Disable anti-tamper"
+    ],
+    "description": "Enables app features locked behind the subscription paywall. Login is required and AI functionality is unavailable.",
+    "id": "e10db86971bb0d4aa60dc39f:56",
+    "legacy_id": 68276,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "WPS Office-PDF, Word, Sheet",
+        "icon_url": "https://play-lh.googleusercontent.com/IrviqpGmCduI8CYHUyUVPa2V4a8e1FOxO8tYCUUvaYSHGhih4BdPyjtInBf8SZokbpT6-NImQP6-BM2rQu_UgA",
+        "name": "cn.wps.moffice_eng",
+        "versions": [
+          "18.24"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.xodo.pdf.reader": [
+        "10.17.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:57",
+    "legacy_id": 68277,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "PDF Reader & Editor: Xodo",
+        "icon_url": "https://play-lh.googleusercontent.com/AmBoaxTjw_jERw2p8YUqv52zctH_P5K9Hxb1OXBEIrKFXV_KDi4HYEQ1303G2e_cQwnIDsHR225tySjFYJCxDg",
+        "name": "com.xodo.pdf.reader",
+        "versions": [
+          "10.17.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "videoeditor.videorecorder.screenrecorder": [
+        "2.5.1.1"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e10db86971bb0d4aa60dc39f:58",
+    "legacy_id": 68278,
+    "metadata_status": "verified",
+    "name": "Enable Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Screen Recorder - XRecorder",
+        "icon_url": "https://play-lh.googleusercontent.com/bfewUxobdHumF6r7pj6teHAPnLWXWpRapcgipF4-WjU8ziVwQpm5nyOhM9FNq2-G2axH74JiDU9z3Fc_5FeS",
+        "name": "videoeditor.videorecorder.screenrecorder",
+        "versions": [
+          "2.5.1.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.soundcloud.android": [
+        "2026.04.27-release"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:59",
+    "legacy_id": 68279,
+    "metadata_status": "verified",
+    "name": "Enable SoundCloud Go",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SoundCloud: Discover Music",
+        "icon_url": "https://play-lh.googleusercontent.com/rfmCNUApzYntPTdAVmor5vpaOGxIUJWNlpED2pwKcDuCTUaf_2vJlOALNzX1PiejSgZIuAT8k0F5xIBU58JG3g",
+        "name": "com.soundcloud.android",
+        "versions": [
+          "2026.04.27-release"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.amazon.avod.thirdpartyclient": [
+        "3.0.452.1047"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables experimental speed control to the video player.",
+    "id": "e10db86971bb0d4aa60dc39f:60",
+    "legacy_id": 68280,
+    "metadata_status": "verified",
+    "name": "Enable speed control",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/NnoDzfxkvlsAvU8jzoPeK8aaxbcU2sEH_btwgMQ2xI88_qtrNGQuf1vlFkxSiQODyKVFZ3-s71sU1MHyV-vc9Q",
+        "name": "com.amazon.avod.thirdpartyclient",
+        "versions": [
+          "3.0.452.1047"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "kr.eggbun.eggconvo": [
+        "4.12.19"
+      ]
+    },
+    "dependencies": [],
+    "description": "When typing in normal lessons, Eggbun forces you to use their own on-screen keyboard. This patches forces the use of the default OS keyboard.",
+    "id": "e10db86971bb0d4aa60dc39f:61",
+    "legacy_id": 68281,
+    "metadata_status": "verified",
+    "name": "Force Native Keyboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Eggbun: Learn Korean Fun",
+        "icon_url": "https://play-lh.googleusercontent.com/jEhof2oqOAMtSKVWGGLyiywNWe7pPqCkWZV_mX1Uo9ZBmsiadHX8vn2VuC-Ht9F9aDIW615es740Huk2i7tbANY",
+        "name": "kr.eggbun.eggconvo",
+        "versions": [
+          "4.12.19"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides the app icon from the Android launcher.",
+    "id": "e10db86971bb0d4aa60dc39f:62",
+    "legacy_id": 68282,
+    "metadata_status": "verified",
+    "name": "Hide app icon",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": false
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "kr.co.yjteam.dailypay": [
+        "6.0.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows the app to work without root by using MicroG instead of Google Play Services.",
+    "id": "e10db86971bb0d4aa60dc39f:63",
+    "legacy_id": 68283,
+    "metadata_status": "verified",
+    "name": "MicroG integration",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "DAILY POCKET - Budget Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/j9td5GPhbNX9sJ2-XSzsLs0Zmq5Q71IW9yOblBtG7skncZsJiZI5lNCeHo_9xI5OLFQCrPsMMwAhhSL0o6AaeU8",
+        "name": "kr.co.yjteam.dailypay",
+        "versions": [
+          "6.0.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.google.android.apps.magazines": [
+        "5.161.0.931240252"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows the app to work without root by using MicroG instead of Google Play Services.",
+    "id": "e10db86971bb0d4aa60dc39f:64",
+    "legacy_id": 68284,
+    "metadata_status": "verified",
+    "name": "MicroG integration",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google News - Daily Headlines",
+        "icon_url": "https://play-lh.googleusercontent.com/m2k0X_fhgmj2MjDn_9rStPF9ngsXMO-DsC1ZhG3bcYl7hvJ9rwAOo7cKs9j5wnl-RNuDh-sfCUtF2sYzjcgzIg",
+        "name": "com.google.android.apps.magazines",
+        "versions": [
+          "5.161.0.931240252"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.bambuna.podcastaddict": [
+        "2026.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows the app to work without root by using MicroG instead of Google Play Services.",
+    "id": "e10db86971bb0d4aa60dc39f:65",
+    "legacy_id": 68285,
+    "metadata_status": "verified",
+    "name": "MicroG integration",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Podcast Addict: Podcast player",
+        "icon_url": "https://play-lh.googleusercontent.com/l-QEyMvM3s6v_YHEau0IcmjWMDbK-FT1kLcCWqPXZSTbFBcMnsSRQu8geMGsnY_BwlDBVyObs2S6Ds9gh5bv5A",
+        "name": "com.bambuna.podcastaddict",
+        "versions": [
+          "2026.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "pl.solidexplorer2": [
+        "3.5.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows the app to work without root by using MicroG instead of Google Play Services.",
+    "id": "e10db86971bb0d4aa60dc39f:66",
+    "legacy_id": 68286,
+    "metadata_status": "verified",
+    "name": "MicroG integration",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Solid Explorer File Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/8TYqGVCV5BgN623s6nBzxatxLlmRotCINOvZHr4BrVvvdIV9RGWR97tAtwdpDtdm9d7hWgLh1d0A0PbqfLwLEkc",
+        "name": "pl.solidexplorer2",
+        "versions": [
+          "3.5.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "ch.protonvpn.android": [
+        "5.19.43.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the imposed delay when changing VPN servers.",
+    "id": "e10db86971bb0d4aa60dc39f:67",
+    "legacy_id": 68287,
+    "metadata_status": "verified",
+    "name": "Remove delay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": [
+          "5.19.43.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "nom.vrd": [
+        "1.9.3-GooglePlay",
+        "1.9.3-storage"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the imposed 6-hour trial usage limit.",
+    "id": "e10db86971bb0d4aa60dc39f:68",
+    "legacy_id": 68288,
+    "metadata_status": "verified",
+    "name": "Remove trial limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NOMone Desktop - Linux and VR",
+        "icon_url": "https://play-lh.googleusercontent.com/3y0UG2xKQSxK-Nduy0BE4xlZORVtblwP7GzFH_sff2JZIbxFyd9fVvaiAJsERgwM8JWarVRQUoETOAAnMed93g",
+        "name": "nom.vrd",
+        "versions": [
+          "1.9.3-GooglePlay",
+          "1.9.3-storage"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.amazon.avod.thirdpartyclient": [
+        "3.0.452.1047"
+      ]
+    },
+    "dependencies": [],
+    "description": "Rename certain permissions shared across Amazon apps. Applying this patch can fix installation errors, but can also break features in certain apps.",
+    "id": "e10db86971bb0d4aa60dc39f:69",
+    "legacy_id": 68289,
+    "metadata_status": "verified",
+    "name": "Rename shared permissions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/NnoDzfxkvlsAvU8jzoPeK8aaxbcU2sEH_btwgMQ2xI88_qtrNGQuf1vlFkxSiQODyKVFZ3-s71sU1MHyV-vc9Q",
+        "name": "com.amazon.avod.thirdpartyclient",
+        "versions": [
+          "3.0.452.1047"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.amazon.avod.thirdpartyclient": [
+        "3.0.452.1047"
+      ]
+    },
+    "dependencies": [],
+    "description": "Automatically skips ads baked into the video stream.",
+    "id": "e10db86971bb0d4aa60dc39f:70",
+    "legacy_id": 68290,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/NnoDzfxkvlsAvU8jzoPeK8aaxbcU2sEH_btwgMQ2xI88_qtrNGQuf1vlFkxSiQODyKVFZ3-s71sU1MHyV-vc9Q",
+        "name": "com.amazon.avod.thirdpartyclient",
+        "versions": [
+          "3.0.452.1047"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.pandora.android": null
+    },
+    "dependencies": [],
+    "description": "Disables the limit for skipping songs during playback.",
+    "id": "e10db86971bb0d4aa60dc39f:71",
+    "legacy_id": 68291,
+    "metadata_status": "verified",
+    "name": "Unlimited skips",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pandora - Music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/XgDrpaSgIZyml9rjxwY2ZIkVQvhqrSh7FCkD2FDYUJgUWZt33gbVaeqMZLl8UhJGkmObLwivCMPAPY-jlpcp_PQ",
+        "name": "com.pandora.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.superchinese": [
+        "6.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Only unlocks lessons on the client UI! This is useful for pre-downloading content during free trial periods.",
+    "id": "e10db86971bb0d4aa60dc39f:72",
+    "legacy_id": 68292,
+    "metadata_status": "verified",
+    "name": "Unlock all lessons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SuperChinese: Learn Chinese",
+        "icon_url": "https://play-lh.googleusercontent.com/pfITNr8ebUtLg2_MHZReC7zjbsaUpxwVnbniKj8C7oXUYGiDVPE7iNL8Gzt5vYKdnvVlfE9ytUfBa1dXHl4Sj6Y",
+        "name": "com.superchinese",
+        "versions": [
+          "6.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "ch.protonvpn.android": [
+        "5.19.43.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables the custom DNS feature usually locked behind the Proton Plus paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:73",
+    "legacy_id": 68293,
+    "metadata_status": "verified",
+    "name": "Unlock custom DNS",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": [
+          "5.19.43.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "ch.protonvpn.android": [
+        "5.19.43.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables the LAN connections feature usually locked behind the Proton Plus paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:74",
+    "legacy_id": 68294,
+    "metadata_status": "verified",
+    "name": "Unlock LAN connections",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": [
+          "5.19.43.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "cn.ommiao.iconpacker": [
+        "1.21.0-release"
+      ]
+    },
+    "dependencies": [
+      "Disable Pairip license check"
+    ],
+    "description": "Enables app features locked behind the subscription paywall. Some UI elements may not show an active membership, but this does not effect functionality.",
+    "id": "e10db86971bb0d4aa60dc39f:75",
+    "legacy_id": 68295,
+    "metadata_status": "verified",
+    "name": "Unlock premium features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Icon Packer",
+        "icon_url": "https://play-lh.googleusercontent.com/TuQLI-feVEhXj9pUf36cZ10Kwi_9w0UBv3Y1WBYbEyBf0ci3W0jB1swnzfittajO8KKEnCRK-qL7765B76j-",
+        "name": "cn.ommiao.iconpacker",
+        "versions": [
+          "1.21.0-release"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.4.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall. There is a strict version requirement for this patch and only arm64-v8a devices are supported.",
+    "id": "e10db86971bb0d4aa60dc39f:76",
+    "legacy_id": 68296,
+    "metadata_status": "verified",
+    "name": "Unlock premium features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.4.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "e10db86971bb0d4aa60dc39f",
+    "compatiblePackages": {
+      "ch.protonvpn.android": [
+        "5.19.43.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables the split tunneling feature usually locked behind the Proton Plus paywall.",
+    "id": "e10db86971bb0d4aa60dc39f:77",
+    "legacy_id": 68297,
+    "metadata_status": "verified",
+    "name": "Unlock split tunneling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": [
+          "5.19.43.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "8fc032e236d8f5a5",
+    "use": true
+  },
+  {
+    "bundle_id": "fc9d428bb913bef7ba6254dd",
+    "compatiblePackages": {
+      "com.goondori": [
+        "5.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops Goondori from logging Firebase events and attaching account or military metadata to Firebase Analytics.",
+    "id": "fc9d428bb913bef7ba6254dd:0",
+    "legacy_id": 68298,
+    "metadata_status": "verified",
+    "name": "Disable Firebase Analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Goondori 군돌이",
+        "icon_url": "https://play-lh.googleusercontent.com/ojrrLdLOPJ5rheqiEnHquFfrSoCN2yzRtv6YZK2wWmwnHtshkOEXZ9SChqLaUNikVH-mF2rXoja4fUzBykA0",
+        "name": "com.goondori",
+        "versions": [
+          "5.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "4727caff2483629c",
+    "use": true
+  },
+  {
+    "bundle_id": "fc9d428bb913bef7ba6254dd",
+    "compatiblePackages": {
+      "com.goondori": [
+        "5.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops Firebase and Google DataTransport telemetry from sending through firebaselogging.googleapis.com.",
+    "id": "fc9d428bb913bef7ba6254dd:1",
+    "legacy_id": 68299,
+    "metadata_status": "verified",
+    "name": "Disable Firebase Logging",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Goondori 군돌이",
+        "icon_url": "https://play-lh.googleusercontent.com/ojrrLdLOPJ5rheqiEnHquFfrSoCN2yzRtv6YZK2wWmwnHtshkOEXZ9SChqLaUNikVH-mF2rXoja4fUzBykA0",
+        "name": "com.goondori",
+        "versions": [
+          "5.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "4727caff2483629c",
+    "use": true
+  }
+]
