@@ -1,0 +1,2925 @@
+[
+  {
+    "bundle_id": "8d4a575215f2ec3d18360f3d",
+    "compatiblePackages": {
+      "com.tubitv": [
+        "10.28.5000"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses all ad delivery systems in Tubi Android TV.",
+    "id": "8d4a575215f2ec3d18360f3d:36",
+    "legacy_id": 49195,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.tubitv",
+        "icon_url": null,
+        "name": "com.tubitv",
+        "versions": [
+          "10.28.5000"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "8d4a575215f2ec3d18360f3d",
+    "compatiblePackages": {
+      "com.univision.prendetv": [
+        "4.46.0_tv",
+        "4.47.2_tv"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses ViX ad delivery by stopping the LuraPlayer linear ad-break scheduler (client-side VAST) and preventing the Innovid SSAI ad overlay from mounting.",
+    "id": "8d4a575215f2ec3d18360f3d:37",
+    "legacy_id": 49196,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.univision.prendetv",
+        "icon_url": null,
+        "name": "com.univision.prendetv",
+        "versions": [
+          "4.46.0_tv",
+          "4.47.2_tv"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "fec860c28b323b2f",
+    "use": true
+  },
+  {
+    "bundle_id": "8d4a575215f2ec3d18360f3d",
+    "compatiblePackages": {
+      "com.disney.disneyplus": [
+        "26.6.0+rc5-2026.04.21",
+        "26.8.0+rc6-2026.05.20",
+        "26.9.2+rc1-2026.06.12",
+        "26.12.1+rc1-2026.07.15",
+        "26.16.0+rc2-2026.09.08"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Disney+ \"Verify Household Network\" / out-of-household prompt by forcing the client's out-of-household check to report in-household, so the app routes straight to home. Does NOT change what Disney's servers detect (that's driven by your public IP — use a VPN for that); it only suppresses the on-screen prompt/routing. Opt-in / experimental; only takes visible effect when the device would otherwise be prompted.",
+    "id": "8d4a575215f2ec3d18360f3d:38",
+    "legacy_id": 49197,
+    "metadata_status": "verified",
+    "name": "Suppress Household Prompt",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Disney+",
+        "icon_url": "https://play-lh.googleusercontent.com/AEX_3Bk5_SEZfR4fUcJsWiyqW_RRVcLED9AM2HMUVHAPVTZhZHfP2q3M35mRe4LtCXlb712DtkKwkZa_nJ-0",
+        "name": "com.disney.disneyplus",
+        "versions": [
+          "26.6.0+rc5-2026.04.21",
+          "26.8.0+rc6-2026.05.20",
+          "26.9.2+rc1-2026.06.12",
+          "26.12.1+rc1-2026.07.15",
+          "26.16.0+rc2-2026.09.08"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "fec860c28b323b2f",
+    "use": false
+  },
+  {
+    "bundle_id": "8d4a575215f2ec3d18360f3d",
+    "compatiblePackages": {
+      "com.netflix.ninja": [
+        "13.0.1 build 25028"
+      ]
+    },
+    "dependencies": [
+      "Remove Netflix ads (bundle engine)"
+    ],
+    "description": "Hides the Netflix \"you're traveling\" / update-your-household prompt by keeping the client from activating the misdetection challenge session. Does NOT change what Netflix's servers detect (that's driven by your public IP — use a VPN for that); it only suppresses the on-screen prompt. Opt-in / experimental; only takes visible effect when the account would otherwise be prompted.",
+    "id": "8d4a575215f2ec3d18360f3d:39",
+    "legacy_id": 49198,
+    "metadata_status": "verified",
+    "name": "Suppress Household Prompt",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.netflix.ninja",
+        "icon_url": null,
+        "name": "com.netflix.ninja",
+        "versions": [
+          "13.0.1 build 25028"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.40.0",
+    "source_id": "fec860c28b323b2f",
+    "use": false
+  },
+  {
+    "bundle_id": "998cb7148ffcf0233c0623d5",
+    "compatiblePackages": {
+      "com.featherweightgames.fx": [
+        "1.36.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes the LuckyPatcher/signature guard so the re-signed app does not kill itself on launch. Does not grant items or currency.",
+    "id": "998cb7148ffcf0233c0623d5:0",
+    "legacy_id": 49199,
+    "metadata_status": "verified",
+    "name": "Disable tamper guard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.featherweightgames.fx",
+        "icon_url": null,
+        "name": "com.featherweightgames.fx",
+        "versions": [
+          "1.36.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "5d3e72532678c30d",
+    "use": true
+  },
+  {
+    "bundle_id": "998cb7148ffcf0233c0623d5",
+    "compatiblePackages": {
+      "wibuku.app.wibuku": [
+        "1.4.5",
+        "1.4.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Routes Google sign-in through MicroG-RE 7.1.1+. Requires app.revanced.android.gms with the same Google account.",
+    "id": "998cb7148ffcf0233c0623d5:1",
+    "legacy_id": 49200,
+    "metadata_status": "verified",
+    "name": "Google sign-in via MicroG-RE",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "wibuku.app.wibuku",
+        "icon_url": null,
+        "name": "wibuku.app.wibuku",
+        "versions": [
+          "1.4.5",
+          "1.4.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "5d3e72532678c30d",
+    "use": true
+  },
+  {
+    "bundle_id": "998cb7148ffcf0233c0623d5",
+    "compatiblePackages": {
+      "wibuku.app.wibuku": [
+        "1.4.5",
+        "1.4.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Logs splash/login gate progress via logcat for diagnosis. Disable for release builds.",
+    "id": "998cb7148ffcf0233c0623d5:2",
+    "legacy_id": 49201,
+    "metadata_status": "verified",
+    "name": "Login tracer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "wibuku.app.wibuku",
+        "icon_url": null,
+        "name": "wibuku.app.wibuku",
+        "versions": [
+          "1.4.5",
+          "1.4.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "5d3e72532678c30d",
+    "use": false
+  },
+  {
+    "bundle_id": "998cb7148ffcf0233c0623d5",
+    "compatiblePackages": {
+      "com.featherweightgames.fx": [
+        "1.36.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Play Games sign-in so the game runs as guest without a Google login. Does not grant items or currency.",
+    "id": "998cb7148ffcf0233c0623d5:3",
+    "legacy_id": 49202,
+    "metadata_status": "verified",
+    "name": "Play offline (guest)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.featherweightgames.fx",
+        "icon_url": null,
+        "name": "com.featherweightgames.fx",
+        "versions": [
+          "1.36.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "5d3e72532678c30d",
+    "use": true
+  },
+  {
+    "bundle_id": "998cb7148ffcf0233c0623d5",
+    "compatiblePackages": {
+      "wibuku.app.wibuku": [
+        "1.4.5",
+        "1.4.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the local Premium check to always pass. Does not activate a subscription on your account; server-gated features may still require a real purchase.",
+    "id": "998cb7148ffcf0233c0623d5:4",
+    "legacy_id": 49203,
+    "metadata_status": "verified",
+    "name": "Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "wibuku.app.wibuku",
+        "icon_url": null,
+        "name": "wibuku.app.wibuku",
+        "versions": [
+          "1.4.5",
+          "1.4.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "5d3e72532678c30d",
+    "use": true
+  },
+  {
+    "bundle_id": "998cb7148ffcf0233c0623d5",
+    "compatiblePackages": {
+      "com.featherweightgames.fx": [
+        "1.36.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Completes the AdMob rewarded flow locally so the requested reward is granted without loading or playing an ad. Pairs with Skip rewarded ads (AppLovin MAX); IAP purchases still require real payment.",
+    "id": "998cb7148ffcf0233c0623d5:5",
+    "legacy_id": 49204,
+    "metadata_status": "verified",
+    "name": "Skip AdMob rewarded ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.featherweightgames.fx",
+        "icon_url": null,
+        "name": "com.featherweightgames.fx",
+        "versions": [
+          "1.36.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "5d3e72532678c30d",
+    "use": true
+  },
+  {
+    "bundle_id": "998cb7148ffcf0233c0623d5",
+    "compatiblePackages": {
+      "com.featherweightgames.fx": [
+        "1.36.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Completes the rewarded-video flow locally so the requested reward is granted without playing an ad. No ad-network impression or revenue is synthesized; IAP purchases still require real payment.",
+    "id": "998cb7148ffcf0233c0623d5:6",
+    "legacy_id": 49205,
+    "metadata_status": "verified",
+    "name": "Skip rewarded ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.featherweightgames.fx",
+        "icon_url": null,
+        "name": "com.featherweightgames.fx",
+        "versions": [
+          "1.36.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "5d3e72532678c30d",
+    "use": true
+  },
+  {
+    "bundle_id": "9f821502e2d3891b4b0679d9",
+    "compatiblePackages": {
+      "com.mojang.minecraftpe": null
+    },
+    "dependencies": [],
+    "description": "Add libmtbinloader2.so to the app's native library path.",
+    "id": "9f821502e2d3891b4b0679d9:0",
+    "legacy_id": 49206,
+    "metadata_status": "verified",
+    "name": "Add mtbinloader2 lib",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mojang.minecraftpe",
+        "icon_url": null,
+        "name": "com.mojang.minecraftpe",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.2.0-dev.2",
+    "source_id": "44d60c57343199f3",
+    "use": true
+  },
+  {
+    "bundle_id": "9f821502e2d3891b4b0679d9",
+    "compatiblePackages": {
+      "com.mojang.minecraftpe": null
+    },
+    "dependencies": [],
+    "description": "Changes the app package name to install patch without uninstalling original app.By default, .morphe is appended.",
+    "id": "9f821502e2d3891b4b0679d9:1",
+    "legacy_id": 49207,
+    "metadata_status": "verified",
+    "name": "Change Package Name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "Package name to use for the cloned app.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": true,
+        "description": "Update custom permissions declared by the app. Fixes installation conflicts.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update provider names declared by the app. Fixes installation conflicts.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.mojang.minecraftpe",
+        "icon_url": null,
+        "name": "com.mojang.minecraftpe",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.2.0-dev.2",
+    "source_id": "44d60c57343199f3",
+    "use": true
+  },
+  {
+    "bundle_id": "9f821502e2d3891b4b0679d9",
+    "compatiblePackages": {
+      "com.mojang.minecraftpe": null
+    },
+    "dependencies": [],
+    "description": "Removes music files. This reduces app size.",
+    "id": "9f821502e2d3891b4b0679d9:2",
+    "legacy_id": 49208,
+    "metadata_status": "verified",
+    "name": "Remove music",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mojang.minecraftpe",
+        "icon_url": null,
+        "name": "com.mojang.minecraftpe",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.2.0-dev.2",
+    "source_id": "44d60c57343199f3",
+    "use": false
+  },
+  {
+    "bundle_id": "d721a25cde793e96098bb691",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Extends the keyboard under the camera cutout in landscape instead of leaving an empty strip beside it.",
+    "id": "d721a25cde793e96098bb691:0",
+    "legacy_id": 49209,
+    "metadata_status": "verified",
+    "name": "Immersive Keyboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.1",
+    "source_id": "2272a90c5d69de65",
+    "use": true
+  },
+  {
+    "bundle_id": "d721a25cde793e96098bb691",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes the bar under the keyboard (behind the globe and close buttons) match the keyboard's color, opacity and blur, for use with transparent themes such as Frosted Glass.",
+    "id": "d721a25cde793e96098bb691:1",
+    "legacy_id": 49210,
+    "metadata_status": "verified",
+    "name": "Translucent Bottom Bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.1",
+    "source_id": "2272a90c5d69de65",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a button that triggers the same action as shaking your phone would.",
+    "id": "ec8c25e0cfa58eef4d191654:0",
+    "legacy_id": 49211,
+    "metadata_status": "verified",
+    "name": "Add 'Give Kudos' button to 'Group Activity'",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an \"Export GPX\" item to the activity overflow menu, which saves the activity's GPS track as a GPX file in Downloads/Strava.",
+    "id": "ec8c25e0cfa58eef4d191654:1",
+    "legacy_id": 49212,
+    "metadata_status": "verified",
+    "name": "Add activity export",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Extends the full-screen media viewer menu with items to copy or open their URLs or download them directly.",
+    "id": "ec8c25e0cfa58eef4d191654:2",
+    "legacy_id": 49213,
+    "metadata_status": "verified",
+    "name": "Add media download",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows exporting and downloading Strava routes as GPX or TCX files directly from the app.",
+    "id": "ec8c25e0cfa58eef4d191654:3",
+    "legacy_id": 49214,
+    "metadata_status": "verified",
+    "name": "Add route export",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": null
+    },
+    "dependencies": [],
+    "description": "Open Amazon links, even if the app is not set to handle Amazon links.",
+    "id": "ec8c25e0cfa58eef4d191654:4",
+    "legacy_id": 49215,
+    "metadata_status": "verified",
+    "name": "Always allow deep-linking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Automatically claim Channel Points.",
+    "id": "ec8c25e0cfa58eef4d191654:5",
+    "legacy_id": 49216,
+    "metadata_status": "verified",
+    "name": "Auto claim channel points",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks audio ads in streams and VODs.",
+    "id": "ec8c25e0cfa58eef4d191654:6",
+    "legacy_id": 49217,
+    "metadata_status": "verified",
+    "name": "Block audio ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
+    "id": "ec8c25e0cfa58eef4d191654:7",
+    "legacy_id": 49218,
+    "metadata_status": "verified",
+    "name": "Block embedded ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks Snowplow analytics. See https://snowplow.io for more information.",
+    "id": "ec8c25e0cfa58eef4d191654:8",
+    "legacy_id": 49219,
+    "metadata_status": "verified",
+    "name": "Block Snowplow tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks video ads in streams and VODs.",
+    "id": "ec8c25e0cfa58eef4d191654:9",
+    "legacy_id": 49220,
+    "metadata_status": "verified",
+    "name": "Block video ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.adobe.photoshopmix": null
+    },
+    "dependencies": [],
+    "description": "Allows the use of the app after its discontinuation.",
+    "id": "ec8c25e0cfa58eef4d191654:10",
+    "legacy_id": 49221,
+    "metadata_status": "verified",
+    "name": "Bypass login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adobe.photoshopmix",
+        "icon_url": null,
+        "name": "com.adobe.photoshopmix",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".morphe\" to the package name by default. Changing the package name of the app can lead to unexpected issues. This patch does not work with Reddit.",
+    "id": "ec8c25e0cfa58eef4d191654:11",
+    "legacy_id": 49222,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables Twitch's internal debugging mode.",
+    "id": "ec8c25e0cfa58eef4d191654:12",
+    "legacy_id": 49223,
+    "metadata_status": "verified",
+    "name": "Debug mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.myprog.hexedit": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:13",
+    "legacy_id": 49224,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.myprog.hexedit",
+        "icon_url": null,
+        "name": "com.myprog.hexedit",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the Quick Edit prompt from popping up.",
+    "id": "ec8c25e0cfa58eef4d191654:14",
+    "legacy_id": 49225,
+    "metadata_status": "verified",
+    "name": "Disable Quick Edit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the indicator while typing a message.",
+    "id": "ec8c25e0cfa58eef4d191654:15",
+    "legacy_id": 49226,
+    "metadata_status": "verified",
+    "name": "Disable typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Disables always on backup for the Camera and other DCIM folders, allowing you to control backup for each folder individually. This will make the app default to having no folders backed up.",
+    "id": "ec8c25e0cfa58eef4d191654:16",
+    "legacy_id": 49227,
+    "metadata_status": "verified",
+    "name": "Enable DCIM folders backup control",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Re-enables password login after having used an OTP code.",
+    "id": "ec8c25e0cfa58eef4d191654:17",
+    "legacy_id": 49228,
+    "metadata_status": "verified",
+    "name": "Enable password login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Prevents Google Photos from clearing the selected account after cold start when using MicroG.",
+    "id": "ec8c25e0cfa58eef4d191654:18",
+    "legacy_id": 49229,
+    "metadata_status": "verified",
+    "name": "Fix selected account persistence",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "de.gmx.mobile.android.mail": null
+    },
+    "dependencies": [],
+    "description": "Enables the FreePhone menu in the navigation drawer even on devices that do not support eSIM.",
+    "id": "ec8c25e0cfa58eef4d191654:19",
+    "legacy_id": 49230,
+    "metadata_status": "verified",
+    "name": "Force enable FreePhone",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "de.gmx.mobile.android.mail",
+        "icon_url": null,
+        "name": "de.gmx.mobile.android.mail",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [
+      "Change package name",
+      "Fix selected account persistence"
+    ],
+    "description": "Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services.",
+    "id": "ec8c25e0cfa58eef4d191654:20",
+    "legacy_id": 49231,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "490.0.0.63.82"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:21",
+    "legacy_id": 49232,
+    "metadata_status": "verified",
+    "name": "Hide 'Sponsored Stories'",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "490.0.0.63.82"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.viber.voip": [
+        "25.9.2.0",
+        "26.1.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides ad banners between chats.",
+    "id": "ec8c25e0cfa58eef4d191654:22",
+    "legacy_id": 49233,
+    "metadata_status": "verified",
+    "name": "Hide Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.viber.voip",
+        "icon_url": null,
+        "name": "com.viber.voip",
+        "versions": [
+          "25.9.2.0",
+          "26.1.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.drinkplusplus.angulus": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:23",
+    "legacy_id": 49234,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.drinkplusplus.angulus",
+        "icon_url": null,
+        "name": "com.drinkplusplus.angulus",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.cricbuzz.android": [
+        "6.24.01"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:24",
+    "legacy_id": 49235,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.cricbuzz.android",
+        "icon_url": null,
+        "name": "com.cricbuzz.android",
+        "versions": [
+          "6.24.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "de.gmx.mobile.android.mail": null
+    },
+    "dependencies": [],
+    "description": "Hides sponsored ads.",
+    "id": "ec8c25e0cfa58eef4d191654:25",
+    "legacy_id": 49236,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "de.gmx.mobile.android.mail",
+        "icon_url": null,
+        "name": "de.gmx.mobile.android.mail",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:26",
+    "legacy_id": 49237,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.letterboxd.letterboxd",
+        "icon_url": null,
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "nl.sanomamedia.android.nu": null
+    },
+    "dependencies": [],
+    "description": "Hide ads and sponsored articles in list pages and remove pre-roll ads on videos.",
+    "id": "ec8c25e0cfa58eef4d191654:27",
+    "legacy_id": 49238,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "nl.sanomamedia.android.nu",
+        "icon_url": null,
+        "name": "nl.sanomamedia.android.nu",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.141.1"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:28",
+    "legacy_id": 49239,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "jp.pxv.android",
+        "icon_url": null,
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.141.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides elements that are not essential.",
+    "id": "ec8c25e0cfa58eef4d191654:29",
+    "legacy_id": 49240,
+    "metadata_status": "verified",
+    "name": "Hide distractions",
+    "options": [
+      {
+        "default": true,
+        "description": "Elements that suggest you subscribe.",
+        "key": "upselling",
+        "required": true,
+        "title": "Upselling",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Elements that promote features, challenges, clubs, etc.",
+        "key": "promo",
+        "required": true,
+        "title": "Promotions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Popular athletes, followers, people near you etc.",
+        "key": "followSuggestions",
+        "required": true,
+        "title": "Who to Follow",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Random challenges Strava wants you to join.",
+        "key": "challengeSuggestions",
+        "required": true,
+        "title": "Suggested Challenges",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Challenges your follows have joined.",
+        "key": "joinChallenge",
+        "required": true,
+        "title": "Join Challenge",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Clubs your follows have joined.",
+        "key": "joinClub",
+        "required": true,
+        "title": "Joined a club",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Your activity from X years ago",
+        "key": "activityLookback",
+        "required": true,
+        "title": "Activity lookback",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides buttons and shortcuts that open Facebook.",
+    "id": "ec8c25e0cfa58eef4d191654:30",
+    "legacy_id": 49241,
+    "metadata_status": "verified",
+    "name": "Hide Facebook buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides ads in inbox.",
+    "id": "ec8c25e0cfa58eef4d191654:31",
+    "legacy_id": 49242,
+    "metadata_status": "verified",
+    "name": "Hide inbox ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the stories and notes horizontal tray at the top of the inbox.",
+    "id": "ec8c25e0cfa58eef4d191654:32",
+    "legacy_id": 49243,
+    "metadata_status": "verified",
+    "name": "Hide inbox stories and notes tray",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Home and Channels tabs between active now tray and chats.",
+    "id": "ec8c25e0cfa58eef4d191654:33",
+    "legacy_id": 49244,
+    "metadata_status": "verified",
+    "name": "Hide inbox subtabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.viber.voip": null
+    },
+    "dependencies": [],
+    "description": "Permanently hides navigation bar buttons, such as Explore and Marketplace.",
+    "id": "ec8c25e0cfa58eef4d191654:34",
+    "legacy_id": 49245,
+    "metadata_status": "verified",
+    "name": "Hide navigation buttons",
+    "options": [
+      {
+        "default": true,
+        "description": "",
+        "key": "hideExplore",
+        "required": true,
+        "title": "hideExplore",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "",
+        "key": "hidePay",
+        "required": true,
+        "title": "hidePay",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "",
+        "key": "hideCamera",
+        "required": true,
+        "title": "hideCamera",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "",
+        "key": "hideMarketplace",
+        "required": true,
+        "title": "hideMarketplace",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.viber.voip",
+        "icon_url": null,
+        "name": "com.viber.voip",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.microsoft.office.officelens": null
+    },
+    "dependencies": [],
+    "description": "Hides the OneDrive migration prompt when opening Microsoft Office Lens.",
+    "id": "ec8c25e0cfa58eef4d191654:35",
+    "legacy_id": 49246,
+    "metadata_status": "verified",
+    "name": "Hide OneDrive migration",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.microsoft.office.officelens",
+        "icon_url": null,
+        "name": "com.microsoft.office.officelens",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "de.gmx.mobile.android.mail": null
+    },
+    "dependencies": [],
+    "description": "Hides the Premium upgrade button in the navigation drawer.",
+    "id": "ec8c25e0cfa58eef4d191654:36",
+    "legacy_id": 49247,
+    "metadata_status": "verified",
+    "name": "Hide Premium upgrade button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "de.gmx.mobile.android.mail",
+        "icon_url": null,
+        "name": "de.gmx.mobile.android.mail",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "490.0.0.63.82"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the ads in the Facebook app stories.",
+    "id": "ec8c25e0cfa58eef4d191654:37",
+    "legacy_id": 49248,
+    "metadata_status": "verified",
+    "name": "Hide story ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "490.0.0.63.82"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.microblink.photomath": null
+    },
+    "dependencies": [],
+    "description": "Prevents the update popup from showing up.",
+    "id": "ec8c25e0cfa58eef4d191654:38",
+    "legacy_id": 49249,
+    "metadata_status": "verified",
+    "name": "Hide update popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.microblink.photomath",
+        "icon_url": null,
+        "name": "com.microblink.photomath",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Always opens links in your default browser instead of the in-app browser, regardless of the in-app setting.",
+    "id": "ec8c25e0cfa58eef4d191654:39",
+    "legacy_id": 49250,
+    "metadata_status": "verified",
+    "name": "Open links externally",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Overwrites the compression, resize and trim media (images and videos) parameters returned by Strava's server before upload.",
+    "id": "ec8c25e0cfa58eef4d191654:40",
+    "legacy_id": 49251,
+    "metadata_status": "verified",
+    "name": "Overwrite media upload parameters",
+    "options": [
+      {
+        "default": null,
+        "description": "This is used as the JPEG quality setting (≤ 100).",
+        "key": "compressionQuality",
+        "required": false,
+        "title": "Compression quality (percent)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The maximum length (≤ 3600) of a video before it gets trimmed.",
+        "key": "maxDuration",
+        "required": false,
+        "title": "Max duration (seconds)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "The image gets resized so that the smaller dimension (width/height) does not exceed this value (≤ 10000).",
+        "key": "maxSize",
+        "required": false,
+        "title": "Max size (pixels)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.amazon.mp3": null
+    },
+    "dependencies": [],
+    "description": "Avoid uploading logs when the application crashes.",
+    "id": "ec8c25e0cfa58eef4d191654:41",
+    "legacy_id": 49252,
+    "metadata_status": "verified",
+    "name": "Prevent log upload",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mp3",
+        "icon_url": null,
+        "name": "com.amazon.mp3",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "net.binarymode.android.irplus": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:42",
+    "legacy_id": 49253,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "net.binarymode.android.irplus",
+        "icon_url": null,
+        "name": "net.binarymode.android.irplus",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.google.android.apps.recorder": null
+    },
+    "dependencies": [],
+    "description": "Removes restrictions from using the app on any device. Requires mounting patched app over original.",
+    "id": "ec8c25e0cfa58eef4d191654:43",
+    "legacy_id": 49254,
+    "metadata_status": "verified",
+    "name": "Remove device restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.recorder",
+        "icon_url": null,
+        "name": "com.google.android.apps.recorder",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes UI elements related to Meta AI.",
+    "id": "ec8c25e0cfa58eef4d191654:44",
+    "legacy_id": 49255,
+    "metadata_status": "verified",
+    "name": "Remove Meta AI",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.bandcamp.android": null
+    },
+    "dependencies": [],
+    "description": "Disables purchase nagging and playback limits of not purchased tracks.",
+    "id": "ec8c25e0cfa58eef4d191654:45",
+    "legacy_id": 49256,
+    "metadata_status": "verified",
+    "name": "Remove play limits",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.bandcamp.android",
+        "icon_url": null,
+        "name": "com.bandcamp.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.141.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 7-day trial countdown on popular search results so the free popular-search preview (30 works) never expires.",
+    "id": "ec8c25e0cfa58eef4d191654:46",
+    "legacy_id": 49257,
+    "metadata_status": "verified",
+    "name": "Remove popular search time limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "jp.pxv.android",
+        "icon_url": null,
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.141.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.amazon.mp3": null
+    },
+    "dependencies": [],
+    "description": "Rename certain permissions shared across Amazon apps. Applying this patch can fix installation errors, but can also break features in certain apps.",
+    "id": "ec8c25e0cfa58eef4d191654:47",
+    "legacy_id": 49258,
+    "metadata_status": "verified",
+    "name": "Rename shared permissions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mp3",
+        "icon_url": null,
+        "name": "com.amazon.mp3",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows deleted chat messages behind a clickable spoiler.",
+    "id": "ec8c25e0cfa58eef4d191654:48",
+    "legacy_id": 49259,
+    "metadata_status": "verified",
+    "name": "Show deleted messages",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.nothing.smartcenter": null
+    },
+    "dependencies": [],
+    "description": "Shows the K1 authentication token(s) in a dialog and logs it to logcat for pairing with GadgetBridge without requiring root access.",
+    "id": "ec8c25e0cfa58eef4d191654:49",
+    "legacy_id": 49260,
+    "metadata_status": "verified",
+    "name": "Show K1 token(s)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.nothing.smartcenter",
+        "icon_url": null,
+        "name": "com.nothing.smartcenter",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.amazon.mp3": null
+    },
+    "dependencies": [],
+    "description": "Skip ads between the tracks.",
+    "id": "ec8c25e0cfa58eef4d191654:50",
+    "legacy_id": 49261,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mp3",
+        "icon_url": null,
+        "name": "com.amazon.mp3",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "nl.sanomamedia.android.nu": null
+    },
+    "dependencies": [],
+    "description": "Spoofs the X-Android-Cert header to allow push messages.",
+    "id": "ec8c25e0cfa58eef4d191654:51",
+    "legacy_id": 49262,
+    "metadata_status": "verified",
+    "name": "Spoof certificate",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "nl.sanomamedia.android.nu",
+        "icon_url": null,
+        "name": "nl.sanomamedia.android.nu",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.microblink.photomath": null
+    },
+    "dependencies": [],
+    "description": "Spoofs device ID to mitigate manual bans by developers.",
+    "id": "ec8c25e0cfa58eef4d191654:52",
+    "legacy_id": 49263,
+    "metadata_status": "verified",
+    "name": "Spoof device ID",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.microblink.photomath",
+        "icon_url": null,
+        "name": "com.microblink.photomath",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Spoofs the device to enable Google Pixel exclusive features, including unlimited storage.",
+    "id": "ec8c25e0cfa58eef4d191654:53",
+    "legacy_id": 49264,
+    "metadata_status": "verified",
+    "name": "Spoof features",
+    "options": [
+      {
+        "default": "[com.google.android.apps.photos.NEXUS_PRELOAD, com.google.android.apps.photos.nexus_preload]",
+        "description": "Google Pixel exclusive features to enable. Features up to Pixel XL enable the unlimited storage feature.",
+        "key": "featuresToEnable",
+        "required": true,
+        "title": "Features to enable",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      },
+      {
+        "default": "[com.google.android.apps.photos.PIXEL_2017_PRELOAD, com.google.android.apps.photos.PIXEL_2018_PRELOAD, com.google.android.apps.photos.PIXEL_2019_MIDYEAR_PRELOAD, com.google.android.apps.photos.PIXEL_2019_PRELOAD, com.google.android.feature.PIXEL_EXPERIENCE, com.google.android.feature.PIXEL_2017_EXPERIENCE, com.google.android.feature.PIXEL_2018_EXPERIENCE, com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2019_EXPERIENCE, com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2020_EXPERIENCE, com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2021_EXPERIENCE, com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2022_EXPERIENCE, com.google.android.feature.PIXEL_2023_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2023_EXPERIENCE, com.google.android.feature.PIXEL_2024_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2024_EXPERIENCE, com.google.android.feature.PIXEL_2025_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2025_EXPERIENCE, com.google.android.feature.PIXEL_2026_MIDYEAR_EXPERIENCE, com.google.android.feature.PIXEL_2026_EXPERIENCE]",
+        "description": "Google Pixel exclusive features to disable.Features after Pixel XL may have to be disabled for unlimited storage depending on the device.",
+        "key": "featuresToDisable",
+        "required": true,
+        "title": "Features to disable",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sets a very high version code so the Play Store treats the app as already up to date and never offers an update.",
+    "id": "ec8c25e0cfa58eef4d191654:54",
+    "legacy_id": 49265,
+    "metadata_status": "verified",
+    "name": "Spoof package version",
+    "options": [
+      {
+        "default": "2147483647",
+        "description": "The version code to set. Must be higher than the Play Store version to suppress updates. Defaults to the maximum value.",
+        "key": "versionCode",
+        "required": true,
+        "title": "Version code",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.amazon.mp3": null
+    },
+    "dependencies": [],
+    "description": "Unlocks the ability to skip tracks without restriction.",
+    "id": "ec8c25e0cfa58eef4d191654:55",
+    "legacy_id": 49266,
+    "metadata_status": "verified",
+    "name": "Unlimited track skipping",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mp3",
+        "icon_url": null,
+        "name": "com.amazon.mp3",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.letterboxd.letterboxd": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:56",
+    "legacy_id": 49267,
+    "metadata_status": "verified",
+    "name": "Unlock app icons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.letterboxd.letterboxd",
+        "icon_url": null,
+        "name": "com.letterboxd.letterboxd",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.microblink.photomath": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:57",
+    "legacy_id": 49268,
+    "metadata_status": "verified",
+    "name": "Unlock plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.microblink.photomath",
+        "icon_url": null,
+        "name": "com.microblink.photomath",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "ginlemon.iconpackstudio": [
+        "2.2 build 016"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "ec8c25e0cfa58eef4d191654:58",
+    "legacy_id": 49269,
+    "metadata_status": "verified",
+    "name": "Unlock pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ginlemon.iconpackstudio",
+        "icon_url": null,
+        "name": "ginlemon.iconpackstudio",
+        "versions": [
+          "2.2 build 016"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.strava": [
+        "477.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks \"Routes\", \"Matched Runs\" and \"Segment Efforts\".",
+    "id": "ec8c25e0cfa58eef4d191654:59",
+    "legacy_id": 49270,
+    "metadata_status": "verified",
+    "name": "Unlock subscription features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "477.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ec8c25e0cfa58eef4d191654",
+    "compatiblePackages": {
+      "com.amazon.mp3": null
+    },
+    "dependencies": [],
+    "description": "Unlock Music Unlimited features.",
+    "id": "ec8c25e0cfa58eef4d191654:60",
+    "legacy_id": 49271,
+    "metadata_status": "verified",
+    "name": "Unlock Unlimited",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mp3",
+        "icon_url": null,
+        "name": "com.amazon.mp3",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "ee1c75f42c713ed4278c3ad3",
+    "compatiblePackages": {
+      "de.motain.iliga": [
+        "15.145.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "ee1c75f42c713ed4278c3ad3:0",
+    "legacy_id": 49272,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "de.motain.iliga",
+        "icon_url": null,
+        "name": "de.motain.iliga",
+        "versions": [
+          "15.145.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "ee1c75f42c713ed4278c3ad3",
+    "compatiblePackages": {
+      "de.wetteronline.wetterapp": [
+        "2026.19"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables premium features: ad-free experience, HD radar and all gated content. Works without an account.",
+    "id": "ee1c75f42c713ed4278c3ad3:1",
+    "legacy_id": 49273,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "de.wetteronline.wetterapp",
+        "icon_url": null,
+        "name": "de.wetteronline.wetterapp",
+        "versions": [
+          "2026.19"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "ee1c75f42c713ed4278c3ad3",
+    "compatiblePackages": {
+      "com.isarinteractive.skat.android.ad": [
+        "19.2.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes banner and fullscreen (interstitial) ads from the game. Interstitials are reported as shown and closed immediately so the Qt game flow is unaffected. Works without an account.",
+    "id": "ee1c75f42c713ed4278c3ad3:2",
+    "legacy_id": 49274,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.isarinteractive.skat.android.ad",
+        "icon_url": null,
+        "name": "com.isarinteractive.skat.android.ad",
+        "versions": [
+          "19.2.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "ee1c75f42c713ed4278c3ad3",
+    "compatiblePackages": {
+      "com.mtv.sai": [
+        "2.4.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the PairIP license check that redirects to the Play Store and exits on sideloaded installs.",
+    "id": "ee1c75f42c713ed4278c3ad3:3",
+    "legacy_id": 49275,
+    "metadata_status": "verified",
+    "name": "Remove Play Store redirect",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mtv.sai",
+        "icon_url": null,
+        "name": "com.mtv.sai",
+        "versions": [
+          "2.4.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "ee1c75f42c713ed4278c3ad3",
+    "compatiblePackages": {
+      "com.isarinteractive.skat.android.ad": [
+        "19.2.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the PairIP license check that redirects to the Play Store and exits on sideloaded installs.",
+    "id": "ee1c75f42c713ed4278c3ad3:4",
+    "legacy_id": 49276,
+    "metadata_status": "verified",
+    "name": "Remove Play Store redirect",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.isarinteractive.skat.android.ad",
+        "icon_url": null,
+        "name": "com.isarinteractive.skat.android.ad",
+        "versions": [
+          "19.2.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "ee1c75f42c713ed4278c3ad3",
+    "compatiblePackages": {
+      "com.mtv.sai": [
+        "2.4.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks SAI Split APKs Installer premium (backups, themes) by forcing the \"SAI Premium\" entitlement state to active.",
+    "id": "ee1c75f42c713ed4278c3ad3:5",
+    "legacy_id": 49277,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mtv.sai",
+        "icon_url": null,
+        "name": "com.mtv.sai",
+        "versions": [
+          "2.4.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "ee1c75f42c713ed4278c3ad3",
+    "compatiblePackages": {
+      "com.eisterhues_media_2": [
+        "7.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Toralarm premium content by forcing the subscription state to active.",
+    "id": "ee1c75f42c713ed4278c3ad3:6",
+    "legacy_id": 49278,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.eisterhues_media_2",
+        "icon_url": null,
+        "name": "com.eisterhues_media_2",
+        "versions": [
+          "7.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.strava": [
+        "473.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a button that triggers the same action as shaking your phone would.",
+    "id": "f87fc5d83e39ab3e356cce78:0",
+    "legacy_id": 49279,
+    "metadata_status": "verified",
+    "name": "Add 'Give Kudos' button to 'Group Activity'",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "473.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.strava": [
+        "473.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Extends the full-screen media viewer menu with items to copy or open their URLs or download them directly.",
+    "id": "f87fc5d83e39ab3e356cce78:1",
+    "legacy_id": 49280,
+    "metadata_status": "verified",
+    "name": "Add media download",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "473.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.strava": [
+        "473.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows exporting and downloading Strava routes as GPX or TCX files directly from the app.",
+    "id": "f87fc5d83e39ab3e356cce78:2",
+    "legacy_id": 49281,
+    "metadata_status": "verified",
+    "name": "Add route export",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "473.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": null
+    },
+    "dependencies": [],
+    "description": "Open Amazon links, even if the app is not set to handle Amazon links.",
+    "id": "f87fc5d83e39ab3e356cce78:3",
+    "legacy_id": 49282,
+    "metadata_status": "verified",
+    "name": "Always allow deep-linking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Automatically claim Channel Points.",
+    "id": "f87fc5d83e39ab3e356cce78:4",
+    "legacy_id": 49283,
+    "metadata_status": "verified",
+    "name": "Auto claim channel points",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks audio ads in streams and VODs.",
+    "id": "f87fc5d83e39ab3e356cce78:5",
+    "legacy_id": 49284,
+    "metadata_status": "verified",
+    "name": "Block audio ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
+    "id": "f87fc5d83e39ab3e356cce78:6",
+    "legacy_id": 49285,
+    "metadata_status": "verified",
+    "name": "Block embedded ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.strava": [
+        "473.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks Snowplow analytics. See https://snowplow.io for more information.",
+    "id": "f87fc5d83e39ab3e356cce78:7",
+    "legacy_id": 49286,
+    "metadata_status": "verified",
+    "name": "Block Snowplow tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "473.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks video ads in streams and VODs.",
+    "id": "f87fc5d83e39ab3e356cce78:8",
+    "legacy_id": 49287,
+    "metadata_status": "verified",
+    "name": "Block video ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.adobe.photoshopmix": null
+    },
+    "dependencies": [],
+    "description": "Allows the use of the app after its discontinuation.",
+    "id": "f87fc5d83e39ab3e356cce78:9",
+    "legacy_id": 49288,
+    "metadata_status": "verified",
+    "name": "Bypass login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adobe.photoshopmix",
+        "icon_url": null,
+        "name": "com.adobe.photoshopmix",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".morphe\" to the package name by default. Changing the package name of the app can lead to unexpected issues. This patch does not work with Reddit.",
+    "id": "f87fc5d83e39ab3e356cce78:10",
+    "legacy_id": 49289,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "16.9.1",
+        "25.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables Twitch's internal debugging mode.",
+    "id": "f87fc5d83e39ab3e356cce78:11",
+    "legacy_id": 49290,
+    "metadata_status": "verified",
+    "name": "Debug mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "16.9.1",
+          "25.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.myprog.hexedit": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "f87fc5d83e39ab3e356cce78:12",
+    "legacy_id": 49291,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.myprog.hexedit",
+        "icon_url": null,
+        "name": "com.myprog.hexedit",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.strava": [
+        "473.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the Quick Edit prompt from popping up.",
+    "id": "f87fc5d83e39ab3e356cce78:13",
+    "legacy_id": 49292,
+    "metadata_status": "verified",
+    "name": "Disable Quick Edit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Strava: Run, Bike, Walk",
+        "icon_url": "https://play-lh.googleusercontent.com/J4LN2qH2PQkZ3sFQonz-HWYkd7M38BtEO4Grzh1Xn7L2J6NUILHPkhYvPjdhMZQzrdm4BarUj547wfthyMz_vWM",
+        "name": "com.strava",
+        "versions": [
+          "473.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the indicator while typing a message.",
+    "id": "f87fc5d83e39ab3e356cce78:14",
+    "legacy_id": 49293,
+    "metadata_status": "verified",
+    "name": "Disable typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": true
+  },
+  {
+    "bundle_id": "f87fc5d83e39ab3e356cce78",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Disables always on backup for the Camera and other DCIM folders, allowing you to control backup for each folder individually. This will make the app default to having no folders backed up.",
+    "id": "f87fc5d83e39ab3e356cce78:15",
+    "legacy_id": 49294,
+    "metadata_status": "verified",
+    "name": "Enable DCIM folders backup control",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "863d8bf07b99af20",
+    "use": false
+  }
+]

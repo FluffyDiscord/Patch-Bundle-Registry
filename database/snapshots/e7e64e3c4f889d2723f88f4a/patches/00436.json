@@ -1,0 +1,3390 @@
+[
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "sksa.aa.customapps": [
+        "2.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AAAD's anti-tamper, anti-debug, and integrity checks to allow running on patched installations.",
+    "id": "b2a77bf4d7dfd60f998c1206:1",
+    "legacy_id": 46595,
+    "metadata_status": "verified",
+    "name": "AAAD Security Bypass",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "sksa.aa.customapps",
+        "icon_url": null,
+        "name": "sksa.aa.customapps",
+        "versions": [
+          "2.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.aaenabler.app": [
+        "1.0.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium installation features by bypassing the Firestore license check.",
+    "id": "b2a77bf4d7dfd60f998c1206:2",
+    "legacy_id": 46596,
+    "metadata_status": "verified",
+    "name": "AAEnabler Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.aaenabler.app",
+        "icon_url": null,
+        "name": "com.aaenabler.app",
+        "versions": [
+          "1.0.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.adobe.reader": [
+        "26.7.0.47169"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all Acrobat Pro and Studio tools without a subscription.",
+    "id": "b2a77bf4d7dfd60f998c1206:3",
+    "legacy_id": 46597,
+    "metadata_status": "verified",
+    "name": "Adobe Acrobat Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adobe.reader",
+        "icon_url": null,
+        "name": "com.adobe.reader",
+        "versions": [
+          "26.7.0.47169"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.adobe.scan.android": [
+        "26.08.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium scanning and PDF tools in Adobe Scan.",
+    "id": "b2a77bf4d7dfd60f998c1206:4",
+    "legacy_id": 46598,
+    "metadata_status": "verified",
+    "name": "Adobe Scan Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adobe.scan.android",
+        "icon_url": null,
+        "name": "com.adobe.scan.android",
+        "versions": [
+          "26.08.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Configures radar/camera and hazard alert announcement distances.\nWrites all key variants (truncated _ + underscore + space) for resilience across versions.\nCredits: Waze CGE Mod.\nOfficial → default values (metres):\nAccident 600→2000 | Alert 600→1000 | Police 600→1000 |\nFreeways 2000→1200 | Highways 1000→900 | Streets 500→700 |\nHazard 600→500 | Heavy Traffic 600→3000 | Between Alerts 300→200",
+    "id": "b2a77bf4d7dfd60f998c1206:5",
+    "legacy_id": 46599,
+    "metadata_status": "verified",
+    "name": "Alert Distances",
+    "options": [
+      {
+        "default": 2000,
+        "description": "Official: 600m.",
+        "key": "accidentDist",
+        "required": false,
+        "title": "Accident alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1000,
+        "description": "Official: 600m.",
+        "key": "alertDist",
+        "required": false,
+        "title": "General alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1000,
+        "description": "Official: 600m.",
+        "key": "policeDist",
+        "required": false,
+        "title": "Police / camera alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1200,
+        "description": "Official: 2000m.",
+        "key": "freewayDist",
+        "required": false,
+        "title": "Enforcement — freeways (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 900,
+        "description": "Official: 1000m.",
+        "key": "highwayDist",
+        "required": false,
+        "title": "Enforcement — highways (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 700,
+        "description": "Official: 500m.",
+        "key": "streetDist",
+        "required": false,
+        "title": "Enforcement — streets (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 500,
+        "description": "Official: 600m.",
+        "key": "hazardDist",
+        "required": false,
+        "title": "Hazard alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 3000,
+        "description": "Official: 600m.",
+        "key": "heavyTrafDist",
+        "required": false,
+        "title": "Heavy traffic alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 200,
+        "description": "Official: 300m.",
+        "key": "betweenDist",
+        "required": false,
+        "title": "Min between alerts (m)",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows screenshots and screen recording in all conversations including end-to-end encrypted ones.",
+    "id": "b2a77bf4d7dfd60f998c1206:6",
+    "legacy_id": 46600,
+    "metadata_status": "verified",
+    "name": "Allow screen capture",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.87.0.957333026"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes Google Photos dark surfaces true black.",
+    "id": "b2a77bf4d7dfd60f998c1206:7",
+    "legacy_id": 46601,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.87.0.957333026"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents messages deleted by other users from being removed locally.",
+    "id": "b2a77bf4d7dfd60f998c1206:8",
+    "legacy_id": 46602,
+    "metadata_status": "verified",
+    "name": "Anti-delete messages",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps view-once photos, videos and voice messages viewable indefinitely.",
+    "id": "b2a77bf4d7dfd60f998c1206:9",
+    "legacy_id": 46603,
+    "metadata_status": "verified",
+    "name": "Anti-disappearing media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks screenshot notifications from being sent to the other user.",
+    "id": "b2a77bf4d7dfd60f998c1206:10",
+    "legacy_id": 46604,
+    "metadata_status": "verified",
+    "name": "Anti-screenshot notification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "eu.toneiv.cursor": [
+        "1.11.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Auto Cursor Pro by bypassing the local purchase state check.",
+    "id": "b2a77bf4d7dfd60f998c1206:11",
+    "legacy_id": 46605,
+    "metadata_status": "verified",
+    "name": "Auto Cursor Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "eu.toneiv.cursor",
+        "icon_url": null,
+        "name": "eu.toneiv.cursor",
+        "versions": [
+          "1.11.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Controls how aggressively the map zooms in/out based on driving speed.\nCredits: Waze Chuppito Mod (Speed Factor 20, Gradient Speed Threshold 60).",
+    "id": "b2a77bf4d7dfd60f998c1206:12",
+    "legacy_id": 46606,
+    "metadata_status": "verified",
+    "name": "AutoZoom",
+    "options": [
+      {
+        "default": 20,
+        "description": "Higher = more zoom-out at speed. Official: 10.",
+        "key": "speedFactor",
+        "required": false,
+        "title": "Speed factor",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 25,
+        "description": "Overall zoom scale multiplier. Official: 25.",
+        "key": "scaleFactor",
+        "required": false,
+        "title": "Scale factor",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 8000,
+        "description": "Maximum zoom-out scale. Official: 8000.",
+        "key": "maxScale",
+        "required": false,
+        "title": "Max scale",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 60,
+        "description": "Zoom gradient activates above this speed. Official: 30.",
+        "key": "gradientSpeed",
+        "required": false,
+        "title": "Gradient speed threshold (km/h)",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "me.highest.aviate": [
+        "1.1.0-beta.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Aviate Pro and Lifetime Pro by patching the Hermes JS subscription gate.",
+    "id": "b2a77bf4d7dfd60f998c1206:13",
+    "legacy_id": 46607,
+    "metadata_status": "verified",
+    "name": "Aviate Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "me.highest.aviate",
+        "icon_url": null,
+        "name": "me.highest.aviate",
+        "versions": [
+          "1.1.0-beta.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "io.appground.blek": [
+        "6.23.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features including fullscreen mode and removes the Upgrade navigation item.",
+    "id": "b2a77bf4d7dfd60f998c1206:14",
+    "legacy_id": 46608,
+    "metadata_status": "verified",
+    "name": "Blek Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "io.appground.blek",
+        "icon_url": null,
+        "name": "io.appground.blek",
+        "versions": [
+          "6.23.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents Messenger from notifying other participants when you take a screenshot or screen recording.",
+    "id": "b2a77bf4d7dfd60f998c1206:15",
+    "legacy_id": 46609,
+    "metadata_status": "verified",
+    "name": "Block screenshot detection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows opening, viewing, saving and forwarding content from restricted, sensitive, and copyright-restricted channels.",
+    "id": "b2a77bf4d7dfd60f998c1206:16",
+    "legacy_id": 46610,
+    "metadata_status": "verified",
+    "name": "Bypass channel restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows saving and forwarding content from restricted channels, chats, and users.",
+    "id": "b2a77bf4d7dfd60f998c1206:17",
+    "legacy_id": 46611,
+    "metadata_status": "verified",
+    "name": "Bypass content restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.google.android.verifier": [
+        "1.0.943911795"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces all APK install verification sessions to be bypassed, preventing the verifier from blocking sideloaded or unsigned apps on Android 16+ devices.Important: Requires pushing the patched APK as a system app replacement (e.g. via Magisk module or ADB with root)since the original holds DEVELOPER_VERIFICATION_AGENT permission. ADB installs are exempt from verification regardless.",
+    "id": "b2a77bf4d7dfd60f998c1206:18",
+    "legacy_id": 46612,
+    "metadata_status": "verified",
+    "name": "Bypass developer verification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.google.android.verifier",
+        "icon_url": null,
+        "name": "com.google.android.verifier",
+        "versions": [
+          "1.0.943911795"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs certificate fingerprint and SafetyNet results so login works on a patched APK.",
+    "id": "b2a77bf4d7dfd60f998c1206:19",
+    "legacy_id": 46613,
+    "metadata_status": "verified",
+    "name": "Bypass integrity check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.87.0.957333026"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs Google Photos beside the system Photos app by changing package, permissions, providers, and app name.",
+    "id": "b2a77bf4d7dfd60f998c1206:20",
+    "legacy_id": 46614,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "app.morphe.android.apps.photos",
+        "description": "Package name for the cloned Google Photos app.",
+        "key": "googlePhotosPackageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "Photos Morphe",
+        "description": "Launcher name for the cloned Google Photos app.",
+        "key": "googlePhotosAppName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.87.0.957333026"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs Messenger beside the original by renaming the manifest package and provider authorities, removing duplicate permission declarations.",
+    "id": "b2a77bf4d7dfd60f998c1206:21",
+    "legacy_id": 46615,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "app.morphe.messenger.orca",
+        "description": "Package name for the cloned Messenger app.",
+        "key": "messengerPackageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "Messenger Morphe",
+        "description": "Launcher label for the cloned Messenger.",
+        "key": "messengerAppName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Changes android:versionCode.",
+    "id": "b2a77bf4d7dfd60f998c1206:22",
+    "legacy_id": 46616,
+    "metadata_status": "verified",
+    "name": "Change version code",
+    "options": [
+      {
+        "default": "2147483647",
+        "description": "Version code to write into AndroidManifest.xml.",
+        "key": "universalVersionCode",
+        "required": true,
+        "title": "Version code",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Force dark mode for Amazon Shopping.",
+    "id": "b2a77bf4d7dfd60f998c1206:23",
+    "legacy_id": 46617,
+    "metadata_status": "verified",
+    "name": "Dark mode",
+    "options": [
+      {
+        "default": "follow_system",
+        "description": "Off / Follow system / Always on.",
+        "key": "amazonDarkMode",
+        "required": false,
+        "title": "Dark mode",
+        "type": "kotlin.String",
+        "values": {
+          "Always on": "on",
+          "Follow system": "follow_system",
+          "Off": "off"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "No-ops common ad SDK load/show/init/fetch methods in bundled ad packages.",
+    "id": "b2a77bf4d7dfd60f998c1206:24",
+    "legacy_id": 46618,
+    "metadata_status": "verified",
+    "name": "Disable ad SDK calls",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.feeperfect.airsend.android": [
+        "6.10.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AdMob interstitial and banner ads.",
+    "id": "b2a77bf4d7dfd60f998c1206:25",
+    "legacy_id": 46619,
+    "metadata_status": "verified",
+    "name": "Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.feeperfect.airsend.android",
+        "icon_url": null,
+        "name": "com.feeperfect.airsend.android",
+        "versions": [
+          "6.10.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "sensustech.universal.tv.remote.control": [
+        "1.8.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the AppOpen ad preloader from initialising.",
+    "id": "b2a77bf4d7dfd60f998c1206:26",
+    "legacy_id": 46620,
+    "metadata_status": "verified",
+    "name": "Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "sensustech.universal.tv.remote.control",
+        "icon_url": null,
+        "name": "sensustech.universal.tv.remote.control",
+        "versions": [
+          "1.8.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses all Waze ad systems via bundled preferences file:\n• AdMob SDK (Ad_.*)\n• Google Ads (Google_Ads.*)\n• Ads Inventory Prediction\n• ExternalPOI pins, coupons, popups (ExternalPO_ + Extern__POI both key variants)\n• Search autocomplete server ads\nCredits: Waze CGE Mod (ExternalPOI keys), Waze Chuppito (dual-key coverage).",
+    "id": "b2a77bf4d7dfd60f998c1206:27",
+    "legacy_id": 46621,
+    "metadata_status": "verified",
+    "name": "Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stubs AdvilRequest.getPageUrl() → \"\" so the Advil ad server receives no page URL and returns no ad content. Target: Lcom/waze/jni/protos/AdvilRequest;->getPageUrl() in classes6.dex (verified ✓).",
+    "id": "b2a77bf4d7dfd60f998c1206:28",
+    "legacy_id": 46622,
+    "metadata_status": "verified",
+    "name": "Disable Advil Ad Requests",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks all Firebase analytics and event tracking in Telegram Plus.",
+    "id": "b2a77bf4d7dfd60f998c1206:29",
+    "legacy_id": 46623,
+    "metadata_status": "verified",
+    "name": "Disable analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": [
+        "6.38.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables all Cloudflare telemetry by no-oping the analytics bundle builder and the Firebase event dispatchers.",
+    "id": "b2a77bf4d7dfd60f998c1206:30",
+    "legacy_id": 46624,
+    "metadata_status": "verified",
+    "name": "Disable Analytics / Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.cloudflare.onedotonedotonedotone",
+        "icon_url": null,
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": [
+          "6.38.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables automatic app update checks, the blocking update screen, and the proxy sponsor channel insertion.",
+    "id": "b2a77bf4d7dfd60f998c1206:31",
+    "legacy_id": 46625,
+    "metadata_status": "verified",
+    "name": "Disable auto-update",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables automatic app update checks in Telegram Plus.",
+    "id": "b2a77bf4d7dfd60f998c1206:32",
+    "legacy_id": 46626,
+    "metadata_status": "verified",
+    "name": "Disable auto-update",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the pull-down gesture that switches to the next unread channel.",
+    "id": "b2a77bf4d7dfd60f998c1206:33",
+    "legacy_id": 46627,
+    "metadata_status": "verified",
+    "name": "Disable channel switching",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Blocks app clipboard reads and writes.",
+    "id": "b2a77bf4d7dfd60f998c1206:34",
+    "legacy_id": 46628,
+    "metadata_status": "verified",
+    "name": "Disable clipboard access",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sends photos and videos at original quality without re-encoding.",
+    "id": "b2a77bf4d7dfd60f998c1206:35",
+    "legacy_id": 46629,
+    "metadata_status": "verified",
+    "name": "Disable media transcoding",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables PairIP license verification, VM checks, and repeated background checks.",
+    "id": "b2a77bf4d7dfd60f998c1206:36",
+    "legacy_id": 46630,
+    "metadata_status": "verified",
+    "name": "Disable PairIP license check",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.32.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses the share prompt that appears after taking a screenshot.",
+    "id": "b2a77bf4d7dfd60f998c1206:37",
+    "legacy_id": 46631,
+    "metadata_status": "verified",
+    "name": "Disable Screenshot Popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.32.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents search keypress and focus events from being sent with suggestion requests.",
+    "id": "b2a77bf4d7dfd60f998c1206:38",
+    "legacy_id": 46632,
+    "metadata_status": "verified",
+    "name": "Disable search suggestions tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Skips SensorManager.registerListener calls that can power shake-to-ad behavior.",
+    "id": "b2a77bf4d7dfd60f998c1206:39",
+    "legacy_id": 46633,
+    "metadata_status": "verified",
+    "name": "Disable shake ads",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": [
+        "6.38.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses OkHttp certificate pinning on Cloudflare API calls to allow TLS traffic inspection.",
+    "id": "b2a77bf4d7dfd60f998c1206:40",
+    "legacy_id": 46634,
+    "metadata_status": "verified",
+    "name": "Disable SSL Pinning",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.cloudflare.onedotonedotonedotone",
+        "icon_url": null,
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": [
+          "6.38.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.intsig.camscanner": [
+        "7.22.5.2607250000"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables CamScanner's custom telemetry/log-agent system.",
+    "id": "b2a77bf4d7dfd60f998c1206:41",
+    "legacy_id": 46635,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CamScanner- scanner, PDF maker",
+        "icon_url": "https://play-lh.googleusercontent.com/XSoqEDquJuenUosbMN_EA2n2U5lsomPEUdCKj4j9bUdPfdWMCtRqXlyPgQ6zxQxWaDFIXrqbqyFjwXQ5FMYubw",
+        "name": "com.intsig.camscanner",
+        "versions": [
+          "7.22.5.2607250000"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.estrongs.android.pop": [
+        "4.4.3.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables UMeng analytics and crash reporting in ES File Explorer.",
+    "id": "b2a77bf4d7dfd60f998c1206:42",
+    "legacy_id": 46636,
+    "metadata_status": "verified",
+    "name": "Disable Tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.estrongs.android.pop",
+        "icon_url": null,
+        "name": "com.estrongs.android.pop",
+        "versions": [
+          "4.4.3.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the indicator while typing a message.",
+    "id": "b2a77bf4d7dfd60f998c1206:43",
+    "legacy_id": 46637,
+    "metadata_status": "verified",
+    "name": "Disable typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents videos from autoplaying in Amazon's in-app WebView pages.",
+    "id": "b2a77bf4d7dfd60f998c1206:44",
+    "legacy_id": 46638,
+    "metadata_status": "verified",
+    "name": "Disable video autoplay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents product and ad videos from autoplaying.",
+    "id": "b2a77bf4d7dfd60f998c1206:45",
+    "legacy_id": 46639,
+    "metadata_status": "verified",
+    "name": "Disable video autoplay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Increases download chunk size to 512 KB and max concurrent requests to 8.",
+    "id": "b2a77bf4d7dfd60f998c1206:46",
+    "legacy_id": 46640,
+    "metadata_status": "verified",
+    "name": "Download speed boost",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Sets android:debuggable=true.",
+    "id": "b2a77bf4d7dfd60f998c1206:47",
+    "legacy_id": 46641,
+    "metadata_status": "verified",
+    "name": "Enable Android debugging",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables chat heads (bubbles) for all devices regardless of API level or RAM class.",
+    "id": "b2a77bf4d7dfd60f998c1206:48",
+    "legacy_id": 46642,
+    "metadata_status": "verified",
+    "name": "Enable chat heads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.87.0.957333026"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows controlling Camera and other DCIM folder backup individually.",
+    "id": "b2a77bf4d7dfd60f998c1206:49",
+    "legacy_id": 46643,
+    "metadata_status": "verified",
+    "name": "Enable DCIM folders backup control",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.87.0.957333026"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces compatible BUILD_TARGET debug providers to debug=true.",
+    "id": "b2a77bf4d7dfd60f998c1206:50",
+    "legacy_id": 46644,
+    "metadata_status": "verified",
+    "name": "Enable debug build target",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.duolingo": [
+        "6.90.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables Duolingo's hidden debug menu in settings.",
+    "id": "b2a77bf4d7dfd60f998c1206:51",
+    "legacy_id": 46645,
+    "metadata_status": "verified",
+    "name": "Enable Debug Menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": [
+          "6.90.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Adds fake-signature permission and metadata.",
+    "id": "b2a77bf4d7dfd60f998c1206:52",
+    "legacy_id": 46646,
+    "metadata_status": "verified",
+    "name": "Enable ROM signature spoofing",
+    "options": [
+      {
+        "default": "",
+        "description": "",
+        "key": "universalFakeSignature",
+        "required": false,
+        "title": "Certificate hex/signature",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Increases speedometer digit size for better readability.\nDefault: speed < 100 → 28sp (orig 20sp), speed ≥ 100 → 21sp (orig 13sp).\nTarget: Lcom/waze/main_screen/h/b/d;->f() in classes6.dex (verified ✓).\nNote: the two const/16 values are non-consecutive (goto between them) — scanned independently.",
+    "id": "b2a77bf4d7dfd60f998c1206:53",
+    "legacy_id": 46647,
+    "metadata_status": "verified",
+    "name": "Enlarged Speedometer",
+    "options": [
+      {
+        "default": 28,
+        "description": "Speedometer font size when speed < 100. Default: 28sp (original: 20sp).",
+        "key": "smallTextSize",
+        "required": false,
+        "title": "Text size — speed below 100",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 21,
+        "description": "Speedometer font size when speed ≥ 100. Default: 21sp (original: 13sp).",
+        "key": "largeTextSize",
+        "required": false,
+        "title": "Text size — speed 100+",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes all activities exportable.",
+    "id": "b2a77bf4d7dfd60f998c1206:54",
+    "legacy_id": 46648,
+    "metadata_status": "verified",
+    "name": "Export all activities",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Registers an extension DocumentsProvider for the app internal data directory.",
+    "id": "b2a77bf4d7dfd60f998c1206:55",
+    "legacy_id": 46649,
+    "metadata_status": "verified",
+    "name": "Export internal data documents provider",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Updates shared Amazon permissions so other Amazon apps can coexist.",
+    "id": "b2a77bf4d7dfd60f998c1206:56",
+    "legacy_id": 46650,
+    "metadata_status": "verified",
+    "name": "Fix Amazon manifest conflicts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.87.0.957333026"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents non-Camera DCIM folders from being grouped as Camera.",
+    "id": "b2a77bf4d7dfd60f998c1206:57",
+    "legacy_id": 46651,
+    "metadata_status": "verified",
+    "name": "Fix DCIM folder classification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.87.0.957333026"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Fixes Firebase services (push notifications, Remote Config, Firebase Auth) that break after Morphe re-signs the app with a different certificate.\n\nApply with Original app certificate patch no other config needed.",
+    "id": "b2a77bf4d7dfd60f998c1206:58",
+    "legacy_id": 46652,
+    "metadata_status": "verified",
+    "name": "Fix Firebase after re-signing",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces common AppCompat, UiModeManager, and Configuration dark-mode checks to night mode.",
+    "id": "b2a77bf4d7dfd60f998c1206:59",
+    "legacy_id": 46653,
+    "metadata_status": "verified",
+    "name": "Force dark theme",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.parallel.space.pro": [
+        "4.0.9159"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Parallel Space Pro subscription features by bypassing all Pro status checks.",
+    "id": "b2a77bf4d7dfd60f998c1206:60",
+    "legacy_id": 46654,
+    "metadata_status": "verified",
+    "name": "Force Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.parallel.space.pro",
+        "icon_url": null,
+        "name": "com.parallel.space.pro",
+        "versions": [
+          "4.0.9159"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.87.0.957333026"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds MicroG/GmsCore support metadata for Google Photos.",
+    "id": "b2a77bf4d7dfd60f998c1206:61",
+    "legacy_id": 46655,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.87.0.957333026"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Routes Google Play Services calls through MicroG instead of real GPS.\n\nWorks for: Google apps (YouTube, Maps, News, Photos) and third-party apps using classic Google Sign-In (Android 13 and below).\n\nDoes not work for: Android 14+ Credential Manager sign-in (most modern third-party apps), Play Integrity / SafetyNet checks, or apps with custom auth.\n\nRequires MicroG RE installed. Apply with Original app certificate patch.",
+    "id": "b2a77bf4d7dfd60f998c1206:62",
+    "legacy_id": 46656,
+    "metadata_status": "verified",
+    "name": "GmsCore support (MicroG)",
+    "options": [
+      {
+        "default": "app.revanced.android.gms",
+        "description": "Which MicroG / GmsCore app is installed on your device. Check your device's app list for \"MicroG\" or \"GmsCore\" if unsure — most users should leave this as the default.",
+        "key": "gmsCoreVendor",
+        "required": true,
+        "title": "MicroG package name",
+        "type": "kotlin.String",
+        "values": {
+          "app.morphe.android.gms": "app.morphe.android.gms",
+          "app.morphe.manager": "app.morphe.manager",
+          "app.revanced.android.gms (default)": "app.revanced.android.gms",
+          "app.revanced.manager": "app.revanced.manager",
+          "app.rvx.manager": "app.rvx.manager",
+          "com.google.android.gms": "com.google.android.gms",
+          "org.microg.gms": "org.microg.gms"
+        }
+      },
+      {
+        "default": null,
+        "description": "The app's main Activity class name ending with a semicolon, e.g. /MainActivity; Used to inject the MicroG check at startup. Leave blank for auto-detection.",
+        "key": "mainActivityName",
+        "required": false,
+        "title": "Main activity class (optional)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Rename the app to this package name. Leave blank to keep the original. Must be a valid package name (e.g. com.example.myapp).",
+        "key": "packageName",
+        "required": false,
+        "title": "Custom package name (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides adb_enabled and development_settings_enabled.",
+    "id": "b2a77bf4d7dfd60f998c1206:63",
+    "legacy_id": 46657,
+    "metadata_status": "verified",
+    "name": "Hide ADB status",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.32.0"
+      ]
+    },
+    "dependencies": [
+      "Spoof app signature",
+      "Fix Firebase after re-signing",
+      "Spoof install source"
+    ],
+    "description": "Removes promoted posts and comment ads without requiring Reddit Premium unlock.",
+    "id": "b2a77bf4d7dfd60f998c1206:64",
+    "legacy_id": 46658,
+    "metadata_status": "verified",
+    "name": "Hide Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.32.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes launcher category from MAIN launcher filters.",
+    "id": "b2a77bf4d7dfd60f998c1206:65",
+    "legacy_id": 46659,
+    "metadata_status": "verified",
+    "name": "Hide app icon",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.32.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the related or suggested communities shelf in subreddits.",
+    "id": "b2a77bf4d7dfd60f998c1206:66",
+    "legacy_id": 46660,
+    "metadata_status": "verified",
+    "name": "Hide Communities Shelf",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.32.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides buttons and shortcuts that open Facebook.",
+    "id": "b2a77bf4d7dfd60f998c1206:67",
+    "legacy_id": 46661,
+    "metadata_status": "verified",
+    "name": "Hide Facebook buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides ads in the Messenger inbox.",
+    "id": "b2a77bf4d7dfd60f998c1206:68",
+    "legacy_id": 46662,
+    "metadata_status": "verified",
+    "name": "Hide inbox ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the stories and notes horizontal tray at the top of the inbox.",
+    "id": "b2a77bf4d7dfd60f998c1206:69",
+    "legacy_id": 46663,
+    "metadata_status": "verified",
+    "name": "Hide inbox stories and notes tray",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Home and Channels tabs between active now tray and chats.",
+    "id": "b2a77bf4d7dfd60f998c1206:70",
+    "legacy_id": 46664,
+    "metadata_status": "verified",
+    "name": "Hide inbox subtabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides mock-location signals from app checks.",
+    "id": "b2a77bf4d7dfd60f998c1206:71",
+    "legacy_id": 46665,
+    "metadata_status": "verified",
+    "name": "Hide mock location",
+    "options": [
+      {
+        "default": "full",
+        "description": "Which mock-location checks to hide.",
+        "key": "hideMockLocationMode",
+        "required": true,
+        "title": "Mode",
+        "type": "kotlin.String",
+        "values": {
+          "Accuracy only": "accuracy",
+          "AppOps only": "appops",
+          "Extras and provider only": "extras_provider",
+          "Full": "full",
+          "Location API only": "location",
+          "Settings only": "settings"
+        }
+      },
+      {
+        "default": "gps",
+        "description": "Provider returned when app reads an unknown/mock provider.",
+        "key": "hideMockLocationProvider",
+        "required": true,
+        "title": "Provider",
+        "type": "kotlin.String",
+        "values": {
+          "Fused": "fused",
+          "GPS": "gps",
+          "Network": "network",
+          "Original": "original",
+          "Passive": "passive"
+        }
+      },
+      {
+        "default": "5.0",
+        "description": "Accuracy value returned by Location.getAccuracy().",
+        "key": "hideMockLocationAccuracy",
+        "required": true,
+        "title": "Accuracy meters",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.32.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Create Post button from the bottom navigation bar.",
+    "id": "b2a77bf4d7dfd60f998c1206:72",
+    "legacy_id": 46666,
+    "metadata_status": "verified",
+    "name": "Hide Navigation Buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.32.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.32.0"
+      ]
+    },
+    "dependencies": [
+      "Spoof app signature",
+      "Fix Firebase after re-signing",
+      "Spoof install source"
+    ],
+    "description": "Blanks the promoted post render method and forces promoted/ad flags to false at the model layer.",
+    "id": "b2a77bf4d7dfd60f998c1206:73",
+    "legacy_id": 46667,
+    "metadata_status": "verified",
+    "name": "Hide Promoted Posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.32.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Rufus AI assistant tab from Amazon's bottom navigation bar.",
+    "id": "b2a77bf4d7dfd60f998c1206:74",
+    "legacy_id": 46668,
+    "metadata_status": "verified",
+    "name": "Hide Rufus tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.32.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides About, Resources, and Reddit Pro sections from the community sidebar.",
+    "id": "b2a77bf4d7dfd60f998c1206:75",
+    "legacy_id": 46669,
+    "metadata_status": "verified",
+    "name": "Hide Sidebar Components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.32.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.32.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Trending Today from the feed and trending searches from the search screen.",
+    "id": "b2a77bf4d7dfd60f998c1206:76",
+    "legacy_id": 46670,
+    "metadata_status": "verified",
+    "name": "Hide Trending Shelves",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.32.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides your typing indicator from other users in all chats.",
+    "id": "b2a77bf4d7dfd60f998c1206:77",
+    "legacy_id": 46671,
+    "metadata_status": "verified",
+    "name": "Hide typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents typing status from being sent in Telegram Plus.",
+    "id": "b2a77bf4d7dfd60f998c1206:78",
+    "legacy_id": 46672,
+    "metadata_status": "verified",
+    "name": "Hide typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides common VPN transport/interface and Java proxy property checks.",
+    "id": "b2a77bf4d7dfd60f998c1206:79",
+    "legacy_id": 46673,
+    "metadata_status": "verified",
+    "name": "Hide VPN and proxy",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies Chuppito's 'Vitamin C' map skin. All visual values configurable.\n• Night: true black AMOLED background (saves battery, prevents burn-in)\n• Day: warm beige background\n• Larger font labels across the board\n• Wider navigation arrow head for better visibility\n• Custom car 3D models: Batmobile, Riddler, race car, 3D arrow\nNote: skin changes require a fresh APK install; updating an existing patched install may keep cached skin files.\nCredits: ALEX02-GTT (skin design), Waze Chuppito Mod (integration).",
+    "id": "b2a77bf4d7dfd60f998c1206:80",
+    "legacy_id": 46674,
+    "metadata_status": "verified",
+    "name": "Map Skin (Vitamin C)",
+    "options": [
+      {
+        "default": "000000",
+        "description": "Default: 000000 (true black, AMOLED). Original Waze: 1a1a2e.",
+        "key": "nightBg",
+        "required": false,
+        "title": "Night background color (hex)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "ebe7dd",
+        "description": "Default: ebe7dd (warm beige). Original Waze: f7f3eb.",
+        "key": "dayBg",
+        "required": false,
+        "title": "Day background color (hex)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": 18,
+        "description": "Default: 18 (original: 14).",
+        "key": "fontHuge",
+        "required": false,
+        "title": "Font size — huge labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 14,
+        "description": "Default: 14 (original: 12).",
+        "key": "fontBig",
+        "required": false,
+        "title": "Font size — big labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 12,
+        "description": "Default: 12 (original: 10).",
+        "key": "fontMedium",
+        "required": false,
+        "title": "Font size — medium labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 10,
+        "description": "Default: 10 (original: 8).",
+        "key": "fontSmall",
+        "required": false,
+        "title": "Font size — small labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": "10.0",
+        "description": "Default: 10.0 (original: 3.0). Wider = more visible chevron.",
+        "key": "navArrow",
+        "required": false,
+        "title": "Nav arrow head width factor",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Configures navigation and map behaviour:\n• Nearing destination distance (Credits: CGE Mod)\n• Android Auto head-up alert distances\n• Map turn mode (auto-zoom to upcoming turn)\n• Traffic bar minimum time threshold\n• GPS icon visibility\n• Route notifications (hazard, school zone) — both disabled by default\nCredits: Waze CGE Mod (nearing destination), Waze Chuppito (remaining keys).",
+    "id": "b2a77bf4d7dfd60f998c1206:81",
+    "legacy_id": 46675,
+    "metadata_status": "verified",
+    "name": "Navigation & Map",
+    "options": [
+      {
+        "default": 0,
+        "description": "0 = silent arrival. Official: ~500m.",
+        "key": "nearingDestDist",
+        "required": false,
+        "title": "Nearing destination distance (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1200,
+        "description": "Official: 800m.",
+        "key": "aaHeadUpNormal",
+        "required": false,
+        "title": "Android Auto head-up — normal roads (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1300,
+        "description": "Official: 1000m.",
+        "key": "aaHeadUpFreeway",
+        "required": false,
+        "title": "Android Auto head-up — freeways (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 180,
+        "description": "Official: 300s.",
+        "key": "trafficBarMinTime",
+        "required": false,
+        "title": "Traffic bar min time in traffic (seconds)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": "no",
+        "description": "Official: yes.",
+        "key": "showGpsIcon",
+        "required": false,
+        "title": "Show GPS icon on map",
+        "type": "kotlin.String",
+        "values": {
+          "Hidden (less clutter)": "no",
+          "Visible": "yes"
+        }
+      },
+      {
+        "default": "1",
+        "description": "Default: enabled.",
+        "key": "mapTurnMode",
+        "required": false,
+        "title": "Map turn mode (auto-zoom to turn)",
+        "type": "kotlin.String",
+        "values": {
+          "Disabled": "0",
+          "Enabled": "1"
+        }
+      },
+      {
+        "default": "0",
+        "description": "Default: disabled (0).",
+        "key": "hazardNotif",
+        "required": false,
+        "title": "Permanent hazard route notification",
+        "type": "kotlin.String",
+        "values": {
+          "Disabled": "0",
+          "Enabled": "1"
+        }
+      },
+      {
+        "default": "0",
+        "description": "Default: disabled (0).",
+        "key": "schoolNotif",
+        "required": false,
+        "title": "School zone route notification",
+        "type": "kotlin.String",
+        "values": {
+          "Disabled": "0",
+          "Enabled": "1"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "573.0.0.44.88"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens links in the external browser instead of the in-app browser.",
+    "id": "b2a77bf4d7dfd60f998c1206:82",
+    "legacy_id": 46676,
+    "metadata_status": "verified",
+    "name": "Open links externally",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.facebook.orca",
+        "icon_url": null,
+        "name": "com.facebook.orca",
+        "versions": [
+          "573.0.0.44.88"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens non-Amazon URLs in the default browser instead of the in-app WebView.",
+    "id": "b2a77bf4d7dfd60f998c1206:83",
+    "legacy_id": 46677,
+    "metadata_status": "verified",
+    "name": "Open links in browser",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces network security config trust anchors to override pins.",
+    "id": "b2a77bf4d7dfd60f998c1206:84",
+    "legacy_id": 46678,
+    "metadata_status": "verified",
+    "name": "Override certificate pinning",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.arjanvlek.oxygenupdater": [
+        "7.1.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the ad-free experience by spoofing the purchase state as acknowledged.",
+    "id": "b2a77bf4d7dfd60f998c1206:85",
+    "legacy_id": 46679,
+    "metadata_status": "verified",
+    "name": "Oxygen Updater — Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.arjanvlek.oxygenupdater",
+        "icon_url": null,
+        "name": "com.arjanvlek.oxygenupdater",
+        "versions": [
+          "7.1.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium UI and suppresses premium nag dialogs. isPremiumUser returns true only for self to avoid showing premium badges on others.",
+    "id": "b2a77bf4d7dfd60f998c1206:86",
+    "legacy_id": 46680,
+    "metadata_status": "verified",
+    "name": "Plus Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents promotional and ad popups from appearing while driving.\nRaises the minimum trigger speed to a near-impossible value so popups never appear.\nWrites both Popup_ and Popu__ key variants for version resilience.\nCredits: Waze Chuppito Mod.",
+    "id": "b2a77bf4d7dfd60f998c1206:87",
+    "legacy_id": 46681,
+    "metadata_status": "verified",
+    "name": "Popup Suppression",
+    "options": [
+      {
+        "default": 999999,
+        "description": "Default 999999 = never. Official: 0 (always shows).",
+        "key": "minSpeed",
+        "required": false,
+        "title": "Min speed to show popups (MMSec)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": -1,
+        "description": "-1 = disable stopped trigger. Official: 0.",
+        "key": "fullyStoppedSpeed",
+        "required": false,
+        "title": "Fully stopped speed (MMSec)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1,
+        "description": "Official: 100m.",
+        "key": "minDistance",
+        "required": false,
+        "title": "Min distance to show popup (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 7000,
+        "description": "Speed at which scroll suppression resets. Official: 1400.",
+        "key": "minResetScrollSpeed",
+        "required": false,
+        "title": "Min reset scroll speed (MMSec)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1,
+        "description": "Seconds before popup can appear post-interaction. Official: 0.",
+        "key": "delayAfterInteraction",
+        "required": false,
+        "title": "Delay after user interaction (seconds)",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Enables Android predictive back gesture.",
+    "id": "b2a77bf4d7dfd60f998c1206:88",
+    "legacy_id": 46682,
+    "metadata_status": "verified",
+    "name": "Predictive back gesture",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.9.2"
+      ],
+      "org.telegram.messenger.web": [
+        "12.9.2"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides story strip, allows saving stories, suppresses story/translate nags, enables swipe-back everywhere, and suppresses pinned message server fetches.",
+    "id": "b2a77bf4d7dfd60f998c1206:89",
+    "legacy_id": 46683,
+    "metadata_status": "verified",
+    "name": "Premium UI",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.9.2"
+        ]
+      },
+      {
+        "app_name": "org.telegram.plus",
+        "icon_url": null,
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.12.4.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Injects Keepa and CamelCamelCamel price history charts on Amazon product pages.",
+    "id": "b2a77bf4d7dfd60f998c1206:90",
+    "legacy_id": 46684,
+    "metadata_status": "verified",
+    "name": "Price history charts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "in.amazon.mShop.android.shopping",
+        "icon_url": null,
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Automatically reads the signing certificate from the APK you are patching — no original app installed or file provided needed. Only fill the options below if you are patching an APK that was already re-signed (e.g. a previously patched build): in that case point to the original APK file, or enter the certificate manually.",
+    "id": "b2a77bf4d7dfd60f998c1206:91",
+    "legacy_id": 46685,
+    "metadata_status": "verified",
+    "name": "Provide Original app certificate",
+    "options": [
+      {
+        "default": null,
+        "description": "Full path to the original APK or .apks bundle. Example: /sdcard/Download/Waze.apks",
+        "key": "originalApkPath",
+        "required": false,
+        "title": "Path to original APK (if uninstalled)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "40-char hex. Found on APKMirror under app signature info.",
+        "key": "manualCertSha1",
+        "required": false,
+        "title": "Certificate SHA-1 (manual)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "64-char hex. Optional companion to SHA-1.",
+        "key": "manualCertSha256",
+        "required": false,
+        "title": "Certificate SHA-256 (manual)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Needed only for Signature spoof patch. Get it with: apksigner verify --print-certs original.apk",
+        "key": "manualCertBase64",
+        "required": false,
+        "title": "Certificate Base64 DER (manual)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.jeffprod.cubesolver": [
+        "5.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all puzzle designs including kilominx and ad-gated variants.",
+    "id": "b2a77bf4d7dfd60f998c1206:92",
+    "legacy_id": 46686,
+    "metadata_status": "verified",
+    "name": "Puzzles Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.jeffprod.cubesolver",
+        "icon_url": null,
+        "name": "com.jeffprod.cubesolver",
+        "versions": [
+          "5.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.22.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Plays radar/speed camera sound alerts regardless of current speed. Official Waze only alerts when over the speed limit.\nPatches CONFIG_VALUE_ALERTS_PLAY_SPEED_CAMERA_SOUND_BELOW_SPEED_LIMIT (ordinal 632) via setConfigValueBoolNTV on every server config sync.\nTarget: Lcom/waze/ConfigManager;->onConfigSyncedFromServer() in classes5.dex (verified ✓).",
+    "id": "b2a77bf4d7dfd60f998c1206:93",
+    "legacy_id": 46687,
+    "metadata_status": "verified",
+    "name": "Radar Sound (Any Speed)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.22.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes common ad SDK permissions, services, providers, libraries, and metadata.",
+    "id": "b2a77bf4d7dfd60f998c1206:94",
+    "legacy_id": 46688,
+    "metadata_status": "verified",
+    "name": "Remove ad manifest entries",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.toomics.global.google": [
+        "1.6.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remove in-app ads",
+    "id": "b2a77bf4d7dfd60f998c1206:95",
+    "legacy_id": 46689,
+    "metadata_status": "verified",
+    "name": "Remove ADS",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.toomics.global.google",
+        "icon_url": null,
+        "name": "com.toomics.global.google",
+        "versions": [
+          "1.6.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.jeffprod.cubesolver": [
+        "5.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes advertisements and disables crash/analytics telemetry.",
+    "id": "b2a77bf4d7dfd60f998c1206:96",
+    "legacy_id": 46690,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.jeffprod.cubesolver",
+        "icon_url": null,
+        "name": "com.jeffprod.cubesolver",
+        "versions": [
+          "5.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.delphicoder.flud": [
+        "2.0.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes all ads in app",
+    "id": "b2a77bf4d7dfd60f998c1206:97",
+    "legacy_id": 46691,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.delphicoder.flud",
+        "icon_url": null,
+        "name": "com.delphicoder.flud",
+        "versions": [
+          "2.0.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.mobond.mindicator": [
+        "18.0.362"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes interstitial and exit native ads from m-Indicator.",
+    "id": "b2a77bf4d7dfd60f998c1206:98",
+    "legacy_id": 46692,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.mobond.mindicator",
+        "icon_url": null,
+        "name": "com.mobond.mindicator",
+        "versions": [
+          "18.0.362"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.opera.app.news": [
+        "14.1.2254.83278"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks all ad display across Opera News's five ad networks and all mediation layers (AdsFacade, AppLovin MAX, TopOn, MCSDK, SmartDigiMkt).",
+    "id": "b2a77bf4d7dfd60f998c1206:99",
+    "legacy_id": 46693,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.opera.app.news",
+        "icon_url": null,
+        "name": "com.opera.app.news",
+        "versions": [
+          "14.1.2254.83278"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "b2a77bf4d7dfd60f998c1206",
+    "compatiblePackages": {
+      "com.bluematter.qbitconnect": [
+        "2.0.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Remove Ads purchase in qBitConnect by injecting IAP ownership flags into SharedPreferences before Flutter reads them.",
+    "id": "b2a77bf4d7dfd60f998c1206:100",
+    "legacy_id": 46694,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.bluematter.qbitconnect",
+        "icon_url": null,
+        "name": "com.bluematter.qbitconnect",
+        "versions": [
+          "2.0.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.18.0-dev.7",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  }
+]
