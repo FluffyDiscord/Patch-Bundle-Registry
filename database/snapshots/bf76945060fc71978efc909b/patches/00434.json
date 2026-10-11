@@ -926,5 +926,67 @@
     "patch_metadata_version": "v1.3.4-dev.1",
     "source_id": "c3a236bcaca9d047",
     "use": true
+  },
+  {
+    "bundle_id": "10311c76ef4cb129f16180fa",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Restore extracted methods"
+    ],
+    "description": "Inlines pairip's static call-wrapper stubs ($<number>) back into their call sites and removes the stubs.",
+    "id": "10311c76ef4cb129f16180fa:0",
+    "legacy_id": 43898,
+    "metadata_status": "stale",
+    "name": "Inline pairip call wrappers",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.10.3",
+    "source_id": "2ba404e16ffa7c80",
+    "use": false
+  },
+  {
+    "bundle_id": "10311c76ef4cb129f16180fa",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Restores obfuscated strings and removes pairip bytecode protection.",
+    "id": "10311c76ef4cb129f16180fa:1",
+    "legacy_id": 43899,
+    "metadata_status": "stale",
+    "name": "Remove pairip protection",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.10.3",
+    "source_id": "2ba404e16ffa7c80",
+    "use": false
+  },
+  {
+    "bundle_id": "10311c76ef4cb129f16180fa",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Inlines methods hidden in $c<number> helper classes back into the host class, then removes those helper and reflection method-holder classes.",
+    "id": "10311c76ef4cb129f16180fa:2",
+    "legacy_id": 43900,
+    "metadata_status": "stale",
+    "name": "Restore extracted methods",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.10.3",
+    "source_id": "2ba404e16ffa7c80",
+    "use": false
+  },
+  {
+    "bundle_id": "10311c76ef4cb129f16180fa",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes .line (line numbers) and .source (source file name) debug data from every class. Optional, disabled by default.",
+    "id": "10311c76ef4cb129f16180fa:3",
+    "legacy_id": 43901,
+    "metadata_status": "stale",
+    "name": "Strip debug info",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.10.3",
+    "source_id": "2ba404e16ffa7c80",
+    "use": false
   }
 ]
