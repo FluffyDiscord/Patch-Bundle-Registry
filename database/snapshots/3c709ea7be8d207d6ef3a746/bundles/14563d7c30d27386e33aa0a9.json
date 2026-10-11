@@ -1,0 +1,43 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-11T20:09:29Z",
+  "description": "## [1.6.0](https://github.com/VenusIsJaded/Venus-Patches/compare/v1.5.0...v1.6.0) (2026-10-11)\n\n### ✨ New Features\n\n* **Discord - Message tap gestures:** Double-tap a message to reply, or your own message to edit it\n* **Discord - Message tap gestures:** Tap your own message three times to delete it\n* **Discord - NoDelete:** Show what an edited message said before, faded and crossed out above it\n\n### 🐛 Bug Fixes\n\n* **Discord:** Passkeys and security keys show \"RP ID cannot be validated\" instead of explaining why they can't work in patched Discord ([#37](https://github.com/VenusIsJaded/Venus-Patches/issues/37))\n* **Discord - NoDelete:** Deleted messages stop saving after the saved file is damaged\n* **Discord - Venus settings:** About shows the wrong version\n* **Discord - Read All:** Error message starts with \"Error:\"\n\n### ⚡ Performance Improvements\n\n* **Discord - NoDelete:** Saving a deleted message no longer rewrites every other saved message\n* **Discord - NoDelete:** Chats with kept messages do fewer checks per message\n* **Discord - Hidden Channels:** Do less work while turned off\n",
+  "download_url": "https://github.com/VenusIsJaded/Venus-Patches/releases/download/v1.6.0/patches-1.6.0.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:db3df69ff82f89fd7dd4dbeddfee4e31815cedafeed02d472b4ef1356c15a1ab",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "db3df69ff82f89fd7dd4dbeddfee4e31815cedafeed02d472b4ef1356c15a1ab",
+  "id": "14563d7c30d27386e33aa0a9",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FVenusIsJaded%2FVenus-Patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FVenusIsJaded%2FVenus-Patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8931,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.discord"
+  ],
+  "patch_count": 27,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v1.6.0",
+  "patch_refresh_attempted_at": "2026-10-11T21:44:06.196420822Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:db3df69ff82f89fd7dd4dbeddfee4e31815cedafeed02d472b4ef1356c15a1ab",
+  "release_status": "unverified",
+  "release_url": null,
+  "signature_download_url": null,
+  "source_id": "56ff9014abe6222d",
+  "version": "v1.6.0"
+}
