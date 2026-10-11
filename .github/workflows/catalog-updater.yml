@@ -36,6 +36,9 @@ jobs:
           restore-keys: catalog-releases-v1-${{ runner.os }}-
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
+      - name: Capture catalog before refresh
+        continue-on-error: true
+        run: python scripts/notify_catalog_update.py capture --baseline "$RUNNER_TEMP/catalog-before.json"
       - name: Refresh and publish catalog progress
         env:
           GITHUB_ACTOR: ${{ github.repository_owner }}
@@ -83,23 +86,4 @@ jobs:
         continue-on-error: true
         env:
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-        run: |
-          python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-          import httpx
-
-          webhook = os.environ.get("WEBHOOK_URL")
-          if webhook:
-              manifest = json.loads(Path("database/manifest.json").read_text())
-              site = json.loads(Path("config/site.json").read_text())
-              counts = manifest["counts"]
-              message = (
-                  f"Patch catalog updated: {counts['sources']} sources, "
-                  f"{counts['bundles']} bundles, {counts['patches']} patches.\n"
-                  f"{site['website']}"
-              )
-              httpx.post(webhook, json={"content": message, "allowed_mentions": {"parse": []}},
-                         timeout=20).raise_for_status()
-          PY
+        run: python scripts/notify_catalog_update.py notify --baseline "$RUNNER_TEMP/catalog-before.json"

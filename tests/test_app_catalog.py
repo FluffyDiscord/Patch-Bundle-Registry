@@ -444,3 +444,98 @@ def test_provider_retry_after_handles_invalid_and_overflowing_values(retry):
 
     response = httpx.Response(429, headers={"Retry-After": retry})
     assert datetime.fromisoformat(provider_retry_after(response, NOW)) == NOW + timedelta(hours=1)
+
+
+def test_initial_metadata_backfill_covers_more_than_fifty_apps(tmp_path):
+    packages = [f"com.app{i:03}" for i in range(60)]
+    prepare(tmp_path, packages)
+    calls = []
+
+    def handler(request):
+        if request.url.host == "f-droid.org":
+            return httpx.Response(200, json=index_v2())
+        calls.append(request.url.params["id"])
+        return httpx.Response(200, text=play())
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        state = refresh(tmp_path, client, now=NOW, sleep=lambda _: None)
+        assert len(calls) == 60
+        assert all(state["apps"][package]["app_name"] for package in packages)
+        refresh(tmp_path, client, now=NOW + timedelta(hours=1), sleep=lambda _: None)
+        assert len(calls) == 60  # Completed metadata is cached.
+
+
+def test_backfill_checkpoint_survives_interruption_and_resumes(tmp_path):
+    packages = [f"com.app{i:03}" for i in range(60)]
+    prepare(tmp_path, packages)
+    calls = []
+    interrupted = False
+
+    def handler(request):
+        nonlocal interrupted
+        if request.url.host == "f-droid.org":
+            return httpx.Response(200, json=index_v2())
+        package = request.url.params["id"]
+        if len(calls) == 25 and not interrupted:
+            interrupted = True
+            raise KeyboardInterrupt()
+        calls.append(package)
+        return httpx.Response(200, text=play())
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        with pytest.raises(KeyboardInterrupt):
+            refresh(tmp_path, client, now=NOW, sleep=lambda _: None)
+        assert len(db.read_json(tmp_path / "database/app-metadata.json")["apps"]) == 25
+        state = refresh(tmp_path, client, now=NOW, sleep=lambda _: None)
+    assert len(calls) == len(set(calls)) == 60
+    assert len(state["apps"]) == 60
+
+
+def test_backfill_deadline_and_normal_refresh_caps_remain_bounded(tmp_path, monkeypatch):
+    packages = [f"com.app{i:03}" for i in range(60)]
+    prepare(tmp_path, packages)
+    clock, calls = [0], []
+    monkeypatch.setattr("scripts.refresh_app_metadata.time.monotonic", lambda: clock[0])
+
+    def handler(request):
+        if request.url.host == "f-droid.org":
+            return httpx.Response(200, json=index_v2())
+        calls.append(request.url.params["id"])
+        clock[0] += 20
+        return httpx.Response(200, text=play())
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        refresh(tmp_path, client, now=NOW, budget=60, sleep=lambda _: None)
+    assert len(calls) == 3  # A response arriving at the deadline is discarded.
+    assert len(db.read_json(tmp_path / "database/app-metadata.json")["apps"]) == 2
+    write(
+        tmp_path / "database/app-metadata.json",
+        {
+            "apps": {
+                package: {"checked_at": (NOW - timedelta(days=40)).isoformat()}
+                for package in packages
+            }
+        },
+    )
+    clock[0], calls[:] = 0, []
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        refresh(tmp_path, client, now=NOW, budget=10000, sleep=lambda _: None)
+    assert len(calls) == 50  # Already attempted packages use the regular cap.
+
+
+def test_initial_backfill_has_a_hard_lookup_cap(tmp_path, monkeypatch):
+    packages = [f"com.app{i:04}" for i in range(1501)]
+    prepare(tmp_path, packages)
+    monkeypatch.setattr("scripts.refresh_app_metadata.time.monotonic", lambda: 0)
+    calls = []
+
+    def handler(request):
+        if request.url.host == "f-droid.org":
+            return httpx.Response(200, json=index_v2())
+        calls.append(request.url.params["id"])
+        return httpx.Response(200, text=play())
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        state = refresh(tmp_path, client, now=NOW, sleep=lambda _: None)
+    assert len(calls) == len(state["apps"]) == 1500
+    assert packages[-1] not in state["apps"]

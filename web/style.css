@@ -1115,7 +1115,7 @@ details[open] > summary > .disclosure-arrow svg { transform: rotate(180deg); }
 .details-group-name .app-package { display: block; margin-top: 4px; }
 .details-group .bundle-badge { font-size: 12px; }
 .details-patches { display: grid; gap: 8px; padding: 12px; text-align: left; }
-.details-group-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px; padding: 0 14px; }
+.details-group-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 12px; padding: 12px 14px 0; }
 .details-group-actions a { color: var(--link); }
 .details-group > .metadata-note { padding: 0 14px; }
 .patch-options { margin-top: 12px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
@@ -1189,4 +1189,9 @@ details[open] > summary > .disclosure-arrow svg { transform: rotate(180deg); }
 .changelog-content blockquote { margin-block: 8px; padding-inline-start: 12px; border-inline-start: 3px solid var(--border); }
 .card-toggle:focus-visible, .changelog-preview > .changelog-content:focus-visible {
     outline: 2px solid var(--accent); outline-offset: -2px;
+}
+
+/* Wait only for parsed HTML, not for the catalog or third-party modules. */
+html[data-browse-pending] :is(.catalog-tabs, .search-row, .filter-row, .filter-buttons, #apps-note) {
+    visibility: hidden;
 }

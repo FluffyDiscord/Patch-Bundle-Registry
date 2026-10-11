@@ -181,11 +181,11 @@ def fetch_index(client, url, headers, deadline):
         return fdroid_apps(json.loads(b"".join(chunks))), dict(response.headers)
 
 
-def refresh(root, client, *, now=None, max_play=50, delay=1, sleep=time.sleep, budget=180):
+def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep, budget=None):
     now = now or datetime.now(UTC)
     stamp = now.isoformat()
     started = time.monotonic()
-    deadline = started + budget
+    deadline = float("inf")  # Set after inspecting the backlog, before any requests.
 
     def current_time():
         return now + timedelta(seconds=time.monotonic() - started)
@@ -203,6 +203,30 @@ def refresh(root, client, *, now=None, max_play=50, delay=1, sleep=time.sleep, b
             for item in read_json(snapshot / "packages.json", [])
         ]
     wanted = {item["package_name"]: item for item in catalog_apps}
+    overrides = read_json(root / "config/apps.json", {})
+
+    def unchecked(package):
+        return not apps.get(package, {}).get("checked_at")
+
+    pending = sum(
+        unchecked(package)
+        and package not in fdroid.get("applications", {})
+        and package not in overrides
+        and PACKAGE.fullmatch(package) is not None
+        for package in wanted
+    )
+    backfill = pending > 50 and (max_play is None or max_play > 50)
+    max_play = (1500 if backfill else 50) if max_play is None else max_play
+    budget = (1800 if backfill else 180) if budget is None else budget
+    deadline = started + budget
+
+    def save_state():
+        state["apps"] = {key: value for key, value in apps.items() if key in wanted}
+        path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = path.with_suffix(".tmp")
+        temporary.write_bytes(encoded(state))
+        temporary.replace(path)
+
     if (
         wanted
         and expired(fdroid.get("checked_at"), now, timedelta(days=1))
@@ -248,9 +272,14 @@ def refresh(root, client, *, now=None, max_play=50, delay=1, sleep=time.sleep, b
     for package in wanted:
         if package in indexed:
             apps[package] = {**indexed[package], "checked_at": fdroid.get("checked_at")}
-    overrides = read_json(root / "config/apps.json", {})
+    save_state()  # Preserve the bulk index even if a long backfill is interrupted.
     candidates = sorted(
-        wanted, key=lambda package: (-wanted[package].get("bundle_count", 0), package)
+        wanted,
+        key=lambda package: (
+            not unchecked(package),
+            -wanted[package].get("bundle_count", 0),
+            package,
+        ),
     )
     lookups = 0
     for package in candidates:
@@ -268,6 +297,11 @@ def refresh(root, client, *, now=None, max_play=50, delay=1, sleep=time.sleep, b
             sleep(delay)
         if time.monotonic() >= deadline:
             break
+        if lookups and lookups % 25 == 0:
+            save_state()
+            print(
+                f"Application metadata: checkpoint after {lookups} Google Play lookups.", flush=True
+            )
         lookups += 1
         url = (
             "https://play.google.com/store/apps/details?id="
@@ -306,22 +340,31 @@ def refresh(root, client, *, now=None, max_play=50, delay=1, sleep=time.sleep, b
         except (httpx.HTTPError, ValueError):
             state["play_retry_after"] = (current_time() + timedelta(hours=1)).isoformat()
             break
-    state["apps"] = {key: value for key, value in apps.items() if key in wanted}
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(".tmp")
-    temporary.write_bytes(encoded(state))
-    temporary.replace(path)
-    print(f"Application metadata: {len(state['apps'])} cached apps; {lookups} Google Play lookups.")
+    save_state()
+    named = sum(
+        bool(apps.get(package, {}).get("app_name"))
+        or bool(overrides.get(package, {}).get("app_name"))
+        for package in wanted
+    )
+    remaining = sum(unchecked(package) and package not in overrides for package in wanted)
+    print(
+        f"Application metadata: {named}/{len(wanted)} apps named; "
+        f"{lookups} Google Play lookups; {remaining} packages awaiting a first lookup.",
+        flush=True,
+    )
     return state
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--play-limit", type=int, default=50)
+    parser.add_argument(
+        "--play-limit", type=int, help="Override the adaptive Google Play lookup cap"
+    )
+    parser.add_argument("--budget", type=float, help="Override the metadata time budget in seconds")
     args = parser.parse_args()
     with httpx.Client(
         timeout=httpx.Timeout(20, connect=10),
         follow_redirects=True,
         headers={"User-Agent": "Patch-Bundle-Registry/1.0"},
     ) as client:
-        refresh(ROOT, client, max_play=args.play_limit)
+        refresh(ROOT, client, max_play=args.play_limit, budget=args.budget)

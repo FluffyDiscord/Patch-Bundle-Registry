@@ -173,7 +173,7 @@ function setupVirtualizer(anchorBundleIndex = null) {
     }
 }
 
-const browsePreferences = createBrowsePreferences(() => localStorage, results.classList.contains("grid-view"));
+const browsePreferences = createBrowsePreferences(() => localStorage, !matchMedia("(max-width: 700px)").matches);
 let currentTab = browsePreferences.activeTab;
 let applications = [];
 let currentFilter = "release";

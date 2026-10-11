@@ -808,7 +808,7 @@ def test_site_versions_complete_asset_graph_and_invalidates_cached_modules(tmp_p
     html = (site / "index.html").read_text(encoding="utf-8")
     entry_urls = re.findall(r'(?:src|href)="([^"]+\.(?:js|css))"', html)
     local_urls = [url for url in entry_urls if not url.startswith("https:")]
-    assert len(local_urls) == 3  # Theme, stylesheet and application entry.
+    assert len(local_urls) == 4  # Theme, browsing startup, stylesheet and application entry.
     assert all(re.fullmatch(r"[\w-]+\.[a-f0-9]{16}\.(?:js|css)", url) for url in local_urls)
     assert all((site / url).is_file() for url in local_urls)
     # Every transitive local import and configuration fetch must exist.
@@ -852,6 +852,7 @@ def test_cached_unversioned_pages_can_still_load_after_publication(tmp_path):
     # Their old asset URLs must still resolve during the migration.
     for relative in (
         "theme.js",
+        "browse-startup.js",
         "style.css",
         "app.js",
         "config.json",
