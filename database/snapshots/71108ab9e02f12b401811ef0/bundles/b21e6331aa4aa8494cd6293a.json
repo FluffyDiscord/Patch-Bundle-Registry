@@ -1,0 +1,43 @@
+{
+  "bundle_type": "ReVanced:v22",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-11T10:07:11Z",
+  "description": "## [0.2.4] - 2026-10-11\n\nGoogleアプリ17.50.19と17.52.24でパッチ適用・再構築・署名、AQUOSのReVanced Manager 2.6.0でインストール直前まで確認しました。Pixel 10aでの起動拒否の改善、修正版インストール後のコンポーネント復旧と新しいアシスタント設定の操作は未確認です。\n\n### Fixed\n\n- ReVanced GmsCore利用時の起動拒否とアプリ内コンポーネント無効化を防ぐため、GmsComplianceの機能判定だけを既存の無効経路へ切り替え、以前無効化されたコンポーネントの復旧処理を保った。\n- 外部の標準検索・アシスタント呼び出しがクローンでも届くよう、公開検索カテゴリを保持し、GCM配信カテゴリだけを実パッケージ名へ変換するようにした。\n- CI と Dependabot の分類の実行順が前後しても更新を取りこぼさないよう、同じ PR 番号と head SHA を再照合する経路を追加した。\n\n### Added\n\n- 標準アシスタントの設定をアプリ内から行えるよう、Google ReVanced設定へAndroidの選択画面を開く項目を日本語と主要10言語で追加した。\n\n### Security\n\n- APK解析・検証の依存に残っていた証明書名制約とASN.1解析の既知脆弱性を解消するため、Bouncy Castle関連依存を1.86へ統一し、Gradle lockfileを再生成した。\n\n### Changed\n\n- 公開されたビルド・APK解析ツールの修正を取り込むため、Gradleを9.8.1、smaliを3.0.10へ更新し、パッチ生成・検出テストを再確認した。\n\n- 不具合・機能提案などの受付とPRの記入形式を揃え、プロジェクト固有の確認項目を残した。 READMEは既存の意味と手順を保ち、実装と異なる説明や読みにくい表現を修正した。\n\n- 依存更新を安全に省力化するため、Dependabotのpatch／minor／major PRを現在のコミットの全チェック成功後に自動取り込みし、失敗ジョブの再実行と対象を限定したGradle lockfile修復を行う設定を追加した。運用文書も現在の設定へ揃えた。\n\n",
+  "download_url": "https://github.com/roflsunriz/google-app-revanced/releases/download/v0.2.4/google-app-patches.rvp",
+  "ecosystem": "revanced",
+  "extracted_provider_digest": "sha256:17c468eacec63ce3ee17b3975bbb31bd8cbe109b47777411761fdb6dad5ef32e",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "17c468eacec63ce3ee17b3975bbb31bd8cbe109b47777411761fdb6dad5ef32e",
+  "id": "b21e6331aa4aa8494cd6293a",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Froflsunriz%2Fgoogle-app-revanced&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Froflsunriz%2Fgoogle-app-revanced&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8859,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.google.android.googlequicksearchbox"
+  ],
+  "patch_count": 2,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v0.2.4",
+  "patch_refresh_attempted_at": "2026-10-11T22:38:54.487843639Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.revanced:patcher-jvm:22.1.0-dev.1",
+  "provider_digest": "sha256:17c468eacec63ce3ee17b3975bbb31bd8cbe109b47777411761fdb6dad5ef32e",
+  "release_status": "available",
+  "release_url": "https://github.com/roflsunriz/google-app-revanced/releases/tag/v0.2.4",
+  "signature_download_url": "N/A",
+  "source_id": "dc26b4ce48863a4b",
+  "version": "v0.2.4"
+}
