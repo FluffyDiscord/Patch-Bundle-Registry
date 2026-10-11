@@ -1,0 +1,47 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-10T21:21:32Z",
+  "description": "## [0.10.1](https://github.com/Santodan/santodan-patches/compare/v0.10.0...v0.10.1) (2026-10-10)\n\n### 🐛 Bug Fixes\n\n* **ci:** preserve multiline release config for patch releases [skip ci] ([410338c](https://github.com/Santodan/santodan-patches/commit/410338cdcf91b97965ae429fc43d5d21e576bd65))\n\n### ✨ New Features\n\n* **nuvio:** preload next episode sources after playback starts [skip ci] ([05ea0af](https://github.com/Santodan/santodan-patches/commit/05ea0af0da590127f73788981ea49b08df467264))\n\n### 🔧 Improvements\n\n* **reddit:** batch flair hydration to reduce startup delay [skip ci] ([14d92dc](https://github.com/Santodan/santodan-patches/commit/14d92dce643683d3a0c3089fc949db1da87497c2))\n",
+  "download_url": "https://github.com/Santodan/santodan-patches/releases/download/v0.10.1/patches-0.10.1.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:a7e192dd7cee6aec02a47c9e9253e05210e137c6ae21755ab501b8b1c140b1db",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "a7e192dd7cee6aec02a47c9e9253e05210e137c6ae21755ab501b8b1c140b1db",
+  "id": "28b8a4686a77ee7e56e30076",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FSantodan%2Fsantodan-patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FSantodan%2Fsantodan-patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8561,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.alticelabs.meo.androidtv",
+    "com.nuvio.tv",
+    "com.reddit.frontpage",
+    "h7.hamzio.emuithemeotg",
+    "xyz.rtrvr.pillo"
+  ],
+  "patch_count": 19,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v0.10.1",
+  "patch_refresh_attempted_at": "2026-10-11T02:40:45.469024559Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:a7e192dd7cee6aec02a47c9e9253e05210e137c6ae21755ab501b8b1c140b1db",
+  "release_status": "unverified",
+  "release_url": "https://github.com/Santodan/santodan-patches/releases/tag/v0.10.1",
+  "signature_download_url": null,
+  "source_id": "0e6ae70a7bfa1280",
+  "version": "v0.10.1"
+}
