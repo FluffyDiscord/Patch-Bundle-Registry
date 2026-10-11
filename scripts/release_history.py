@@ -46,6 +46,11 @@ def release_is_prerelease(release):
 
 def mark_latest_history(root, registry, inventory):
     """Rank both release categories against history and configured channel inputs."""
+    try:
+        from scripts.source_policy import source_channels
+    except ModuleNotFoundError:
+        from source_policy import source_channels
+    inventory = source_channels(inventory, root)
     newest = {}
     selected_history = {}
 

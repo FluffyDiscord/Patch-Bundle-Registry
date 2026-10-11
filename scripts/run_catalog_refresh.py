@@ -84,9 +84,7 @@ class Refresh:
 
         def git(*args, **kwargs):
             # Arguments are constructed here; no commands originate from catalog data.
-            return subprocess.run(  # noqa: S603
-                [executable, *args], cwd=self.root, **kwargs
-            )
+            return subprocess.run([executable, *args], cwd=self.root, **kwargs)  # noqa: S603
 
         def commit(message):
             git(
@@ -206,6 +204,9 @@ class Refresh:
         if os.name != "nt":
             wrapper.chmod(wrapper.stat().st_mode | 0o111)
         self.phase("PATCHES", [str(wrapper), "--project-dir", "bundle-parser", "run"])
+        subprocess.run(  # noqa: S603 -- fixed interpreter and local script
+            [python, "scripts/refresh_app_metadata.py"], cwd=self.root, check=False
+        )
         self.checkpoint(force=True)
         build_site(self.root)
 

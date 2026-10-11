@@ -1,11 +1,69 @@
 """Canonical source switches shared by discovery, extraction and catalog generation."""
 
 import json
+import re
 
 try:
     from scripts.git_hosts import normalize_source
 except ModuleNotFoundError:
     from git_hosts import normalize_source
+
+
+def source_channels(inventory, root):
+    """Expand one repository entry into the pipeline's private channel inputs.
+
+    Accept legacy channel inventories so restored caches and older callers
+    continue to work while the public configuration stays repository-based.
+    Modern entries include disabled and need no channel flags; their keys may
+    happen to end in a channel word without becoming a channel selector.
+    """
+    legacy_inventory = any(
+        isinstance(settings, dict) and ("latest" in settings or "prerelease" in settings)
+        for settings in inventory.values()
+    )
+    result = {}
+    for name, settings in inventory.items():
+        if not isinstance(settings, dict) or not settings.get("patches"):
+            continue
+        settings = dict(settings)
+        integrations = settings.get("integrations", bool(settings.get("integration")))
+        if not isinstance(integrations, bool):
+            raise ValueError("Source integrations must be a boolean")
+        if integrations and not settings.get("integration"):
+            raise ValueError(f"Integrations repository is required for {name}")
+        if not integrations:
+            settings.pop("integration", None)
+        legacy = (
+            "latest" in settings
+            or "prerelease" in settings
+            or (
+                re.search(r"-(latest|stable|dev)$", name)
+                and (legacy_inventory or "disabled" not in settings)
+            )
+        )
+        entries = (
+            {name: settings}
+            if legacy
+            else {
+                f"{name}-{channel}": {
+                    **settings,
+                    "patches": normalize_source(settings["patches"], root),
+                    **(
+                        {"integration": normalize_source(settings["integration"], root)}
+                        if settings.get("integration")
+                        else {}
+                    ),
+                    "latest": channel == "latest",
+                    "prerelease": channel == "dev",
+                }
+                for channel in ("latest", "stable", "dev")
+            }
+        )
+        for key, value in entries.items():
+            if key in result:
+                raise ValueError(f"Duplicate source channel: {key}")
+            result[key] = value
+    return result
 
 
 def disabled_sources(inventory, root):
@@ -26,7 +84,9 @@ def disabled_sources(inventory, root):
 def write_extraction_policy(root):
     import re
 
-    inventory = json.loads((root / "config/sources.json").read_text(encoding="utf-8"))
+    inventory = source_channels(
+        json.loads((root / "config/sources.json").read_text(encoding="utf-8")), root
+    )
     disabled = unavailable_sources(inventory, root)
     folders = {
         re.sub(r"-(latest|stable|dev)$", "", key) + "-patch-bundles"

@@ -770,8 +770,8 @@ def test_repeated_package_compatibility_retains_all_public_relationships(tmp_pat
     index = db.read_json(path / "patch-index.json")
     rows = [p for page in index["pages"] for p in db.read_json(path / page)]
     assert rows[0]["packages"] == [
-        {"name": "com.app", "versions": ["1.0", "2.0"]},
-        {"name": "com.app", "versions": []},
+        {"name": "com.app", "versions": ["1.0", "2.0"], "app_name": "com.app", "icon_url": None},
+        {"name": "com.app", "versions": [], "app_name": "com.app", "icon_url": None},
     ]
 
 
@@ -851,8 +851,13 @@ def test_cached_unversioned_pages_can_still_load_after_publication(tmp_path):
     # Previously published HTML and modules can remain cached independently.
     # Their old asset URLs must still resolve during the migration.
     for relative in (
-        "theme.js", "style.css", "app.js", "config.json",
-        "shared/catalog.js", "shared/hosts.js", "config/git-hosts.json",
+        "theme.js",
+        "style.css",
+        "app.js",
+        "config.json",
+        "shared/catalog.js",
+        "shared/hosts.js",
+        "config/git-hosts.json",
     ):
         assert (site / relative).is_file(), relative
 

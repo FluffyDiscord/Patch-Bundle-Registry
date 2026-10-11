@@ -121,3 +121,25 @@ Repository availability is reported in each source's `unavailable_reason`: perma
 Release replacements update the existing source/version/category record and preserve its public ID. Provider asset digests invalidate extracted patch metadata when an artifact changes at the same URL.
 
 Bundle types are `ReVanced:v21`, `ReVanced:v22`, `Morphe:V1`, and `ReSeam`. Use `bundle_type` to filter REST bundle and patch lists, or `ecosystem=reseam` for ReSeam. The ReSeam import endpoint uses the same source/version/channel selection as v3 and returns ReSeam's native `bundle` and `releases` index. It returns 503 until the selected bundle's signing metadata has been verified.
+
+## Applications
+
+The catalog caches application names and icon URLs from F-Droid's JSON index, then Google Play listings for packages absent from that index. Metadata is refreshed by the catalog workflow; API requests and website visits do not query either provider for names. Unknown applications use their package name and a null icon. Icons are image URLs loaded by the client.
+
+- `GET /apps`: paginated applications, including `package_name`, `app_name`, `icon_url`, `metadata_source`, supported `versions`, `unrestricted`, and matching `bundle_count`, `source_count`, and `patch_count`.
+- `GET /apps/{packageName}`: application summary and paths to its bundles and patches.
+- `GET /apps/{packageName}/bundles`: paginated bundle records with `app_compatibility` (versions, unrestricted compatibility, patch count, and metadata status).
+- `GET /apps/{packageName}/patches`: the patch endpoint filtered to this exact package; supports the same shard cursors.
+- `GET /bundles/{id}/apps`: paginated applications supported by that bundle.
+
+These paths also accept the `/api/v1` prefix. Lists retain the existing limit of 100 records per page and other API budgets. Lists return `data`, `total`, `limit`, and `offset`.
+
+App summaries and app-to-bundle lookups support `q` (application name or package), `source`/`source_url`, `ecosystem`, `bundle_type`, `version` (bundle tag), `channel`, `metadata_status`, `package` (fragment or `package@version`), and exact `app_version`. The `release` filter accepts `all` (default), `latest` (one newest release per source), `release`, or `prerelease`. By default only verified compatibility contributes; set `include_unverified=true` to include fallback patch metadata. Counts cover patches for the application in matching bundle versions, so the same patch can be counted in several releases. A version filter selects bundles supporting that version; patch counts include all patches for the app within those selected bundles.
+
+GraphQL `package` records expose `app_name` and `icon_url`. Patch responses include `app_name` and `icon_url` alongside each package's existing `name` and `versions`. Bundle detail and v3 import responses include `apps` (first 100 applications), `app_count`, and an `apps_url` path for pagination. These fields appear once the new catalog indexes have been published; existing import fields remain compatible.
+
+F-Droid metadata is checked daily with conditional requests. Google Play results are cached for 30 days, unavailable listings for at least 7 days, and lookups are limited to 50 per refresh with a delay between requests. Provider failures retain cached names. F-Droid and Google Play rate-limit or temporary-unavailability responses pause further requests to that provider until its `Retry-After` interval expires (one hour when the header is missing or invalid). Names and icons can therefore fill in over multiple refreshes.
+
+### Patch options
+
+REST patch records and GraphQL `patch { options }` expose the extracted `options` array. Each option can include `key`, `title` or `name`, `description`, `type`, `required`, `default`, and `values` (named choices). Defaults preserve false, zero, and null. An empty array means the extracted patch declares no options; missing or unverified metadata does not establish that no options exist. Options are descriptive metadata; catalog requests do not apply or change them.

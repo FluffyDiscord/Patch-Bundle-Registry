@@ -24,9 +24,19 @@ except ModuleNotFoundError:
     from snapshot_retention import apply_retention, published_snapshots, retention_plan
 
 try:
-    from scripts.source_policy import disabled_sources, unavailable_sources, write_extraction_policy
+    from scripts.source_policy import (
+        disabled_sources,
+        source_channels,
+        unavailable_sources,
+        write_extraction_policy,
+    )
 except ModuleNotFoundError:
-    from source_policy import disabled_sources, unavailable_sources, write_extraction_policy
+    from source_policy import (
+        disabled_sources,
+        source_channels,
+        unavailable_sources,
+        write_extraction_policy,
+    )
 
 ROOT = Path(__file__).resolve().parents[1]
 PATCH_METADATA_SCHEMA_VERSION = 3
@@ -148,6 +158,7 @@ def restore_catalog_cache(root=ROOT):
     inventory = read_json(root / "config/sources.json", {})
     if not isinstance(inventory, dict):
         return
+    inventory = source_channels(inventory, root)
     cache = root / "internal/cache/bundles"
     discovery_path = cache / "discovery-status.json"
     discovery = read_json(discovery_path, {})
@@ -158,9 +169,7 @@ def restore_catalog_cache(root=ROOT):
         channel = (
             "latest"
             if settings.get("latest")
-            else "dev"
-            if settings.get("prerelease")
-            else "stable"
+            else "dev" if settings.get("prerelease") else "stable"
         )
         if (source_id, channel) in missing_channels:
             discovery.setdefault(key, "no_matching_release")
@@ -266,6 +275,7 @@ def build_database(root=ROOT, *, restore=True):
     inventory = read_json(root / "config/sources.json")
     if not isinstance(inventory, dict) or not config:
         raise ValueError("Source inventory and site configuration are required")
+    inventory = source_channels(inventory, root)
     output = root / "database"
     previous = read_json(output / "manifest.json", {})
     previous_path = previous.get("snapshot", "")
@@ -417,9 +427,11 @@ def build_database(root=ROOT, *, restore=True):
         family = canonical_bundle_type(raw.get("bundle_type")) or (
             "ReSeam"
             if urlparse(download).path.lower().endswith(".reseam")
-            else "Morphe:V1"
-            if urlparse(download).path.lower().endswith(".mpp")
-            else ("ReVanced:v22" if modern else "ReVanced:v21")
+            else (
+                "Morphe:V1"
+                if urlparse(download).path.lower().endswith(".mpp")
+                else ("ReVanced:v22" if modern else "ReVanced:v21")
+            )
         )
         if family not in {"Morphe:V1", "ReVanced:v22", "ReVanced:v21", "ReSeam"}:
             raise ValueError("Unsupported bundle type: " + str(family))
@@ -759,6 +771,25 @@ def build_database(root=ROOT, *, restore=True):
         summary = {**bundle, "detail_file": files_name}
         summaries.append(summary)
     files = {"sources.json": list(sources.values()), "bundles.json": summaries}
+    # App lookups need release selectors, not every historical changelog.
+    app_bundle_fields = (
+        "id",
+        "source_id",
+        "version",
+        "bundle_type",
+        "ecosystem",
+        "created_at",
+        "is_latest",
+        "is_prerelease",
+        "channels",
+        "metadata_status",
+        "patch_count",
+        "packages",
+        "detail_file",
+    )
+    files["app-bundles.json"] = [
+        {field: bundle[field] for field in app_bundle_fields} for bundle in summaries
+    ]
     # Manager imports need one source's release selection, not the global history.
     import_fields = (
         "id",
@@ -848,6 +879,37 @@ def build_database(root=ROOT, *, restore=True):
     public_bundles = {
         key: value for key, value in bundles.items() if sources[value["source_id"]]["enabled"]
     }
+    try:
+        from scripts.app_catalog import build_apps
+    except ModuleNotFoundError:
+        from app_catalog import build_apps
+    app_metadata = read_json(output / "app-metadata.json", {})
+    app_metadata["overrides"] = read_json(root / "config/apps.json", {})
+    applications = build_apps(rows, public_bundles, app_metadata)
+    files["apps.json"] = applications
+    application_lookup = {app["package_name"]: app for app in applications}
+    bundle_apps = {key: [] for key in bundles}
+    for app in applications:
+        for association in app["bundles"]:
+            bundle_apps[association["bundle_id"]].append(
+                {
+                    **{
+                        key: app[key]
+                        for key in ("package_name", "app_name", "icon_url", "metadata_source")
+                    },
+                    **association,
+                }
+            )
+    files.update({f"bundle-apps/{key}.json": value for key, value in bundle_apps.items()})
+    for row in rows:
+        for package in row["packages"]:
+            app = application_lookup.get(package["name"], {})
+            package.update(
+                app_name=app.get("app_name", package["name"]), icon_url=app.get("icon_url")
+            )
+    for record in package_records.values():
+        app = application_lookup.get(record["name"], {})
+        record.update(app_name=app.get("app_name", record["name"]), icon_url=app.get("icon_url"))
     files["patch-statistics.json"] = patch_statistics(
         [row for row in rows if row["bundle_id"] in public_bundles],
         public_bundles,
@@ -875,7 +937,12 @@ def build_database(root=ROOT, *, restore=True):
         index[group] = {key: sorted(value) for key, value in sorted(index[group].items())}
     files["patch-index.json"] = index
     files["packages.json"] = [
-        {"name": name, "versions": sorted(versions)}
+        {
+            "name": name,
+            "versions": sorted(versions),
+            "app_name": application_lookup.get(name, {}).get("app_name", name),
+            "icon_url": application_lookup.get(name, {}).get("icon_url"),
+        }
         for name, versions in sorted(app_versions.items())
     ]
     files["history.json"] = {

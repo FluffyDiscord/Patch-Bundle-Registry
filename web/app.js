@@ -2,10 +2,15 @@
  * Adapted from brosssh/revanced-external-bundles, copyright its contributors.
  * Source: https://github.com/brosssh/revanced-external-bundles/blob/3a59398d667c83cd7033f859f3cb59237da92b3f/src/main/resources/static/app.js
  * Changes: static snapshot loading, indexed search, lazy metadata, freshness labels,
- * catalog API import URLs, and GitHub source management. See COPYING.
+ * catalog API import URLs, source management, catalog totals, Latest filtering,
+ * cached app labels, application browsing, and searchable app/bundle detail dialogs. See COPYING.
  */
 import { bundleTypeLabel, bundleImages, Catalog, catalogOrigins, bundleImportPath, compareReleaseDates, packageFilterMatches, releaseTimestamp } from "./shared/catalog.js";
+import { filterApps } from "./shared/apps.js";
+import { createBrowsePreferences } from "./shared/preferences.js";
+import { createDetailsBrowser, renderPatchOptions } from "./shared/detail-browser.js";
 import { gitHosts } from "./shared/hosts.js";
+import { latestReleaseIds, catalogStats, repositoryNames, matchesReleaseFilter, countLabel } from "./shared/site.js";
 import {
     Virtualizer,
     measureElement,
@@ -23,7 +28,6 @@ const bundleVersionFilter = document.getElementById("bundle-version-filter");
 const bundleTypeFilter = document.getElementById("bundle-type-filter");
 const results = document.getElementById("results");
 const status = document.getElementById("status");
-const toggleAllChangelogs = document.getElementById("toggle-all-changelogs");
 const viewToggle = document.getElementById("view-toggle");
 const container = document.querySelector(".container");
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -43,11 +47,10 @@ if (matchMedia("(max-width: 700px)").matches) {
 const ROW_GAP = 16;
 const MIN_COLUMN_WIDTH = 380;
 
-// Parsed markdown/patches reuse: rows are recreated as the viewport moves, so
-// re-parsing the same bundle's changelog every time dominates re-render cost.
+// Reuse parsed repository descriptions when virtualized cards are recreated.
 const renderCache = new Map();
-const patchListCache = new WeakMap();
-const cardViewStates = new Map();
+// Preserve open previews and their scroll position as virtualized cards reappear.
+const changelogViews = new Map();
 const RENDER_CACHE_LIMIT = 500;
 marked.setOptions({ breaks: true, gfm: true });
 
@@ -60,22 +63,6 @@ function cachedMarkdown(bundleId, key, markdown) {
         renderCache.set(cacheKey, html);
     }
     return html;
-}
-
-function cachedPatchList(patches) {
-    let html = patchListCache.get(patches);
-    if (html === undefined) {
-        html = patches.map(renderPatch).join('');
-        patchListCache.set(patches, html);
-    }
-    return html;
-}
-
-function restoreScrollTop(element, scrollTop) {
-    element.scrollTop = scrollTop;
-    queueMicrotask(() => {
-        if (element.isConnected && !element.hidden) element.scrollTop = scrollTop;
-    });
 }
 
 const track = document.getElementById("v-track");
@@ -102,7 +89,7 @@ function buildRows() {
 
 function estimateRowHeight() {
     // Guess only: measured row heights replace this as rows render.
-    return results.classList.contains("grid-view") ? 420 : 300;
+    return results.classList.contains("grid-view") ? 320 : 280;
 }
 
 function renderVisible() {
@@ -126,14 +113,14 @@ function renderVisible() {
         rowEl.style.transform = `translateY(${item.start - virtualizer.options.scrollMargin}px)`;
         rowEl.style.gridTemplateColumns = `repeat(${columns}, minmax(0, 1fr))`;
         for (const card of rowData[item.index]) {
-            renderBundle(card, rowEl);
+            if (currentTab === "apps") renderApp(card, rowEl);
+            else renderBundle(card, rowEl);
         }
         fragment.appendChild(rowEl);
     }
     track.replaceChildren(fragment);
     virtualizer.measureElement(null);
     for (const rowEl of track.children) virtualizer.measureElement(rowEl);
-    updateAllChangelogsButton();
 }
 
 function clearVirtualizer() {
@@ -186,6 +173,9 @@ function setupVirtualizer(anchorBundleIndex = null) {
     }
 }
 
+const browsePreferences = createBrowsePreferences(() => localStorage, results.classList.contains("grid-view"));
+let currentTab = browsePreferences.activeTab;
+let applications = [];
 let currentFilter = "release";
 let currentSearchQuery = "";
 let currentPackageFilter = "";
@@ -193,11 +183,17 @@ let currentSourceUrl = "";
 let currentBundleVersion = "";
 let currentBundleType = "";
 let latestBundles = [];
+let currentLatestIds = new Set();
 let allBundles = [];
 let sourceVersions = [];
-let allChangelogsExpanded = true;
 let catalog, siteConfig, summaries = [], searchSequence = 0;
 let refreshingCatalog = false;
+const detailsBrowser = createDetailsBrowser({
+    getApplications: () => applications,
+    getSummaries: () => summaries, transformBundle, bundlePatches, bundleChangelog, renderMarkdown, renderPatch,
+    escapeHtml, installAvatarFallback, formatDate,
+    getApi: () => siteConfig.api
+});
 const renderAfterInput = debounce(() => { void renderFilteredBundles(); }, 150);
 adminAccess.textContent = "Manage sources";
 adminAccess.addEventListener("click", () => {
@@ -205,15 +201,86 @@ adminAccess.addEventListener("click", () => {
         "/blob/" + (siteConfig?.data_branch || "bundles") + "/config/sources.json",
         "_blank", "noopener,noreferrer");
 });
+function saveBrowsePreferences() {
+    browsePreferences.save(currentTab, {
+        search: input.value, package: packageFilter.value, source: currentSourceUrl,
+        version: currentBundleVersion, type: currentBundleType, release: currentFilter,
+        grid: results.classList.contains("grid-view")
+    });
+}
+function restoreBrowsePreferences() {
+    const saved = browsePreferences.read(currentTab);
+    input.value = saved.search;
+    packageFilter.value = saved.package;
+    currentSearchQuery = saved.search.trim().toLowerCase();
+    currentPackageFilter = saved.package.trim().toLowerCase();
+    currentSourceUrl = saved.source;
+    currentBundleVersion = saved.version;
+    currentBundleType = saved.type;
+    currentFilter = saved.release;
+    filterButtons.forEach(button => button.classList.toggle("active", button.dataset.filter === currentFilter));
+    results.classList.toggle("grid-view", saved.grid);
+    container.classList.toggle("grid-view-enabled", saved.grid);
+    viewToggle.setAttribute("aria-pressed", String(saved.grid));
+    viewToggle.textContent = saved.grid ? "List view" : "Grid view";
+    sourceVersions = summaries.filter(bundle => bundle.source.url === currentSourceUrl).sort(compareReleaseDates);
+    if (catalog) {
+        reconcileSourceSelection();
+        populateBundleTypeOptions();
+        populateVersionOptions();
+        // Removed releases or changed filters must not restore an invisible selection.
+        if (![...bundleVersionFilter.options].some(option => option.value === currentBundleVersion))
+            currentBundleVersion = "";
+        bundleVersionFilter.value = currentBundleVersion;
+    }
+    sourceFilter.value = currentSourceUrl;
+    setVersionControlsEnabled(Boolean(currentSourceUrl));
+    allBundles = currentBundleVersion
+        ? sourceVersions.filter(bundle => bundle.version === currentBundleVersion).map(transformBundle) : latestBundles;
+}
+const catalogTabs = [...document.querySelectorAll(".catalog-tab")];
+function selectTab(tab, { render = true, initial = false } = {}) {
+    if (!initial) saveBrowsePreferences();
+    currentTab = tab;
+    browsePreferences.activate(tab);
+    restoreBrowsePreferences();
+    catalogTabs.forEach(button => {
+        const selected = button.id === tab + "-tab";
+        button.classList.toggle("active", selected);
+        button.setAttribute("aria-selected", String(selected));
+        button.tabIndex = selected ? 0 : -1;
+    });
+    results.setAttribute("aria-labelledby", tab + "-tab");
+    document.getElementById("bundle-version-field").hidden = tab === "apps";
+    document.querySelector(".filter-row").classList.toggle("apps-filters", tab === "apps");
+    document.getElementById("apps-note").hidden = tab !== "apps";
+    input.placeholder = tab === "apps" ? "Search apps by name or package..." : "Search bundles by source URL or name...";
+    input.setAttribute("aria-label", tab === "apps" ? "Search apps" : "Search bundles");
+    clearVirtualizer();
+    if (render) void renderFilteredBundles();
+}
+catalogTabs.forEach((button, index) => {
+    button.addEventListener("click", () => selectTab(button.id === "apps-tab" ? "apps" : "bundles"));
+    button.addEventListener("keydown", event => {
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+        event.preventDefault();
+        const next = event.key === "Home" ? 0 : event.key === "End" ? 1 : 1 - index;
+        catalogTabs[next].click();
+        catalogTabs[next].focus();
+    });
+});
+selectTab(currentTab, { render: false, initial: true });
 void loadBundles();
 
 input.addEventListener("input", () => {
     currentSearchQuery = input.value.trim().toLowerCase();
+    saveBrowsePreferences();
     renderAfterInput();
 });
 
 packageFilter.addEventListener("input", () => {
     currentPackageFilter = packageFilter.value.trim().toLowerCase();
+    saveBrowsePreferences();
     renderAfterInput();
 });
 
@@ -239,26 +306,13 @@ filterButtons.forEach(btn => {
     });
 });
 
-const toggleAllChangelogsAction = () => {
-    const cards = [...results.querySelectorAll(".bundle-item")];
-    allChangelogsExpanded = !allChangelogsExpanded;
-    for (const state of cardViewStates.values()) state.section = undefined;
-    cards.forEach(card => card.setActiveSection?.(
-        allChangelogsExpanded ? "changelog" : null,
-        false,
-        false
-    ));
-    updateAllChangelogsButton();
-};
-
-toggleAllChangelogs.addEventListener("click", toggleAllChangelogsAction);
-
 viewToggle.addEventListener("click", () => {
     const anchorBundleIndex = currentAnchorBundleIndex();
     const gridEnabled = results.classList.toggle("grid-view");
     container.classList.toggle("grid-view-enabled", gridEnabled);
     viewToggle.setAttribute("aria-pressed", String(gridEnabled));
     viewToggle.textContent = gridEnabled ? "List view" : "Grid view";
+    saveBrowsePreferences();
     // Rebuild the row grouping while keeping the first visible bundle anchored.
     setupVirtualizer(anchorBundleIndex);
     updateStatus();
@@ -286,29 +340,23 @@ async function loadBundles(refreshedCatalog = null) {
         const nextCatalog = refreshedCatalog ||
             await openCatalog();
         const nextSummaries = await nextCatalog.bundles();
+        applications = await nextCatalog.apps();
         catalog = nextCatalog;
         scheduleCatalogRefresh();
         summaries = nextSummaries;
+        currentLatestIds = latestReleaseIds(summaries);
+        renderStats();
         renderCache.clear();
         latestBundles = summaries.filter(bundle => bundle.is_latest).map(transformBundle)
             .sort((a, b) => (b.repoStars ?? -1) - (a.repoStars ?? -1) ||
                 a.sourceUrl.localeCompare(b.sourceUrl));
-        sourceVersions = summaries.filter(bundle => bundle.source.url === currentSourceUrl)
-            .sort(compareReleaseDates);
-        if (!sourceVersions.some(bundle => bundle.version === currentBundleVersion)) currentBundleVersion = "";
-        allBundles = currentBundleVersion
-            ? sourceVersions.filter(bundle => bundle.version === currentBundleVersion).map(transformBundle)
-            : latestBundles;
         populateSourceOptions();
-        reconcileSourceSelection();
-        setVersionControlsEnabled(Boolean(currentSourceUrl));
-        populateVersionOptions();
-        populateBundleTypeOptions();
+        restoreBrowsePreferences();
         await renderFilteredBundles({ resetScroll: !refreshedCatalog });
         return true;
     } catch (error) {
         console.error(error);
-        status.textContent = "Failed to load bundles: " + error.message;
+        status.textContent = "Failed to load catalog: " + error.message;
         return false;
     } finally { status.classList.remove("loading"); }
 }
@@ -344,28 +392,40 @@ async function selectSource(sourceUrl) {
         .sort(compareReleaseDates);
     resetBundleSelection();
     setVersionControlsEnabled(Boolean(sourceUrl));
-    populateVersionOptions();
     populateBundleTypeOptions();
+    populateVersionOptions();
     await renderFilteredBundles();
 }
 
 async function selectBundleVersion(version) {
     currentBundleVersion = version;
-    allBundles = version ? sourceVersions.filter(bundle => bundle.version === version).map(transformBundle) : latestBundles;
+    allBundles = version
+        ? sourceVersions.filter(bundle => bundle.version === version).map(transformBundle) : latestBundles;
     await renderFilteredBundles();
 }
 
 function transformPatch(patch) {
-    return { name: patch.name, description: patch.description,
-        compatiblePackages: patch.packages.map(pkg => ({ name: pkg.name, versions: pkg.versions })) };
+    return { name: patch.name, description: patch.description, options: patch.options || [],
+        universal: patch.packages.length === 0 && (patch.compatiblePackages == null || Object.keys(patch.compatiblePackages).length === 0),
+        compatiblePackages: patch.packages.map(pkg => ({ name: pkg.name, appName: pkg.app_name || pkg.name, versions: pkg.versions })) };
 }
 
 async function bundlePatches(bundle) {
     if (!bundle.loadedPatches) {
-        const result = await catalog.patchRows({ bundle_id: bundle.id, all: true, include_unverified: true });
+        const result = await catalog.patchRows({ bundle_id: bundle.id, package: bundle.appPackage,
+            all: true, include_unverified: true });
         bundle.loadedPatches = result.rows.map(transformPatch);
     }
     return bundle.loadedPatches;
+}
+
+async function bundleChangelog(bundle) {
+    const path = "bundles/" + bundle.id + ".json";
+    try { return (await catalog.file(path)).description; }
+    catch (error) {
+        if (!await recoverGeneration(error)) throw error;
+        return (await catalog.file(path)).description;
+    }
 }
 
 function sourceOptionLabel(bundle) {
@@ -427,14 +487,15 @@ function populateBundleTypeOptions() {
     const options = [new Option("All types", "")];
     [...types].sort().forEach(type => options.push(new Option(bundleTypeLabel(type), type)));
     bundleTypeFilter.replaceChildren(...options);
-    bundleTypeFilter.value = selectedType;
+    currentBundleType = types.has(selectedType) ? selectedType : "";
+    bundleTypeFilter.value = currentBundleType;
 }
 
 function populateVersionOptions() {
     const options = [new Option("All versions", "")];
     const versions = new Map();
     sourceVersions
-        .filter(bundle => currentFilter === "all" || bundle.is_prerelease === (currentFilter === "prerelease"))
+        .filter(bundle => matchesReleaseFilter(transformBundle(bundle), currentFilter))
         .filter(bundle => !currentBundleType || bundle.bundle_type === currentBundleType)
         .forEach(bundle => {
             if (!versions.has(bundle.version)) versions.set(bundle.version, bundle.is_prerelease);
@@ -464,6 +525,7 @@ function installAvatarFallback(card, label) {
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="#eee" width="100" height="100"/><text x="50" y="50" font-size="40" text-anchor="middle" dy=".3em" fill="#999">${initial}</text></svg>`;
     if (!image.getAttribute("src")) image.src = `data:image/svg+xml,${encodeURIComponent(svg)}`;
     const fallback = () => {
+        image.closest(".owner-avatar-link")?.classList.remove("bundle-icon");
         const owner = card.dataset.ownerAvatar;
         if (owner && image.src !== owner) {
             delete card.dataset.ownerAvatar;
@@ -483,7 +545,7 @@ function transformBundle(bundle) {
         id: bundle.id, bundleType: bundle.bundle_type, createdAt: bundle.created_at,
         description: bundle.description, downloadUrl: bundle.download_url,
         signatureDownloadUrl: bundle.signature_download_url === "N/A" ? null : bundle.signature_download_url,
-        isPrerelease: bundle.is_prerelease, version: bundle.version,
+        isPrerelease: bundle.is_prerelease, isLatest: currentLatestIds.has(bundle.id), version: bundle.version,
         sourceUrl: bundle.source?.url || "",
         ownerName: metadata.owner_name || "", ownerAvatarUrl: bundleImages(bundle).owner_avatar_url || "",
         iconUrl: bundleImages(bundle).icon_url || "", unavailableReason: bundle.source?.unavailable_reason,
@@ -497,7 +559,17 @@ function transformBundle(bundle) {
 }
 
 async function renderFilteredBundles({ resetScroll = true } = {}) {
+    saveBrowsePreferences();
     const sequence = ++searchSequence;
+    if (currentTab === "apps") {
+        try { renderFilteredApps(resetScroll); }
+        catch (error) {
+            filteredBundles = [];
+            clearVirtualizer();
+            status.textContent = "Search failed: " + error.message;
+        }
+        return;
+    }
     const search = currentSearchQuery, packageQuery = currentPackageFilter;
     let patchMatches = new Map();
     if (search || packageQuery) {
@@ -528,8 +600,7 @@ async function renderFilteredBundles({ resetScroll = true } = {}) {
     if (sequence !== searchSequence) return;
     const previousBundles = filteredBundles;
     filteredBundles = allBundles.filter(bundle => {
-        if (currentFilter === "release" && bundle.isPrerelease) return false;
-        if (currentFilter === "prerelease" && !bundle.isPrerelease) return false;
+        if (!matchesReleaseFilter(bundle, currentFilter)) return false;
         if (currentSourceUrl && bundle.sourceUrl !== currentSourceUrl) return false;
         if (currentBundleVersion && bundle.version !== currentBundleVersion) return false;
         if (currentBundleType && bundle.bundleType !== currentBundleType) return false;
@@ -542,7 +613,7 @@ async function renderFilteredBundles({ resetScroll = true } = {}) {
     }).map(bundle => patchMatches.has(bundle.id) ?
         { ...bundle, patches: patchMatches.get(bundle.id), filteredPatches: true } : bundle);
     if (!filteredBundles.length) {
-        clearVirtualizer(); updateAllChangelogsButton();
+        clearVirtualizer();
         status.textContent = "No bundles found for the selected filters";
         return;
     }
@@ -559,10 +630,61 @@ async function renderFilteredBundles({ resetScroll = true } = {}) {
     updateStatus();
 }
 
+function renderFilteredApps(resetScroll) {
+    const bundles = summaries.filter(bundle =>
+        (!currentSourceUrl || bundle.source.url === currentSourceUrl) &&
+        (!currentBundleType || bundle.bundle_type === currentBundleType) &&
+        matchesReleaseFilter(transformBundle(bundle), currentFilter));
+    filteredBundles = filterApps(applications, bundles, {
+        q: currentSearchQuery, packageQuery: currentPackageFilter
+    });
+    if (!filteredBundles.length) {
+        clearVirtualizer();
+        status.textContent = "No apps found for the selected filters";
+        return;
+    }
+    if (resetScroll) document.scrollingElement.scrollTop = 0;
+    setupVirtualizer();
+    updateStatus();
+}
+
+function renderApp(app, target) {
+    const card = document.createElement("article");
+    card.className = "bundle-item app-item";
+    card.innerHTML = `<div class="bundle-header">
+        <span class="owner-avatar-link app-icon"><img class="owner-avatar" src="${escapeHtml(app.icon_url || "")}"
+            alt="" loading="lazy" decoding="async"></span>
+        <div class="bundle-header-content">
+            <h2 class="app-name">${escapeHtml(app.app_name)}</h2>
+            <div class="app-package">${escapeHtml(app.package_name)}</div>
+        </div></div>
+        <p class="app-counts">${app.patch_count == null ? "Patch count unavailable" : countLabel(app.patch_count, "patch", "patches")} · ${countLabel(app.bundle_count, "bundle")} · ${countLabel(app.source_count, "source")}</p>
+        <p class="app-versions">${app.unrestricted ? "Includes patches for all versions" : app.versions.length ?
+            (app.versions.length === 1 ? "Version: " : "Versions: ") + escapeHtml(app.versions.join(", ")) : "Version information unavailable"}</p>
+        ${app.bundles.some(reference => reference.compatibility_unknown) ?
+            '<p class="metadata-note">Compatibility details are not available in this catalog yet.</p>' :
+            app.bundles.some(reference => reference.metadata_status !== "verified") ?
+            '<div class="v3-warning">Some bundle compatibility metadata is unverified.</div>' : ""}
+        <span class="card-hint">Explore bundles and patches</span>`;
+    target.appendChild(card);
+    installAvatarFallback(card, app.app_name);
+    detailsBrowser.activateCard(card, () => detailsBrowser.openApp(app));
+
+}
+
+function renderStats() {
+    const target = document.getElementById("catalog-stats");
+    target.innerHTML = Object.entries(catalogStats(summaries)).map(([name, values]) =>
+        `<div class="stat-card"><h2>${escapeHtml(name)}</h2><dl>
+            <div><dt>Bundles</dt><dd>${values.bundles.toLocaleString()}</dd></div>
+            <div><dt>Patches</dt><dd>${values.patches.toLocaleString()}</dd></div>
+        </dl></div>`).join("");
+}
+
 function updateStatus() {
     const count = filteredBundles.length;
     if (count > 0) {
-        status.textContent = `Showing ${count} bundle${count === 1 ? "" : "s"}`;
+        status.textContent = `Showing ${count} ${currentTab === "apps" ? "app" : "bundle"}${count === 1 ? "" : "s"}`;
     }
 }
 
@@ -576,9 +698,9 @@ function renderBundle(bundle, target) {
         ? `<div class="v3-warning">Repository unavailable: ${escapeHtml(bundle.unavailableReason)}. Showing retained release information.</div>` : "";
     const metadataWarning = bundle.metadataStatus !== "verified"
         ? `<div class="v3-warning">Patch metadata: ${escapeHtml(bundle.metadataStatus)}${bundle.metadataVersion ? " · " + escapeHtml(bundle.metadataVersion) : ""}. Compatibility is unverified for this artifact.</div>` : "";
-    const v3WarningHtml = bundle.bundleType === "ReVanced:v21"
+    const v3WarningHtml = ["ReVanced:v21", "ReSeam"].includes(bundle.bundleType)
         ? `<div class="v3-warning">
-                ⚠️ It will not be usable in URV and the patches list can be empty.
+                ⚠️ Requires the ${bundle.bundleType === "ReSeam" ? "ReSeam" : "ReVanced v21"} runtime plugin in order to be used in URV.
            </div>`
         : '';
     const tagUrl = releaseTagUrl(bundle);
@@ -586,16 +708,8 @@ function renderBundle(bundle, target) {
         ? `<a class="version-text" href="${escapeHtml(tagUrl)}" target="_blank" rel="noopener">${escapeHtml(bundle.version)}</a>`
         : `<span class="version-text">${escapeHtml(bundle.version)}</span>`;
 
-    // Show the tracked namespace/repo from the source URL; after an upstream rename the
-    // metadata names diverge from what is actually tracked, so both are shown.
-    const trackedParts = sourceName(bundle.sourceUrl, bundle.ownerName, bundle.repoName).split('/');
-    const trackedNamespace = trackedParts.length >= 2 ? trackedParts.slice(0, -1).join('/') : bundle.ownerName;
-    const trackedRepo = trackedParts.length >= 2 ? trackedParts[trackedParts.length - 1] : bundle.repoName;
-    const trackedName = `${trackedNamespace}/${trackedRepo}`;
-    const currentName = bundle.ownerName && bundle.repoName ? `${bundle.ownerName}/${bundle.repoName}` : '';
-    const repoLinkText = currentName && currentName !== trackedName
-        ? `${escapeHtml(trackedName)} <span class="renamed-name">(${escapeHtml(currentName)})</span>`
-        : escapeHtml(trackedName);
+    const { tracked: trackedName } = repositoryNames(bundle);
+    const repoLinkText = escapeHtml(trackedName);
 
     card.innerHTML = `
         ${v3WarningHtml}
@@ -603,7 +717,7 @@ function renderBundle(bundle, target) {
         ${availabilityWarning}
 
         <div class="bundle-header">
-            <a href="${escapeHtml(bundle.sourceUrl)}" target="_blank" rel="noopener" class="owner-avatar-link" aria-label="Open ${escapeHtml(bundle.ownerName || 'source')} repository">
+            <a href="${escapeHtml(bundle.sourceUrl)}" target="_blank" rel="noopener" class="owner-avatar-link${bundle.iconUrl && bundle.iconUrl !== bundle.ownerAvatarUrl ? " bundle-icon" : ""}" aria-label="Open ${escapeHtml(bundle.ownerName || 'source')} repository">
                 <img src="${escapeHtml(bundle.iconUrl)}"
                      alt="${escapeHtml(bundle.ownerName)}"
                      class="owner-avatar"
@@ -615,12 +729,13 @@ function renderBundle(bundle, target) {
                     <a href="${escapeHtml(bundle.sourceUrl)}" target="_blank" rel="noopener" class="repo-name">
                         ${repoLinkText}
                     </a>
-                    <span>•</span>
-                    <span class="stars">${(bundle.repoStars == null ? "—" : bundle.repoStars.toLocaleString())}</span>
+                    <span class="repo-popularity"><span aria-hidden="true">•</span>
+                    <span class="stars">${(bundle.repoStars == null ? "—" : bundle.repoStars.toLocaleString())}</span></span>
                 </div>
                 ${bundle.repoDescription ? `<div class="bundle-description">${cachedMarkdown(bundle.id, 'desc', bundle.repoDescription)}</div>` : ''}
                 <div class="bundle-version">
                     ${versionHtml}
+                    ${bundle.isLatest ? '<span class="bundle-badge badge-latest">Latest</span>' : ''}
                     <span class="bundle-badge ${bundle.isPrerelease ? 'badge-prerelease' : 'badge-release'}">
                         ${bundle.isPrerelease ? 'Prerelease' : 'Release'}
                     </span>
@@ -642,23 +757,29 @@ function renderBundle(bundle, target) {
                 </a>
             ` : ''}
             <span>•</span>
-            <button class="copy-btn" ${bundle.bundleType === "ReVanced:v21" || (bundle.bundleType === "ReSeam" && bundle.metadataStatus !== "verified") ? 'disabled' : ''} data-url="${bundleImportPath(bundle, Boolean(currentBundleVersion))}">
-                ${currentBundleVersion ? "Copy this version URL" : "Copy remote bundle URL"}
+            <button class="copy-btn" ${bundle.bundleType === "ReSeam" && bundle.metadataStatus !== "verified" ? 'disabled' : ''} data-url="${bundleImportPath(bundle, Boolean(currentBundleVersion) || bundle.pinVersion)}">
+                ${currentBundleVersion || bundle.pinVersion ? "Copy this version URL" : "Copy remote bundle URL"}
             </button>
         </div>
 
-        ${(bundle.description || bundle.hasPatches) ? `
+        <p class="card-hint">${bundle.hasPatches ? countLabel(bundle.patchCount ?? 0, "patch", "patches") : "Patch metadata unavailable"} · Explore apps and patch options</p>
+        ${bundle.description ? `
             <div class="card-toggles">
-                ${bundle.description ? `
-                    <button class="card-toggle" type="button" data-toggle-changelog data-expanded="false">Show changelog</button>
-                ` : ''}
-                ${bundle.hasPatches ? `
-                    <button class="card-toggle" type="button" data-toggle-patches data-expanded="false">Show patches (${bundle.filteredPatches ? bundle.patches.length : (bundle.metadataStatus === "verified" ? bundle.patchCount : "unverified")})</button>
-                ` : ''}
+                <button class="card-toggle" type="button" data-toggle-changelog aria-expanded="false"
+                    aria-controls="changelog-${escapeHtml(bundle.id)}">Show changelog</button>
             </div>
-            <div class="card-content">
-                ${bundle.description ? `<div class="changelog-content" data-changelog hidden></div>` : ''}
-                ${bundle.hasPatches ? `<div class="patches-content" data-patches-content hidden></div>` : ''}
+            <div class="changelog-preview" id="changelog-${escapeHtml(bundle.id)}" hidden>
+                <div class="changelog-content" data-changelog-preview tabindex="0"
+                    role="region" aria-label="Changelog preview for ${repoLinkText}"></div>
+                <div class="changelog-preview-actions">
+                    <button class="card-toggle changelog-expand" type="button" data-expand-changelog
+                        aria-haspopup="dialog" aria-label="Expand changelog for ${repoLinkText}">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M14 3h7v7M21 3l-7 7M10 21H3v-7M3 21l7-7"/></svg>
+                        Expand
+                    </button>
+                </div>
             </div>
         ` : ''}
     `;
@@ -691,105 +812,62 @@ function renderBundle(bundle, target) {
         }
     });
 
-    const cardContent = card.querySelector(".card-content");
-    const changelogBtn = card.querySelector("[data-toggle-changelog]");
-    const changelogContainer = card.querySelector("[data-changelog]");
-    const patchesBtn = card.querySelector("[data-toggle-patches]");
-    const patchesContainer = card.querySelector("[data-patches-content]");
-    const viewState = cardViewStates.get(bundle.id) || {
-        section: undefined,
-        changelogScrollTop: 0,
-        patchesScrollTop: 0
-    };
-
-    const setActiveSection = (section, refreshGlobal = true, persist = true) => {
-        const showChangelog = section === "changelog";
-        const showPatches = section === "patches";
-
-        if (changelogBtn && changelogContainer) {
-            changelogContainer.hidden = !showChangelog;
-            if (showChangelog && !changelogContainer.hasChildNodes()) {
-                changelogContainer.innerHTML = cachedMarkdown(bundle.id, 'changelog', bundle.description);
-                void catalog.file("bundles/" + bundle.id + ".json").then(full => {
-                    if (changelogContainer.isConnected)
-                        changelogContainer.innerHTML = cachedMarkdown(bundle.id, "full-changelog", full.description);
-                }).catch(async error => {
-                    if (await recoverGeneration(error)) return;
-                    if (changelogContainer.isConnected) changelogContainer.textContent = error.message;
-                });
-            }
-            if (showChangelog) restoreScrollTop(changelogContainer, viewState.changelogScrollTop);
-            changelogBtn.dataset.expanded = String(showChangelog);
-            changelogBtn.textContent = showChangelog ? "Hide changelog" : "Show changelog";
+    const changelogButton = card.querySelector("[data-toggle-changelog]");
+    const preview = card.querySelector(".changelog-preview");
+    const changelogContent = card.querySelector("[data-changelog-preview]");
+    if (changelogButton && preview && changelogContent) {
+        let state = changelogViews.get(bundle.id);
+        if (!state) {
+            if (changelogViews.size >= RENDER_CACHE_LIMIT)
+                changelogViews.delete(changelogViews.keys().next().value);
+            state = { expanded: false, scrollTop: 0 };
+            changelogViews.set(bundle.id, state);
         }
-
-        if (patchesBtn && patchesContainer) {
-            patchesContainer.hidden = !showPatches;
-            if (showPatches && !patchesContainer.hasChildNodes()) {
-                patchesContainer.textContent = "Loading patches...";
-                void (bundle.filteredPatches ? Promise.resolve(bundle.patches) : bundlePatches(bundle))
-                    .then(patches => {
-                        if (patchesContainer.isConnected)
-                            patchesContainer.innerHTML = cachedPatchList(patches);
-                    }).catch(async error => {
-                        if (await recoverGeneration(error)) return;
-                        if (patchesContainer.isConnected) patchesContainer.textContent = error.message;
-                    });
-            }
-            if (showPatches) restoreScrollTop(patchesContainer, viewState.patchesScrollTop);
-            patchesBtn.dataset.expanded = String(showPatches);
-            patchesBtn.textContent = showPatches ? "Hide patches" : `Show patches (${bundle.filteredPatches ? bundle.patches.length : (bundle.metadataStatus === "verified" ? bundle.patchCount : "unverified")})`;
-        }
-
-        if (cardContent) cardContent.classList.toggle("active", !!section);
-        if (persist) {
-            viewState.section = section;
-            cardViewStates.set(bundle.id, viewState);
-        }
-        // Row heights are re-measured automatically: virtualizer.measureElement
-        // registers each row with a ResizeObserver, so expanding a changelog or
-        // patch list corrects the virtual layout without a manual pass.
-        if (refreshGlobal) updateAllChangelogsButton();
-    };
-
-    card.setActiveSection = setActiveSection;
-    let initialSection = viewState.section;
-    if (initialSection === undefined) {
-        initialSection = allChangelogsExpanded && changelogBtn ? "changelog" : null;
+        let pending, ready = false;
+        const setExpanded = expanded => {
+            if (!expanded && state.expanded && ready)
+                state.scrollTop = changelogContent.scrollTop;
+            state.expanded = expanded;
+            preview.hidden = !expanded;
+            changelogButton.setAttribute("aria-expanded", String(expanded));
+            changelogButton.textContent = expanded ? "Hide changelog" : "Show changelog";
+            if (!expanded) return;
+            if (ready) { changelogContent.scrollTop = state.scrollTop; return; }
+            if (pending) return;
+            changelogContent.innerHTML = '<p role="status">Loading changelog...</p>';
+            pending = bundleChangelog(bundle).then(description => {
+                if (!changelogContent.isConnected) return;
+                changelogContent.innerHTML = description
+                    ? cachedMarkdown(bundle.id, "full-changelog", description)
+                    : '<p role="status">No changelog was provided for this release.</p>';
+                ready = true;
+                if (state.expanded) changelogContent.scrollTop = state.scrollTop;
+            }).catch(error => {
+                pending = null;
+                if (changelogContent.isConnected)
+                    changelogContent.textContent = "Unable to load changelog: " + error.message;
+            });
+        };
+        changelogButton.addEventListener("click", () => setExpanded(!state.expanded));
+        changelogContent.addEventListener("scroll", () => {
+            if (ready && state.expanded && changelogContent.isConnected)
+                state.scrollTop = changelogContent.scrollTop;
+        }, { passive: true });
+        card.querySelector("[data-expand-changelog]").addEventListener("click", () => {
+            void detailsBrowser.openBundle(bundle, { section: "changelog" });
+        });
+        setExpanded(state.expanded);
     }
-    if (initialSection === "changelog" && !changelogBtn) initialSection = null;
-    if (initialSection === "patches" && !patchesBtn) initialSection = null;
-    setActiveSection(initialSection, false, false);
 
-    changelogContainer?.addEventListener("scroll", () => {
-        viewState.changelogScrollTop = changelogContainer.scrollTop;
-        cardViewStates.set(bundle.id, viewState);
-    }, { passive: true });
-    patchesContainer?.addEventListener("scroll", () => {
-        viewState.patchesScrollTop = patchesContainer.scrollTop;
-        cardViewStates.set(bundle.id, viewState);
-    }, { passive: true });
-
-    changelogBtn?.addEventListener("click", () => {
-        setActiveSection(changelogBtn.dataset.expanded === "true" ? null : "changelog");
-    });
-
-    patchesBtn?.addEventListener("click", () => {
-        setActiveSection(patchesBtn.dataset.expanded === "true" ? null : "patches");
-    });
-}
-
-function updateAllChangelogsButton() {
-    const hasChangelogs = filteredBundles.some(bundle => bundle.description);
-    toggleAllChangelogs.disabled = !hasChangelogs;
-    toggleAllChangelogs.textContent = allChangelogsExpanded ? "Hide all changelogs" : "Show all changelogs";
+    detailsBrowser.activateCard(card, () => detailsBrowser.openBundle(bundle));
 }
 
 function renderPatch(patch) {
     const packages = (patch.compatiblePackages || []).map(pkg => {
         const versionsText = pkg.versions?.filter(Boolean).join(', ') || 'all versions';
         return `<span class="package-tag">
-            <span class="package-name">${escapeHtml(pkg.name)}</span>
+            <span class="package-name">${escapeHtml(pkg.appName || pkg.name)}</span>
+            ${pkg.appName && pkg.appName !== pkg.name ? `<span class="package-id">${escapeHtml(pkg.name)}</span>` : ""}
             <span class="package-versions">${escapeHtml(versionsText)}</span>
         </span>`;
     }).join('');
@@ -798,6 +876,7 @@ function renderPatch(patch) {
         <div class="patch-name">${escapeHtml(patch.name || 'Unnamed patch')}</div>
         ${patch.description ? `<div class="patch-description">${escapeHtml(patch.description)}</div>` : ''}
         ${packages ? `<div class="patch-packages">${packages}</div>` : ''}
+        ${renderPatchOptions(patch.options, escapeHtml)}
     </div>`;
 }
 

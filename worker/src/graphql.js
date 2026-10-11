@@ -38,7 +38,7 @@ const definitions = {
   patch: { id: "Int", catalog_id: "String", bundle_fk: "Int", bundle_id: "String",
     source_id: "String", name: "String", description: "String", use: "Boolean",
     metadata_status: "String", patch_metadata_version: "String" },
-  package: { id: "Int", name: "String", version: "String" },
+  package: { id: "Int", name: "String", version: "String", app_name: "String", icon_url: "String" },
   patch_package: { package_fk: "Int", patch_fk: "Int", patch_id: "String" },
   refresh_jobs: { id: "Int", job_id: "String", job_type: "String", status: "String",
     error: "String", completed_at: "timestamptz", started_at: "timestamptz" }

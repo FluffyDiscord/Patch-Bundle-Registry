@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only
 Adapted from brosssh/revanced-external-bundles; copyright its contributors.
 Source: https://github.com/brosssh/revanced-external-bundles/blob/3a59398d667c83cd7033f859f3cb59237da92b3f/src/main/resources/static/index.html
-Changes: GitHub source management, header links, theme controls, and application-version filter hint. See COPYING.
+Changes: GitHub source management, header links, theme controls, application-version filter hint, catalog totals, Latest filter, and application tabs. See COPYING.
 -->
 <!DOCTYPE html>
     <html lang="en">
@@ -46,6 +46,15 @@ Changes: GitHub source management, header links, theme controls, and application
                 <button id="admin-access" class="admin-access" type="button">Manage sources</button>
             </div>
         </div>
+        <section class="catalog-statistics" aria-label="Catalog statistics">
+            <div id="catalog-stats" class="catalog-stats" aria-live="polite">Loading catalog statistics...</div>
+            <p class="stats-note">Newest release per source, including prereleases. Patch totals reflect available metadata.</p>
+        </section>
+        <div class="catalog-tabs" role="tablist" aria-label="Browse catalog">
+            <button id="bundles-tab" class="catalog-tab active" role="tab" type="button" aria-selected="true" aria-controls="results">Bundles</button>
+            <button id="apps-tab" class="catalog-tab" role="tab" type="button" aria-selected="false" aria-controls="results" tabindex="-1">Apps</button>
+        </div>
+        <p id="apps-note" class="stats-note" hidden>Patches and compatibility are counted across matching bundle versions.</p>
         <div class="search-row">
             <input
                     type="text"
@@ -69,7 +78,7 @@ Changes: GitHub source management, header links, theme controls, and application
                     <option value="">All sources</option>
                 </select>
             </label>
-            <label class="filter-field">
+            <label id="bundle-version-field" class="filter-field">
                 <span>Bundle version</span>
                 <select id="bundle-version-filter" disabled>
                     <option value="">All versions</option>
@@ -84,13 +93,13 @@ Changes: GitHub source management, header links, theme controls, and application
         </div>
         <div class="filter-buttons">
             <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="latest">Latest</button>
             <button class="filter-btn active" data-filter="release">Release</button>
             <button class="filter-btn" data-filter="prerelease">Prerelease</button>
-            <button id="toggle-all-changelogs" class="changelog-toggle" type="button" disabled>Show all changelogs</button>
             <button id="view-toggle" class="view-toggle" type="button" aria-pressed="true">List view</button>
         </div>
         <div id="status">Loading bundles...</div>
-        <div id="results" class="grid-view">
+        <div id="results" class="grid-view" role="tabpanel" aria-labelledby="bundles-tab">
             <div class="v-track" id="v-track"></div>
         </div>
     </div>

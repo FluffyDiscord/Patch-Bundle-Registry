@@ -575,13 +575,11 @@ async def main() -> int:
         checks_path = PROJECT_ROOT / "internal/cache/release-checks.json"
         await asyncio.to_thread(_dump_json_sync, checks_path, {})
         raw_sources = await asyncio.to_thread(_load_sources_sync)
-        sources: dict[str, RepoConfig] = {
-            str(name): value for name, value in raw_sources.items() if isinstance(value, Mapping)
-        }
         try:
-            from scripts.source_policy import disabled_sources
+            from scripts.source_policy import disabled_sources, source_channels
         except ModuleNotFoundError:
-            from source_policy import disabled_sources
+            from source_policy import disabled_sources, source_channels
+        sources: dict[str, RepoConfig] = source_channels(raw_sources, PROJECT_ROOT)
         try:
             from scripts.git_hosts import normalize_source
         except ModuleNotFoundError:

@@ -18,6 +18,7 @@ Patch Bundle Registry brings ReVanced, Morphe, and ReSeam patch sources together
 - **Check compatibility** with the package filter. Use an app's package name, such as `com.google.android.youtube`, an app-version fragment such as `19.16`, or an exact combination: `com.google.android.youtube@19.16.39`.
 - **Choose a release** using the source, version, bundle format, and release filters.
 - **Explore a bundle** to read its changelog and patch list.
+- **Browse Apps** to see app names, package names, icons, and compatible bundles across matching releases. Names and icons come from cached F-Droid and Google Play metadata; unlisted apps use their package names.
 
 Switch between list and grid views to browse the way you prefer.
 
@@ -29,7 +30,7 @@ Switch between list and grid views to browse the way you prefer.
 
 The default remote URL follows new releases in the selected channel. Select a historical bundle version to copy a URL pinned to that version.
 
-ReVanced formats appear as **ReVanced v21** and **ReVanced v22**. Morphe bundles appear as **Morphe**. ReSeam bundles use a ReSeam Manager patch-source URL with the bundle publisher's signing key.
+ReVanced formats appear as **ReVanced v21** and **ReVanced v22**. Morphe bundles appear as **Morphe**. ReVanced v21 and ReSeam bundles require their respective runtime plugins when used in URV. ReSeam bundles use a ReSeam Manager patch-source URL with the bundle publisher's signing key.
 
 You can also download the bundle directly from its card. Available formats and import support depend on the manager you use.
 

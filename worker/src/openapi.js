@@ -93,3 +93,33 @@ for (const path of ["/api/v3/bundle", "/api/reseam/bundle", "/api/v1/bundle/{id}
     } } } }
   } };
 }
+
+const appFilters = [
+  parameter("source", "Source ID, alias or repository URL"),
+  parameter("source_url", "Repository URL"),
+  parameter("ecosystem", "revanced, morphe or reseam"),
+  parameter("bundle_type", "ReVanced:v21, ReVanced:v22, Morphe:V1 or ReSeam"),
+  parameter("version", "Exact bundle release tag"),
+  parameter("channel", "latest, stable or dev"),
+  parameter("release", "Release category", {type:"string",enum:["all","latest","release","prerelease"],default:"all"}),
+  parameter("package", "Package fragment or package@version"),
+  parameter("app_version", "Exact compatible application version"),
+  parameter("include_unverified", "Include fallback compatibility metadata", {type:"boolean",default:false}),
+  parameter("metadata_status", "verified, stale, unverified or missing")
+];
+const appPackage = parameter("packageName", "Android package name", undefined, true, "path");
+openapi.paths["/apps"] = get("Browse applications with cached names, icons and matching bundle/patch counts", [...list, ...appFilters]);
+openapi.paths["/apps/{packageName}"] = get("Application details and compatibility summary", [appPackage, ...appFilters]);
+openapi.paths["/apps/{packageName}/bundles"] = get("Browse bundles supporting an application", [appPackage, ...list, ...appFilters.filter(p => p.name !== "package")]);
+openapi.paths["/apps/{packageName}/patches"] = get("Browse patches supporting an application", [appPackage, ...openapi.paths["/patches"].get.parameters.filter(p => p.name !== "package")]);
+openapi.paths["/bundles/{id}/apps"] = get("Browse applications supported by a bundle", [
+  parameter("id", "Catalog bundle hash", undefined, true, "path"), ...list,
+  parameter("app_version", "Exact compatible application version")
+]);
+for (const path of ["/apps", "/apps/{packageName}", "/apps/{packageName}/bundles", "/apps/{packageName}/patches", "/bundles/{id}/apps"])
+  openapi.paths["/api/v1" + path] = openapi.paths[path];
+Object.assign(openapi.paths["/api/v3/bundle"].get.responses[200].content["application/json"].schema.properties, {
+  apps: {type:"array",description:"First 100 supported applications, with package_name, app_name, icon_url, versions, unrestricted and patch_count",items:{type:"object"}},
+  app_count: {type:"integer",description:"Total supported applications"},
+  apps_url: {type:"string",description:"Paginated application endpoint path"}
+});

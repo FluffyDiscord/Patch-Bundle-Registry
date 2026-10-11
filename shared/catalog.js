@@ -253,12 +253,12 @@ export function packageFilterMatches(packages, query) {
   return packages.some(pkg => version !== undefined ?
     pkg.name.toLowerCase().includes(name) &&
       (!version || !pkg.versions.length || pkg.versions.some(v => String(v).toLowerCase() === version)) :
-    pkg.name.toLowerCase().includes(value) ||
+    (pkg.name + " " + (pkg.app_name || "")).toLowerCase().includes(value) ||
       pkg.versions.some(v => String(v).toLowerCase().includes(value)));
 }
 export function patchPackages(patch) {
   return patch.packages.flatMap(p => (p.versions.length ? p.versions : [null]).map(version =>
-    ({ package: { name: p.name, version }, patch_id: patch.id })));
+    ({ package: { name: p.name, version, app_name: p.app_name ?? p.name, icon_url: p.icon_url ?? null }, patch_id: patch.id })));
 }
 export class Catalog {
   constructor(base, fetcher = fetch, enforceBudget = true) {
@@ -324,6 +324,30 @@ export class Catalog {
     catch (error) { this.loaded.delete(name); throw error; }
   }
   async sources() { return this.file("sources.json"); }
+  async apps() {
+    if (this.manifest.files["apps.json"]) return this.file("apps.json");
+    // Older snapshots remain usable while the first metadata refresh runs.
+    const bundles = await this.bundles();
+    const apps = (await this.file("packages.json")).map(packageRow => ({
+      package_name: packageRow.name, app_name: packageRow.app_name || packageRow.name,
+      icon_url: packageRow.icon_url || null, metadata_source: null, bundles: []
+    }));
+    const byPackage = new Map(apps.map(app => [app.package_name, app]));
+    for (const bundle of bundles) for (const name of bundle.packages)
+      byPackage.get(name)?.bundles.push({
+        bundle_id: bundle.id, patch_count: 0,
+        versions: [], unrestricted: false, compatibility_unknown: true
+      });
+    return apps;
+  }
+  async bundleApps(id) {
+    const name = "bundle-apps/" + id + ".json";
+    if (this.manifest.files[name]) return this.file(name);
+    return (await this.apps()).flatMap(app => app.bundles
+      .filter(reference => reference.bundle_id === id)
+      .map(reference => ({ package_name: app.package_name, app_name: app.app_name,
+        icon_url: app.icon_url, metadata_source: app.metadata_source ?? null, ...reference })));
+  }
   async importBundles(sourceUrl) {
     const canonical = normalizeSource(sourceUrl).toLowerCase();
     const source = (await this.sources()).find(row => row.url.toLowerCase() === canonical);
@@ -333,16 +357,18 @@ export class Catalog {
     const rows = await this.file(this.manifest.files[name] ? name : "bundles.json");
     return rows.filter(bundle => bundle.source_id === source.id).map(bundle => ({ ...bundle, source }));
   }
-  async bundles() {
+  async bundles({ compact = false } = {}) {
     const sources = new Map((await this.sources()).map(source => [source.id, source]));
-    return (await this.file("bundles.json"))
+    const index = compact && this.manifest.files["app-bundles.json"] ? "app-bundles.json" : "bundles.json";
+    return (await this.file(index))
       .filter(bundle => sources.get(bundle.source_id)?.enabled !== false).map(bundle => ({
       ...bundle, source: sources.get(bundle.source_id),
       ...bundleImages({ ...bundle, source: sources.get(bundle.source_id) })
     }));
   }
   async patchRows({ q = "", package: packageName, bundle_id: bundleId, bundle_ids: bundleIds, page_cursor = 0,
-                    page_count = 12, all = false, include_unverified = false, patch_id: patchId, patch_ids: patchIds } = {}) {
+                    page_count = 12, all = false, include_unverified = false, patch_id: patchId, patch_ids: patchIds,
+                    compact_bundles = false } = {}) {
     const index = await this.file("patch-index.json");
     let pages = index.pages;
     function intersect(candidate) {
@@ -372,7 +398,7 @@ export class Catalog {
     if (!Number.isInteger(+page_cursor) || +page_cursor < 0 || +page_cursor > pages.length)
       throw new CatalogError("Invalid page_cursor");
     const selected = all ? pages : pages.slice(+page_cursor, +page_cursor + page_count);
-    const bundles = new Map((await this.bundles()).map(b => [b.id, b]));
+    const bundles = new Map((await this.bundles({ compact: compact_bundles })).map(b => [b.id, b]));
     const rows = (await Promise.all(selected.map(page => this.file(page)))).flat()
       .filter(p => bundles.has(p.bundle_id) && (!patchIds || patchIds.includes(p.legacy_id)) &&
         (include_unverified || p.metadata_status === "verified") &&

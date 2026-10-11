@@ -1,5 +1,7 @@
 import site from "../../config/site.json" with { type: "json" };
 import { Catalog, CatalogError, bundleImages, catalogOrigins, compareReleaseDates, normalizeSource, pagination, selectRows } from "../../shared/catalog.js";
+import { filterApps } from "../../shared/apps.js";
+import { latestReleaseIds } from "../../shared/site.js";
 import { runGraphQL, withPostgresLocale } from "./graphql.js";
 import { openapi } from "./openapi.js";
 import { liveJobs, mergeJobs } from "./jobs.js";
@@ -129,6 +131,35 @@ function restArgs(params, fields) {
   }
   return args;
 }
+function appSummary(app) {
+  const { bundles, id, ...summary } = app;
+  return summary;
+}
+async function bundleApplications(catalog, id) {
+  // Imports retain their compact read path, including on older snapshots.
+  if (!catalog.manifest.files["bundle-apps/" + id + ".json"]) return {};
+  const apps = await catalog.bundleApps(id);
+  return { apps: apps.slice(0, 100), app_count: apps.length,
+    apps_url: "/bundles/" + id + "/apps" };
+}
+async function selectedApps(catalog, params) {
+  let bundles = await catalog.bundles({ compact: true });
+  const latest = latestReleaseIds(bundles);
+  const release = params.get("release") ?? "all";
+  if (!["all", "latest", "release", "prerelease"].includes(release))
+    throw new CatalogError("release must be all, latest, release, or prerelease");
+  const bundleParams = new URLSearchParams([...params].filter(([key]) =>
+    ["source", "source_url", "ecosystem", "bundle_type", "version", "channel", "metadata_status"].includes(key)));
+  bundles = filteredBundles(bundles, bundleParams).filter(bundle =>
+    (params.get("include_unverified") === "true" || bundle.metadata_status === "verified") &&
+    (release === "all" || (release === "latest" ? latest.has(bundle.id) :
+      bundle.is_prerelease === (release === "prerelease"))));
+  const apps = filterApps(await catalog.apps(), bundles, {
+    q: params.get("q") ?? "", packageQuery: params.get("package") ?? "",
+    appVersion: params.get("app_version") ?? "", exactAppVersion: true
+  });
+  return { apps, bundles };
+}
 async function rest(catalog, url) {
   const path = url.pathname.replace(/\/$/, "");
   const params = url.searchParams;
@@ -169,7 +200,7 @@ async function rest(catalog, url) {
           prerelease: bundle.is_prerelease }]
       };
     }
-    return dto(bundle);
+    return { ...dto(bundle), ...(await bundleApplications(catalog, bundle.id)) };
   }
   const numeric = path.match(/^\/api\/v1\/bundle\/([0-9]+)$/);
   if (numeric) {
@@ -202,6 +233,38 @@ async function rest(catalog, url) {
     return legacyDto({ ...bundle, ...(await catalog.file("bundles/" + bundle.id + ".json")) });
   }
   const normalized = path.replace(/^\/api\/v1/, "");
+  const appMatch = normalized.match(/^\/apps\/([^/]+)(?:\/(bundles|patches))?$/);
+  const bundleAppsMatch = normalized.match(/^\/bundles\/([a-f0-9]{24})\/apps$/);
+  if (bundleAppsMatch) {
+    const bundle = (await catalog.bundles({ compact: true })).find(bundle => bundle.id === bundleAppsMatch[1]);
+    if (!bundle) throw new CatalogError("Bundle not found", 404);
+    const q = (params.get("q") ?? "").toLowerCase();
+    const apps = (await catalog.bundleApps(bundle.id)).filter(app =>
+      (!q || (app.app_name + " " + app.package_name).toLowerCase().includes(q)) &&
+      (!params.has("app_version") || app.unrestricted || app.versions.includes(params.get("app_version"))));
+    return selectRows(apps.map(app => ({ ...app, metadata_status: bundle.metadata_status })),
+      restArgs(params, ["package_name", "app_name", "patch_count"]));
+  }
+  if (normalized === "/apps" || (appMatch && appMatch[2] !== "patches")) {
+    const { apps, bundles } = await selectedApps(catalog, params);
+    if (!appMatch)
+      return selectRows(apps.map(appSummary), restArgs(params, ["package_name", "app_name", "bundle_count", "patch_count"]));
+    const app = apps.find(app => app.package_name === decodeURIComponent(appMatch[1]));
+    if (!app) throw new CatalogError("App not found", 404);
+    if (appMatch[2] === "bundles") {
+      const references = new Map(app.bundles.map(reference => [reference.bundle_id, reference]));
+      const result = selectRows(bundles.filter(bundle => references.has(bundle.id)).map(bundle => ({
+        ...bundle, app_compatibility: references.get(bundle.id)
+      })), restArgs(params, ["id", "version", "created_at", "patch_count"]));
+      result.data = await Promise.all(result.data.map(async bundle => ({
+        ...bundle, ...(await catalog.file("bundles/" + bundle.id + ".json"))
+      })));
+      return result;
+    }
+    return { ...appSummary(app), bundles_url: "/apps/" + encodeURIComponent(app.package_name) + "/bundles",
+      patches_url: "/apps/" + encodeURIComponent(app.package_name) + "/patches" };
+  }
+  if (appMatch?.[2] === "patches") params.set("package", decodeURIComponent(appMatch[1]));
   if (normalized === "/sources") {
     const q = (params.get("q") ?? "").toLowerCase();
     const source = params.get("source_url");
@@ -216,34 +279,39 @@ async function rest(catalog, url) {
   }
   if (normalized === "/packages") {
     const q = (params.get("q") ?? "").toLowerCase();
-    const rows = (await catalog.file("packages.json")).filter(p => !q || p.name.toLowerCase().includes(q));
+    const rows = (await catalog.file("packages.json")).filter(p => !q || (p.name + " " + (p.app_name ?? "")).toLowerCase().includes(q));
     return selectRows(rows, restArgs(params, ["name"]));
   }
   if (normalized === "/availability") return catalog.file("availability.json");
   const patchesMatch = normalized.match(/^\/bundles\/([a-f0-9]{24})\/patches$/);
-  if (normalized === "/patches" || patchesMatch) {
+  if (normalized === "/patches" || patchesMatch || appMatch?.[2] === "patches") {
     const bundleId = patchesMatch?.[1] ?? params.get("bundle_id");
-    const eligibleBundles = filteredBundles(await catalog.bundles(), new URLSearchParams(
+    const eligibleBundles = filteredBundles(await catalog.bundles({ compact: Boolean(appMatch) }), new URLSearchParams(
       [...params].filter(([key]) => ["source", "source_url", "ecosystem", "bundle_type", "channel"].includes(key))));
     const result = await catalog.patchRows({ q: params.get("q") ?? "",
       bundle_ids: eligibleBundles.map(b => b.id),
       package: params.get("package"), bundle_id: bundleId,
       page_cursor: params.get("page_cursor") ?? 0,
-      include_unverified: params.get("include_unverified") === "true" });
+      include_unverified: params.get("include_unverified") === "true",
+      compact_bundles: Boolean(appMatch) });
     let rows = result.rows;
     if (params.has("app_version")) rows = rows.filter(p =>
       p.packages.some(pkg => (!params.has("package") || pkg.name === params.get("package")) &&
         (!pkg.versions.length || pkg.versions.includes(params.get("app_version")))));
-    return { ...selectRows(rows, restArgs(params, ["id", "name"])),
-             next_cursor: result.next_cursor, candidate_pages: result.candidate_pages };
+    const selected = selectRows(rows, restArgs(params, ["id", "name"]));
+    if (appMatch) selected.data = await Promise.all(selected.data.map(async patch => ({
+      ...patch, bundle: { ...patch.bundle, ...(await catalog.file("bundles/" + patch.bundle_id + ".json")) }
+    })));
+    return { ...selected, next_cursor: result.next_cursor, candidate_pages: result.candidate_pages };
   }
   const detail = normalized.match(/^\/(sources|bundles)\/([a-f0-9]+)$/);
   if (detail) {
-    const rows = detail[1] === "sources" ? await catalog.sources() : await catalog.bundles();
+    const rows = detail[1] === "sources" ? await catalog.sources() : await catalog.bundles({ compact: true });
     const row = rows.find(r => r.id === detail[2]);
     if (!row) throw new CatalogError("Record not found", 404);
     return detail[1] === "bundles" ? {
-      ...row, ...(await catalog.file("bundles/" + row.id + ".json")), source: row.source
+      ...row, ...(await catalog.file("bundles/" + row.id + ".json")), source: row.source,
+      ...(await bundleApplications(catalog, row.id))
     } : row;
   }
   throw new CatalogError("Endpoint not found", 404);
