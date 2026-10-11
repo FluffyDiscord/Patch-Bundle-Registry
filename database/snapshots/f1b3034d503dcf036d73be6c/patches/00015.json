@@ -1,0 +1,2916 @@
+[
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.canva.editor": [
+        "2.377.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes watermarks from Canva exports and previews.",
+    "id": "2e454053c698ddb0784f18de:69",
+    "legacy_id": 1747,
+    "metadata_status": "verified",
+    "name": "Remove Watermark",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Canva: AI Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/52fzAlhKzDyZV8ttyQ_DHB-jOeLZAZEdKlgXnWL__YNMZuvsoRCshJX5mr_ArFZjK7rte4hqEJ4ucjtuKJK5",
+        "name": "com.canva.editor",
+        "versions": [
+          "2.377.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.picsart.studio": [
+        "30.7.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the PicsArt watermark from exported photos and videos.",
+    "id": "2e454053c698ddb0784f18de:70",
+    "legacy_id": 1748,
+    "metadata_status": "verified",
+    "name": "Remove Watermark",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Picsart AI Photo Editor, Video",
+        "icon_url": "https://play-lh.googleusercontent.com/wXk_X0uT6AeWv5TFfheHP8NrOmtz17BX-2uEZ7H4naTIzuFpSIfohvQTA4pKOCF71TmeUF3DfMAGq1SlK2hH7Qk",
+        "name": "com.picsart.studio",
+        "versions": [
+          "30.7.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.server.auditor.ssh.client": [
+        "7.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro features by forcing the UserType mapper to always return UserType$Pro.",
+    "id": "2e454053c698ddb0784f18de:71",
+    "legacy_id": 1749,
+    "metadata_status": "verified",
+    "name": "Server Auditor Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Termius - Modern SSH Client",
+        "icon_url": "https://play-lh.googleusercontent.com/h0zYNf7cjzKrPw8hrRIvyDxDe_OpikNa9rl0Udjrk-LOo5d23IO5DyXKeRyta1rc12j0Ta60LrvwPkoq2P6e1Q",
+        "name": "com.server.auditor.ssh.client",
+        "versions": [
+          "7.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Makes the app think its signing certificate is unchanged after Morphe re-signs it.\n\nUseful when an app crashes or shows a tamper warning because it checks its own certificate.\n\nDoes not bypass Play Integrity / SafetyNet hardware attestation.\n\nApply with Original app certificate patch.",
+    "id": "2e454053c698ddb0784f18de:72",
+    "legacy_id": 1750,
+    "metadata_status": "verified",
+    "name": "Spoof app signature",
+    "options": [
+      {
+        "default": null,
+        "description": "Leave blank — read automatically from the app. Only set this if you changed the app's package name and the patch is using the wrong one.",
+        "key": "packageName",
+        "required": false,
+        "title": "Package name override (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.92.0.977185651"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs selectable Pixel Photos build and feature flags.",
+    "id": "2e454053c698ddb0784f18de:73",
+    "legacy_id": 1751,
+    "metadata_status": "verified",
+    "name": "Spoof features",
+    "options": [
+      {
+        "default": "pixel_xl",
+        "description": "Device profile used for Build fields and Pixel feature levels.",
+        "key": "googlePhotosSpoofProfile",
+        "required": true,
+        "title": "Pixel profile",
+        "type": "kotlin.String",
+        "values": {
+          "Pixel - unlimited original quality": "pixel",
+          "Pixel 10 Pro XL - latest Pixel AI": "pixel_10_pro_xl",
+          "Pixel 2 - storage saver": "pixel_2",
+          "Pixel 3 XL - storage saver": "pixel_3_xl",
+          "Pixel 3a XL - storage saver": "pixel_3a_xl",
+          "Pixel 4 XL - storage saver": "pixel_4_xl",
+          "Pixel 4a - storage saver": "pixel_4a",
+          "Pixel 5 - storage saver": "pixel_5",
+          "Pixel 5a - storage saver": "pixel_5a",
+          "Pixel 6 Pro - feature gates only": "pixel_6_pro",
+          "Pixel 6a - feature gates only": "pixel_6a",
+          "Pixel 7 - feature gates only": "pixel_7",
+          "Pixel 7 Pro - feature gates only": "pixel_7_pro",
+          "Pixel 7a - feature gates only": "pixel_7a",
+          "Pixel 8 - feature gates only": "pixel_8",
+          "Pixel 8 Pro - Video Boost": "pixel_8_pro",
+          "Pixel 8a - feature gates only": "pixel_8a",
+          "Pixel 9 - AI editing": "pixel_9",
+          "Pixel 9 Pro - AI editing": "pixel_9_pro",
+          "Pixel 9 Pro XL - AI editing": "pixel_9_pro_xl",
+          "Pixel 9a - AI editing": "pixel_9a",
+          "Pixel XL - unlimited original quality": "pixel_xl"
+        }
+      },
+      {
+        "default": "none",
+        "description": "Optionally spoof Build.VERSION fields. Follow profile uses the selected Pixel's matching Android version.",
+        "key": "googlePhotosAndroidVersion",
+        "required": false,
+        "title": "Android version",
+        "type": "kotlin.String",
+        "values": {
+          "Android 13": "android_13",
+          "Android 14": "android_14",
+          "Android 15": "android_15",
+          "Android 16": "android_16",
+          "Android 17": "android_17",
+          "Do not spoof Android version": "none",
+          "Follow Pixel profile": "follow_profile",
+          "Nougat 7.1.2": "nougat_7_1_2",
+          "Oreo 8.1.0": "oreo_8_1_0",
+          "Pie 9.0": "pie_9_0",
+          "Q 10.0": "q_10_0",
+          "R 11.0": "r_11_0",
+          "S 12.0": "s_12_0"
+        }
+      },
+      {
+        "default": true,
+        "description": "Force newer Pixel feature flags off when the selected profile should not have them.",
+        "key": "googlePhotosOverrideRomFeatureLevels",
+        "required": false,
+        "title": "Override ROM feature levels",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Photos",
+        "icon_url": "https://play-lh.googleusercontent.com/kErBTF4VcGwhtKbCr80Bs2R1lNZiYkHbKcf1i3ZF6dg_5LqDAlCI4wU-nzwvo7PAbxeBXM_tv1hc11gr4aIIW-Q",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.92.0.977185651"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes the app think it was installed from a specific store (default: Google Play).\n\nUseful when an app blocks features or shows errors because it detects it was not installed from the Play Store.\n\nOnly affects what the app itself sees - does not change the real system install record.",
+    "id": "2e454053c698ddb0784f18de:74",
+    "legacy_id": 1752,
+    "metadata_status": "verified",
+    "name": "Spoof install source",
+    "options": [
+      {
+        "default": "com.android.vending",
+        "description": "Most apps only check for the Google Play Store, so the default is usually correct. Pick from the list, or type any package name directly if your app checks for a different store.",
+        "key": "installerPackageName",
+        "required": true,
+        "title": "Store to impersonate",
+        "type": "kotlin.String",
+        "values": {
+          "Amazon Appstore": "com.amazon.venezia",
+          "F-Droid": "org.fdroid.fdroid",
+          "Google Play Store": "com.android.vending",
+          "Huawei AppGallery": "com.huawei.appmarket",
+          "Samsung Galaxy Store": "com.sec.android.app.samsungapps",
+          "Xiaomi GetApps": "com.xiaomi.mipicks"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "576.0.0.47.92"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sets a very high version code so the Play Store treats the app as already up to date and never offers an update.",
+    "id": "2e454053c698ddb0784f18de:75",
+    "legacy_id": 1753,
+    "metadata_status": "verified",
+    "name": "Spoof package version",
+    "options": [
+      {
+        "default": "2147483647",
+        "description": "The version code to set. Must be higher than the Play Store version to suppress updates. Defaults to the maximum value.",
+        "key": "messengerVersionCode",
+        "required": true,
+        "title": "Version code",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "576.0.0.47.92"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": [
+        "6.38.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces WarpPlusState to UNLIMITED on every AccountData instance by intercepting the primary constructor before the account type field is written.",
+    "id": "2e454053c698ddb0784f18de:76",
+    "legacy_id": 1754,
+    "metadata_status": "verified",
+    "name": "Spoof WARP+ Unlimited UI",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1.1.1.1 + WARP: Safer Internet",
+        "icon_url": "https://play-lh.googleusercontent.com/PDwXxcvulfxi2bH4UjcMGJ7i0CQ7_QNypYohkhhg02zE7FdNTNRyF21-ikrLM5kyvcmNxtr77Va-7sS3NLbpNg",
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": [
+          "6.38.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Reports Widevine L1 (hardware DRM) to apps that check DRM level locally.\n\nUseful for apps that refuse to play HD/4K content on L3 devices or after re-signing.\n\nDoes not bypass server-side DRM - Netflix, Disney+ and similar are not affected.",
+    "id": "2e454053c698ddb0784f18de:77",
+    "legacy_id": 1755,
+    "metadata_status": "verified",
+    "name": "Spoof Widevine / DRM level",
+    "options": [
+      {
+        "default": "L1",
+        "description": "L1 = hardware DRM (highest quality). L3 = software only. Default L1.",
+        "key": "securityLevel",
+        "required": true,
+        "title": "Widevine security level to report",
+        "type": "kotlin.String",
+        "values": {
+          "L1 (highest — hardware)": "L1",
+          "L2": "L2",
+          "L3 (software only)": "L3"
+        }
+      },
+      {
+        "default": "HDCP_V2_2",
+        "description": "HDCP_V2_2 is required for 4K content on most streaming apps.",
+        "key": "hdcpLevel",
+        "required": false,
+        "title": "HDCP level to report",
+        "type": "kotlin.String",
+        "values": {
+          "HDCP 1.x": "HDCP_V1",
+          "HDCP 2.2": "HDCP_V2_2",
+          "HDCP 2.3": "HDCP_V2_3",
+          "None (disable)": "HDCP_LEVEL_NONE"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.flightaware.android.liveFlightTracker": [
+        "5.16.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces FlightAware ad-free subscribed state.",
+    "id": "2e454053c698ddb0784f18de:78",
+    "legacy_id": 1756,
+    "metadata_status": "verified",
+    "name": "Unlock Ad-Free",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "FlightAware Flight Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8a6whh4j6GTSlj2KCmY749Y912Oi-x0kO5n0X28T8bW3UmYs0jJUOxeIwxEjNNucoWBtbr5-1PxqBT6WUxlsx5s",
+        "name": "com.flightaware.android.liveFlightTracker",
+        "versions": [
+          "5.16.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "org.zwanoo.android.speedtest": [
+        "7.1.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes ads and unlocks ad-free status in Speedtest by Ookla.",
+    "id": "2e454053c698ddb0784f18de:79",
+    "legacy_id": 1757,
+    "metadata_status": "verified",
+    "name": "Unlock Ad-Free",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Speedtest by Ookla",
+        "icon_url": "https://play-lh.googleusercontent.com/ZH4EUfCHaf8hoFSpeLx_guqWN-DkGdJWbP5Ydim9dbvqO4L95TC3V7WD20-KsEpGaZuCrWz62ClSYdmCanL9",
+        "name": "org.zwanoo.android.speedtest",
+        "versions": [
+          "7.1.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.kevinforeman.nzb360": [
+        "24.4.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks All access in Nzb360.",
+    "id": "2e454053c698ddb0784f18de:80",
+    "legacy_id": 1758,
+    "metadata_status": "verified",
+    "name": "Unlock All Access",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "nzb360 - Media Server Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/CZpq1UrZc2UUONba1GM8OWEGeYeJ1_NrBcjhGpENnhSEIzbLb-f6lW76fuso685c3pdK8KuV2nfb8AVxISJlPv8",
+        "name": "com.kevinforeman.nzb360",
+        "versions": [
+          "24.4.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.flightradar24free": [
+        "11.10.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Business-tier features in Flightradar24: ad-free experience, weather layers, ATC routes, 3D view, flight history playback, and unlimited saved locations.",
+    "id": "2e454053c698ddb0784f18de:81",
+    "legacy_id": 1759,
+    "metadata_status": "verified",
+    "name": "Unlock Business Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flightradar24 Flight Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8KtIuiRHYtY0XJigXIl-iN6X6-ht85ELWXFiynenpCW40b6zNUnLFGKwIN0iITV_1L3sN3G53PaiNiWsn5RSIv8",
+        "name": "com.flightradar24free",
+        "versions": [
+          "11.10.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.blurams.ipc": [
+        "5.1049.4.921"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks BluramsGuard cloud storage, AI detection, and playback features.",
+    "id": "2e454053c698ddb0784f18de:82",
+    "legacy_id": 1760,
+    "metadata_status": "verified",
+    "name": "Unlock Cloud Service",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "blurams",
+        "icon_url": "https://play-lh.googleusercontent.com/va0hKwmF81DIXNYDmW6NhUGgmOeKZUmF_YcYWADs1-Yj4C4Kl5mpvBZVcEz8LevjNKhKrJt7wK13-L-vtzQxpQ",
+        "name": "com.blurams.ipc",
+        "versions": [
+          "5.1049.4.921"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.citymapper.app.release": [
+        "11.58"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Citymapper Club Membership. Note: requires a manual purchase attempt inside the app.",
+    "id": "2e454053c698ddb0784f18de:83",
+    "legacy_id": 1761,
+    "metadata_status": "verified",
+    "name": "Unlock Club",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Citymapper",
+        "icon_url": "https://play-lh.googleusercontent.com/U0baiS5SFsdl6hU6WW2Rq94xd5lIscxgwVZNw0rsN2G7Tqlg3m86KieOuhgR9GTQZMYngD_ilppCeot9lBuBPQ",
+        "name": "com.citymapper.app.release",
+        "versions": [
+          "11.58"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "jp.co.shueisha.mangaplus": [
+        "2.6.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Deluxe subscription.",
+    "id": "2e454053c698ddb0784f18de:84",
+    "legacy_id": 1762,
+    "metadata_status": "verified",
+    "name": "Unlock Deluxe",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MANGA Plus by SHUEISHA",
+        "icon_url": "https://play-lh.googleusercontent.com/ONRtv3AJrkOZy9XhINn66xi_J5MkHIGJQp5s71I_JA1l1znuwfKIhDR502TnAfcvhsjDSoVd8eO_tLqpoEiij6Y",
+        "name": "jp.co.shueisha.mangaplus",
+        "versions": [
+          "2.6.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.oasisfeng.greenify": [
+        "5.1.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium donation features in Greenify.",
+    "id": "2e454053c698ddb0784f18de:85",
+    "legacy_id": 1763,
+    "metadata_status": "verified",
+    "name": "Unlock Donation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Greenify",
+        "icon_url": "https://play-lh.googleusercontent.com/4Uqi_lGZdgUL4GGxELdNdBaDMs2OjhC9emw5LWtEb1XN3NWlybG9IYD5yXSLuhwtt66cuMz4L4zWYgXzgxR1sA",
+        "name": "com.oasisfeng.greenify",
+        "versions": [
+          "5.1.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.weawow": [
+        "7.1.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces h0() to return \"yes\" so donate dialog never shows and providers unlock.",
+    "id": "2e454053c698ddb0784f18de:86",
+    "legacy_id": 1764,
+    "metadata_status": "verified",
+    "name": "Unlock donation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Weather & Widget - Weawow",
+        "icon_url": "https://play-lh.googleusercontent.com/mo_d82SnAfbPtjpR3nVHs-wBPZ2ByUyR_30SUxSoxDpD1DMjU7mPpnV5QD4O7dMMvKp5AgefBpb1yDtf2y7J",
+        "name": "com.weawow",
+        "versions": [
+          "7.1.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.localaiapp.scoops": [
+        "3.36.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the IAA (ad-watch-to-unlock) episode gate for drama mini-series.",
+    "id": "2e454053c698ddb0784f18de:87",
+    "legacy_id": 1765,
+    "metadata_status": "verified",
+    "name": "Unlock Drama Episodes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Scoopz: Real Life, Real Videos",
+        "icon_url": "https://play-lh.googleusercontent.com/Lm1Lyl9fN-E0QCmqzMvYOGfnEJ2zK6jGRlquVxY35QBVspVr1LkY6Qb4hpuAchXpQ3harkLmIN12nmnbQ0F15g",
+        "name": "com.localaiapp.scoops",
+        "versions": [
+          "3.36.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "je.fit": [
+        "17.4.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks JEFIT Elite features in app.",
+    "id": "2e454053c698ddb0784f18de:88",
+    "legacy_id": 1766,
+    "metadata_status": "verified",
+    "name": "Unlock Elite",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JEFIT-Gym Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/urhFtqMp4ZIAsERTr8WVQFCqEFU-ZYK2a-B2NeGqvy2jxL8PyXhYi5ybwxFQemQ9VVYQyS-QhA8zn5iKaGmbpgo",
+        "name": "je.fit",
+        "versions": [
+          "17.4.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.tecso.MigraConnect": [
+        "2.8.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Enterprise features in app.",
+    "id": "2e454053c698ddb0784f18de:89",
+    "legacy_id": 1767,
+    "metadata_status": "verified",
+    "name": "Unlock Enterprise",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MigraConnect Case Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/o9N_gaJAFkQEFV4XMgMdR954dODb4vwNLiJFlhRQmGTn__EzEwdhoT-bU0xx6BgHxGOyvpDh5G6t42sQgwxUIg",
+        "name": "com.tecso.MigraConnect",
+        "versions": [
+          "2.8.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.microsoft.office.excel": [
+        "16.0.20228.20090"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes login requirement, unlocks premium, blocks ads, bypasses signature and code transparency checks.",
+    "id": "2e454053c698ddb0784f18de:90",
+    "legacy_id": 1768,
+    "metadata_status": "verified",
+    "name": "Unlock Excel",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft Excel: Spreadsheets",
+        "icon_url": "https://play-lh.googleusercontent.com/yycGmvRqYttLxLsu_2mMo17jb5KVfrSSj0W67w5nN6QcOn30HIxQ7DBwdNVtbTRTFCQNd5vNyd-bgeGfmiSS",
+        "name": "com.microsoft.office.excel",
+        "versions": [
+          "16.0.20228.20090"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "app.simple.inure.play": [
+        "build107.2.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the 15-day trial gate and unlocks all premium features in Inure App Manager.",
+    "id": "2e454053c698ddb0784f18de:91",
+    "legacy_id": 1769,
+    "metadata_status": "verified",
+    "name": "Unlock Full Version",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Inure App Manager (Trial)",
+        "icon_url": "https://play-lh.googleusercontent.com/QzH7SfWCbpmz5ze8hX85stc09ZfK1JGjkRgUw_DhAbRzQF1BxUo5Ma-lZJFDFpzopdnfy6FzTGt6RDp842zrbaY",
+        "name": "app.simple.inure.play",
+        "versions": [
+          "build107.2.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "no.mobitroll.kahoot.android": [
+        "6.6.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Kahoot! Plus Gold features in app.",
+    "id": "2e454053c698ddb0784f18de:92",
+    "legacy_id": 1770,
+    "metadata_status": "verified",
+    "name": "Unlock Gold",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Kahoot! Play & Create Quizzes",
+        "icon_url": "https://play-lh.googleusercontent.com/eIlvMkUf_Sv4k4RVN2MAnxIzojgRbKNop8tgKpU31_LsIWBWr41ZkfGW6c3nABJLUlcWyCn7cfiplXBWQxRnBQ",
+        "name": "no.mobitroll.kahoot.android",
+        "versions": [
+          "6.6.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.bubblesoft.android.bubbleupnp": [
+        "4.6.6"
+      ]
+    },
+    "dependencies": [
+      "Spoof install source",
+      "Spoof app signature"
+    ],
+    "description": "Unlocks BubbleUPnP licence by forcing the licence setter to always write true.",
+    "id": "2e454053c698ddb0784f18de:93",
+    "legacy_id": 1771,
+    "metadata_status": "verified",
+    "name": "Unlock Licence",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BubbleUPnP for DLNA/Chromecast",
+        "icon_url": "https://play-lh.googleusercontent.com/qxoyFbOy-IUt7LUndpSr1fw3XglKTIc9Pt5vPiVMhUa_HUMS1uW9qC0kJn0bYWK4kPBUDqq6zEYzs-j5EXT_",
+        "name": "com.bubblesoft.android.bubbleupnp",
+        "versions": [
+          "4.6.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.blockerhero": [
+        "1.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks lifetime subscription features in BlockerHero.",
+    "id": "2e454053c698ddb0784f18de:94",
+    "legacy_id": 1772,
+    "metadata_status": "verified",
+    "name": "Unlock Lifetime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BlockerHero - Content Blocker",
+        "icon_url": "https://play-lh.googleusercontent.com/Yyv_3i0BxSyJrH390mRiBJPkz3lwTkY1dAJDLh6ncgm1ztgWodQ55jfsJSsF5syEGdeBr9fZz2bwDcY8_gg6AQ",
+        "name": "com.blockerhero",
+        "versions": [
+          "1.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.proxyman.proxymanandroid": [
+        "1.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all Lifetime features in Proxyman.",
+    "id": "2e454053c698ddb0784f18de:95",
+    "legacy_id": 1773,
+    "metadata_status": "verified",
+    "name": "Unlock Lifetime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proxyman - Capture HTTPS",
+        "icon_url": "https://play-lh.googleusercontent.com/DfGml5bkf56G_Q3sOmQwGXOoixLShTs_-s1oDyTWawjAbFt3ej5WPFrAT2NnWMy9XkblegmgCcKwmZcNnskRnQ",
+        "name": "com.proxyman.proxymanandroid",
+        "versions": [
+          "1.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.adguard.android": [
+        "4.14.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all features locked behind the subscription paywall.",
+    "id": "2e454053c698ddb0784f18de:96",
+    "legacy_id": 1774,
+    "metadata_status": "verified",
+    "name": "Unlock Lifetime Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adguard.android",
+        "icon_url": null,
+        "name": "com.adguard.android",
+        "versions": [
+          "4.14.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.storymatrix.drama": [
+        "5.8.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks DramaBox VIP membershipNote: Use apk from Uptodown",
+    "id": "2e454053c698ddb0784f18de:97",
+    "legacy_id": 1775,
+    "metadata_status": "verified",
+    "name": "Unlock Membership",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "DramaBox - Stream Drama Shorts",
+        "icon_url": "https://play-lh.googleusercontent.com/GGi0g65ySR86svFuxny2J2FgfkTZuFlJcftmeAZ_bZ7sM86XfwUNL1h9omSyoRKha1c1-_BoFkUbyJz2VSXI",
+        "name": "com.storymatrix.drama",
+        "versions": [
+          "5.8.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.197.1.1801"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Moovit+ premium features, removes ads, and suppresses all upgrade paywalls and UI.",
+    "id": "2e454053c698ddb0784f18de:98",
+    "legacy_id": 1776,
+    "metadata_status": "verified",
+    "name": "Unlock Moovit+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.197.1.1801"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "au.com.shiftyjelly.pocketcasts": [
+        "8.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Pocket Casts Patron yearly feature checks.",
+    "id": "2e454053c698ddb0784f18de:99",
+    "legacy_id": 1777,
+    "metadata_status": "verified",
+    "name": "Unlock Patron",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pocket Casts - Podcast App",
+        "icon_url": "https://play-lh.googleusercontent.com/9VEAFZhJZgBzOnGXhSLqxwGt_11eQ4KBczz5UpaRGWK95z1isxCv4Xpp1T4gtCAtK6OlSBILVcbM9XaWaTK05hQ",
+        "name": "au.com.shiftyjelly.pocketcasts",
+        "versions": [
+          "8.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.life360.android.safetymapd": [
+        "26.31.6"
+      ]
+    },
+    "dependencies": [
+      "Fix Firebase after re-signing",
+      "Spoof app signature",
+      "Spoof install source"
+    ],
+    "description": "Unlocks Life360 Platinum feature in app.",
+    "id": "2e454053c698ddb0784f18de:100",
+    "legacy_id": 1778,
+    "metadata_status": "verified",
+    "name": "Unlock Platinum",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Life360: Family Safety & GPS",
+        "icon_url": "https://play-lh.googleusercontent.com/nQsrQf5cd6IeIhFTvVFjez12UiB1QTYYyX1UiVA448XkK--5jQYBhDuiMHtBOWrVnoldLTlnUN1x3AbCt4vflg",
+        "name": "com.life360.android.safetymapd",
+        "versions": [
+          "26.31.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.clue.android": [
+        "269.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces Clue Plus subscription active, unlocking all premium features.",
+    "id": "2e454053c698ddb0784f18de:101",
+    "legacy_id": 1779,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Clue: Period & Cycle Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/k6vuyDURLVvlHryevs4WdWeG5rqtUMYWqxz4rv-VQdI8Atf6k1xSBG2Vj8_OSqwDf3s8xB7y1dbjFvobP9bxaQ",
+        "name": "com.clue.android",
+        "versions": [
+          "269.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.spotangels.android": [
+        "15.2.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all SpotAngels Plus features in app",
+    "id": "2e454053c698ddb0784f18de:102",
+    "legacy_id": 1780,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SpotAngels Parking Map & Deals",
+        "icon_url": "https://play-lh.googleusercontent.com/ud7_eSQtO0lJe8P_svEttScCPMP1b7GTFhbyOh_HPOQKwDOB368hQbAGd8wCdHT-7hQiDLQWUREIyjGvAZ0cOA",
+        "name": "com.spotangels.android",
+        "versions": [
+          "15.2.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.snowcorp.stickerly.android": [
+        "3.37.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Sticker.ly Plus subscription. Note: For Facebook Login, uninstall the Facebook app first.",
+    "id": "2e454053c698ddb0784f18de:103",
+    "legacy_id": 1781,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sticker.ly - Sticker Maker",
+        "icon_url": "https://play-lh.googleusercontent.com/GDTdv4IhXcgZi5pXufGLXXa-AgXgkQiyv5sPJuChz6MN-ieBCOvY5P-9ChL_RldXL0IkO64gQ2WxoLxL13zZ6g",
+        "name": "com.snowcorp.stickerly.android",
+        "versions": [
+          "3.37.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "io.goodservice.theweekendest": [
+        "1.2.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Subway Now Plus.",
+    "id": "2e454053c698ddb0784f18de:104",
+    "legacy_id": 1782,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Subway Now: Live NYC Train Map",
+        "icon_url": "https://play-lh.googleusercontent.com/av9eXXziNDbeT8eubEph_TIfLVB53bPcusIVnbF7aCjMEA6bX_y0HITrfk9039DeK3siiVGgCCSzYuDRIpFS",
+        "name": "io.goodservice.theweekendest",
+        "versions": [
+          "1.2.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.aaenabler.app": [
+        "v1.0.12"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium installation features by bypassing the Firestore license check.",
+    "id": "2e454053c698ddb0784f18de:105",
+    "legacy_id": 1783,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.aaenabler.app",
+        "icon_url": null,
+        "name": "com.aaenabler.app",
+        "versions": [
+          "v1.0.12"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.digibites.accubattery": [
+        "2.1.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks AccuBattery Pro by bypassing server offer validity, the Google Play purchase gate, and all UI premium banners.",
+    "id": "2e454053c698ddb0784f18de:106",
+    "legacy_id": 1784,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Accu​Battery",
+        "icon_url": "https://play-lh.googleusercontent.com/CO5EuNTM6QRlBDKvC6PKneqRTt_aKynOeLmL9wI0nOCpBmdayO5pYxxHvHBwV9611JPapWha0al9OySPurxd",
+        "name": "com.digibites.accubattery",
+        "versions": [
+          "2.1.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.ace.ex.file.manager": [
+        "1.6.0.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features in app.",
+    "id": "2e454053c698ddb0784f18de:107",
+    "legacy_id": 1785,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "EX File Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/nz9hmHaHAynzg6g25uEqTkdjBNyCw3ojPPxW-IvVAH0Rf0OOZIxMu6acfVsciCP_0J2uPSdwaRIRW430tNjW9g",
+        "name": "com.ace.ex.file.manager",
+        "versions": [
+          "1.6.0.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.adobe.scan.android": [
+        "26.08.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium scanning and PDF tools in Adobe Scan.",
+    "id": "2e454053c698ddb0784f18de:108",
+    "legacy_id": 1786,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Adobe Scan AI PDF Scanner, OCR",
+        "icon_url": "https://play-lh.googleusercontent.com/4xN2UipKYDSBDuW0FKLJQ1tnhvgZyfnKj7rnoBJYhWHwUuOTMta3m-Dwc4Lo881wOIz8YUQiFY6XpcJF5h1r",
+        "name": "com.adobe.scan.android",
+        "versions": [
+          "26.08.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.onesports.score": [
+        "4.2.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks AiScore Premium Features in app.",
+    "id": "2e454053c698ddb0784f18de:109",
+    "legacy_id": 1787,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AiScore - Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/gGNfVnKkQgdX3pWzXQpnMcdVsJaNtYMTxJ8Ad8IFyiJqJGEd0v-DgVhdf6Wgje-DJJrGorMlt2KTzsPny4gQ",
+        "name": "com.onesports.score",
+        "versions": [
+          "4.2.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "alldocumentreader.office.viewer.filereader.pdfviewer": [
+        "3.2.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks All Reader premium features and removes ads.",
+    "id": "2e454053c698ddb0784f18de:110",
+    "legacy_id": 1788,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "All Document Reader:PDF Viewer",
+        "icon_url": "https://play-lh.googleusercontent.com/ukyw7ov7yMyPUhiudTMlZErtWgkoMLjsB2dwi5O_OTKDKU7jTrxwhQ4Vf0TAJLcPLibQ9wTZ_TG1RsxzD2y142M",
+        "name": "alldocumentreader.office.viewer.filereader.pdfviewer",
+        "versions": [
+          "3.2.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.gombosdev.ampere": [
+        "v4.37.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Remove Ads purchase in Ampere by bypassing the isProVersion getter and purchase verifier.",
+    "id": "2e454053c698ddb0784f18de:111",
+    "legacy_id": 1789,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Ampere",
+        "icon_url": "https://play-lh.googleusercontent.com/lcX9_HYNjEpWRkE2YN5d_HLLmSXI80F_EjSv0TIZ7o7gzLlzCbvzJH6d4CckX2RrEZtK77Zs0aPJB0fVwjZgRg",
+        "name": "com.gombosdev.ampere",
+        "versions": [
+          "v4.37.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "pro.vitalii.andropods": [
+        "1.5.30"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks AndroPods Pro: voice call integration, assistant control, ear detection auto-pause/resume, and all premium preferences.",
+    "id": "2e454053c698ddb0784f18de:112",
+    "legacy_id": 1790,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AndroPods - Airpods on Android",
+        "icon_url": "https://play-lh.googleusercontent.com/rkKIzZdciulWbRvZvw7hnlJ8Xb0qfl7mAm_qjmjwzRKiOwTIY6QL-4EWZ-vGe7-votZ3H6yvshzFs34oXjxN-co",
+        "name": "pro.vitalii.andropods",
+        "versions": [
+          "1.5.30"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "dev.dworks.apps.anexplorer": [
+        "6.0.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks AnExplorer Pro: hides paywall and removes all purchase gates.",
+    "id": "2e454053c698ddb0784f18de:113",
+    "legacy_id": 1791,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AnExplorer Share File Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/vTdVGEWefQrY2cT-5OZwGNLgfr6zVxavD1dMEcmuMjsfOL56GFa57AGLSnN_3lyn2KQjRgcf3XUhLvyAcTkI8Q",
+        "name": "dev.dworks.apps.anexplorer",
+        "versions": [
+          "6.0.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.jndapp.anime.depth.live.wallpaper": [
+        "1.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium wallpapers.",
+    "id": "2e454053c698ddb0784f18de:114",
+    "legacy_id": 1792,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anime Depth Wallpapers",
+        "icon_url": "https://play-lh.googleusercontent.com/jYmevEkyKdHZs_FSQEIRg8Ifxx4YU2-BQtso3Z0iQkMPM9w9ZkrOcbD7rys6Kq34t4Evufy1UVOgwwP0y4KKWc8",
+        "name": "com.jndapp.anime.depth.live.wallpaper",
+        "versions": [
+          "1.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.kin.athena": [
+        "1.80"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features in Athena by making Settings.getPremiumUnlocked() always return true.",
+    "id": "2e454053c698ddb0784f18de:115",
+    "legacy_id": 1793,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Athena: Firewall DNS AdBlocker",
+        "icon_url": "https://f-droid.org/repo/com.kin.athena/en-US/icon_wwkFMd7TrtQ-iV2dT8C0CA0MvXDWaLuMCIPVBAjzguM%3D.png",
+        "name": "com.kin.athena",
+        "versions": [
+          "1.80"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.llamalab.automate": [
+        "1.53.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 30 running statement limit and unlocks Automate premium features.",
+    "id": "2e454053c698ddb0784f18de:116",
+    "legacy_id": 1794,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Automate",
+        "icon_url": "https://play-lh.googleusercontent.com/5zKwrzhGPJzJzHibo1JUdFvDNWyy6zpfMjObSwvEN46khSGnH3e8GoCLy5KrC-H8ib6cWxC8z0nms-LmKxqTCA",
+        "name": "com.llamalab.automate",
+        "versions": [
+          "1.53.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.mk.awake": [
+        "1.10.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features in Awake by bypassing the RC entitlement check chain and the Pairip Play Licensing verification.",
+    "id": "2e454053c698ddb0784f18de:117",
+    "legacy_id": 1795,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Alarm Clock – Awake",
+        "icon_url": "https://play-lh.googleusercontent.com/sM8nsi70w7Iw4q6dIv3OqIbhgM7WQN7djYSaK480rThfhp7CiaNgOB98fKthkuFVTHBSKBYHV9PgUKpQzOF4Lg",
+        "name": "com.mk.awake",
+        "versions": [
+          "1.10.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.paget96.batteryguru": [
+        "2.5.0.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium and marks the yearly plan as purchased.",
+    "id": "2e454053c698ddb0784f18de:118",
+    "legacy_id": 1796,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Battery Guru: Battery Health",
+        "icon_url": "https://play-lh.googleusercontent.com/dGzjJqkvyNS6Iz4ze1YSaqTtzXu6PH8eiSVf56ALnykqigf9S_Sb36BvOA0xX_KVeUT8NJZDR20cIziK9nby",
+        "name": "com.paget96.batteryguru",
+        "versions": [
+          "2.5.0.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.sumyapplications.bluetooth.earphone": [
+        "7.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks BatteryPods Pro: removes all advertisements and enables premium features including all widget themes and device customization options.",
+    "id": "2e454053c698ddb0784f18de:119",
+    "legacy_id": 1797,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AirPods on Android",
+        "icon_url": "https://play-lh.googleusercontent.com/JX6vKXernce59eCJ033qXWqu3NDryxBp4Y_TuuCn3A9oWq_I_hL06FJQK1gYNOVrkOVr-cevOm04VREtBAVXtg",
+        "name": "com.sumyapplications.bluetooth.earphone",
+        "versions": [
+          "7.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "io.appground.blek": [
+        "6.23.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features including fullscreen mode and removes the Upgrade navigation item.",
+    "id": "2e454053c698ddb0784f18de:120",
+    "legacy_id": 1798,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Bluetooth Keyboard & Mouse",
+        "icon_url": "https://play-lh.googleusercontent.com/7af6nMnmHAjKu7IX-vxXT3FwsBOERHqt0_xEOoWLzSBtYRCaDA_yUwBbbIaEgZHEvN1syb1gZyopZ7qaZHrNzsI",
+        "name": "io.appground.blek",
+        "versions": [
+          "6.23.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.blocking.sites": [
+        "4.0.19"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features in Blocking Sites.",
+    "id": "2e454053c698ddb0784f18de:121",
+    "legacy_id": 1799,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BlockSite , Block porn ,BlockP",
+        "icon_url": "https://play-lh.googleusercontent.com/Cgv5XjCf0jeYgNL0f6wR0qFGmuEAdeJTc46HM0Ajmzt513fyN-KbY5wk1j8ZT0BLZjj59RplIcFSr41Swvqe_8Y",
+        "name": "com.blocking.sites",
+        "versions": [
+          "4.0.19"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "apps.automan.blurwallpaper": [
+        "2.9.6"
+      ]
+    },
+    "dependencies": [
+      "Disable License Check",
+      "Bypass PairIP License Check"
+    ],
+    "description": "Unlock Premium Features in app.",
+    "id": "2e454053c698ddb0784f18de:122",
+    "legacy_id": 1800,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BlurWall: blur wallpaper",
+        "icon_url": "https://play-lh.googleusercontent.com/u8FMhHkOY7PxrEesd6DyJYirSsH8EJpMr3soeFp6Ou8mYqkc8UXoxP7Fs2idOa4pXVVjmzWtbiMBA5-SW1on",
+        "name": "apps.automan.blurwallpaper",
+        "versions": [
+          "2.9.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.wellocution.androidapp": [
+        "4.6.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks BoldVoice premium subscription and removes upsell nags.",
+    "id": "2e454053c698ddb0784f18de:123",
+    "legacy_id": 1801,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BoldVoice - Accent Training",
+        "icon_url": "https://play-lh.googleusercontent.com/aI9iST-qg6yYNkWYnxBzvuG4lqV-QymRJCBswy3AXNJP1URYOe4OyZaLXB62k6KOLKtnrCRH9vlCc6HAJCTl6A",
+        "name": "com.wellocution.androidapp",
+        "versions": [
+          "4.6.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.calimoto.calimoto": [
+        "2026.08.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Calimoto LIFETIME membership by spoofing the membership getter.",
+    "id": "2e454053c698ddb0784f18de:124",
+    "legacy_id": 1802,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "calimoto Motorcycle Navigation",
+        "icon_url": "https://play-lh.googleusercontent.com/kKaoi4tJiGPOoaTERi8PbT-mFNNhbttLUun_ywr8AxFIj6BV35mnQEAYkcklGwVTPFrk2k4XjwnHQjYtCzQiXjw",
+        "name": "com.calimoto.calimoto",
+        "versions": [
+          "2026.08.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.catalinagroup.callrecorder": [
+        "2.4.281"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium Features In the App.",
+    "id": "2e454053c698ddb0784f18de:125",
+    "legacy_id": 1803,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Call Recorder - Cube ACR",
+        "icon_url": "https://play-lh.googleusercontent.com/dJwOASgiOu0tCod_WeCDjX9d_oJI9SuZpmtFlSP6ATA63hXM8pUxnTp1HCI9YK1jD5v2lQw3JSKEWatwDzPMQg",
+        "name": "com.catalinagroup.callrecorder",
+        "versions": [
+          "2.4.281"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.calm.android": [
+        "6.102"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Calm Premium: removes all subscription gates, upsell banners, video session locks, and content locks.",
+    "id": "2e454053c698ddb0784f18de:126",
+    "legacy_id": 1804,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Calm - Sleep, Meditate, Relax",
+        "icon_url": "https://play-lh.googleusercontent.com/Xkdn4M50zGD8JQk4jsNSAu_s5XaaPJDDTifjTi52R3lnKYYhva9mnNsxKG3rE2Ib-yspI90WWXrIqneMHlL0ag",
+        "name": "com.calm.android",
+        "versions": [
+          "6.102"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.funnmedia.calory": [
+        "3.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Calory Pro and removes ads.",
+    "id": "2e454053c698ddb0784f18de:127",
+    "legacy_id": 1805,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Calory - AI Calorie Counter",
+        "icon_url": "https://play-lh.googleusercontent.com/TXCHLJJ7dK8lLKptjcLyDdhHQQFd4uaLanntYSNHsSu0tYuo0goLBBbH_vSRGgRRZn4z6_6sz8EiHjc2zh2g",
+        "name": "com.funnmedia.calory",
+        "versions": [
+          "3.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.joincarbon.nutrition": [
+        "2.76.5966"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Carbon premium subscription.",
+    "id": "2e454053c698ddb0784f18de:128",
+    "legacy_id": 1806,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Carbon - Macro Coach & Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/xh_SCE1_93pOL_plTk450pnGx9uDxf2yhIaI_S4Ew0B8oTu9kde8mnTz5K0WDqIchUREMctKWdMErCpWNAxV",
+        "name": "com.joincarbon.nutrition",
+        "versions": [
+          "2.76.5966"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "cast.video.screenmirroring.casttotv": [
+        "2.5.4"
+      ]
+    },
+    "dependencies": [
+      "Spoof install source",
+      "Spoof app signature"
+    ],
+    "description": "Unlocks Cast to TV - XCast premium by forcing subscription and pro gates to return true.",
+    "id": "2e454053c698ddb0784f18de:129",
+    "legacy_id": 1807,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Cast to TV, Chromecast & Roku",
+        "icon_url": "https://play-lh.googleusercontent.com/LkMADlrPNVXnrnUKPzfnvJ2cNn48f_UJhMrN_wTUqWRY80GQvkRrb4P6CAGKBHMjtrBL6SKJVq_gGf_bXRWuxw",
+        "name": "cast.video.screenmirroring.casttotv",
+        "versions": [
+          "2.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "dev.km.android.chargemeter": [
+        "3.0.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Charge Meter premium features.",
+    "id": "2e454053c698ddb0784f18de:130",
+    "legacy_id": 1808,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Charge Meter",
+        "icon_url": "https://play-lh.googleusercontent.com/bQDgmBCZoMRRfkHMF3nzolNptg0joJ9eGqtdyb72U0Sapk85I_nR9Mt6bAwjVZEpNr1qOmz4PXeYRdZqgxMFd4E",
+        "name": "dev.km.android.chargemeter",
+        "versions": [
+          "3.0.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.socialnmobile.dictapps.notepad.color.note": [
+        "4.8.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks ColorNote premium by forcing license validity and subscription checks to return true.",
+    "id": "2e454053c698ddb0784f18de:131",
+    "legacy_id": 1809,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ColorNote Notepad Notes",
+        "icon_url": "https://play-lh.googleusercontent.com/IoYdXZ5Z9ooJ7QoQA4LOACcrXhndg3nBZgy81s4UmxuQUoXB-gwAlGXyf1qFrYxTXxGsFE6jFwYuFXWJe0InYnw",
+        "name": "com.socialnmobile.dictapps.notepad.color.note",
+        "versions": [
+          "4.8.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "me.gira.widget.countdown": [
+        "3.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features in Countdown Widget",
+    "id": "2e454053c698ddb0784f18de:132",
+    "legacy_id": 1810,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Countdown Widget・Countdown app",
+        "icon_url": "https://play-lh.googleusercontent.com/HokfhECvtC_R0iahgMtOk2fnDgV1rp51CDM-27oorsydZsFdgbGcMddVUladDRs94ceBSacp_rpIXAGrMbuMy7I",
+        "name": "me.gira.widget.countdown",
+        "versions": [
+          "3.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.cpuid.cpu_z": [
+        "1.60"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features in app.",
+    "id": "2e454053c698ddb0784f18de:133",
+    "legacy_id": 1811,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CPU-Z",
+        "icon_url": "https://play-lh.googleusercontent.com/ZrHa04Sd63PqJNHlvpCz8K94AKdmqDmCacf6iQ0rBZs4s7JmcevoetuduWsRo3S3SC0DIDh273mwU_P0gSc2cQ",
+        "name": "com.cpuid.cpu_z",
+        "versions": [
+          "1.60"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": [
+        "26.36.1"
+      ]
+    },
+    "dependencies": [
+      "Spoof install source",
+      "Spoof app signature"
+    ],
+    "description": "Unlocks CrimeRadar premium subscription, raises followed locations limit, removes ads, and disables PairIP licence checks.",
+    "id": "2e454053c698ddb0784f18de:134",
+    "legacy_id": 1812,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CrimeRadar: Dispatch Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/3b7_a7m50wFj68Afd6q0bhq2HPTWQlgeViv9B9tEbhChS3h4nVTo-HotZF4OmShKwT2_zhNAr3alwYRWBjiC_g",
+        "name": "com.newsbreak.crimeradar",
+        "versions": [
+          "26.36.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.eterno": [
+        "34.0.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features after login.",
+    "id": "2e454053c698ddb0784f18de:135",
+    "legacy_id": 1813,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Dailyhunt - News & Magazines",
+        "icon_url": "https://play-lh.googleusercontent.com/gQO-QGyxpIHxi2BpUbz00wwssXNO1qIpEkafN8FrxJi0wiD4ZiKT4KYFcUFLI2DvyrS_vV0UGXY0WRt612t3",
+        "name": "com.eterno",
+        "versions": [
+          "34.0.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.jndapp.depth.live.wallpaper": [
+        "2.1.06"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium wallpapers.",
+    "id": "2e454053c698ddb0784f18de:136",
+    "legacy_id": 1814,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Depth Wallpapers & Live Clock",
+        "icon_url": "https://play-lh.googleusercontent.com/h9g140jbgc6tR6o2VgL2lF0OYTr8cq2n9x_GihS_Toxe3PioggBfXHzIwM2OeNeEyWHfZFpqoMov5Whdm_qMeg",
+        "name": "com.jndapp.depth.live.wallpaper",
+        "versions": [
+          "2.1.06"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.driverlicenseapp": [
+        "4.5.78"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Driver's Ed premium features by patching the Flutter subscription gate.",
+    "id": "2e454053c698ddb0784f18de:137",
+    "legacy_id": 1815,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Zutobi: Permit & Driving Prep",
+        "icon_url": "https://play-lh.googleusercontent.com/pSj6PbRxSk3GnAsKavgmP2WZ08khY-SWmEpFwIs-jQLdBaacboM2nRCXYAdaW5Tr56AgZHUklUwdKuWig770",
+        "name": "com.driverlicenseapp",
+        "versions": [
+          "4.5.78"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.mahersafadi.electron": [
+        "3.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Electron premium features",
+    "id": "2e454053c698ddb0784f18de:138",
+    "legacy_id": 1816,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Electron: battery health info",
+        "icon_url": "https://play-lh.googleusercontent.com/0t-xeeDB6UuldF-nGTXFlE1Yvzm1NVBx-bYdnVYCdMfIyyT0niQNLa9dYLketH9ESOpeF4YzuihgI_Mz6SnlgQ",
+        "name": "com.mahersafadi.electron",
+        "versions": [
+          "3.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.alphainventor.filemanager": [
+        "3.8.2"
+      ]
+    },
+    "dependencies": [
+      "Spoof install source",
+      "Spoof app signature"
+    ],
+    "description": "Unlocks all File Manager premium features by bypassing the RSA license token verification.",
+    "id": "2e454053c698ddb0784f18de:139",
+    "legacy_id": 1817,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "File Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/ks-rS8x71PjjK3fRF6bqtkarpsczS6hiErvgmK2Y0uivOjYxZjPMoyZhagZiiM8Y5mu2pjyX_UwHP9OmmXRWGGQ",
+        "name": "com.alphainventor.filemanager",
+        "versions": [
+          "3.8.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.fitbod.fitbod": [
+        "8.33.0-0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all Fitbod premium features.",
+    "id": "2e454053c698ddb0784f18de:140",
+    "legacy_id": 1818,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Fitbod: Workout & Gym Planner",
+        "icon_url": "https://play-lh.googleusercontent.com/bHwuoAEtZW40k3A15ya6of1_p930CXTXGNy01ybT3ICFciBum0PLnIfWjwWFk2iiKsSXdusVQTOckn7rTMREBA",
+        "name": "com.fitbod.fitbod",
+        "versions": [
+          "8.33.0-0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.nutrition.technologies.Fitia": [
+        "26.0.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all Fitia premium features by permanently reporting an active subscription.",
+    "id": "2e454053c698ddb0784f18de:141",
+    "legacy_id": 1819,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Fitia: Calorie Counter & Diet",
+        "icon_url": "https://play-lh.googleusercontent.com/mJGJbyI6KAfa4RfGX2uehPoceAl1abtme6J8WcqxhOkuUkQcZbq1MKZpSTkToMusytCpA-uf1_D21JrSHiInEA",
+        "name": "com.nutrition.technologies.Fitia",
+        "versions": [
+          "26.0.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.live.flight.tracker": [
+        "1.7.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features in app.",
+    "id": "2e454053c698ddb0784f18de:142",
+    "legacy_id": 1820,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flightsky: Flight Tracker 3D",
+        "icon_url": "https://play-lh.googleusercontent.com/ux2S5buGvoSF7fOTJDgQ-rJz9XVsdj2WLA1cyy_Isuyo8XjFLcdW0gsVmvngkvytghOslSNmeJmoPNsdlUGg",
+        "name": "com.live.flight.tracker",
+        "versions": [
+          "1.7.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.kajda.fuelio": [
+        "10.3.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Fuelio Premium, restores Google Maps, and suppresses the Limited Promo paywall banner for unlocked users.",
+    "id": "2e454053c698ddb0784f18de:143",
+    "legacy_id": 1821,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Fuelio: gas log & gas prices",
+        "icon_url": "https://play-lh.googleusercontent.com/FqW89BfvQ0A29tY1OrmDZNqDw5dX0mt3qUwPf6HxcoEvomRwZphlBC54bSEK8DAhIwnXK7XGyHwoL3Od-ZuTPg",
+        "name": "com.kajda.fuelio",
+        "versions": [
+          "10.3.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.alexandrucene.dayhistory": [
+        "7.5.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features in Historical Calendar by forcing the isPremium gate to return true.",
+    "id": "2e454053c698ddb0784f18de:144",
+    "legacy_id": 1822,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Historical Calendar",
+        "icon_url": "https://play-lh.googleusercontent.com/wyJ9Mw4u63ai7NKa30_Dq1At7dFKuI4-IeAmM3qGcMvTh5wlpbq784B7qYBlJ2Q-EL6kop0W-IGB0maQq2XBGIo",
+        "name": "com.alexandrucene.dayhistory",
+        "versions": [
+          "7.5.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "org.hola.play": [
+        "AARCH64_1.248.400"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "2e454053c698ddb0784f18de:145",
+    "legacy_id": 1823,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hola VPN: Fast, Free VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/0XpdhvjM2TUxAD4pDvp-Bd9OHRNfkfnO5iRDLEKyyjj9cnmvjYb8kH5vhVASlXSRgjHKDTgncioNqhb3Hunxew",
+        "name": "org.hola.play",
+        "versions": [
+          "AARCH64_1.248.400"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "eu.duong.imagedatefixer": [
+        "3.7.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features in Image & Video Date Fixer.",
+    "id": "2e454053c698ddb0784f18de:146",
+    "legacy_id": 1824,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Image & Video Date Fixer",
+        "icon_url": "https://play-lh.googleusercontent.com/5yrcFUp58N6fI5bNm4oD6Z44fU1ZpyjCfSn49BrSU-tTQ6yW2bb7Mromn9OFk3RwWjeb-y3m4OiWsWArIRuV",
+        "name": "eu.duong.imagedatefixer",
+        "versions": [
+          "3.7.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.inscode.autoclicker": [
+        "7.1.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features in Clickmate by bypassing the purchase check.",
+    "id": "2e454053c698ddb0784f18de:147",
+    "legacy_id": 1825,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Clickmate - Auto Clicker Macro",
+        "icon_url": "https://play-lh.googleusercontent.com/qPBtAmkh80PDy1ExUH4aafQVJ0zl9rNr5Lj2SJm3RJDJkjyd6tDEozuw-s1nGlXMZci83H27x7SCYey3vxVRDmc",
+        "name": "com.inscode.autoclicker",
+        "versions": [
+          "7.1.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.nexstreaming.app.kinemasterfree": [
+        "8.1.13.36552.GP"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock Premium features after login.",
+    "id": "2e454053c698ddb0784f18de:148",
+    "legacy_id": 1826,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KineMaster - AI Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/Jc_gKnGxM5p4_FuWQ_v2k6HlMaCcExeIDt--PkcWrLj_VQ2OyMPhDaycC1s9wG3yOwjviVA4M1go0O-foAx0",
+        "name": "com.nexstreaming.app.kinemasterfree",
+        "versions": [
+          "8.1.13.36552.GP"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "de.komoot.android": [
+        "2026.37.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features and all map packs.",
+    "id": "2e454053c698ddb0784f18de:149",
+    "legacy_id": 1827,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "komoot - hike, bike & run",
+        "icon_url": "https://play-lh.googleusercontent.com/IyQKMI6etTvtjEv6pSzQ4TnTlfKWbwT39vQMO4vpBlzQJfGKdA9zZ38sOXtt0yuZbwJBdKoP_RNPZnQiTuaceg",
+        "name": "de.komoot.android",
+        "versions": [
+          "2026.37.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.dywx.larkplayer": [
+        "2026.12.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features in app.",
+    "id": "2e454053c698ddb0784f18de:150",
+    "legacy_id": 1828,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lark Player:Music Player & MP3",
+        "icon_url": "https://play-lh.googleusercontent.com/R9N82-_YF9nBKiJrelXqDhIAkTsRGXbr7wSZAKRp9G_If69LgSbHgGeaQC8EWCi9ln9o2rQSP_ww66K9Bm3w",
+        "name": "com.dywx.larkplayer",
+        "versions": [
+          "2026.12.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.lawfully.lawfully_ai_tracker": [
+        "6.8.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium Features in app.",
+    "id": "2e454053c698ddb0784f18de:151",
+    "legacy_id": 1829,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lawfully Case Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/kJWGpOSNuSksksG3G0II-7GLqP5FrrrdExJmsqe-U1-z0jS73Ir_N8yCcqvuZKSFP_Sm_oO8-vv7AQpve_Hwv3Q",
+        "name": "com.lawfully.lawfully_ai_tracker",
+        "versions": [
+          "6.8.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "cz.seznam.mapy": [
+        "26.8.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium features in app after login.",
+    "id": "2e454053c698ddb0784f18de:152",
+    "legacy_id": 1830,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Mapy.com: Offline Outdoor Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/HDxpj_c6Nhf7wDAErKy6JknknJQLthDi4HKx1PRQno2RD28iuBv0b2eRcm1ZEdy_2r4FindeqVsdCU_5m1Bcbwc",
+        "name": "cz.seznam.mapy",
+        "versions": [
+          "26.8.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.pryshedko.materialpods": [
+        "6.70"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all pro features.",
+    "id": "2e454053c698ddb0784f18de:153",
+    "legacy_id": 1831,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MaterialPods: AirPods battery",
+        "icon_url": "https://play-lh.googleusercontent.com/UoW5uw07ZrwZQdwC8K1Ze9Vx4VcFH9DK94Bj83SWJ8_HYVaPvmV8p8fZ6LwTIY1qIqiXmkNjPluNhUeKfH3EWw",
+        "name": "com.pryshedko.materialpods",
+        "versions": [
+          "6.70"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.meteoblue.droid": [
+        "Cirrus Uncinus 3.0.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all meteoblue Weather premium features by making the billing repository always report an active purchase.",
+    "id": "2e454053c698ddb0784f18de:154",
+    "legacy_id": 1832,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Weather forecast & live radar",
+        "icon_url": "https://play-lh.googleusercontent.com/aRrPlWJYcFL6mw-VragMuFVVPU4iRiwRIEpKjHGPrXvU9g8F0-DoTnKo1Z-g1Zd4n0s0l37XTOdNVfBXCx2HVA",
+        "name": "com.meteoblue.droid",
+        "versions": [
+          "Cirrus Uncinus 3.0.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.jndapp.minimal.widgets": [
+        "2.1.04"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock all premium widgets.",
+    "id": "2e454053c698ddb0784f18de:155",
+    "legacy_id": 1833,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Minimal Widgets",
+        "icon_url": "https://play-lh.googleusercontent.com/YdxN2n40wSiPp-WZi832aZHxGFQSafDcHqNif-Wy9YH__t2nCXoB5yGaCQkisJaHWe13H37lI_olM7sKsfONBg",
+        "name": "com.jndapp.minimal.widgets",
+        "versions": [
+          "2.1.04"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "it.mirko.beta": [
+        "0.11.0"
+      ]
+    },
+    "dependencies": [
+      "Disable PairIP license check"
+    ],
+    "description": "Unlocks premium in Beta by Mirko by disabling the ads gate and PairIP license checks.",
+    "id": "2e454053c698ddb0784f18de:156",
+    "legacy_id": 1834,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Beta Maniac",
+        "icon_url": "https://play-lh.googleusercontent.com/BrdhfbHiJ47JW89QvMYuEQiWOX6yLFMYWSqZBVHmJ9os9U3eWb_2WotwozQJ58fwnLo3tkpnJkgp0T-Dbss",
+        "name": "it.mirko.beta",
+        "versions": [
+          "0.11.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.mobisystems.office": [
+        "16.5.60515"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks MobiOffice premium and removes ads.",
+    "id": "2e454053c698ddb0784f18de:157",
+    "legacy_id": 1835,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MobiOffice: Word, Sheets, PDF",
+        "icon_url": "https://play-lh.googleusercontent.com/zrx4obX-smDllWz6sQr3hbg1QyodgMT_AJcbOOQJNsE-7XE-UdQsV86JXI5QZY5IjHooUBa_ASJcO_HWsdc5FCA",
+        "name": "com.mobisystems.office",
+        "versions": [
+          "16.5.60515"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.klevico.monet": [
+        "v1.0.76"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all Monet Launcher premium features by forcing the billing cache to always report premium as active.",
+    "id": "2e454053c698ddb0784f18de:158",
+    "legacy_id": 1836,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Monet Launcher - Android TV",
+        "icon_url": "https://play-lh.googleusercontent.com/qilaYgIXD0DmeK_53AGSb1rcOgnQjMNXaJgOehS9Q1CtwCFiP-0dCKVvXW5WRZp4vM4KKvN5s3u7IV67vTdXNa0",
+        "name": "com.klevico.monet",
+        "versions": [
+          "v1.0.76"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.acmeaom.android.myradar": [
+        "8.73.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks MyRadar's yearly premium features",
+    "id": "2e454053c698ddb0784f18de:159",
+    "legacy_id": 1837,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MyRadar Weather Radar",
+        "icon_url": "https://play-lh.googleusercontent.com/F52HuW1lgyBoNYlpzGOuO-Zj6rCXLOIFfv7nOCzpZUxRJU_87AK_T3gcv9T5BRIXJYBJcdEuFnnTIT4I8j8b",
+        "name": "com.acmeaom.android.myradar",
+        "versions": [
+          "8.73.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "cz.mroczis.netmonster": [
+        "3.4.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "2e454053c698ddb0784f18de:160",
+    "legacy_id": 1838,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NetMonster",
+        "icon_url": "https://play-lh.googleusercontent.com/CqbD-BOBTN64AVq7YWKJZ2z-Oc42aNcpR9zZnLrkthY3BwfXd17nbGn-2y3AQwS-q5Xz8-lmTBwQ7nESyHl2lQ",
+        "name": "cz.mroczis.netmonster",
+        "versions": [
+          "3.4.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.particlenews.newsbreak": [
+        "26.37.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks NewsBreak Premium: ad-free reading, premium article access, and Reading Mode.",
+    "id": "2e454053c698ddb0784f18de:161",
+    "legacy_id": 1839,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NewsBreak: Local News & Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/i8olqrWdwlz5FwqujfNFdV-VELjIxBTZufvaTws8cgkaJUZCBIKGpiFgYn2B5-FUtxEdsm9qVagY17T7LUGVtg",
+        "name": "com.particlenews.newsbreak",
+        "versions": [
+          "26.37.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.particlenews.newsbreaklite": [
+        "26.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks NewsBreak Lite Premium: ad-free reading, premium article access, and Reading Mode.",
+    "id": "2e454053c698ddb0784f18de:162",
+    "legacy_id": 1840,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NewsBreak Lite",
+        "icon_url": "https://play-lh.googleusercontent.com/AQznXH_9FKZchPQqlZmnGDwFvcO9Cn5hVMUJAjH8SCvSdVW6LrzScA91YJL2q2zytdMwRi_9uAzknf5_rQEEXQ",
+        "name": "com.particlenews.newsbreaklite",
+        "versions": [
+          "26.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "app.ninjavpn.android": [
+        "1.4.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Ninja VPN premium.",
+    "id": "2e454053c698ddb0784f18de:163",
+    "legacy_id": 1841,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Ninja VPN - Fast & Secure VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/Z10nyQkvnKpejvNvZ7LS3xXzZNRqq-nXAMiorVg8Ciyp87u2A8vIfgKbukMOZ-shf2i1OZUGkVJDmlhIDg8chg",
+        "name": "app.ninjavpn.android",
+        "versions": [
+          "1.4.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "ai.metaverselabs.obdandroid": [
+        "4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features including advanced diagnostics, live sensor data, freeze frame, and removes the daily usage quota.",
+    "id": "2e454053c698ddb0784f18de:164",
+    "legacy_id": 1842,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "OBD2 Scanner: Torque & FixD",
+        "icon_url": "https://play-lh.googleusercontent.com/Q64PixunDIiph11XoEuVXE9z4wU09So-9P7xixeNSvK9v_Mde8BoUsgB8hQ1jQXsA8o4VkrgKeYW8I7WmgVuzds",
+        "name": "ai.metaverselabs.obdandroid",
+        "versions": [
+          "4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.brightstripe.parcels": [
+        "3.0.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock premium features.",
+    "id": "2e454053c698ddb0784f18de:165",
+    "legacy_id": 1843,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Parcels: Track Online Orders",
+        "icon_url": "https://play-lh.googleusercontent.com/0CDcWcVJbaIhudQ95OeUySIuRZuPfvHY8z-xuCXjwW6WQMitwUr4Iy3jjGWqZMXqIT2k0sWmeiLmFOhqXno1",
+        "name": "com.brightstripe.parcels",
+        "versions": [
+          "3.0.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "fr.tramb.park4night": [
+        "7.1.62"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Park4Night premium (Pro) access, removing all feature gates for offline maps, advanced filters, and publisher content.",
+    "id": "2e454053c698ddb0784f18de:166",
+    "legacy_id": 1844,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "park4night - Motorhome camper",
+        "icon_url": "https://play-lh.googleusercontent.com/BwBPqdRT0ibqDIF_38u-LZD55vx8IXJ19T8uJcoIzrGgsr1kJUKOJpfWX3dKKK6E4Q3QaTT2xG7TlCOvdOWC",
+        "name": "fr.tramb.park4night",
+        "versions": [
+          "7.1.62"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.monect.portable": [
+        "8.3.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features after login.",
+    "id": "2e454053c698ddb0784f18de:167",
+    "legacy_id": 1845,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "PC Remote",
+        "icon_url": "https://play-lh.googleusercontent.com/VkJnnrOeX3e6gG3irUBGWg8ekOPoc7VE8Atz-8Kbsf16s45lMmPCznLY25GKuJ1dO8XO2Xx5_svGABPw2C9H",
+        "name": "com.monect.portable",
+        "versions": [
+          "8.3.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "2e454053c698ddb0784f18de",
+    "compatiblePackages": {
+      "com.iudesk.android.photo.editor": [
+        "14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all Photo Editor premium features and removes ads by bypassing the software license cache check.",
+    "id": "2e454053c698ddb0784f18de:168",
+    "legacy_id": 1846,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photo Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/2n2H30gUwyIKaYp0c2Nr9btyFVJBxREps11WCl6U5xlWaHPvbA3IZD4GwfFlFXgt8jsoS2BtCu1MBkS70_gLuQ",
+        "name": "com.iudesk.android.photo.editor",
+        "versions": [
+          "14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.22.0",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  }
+]
