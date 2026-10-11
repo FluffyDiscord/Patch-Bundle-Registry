@@ -1,0 +1,49 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-11T04:10:46Z",
+  "description": "## [1.7.0](https://github.com/kveld9/kveld-extra-morphe-patches/compare/v1.6.0...v1.7.0) (2026-10-11)\n\n### Bug Fixes\n\n* **deps:** resolve fixable Dependabot alerts via lockfile update ([3e9c2d1](https://github.com/kveld9/kveld-extra-morphe-patches/commit/3e9c2d1221b4590c5c1d82ba48d31cebdbd306c5))\n* **instagram:** correct AR asset byte accounting in Instagram guide ([6ea22d1](https://github.com/kveld9/kveld-extra-morphe-patches/commit/6ea22d1298f01b22aa7fb7f42d63c67fdd834e0b))\n* **instagram:** report sub-KB savings in exact bytes in slimmer telemetry ([0a3f9c8](https://github.com/kveld9/kveld-extra-morphe-patches/commit/0a3f9c870879cee058cdf41eee9ab39856ae4842))\n* **instagram:** use neutral completion message in crash-diagnostics parent patch ([ff4ce9b](https://github.com/kveld9/kveld-extra-morphe-patches/commit/ff4ce9bc6d82b1b2b9b6371744996f5eaf9f1908))\n* **twitter:** suppress promoted items across all timeline surfaces in Remove Ads ([4579ce7](https://github.com/kveld9/kveld-extra-morphe-patches/commit/4579ce72055f95fc6e251d90a6ec00474a9623f1))\n* **twitter:** validate custom domain before Smali interpolation ([ee26cac](https://github.com/kveld9/kveld-extra-morphe-patches/commit/ee26cac17e4210833154fb07dc7f0637700f109b))\n\n### New Features\n\n* **instagram:** add opt-in AR effects slimmer ([e2a0c3d](https://github.com/kveld9/kveld-extra-morphe-patches/commit/e2a0c3d66d5997504e9e5338ec4ba06c2786b891))\n* **instagram:** add opt-in Breakpad native slimmer ([2769304](https://github.com/kveld9/kveld-extra-morphe-patches/commit/27693047e19a0c8d9fa94ddbd3d528f8fa7cf216))\n* **instagram:** block crash diagnostics via manifest purge ([ec6004b](https://github.com/kveld9/kveld-extra-morphe-patches/commit/ec6004bea4b980d517aa5f9c109966aed5a1268e))\n* **twitter:** add block update screen patch ([cd08edc](https://github.com/kveld9/kveld-extra-morphe-patches/commit/cd08edc4abc81d67ee7680cd8c4b4cc6a2891094))\n* **twitter:** add control video auto scroll patch ([f41848d](https://github.com/kveld9/kveld-extra-morphe-patches/commit/f41848d60950bea77310650af25533e9adf5ef74))\n* **twitter:** add customize UI patch with navigation toggles ([068de49](https://github.com/kveld9/kveld-extra-morphe-patches/commit/068de49119914f5d217ba51c01be102f31eadfc6))\n* **twitter:** add hide discover more patch for reply threads ([1d2c430](https://github.com/kveld9/kveld-extra-morphe-patches/commit/1d2c430898c90c40836a60267ee9603a31a3293d))\n* **twitter:** add hide elements patch with served-UI toggles ([f4e4f48](https://github.com/kveld9/kveld-extra-morphe-patches/commit/f4e4f488dad0e2ee6ccf7d40847eda18934896a8))\n* **twitter:** add share links patch with custom domain option ([187fd8b](https://github.com/kveld9/kveld-extra-morphe-patches/commit/187fd8bb50a6aad90d2cdb6096a85152b6d11b97))\n* **twitter:** add show sensitive media patch ([b4a7ebd](https://github.com/kveld9/kveld-extra-morphe-patches/commit/b4a7ebd44a75a6cf5e7665eb8b1722b62c7da815))\n",
+  "download_url": "https://github.com/kveld9/kveld-extra-morphe-patches/releases/download/v1.7.0/patches-1.7.0.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": "sha256:758ce96971b263e2bb221f7913c7f3e794167a2dc86f9e2adb928e2a9408ccc4",
+  "extraction_status": "verified",
+  "extraction_terminal": false,
+  "file_hash": "758ce96971b263e2bb221f7913c7f3e794167a2dc86f9e2adb928e2a9408ccc4",
+  "id": "d545e19dcda73b5887a8a04e",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fkveld9%2Fkveld-extra-morphe-patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fkveld9%2Fkveld-extra-morphe-patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 8614,
+  "metadata_status": "verified",
+  "need_patches_update": false,
+  "packages": [
+    "com.adobe.lrmobile",
+    "com.instagram.android",
+    "com.lemon.lvoverseas",
+    "com.microsoft.office.officehubrow",
+    "com.microsoft.office.powerpoint",
+    "com.tranzmate",
+    "com.twitter.android"
+  ],
+  "patch_count": 55,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v1.7.0",
+  "patch_refresh_attempted_at": "2026-10-11T06:01:55.944540270Z",
+  "patcher_failure_config_hash": "a151ae567e727be36a6a65d2257453e853668ae202dcf6dd3bd1eee9ee4c1800",
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": "app.morphe:morphe-patcher:1.14.1",
+  "provider_digest": "sha256:758ce96971b263e2bb221f7913c7f3e794167a2dc86f9e2adb928e2a9408ccc4",
+  "release_status": "unverified",
+  "release_url": "https://github.com/kveld9/kveld-extra-morphe-patches/releases/tag/v1.7.0",
+  "signature_download_url": "N/A",
+  "source_id": "3e350530cd31ae24",
+  "version": "v1.7.0"
+}
