@@ -127,7 +127,8 @@ test("current generated catalog serves REST through a mocked Pages origin", asyn
   const result = await call({ env }, "/sources?limit=3");
   assert.equal(result.response.status, 200);
   assert.equal(result.body.data.length, 3);
-  assert(result.body.total >= 400);
+  const manifest = JSON.parse(await readFile(new URL("manifest.json", root), "utf8"));
+  assert.equal(result.body.total, manifest.counts.sources);
 });
 
 test("nested bundle/source relationship filters use indexed packages", async () => {
