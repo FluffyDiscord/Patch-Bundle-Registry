@@ -1,0 +1,4120 @@
+[
+  {
+    "bundle_id": "45d7eefb6758ccc665c04291",
+    "compatiblePackages": null,
+    "dependencies": [
+      "PairIP Compatibility Diagnostics (internal)"
+    ],
+    "description": "Merged experimental PairIP bypass for common legacy, V2, and V3 protection layouts.\nAutomatic mode applies compatible strategies through the selected risk level; disable it to\ntest individual strategies. Manual strategies remain disabled by default and are independent\nof the automatic risk level.\n\nThis patch is experimental and app-dependent. It does not bypass server-side Play Integrity,\nserver-side licensing, or other server-side enforcement.\n\nCompatibility: cloned APKs can still fail when PairIP or a server binds entitlement to the\noriginal package or signing certificate. Firebase component removal can break Firebase Auth,\nGoogle Play Games, billing, analytics, and ad rewards. Device spoofing can also change apps'\ndevice-integrity behavior. These identity and server-side conditions cannot be fixed safely\nby combining PairIP Bypass with Custom App Output, Ads Block Patch, or Emulator Detection.\n\nCompatibility: when combining this patch with Universal Overlay, the shared overlay startup\nbridge is preserved. PairIP Application redirect and Application.onCreate bypass strategies\nmay be skipped if they would make that bridge unreachable. If combining this patch with\nCustom App Output, apply package cloning only when package- or certificate-bound services\nare not required.\n\nThis enhanced patch is a merged product of the PairIP bypass patches from the credited\ndevelopers, with improvements for broader functionality, safer strategy selection, and usability.\n\nCredits: Nai64Patches from Nai64, Entree, kondratjev, and rushiranpise (Doom).",
+    "id": "45d7eefb6758ccc665c04291:10",
+    "legacy_id": 22010,
+    "metadata_status": "verified",
+    "name": "PairIP Bypass Patch (Experimental, Enhanced)",
+    "options": [
+      {
+        "default": true,
+        "description": "Apply compatible PairIP strategies according to the risk level below. Turn this off to test individual strategies. Firebase cleanup and FULL_CHECK_OK always require their own manual switch.",
+        "key": "automaticStrategySelection",
+        "required": false,
+        "title": "Quick setup > Automatic mode > Enable",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "lowMedium",
+        "description": "Choose the highest risk automatic mode may use. Manual strategies are unaffected. Even High does not enable Firebase cleanup/removal or FULL_CHECK_OK; those are always manual-only.",
+        "key": "automaticRiskLevel",
+        "required": false,
+        "title": "Quick setup > Automatic mode > Risk level",
+        "type": "kotlin.String",
+        "values": {
+          "Low Risk Strategies": "low",
+          "Low and Med Risk Strategies": "lowMedium",
+          "Low, Med, and High Risk Strategies": "all"
+        }
+      },
+      {
+        "default": false,
+        "description": "Do not modify the APK. The patch log reports detected PairIP generations, native-core ABIs, compatible strategy groups, and unavailable groups. Use this before trying manual strategies on an unsupported app.",
+        "key": "pairipDiagnosticOnly",
+        "required": false,
+        "title": "Quick setup > Automatic mode > Diagnostic-only mode",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Apply only selected or automatic PairIP manifest strategies, then skip all bytecode changes. This is a conservative first test and does not automatically enable Firebase cleanup.",
+        "key": "pairipManifestOnlyMode",
+        "required": false,
+        "title": "Quick setup > Automatic mode > Manifest-only first attempt",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Never enabled by automatic mode. Add metadata switches that stop Analytics, Messaging, Crashlytics, and Performance from auto-starting. Use only for a Firebase startup crash; this can affect notifications, Play Games, Auth, billing, and ad rewards.",
+        "key": "disableFirebase",
+        "required": false,
+        "title": "Manual-only > Firebase compatibility > Disable Firebase auto-init metadata",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Never enabled by automatic mode. Remove Firebase measurement providers, receivers, and services. High compatibility risk: leave off for Play Games, Auth, billing, sign-in, and ad rewards.",
+        "key": "pairipRemoveFirebaseMeasurementComponents",
+        "required": false,
+        "title": "Manual-only > Firebase compatibility > Remove Firebase measurement components",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Replace the PairIP Application wrapper with the discovered real application class.",
+        "key": "applicationRedirectStrategy",
+        "required": false,
+        "title": "Strategy controls > Manifest > Redirect Application (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove PairIP license activities, provider, and CHECK_LICENSE permission from AndroidManifest.xml.",
+        "key": "manifestCleanupStrategy",
+        "required": false,
+        "title": "Strategy controls > Manifest > Remove PairIP entries (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseClient.startErrorDialogActivity().",
+        "key": "pairipLicenseClientStartErrorDialog",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseClient error dialog (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseActivity.showErrorDialog().",
+        "key": "pairipLicenseActivityShowErrorDialog",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity error dialog (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseActivity.logAndShowErrorDialog().",
+        "key": "pairipLicenseActivityLogAndShowErrorDialog",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress logged error dialog (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Return null from LicenseResponseHelper.getRepeatedCheckMetadata().",
+        "key": "pairipLicenseResponseHelperGetRepeatedCheckMetadata",
+        "required": false,
+        "title": "Strategy controls > Response checks > Remove repeated-check metadata (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable V2 repeated license-check scheduling.",
+        "key": "pairipV2ScheduleRepeatedLicenseCheck",
+        "required": false,
+        "title": "Strategy controls > PairIP V2 > Disable repeated checks (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Force LicenseClient.repeatedCheckEnabled reads to false.",
+        "key": "pairipRepeatedCheckEnabledRead",
+        "required": false,
+        "title": "Strategy controls > PairIP V2 > Disable repeated-check flag (Low Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseClient.startPaywallActivity().",
+        "key": "pairipLicenseClientStartPaywall",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseClient paywall (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseActivity.showPaywallAndCloseApp().",
+        "key": "pairipLicenseActivityShowPaywall",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity paywall (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable the obfuscated LicenseActivity.nnStart() startup path.",
+        "key": "pairipLicenseActivityNnStart",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity nnStart (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseActivity.onStart().",
+        "key": "pairipLicenseActivityOnStart",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity onStart (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseActivity.closeApp().",
+        "key": "pairipLicenseActivityCloseApp",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity closeApp (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseActivity.exitApp().",
+        "key": "pairipLicenseActivityExitApp",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity exitApp (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable the lowercase LicenseActivity.closeapp() variant.",
+        "key": "pairipLicenseActivityCloseapp",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity closeapp (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable the lowercase LicenseActivity.exitapp() variant.",
+        "key": "pairipLicenseActivityExitapp",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity exitapp (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseActivity.closeAllTasks().",
+        "key": "pairipLicenseActivityCloseAllTasks",
+        "required": false,
+        "title": "Strategy controls > User interface > Suppress LicenseActivity closeAllTasks (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Make PairIP performLocalInstallerCheck() report success.",
+        "key": "pairipPerformLocalInstallerCheck",
+        "required": false,
+        "title": "Strategy controls > Installer checks > Spoof local installer check (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Never enabled by automatic mode. When the exact legacy LicenseClient field and FULL_CHECK_OK state exist, mark the client successful before a license check. Do not combine with bypassing checkLicense or initializeLicenseCheck, because the state assignment may never run.",
+        "key": "pairipLicenseClientForceFullCheckOk",
+        "required": false,
+        "title": "Manual-only > License Client > Force FULL_CHECK_OK state (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseClient.checkLicense().",
+        "key": "pairipLicenseClientCheckLicense",
+        "required": false,
+        "title": "Strategy controls > License Client > Bypass checkLicense (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseClient.initializeLicenseCheck().",
+        "key": "pairipLicenseClientInitializeLicenseCheck",
+        "required": false,
+        "title": "Strategy controls > License Client > Bypass initializeLicenseCheck (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseClient.connectToLicensingService().",
+        "key": "pairipLicenseClientConnectToLicensingService",
+        "required": false,
+        "title": "Strategy controls > License Client > Bypass service connection (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable the older LicenseClient.processResponse() path.",
+        "key": "pairipLicenseClientProcessResponse",
+        "required": false,
+        "title": "Strategy controls > License Client > Bypass processResponse (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseResponseHelper.validateResponse().",
+        "key": "pairipLicenseResponseHelperValidateResponse",
+        "required": false,
+        "title": "Strategy controls > Response checks > Bypass helper validation (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Make the legacy response helper signature check succeed.",
+        "key": "pairipLicenseResponseHelperVerifySignature",
+        "required": false,
+        "title": "Strategy controls > Response checks > Bypass helper signature (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable the legacy ResponseValidator.validateResponse() path.",
+        "key": "pairipResponseValidatorValidateResponse",
+        "required": false,
+        "title": "Strategy controls > Response checks > Bypass validator validation (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Make the legacy ResponseValidator signature check succeed.",
+        "key": "pairipResponseValidatorVerifySignature",
+        "required": false,
+        "title": "Strategy controls > Response checks > Bypass validator signature (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable licensecheck3.ResponseValidator.validateResponse().",
+        "key": "pairipResponseValidatorV3ValidateResponse",
+        "required": false,
+        "title": "Strategy controls > PairIP V3 > Bypass response validation (Medium Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Skip PairIP startup code in Application.attachBaseContext().",
+        "key": "pairipApplicationAttachBaseContext",
+        "required": false,
+        "title": "Strategy controls > Application startup > Bypass attachBaseContext (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Skip PairIP startup code in Application.onCreate().",
+        "key": "pairipApplicationOnCreate",
+        "required": false,
+        "title": "Strategy controls > Application startup > Bypass onCreate (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Prevent PairIP Application.<clinit>() from starting its runtime.",
+        "key": "pairipApplicationClinit",
+        "required": false,
+        "title": "Strategy controls > PairIP runtime > Bypass Application static initializer (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Return null from PairIP VMRunner.invoke().",
+        "key": "pairipVmRunnerInvoke",
+        "required": false,
+        "title": "Strategy controls > PairIP runtime > Bypass VMRunner.invoke (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable PairIP StartupLauncher.launch().",
+        "key": "pairipStartupLauncherLaunch",
+        "required": false,
+        "title": "Strategy controls > PairIP runtime > Bypass StartupLauncher.launch (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable the PairIP StartupLauncher.pairip() entry point.",
+        "key": "pairipStartupLauncherPairip",
+        "required": false,
+        "title": "Strategy controls > PairIP runtime > Bypass StartupLauncher.pairip (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable LicenseClientV3.onActivityCreate().",
+        "key": "pairipLicenseClientV3OnActivityCreate",
+        "required": false,
+        "title": "Strategy controls > PairIP V3 > Bypass LicenseClient activity (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Return the Play Store package name from a generic installer-source check.",
+        "key": "pairipGenericInstallerSource",
+        "required": false,
+        "title": "Strategy controls > Installer checks > Spoof installer source (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable SignatureCheck.verifyIntegrity().",
+        "key": "pairipSignatureVerifyIntegrity",
+        "required": false,
+        "title": "Strategy controls > Signature integrity > Bypass signature integrity (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Make SignatureCheck.verifySignatureMatches() report success.",
+        "key": "pairipSignatureVerifySignatureMatches",
+        "required": false,
+        "title": "Strategy controls > Signature integrity > Bypass signature match (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Make LicenseContentProvider.onCreate() report success.",
+        "key": "pairipLicenseContentProviderOnCreate",
+        "required": false,
+        "title": "Strategy controls > Content provider > Bypass initialization (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Return no result from LicenseContentProvider.query().",
+        "key": "pairipLicenseContentProviderQuery",
+        "required": false,
+        "title": "Strategy controls > Content provider > Bypass query (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Return null from InitContextProvider.getContext().",
+        "key": "pairipInitContextProviderGetContext",
+        "required": false,
+        "title": "Strategy controls > Content provider > Bypass context provider (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Route the V2 check directly to its success callback.",
+        "key": "pairipV2CheckLicenseInternal",
+        "required": false,
+        "title": "Strategy controls > PairIP V2 > Bypass checkLicenseInternal (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable the V2 response signature check.",
+        "key": "pairipV2VerifySignature",
+        "required": false,
+        "title": "Strategy controls > PairIP V2 > Bypass response signature (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Neutralize void callers of VMRunner.invoke() outside com.pairip. This is invasive and may affect app features.",
+        "key": "vmCallSiteChecks",
+        "required": false,
+        "title": "Strategy controls > Advanced > External VMRunner call sites (High Risk)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.31.0",
+    "source_id": "308c1f9a8278402c",
+    "use": false
+  },
+  {
+    "bundle_id": "45d7eefb6758ccc665c04291",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Resolve Real Application (internal)",
+      "Permission Guard UniManager registration"
+    ],
+    "description": "Keeps declared permissions while guarding selected Android permission checks and requests.\nOptional Universal Overlay controls can change blocked groups at runtime.\n\nThis patch includes an optional Universal Overlay addon. To use it, patch Permission Guard Patch\ntogether with Universal Overlay and enable “Overlay integration > Runtime controls > Permission Guard”.\nThe Permission Guard module then appears in Universal Overlay and exposes the same runtime state to\nUniManager when “Quick setup > UniManager > Enable UniManager integration” is enabled. Internet\nAccess only guards instrumented INTERNET checks and requests; it does not stop socket traffic.\nNative, privileged, already-granted, and unknown permission paths remain outside this guard.",
+    "id": "45d7eefb6758ccc665c04291:11",
+    "legacy_id": 22011,
+    "metadata_status": "verified",
+    "name": "Permission Guard Patch ( Experimental, Overlay Support, UniManager Support )",
+    "options": [
+      {
+        "default": false,
+        "description": "Block camera permission checks and requests at runtime.",
+        "key": "permissionGuardCamera",
+        "required": false,
+        "title": "Permission groups > Camera > Block Camera",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block microphone permission checks and requests at runtime.",
+        "key": "permissionGuardMicrophone",
+        "required": false,
+        "title": "Permission groups > Microphone > Block Microphone",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block location permission checks and requests at runtime.",
+        "key": "permissionGuardLocation",
+        "required": false,
+        "title": "Permission groups > Location > Block Location",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block contacts permission checks and requests at runtime.",
+        "key": "permissionGuardContacts",
+        "required": false,
+        "title": "Permission groups > Contacts > Block Contacts",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block phone permission checks and requests at runtime.",
+        "key": "permissionGuardPhone",
+        "required": false,
+        "title": "Permission groups > Phone > Block Phone",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block SMS permission checks and requests at runtime.",
+        "key": "permissionGuardSms",
+        "required": false,
+        "title": "Permission groups > SMS > Block SMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block calendar permission checks and requests at runtime.",
+        "key": "permissionGuardCalendar",
+        "required": false,
+        "title": "Permission groups > Calendar > Block Calendar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block storage permission checks and requests at runtime.",
+        "key": "permissionGuardStorage",
+        "required": false,
+        "title": "Permission groups > Storage > Block Storage",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block media permission checks and requests at runtime.",
+        "key": "permissionGuardMedia",
+        "required": false,
+        "title": "Permission groups > Media > Block Media",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block notification permission checks and requests at runtime.",
+        "key": "permissionGuardNotifications",
+        "required": false,
+        "title": "Permission groups > Notifications > Block Notifications",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block instrumented INTERNET permission checks and requests at runtime. This does not stop socket traffic.",
+        "key": "permissionGuardInternet",
+        "required": false,
+        "title": "Permission groups > Internet > Block INTERNET Permission Checks",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block nearby-device permission checks and requests at runtime.",
+        "key": "permissionGuardNearbyDevices",
+        "required": false,
+        "title": "Permission groups > Nearby devices > Block Nearby Devices",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Block legacy Bluetooth permission checks and requests at runtime.",
+        "key": "permissionGuardBluetooth",
+        "required": false,
+        "title": "Permission groups > Legacy Bluetooth > Block Legacy Bluetooth",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Add the Permission Guard settings module to Universal Overlay when Universal Overlay is selected.",
+        "key": "permissionGuardRuntimeOverlay",
+        "required": false,
+        "title": "Overlay integration > Runtime controls > Permission Guard",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Expose Permission Guard runtime defaults to UniManager when the Universal Overlay runtime module is enabled.",
+        "key": "permissionGuardEnableUniManagerIntegration",
+        "required": false,
+        "title": "Quick setup > UniManager > Enable UniManager integration",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.31.0",
+    "source_id": "308c1f9a8278402c",
+    "use": false
+  },
+  {
+    "bundle_id": "45d7eefb6758ccc665c04291",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Resolve Real Application (internal)",
+      "Universal Overlay manifest integration (internal)"
+    ],
+    "description": "Customizable in-app overlay for Android apps and games. Choose a visual preset, select modules,\noptionally supply an icon, then patch. Modules are excluded and disabled by default; Monitor,\nActivity, Hook, System, and Advanced modules provide runtime controls and diagnostics.\n\nUI presets reuse supported appearance and icon settings; Morphe settings control the title,\ndescription, repository button text, and repository URL. Module selections remain app-specific.\n\nExperimental : This patch may not work on all apps.\n\nCompatibility: this patch owns one shared startup bridge for its runtime and integrated\nmodules. PairIP Bypass preserves that bridge when its Application startup strategies run\nafter Universal Overlay. If a patched APK still has an unusual entry point, use the explicit\nActivity override rather than selecting a library or SDK Activity. Custom App Display and\nAds Block Patch attaches to this bridge when its runtime addons are enabled; it should not\ncreate a second overlay runtime.\n\nAds Block Patch can also add runtime ad-control modules here, but Universal Overlay does not\npatch ad SDKs by itself. To use them, select Ads Block Patch and Universal Overlay,\nenable the desired options under Ads Block Patch's Overlay integration > Runtime controls. The\nAds runtime policy is enabled automatically when at least one of those modules is selected.\nThe available modules are Block Ads and Block Ads / Tracking Hosts. Their initial runtime values come from\nthe Ads Block Patch settings, and later changes are session-only. When both patches are selected,\nAds Block Patch attaches its policy to this overlay's exact startup bridge, including an explicit\nActivity override, instead of selecting a separate Activity.\n\nAttribution: The idea and initial works of Universal Overlay Patch are from Zanuaimi / Noobite.",
+    "id": "45d7eefb6758ccc665c04291:12",
+    "legacy_id": 22012,
+    "metadata_status": "verified",
+    "name": "Universal Overlay Patch v2.6.1 ( Experimental, UniManager Support )",
+    "options": [
+      {
+        "default": "custom",
+        "description": "Start here. Custom (UniPatches defaults) is the editable red UniPatches look. Other presets apply a complete visual style: Morphe blue, dark, light, ZArchiver-inspired, LuckyPatcher-inspired, or ReVanced-inspired. Built-in presets never change selected modules or your title and repository details. Imported Custom presets can include all supported UI settings.",
+        "key": "runtimeOverlaySelectedPreset",
+        "required": false,
+        "title": "Quick setup > Preset selection",
+        "type": "kotlin.String",
+        "values": {
+          "Custom (UniPatches defaults)": "custom",
+          "Dark": "dark",
+          "Light": "light",
+          "LuckyPatcher-inspired": "luckyPatcher",
+          "Morphe-inspired": "morpheBlue",
+          "ReVanced-inspired": "reVanced",
+          "UniPatches": "unipatches",
+          "ZArchiver-inspired": "zarchiver"
+        }
+      },
+      {
+        "default": true,
+        "description": "Read optional startup configuration from the separate UniManager companion app. If UniManager is not installed or cannot be reached, the patched app falls back to the traditional patching behavior and uses the settings selected here.",
+        "key": "runtimeOverlayEnableUniManagerIntegration",
+        "required": false,
+        "title": "Quick setup > UniManager > Enable UniManager integration",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Allow supported runtime controls to become the next-launch defaults when UniManager accepts the update.",
+        "key": "runtimeOverlayRememberUniManagerRuntimeChanges",
+        "required": false,
+        "title": "Quick setup > UniManager > Remember runtime changes",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": 90,
+        "description": "Maximum overlay menu and popup width in portrait as a percentage of the available window width. Landscape transposes this with the height limit. Values are clamped to 45% through 90%.",
+        "key": "runtimeOverlayMenuWidthLimit",
+        "required": false,
+        "title": "UI settings > Menu size > Width limit (%)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 45,
+        "description": "Maximum overlay menu and popup height in portrait as a percentage of the available window height. Landscape transposes this with the width limit. Values are clamped to 45% through 90%.",
+        "key": "runtimeOverlayMenuHeightLimit",
+        "required": false,
+        "title": "UI settings > Menu size > Height limit (%)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Optional JSON UI preset path. This is for advanced reuse and works only with Custom (UniPatches defaults). A valid file overrides appearance settings for this build; an invalid file safely uses the visible settings instead.",
+        "key": "runtimeOverlayImportUiPreset",
+        "required": false,
+        "title": "Quick setup > Import / export UI presets > Import UI preset",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Optional existing folder for exporting the final Custom UI preset as JSON. Leave blank to disable. Export errors are logged and never stop patching.",
+        "key": "runtimeOverlayExportUiPreset",
+        "required": false,
+        "title": "Quick setup > Import / export UI presets > Export UI preset",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "UniversalOverlay.json",
+        "description": "Name of the exported JSON file. The .json suffix is added when needed; duplicate names receive -1, -2, and so on.",
+        "key": "runtimeOverlayExportedUiPresetOutputName",
+        "required": false,
+        "title": "Quick setup > Import / export UI presets > Export file name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include read-only phone and Android device information.",
+        "key": "runtimeOverlayIncludeDeviceInformation",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > Device information",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include the approximate display frame-rate statistic module.",
+        "key": "runtimeOverlayIncludeFps",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > FPS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include battery-reported temperature in the selected temperature format.",
+        "key": "runtimeOverlayIncludeDeviceTemperature",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > Device temperature",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include the phone system time statistic module.",
+        "key": "runtimeOverlayIncludeSystemTime",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > System time",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include the in-process overlay session timer statistic module.",
+        "key": "runtimeOverlayIncludeSessionTime",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > App session time",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include the current battery percentage statistic module.",
+        "key": "runtimeOverlayIncludeBatteryStatus",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > Battery status",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include approximate memory used by the current app process.",
+        "key": "runtimeOverlayIncludeAppMemory",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > App memory usage",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include incoming and outgoing app network traffic monitors.",
+        "key": "runtimeOverlayIncludeNetworkStatus",
+        "required": false,
+        "title": "Quick setup > Module settings > Statistics > Network status",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include the keep-screen-awake activity module.",
+        "key": "runtimeOverlayIncludeKeepScreenAwake",
+        "required": false,
+        "title": "Quick setup > Module settings > Activity > Keep screen awake",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include the fullscreen activity module.",
+        "key": "runtimeOverlayIncludeFullscreen",
+        "required": false,
+        "title": "Quick setup > Module settings > Activity > Fullscreen",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include the allow-screenshots activity module.",
+        "key": "runtimeOverlayIncludeScreenshots",
+        "required": false,
+        "title": "Quick setup > Module settings > Activity > Allow screenshots",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include a per-Activity brightness slider.",
+        "key": "runtimeOverlayIncludeAppBrightness",
+        "required": false,
+        "title": "Quick setup > Module settings > Activity > App brightness",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include a per-Activity rotation mode selector.",
+        "key": "runtimeOverlayIncludeRotationMode",
+        "required": false,
+        "title": "Quick setup > Module settings > Activity > Rotation mode",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include a best-effort app audio mute toggle.",
+        "key": "runtimeOverlayIncludeAppAudioMute",
+        "required": false,
+        "title": "Quick setup > Module settings > Activity > App audio mute",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Risk: broad runtime hook. Include a best-effort haptic and vibration suppression module only if the app needs it.",
+        "key": "runtimeOverlayIncludeDisableHaptics",
+        "required": false,
+        "title": "Quick setup > Module settings > Hook > Disable haptic feedback / vibrations",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Risk: broad runtime hook. Include a best-effort animation suppression module only if the app needs it.",
+        "key": "runtimeOverlayIncludeDisableAnimations",
+        "required": false,
+        "title": "Quick setup > Module settings > Hook > Disable app animations",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include a system module for controlling Do Not Disturb. Android notification-policy access is required before it can change the system state.",
+        "key": "runtimeOverlayIncludeDoNotDisturb",
+        "required": false,
+        "title": "Quick setup > Module settings > System > Do Not Disturb",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Include an opt-in, bounded diagnostic buffer containing logs emitted by Universal Overlay and its runtime modules. This does not read system logcat.",
+        "key": "runtimeOverlayIncludeOverlayRuntimeLogs",
+        "required": false,
+        "title": "Quick setup > Module settings > Advanced > Overlay Runtime Logs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Start Overlay Runtime Logs active when the overlay session begins. The module must also be included above.",
+        "key": "runtimeOverlayEnableOverlayRuntimeLogsOnLaunch",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Advanced > Enable Overlay Runtime Logs at app launch",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Show title header boxes in settings, logs, confirmation, and module action popups. The main overlay menu title is always shown. Enabled by default for a clearer, more polished popup appearance.",
+        "key": "runtimeOverlayShowExtraPopupHeaders",
+        "required": false,
+        "title": "Quick setup > UI settings > Extra popups > Show headers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Start selected statistic modules as soon as the app launches. Active is disabled by default.",
+        "key": "runtimeOverlayActivateStatisticsOnLaunch",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Monitor behavior > Activate statistics on launch",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Show a message in the overlay when no Statistic, Activity, Hook, app-specific, System, Advanced, or integrated module is selected. Ads Block Patch modules count only when that patch was also configured and patched successfully.",
+        "key": "runtimeOverlayShowNoModulesWarning",
+        "required": false,
+        "title": "Quick setup > Settings to modules > General > Show empty-module message",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Show selected statistic monitors as soon as the app launches. Monitor is disabled by default.",
+        "key": "runtimeOverlayEnableMonitorsOnLaunch",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Monitor behavior > Enable monitors on launch",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "bottom",
+        "description": "Show enabled statistic monitors from statistic modules above or below the overlay button.",
+        "key": "runtimeOverlayStatisticMonitorPosition",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Monitor behavior > Monitor position",
+        "type": "kotlin.String",
+        "values": {
+          "Above overlay button": "top",
+          "Below overlay button": "bottom",
+          "No stat monitors": "none"
+        }
+      },
+      {
+        "default": "1",
+        "description": "Size multiplier for statistic monitor panels.",
+        "key": "runtimeOverlayMonitorScale",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Monitor behavior > Monitor panel size",
+        "type": "kotlin.String",
+        "values": {
+          "0.75x": "0.75",
+          "1.25x": "1.25",
+          "1.5x": "1.5",
+          "1x": "1",
+          "2x": "2"
+        }
+      },
+      {
+        "default": "2",
+        "description": "Number of statistic monitor columns.",
+        "key": "runtimeOverlayMonitorColumns",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Monitor behavior > Monitor columns",
+        "type": "kotlin.String",
+        "values": {
+          "1 column": "1",
+          "2 columns": "2",
+          "3 columns": "3"
+        }
+      },
+      {
+        "default": "celsius",
+        "description": "Temperature unit used by the Device Temperature menu value and monitor.",
+        "key": "runtimeOverlayTemperatureFormat",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Monitor behavior > Temperature format",
+        "type": "kotlin.String",
+        "values": {
+          "Celsius": "celsius",
+          "Fahrenheit": "fahrenheit",
+          "Kelvin": "kelvin"
+        }
+      },
+      {
+        "default": "12",
+        "description": "Clock format used by the System Time menu value and monitor. Timezone is shown in the menu value.",
+        "key": "runtimeOverlayTimeFormat",
+        "required": false,
+        "title": "Quick setup > Settings to modules > Monitor behavior > Time format",
+        "type": "kotlin.String",
+        "values": {
+          "12-hour clock": "12",
+          "24-hour clock": "24"
+        }
+      },
+      {
+        "default": "modern",
+        "description": "Geometry used by overlay controls. Settings, Action, and dropdown controls use Legacy square corners, Modern rounded corners, or Monet-style pill corners. Their fill and outline colors come from the overlay menu.",
+        "key": "runtimeOverlayControlTheme",
+        "required": false,
+        "title": "UI settings > Controls > Theme",
+        "type": "kotlin.String",
+        "values": {
+          "Legacy": "legacy",
+          "Modern (default)": "modern",
+          "Monet-style": "monet"
+        }
+      },
+      {
+        "default": "#FF5656",
+        "description": "Background color for overlay controls.",
+        "key": "runtimeOverlayControlBackground",
+        "required": false,
+        "title": "UI settings > Controls > Background color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Foreground color for control contents, such as text, slider progress, and checked checkbox state. Unchecked checkbox state uses the configured control background color.",
+        "key": "runtimeOverlayControlForeground",
+        "required": false,
+        "title": "UI settings > Controls > Foreground color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "text",
+        "description": "Style of the repository, close-menu, and fully-close buttons.",
+        "key": "runtimeOverlayBottomButtonStyle",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Style",
+        "type": "kotlin.String",
+        "values": {
+          "Gradient background": "gradient",
+          "Solid background": "solid",
+          "Text only (default)": "text"
+        }
+      },
+      {
+        "default": "square",
+        "description": "Shape of bottom action button backgrounds.",
+        "key": "runtimeOverlayBottomButtonShape",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Shape",
+        "type": "kotlin.String",
+        "values": {
+          "Full square": "square",
+          "Squircle": "squircle"
+        }
+      },
+      {
+        "default": false,
+        "description": "Add padding between the three bottom action buttons.",
+        "key": "runtimeOverlayBottomButtonPadding",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Add spacing",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Text color of the three bottom action buttons.",
+        "key": "runtimeOverlayBottomButtonTextColor",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Text color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "First background color for solid or gradient bottom action buttons.",
+        "key": "runtimeOverlayBottomButtonBackground1",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Background color 1",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Second background color for gradient bottom action buttons.",
+        "key": "runtimeOverlayBottomButtonBackground2",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Background color 2",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color for the menu title, separator lines, and scrollbar thumb.",
+        "key": "runtimeOverlayMenuTextColor1",
+        "required": false,
+        "title": "UI settings > Colors > Text color 1 (title, lines, scrollbar)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color for module names.",
+        "key": "runtimeOverlayMenuTextColor2",
+        "required": false,
+        "title": "UI settings > Colors > Text color 2 (module names)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color for overlay and module descriptions.",
+        "key": "runtimeOverlayMenuTextColor3",
+        "required": false,
+        "title": "UI settings > Colors > Text color 3 (descriptions)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color for monitor labels.",
+        "key": "runtimeOverlayMenuTextColor4",
+        "required": false,
+        "title": "UI settings > Colors > Text color 4 (monitor)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color for Active labels.",
+        "key": "runtimeOverlayMenuTextColor5",
+        "required": false,
+        "title": "UI settings > Colors > Text color 5 (active)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color for module separator text.",
+        "key": "runtimeOverlayMenuTextColor6",
+        "required": false,
+        "title": "UI settings > Colors > Text color 6 (module separators)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color for Settings, Action, and dropdown control outlines. This is independent from the menu outline color.",
+        "key": "runtimeOverlayMenuTextColor7",
+        "required": false,
+        "title": "UI settings > Colors > Text color 7 (control outlines)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#210000",
+        "description": "Used only with the Background behind text separator style.",
+        "key": "runtimeOverlaySeparatorBackgroundColor",
+        "required": false,
+        "title": "UI settings > Module separators > Background color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "ascii",
+        "description": "How module type separators and hints appear.",
+        "key": "runtimeOverlaySeparatorStyle",
+        "required": false,
+        "title": "UI settings > Module separators > Style",
+        "type": "kotlin.String",
+        "values": {
+          "--- Module type ---": "ascii",
+          "Background behind text": "background",
+          "Inline after module name": "inline",
+          "Line below": "singleLine",
+          "Lines above and below": "doubleLine"
+        }
+      },
+      {
+        "default": "none",
+        "description": "Show a non-clickable copy of the overlay icon beside the menu title.",
+        "key": "runtimeOverlayTitleIconPlacement",
+        "required": false,
+        "title": "UI settings > Menu title > Icon placement",
+        "type": "kotlin.String",
+        "values": {
+          "Both sides": "both",
+          "No icons (default)": "none",
+          "Top left": "left",
+          "Top right": "right"
+        }
+      },
+      {
+        "default": "left",
+        "description": "Alignment of the overlay menu title.",
+        "key": "runtimeOverlayTitleAlignment",
+        "required": false,
+        "title": "UI settings > Menu title > Alignment",
+        "type": "kotlin.String",
+        "values": {
+          "Center": "center",
+          "Left": "left",
+          "Right": "right"
+        }
+      },
+      {
+        "default": false,
+        "description": "Show a full-width 1dp line below the title using the overlay outline color.",
+        "key": "runtimeOverlayTitleSeparator",
+        "required": false,
+        "title": "UI settings > Menu title > Outline below title",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "rounded",
+        "description": "Choose rounded or square menu corners.",
+        "key": "runtimeOverlayMenuCorners",
+        "required": false,
+        "title": "UI settings > Menu layout > Corners",
+        "type": "kotlin.String",
+        "values": {
+          "Rounded (default)": "rounded",
+          "Square": "square"
+        }
+      },
+      {
+        "default": "static",
+        "description": "Choose a static, horizontal, vertical, or rainbow menu outline animation.",
+        "key": "runtimeOverlayMenuOutlineAnimation",
+        "required": false,
+        "title": "UI settings > Menu outline > Animation",
+        "type": "kotlin.String",
+        "values": {
+          "Horizontal scrolling gradient": "gradient",
+          "Rainbow gradient": "rainbow",
+          "Static (default)": "static",
+          "Vertical gradient": "vertical"
+        }
+      },
+      {
+        "default": 1,
+        "description": "Use -10 to 10. Zero stops movement; positive vertical values move upward and negative values move downward.",
+        "key": "runtimeOverlayOutlineAnimationSpeed",
+        "required": false,
+        "title": "UI settings > Menu outline > Animation speed",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "fade",
+        "description": "Opening animation. Directional appearances also fade in the menu.",
+        "key": "runtimeOverlayOpeningAnimation",
+        "required": false,
+        "title": "UI settings > Animations > Opening animation",
+        "type": "kotlin.String",
+        "values": {
+          "Appear from bottom": "appearBottom",
+          "Appear from left": "appearLeft",
+          "Appear from right": "appearRight",
+          "Appear from top": "appearTop",
+          "Disabled": "disabled",
+          "Fade (default)": "fade",
+          "Scale": "scale"
+        }
+      },
+      {
+        "default": "fade",
+        "description": "Closing animation. Directional disappearances also fade out the menu.",
+        "key": "runtimeOverlayClosingAnimation",
+        "required": false,
+        "title": "UI settings > Animations > Closing animation",
+        "type": "kotlin.String",
+        "values": {
+          "Disabled": "disabled",
+          "Disappear downwards": "disappearDown",
+          "Disappear leftwards": "disappearLeft",
+          "Disappear rightwards": "disappearRight",
+          "Disappear upwards": "disappearUp",
+          "Fade (default)": "fade",
+          "Scale": "scale"
+        }
+      },
+      {
+        "default": 180,
+        "description": "Duration for opening and closing animations. Negative values become zero.",
+        "key": "runtimeOverlayAnimationDuration",
+        "required": false,
+        "title": "UI settings > Animations > Duration (ms)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "linear",
+        "description": "Motion curve for fade, directional, and scale animations.",
+        "key": "runtimeOverlayAnimationEasing",
+        "required": false,
+        "title": "UI settings > Animations > Motion curve",
+        "type": "kotlin.String",
+        "values": {
+          "Linear (default)": "linear",
+          "Logarithmic": "logarithmic"
+        }
+      },
+      {
+        "default": 2,
+        "description": "Width of the menu, monitor, and confirmation outlines, from 1 to 8dp.",
+        "key": "runtimeOverlayOutlineWidthDp",
+        "required": false,
+        "title": "UI settings > Menu outline > Width (dp)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "UniPatches Universal Overlay Patch",
+        "description": "Title shown in the overlay menu. Limited to 80 characters.",
+        "key": "runtimeOverlayTitle",
+        "required": false,
+        "title": "UI settings > Menu text > Title",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "Welcome! This is the UniPatches Universal Overlay Patch Menu.\nThe idea and initial works of Universal Overlay Patch are from Zanuaimi / Noobite.",
+        "description": "Description below the title. Limited to 500 characters.",
+        "key": "runtimeOverlayDescription",
+        "required": false,
+        "title": "UI settings > Menu text > Description",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Optional text appended below the overlay description. Useful for short inspiration or attribution notes such as Inspired by Example. The main and appended descriptions share a combined 500-character limit.",
+        "key": "runtimeOverlayAppendDescription",
+        "required": false,
+        "title": "UI settings > Menu text > Appended description",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "center",
+        "description": "Alignment of the main and appended overlay description text.",
+        "key": "runtimeOverlayDescriptionAlignment",
+        "required": false,
+        "title": "UI settings > Menu text > Description alignment",
+        "type": "kotlin.String",
+        "values": {
+          "Center (default)": "center",
+          "Left": "left",
+          "Right": "right"
+        }
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color of appended overlay-description text. Presets default to menu text color 3.",
+        "key": "runtimeOverlayAppendDescriptionColor",
+        "required": false,
+        "title": "UI settings > Menu text > Appended description color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#300000",
+        "description": "Overlay background color as #RRGGBB. Transparency is controlled separately.",
+        "key": "runtimeOverlayBackgroundColor",
+        "required": false,
+        "title": "UI settings > Menu background > Color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": 80,
+        "description": "Transparency of the overlay background from 0% to 100%. 80% matches the default Morphe-style background alpha.",
+        "key": "runtimeOverlayBackgroundTransparency",
+        "required": false,
+        "title": "UI settings > Menu background > Transparency (%)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "#FF5656",
+        "description": "Color of the overlay menu outline and menu text. Use #RRGGBB. Animated gradient menu outlines keep their own gradient colors. Settings, Action, and dropdown control outlines use Text color 7.",
+        "key": "runtimeOverlayOutlineColor",
+        "required": false,
+        "title": "UI settings > Menu outline > Color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "UniPatches repository",
+        "description": "Text of the always-present repository button.",
+        "key": "runtimeOverlayRepositoryText",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Repository text",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "https://github.com/Zanuaimi/UniPatches",
+        "description": "URL opened by the repository button.",
+        "key": "runtimeOverlayRepositoryUrl",
+        "required": false,
+        "title": "UI settings > Bottom buttons > Repository URL",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "U",
+        "description": "Text shown on the default floating icon. Maximum three characters.",
+        "key": "runtimeOverlayButtonText",
+        "required": false,
+        "title": "UI settings > Floating button > Text",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Make the default floating-icon text bold.",
+        "key": "runtimeOverlayIconBold",
+        "required": false,
+        "title": "UI settings > Floating button > Bold text",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "#FF3C00",
+        "description": "First text color for the default floating icon. When text gradient is disabled, this is the only text color used.",
+        "key": "runtimeOverlayButtonTextColor",
+        "required": false,
+        "title": "UI settings > Floating button > IconTextColor1",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Blend IconTextColor1 and IconTextColor2 across the legacy text icon.",
+        "key": "runtimeOverlayIconTextGradient",
+        "required": false,
+        "title": "UI settings > Floating button > Enable Icon Text Gradient",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "#FF9300",
+        "description": "Second text color used when Icon Text Gradient is enabled.",
+        "key": "runtimeOverlayIconTextColor2",
+        "required": false,
+        "title": "UI settings > Floating button > IconTextColor2",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": 90,
+        "description": "Direction of the legacy text gradient. 0 degrees runs top to bottom and 90 degrees runs left to right.",
+        "key": "runtimeOverlayIconTextGradientAngle",
+        "required": false,
+        "title": "UI settings > Floating button > Gradient Angle (degrees)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 18,
+        "description": "Text size for the default floating icon, from 8 to 48sp.",
+        "key": "runtimeOverlayIconTextSizeSp",
+        "required": false,
+        "title": "UI settings > Floating button > Text size (sp)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "default",
+        "description": "Font used by the legacy text icon.",
+        "key": "runtimeOverlayIconTextFont",
+        "required": false,
+        "title": "UI settings > Floating button > Text icon font",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Android)": "default",
+          "Monospace": "monospace",
+          "Roboto": "roboto",
+          "Sans black": "sansBlack",
+          "Sans condensed": "sansCondensed",
+          "Sans medium": "sansMedium",
+          "Sans serif": "sansSerif",
+          "Serif": "serif"
+        }
+      },
+      {
+        "default": "default",
+        "description": "Font used by overlay menu text, popup menus, and confirmation popup menus.",
+        "key": "runtimeOverlayMenuTextFont",
+        "required": false,
+        "title": "UI settings > Menu > Text font",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Android)": "default",
+          "Monospace": "monospace",
+          "Roboto": "roboto",
+          "Sans black": "sansBlack",
+          "Sans condensed": "sansCondensed",
+          "Sans medium": "sansMedium",
+          "Sans serif": "sansSerif",
+          "Serif": "serif"
+        }
+      },
+      {
+        "default": "parts",
+        "description": "Text is the simple default. Choose Multi-parts only when you want to build a drawn icon in the Multi-parts icon editor.",
+        "key": "runtimeOverlayIconStyle",
+        "required": false,
+        "title": "UI settings > Floating button > Icon type",
+        "type": "kotlin.String",
+        "values": {
+          "Multi-parts icon (default)": "parts",
+          "Text icon": "text"
+        }
+      },
+      {
+        "default": "[text|50|53.6|60|60|0|solid|#000000|#000000|2|45|0|U|true|default, text|50|50|60|60|0|gradient|#FF3C00|#FF9300|0|100|1|U|true|default]",
+        "description": "Use only when Icon part type is Multi-parts. Add one string per part.\n\nTemplate:\n<shape>|<x-position>|<y-position>|<x-scale>|<y-scale>|<rotation>|<fill>|<color-1>|<color-2>|<stroke>|<opacity>|<layer>|<text>|<bold>|<font>\n\nTag values:\nshape = triangle, roundedTriangle, v, circle, square, roundedRect, line, arc, diamond, star, heart, or text.\nPosition X/Y and Scale W/H = 0–100 percent. Different scales make rectangles or ellipses.\nrotation = -360 to 360 degrees; for example 0, 45, or 90.\nfill = solid or gradient. Colors use #RRGGBB. stroke = 0–32. opacity = 0–100. Higher layer draws on top.\ntext is optional except for a text part, and is trimmed to three characters. The optional bold field is true or false and applies only to text parts. The optional font field accepts default, roboto, sansSerif, serif, monospace, sansCondensed, sansMedium, or sansBlack.\n\nValid examples:\ntriangle|50|50|55|55|0|solid|#4E97F0|#4E97F0|0|100|0\nv|50|54|57|54|0|solid|#FFFFFF|#FFFFFF|16|100|0\ntriangle|50|39|28|22|0|gradient|#E651A0|#6564D3|0|100|1\ntext|50|50|60|50|0|solid|#FFFFFF|#FFFFFF|0|100|2|LP|true\n\nMaximum 12 parts.",
+        "key": "runtimeOverlayIconParts",
+        "required": false,
+        "title": "UI settings > Floating button > Multi-parts icon editor > Part list",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Optional legacy icon JSON exported by the local icon builder website in the UniPatches repository (tools/icon-builder). It includes editable gradient, stroke, highlight, and drop-shadow settings. A valid file takes priority over legacy text/shape settings and the Multi-parts list, but remains below a valid custom icon image. It does not control overlay menu icon existence or placement.",
+        "key": "runtimeOverlayImportLegacyIconJson",
+        "required": false,
+        "title": "UI settings > Floating button > Multi-parts icon editor > Import legacy icon JSON",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Add a subtle glossy highlight to the upper-left of a Multi-parts icon.",
+        "key": "runtimeOverlayIconHighlight",
+        "required": false,
+        "title": "UI settings > Floating button > Multi-parts icon editor > Add highlight",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Blend floating-icon background color 1 into color 2. When disabled, only color 1 is used.",
+        "key": "runtimeOverlayIconGradientBackground",
+        "required": false,
+        "title": "UI settings > Floating button > Gradient background",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "#500000",
+        "description": "First floating-icon background color.",
+        "key": "runtimeOverlayButtonBackgroundColor",
+        "required": false,
+        "title": "UI settings > Floating button > Background color 1",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#AA0000",
+        "description": "Second floating-icon background color. Use #RRGGBB.",
+        "key": "runtimeOverlayIconBackgroundColor2",
+        "required": false,
+        "title": "UI settings > Floating button > Background color 2",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": 0,
+        "description": "Gradient direction: 0 degrees runs top to bottom and 90 runs left to right. Values wrap through 360 degrees.",
+        "key": "runtimeOverlayIconGradientAngle",
+        "required": false,
+        "title": "UI settings > Floating button > Gradient angle (degrees)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "flat",
+        "description": "Choose a flat floating-icon background or faceted angular layers. Faceted mode suits geometric icons such as Z.",
+        "key": "runtimeOverlayIconBackgroundStyle",
+        "required": false,
+        "title": "UI settings > Floating button > Background style",
+        "type": "kotlin.String",
+        "values": {
+          "Faceted layers": "faceted",
+          "Flat (default)": "flat"
+        }
+      },
+      {
+        "default": "#AA0000",
+        "description": "Third color used by Faceted layers. It is ignored when Background style is Flat. Use #RRGGBB.",
+        "key": "runtimeOverlayIconBackgroundColor3",
+        "required": false,
+        "title": "UI settings > Floating button > Background color 3",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#300000",
+        "description": "Fourth color used by Faceted layers. It is ignored when Background style is Flat. Use #RRGGBB.",
+        "key": "runtimeOverlayIconBackgroundColor4",
+        "required": false,
+        "title": "UI settings > Floating button > Background color 4",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Add a separate outline around the floating icon.",
+        "key": "runtimeOverlayIconOutline",
+        "required": false,
+        "title": "UI settings > Floating button > Outline",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": 3,
+        "description": "Floating-icon outline width from 1 to 8dp. This is separate from the menu outline.",
+        "key": "runtimeOverlayIconOutlineWidthDp",
+        "required": false,
+        "title": "UI settings > Floating button > Outline width (dp)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "#FFFFFF",
+        "description": "Color used only when the icon outline is enabled.",
+        "key": "runtimeOverlayIconOutlineColor",
+        "required": false,
+        "title": "UI settings > Floating button > Outline color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Blend two colors around the floating-icon outline.",
+        "key": "runtimeOverlayIconOutlineGradient",
+        "required": false,
+        "title": "UI settings > Floating button > Outline gradient",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "#FFFFFF",
+        "description": "Second outline color used when Outline gradient is enabled. Use #RRGGBB.",
+        "key": "runtimeOverlayIconOutlineColor2",
+        "required": false,
+        "title": "UI settings > Floating button > Outline color 2",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": 0,
+        "description": "Direction of the icon outline gradient. 0 degrees runs top to bottom and 90 degrees runs left to right.",
+        "key": "runtimeOverlayIconOutlineGradientAngle",
+        "required": false,
+        "title": "UI settings > Floating button > Outline gradient angle (degrees)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Select a local PNG, JPG, JPEG, or WebP image file. This input has priority over the String Handler input when valid. Images are embedded during patching and scaled proportionally. Any supplied image takes full precedence over Text and Multi-parts icon rendering.",
+        "key": "runtimeOverlayCustomIconImage",
+        "required": false,
+        "title": "Quick setup > Optional icon image > Local image",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Optional non-local image input. Valid examples: <base64 string here>, data:image/png;base64,<base64 string here>, or an HTTPS image URL. For image-to-Base64 conversion, use https://base64.guru/converter/encode/image. Used only when the Local Image input is empty or invalid. A supplied image takes full precedence over Text and Multi-parts icon rendering.",
+        "key": "runtimeOverlayCustomIconImageInput",
+        "required": false,
+        "title": "Quick setup > Optional icon image > Base64 or HTTPS image",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "circle",
+        "description": "Shape of the floating icon background.",
+        "key": "runtimeOverlayButtonShape",
+        "required": false,
+        "title": "UI settings > Floating button > Shape",
+        "type": "kotlin.String",
+        "values": {
+          "Circle": "circle",
+          "Square": "square",
+          "Squircle": "squircle"
+        }
+      },
+      {
+        "default": 56,
+        "description": "Button size in density-independent pixels.",
+        "key": "runtimeOverlayButtonSizeDp",
+        "required": false,
+        "title": "UI settings > Floating button > Size (dp)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 50,
+        "description": "Idle opacity from 10 to 100 percent. Higher values make the button less transparent.",
+        "key": "runtimeOverlayButtonIdleOpacityPercent",
+        "required": false,
+        "title": "UI settings > Floating button > Idle opacity (%)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 2,
+        "description": "How long the overlay button stays fully visible after dragging before fading to its idle opacity. The timer resets while dragging and starts again when the finger is released. Use a value from 1 to 10 seconds.",
+        "key": "runtimeOverlayButtonDragVisibilityDurationSeconds",
+        "required": false,
+        "title": "UI settings > Floating button > Fully visible duration (seconds)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "topRight",
+        "description": "Initial floating button position.",
+        "key": "runtimeOverlayButtonPosition",
+        "required": false,
+        "title": "UI settings > Floating button > Initial position",
+        "type": "kotlin.String",
+        "values": {
+          "Bottom left": "bottomLeft",
+          "Bottom middle": "bottomMiddle",
+          "Bottom right": "bottomRight",
+          "Center left": "centerLeft",
+          "Center right": "centerRight",
+          "Top left": "topLeft",
+          "Top middle": "topMiddle",
+          "Top right": "topRight"
+        }
+      },
+      {
+        "default": "",
+        "description": "Risk: a wrong Activity can prevent the overlay from appearing. Leave blank for automatic discovery. If provided, this Activity is tried after automatic Application discovery and before the launcher fallback; example: com.example.MainActivity.",
+        "key": "runtimeOverlayActivityNameOverride",
+        "required": false,
+        "title": "Advanced > Activity injection > Target Activity name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "[com.google.android.gms.games.*, com.google.android.play.games.*, com.google.android.gms.auth.api.signin.*, com.google.android.gms.common.api.*, com.android.billingclient.*, com.android.vending.billing.*, com.android.vending.*, com.xiaomi.market.*, com.huawei.appmarket.*, ru.vk.store.*, ru.rustore.*, com.heytap.market.*, com.oppo.market.*, com.sec.android.app.samsungapps.*]",
+        "description": "Risk: changing this can place the overlay on sign-in, billing, or store screens. Add one Activity class or package prefix per row; use * for a prefix. Keep the defaults unless an app needs a specific adjustment. Use only none to disable the list.",
+        "key": "runtimeOverlayActivityInstallBanlist",
+        "required": false,
+        "title": "Advanced > Activity injection > Install banlist",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Use the configured text icon for this patched APK and ignore image and Multi-parts icon inputs.",
+        "key": "runtimeOverlayResetIconToText",
+        "required": false,
+        "title": "UI settings > Floating button > Reset icon to text",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.31.0",
+    "source_id": "308c1f9a8278402c",
+    "use": false
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.kiloo.subwaysurf": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate in Subway Surfers by configuring WindowManager.LayoutParams.preferredRefreshRate on the game activity.",
+    "id": "8bc6306f53f093d0b172e745:0",
+    "legacy_id": 22013,
+    "metadata_status": "verified",
+    "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Subway Surfers",
+        "icon_url": "https://play-lh.googleusercontent.com/-b6afYVP9kkzaFgDT3bZpGy2ugh1AjzCiXS0o9aZw7bIZ5rCb3Bp8YAwIxyMjUGLjl1pD6ZFGxeKKGlXBw950g",
+        "name": "com.kiloo.subwaysurf",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.imangi.templerun2": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate in Temple Run 2 by configuring WindowManager.LayoutParams.preferredRefreshRate on the game activity.",
+    "id": "8bc6306f53f093d0b172e745:1",
+    "legacy_id": 22014,
+    "metadata_status": "verified",
+    "name": "120 FPS High Refresh Rate & Low Latency - Temple Run 2 (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Temple Run 2",
+        "icon_url": "https://play-lh.googleusercontent.com/48yHWnGUQ5S8qgQ13CAtp0EOuPN23443EM7K_NG0HiX_icUINAbUPLJoVOuGSTy9zTIPIDJ9shcSVPhe-VHmCE0",
+        "name": "com.imangi.templerun2",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.windyty.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate and unlocks high-framerate wind particle simulations and smooth satellite weather animation layers in Windy.",
+    "id": "8bc6306f53f093d0b172e745:2",
+    "legacy_id": 22015,
+    "metadata_status": "verified",
+    "name": "120 FPS Smooth Radar Animations - Windy.com (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Windy.com - Weather Forecast",
+        "icon_url": "https://play-lh.googleusercontent.com/u-KmXMFiH9SLeIpYeNBKzHrwRX3Fi53H4ij3240cuOqxnrMMTpb8n0bVEC25VzqTKU90m43l4UaBg8ahP9RcUg",
+        "name": "com.windyty.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.videolan.vlc": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Unlocks 200% volume amplification (software preamp gain up to +12dB) for low-volume videos/audio and prevents volume ducking on notifications.",
+    "id": "8bc6306f53f093d0b172e745:3",
+    "legacy_id": 22016,
+    "metadata_status": "verified",
+    "name": "200% Volume Boost & Audio Gain - VLC (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VLC",
+        "icon_url": "https://f-droid.org/repo/org.videolan.vlc/en-US/icon_yAfSvPRJukZzMMfUzvbYqwaD1XmHXNtiPBtuPVHW-6s%3D.png",
+        "name": "org.videolan.vlc",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.truecaller": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells by neutralizing ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:4",
+    "legacy_id": 22017,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Truecaller: Spam Call Blocker",
+        "icon_url": "https://play-lh.googleusercontent.com/kVMxXC3fV4cyG56MZunYS2-HYaHh3eM3YTWoDbYaN5-G9xIU2k235hHVQmRrm79tzBSzt0cZ6GsBbzGzGbbMwg",
+        "name": "com.truecaller",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.shazam.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-recognition banner ads, sponsored track cards, and Apple Music / Spotify subscription nags by neutralizing ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:5",
+    "legacy_id": 22018,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Clean Interface - Shazam (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Shazam: Find Music & Concerts",
+        "icon_url": "https://play-lh.googleusercontent.com/Ne3g286DhSUmbg75RI5hmJLAFLPZfgIiWVOboDL8Rb08iQAAfqb7CBfwI6eU3rIvI6Kk6B9CySgMUTbh7i42_Q",
+        "name": "com.shazam.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.duolingo": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups.",
+    "id": "8bc6306f53f093d0b172e745:6",
+    "legacy_id": 22019,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Declutter - Duolingo (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips all banner ads on the main folder list, full-screen interstitial video ads upon pausing or exiting videos, and online OTT feed promotions by neutralizing ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:7",
+    "legacy_id": 22020,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Pure Player - MX Player (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MX Player",
+        "icon_url": "https://play-lh.googleusercontent.com/kuU8L2zHfkE8rDQ8iUwMpYcV8TzUDBz7n_KYaEV4R5M7W5qHiZGqxWk9f1ysP2Lk72GmRTps3iaXUXfH-18pWw",
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.microblink.photomath": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks ads and unlocks deep step-by-step animated explanations, textbook geometry solutions, and calculation tips in Photomath.",
+    "id": "8bc6306f53f093d0b172e745:8",
+    "legacy_id": 22021,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Unlock Animated Step Solutions - Photomath (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photomath",
+        "icon_url": "https://play-lh.googleusercontent.com/SdtwWRFWpe98RgGwOM1dsBEoNYUd9H6KZKFs8WpWFb6YZvDM3xY3kiUK0BcV-ZzPjjLp_HuFagj1lbm2fsnmcMY",
+        "name": "com.microblink.photomath",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.zwanoo.android.speedtest": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes post-test video ads, top and bottom banner ads, and sponsored server promotions by neutralizing ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:9",
+    "legacy_id": 22022,
+    "metadata_status": "verified",
+    "name": "Ad-Free Speedtest by Ookla (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Speedtest by Ookla",
+        "icon_url": "https://play-lh.googleusercontent.com/ZH4EUfCHaf8hoFSpeLx_guqWN-DkGdJWbP5Ydim9dbvqO4L95TC3V7WD20-KsEpGaZuCrWz62ClSYdmCanL9",
+        "name": "org.zwanoo.android.speedtest",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "free.vpn.unblock.proxy.turbovpn": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups by intercepting ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:10",
+    "legacy_id": 22023,
+    "metadata_status": "verified",
+    "name": "Ad-Free Turbo VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Turbo VPN - Secure VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/Tq4j4MqkT86VZD4wMtpTp0iHoBg9rPN4kMpsimM2htphEZw_g4hG5J-rdjYhE3bBMZm-2Ei3GsD1qCrSSv4L4UQ",
+        "name": "free.vpn.unblock.proxy.turbovpn",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds settings to control preferences are patching",
+    "id": "8bc6306f53f093d0b172e745:11",
+    "legacy_id": 22024,
+    "metadata_status": "verified",
+    "name": "Add settings - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Overrides the feed flyout 'Play next in queue' with the Morphe video queue.",
+    "id": "8bc6306f53f093d0b172e745:12",
+    "legacy_id": 22025,
+    "metadata_status": "verified",
+    "name": "Add to queue - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock.",
+    "id": "8bc6306f53f093d0b172e745:13",
+    "legacy_id": 22026,
+    "metadata_status": "verified",
+    "name": "Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.telegram.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels.",
+    "id": "8bc6306f53f093d0b172e745:14",
+    "legacy_id": 22027,
+    "metadata_status": "verified",
+    "name": "Allow Saving Restricted Media - Telegram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.snapchat.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions.",
+    "id": "8bc6306f53f093d0b172e745:15",
+    "legacy_id": 22028,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Snapchat",
+        "icon_url": "https://play-lh.googleusercontent.com/nOJWJoDAzuRSHmlFfpzHXAj8UbTJwk_JGYf0uAPTKPtiiIX_2Y7r5ATO1ZtxHRqaFTqfIDZ40PnBK4hukeJh",
+        "name": "com.snapchat.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "ai.perplexity.app.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity.",
+    "id": "8bc6306f53f093d0b172e745:16",
+    "legacy_id": 22029,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Block Telemetry - Perplexity (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Perplexity - Ask Anything",
+        "icon_url": "https://play-lh.googleusercontent.com/vg7sPhgWiPr0L2cK_NLLcCl0mrkEmNNv7C-aUkBdIUEa-9uSnCi5x4z_3Mw0vNYWKoSVWHfgri7THMOsOZKQuA",
+        "name": "ai.perplexity.app.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.nextcloud.client": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.",
+    "id": "8bc6306f53f093d0b172e745:17",
+    "legacy_id": 22030,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Bypass Lockout - Nextcloud (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.nextcloud.client",
+        "icon_url": null,
+        "name": "org.nextcloud.client",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.openai.chatgpt": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.",
+    "id": "8bc6306f53f093d0b172e745:18",
+    "legacy_id": 22031,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Copy - ChatGPT (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ChatGPT",
+        "icon_url": "https://play-lh.googleusercontent.com/T9J8e9oxxPd600j_KPM4KK2GHfNpUpGBdTy8lHPXBXpOUfGusRuZXj0UMgFNrP8we6LVt9V-AibEgcLootE6VK4",
+        "name": "com.openai.chatgpt",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "mega.privacy.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.",
+    "id": "8bc6306f53f093d0b172e745:19",
+    "legacy_id": 22032,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Export - MEGA (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MEGA",
+        "icon_url": "https://play-lh.googleusercontent.com/4IDzX-5oH2pR3xvhtV7U0q2_3hPFd7KHmcK9Jj5oN0ISJfIBuctADot0Z1kQK1OFLX87nWxmPUzUU6TdymGdIw",
+        "name": "mega.privacy.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "me.proton.android.drive": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.",
+    "id": "8bc6306f53f093d0b172e745:20",
+    "legacy_id": 22033,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Privacy - Proton Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Drive: Cloud Storage",
+        "icon_url": "https://play-lh.googleusercontent.com/VQyox7uaA1_m7iaYgEmLp7e_OESrto7sV3LRBcQO8z69DrC1WtTAA3lt7CwJo96kTSlxYslpn84da1awa9L_mg",
+        "name": "me.proton.android.drive",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.x8bit.bitwarden": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to permit taking screenshots and screen recordings in Bitwarden.",
+    "id": "8bc6306f53f093d0b172e745:21",
+    "legacy_id": 22034,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Capture - Bitwarden (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Bitwarden Password Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/ezsPZ5JtRMkMd6DtbUOZghm4m-EbYcZSzXAIxJMumYOaDP9sI8o-DN8-tZpds0HJUXb-ur7F-oB9rFH78Jy2lA",
+        "name": "com.x8bit.bitwarden",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics.",
+    "id": "8bc6306f53f093d0b172e745:22",
+    "legacy_id": 22035,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "de.tutao.tutanota": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens.",
+    "id": "8bc6306f53f093d0b172e745:23",
+    "legacy_id": 22036,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Tuta Mail",
+        "icon_url": "https://f-droid.org/repo/de.tutao.tutanota/en-US/icon_aE3ARq5Qudp3i6Ty-5dNtqpE3xtLwyfoWVviXshG_9o%3D.png",
+        "name": "de.tutao.tutanota",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "proton.android.pass": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses Android WindowManager FLAG_SECURE restrictions in Proton Pass, allowing you to take screenshots or record screens of recovery keys, 2FA QR codes, and credentials.",
+    "id": "8bc6306f53f093d0b172e745:24",
+    "legacy_id": 22037,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Recording - Proton Pass (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Password Manager - Proton Pass",
+        "icon_url": "https://play-lh.googleusercontent.com/Fl-aCgnpB0xcDpnzFYYccPrHKBoh5zSEUZKrHax9m8jGYJepQZhCNO-vhnsJ2En9Hqv8R3f7VJ62QNfgOfXL",
+        "name": "proton.android.pass",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "network.loki.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations.",
+    "id": "8bc6306f53f093d0b172e745:25",
+    "legacy_id": 22038,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - Session (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Session - Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/KxSYezXXvC0AYtYxE4BtVOLqrOGDwTzo5dUHSU7Ap5d4yN8sbjEdzwMjSPhzeTnCOrvYLRuW6ismgJ4vLidEZw",
+        "name": "network.loki.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.thoughtcrime.securesms": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced.",
+    "id": "8bc6306f53f093d0b172e745:26",
+    "legacy_id": 22039,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - Signal (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Signal Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/HXEs85Okatm4_lZMmCaLFk3iXQ6_lrr00i8nsxaqBRSy6VGnsP7F50dKUfrO37Sj0nxtzSjMpKbjgWh6d0PTyEA",
+        "name": "org.thoughtcrime.securesms",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "chat.simplex.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens.",
+    "id": "8bc6306f53f093d0b172e745:27",
+    "legacy_id": 22040,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SimpleX Chat",
+        "icon_url": "https://f-droid.org/repo/chat.simplex.app/en-US/icon_IDdtCGG0wL-lNRFuu7OK2tHe0TTFmPfU06AgixSneLM%3D.png",
+        "name": "chat.simplex.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.docs": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Google Drive to permit taking screenshots and screen recordings of documents, spreadsheets, and presentation previews.",
+    "id": "8bc6306f53f093d0b172e745:28",
+    "legacy_id": 22041,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Secure Share - Google Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Drive",
+        "icon_url": "https://play-lh.googleusercontent.com/chc-Fx3Qi3BisTZw1aOteYK_XkMHUiXKRbX2Hc8shyFI8pYt7DcyUPzVwLGJKIeKCKDD6nFVhEtUrIaEyzcnmA",
+        "name": "com.google.android.apps.docs",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.bard": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays.",
+    "id": "8bc6306f53f093d0b172e745:29",
+    "legacy_id": 22042,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & UI Tweaks - Google Gemini (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Gemini",
+        "icon_url": "https://play-lh.googleusercontent.com/C64IqPWyFoCZzXVxXVl0Y6mliiNlG_sZJsqul-SBvk9ZL0wJHlU0Eho2wvsBHhho0FT5XQtH55RVGerIwXF_MA",
+        "name": "com.google.android.apps.bard",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Allows user network certificate for whitehat testing",
+    "id": "8bc6306f53f093d0b172e745:30",
+    "legacy_id": 22043,
+    "metadata_status": "verified",
+    "name": "Allow user network certificate - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
+    "id": "8bc6306f53f093d0b172e745:31",
+    "legacy_id": 22044,
+    "metadata_status": "verified",
+    "name": "Alternative thumbnails - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type.",
+    "id": "8bc6306f53f093d0b172e745:32",
+    "legacy_id": 22045,
+    "metadata_status": "verified",
+    "name": "Always Show Speedometer & Compass - Google Maps (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.shazam.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
+    "id": "8bc6306f53f093d0b172e745:33",
+    "legacy_id": 22046,
+    "metadata_status": "verified",
+    "name": "Always-On Auto Shazam - Shazam (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Shazam: Find Music & Concerts",
+        "icon_url": "https://play-lh.googleusercontent.com/Ne3g286DhSUmbg75RI5hmJLAFLPZfgIiWVOboDL8Rb08iQAAfqb7CBfwI6eU3rIvI6Kk6B9CySgMUTbh7i42_Q",
+        "name": "com.shazam.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
+    "id": "8bc6306f53f093d0b172e745:34",
+    "legacy_id": 22047,
+    "metadata_status": "verified",
+    "name": "Ambient mode - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
+    "id": "8bc6306f53f093d0b172e745:35",
+    "legacy_id": 22048,
+    "metadata_status": "verified",
+    "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "me.proton.android.drive": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.",
+    "id": "8bc6306f53f093d0b172e745:36",
+    "legacy_id": 22049,
+    "metadata_status": "verified",
+    "name": "AMOLED Black & Declutter - Proton Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Drive: Cloud Storage",
+        "icon_url": "https://play-lh.googleusercontent.com/VQyox7uaA1_m7iaYgEmLp7e_OESrto7sV3LRBcQO8z69DrC1WtTAA3lt7CwJo96kTSlxYslpn84da1awa9L_mg",
+        "name": "me.proton.android.drive",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "proton.android.pass": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
+    "id": "8bc6306f53f093d0b172e745:37",
+    "legacy_id": 22050,
+    "metadata_status": "verified",
+    "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Password Manager - Proton Pass",
+        "icon_url": "https://play-lh.googleusercontent.com/Fl-aCgnpB0xcDpnzFYYccPrHKBoh5zSEUZKrHax9m8jGYJepQZhCNO-vhnsJ2En9Hqv8R3f7VJ62QNfgOfXL",
+        "name": "proton.android.pass",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.",
+    "id": "8bc6306f53f093d0b172e745:38",
+    "legacy_id": 22051,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Navigation - Google Maps (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "ch.protonmail.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
+    "id": "8bc6306f53f093d0b172e745:39",
+    "legacy_id": 22052,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Theme - Proton Mail (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+    "id": "8bc6306f53f093d0b172e745:40",
+    "legacy_id": 22053,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "de.tutao.tutanota": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
+    "id": "8bc6306f53f093d0b172e745:41",
+    "legacy_id": 22054,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Tuta Mail",
+        "icon_url": "https://f-droid.org/repo/de.tutao.tutanota/en-US/icon_aE3ARq5Qudp3i6Ty-5dNtqpE3xtLwyfoWVviXshG_9o%3D.png",
+        "name": "de.tutao.tutanota",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.canva.editor": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.",
+    "id": "8bc6306f53f093d0b172e745:42",
+    "legacy_id": 22055,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Canva (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Canva: AI Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/52fzAlhKzDyZV8ttyQ_DHB-jOeLZAZEdKlgXnWL__YNMZuvsoRCshJX5mr_ArFZjK7rte4hqEJ4ucjtuKJK5",
+        "name": "com.canva.editor",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.openai.chatgpt": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.",
+    "id": "8bc6306f53f093d0b172e745:43",
+    "legacy_id": 22056,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ChatGPT",
+        "icon_url": "https://play-lh.googleusercontent.com/T9J8e9oxxPd600j_KPM4KK2GHfNpUpGBdTy8lHPXBXpOUfGusRuZXj0UMgFNrP8we6LVt9V-AibEgcLootE6VK4",
+        "name": "com.openai.chatgpt",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.docs": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces pure OLED pitch black (#000000) across Google Drive file lists, folder navigation, status bars, and navigation bars, eliminating dark gray tint for maximum OLED power savings.",
+    "id": "8bc6306f53f093d0b172e745:44",
+    "legacy_id": 22057,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Google Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Drive",
+        "icon_url": "https://play-lh.googleusercontent.com/chc-Fx3Qi3BisTZw1aOteYK_XkMHUiXKRbX2Hc8shyFI8pYt7DcyUPzVwLGJKIeKCKDD6nFVhEtUrIaEyzcnmA",
+        "name": "com.google.android.apps.docs",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.bard": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.",
+    "id": "8bc6306f53f093d0b172e745:45",
+    "legacy_id": 22058,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Google Gemini (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Gemini",
+        "icon_url": "https://play-lh.googleusercontent.com/C64IqPWyFoCZzXVxXVl0Y6mliiNlG_sZJsqul-SBvk9ZL0wJHlU0Eho2wvsBHhho0FT5XQtH55RVGerIwXF_MA",
+        "name": "com.google.android.apps.bard",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "mega.privacy.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.",
+    "id": "8bc6306f53f093d0b172e745:46",
+    "legacy_id": 22059,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - MEGA (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MEGA",
+        "icon_url": "https://play-lh.googleusercontent.com/4IDzX-5oH2pR3xvhtV7U0q2_3hPFd7KHmcK9Jj5oN0ISJfIBuctADot0Z1kQK1OFLX87nWxmPUzUU6TdymGdIw",
+        "name": "mega.privacy.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "ai.perplexity.app.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.",
+    "id": "8bc6306f53f093d0b172e745:47",
+    "legacy_id": 22060,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Perplexity - Ask Anything",
+        "icon_url": "https://play-lh.googleusercontent.com/vg7sPhgWiPr0L2cK_NLLcCl0mrkEmNNv7C-aUkBdIUEa-9uSnCi5x4z_3Mw0vNYWKoSVWHfgri7THMOsOZKQuA",
+        "name": "ai.perplexity.app.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.snapchat.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
+    "id": "8bc6306f53f093d0b172e745:48",
+    "legacy_id": 22061,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Snapchat",
+        "icon_url": "https://play-lh.googleusercontent.com/nOJWJoDAzuRSHmlFfpzHXAj8UbTJwk_JGYf0uAPTKPtiiIX_2Y7r5ATO1ZtxHRqaFTqfIDZ40PnBK4hukeJh",
+        "name": "com.snapchat.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.thoughtcrime.securesms": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
+    "id": "8bc6306f53f093d0b172e745:49",
+    "legacy_id": 22062,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Signal Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/HXEs85Okatm4_lZMmCaLFk3iXQ6_lrr00i8nsxaqBRSy6VGnsP7F50dKUfrO37Sj0nxtzSjMpKbjgWh6d0PTyEA",
+        "name": "org.thoughtcrime.securesms",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.yanstarstudio.joss.undercover": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover.",
+    "id": "8bc6306f53f093d0b172e745:50",
+    "legacy_id": 22063,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Privacy - Undercover (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Undercover®: Word Party Game",
+        "icon_url": "https://play-lh.googleusercontent.com/jkBaQS-efcDMy-eX-Xko174yZijh9JafmW4xb3dOQyM-p9URLCm-y1s0H2Iy_ONrEBq2mc1ZTtYYEjMjyI1uyA",
+        "name": "com.yanstarstudio.joss.undercover",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.anthropic.claude": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black theme for Claude AI, optimizing contrast and reducing battery consumption on OLED displays.",
+    "id": "8bc6306f53f093d0b172e745:51",
+    "legacy_id": 22064,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Claude AI (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Claude by Anthropic",
+        "icon_url": "https://play-lh.googleusercontent.com/YeFCFSW5LkBVdsEAL_fjzxDxTbhKz31j1uZUfDbSaCeM0t4Bi3SqyHTWzWsUsZnbwjofXhYajitG_gr2_B2xil8",
+        "name": "com.anthropic.claude",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.infomaniak.euria": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black background in Euria AI dark mode, enhancing battery efficiency and contrast on OLED screens.",
+    "id": "8bc6306f53f093d0b172e745:52",
+    "legacy_id": 22065,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Euria AI (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Infomaniak Euria",
+        "icon_url": "https://f-droid.org/repo/com.infomaniak.euria/en-US/icon_GsKHXPVXpD19e1UZeq_Lqo0iX5pvOvV7NFQeXpNPpuI%3D.png",
+        "name": "com.infomaniak.euria",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.nextcloud.client": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.",
+    "id": "8bc6306f53f093d0b172e745:53",
+    "legacy_id": 22066,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Nextcloud (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.nextcloud.client",
+        "icon_url": null,
+        "name": "org.nextcloud.client",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "network.loki.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.",
+    "id": "8bc6306f53f093d0b172e745:54",
+    "legacy_id": 22067,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Session (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Session - Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/KxSYezXXvC0AYtYxE4BtVOLqrOGDwTzo5dUHSU7Ap5d4yN8sbjEdzwMjSPhzeTnCOrvYLRuW6ismgJ4vLidEZw",
+        "name": "network.loki.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "chat.simplex.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.",
+    "id": "8bc6306f53f093d0b172e745:55",
+    "legacy_id": 22068,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - SimpleX (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SimpleX Chat",
+        "icon_url": "https://f-droid.org/repo/chat.simplex.app/en-US/icon_IDdtCGG0wL-lNRFuu7OK2tHe0TTFmPfU06AgixSneLM%3D.png",
+        "name": "chat.simplex.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.x8bit.bitwarden": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black backgrounds across Bitwarden's vault interface, reducing OLED power draw and eye strain.",
+    "id": "8bc6306f53f093d0b172e745:56",
+    "legacy_id": 22069,
+    "metadata_status": "verified",
+    "name": "AMOLED Pure Black Theme - Bitwarden (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Bitwarden Password Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/ezsPZ5JtRMkMd6DtbUOZghm4m-EbYcZSzXAIxJMumYOaDP9sI8o-DN8-tZpds0HJUXb-ur7F-oB9rFH78Jy2lA",
+        "name": "com.x8bit.bitwarden",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Hides Reels tab button, hides 'Suggested Posts' ('You're all caught up'), hides Shop tab, and hides explore distractions.",
+    "id": "8bc6306f53f093d0b172e745:57",
+    "legacy_id": 22070,
+    "metadata_status": "verified",
+    "name": "Anti-Distraction UI & Declutter - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds an option to select from the Reddit app icons available in the manifest.",
+    "id": "8bc6306f53f093d0b172e745:58",
+    "legacy_id": 22071,
+    "metadata_status": "verified",
+    "name": "App icon - Reddit (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds an option to change the app refresh rate.",
+    "id": "8bc6306f53f093d0b172e745:59",
+    "legacy_id": 22072,
+    "metadata_status": "verified",
+    "name": "App refresh rate - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.vpn.lat": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Keeps the VPN tunnel active during screen-off/doze mode, enforces auto-reconnection on network switches, and prevents dropped connections in VPN.lat.",
+    "id": "8bc6306f53f093d0b172e745:60",
+    "legacy_id": 22073,
+    "metadata_status": "verified",
+    "name": "Auto-Reconnect & Keep-Alive Background Service - VPN.lat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VPN.lat: Unlimited VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/0Dz2MhWQWTJ-NLghs4BxGD-C_5PBtPhkUovA16sOaIKHuJRhMwvfJIsevnxAC74zZFGdzN3ZkVJ-N_fsIU633A",
+        "name": "com.vpn.lat",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "tv.twitch.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Unlocks background audio playback and seamless Picture-in-Picture (PiP) mode without stream interruptions on Twitch.",
+    "id": "8bc6306f53f093d0b172e745:61",
+    "legacy_id": 22074,
+    "metadata_status": "verified",
+    "name": "Background & Audio-Only Playback - Twitch (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enables background audio playback when the screen is locked or switching between apps, and unlocks Picture-in-Picture (PiP) mode without YouTube Premium.",
+    "id": "8bc6306f53f093d0b172e745:62",
+    "legacy_id": 22075,
+    "metadata_status": "verified",
+    "name": "Background & PiP Playback - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.videolan.vlc": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces background audio playback and automatic Picture-in-Picture (PIP) for all videos and audio streams when switching apps or minimizing VLC.",
+    "id": "8bc6306f53f093d0b172e745:63",
+    "legacy_id": 22076,
+    "metadata_status": "verified",
+    "name": "Background Playback & Universal PIP - VLC (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VLC",
+        "icon_url": "https://f-droid.org/repo/org.videolan.vlc/en-US/icon_yAfSvPRJukZzMMfUzvbYqwaD1XmHXNtiPBtuPVHW-6s%3D.png",
+        "name": "org.videolan.vlc",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.yanstarstudio.joss.undercover": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads between rounds, banner ads in lobby and voting screens, and rewarded video gates by neutralizing ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:64",
+    "legacy_id": 22077,
+    "metadata_status": "verified",
+    "name": "Block Ads & Commercials - Undercover (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Undercover®: Word Party Game",
+        "icon_url": "https://play-lh.googleusercontent.com/jkBaQS-efcDMy-eX-Xko174yZijh9JafmW4xb3dOQyM-p9URLCm-y1s0H2Iy_ONrEBq2mc1ZTtYYEjMjyI1uyA",
+        "name": "com.yanstarstudio.joss.undercover",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.imangi.templerun2": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates post-death full-screen ads, video revive popups, and banner ads in Temple Run 2 by intercepting mediation SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:65",
+    "legacy_id": 22078,
+    "metadata_status": "verified",
+    "name": "Block Ads & Death Interstitials - Temple Run 2 (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Temple Run 2",
+        "icon_url": "https://play-lh.googleusercontent.com/48yHWnGUQ5S8qgQ13CAtp0EOuPN23443EM7K_NG0HiX_icUINAbUPLJoVOuGSTy9zTIPIDJ9shcSVPhe-VHmCE0",
+        "name": "com.imangi.templerun2",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.bandlab.bandlab": null
+    },
+    "dependencies": [],
+    "description": "Removes in-app promotional banners, upgrade prompts, sponsored artist cards, and interstitial ads across the BandLab home feed and studio screens.",
+    "id": "8bc6306f53f093d0b172e745:66",
+    "legacy_id": 22079,
+    "metadata_status": "verified",
+    "name": "Block Ads & Declutter Feed - BandLab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BandLab: Music Maker & Studio",
+        "icon_url": "https://play-lh.googleusercontent.com/x_PQHLeE9ptFfTZ4nmhuKDQ34nghCrRcmoYISeAV_O-Oi5yuhoXzkrRjtBgn7yfLyTo2bOtiu6HzqoEhphmliQ",
+        "name": "com.bandlab.bandlab",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.ea.game.pvzfree_row": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads, bottom banners, and promotional popups in Plants vs. Zombies.",
+    "id": "8bc6306f53f093d0b172e745:67",
+    "legacy_id": 22080,
+    "metadata_status": "verified",
+    "name": "Block Ads & Declutter Menus - Plants vs. Zombies (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Plants vs. Zombies™",
+        "icon_url": "https://play-lh.googleusercontent.com/FGB00L2-aGHPAiRJPxbC3Th_KEaGvVroVF-tPSf_1Unh9kzzY-al4mp1yJT16I16FuLK6oJ-3H-KrVgTrg3ABFc",
+        "name": "com.ea.game.pvzfree_row",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.intsig.camscanner": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-export full-screen video ads, home feed banner promotions, and upgrade popups in CamScanner.",
+    "id": "8bc6306f53f093d0b172e745:68",
+    "legacy_id": 22081,
+    "metadata_status": "verified",
+    "name": "Block Ads & Declutter UI - CamScanner (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CamScanner- scanner, PDF maker",
+        "icon_url": "https://play-lh.googleusercontent.com/XSoqEDquJuenUosbMN_EA2n2U5lsomPEUdCKj4j9bUdPfdWMCtRqXlyPgQ6zxQxWaDFIXrqbqyFjwXQ5FMYubw",
+        "name": "com.intsig.camscanner",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "org.telegram.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders.",
+    "id": "8bc6306f53f093d0b172e745:69",
+    "legacy_id": 22082,
+    "metadata_status": "verified",
+    "name": "Block Ads & Hide Stories - Telegram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.dubox.drive": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips video startup ads, cloud storage interstitial banners, and persistent TeraBox Premium VIP subscription nag popups by neutralizing ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:70",
+    "legacy_id": 22083,
+    "metadata_status": "verified",
+    "name": "Block Ads & Hide VIP Nags - TeraBox (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TeraBox: 1TB Cloud & AI Space",
+        "icon_url": "https://play-lh.googleusercontent.com/b9KKZIvnQ_X3eIqHXeR4e0Ftd3lrDgAIkJ8N1fAvgl6zpTLuX8m74aVlRnoeLQCcAnLMbSMRJGLvsmghheZe",
+        "name": "com.dubox.drive",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.halfbrick.dantheman": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates checkpoint video ads, post-stage commercials, and banner ads in Dan The Man.",
+    "id": "8bc6306f53f093d0b172e745:71",
+    "legacy_id": 22084,
+    "metadata_status": "verified",
+    "name": "Block Ads & Interstitials - Dan The Man (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Dan the Man: Action Platformer",
+        "icon_url": "https://play-lh.googleusercontent.com/UZOlyfb43PPDa2u6xY7OKFWUwdC3i9jf94U8JVzmynkCRz_-cfKe1snSOrMSCWptEmZS3ohHlvaSZxwwYDzLbr4",
+        "name": "com.halfbrick.dantheman",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.flightradar24free": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips bottom map banner ads, interstitial aircraft viewing promos, and full-screen ads in Flightradar24.",
+    "id": "8bc6306f53f093d0b172e745:72",
+    "legacy_id": 22085,
+    "metadata_status": "verified",
+    "name": "Block Ads & Map Banners - Flightradar24 (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flightradar24 Flight Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8KtIuiRHYtY0XJigXIl-iN6X6-ht85ELWXFiynenpCW40b6zNUnLFGKwIN0iITV_1L3sN3G53PaiNiWsn5RSIv8",
+        "name": "com.flightradar24free",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.kiloo.subwaysurf": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads, post-run banners, forced video revives, and promotional popup screens in Subway Surfers by neutralizing Google Mobile Ads, Unity Ads, and AppLovin mediation.",
+    "id": "8bc6306f53f093d0b172e745:73",
+    "legacy_id": 22086,
+    "metadata_status": "verified",
+    "name": "Block Ads & Promotional Popups - Subway Surfers (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Subway Surfers",
+        "icon_url": "https://play-lh.googleusercontent.com/-b6afYVP9kkzaFgDT3bZpGy2ugh1AjzCiXS0o9aZw7bIZ5rCb3Bp8YAwIxyMjUGLjl1pD6ZFGxeKKGlXBw950g",
+        "name": "com.kiloo.subwaysurf",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips sponsored feed posts, sponsored stories, promoted reels, and shopping tags in Instagram.",
+    "id": "8bc6306f53f093d0b172e745:74",
+    "legacy_id": 22087,
+    "metadata_status": "verified",
+    "name": "Block Ads & Sponsored Content - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.rovio.baba": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates full-screen video ads between levels, pause screen promos, and banner overlays in Angry Birds.",
+    "id": "8bc6306f53f093d0b172e745:75",
+    "legacy_id": 22088,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Commercials - Angry Birds (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Angry Birds 2",
+        "icon_url": "https://play-lh.googleusercontent.com/XrA1acf-l1YT0jw0QTxWqpJLE_TYSgdGpWE1vrEepFpA2128Zx4to0ARPvKFdhT5vAc0LHHC7xAAwa8aABIFeg",
+        "name": "com.rovio.baba",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.halfbrick.fruitninja": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables pre-game video ads, post-match banners, and promotional reward prompts in Fruit Ninja by hooking real mediation SDKs.",
+    "id": "8bc6306f53f093d0b172e745:76",
+    "legacy_id": 22089,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Commercials - Fruit Ninja (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Fruit Ninja Classic",
+        "icon_url": "https://play-lh.googleusercontent.com/d818bsN4WPvceFmoFLMnZKXR71MYHUxnapAJIHpXEFjs9udD5U5wcJk0rUOr61OXhllO1L3E5qcTWJ3TE90Y-ss",
+        "name": "com.halfbrick.fruitninja",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.halfbrick.jetpackjoyride": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bloque les publicités vidéo plein écran (interstitiels après crash), les bannières publicitaires et les incitations promotionnelles dans Jetpack Joyride.",
+    "id": "8bc6306f53f093d0b172e745:77",
+    "legacy_id": 22090,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Commercials - Jetpack Joyride (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Jetpack Joyride",
+        "icon_url": "https://play-lh.googleusercontent.com/fo_dS1ZkonPQsBvxnbuIcPU8kuTbmRHsDojJIRsK1zqtlgDHMmzP8hHL2Ex-aapGjYZC7OfsvX92gZNPzxkAwg",
+        "name": "com.halfbrick.jetpackjoyride",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.yodo1.crossyroad": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-death video commercials, prize machine ads, and banner popups in Crossy Road.",
+    "id": "8bc6306f53f093d0b172e745:78",
+    "legacy_id": 22091,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - Crossy Road (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Crossy Road",
+        "icon_url": "https://play-lh.googleusercontent.com/LX__Y8tKCvkvEgboZtQfDsvYiNFa6kwWSpqObipZI2MLK5rFVd5tEU8xgMNoMj1ICOf9TO7PFoFmiKGeIpf1",
+        "name": "com.yodo1.crossyroad",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.zeptolab.ctr.ads": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads between levels, bottom banners, and promotional nag screens in Cut the Rope.",
+    "id": "8bc6306f53f093d0b172e745:79",
+    "legacy_id": 22092,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - Cut the Rope (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Cut the Rope",
+        "icon_url": "https://play-lh.googleusercontent.com/2bTmHHM7DBMVe7fLh16Em-J-tVBMFGL2HJCxPAMNF7gAYIfU6EZoYG1__lQ0cvFMEyp3GU9CGijZzEB1qJHF",
+        "name": "com.zeptolab.ctr.ads",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.lima.doodlejump": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-game-over interstitials, bottom banner ads, and popup promotions in Doodle Jump.",
+    "id": "8bc6306f53f093d0b172e745:80",
+    "legacy_id": 22093,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - Doodle Jump (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Doodle Jump",
+        "icon_url": "https://play-lh.googleusercontent.com/FMY3DWkULM8SNdCo0GXHsM75aRtwqPcYnz8xkCeTYNpiw5qBQVXcsAdG51rJ0iRtZ2fA315QWp8-8FlFVVWUlw",
+        "name": "com.lima.doodlejump",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.vpn.lat": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips full-screen video ads on server connection/disconnection, bottom banner ads, and nag popups in VPN.lat.",
+    "id": "8bc6306f53f093d0b172e745:81",
+    "legacy_id": 22094,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - VPN.lat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VPN.lat: Unlimited VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/0Dz2MhWQWTJ-NLghs4BxGD-C_5PBtPhkUovA16sOaIKHuJRhMwvfJIsevnxAC74zZFGdzN3ZkVJ-N_fsIU633A",
+        "name": "com.vpn.lat",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.qbis.guessthecountry": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates full-screen interstitial video ads between quiz rounds, bottom banners, and promotional reward prompts in World Map Quiz.",
+    "id": "8bc6306f53f093d0b172e745:82",
+    "legacy_id": 22095,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - World Map Quiz (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "World Map Quiz",
+        "icon_url": "https://play-lh.googleusercontent.com/B6F6bSdd0F4RFHgnvjDPAi2Sv3RSnFFmtagBWJ6ZrlMqoL6klPffaDj7phK6eFXuFvuQKy4KBBxWruadP75IUQ",
+        "name": "com.qbis.guessthecountry",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.soundcloud.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses interstitial audio ads between music tracks and removes sponsored promoted tracks from the SoundCloud audio stream by intercepting mediation SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:83",
+    "legacy_id": 22096,
+    "metadata_status": "verified",
+    "name": "Block Audio & Stream Ads - SoundCloud (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SoundCloud: Discover Music",
+        "icon_url": "https://play-lh.googleusercontent.com/rfmCNUApzYntPTdAVmor5vpaOGxIUJWNlpED2pwKcDuCTUaf_2vJlOALNzX1PiejSgZIuAT8k0F5xIBU58JG3g",
+        "name": "com.soundcloud.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.yanstarstudio.joss.undercover": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks and removes the GDPR / Google UMP Cookie consent dialog on first launch by spoofing consent status as OBTAINED and neutralizing consent form presentation.",
+    "id": "8bc6306f53f093d0b172e745:84",
+    "legacy_id": 22097,
+    "metadata_status": "verified",
+    "name": "Block Cookie & Consent Banner - Undercover (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Undercover®: Word Party Game",
+        "icon_url": "https://play-lh.googleusercontent.com/jkBaQS-efcDMy-eX-Xko174yZijh9JafmW4xb3dOQyM-p9URLCm-y1s0H2Iy_ONrEBq2mc1ZTtYYEjMjyI1uyA",
+        "name": "com.yanstarstudio.joss.undercover",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.pinterest": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips sponsored / promoted pins from the home and search feeds, shopping recommendation popups, and interstitial ad banners by neutralizing ad SDK calls.",
+    "id": "8bc6306f53f093d0b172e745:85",
+    "legacy_id": 22098,
+    "metadata_status": "verified",
+    "name": "Block Promoted Pins & Ads - Pinterest (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips Promoted posts, sponsored comment ads, promoted user carousels, and in-feed commercial cards in Reddit.",
+    "id": "8bc6306f53f093d0b172e745:86",
+    "legacy_id": 22099,
+    "metadata_status": "verified",
+    "name": "Block Promoted Posts & Ads - Reddit (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes sponsored pins (promoted logos and commercial icons on the map), search suggestion ads, promoted place suggestions, and explore feed ads.",
+    "id": "8bc6306f53f093d0b172e745:87",
+    "legacy_id": 22100,
+    "metadata_status": "verified",
+    "name": "Block Sponsored Pins & Search Ads - Google Maps (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips pre-roll and mid-roll video advertisements, home feed sponsored cards, search result ads, shorts ads, and info card promos in YouTube.",
+    "id": "8bc6306f53f093d0b172e745:88",
+    "legacy_id": 22101,
+    "metadata_status": "verified",
+    "name": "Block Video & Feed Ads - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.movix.app": [
+        "2.6.5",
+        "2.6.4",
+        "2.6.3",
+        "2.6.2",
+        "2.6.1",
+        "2.6.0",
+        "2.5.3",
+        "2.5.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips video pre-roll and mid-roll ads, banner ads, and redirect popups across Movix movie and series player screens.",
+    "id": "8bc6306f53f093d0b172e745:89",
+    "legacy_id": 22102,
+    "metadata_status": "verified",
+    "name": "Block Video Ads & Interstitials - Movix",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MOVIX",
+        "icon_url": "https://play-lh.googleusercontent.com/hZvveTxRdOkK29IN0IwXtsIat62NE7rcTEgpzPW9mMTYeJfMfLT1GV_3aXYTKcD1Grn8RpHF3LALmBZVGZUa9A",
+        "name": "com.movix.app",
+        "versions": [
+          "2.6.5",
+          "2.6.4",
+          "2.6.3",
+          "2.6.2",
+          "2.6.1",
+          "2.6.0",
+          "2.5.3",
+          "2.5.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "tv.twitch.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks embedded pre-roll and mid-roll video advertisements on live channels and VODs without stream buffer freezes.",
+    "id": "8bc6306f53f093d0b172e745:90",
+    "legacy_id": 22103,
+    "metadata_status": "verified",
+    "name": "Block Video Stream Ads - Twitch (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.waze": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Prevents full-screen commercial banner popups from appearing when the vehicle is stopped at traffic lights or in congestion, and hides sponsored venue pins by neutralizing ad mediation SDKs.",
+    "id": "8bc6306f53f093d0b172e745:91",
+    "legacy_id": 22104,
+    "metadata_status": "verified",
+    "name": "Block Zero-Speed Ads & Sponsored Pins - Waze (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "hideme.android.vpn": [
+        "6.1.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Overrides free plan data transfer limit counters, prevents speed throttling upon quota exhaustion, and maintains unlimited traffic in hide.me VPN.",
+    "id": "8bc6306f53f093d0b172e745:92",
+    "legacy_id": 22105,
+    "metadata_status": "verified",
+    "name": "Bypass Free Data Cap & Bandwidth Throttling - hide.me VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "hide.me VPN: The Privacy Guard",
+        "icon_url": "https://play-lh.googleusercontent.com/pnKXsIWp7BGCEADKmUppuzRNC16cl7pZjR24hDCXvmRV8RrbtQj6SICt6IFHf60pRjSAVEqbCyKm_PysIcUGwpo",
+        "name": "hideme.android.vpn",
+        "versions": [
+          "6.1.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds an option to use a different host for user avatar and channel images and can fix missing images that are blocked in some countries.",
+    "id": "8bc6306f53f093d0b172e745:93",
+    "legacy_id": 22106,
+    "metadata_status": "verified",
+    "name": "Bypass image region restrictions - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.anthropic.claude": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes client-side message input text length truncation and allows pasting massive codebases or prompts without mobile UI lag in Claude AI.",
+    "id": "8bc6306f53f093d0b172e745:94",
+    "legacy_id": 22107,
+    "metadata_status": "verified",
+    "name": "Bypass Input Length & Upload Limits - Claude AI (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Claude by Anthropic",
+        "icon_url": "https://play-lh.googleusercontent.com/YeFCFSW5LkBVdsEAL_fjzxDxTbhKz31j1uZUfDbSaCeM0t4Bi3SqyHTWzWsUsZnbwjofXhYajitG_gr2_B2xil8",
+        "name": "com.anthropic.claude",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds an option to bypass redirects and open the original link directly.",
+    "id": "8bc6306f53f093d0b172e745:95",
+    "legacy_id": 22108,
+    "metadata_status": "verified",
+    "name": "Bypass link redirects - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "8bc6306f53f093d0b172e745",
+    "compatiblePackages": {
+      "com.x8bit.bitwarden": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables insecure HTTP warnings and local IP address autofill blocks, allowing seamless password autofilling on routers, NAS devices, and local development environments.",
+    "id": "8bc6306f53f093d0b172e745:96",
+    "legacy_id": 22109,
+    "metadata_status": "verified",
+    "name": "Bypass Local IP & HTTP Autofill Restrictions - Bitwarden (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Bitwarden Password Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/ezsPZ5JtRMkMd6DtbUOZghm4m-EbYcZSzXAIxJMumYOaDP9sI8o-DN8-tZpds0HJUXb-ur7F-oB9rFH78Jy2lA",
+        "name": "com.x8bit.bitwarden",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.13",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  }
+]
