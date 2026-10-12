@@ -1,0 +1,3561 @@
+[
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips background Peer-to-Peer CDN distribution binaries (libavmdlp2pv2.so and libp2plivevdp.so) to prevent battery drain, background data upload, and mesh relay.",
+    "id": "d8e4f8d0880b432ff2c12382:94",
+    "legacy_id": 51197,
+    "metadata_status": "verified",
+    "name": "P2P Video Relay & Mesh CDN Blocker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Persists selected video playback speed across all feed videos and application restarts, and optionally enables the native hold-and-slide 2x speed lock gesture.",
+    "id": "d8e4f8d0880b432ff2c12382:95",
+    "legacy_id": 51198,
+    "metadata_status": "verified",
+    "name": "Playback Speed Persistence",
+    "options": [
+      {
+        "default": true,
+        "description": "Enables TikTok's native hold, slide down, and release gesture for locking playback at 2x speed (140dp slide distance fallback when the server returns no distance).",
+        "key": "enableSpeedLock",
+        "required": false,
+        "title": "Hold-And-Slide 2x Speed Lock",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Losslessly recompresses PNG assets with maximum zlib compression and strips non-rendering metadata chunks (pHYs, tEXt, tIME) while preserving 9-patch structures and pixel accuracy. In raw-only pipeline mode, optimizes assets/ only as res/ is not decoded.",
+    "id": "d8e4f8d0880b432ff2c12382:96",
+    "legacy_id": 51199,
+    "metadata_status": "verified",
+    "name": "PNG Asset Optimizer",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses intrusive popups, dialogs, and modal prompts, including 'Follow your friends' dialogs, contacts sync overlays, multi-account notification guides, 2SV security checkup modals, PopLayer promotional sheets, live stream teaser bubbles, sticker recommendations, and DM streak expiration warnings.",
+    "id": "d8e4f8d0880b432ff2c12382:97",
+    "legacy_id": 51200,
+    "metadata_status": "verified",
+    "name": "Popups & Prompts Suppressor",
+    "options": [
+      {
+        "default": true,
+        "description": "Suppresses 'Follow your friends' modals, 'Find contacts' Friends tab sync overlays, multi-account notification guides, and 'Security checkup 2SV' upsells.",
+        "key": "suppressAccountPrompts",
+        "required": false,
+        "title": "Suppress Account & Permission Nags",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disables personalized sticker suggestion popups and typing recommendations in direct messages.",
+        "key": "suppressStickerRecommendations",
+        "required": false,
+        "title": "Suppress Sticker Recommendations",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Suppresses repetitive PopLayer prompts including favorites collection guides, launcher shortcut dialogs, repost newbie sheets, STEM feed prompts, campus education sheets, creator inbox guides, app review dialogs, marketing opt-ins, FYP surveys, CapCut/Lemon8 upsells, profile visitor prompts, and story intro sheets.",
+        "key": "filterPopLayerPrompts",
+        "required": false,
+        "title": "Filter PopLayer Prompts & Nags",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disables floating live stream preview teasers and popup windows from appearing over the video feed.",
+        "key": "suppressLiveTeaserBubble",
+        "required": false,
+        "title": "Suppress Live Teaser Bubbles",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Suppresses direct message streak expiration warning banners and inline urgency reminders.",
+        "key": "suppressStreakReminders",
+        "required": false,
+        "title": "Suppress DM Streak Reminders",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remembers TikTok's clear-display state between videos and re-applies it when new videos start.",
+    "id": "d8e4f8d0880b432ff2c12382:98",
+    "legacy_id": 51201,
+    "metadata_status": "verified",
+    "name": "Remember Clear Display",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Throttles background sensor polling (gyroscope/accelerometer 3D ads) and prevents aggressive video buffer preloading to conserve battery and CPU resources.",
+    "id": "d8e4f8d0880b432ff2c12382:99",
+    "legacy_id": 51202,
+    "metadata_status": "verified",
+    "name": "Resource & Battery Governor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips embedded third-party license text, onboarding tutorial Lottie animations, promotional GIFs, and APK root metadata/junk files.",
+    "id": "d8e4f8d0880b432ff2c12382:100",
+    "legacy_id": 51203,
+    "metadata_status": "verified",
+    "name": "Resource Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.hevy": [
+        "3.1.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips embedded onboarding MP4 tutorial video, heavy IMG.LY photo editor stickers/textures, and compiler junk metadata.",
+    "id": "d8e4f8d0880b432ff2c12382:101",
+    "legacy_id": 51204,
+    "metadata_status": "verified",
+    "name": "Resource Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "3.1.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remembers playback timestamp when scrolling away and resumes from where playback stopped upon returning.",
+    "id": "d8e4f8d0880b432ff2c12382:102",
+    "legacy_id": 51205,
+    "metadata_status": "verified",
+    "name": "Resume Video After Scroll",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes motion, ambient, and orientation sensor providers to prevent hardware fingerprinting and tracking via Generic Sensor APIs.",
+    "id": "d8e4f8d0880b432ff2c12382:103",
+    "legacy_id": 51206,
+    "metadata_status": "verified",
+    "name": "Sensor Privacy Guard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Displays the creator's country or region code next to their username in video author info across feeds and deep-linked detail views.",
+    "id": "d8e4f8d0880b432ff2c12382:104",
+    "legacy_id": 51207,
+    "metadata_status": "verified",
+    "name": "Show Author Region",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores TikTok's native video seekbar and scrubbing controls where normally hidden or disabled.",
+    "id": "d8e4f8d0880b432ff2c12382:105",
+    "legacy_id": 51208,
+    "metadata_status": "verified",
+    "name": "Show Seekbar",
+    "options": [
+      {
+        "default": true,
+        "description": "Displays real-time video frame thumbnail previews while dragging the seekbar thumb.",
+        "key": "showThumbnail",
+        "required": false,
+        "title": "Show Dragging Thumbnail Preview",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the detected SIM and network country ISO code, operator numeric codes, operator names, and cell identity MCC/MNC to bypass regional feed restrictions and catalog blocks.",
+    "id": "d8e4f8d0880b432ff2c12382:106",
+    "legacy_id": 51209,
+    "metadata_status": "verified",
+    "name": "SIM Region Selector",
+    "options": [
+      {
+        "default": "CH",
+        "description": "Two-letter ISO country code for SIM and network country spoofing (e.g. 'CH', 'US', 'JP', 'GB').",
+        "key": "region",
+        "required": false,
+        "title": "Spoofed Region ISO Code",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "5-6 digit MCC+MNC code (e.g. '22801' for Switzerland/Swisscom) used to spoof TelephonyManager operator queries and CellIdentity MCC/MNC reads. Empty keeps stock operator values.",
+        "key": "operatorNumeric",
+        "required": false,
+        "title": "Spoofed Operator Numeric Code (MCC+MNC)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Display name reported for SIM/network operator queries (e.g. 'Swisscom'). Empty keeps the stock operator name.",
+        "key": "operatorName",
+        "required": false,
+        "title": "Spoofed Operator Name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses and clears sensitive content warnings, graphic media blur overlays, and age gates on feed videos.",
+    "id": "d8e4f8d0880b432ff2c12382:107",
+    "legacy_id": 51210,
+    "metadata_status": "verified",
+    "name": "Skip Content Warnings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the welcome screen, search engine selection, and onboarding First Run Experience (FRE) on clean installs.",
+    "id": "d8e4f8d0880b432ff2c12382:108",
+    "legacy_id": 51211,
+    "metadata_status": "verified",
+    "name": "Skip First Run",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the entire first-run introduction funnel (interest pickers, swipe tutorials, language prompts, and consent sheets) directly to the feed.",
+    "id": "d8e4f8d0880b432ff2c12382:109",
+    "legacy_id": 51212,
+    "metadata_status": "verified",
+    "name": "Skip First-Launch Onboarding",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses the first-launch About/privacy dialog by applying the app's own accept action silently. The About entry in the menu keeps working.",
+    "id": "d8e4f8d0880b432ff2c12382:110",
+    "legacy_id": 51213,
+    "metadata_status": "verified",
+    "name": "Skip Welcome Dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unblocks Spatial Audio, hearing enhancement, and voice wake-up restrictions, unbans Spatial Audio on 96kHz aptX Adaptive connections, and bypasses XPAN requirements.",
+    "id": "d8e4f8d0880b432ff2c12382:111",
+    "legacy_id": 51214,
+    "metadata_status": "verified",
+    "name": "Sound Features Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops videos at the end instead of replaying them in an infinite loop.",
+    "id": "d8e4f8d0880b432ff2c12382:112",
+    "legacy_id": 51215,
+    "metadata_status": "verified",
+    "name": "Stop Video Looping",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Selectively revokes sensitive hardware, privacy, and system permissions from AndroidManifest.xml.",
+    "id": "d8e4f8d0880b432ff2c12382:113",
+    "legacy_id": 51216,
+    "metadata_status": "verified",
+    "name": "Strip Permissions",
+    "options": [
+      {
+        "default": false,
+        "description": "Revokes READ_CONTACTS permission from AndroidManifest.xml (disables contact name suggestions).",
+        "key": "stripContacts",
+        "required": false,
+        "title": "Strip Contacts Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes RECORD_AUDIO permission from AndroidManifest.xml (disables voice dictation).",
+        "key": "stripAudio",
+        "required": false,
+        "title": "Strip Microphone Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes photo and media permissions (READ_MEDIA_IMAGES, READ_MEDIA_VISUAL_USER_SELECTED, READ_EXTERNAL_STORAGE) from AndroidManifest.xml (disables custom image background themes).",
+        "key": "stripMedia",
+        "required": false,
+        "title": "Strip Media & Storage Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes system personal dictionary sync permissions (READ_USER_DICTIONARY, WRITE_USER_DICTIONARY) from AndroidManifest.xml.",
+        "key": "stripUserDictionary",
+        "required": false,
+        "title": "Strip System Dictionary Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes INTERACT_ACROSS_PROFILES permission from AndroidManifest.xml to isolate work and personal profiles.",
+        "key": "stripCrossProfile",
+        "required": false,
+        "title": "Strip Cross-Profile Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips heavy video creation plugins, CapCut NLE editor SDKs, effect plugins, camera dynamic features, upload video encoders, on-device AI runtimes (LiteRT), and AR camera face models to significantly reduce APK size.",
+    "id": "d8e4f8d0880b432ff2c12382:114",
+    "legacy_id": 51217,
+    "metadata_status": "verified",
+    "name": "Studio & Creation De-bloat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses intrusive in-app rating surveys, Play Store review prompts, and marketing promo popups (YouTube promo, ad-free callouts, and Brave Ads onboarding).",
+    "id": "d8e4f8d0880b432ff2c12382:115",
+    "legacy_id": 51218,
+    "metadata_status": "verified",
+    "name": "Suppress In-App Promos & Surveys",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses Xiaomi OEM gating to enable full feature parity (voice assistant & spatial audio dialogs) on non-Xiaomi devices (Samsung, Pixel, etc.).",
+    "id": "d8e4f8d0880b432ff2c12382:116",
+    "legacy_id": 51219,
+    "metadata_status": "verified",
+    "name": "Surgical OEM Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces TikTok to use the Android system font instead of bundled proprietary TikTokSans fonts.",
+    "id": "d8e4f8d0880b432ff2c12382:117",
+    "legacy_id": 51220,
+    "metadata_status": "verified",
+    "name": "System Font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "When closing the active tab in a tab group, selects the previous tab in the same group instead of jumping outside the group.",
+    "id": "d8e4f8d0880b432ff2c12382:118",
+    "legacy_id": 51221,
+    "metadata_status": "verified",
+    "name": "Tab Group Close Selection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips advertising and attribution permissions, disables telemetry receivers/services (AppLog, AppsFlyer, Measurement, DataTransport), prunes Firebase analytics/transport registrars, and injects opt-out metadata (Firebase, AppsFlyer, Meta).",
+    "id": "d8e4f8d0880b432ff2c12382:119",
+    "legacy_id": 51222,
+    "metadata_status": "verified",
+    "name": "Telemetry Manifest Purge",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Selectively strips sensitive privacy, sensor, hardware, and tracking permissions from AndroidManifest.xml via configurable boolean toggles.",
+    "id": "d8e4f8d0880b432ff2c12382:120",
+    "legacy_id": 51223,
+    "metadata_status": "verified",
+    "name": "TikTok Privacy Permissions Stripper",
+    "options": [
+      {
+        "default": false,
+        "description": "Remove POST_NOTIFICATIONS permission (Android 13+). Notification channels cannot dispatch push alerts.",
+        "key": "stripNotifications",
+        "required": false,
+        "title": "Strip Notification Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove CAMERA permission. WARNING: Breaks camera recording, photo capturing, QR scanning, LIVE broadcasting, and video creation.",
+        "key": "stripCamera",
+        "required": false,
+        "title": "Strip Camera Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove RECORD_AUDIO, FOREGROUND_SERVICE_MICROPHONE, and FOREGROUND_SERVICE_CAMERA permissions. WARNING: Breaks video voice recording, LIVE audio broadcasting, audio comments, and voice/video calling.",
+        "key": "stripMicrophone",
+        "required": false,
+        "title": "Strip Microphone Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove external storage (READ/WRITE_EXTERNAL_STORAGE) and media permissions (READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO, READ_MEDIA_VISUAL_USER_SELECTED, ACCESS_MEDIA_LOCATION). WARNING: Breaks local gallery picker, drafts, and video/photo saving.",
+        "key": "stripStorageMedia",
+        "required": false,
+        "title": "Strip Storage & Media Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove BLUETOOTH, BLUETOOTH_SCAN, BLUETOOTH_CONNECT, and BLUETOOTH_ADVERTISE permissions. WARNING: Breaks Bluetooth audio accessories, wireless headphones low-latency sync, Cast devices, and external remote controls.",
+        "key": "stripBluetooth",
+        "required": false,
+        "title": "Strip Bluetooth Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove NFC permission. WARNING: Disables NFC tag interactions and NFC-based hardware authentication tokens.",
+        "key": "stripNfc",
+        "required": false,
+        "title": "Strip NFC Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove USE_BIOMETRIC and USE_FINGERPRINT permissions. WARNING: Breaks fingerprint/face biometric unlocking, passkeys, and biometric payment authorization.",
+        "key": "stripBiometric",
+        "required": false,
+        "title": "Strip Biometric Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove generic FOREGROUND_SERVICE and specialized types (DATA_SYNC, MEDIA_PLAYBACK, MEDIA_PROJECTION, PHONE_CALL). WARNING: HIGH RISK. Breaks background video uploads, offline caching, media playback notification services, screen sharing, and VoIP calls in background.",
+        "key": "stripForegroundServices",
+        "required": false,
+        "title": "Strip Foreground Service Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove SYSTEM_ALERT_WINDOW permission. WARNING: Breaks Picture-in-Picture overlay window outside the app, floating mini-player, and overlay notification heads.",
+        "key": "stripSystemAlertWindow",
+        "required": false,
+        "title": "Strip System Alert Window Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove WAKE_LOCK permission. WARNING: Device CPU may sleep during media playback or long video uploads/downloads when screen turns off, suspending progress.",
+        "key": "stripWakeLock",
+        "required": false,
+        "title": "Strip Wake Lock Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove DETECT_SCREEN_CAPTURE and DETECT_SCREEN_RECORDING permissions to neutralize system-level capture callbacks.",
+        "key": "stripScreenshotDetection",
+        "required": false,
+        "title": "Strip Screenshot & Recording Detection Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove VIBRATE, MODIFY_AUDIO_SETTINGS, MANAGE_OWN_CALLS, REORDER_TASKS, SET_WALLPAPER, and USE_FULL_SCREEN_INTENT permissions. WARNING: Disables haptic feedback vibration, volume adjustments, alarm priority intents, and live wallpaper export.",
+        "key": "stripMiscHardware",
+        "required": false,
+        "title": "Strip Miscellaneous Hardware & System Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove OEM attribution, launcher badges, AICore bindings, and proprietary TikTok internal IPC permissions. WARNING: Removing DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION may impact runtime dynamic broadcast receivers.",
+        "key": "stripOemSignals",
+        "required": false,
+        "title": "Strip OEM Diagnostic & Background Signals",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google C2DM/FCM and Amazon ADM push receiver permissions. WARNING: Breaks push notification delivery.",
+        "key": "stripPushDelivery",
+        "required": false,
+        "title": "Strip Push Delivery Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Play in-app billing permission (com.android.vending.BILLING). WARNING: Breaks coin purchases and in-app transactions.",
+        "key": "stripBilling",
+        "required": false,
+        "title": "Strip In-App Billing Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes ByteDance AppLog user tracking, APM/Npth/Heimdallr crash monitors, AppsFlyer attribution, and Firebase analytics.",
+    "id": "d8e4f8d0880b432ff2c12382:121",
+    "legacy_id": 51224,
+    "metadata_status": "verified",
+    "name": "Unified Telemetry & Tracker Silencer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Rewrites Dalvik const-string URL/host literals matching a user-supplied hosts blocklist to a sink IP (default 0.0.0.0). The blocklist file is read at patch time, so daily DNS updates apply without patch releases.",
+    "id": "d8e4f8d0880b432ff2c12382:122",
+    "legacy_id": 51225,
+    "metadata_status": "verified",
+    "name": "Universal Hosts Blocker",
+    "options": [
+      {
+        "default": null,
+        "description": "Path to a hosts or plain-domain blocklist file on the patching machine (e.g. Hagezi native.tiktok-onlydomains.txt). Leave empty to skip.",
+        "key": "hostsFile",
+        "required": false,
+        "title": "Hosts blocklist file",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "0.0.0.0",
+        "description": "IPv4 address replacing blocked hosts inside const-string literals (e.g. '0.0.0.0').",
+        "key": "sinkIp",
+        "required": false,
+        "title": "Sink IP address",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "When enabled, a blocklist entry also matches its subdomains (entry 'example.com' matches 'a.example.com').",
+        "key": "matchSubdomains",
+        "required": false,
+        "title": "Match subdomains",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips non-essential tracking, crash reporting, and debug companion native libraries in lib/** (e.g. libcrashlytics, libsentry, libbugly, libgwp-asan) by zeroing bytes in-situ. Requires SDK Blocker pairing when the app eagerly loads these libs.",
+    "id": "d8e4f8d0880b432ff2c12382:123",
+    "legacy_id": 51226,
+    "metadata_status": "verified",
+    "name": "Universal Native Binary Trimmer",
+    "options": [
+      {
+        "default": true,
+        "description": "Zero native crash reporting and tracking libraries (Crashlytics, Sentry, Bugly, PLCrashReporter).",
+        "key": "trimCrashReporters",
+        "required": false,
+        "title": "Trim Crash Reporting Libraries",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Zero debug memory and profiling libraries (GWP-ASan, Simpleperf, Android Studio profilers).",
+        "key": "trimDebugProfilers",
+        "required": false,
+        "title": "Trim Debug & Profiling Libraries",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces offline execution across any application by revoking INTERNET and network permissions from AndroidManifest.xml and blocking cleartext HTTP traffic at the OS level.",
+    "id": "d8e4f8d0880b432ff2c12382:124",
+    "legacy_id": 51227,
+    "metadata_status": "verified",
+    "name": "Universal Offline Mode",
+    "options": [
+      {
+        "default": false,
+        "description": "Also remove ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE permissions. Default is false to prevent SecurityException crashes in apps that query network status without error handling.",
+        "key": "stripNetworkState",
+        "required": false,
+        "title": "Strip Network State Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove CHANGE_NETWORK_STATE, CHANGE_WIFI_STATE, CHANGE_WIFI_MULTICAST_STATE, and NEARBY_WIFI_DEVICES permissions.",
+        "key": "stripWifiControls",
+        "required": false,
+        "title": "Strip Wi-Fi Control Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Cloud Messaging and Firebase Cloud Messaging push receiver permissions (com.google.android.c2dm.permission.RECEIVE).",
+        "key": "stripPush",
+        "required": false,
+        "title": "Strip Push Notification Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Services Framework and account sync permissions (com.google.android.providers.gsf.permission.READ_GSERVICES, android.permission.GET_ACCOUNTS).",
+        "key": "stripGoogleServices",
+        "required": false,
+        "title": "Strip Google Services Sync Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enforce android:usesCleartextTraffic='false' on the application tag in AndroidManifest.xml.",
+        "key": "blockCleartext",
+        "required": false,
+        "title": "Block Cleartext Traffic",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Selectively strips sensitive privacy, sensor, and hardware permissions from AndroidManifest.xml via configurable boolean toggles.",
+    "id": "d8e4f8d0880b432ff2c12382:125",
+    "legacy_id": 51228,
+    "metadata_status": "verified",
+    "name": "Universal Privacy Permissions Stripper",
+    "options": [
+      {
+        "default": false,
+        "description": "Remove POST_NOTIFICATIONS permission (Android 13+) from AndroidManifest.xml.",
+        "key": "stripNotifications",
+        "required": false,
+        "title": "Strip Notification Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove CAMERA permission from AndroidManifest.xml.",
+        "key": "stripCamera",
+        "required": false,
+        "title": "Strip Camera Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove RECORD_AUDIO and audio capture permissions from AndroidManifest.xml.",
+        "key": "stripMicrophone",
+        "required": false,
+        "title": "Strip Microphone Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove external storage (READ/WRITE/MANAGE_EXTERNAL_STORAGE) and media permissions (READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO, ACCESS_MEDIA_LOCATION) from AndroidManifest.xml.",
+        "key": "stripMediaAndStorage",
+        "required": false,
+        "title": "Strip Storage & Media Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, and ACCESS_BACKGROUND_LOCATION permissions from AndroidManifest.xml.",
+        "key": "stripLocation",
+        "required": false,
+        "title": "Strip Location Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove READ_CONTACTS, WRITE_CONTACTS, and GET_ACCOUNTS permissions from AndroidManifest.xml.",
+        "key": "stripContacts",
+        "required": false,
+        "title": "Strip Contacts & Accounts Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove READ_CALENDAR and WRITE_CALENDAR permissions from AndroidManifest.xml.",
+        "key": "stripCalendar",
+        "required": false,
+        "title": "Strip Calendar Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Bluetooth scanning/connection and nearby Wi-Fi permissions (BLUETOOTH_SCAN, BLUETOOTH_CONNECT, BLUETOOTH_ADVERTISE, NEARBY_WIFI_DEVICES, UWB_RANGING) from AndroidManifest.xml.",
+        "key": "stripNearbyDevices",
+        "required": false,
+        "title": "Strip Nearby Devices Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove BODY_SENSORS, BODY_SENSORS_BACKGROUND, and ACTIVITY_RECOGNITION permissions from AndroidManifest.xml.",
+        "key": "stripSensors",
+        "required": false,
+        "title": "Strip Body Sensors Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Prevents applications from overriding display brightness (such as in-app brightness sliders, barcode/QR full-screen brightness, or window-level overrides) by neutralizing all direct writes to WindowManager.LayoutParams.screenBrightness.",
+    "id": "d8e4f8d0880b432ff2c12382:126",
+    "legacy_id": 51229,
+    "metadata_status": "verified",
+    "name": "Universal Screen Brightness Governor",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces the target application to respect system screen timeout and sleep timers by neutralizing keepScreenOn view calls and stripping FLAG_KEEP_SCREEN_ON from windows and layout parameters.",
+    "id": "d8e4f8d0880b432ff2c12382:127",
+    "legacy_id": 51230,
+    "metadata_status": "verified",
+    "name": "Universal Screen Timeout Enforcer",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Screenshot Protection Bypass Resource"
+    ],
+    "description": "Neutralizes FLAG_SECURE on windows, layout params, and SurfaceViews, unlocks audio playback capture, and suppresses Android 14+ screenshot and screen recording detection callbacks.",
+    "id": "d8e4f8d0880b432ff2c12382:128",
+    "legacy_id": 51231,
+    "metadata_status": "verified",
+    "name": "Universal Screenshot Protection Bypass",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Neutralizes third-party APM, crash reporting, analytics, attribution, session replay, location tracking, and push engagement SDK init and event methods at DEX level via early return-void; companion runtime layer to Universal Telemetry Neutralizer (manifest layer).",
+    "id": "d8e4f8d0880b432ff2c12382:129",
+    "legacy_id": 51232,
+    "metadata_status": "verified",
+    "name": "Universal SDK Blocker",
+    "options": [
+      {
+        "default": true,
+        "description": "Neutralize New Relic, Datadog, and Dynatrace monitoring, metric reporting, and HTTP transaction tracing methods.",
+        "key": "blockApm",
+        "required": false,
+        "title": "Block APM & Performance Monitoring SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Raygun, Shake, Embrace, Splunk Mint, App Center, OpenTelemetry, ACRA, Sentry, Bugsnag, Crashlytics (legacy and Firebase), Fabric, Instabug, Countly, and HockeyApp crash reporters.",
+        "key": "blockCrashReporters",
+        "required": false,
+        "title": "Block Crash Reporting SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Firebase Analytics, Matomo, Leanplum, Localytics, WebEngage, PostHog, MoEngage, Snowplow, mParticle, Treasure Data, Huawei Analytics, Yandex Metrica, Facebook AppEvents, and Sensors Analytics event tracking, capture, and session logging methods.",
+        "key": "blockAnalytics",
+        "required": false,
+        "title": "Block Analytics SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize AppsFlyer, Adjust, Amplitude, Mixpanel, CleverTap, Segment, Branch, Singular, Kochava, Tenjin, Unity Analytics, Flurry, and GameAnalytics conversion, tracking, and attribution SDKs.",
+        "key": "blockAttribution",
+        "required": false,
+        "title": "Block Attribution & Engagement SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize pre-Firebase Google Analytics tracking, hit dispatching, and activity reporting methods (com.google.analytics and com.google.android.gms.analytics).",
+        "key": "blockLegacyAnalytics",
+        "required": false,
+        "title": "Block Legacy Google Analytics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Neutralize OneSignal, Airship, and Braze push engagement and tagging SDKs. WARNING: this breaks push notification delivery; enable only to fully silence push engagement SDK runtimes.",
+        "key": "blockPushEngagement",
+        "required": false,
+        "title": "Block Push Engagement SDKs (WARNING: Breaks Push)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize UXCam, Smartlook, FullStory, Contentsquare, and Bugsee screen and session recording SDK methods.",
+        "key": "blockSessionReplay",
+        "required": false,
+        "title": "Block Session Replay SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Radar, Gimbal, and Estimote beacon and location tracking SDKs; note OS location permission controls remain the primary gate.",
+        "key": "blockLocationTrackers",
+        "required": false,
+        "title": "Block Location & Beacon Tracking SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips advertising and Privacy Sandbox permissions, disables analytics ContentProviders and telemetry background services (Firebase, Sentry, Adjust, AppsFlyer, DataTransport), prunes ComponentDiscovery registrars, and injects telemetry opt-out metadata. Includes an optional toggle to disable push notification services.",
+    "id": "d8e4f8d0880b432ff2c12382:130",
+    "legacy_id": 51233,
+    "metadata_status": "verified",
+    "name": "Universal Telemetry Neutralizer",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove AD_ID, Privacy Sandbox attribution/topics/audiences, and Play Install Referrer permissions from AndroidManifest.xml.",
+        "key": "revokePermissions",
+        "required": false,
+        "title": "Revoke Advertising & Tracking Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable analytics ContentProviders (Google Measurement, Sentry, Facebook, Flurry, Branch, AppsFlyer).",
+        "key": "disableProviders",
+        "required": false,
+        "title": "Disable Telemetry ContentProviders",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Google Measurement, Google DataTransport, Firebase Sessions, and AppsFlyer background job services.",
+        "key": "disableServices",
+        "required": false,
+        "title": "Disable Telemetry Background Services",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable install referrer and analytics measurement broadcast receivers (Adjust, AppsFlyer, Google Measurement).",
+        "key": "disableReceivers",
+        "required": false,
+        "title": "Disable Telemetry Receivers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Inject meta-data opt-out entries into application tag (Firebase Analytics, Crashlytics, Performance, AppsFlyer, Sentry, Facebook SDK) and prune Firebase discovery registrars.",
+        "key": "injectOptOutFlags",
+        "required": false,
+        "title": "Inject Telemetry Opt-Out Flags & Prune Registrars",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable com.google.firebase.provider.FirebaseInitProvider. Default is false to prevent issues in apps that depend on Firebase Auth or push notifications.",
+        "key": "disableFirebaseInit",
+        "required": false,
+        "title": "Disable Firebase Init Provider",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable Meta Fbns, PushLite, and Firebase Cloud Messaging services plus push receivers (Firebase IID, Braze). WARNING: this breaks push notifications; enable only to fully silence background push delivery.",
+        "key": "disablePushServices",
+        "required": false,
+        "title": "Disable Push Notification Services",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable legacy Google Analytics background services and receivers (distinct from Firebase AppMeasurement, which is covered by the telemetry toggles above).",
+        "key": "disableGoogleAnalytics",
+        "required": false,
+        "title": "Disable Google Analytics Services",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Meta Analytics2/OneFabric upload services, Instagram upload scheduler receiver, and deferred analytics worker components.",
+        "key": "disableMetaAnalytics",
+        "required": false,
+        "title": "Disable Meta Analytics Upload Pipeline",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Lacrima lock-screen/shutdown crash detectors, crash-loop state trackers, and background crash-dump upload services. User-initiated bug reports are untouched.",
+        "key": "disableCrashDetectors",
+        "required": false,
+        "title": "Disable Crash Detectors & Dump Upload",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable attribution, FDID/PhoneId/USDiD, and FamilyApps cross-app identity providers plus referrer and cross-signing components. WARNING: may break login, account switching, and deferred deep links; enable only to fully silence device-identity collection.",
+        "key": "disableDeviceIdProviders",
+        "required": false,
+        "title": "Disable Device-ID & Cross-App Identity Providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable Google ML Kit InitProvider, ComponentDiscoveryService, and prune related registrars. WARNING: Breaks on-device barcode scanning, face detection, and text recognition.",
+        "key": "disableMlKit",
+        "required": false,
+        "title": "Disable ML Kit On-Device Vision",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Prune Firebase RemoteConfig, DynamicLoading, and AB testing (Abt) discovery registrars. WARNING: May break dynamic backend configuration and remote feature flags.",
+        "key": "disableRemoteConfig",
+        "required": false,
+        "title": "Disable Firebase Remote Config",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Prune Firebase Crashlytics discovery registrars. WARNING: Pruning breaks apps hard-requiring the Crashlytics component at startup.",
+        "key": "disableCrashlyticsRegistrars",
+        "required": false,
+        "title": "Disable Firebase Crashlytics Registrars",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove ad SDK auto-init entries (e.g. Unity Ads) from the androidx.startup InitializationProvider. WARNING: may break rewarded ads and ad-gated features; enable only to block SDK auto-initialization.",
+        "key": "disableAdStartupInitializers",
+        "required": false,
+        "title": "Disable Ad SDK Startup Initializers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Losslessly strips non-rendering metadata and ancillary chunks (EXIF, XMP, ICCP) from WebP assets across res/ and assets/ to reduce APK size. In raw-only pipeline mode, optimizes assets/ only as res/ is not decoded.",
+    "id": "d8e4f8d0880b432ff2c12382:131",
+    "legacy_id": 51234,
+    "metadata_status": "verified",
+    "name": "Universal WebP Asset Optimizer",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove camera parameters, geolocation, and creator metadata chunks from WebP images.",
+        "key": "stripExif",
+        "required": false,
+        "title": "Strip EXIF Metadata",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove Adobe XMP XML metadata chunks from WebP images.",
+        "key": "stripXmp",
+        "required": false,
+        "title": "Strip XMP Metadata",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove ICCP color profile chunks. Default is false to preserve color profile fidelity on wide-gamut displays.",
+        "key": "stripIcc",
+        "required": false,
+        "title": "Strip ICC Color Profiles",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.hevy": [
+        "3.1.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks local Hevy Pro capabilities (unlimited workout routines, routine folders, advanced graphs, and local analytics) by dynamically enabling Pro getters and suppressing grace period payment warnings in Hermes Bytecode (HBC96).",
+    "id": "d8e4f8d0880b432ff2c12382:132",
+    "legacy_id": 51235,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "3.1.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes background update polling tasks and device ID check routines to prevent forced update popups.",
+    "id": "d8e4f8d0880b432ff2c12382:133",
+    "legacy_id": 51236,
+    "metadata_status": "verified",
+    "name": "Update Prompt Suppressor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adjusts video display aspect ratio across feeds and story cells: 'fit' ensures the entire video is visible without cropping, or 'fill' expands the video to fill the screen.",
+    "id": "d8e4f8d0880b432ff2c12382:134",
+    "legacy_id": 51237,
+    "metadata_status": "verified",
+    "name": "Video Fit",
+    "options": [
+      {
+        "default": "fit",
+        "description": "Aspect ratio mode for feed and story videos: 'fit' (entire video visible without crop), or 'fill' (crop to fill screen).",
+        "key": "fitMode",
+        "required": false,
+        "title": "Video Fit Mode",
+        "type": "kotlin.String",
+        "values": {
+          "Fill screen": "fill",
+          "Fit video": "fit"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Caps video playback resolution (1080p, 720p, 540p, 480p, 360p) to conserve battery, GPU/MediaCodec load, and mobile data. Download quality is controlled separately by the Media Usability patch (downloadQuality).",
+    "id": "d8e4f8d0880b432ff2c12382:135",
+    "legacy_id": 51238,
+    "metadata_status": "verified",
+    "name": "Video Quality Governor",
+    "options": [
+      {
+        "default": "480",
+        "description": "Select maximum video playback resolution ceiling: 1080 (1080p ExtremelyHigh), 720 (720p SuperHigh), 540 (540p H_High), 480 (480p High), or 360 (360p Standard).",
+        "key": "maxQuality",
+        "required": false,
+        "title": "Maximum Playback Resolution",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Drops ByteVC2 renditions from playback bitrate lists when an H.264 or ByteVC1 alternative exists, so videos use the hardware decoder instead of TikTok's CPU-bound ByteVC2 software decoder.",
+        "key": "avoidByteVC2",
+        "required": false,
+        "title": "Avoid ByteVC2 Software Decoding",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "When the ladder's lowest video stream exceeds the device hardware decoder capability (queried via MediaCodecList), drops video streams and keeps audio-only instead of entering decoder-reject retry loops that freeze the device.",
+        "key": "dropUndecodableVideo",
+        "required": false,
+        "title": "Drop Undecodable Video Streams",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d8e4f8d0880b432ff2c12382",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips on-device voice recognition and speech synthesis engines (libspeechspg.so, libspeechsdk.so) and their loader stubs (libspeechengine.so, libspeechepg.so) to save APK space. Breaks voice search (microphone button), voice input, and editor text-to-speech/sing features.",
+    "id": "d8e4f8d0880b432ff2c12382:136",
+    "legacy_id": 51239,
+    "metadata_status": "verified",
+    "name": "Voice & Speech Engine De-bloat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.7",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "e9b01f37e691d4011c57603a",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "31.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Kizu Twitch enhancements: third-party emotes, live ad blocking, appearance controls, deleted-message display, privacy controls, native Video Stats and single-tap Reload Stream, PurpleTV-style landscape brightness/volume gestures with swipe-to-portrait collapse prevention, Hide Stories, Go Ad-Free hiding, and patched-app compatibility.",
+    "id": "e9b01f37e691d4011c57603a:0",
+    "legacy_id": 51240,
+    "metadata_status": "verified",
+    "name": "Twitch Enhancement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "31.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.3-beta.44",
+    "source_id": "6af02e4c275751fe",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.community.oneroom": [
+        "4.0.02.0828.03",
+        "4.0.02.0831.03",
+        "4.0.02.0903.02",
+        "4.0.03.0918.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables video playback and downloads, removes ads and upsell prompts, bypasses the region block, unlocks the hidden Laboratory menu, and adds a Telegram channel popup and a floating support button. Requires Android 10 or later.",
+    "id": "f344336aa75de7d56405479a:0",
+    "legacy_id": 51241,
+    "metadata_status": "verified",
+    "name": "All-In-One",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "4.0.02.0828.03",
+          "4.0.02.0831.03",
+          "4.0.02.0903.02",
+          "4.0.03.0918.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.cxinventor.file.explorer": [
+        "2.7.8"
+      ]
+    },
+    "dependencies": [
+      "Dark theme"
+    ],
+    "description": "Adds a pure black option to the dark theme.",
+    "id": "f344336aa75de7d56405479a:1",
+    "legacy_id": 51242,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Cx File Explorer",
+        "icon_url": "https://play-lh.googleusercontent.com/T5b-eBEMLhyV9HnXiaGOwP4D8y08OYookcd78U43z1VkbCCs_IZ1igctGrCB00Czz4yDhOKnxSIMyNtQllr0",
+        "name": "com.cxinventor.file.explorer",
+        "versions": [
+          "2.7.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.kick.mobile": null
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black. Disables over-the-air updates that would restore the original background.",
+    "id": "f344336aa75de7d56405479a:2",
+    "legacy_id": 51243,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KICK: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/zEMwKW77990UYUC6aJrJhJmnKdHpr_56Y4W1n7C9xrk2a2gSTT62_Lk1uaLek-cYH4UBl12pc8Au4444oYQK",
+        "name": "com.kick.mobile",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "ai.perplexity.app.android": [
+        "2.95.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black.",
+    "id": "f344336aa75de7d56405479a:3",
+    "legacy_id": 51244,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Perplexity - Ask Anything",
+        "icon_url": "https://play-lh.googleusercontent.com/vg7sPhgWiPr0L2cK_NLLcCl0mrkEmNNv7C-aUkBdIUEa-9uSnCi5x4z_3Mw0vNYWKoSVWHfgri7THMOsOZKQuA",
+        "name": "ai.perplexity.app.android",
+        "versions": [
+          "2.95.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.11.5",
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black.",
+    "id": "f344336aa75de7d56405479a:4",
+    "legacy_id": 51245,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.11.5",
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.michaldrabik.showly2": [
+        "3.70.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black.",
+    "id": "f344336aa75de7d56405479a:5",
+    "legacy_id": 51246,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Showly",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.michaldrabik.showly2/en-US/icon.png",
+        "name": "com.michaldrabik.showly2",
+        "versions": [
+          "3.70.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.gstarmc.android": [
+        "5.19.4",
+        "5.19.6",
+        "5.20.0",
+        "5.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks the Umeng, ByteDance and ad network analytics endpoints.",
+    "id": "f344336aa75de7d56405479a:6",
+    "legacy_id": 51247,
+    "metadata_status": "verified",
+    "name": "Block telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "DWG FastView-CAD Viewer&Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/Pgorrk_U-v8BSlnJCjQ2Gpw1cgy2-dR85MMrQR9qpbsF00b801l8TuHc5LLq8qNZjbYdl-3NXmLLdIRgidutug",
+        "name": "com.gstarmc.android",
+        "versions": [
+          "5.19.4",
+          "5.19.6",
+          "5.20.0",
+          "5.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.cxinventor.file.explorer": [
+        "2.7.8"
+      ]
+    },
+    "dependencies": [
+      "Unlock premium"
+    ],
+    "description": "Renders the app's dark theme and adds it to the settings.",
+    "id": "f344336aa75de7d56405479a:7",
+    "legacy_id": 51248,
+    "metadata_status": "verified",
+    "name": "Dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Cx File Explorer",
+        "icon_url": "https://play-lh.googleusercontent.com/T5b-eBEMLhyV9HnXiaGOwP4D8y08OYookcd78U43z1VkbCCs_IZ1igctGrCB00Czz4yDhOKnxSIMyNtQllr0",
+        "name": "com.cxinventor.file.explorer",
+        "versions": [
+          "2.7.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.risesci.nyx": [
+        "Android V1.78.49",
+        "Android V1.78.47"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops crash and error reports from reaching Sentry.",
+    "id": "f344336aa75de7d56405479a:8",
+    "legacy_id": 51249,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RISE: Sleep Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/cG1J_KLUXysrxtSmOdrlPC7ZkEDHnZKS1gjZbSiP5t5TtSJT0jbMfi5H0EmZSvtKAWXHZnMYGzuVu_y45buEr5k",
+        "name": "com.risesci.nyx",
+        "versions": [
+          "Android V1.78.49",
+          "Android V1.78.47"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.handmark.expressweather": [
+        "13.1.0",
+        "12.9.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops installs, sessions and in-app events from reaching AppsFlyer.",
+    "id": "f344336aa75de7d56405479a:9",
+    "legacy_id": 51250,
+    "metadata_status": "verified",
+    "name": "Disable tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1Weather Forecasts & Radar",
+        "icon_url": "https://play-lh.googleusercontent.com/uHdfZxsh9F1eX54hzEP1uCN4aa7e-yPnmJKPwgZeh_w0yHJee9XjDuwqfXv3AZqY_ucSNwUaTAh0BsyWJ9C60_8",
+        "name": "com.handmark.expressweather",
+        "versions": [
+          "13.1.0",
+          "12.9.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.spocky.projengmenu": [
+        "4.71",
+        "4.70"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables analytics and crash reporting.",
+    "id": "f344336aa75de7d56405479a:10",
+    "legacy_id": 51251,
+    "metadata_status": "verified",
+    "name": "Disable tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Projectivy Launcher",
+        "icon_url": "https://play-lh.googleusercontent.com/Qo3kWBOmNFWGcGxiBHs-tR2_0uVcrGGUzKXb_e_JwpbwwzsYHAs-qvNhE-QDr2c8B4_8w0bq8yl5uo88pTdb",
+        "name": "com.spocky.projengmenu",
+        "versions": [
+          "4.71",
+          "4.70"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.risesci.nyx": [
+        "Android V1.78.49",
+        "Android V1.78.47"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops app usage events from being uploaded. Local usage tracking remains enabled.",
+    "id": "f344336aa75de7d56405479a:11",
+    "legacy_id": 51252,
+    "metadata_status": "verified",
+    "name": "Disable usage tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RISE: Sleep Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/cG1J_KLUXysrxtSmOdrlPC7ZkEDHnZKS1gjZbSiP5t5TtSJT0jbMfi5H0EmZSvtKAWXHZnMYGzuVu_y45buEr5k",
+        "name": "com.risesci.nyx",
+        "versions": [
+          "Android V1.78.49",
+          "Android V1.78.47"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "all.in.one.calculator": [
+        "3.4.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Signs in through GmsCore instead of Google Play Services. Requires GmsCore to be installed.",
+    "id": "f344336aa75de7d56405479a:12",
+    "legacy_id": 51253,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "All-In-One Calculator",
+        "icon_url": "https://play-lh.googleusercontent.com/lpa4nEcViyrDXugjGivzC_XsTpuABE5hQtWGjM9MNs7sX49s4I8qfXkK6B-uY_WYzJgEWHy8yduOCboNFbAjWw",
+        "name": "all.in.one.calculator",
+        "versions": [
+          "3.4.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.etsy.android": [
+        "7.90.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes promoted listings and the \"with Ads\" label from search results.",
+    "id": "f344336aa75de7d56405479a:13",
+    "legacy_id": 51254,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Etsy: Shop from Real People",
+        "icon_url": "https://play-lh.googleusercontent.com/QjuCfvGNr91o5Do9OyNjBprY12cNi4d-uAm73zlHucElV306V5S2Rl1g02kqsXcDqA9XFYIeOD-LI0rdiJk_",
+        "name": "com.etsy.android",
+        "versions": [
+          "7.90.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.gamma.scan": [
+        "2.2.221"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, and native ads.",
+    "id": "f344336aa75de7d56405479a:14",
+    "legacy_id": 51255,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "QR & Barcode Scanner",
+        "icon_url": "https://play-lh.googleusercontent.com/0QweSUOytSSdqMwlE1AWZ1piX68JLr92qmpm4WkK0waLvi6lzSxO9PCWdXO50O4-HugHrO9FDqrPcPZ060EZnw",
+        "name": "com.gamma.scan",
+        "versions": [
+          "2.2.221"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "photo.editor.photoeditor.photoeditorpro": [
+        "1.791.265"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to hide banner, interstitial, app-open and rewarded ads.",
+    "id": "f344336aa75de7d56405479a:15",
+    "legacy_id": 51256,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photo Editor - Polish",
+        "icon_url": "https://play-lh.googleusercontent.com/q-z-Sbn2WLCUb4MSmmdhVr9KRfJ4qTlgoQEUGEKsnfVEEMNPxsabpr-yngqQ15o5b6gLhaBOhGZNv6oBWDMl",
+        "name": "photo.editor.photoeditor.photoeditorpro",
+        "versions": [
+          "1.791.265"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.thetrainline": [
+        "407.0.0.178994"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the adverts shown between search results.",
+    "id": "f344336aa75de7d56405479a:16",
+    "legacy_id": 51257,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Trainline: Book Europe Trains",
+        "icon_url": "https://play-lh.googleusercontent.com/M3DswNatq2IZlqNc5RWzSaekFDgQKyN9zl2uK6XI6j7cnrCXtwLvkHIg38OxcfFly0sDxIYDtBWVZXTIiK5P",
+        "name": "com.thetrainline",
+        "versions": [
+          "407.0.0.178994"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.audible.application": [
+        "26.30.05"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the membership promotion on the Home screen and the free trial bottom sheet.",
+    "id": "f344336aa75de7d56405479a:17",
+    "legacy_id": 51258,
+    "metadata_status": "verified",
+    "name": "Hide membership upselling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Audible: Audiobooks & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/LrA0bv-RgOlwONOM-yNHiQQJncEsOlQCLjMEOQTMNUw1gbbLBq92gVcr3SSoVNl5WKFw-3JeJFaKWVcYYvE6",
+        "name": "com.audible.application",
+        "versions": [
+          "26.30.05"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.gstarmc.android": [
+        "5.19.4",
+        "5.19.6",
+        "5.20.0",
+        "5.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the prompt asking for a store review.",
+    "id": "f344336aa75de7d56405479a:18",
+    "legacy_id": 51259,
+    "metadata_status": "verified",
+    "name": "Hide rating dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "DWG FastView-CAD Viewer&Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/Pgorrk_U-v8BSlnJCjQ2Gpw1cgy2-dR85MMrQR9qpbsF00b801l8TuHc5LLq8qNZjbYdl-3NXmLLdIRgidutug",
+        "name": "com.gstarmc.android",
+        "versions": [
+          "5.19.4",
+          "5.19.6",
+          "5.20.0",
+          "5.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.handmark.expressweather": [
+        "13.1.0",
+        "12.9.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the 1Weather Shorts card from the Today screen.",
+    "id": "f344336aa75de7d56405479a:19",
+    "legacy_id": 51260,
+    "metadata_status": "verified",
+    "name": "Hide Shorts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1Weather Forecasts & Radar",
+        "icon_url": "https://play-lh.googleusercontent.com/uHdfZxsh9F1eX54hzEP1uCN4aa7e-yPnmJKPwgZeh_w0yHJee9XjDuwqfXv3AZqY_ucSNwUaTAh0BsyWJ9C60_8",
+        "name": "com.handmark.expressweather",
+        "versions": [
+          "13.1.0",
+          "12.9.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.handmark.expressweather": [
+        "13.1.0",
+        "12.9.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Skyla AI assistant, its prompts and the Summarize buttons.",
+    "id": "f344336aa75de7d56405479a:20",
+    "legacy_id": 51261,
+    "metadata_status": "verified",
+    "name": "Hide Skyla",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1Weather Forecasts & Radar",
+        "icon_url": "https://play-lh.googleusercontent.com/uHdfZxsh9F1eX54hzEP1uCN4aa7e-yPnmJKPwgZeh_w0yHJee9XjDuwqfXv3AZqY_ucSNwUaTAh0BsyWJ9C60_8",
+        "name": "com.handmark.expressweather",
+        "versions": [
+          "13.1.0",
+          "12.9.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.11.5",
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the top-bar upgrade button and promotional sidebar rows.",
+    "id": "f344336aa75de7d56405479a:21",
+    "legacy_id": 51262,
+    "metadata_status": "verified",
+    "name": "Hide upgrade upselling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.11.5",
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "photo.editor.photoeditor.photoeditorpro": [
+        "1.791.265"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows the network calls an AI tool makes, such as HTTP requests and Firebase uploads, and keeps a log, so you can watch your photo fly to China or the US.",
+    "id": "f344336aa75de7d56405479a:22",
+    "legacy_id": 51263,
+    "metadata_status": "verified",
+    "name": "Inspect AI requests",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photo Editor - Polish",
+        "icon_url": "https://play-lh.googleusercontent.com/q-z-Sbn2WLCUb4MSmmdhVr9KRfJ4qTlgoQEUGEKsnfVEEMNPxsabpr-yngqQ15o5b6gLhaBOhGZNv6oBWDMl",
+        "name": "photo.editor.photoeditor.photoeditorpro",
+        "versions": [
+          "1.791.265"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.audible.application": [
+        "26.30.05"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens the Library tab instead of Home on launch. Applies only while signed in.",
+    "id": "f344336aa75de7d56405479a:23",
+    "legacy_id": 51264,
+    "metadata_status": "verified",
+    "name": "Open Library on launch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Audible: Audiobooks & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/LrA0bv-RgOlwONOM-yNHiQQJncEsOlQCLjMEOQTMNUw1gbbLBq92gVcr3SSoVNl5WKFw-3JeJFaKWVcYYvE6",
+        "name": "com.audible.application",
+        "versions": [
+          "26.30.05"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.11.5",
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 'Sent from Proton Mail' signature from emails.",
+    "id": "f344336aa75de7d56405479a:24",
+    "legacy_id": 51265,
+    "metadata_status": "verified",
+    "name": "Remove 'Sent from' signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.11.5",
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.11.5",
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the limit for maximum free accounts logged in.",
+    "id": "f344336aa75de7d56405479a:25",
+    "legacy_id": 51266,
+    "metadata_status": "verified",
+    "name": "Remove free accounts limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.11.5",
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "org.readera": [
+        "26.05.20+2300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the rate this app dialog and the promotional dialogs shown on startup.",
+    "id": "f344336aa75de7d56405479a:26",
+    "legacy_id": 51267,
+    "metadata_status": "verified",
+    "name": "Remove nags",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ReadEra – book reader pdf epub",
+        "icon_url": "https://play-lh.googleusercontent.com/IYYIJY9HttxtQhZjbsA7tzQRdMQ675qFtOJFiRbvJvRJarsBzvBn4tcjE2RbWgSQfhEJn4wpbUtEzq-4CXUorg",
+        "name": "org.readera",
+        "versions": [
+          "26.05.20+2300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "photo.editor.photoeditor.photoeditorpro": [
+        "1.791.265"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reads the current stage off the real network activity instead of the fake progress bar InShot ships.",
+    "id": "f344336aa75de7d56405479a:27",
+    "legacy_id": 51268,
+    "metadata_status": "verified",
+    "name": "Show AI progress",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photo Editor - Polish",
+        "icon_url": "https://play-lh.googleusercontent.com/q-z-Sbn2WLCUb4MSmmdhVr9KRfJ4qTlgoQEUGEKsnfVEEMNPxsabpr-yngqQ15o5b6gLhaBOhGZNv6oBWDMl",
+        "name": "photo.editor.photoeditor.photoeditorpro",
+        "versions": [
+          "1.791.265"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "photo.editor.photoeditor.photoeditorpro": [
+        "1.791.265"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shortens the AI tool wait by polling for the result more often and uploading the photo in larger chunks.",
+    "id": "f344336aa75de7d56405479a:28",
+    "legacy_id": 51269,
+    "metadata_status": "verified",
+    "name": "Speed up AI tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photo Editor - Polish",
+        "icon_url": "https://play-lh.googleusercontent.com/q-z-Sbn2WLCUb4MSmmdhVr9KRfJ4qTlgoQEUGEKsnfVEEMNPxsabpr-yngqQ15o5b6gLhaBOhGZNv6oBWDMl",
+        "name": "photo.editor.photoeditor.photoeditorpro",
+        "versions": [
+          "1.791.265"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.11.5",
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables picking a custom date and time when snoozing conversations and scheduling messages.",
+    "id": "f344336aa75de7d56405479a:29",
+    "legacy_id": 51270,
+    "metadata_status": "verified",
+    "name": "Unlock custom time picker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.11.5",
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "psyberia.alpinequest.free": [
+        "2.4.0e"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Off-Road Explorer features gated behind activation.",
+    "id": "f344336aa75de7d56405479a:30",
+    "legacy_id": 51271,
+    "metadata_status": "verified",
+    "name": "Unlock full version",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AlpineQuest Explorer Lite",
+        "icon_url": "https://play-lh.googleusercontent.com/qR92EYxI-lnPzdxNGGvRZRMsr5pNUuIeGveHhpBnBM0F-HGvYAjgOrN1QgUtEj8Ud3S2r2oAOhI4gvOmZWYtjA",
+        "name": "psyberia.alpinequest.free",
+        "versions": [
+          "2.4.0e"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "all.in.one.calculator": [
+        "3.4.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Grants the pro entitlement, which removes the ads and the paywalled tools.",
+    "id": "f344336aa75de7d56405479a:31",
+    "legacy_id": 51272,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "All-In-One Calculator",
+        "icon_url": "https://play-lh.googleusercontent.com/lpa4nEcViyrDXugjGivzC_XsTpuABE5hQtWGjM9MNs7sX49s4I8qfXkK6B-uY_WYzJgEWHy8yduOCboNFbAjWw",
+        "name": "all.in.one.calculator",
+        "versions": [
+          "3.4.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "ipnossoft.rma.free": [
+        "26.15"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium content and skips the free trial screen.",
+    "id": "f344336aa75de7d56405479a:32",
+    "legacy_id": 51273,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BetterSleep: Sleep tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/vHxNwsK4O9PAEPKzBeJZQfvDTyDjR4pVX0_Zoy_9FCTBZBX6nPIoG5SSYmi8JyShYTogIJvGpYJVj1IGbBvcBw",
+        "name": "ipnossoft.rma.free",
+        "versions": [
+          "26.15"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.cxinventor.file.explorer": [
+        "2.7.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium and removes ads.",
+    "id": "f344336aa75de7d56405479a:33",
+    "legacy_id": 51274,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Cx File Explorer",
+        "icon_url": "https://play-lh.googleusercontent.com/T5b-eBEMLhyV9HnXiaGOwP4D8y08OYookcd78U43z1VkbCCs_IZ1igctGrCB00Czz4yDhOKnxSIMyNtQllr0",
+        "name": "com.cxinventor.file.explorer",
+        "versions": [
+          "2.7.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.myvitale.forus": [
+        "3.0.15"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "f344336aa75de7d56405479a:34",
+    "legacy_id": 51275,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ForusApp",
+        "icon_url": "https://play-lh.googleusercontent.com/HQl7wIZjPOMZHojduQcS9jOnT_vsDIYp3ydapBQzBbuVpAsqtkcaxUP24VXmDAa4CM3q2AaqbG0EGYawBFVf-_M",
+        "name": "com.myvitale.forus",
+        "versions": [
+          "3.0.15"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.gstarmc.android": [
+        "5.19.4",
+        "5.19.6",
+        "5.20.0",
+        "5.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the paid drawing, annotation and measurement tools, and removes ads.",
+    "id": "f344336aa75de7d56405479a:35",
+    "legacy_id": 51276,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "DWG FastView-CAD Viewer&Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/Pgorrk_U-v8BSlnJCjQ2Gpw1cgy2-dR85MMrQR9qpbsF00b801l8TuHc5LLq8qNZjbYdl-3NXmLLdIRgidutug",
+        "name": "com.gstarmc.android",
+        "versions": [
+          "5.19.4",
+          "5.19.6",
+          "5.20.0",
+          "5.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.handmark.expressweather": [
+        "13.1.0",
+        "12.9.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium and removes ads.",
+    "id": "f344336aa75de7d56405479a:36",
+    "legacy_id": 51277,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1Weather Forecasts & Radar",
+        "icon_url": "https://play-lh.googleusercontent.com/uHdfZxsh9F1eX54hzEP1uCN4aa7e-yPnmJKPwgZeh_w0yHJee9XjDuwqfXv3AZqY_ucSNwUaTAh0BsyWJ9C60_8",
+        "name": "com.handmark.expressweather",
+        "versions": [
+          "13.1.0",
+          "12.9.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "photo.editor.photoeditor.photoeditorpro": [
+        "1.791.265"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to unlock the pro tools, remove the export watermark and hide the upgrade prompts.",
+    "id": "f344336aa75de7d56405479a:37",
+    "legacy_id": 51278,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photo Editor - Polish",
+        "icon_url": "https://play-lh.googleusercontent.com/q-z-Sbn2WLCUb4MSmmdhVr9KRfJ4qTlgoQEUGEKsnfVEEMNPxsabpr-yngqQ15o5b6gLhaBOhGZNv6oBWDMl",
+        "name": "photo.editor.photoeditor.photoeditorpro",
+        "versions": [
+          "1.791.265"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.spocky.projengmenu": [
+        "4.71",
+        "4.70"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "f344336aa75de7d56405479a:38",
+    "legacy_id": 51279,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Projectivy Launcher",
+        "icon_url": "https://play-lh.googleusercontent.com/Qo3kWBOmNFWGcGxiBHs-tR2_0uVcrGGUzKXb_e_JwpbwwzsYHAs-qvNhE-QDr2c8B4_8w0bq8yl5uo88pTdb",
+        "name": "com.spocky.projengmenu",
+        "versions": [
+          "4.71",
+          "4.70"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.mchutov.Quranify": [
+        "2.2.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks downloading every surah, lyrics and tafsir, Android Auto, background playback controls, and insights.",
+    "id": "f344336aa75de7d56405479a:39",
+    "legacy_id": 51280,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Quranify: Quran Audio Player",
+        "icon_url": "https://play-lh.googleusercontent.com/Ttg22uymHLoXDN32GcCfPhfRxK_pirO1V-UoSIhhC39Ldn9VuNiLsteDEn9NcOsszV4ML7w4mBNZgDVf1Qz9",
+        "name": "com.mchutov.Quranify",
+        "versions": [
+          "2.2.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.sry.rateglance": [
+        "1.14.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "f344336aa75de7d56405479a:40",
+    "legacy_id": 51281,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RateGlance - Currency Widget",
+        "icon_url": "https://play-lh.googleusercontent.com/vk-AVsFuOOJd8B40pfr8KA1XYgORn1wX03aQp-jgh6dv0qP-d1IyYqfVmdNIPxXWNI9UbYIm4tXYbjU4neysng",
+        "name": "com.sry.rateglance",
+        "versions": [
+          "1.14.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.risesci.nyx": [
+        "Android V1.78.49",
+        "Android V1.78.47"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the energy schedule, habit tools, smart alarm and progress insights. Requires a RISE account.",
+    "id": "f344336aa75de7d56405479a:41",
+    "legacy_id": 51282,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RISE: Sleep Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/cG1J_KLUXysrxtSmOdrlPC7ZkEDHnZKS1gjZbSiP5t5TtSJT0jbMfi5H0EmZSvtKAWXHZnMYGzuVu_y45buEr5k",
+        "name": "com.risesci.nyx",
+        "versions": [
+          "Android V1.78.49",
+          "Android V1.78.47"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "app.rubberbands.fit": [
+        "3.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks running and logging workouts, progress tracking and personal records (AI workout generation is not included).",
+    "id": "f344336aa75de7d56405479a:42",
+    "legacy_id": 51283,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Rubber Bands",
+        "icon_url": "https://play-lh.googleusercontent.com/uOTMgHVLiytiPjQn9OllQBxz7oXpXdEJfuas39ASQ6in-qdMuUtc6jGNfjOqWvym7IwZz5eB_BDWk2Pks37UfQ",
+        "name": "app.rubberbands.fit",
+        "versions": [
+          "3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.michaldrabik.showly2": [
+        "3.70.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks ad removal, light theme, custom images, list view types, quick ratings, and transparent widgets. The News feed is not included.",
+    "id": "f344336aa75de7d56405479a:43",
+    "legacy_id": 51284,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Showly",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.michaldrabik.showly2/en-US/icon.png",
+        "name": "com.michaldrabik.showly2",
+        "versions": [
+          "3.70.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "app.symfonik.music.player": [
+        "14.0.0",
+        "14.1.0",
+        "15.0.1",
+        "14.0.0 TV"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "f344336aa75de7d56405479a:44",
+    "legacy_id": 51285,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Symfonium: Music player & cast",
+        "icon_url": "https://play-lh.googleusercontent.com/Rc1boOlAWnUlwZNG8LCm9IFn3ZRnDTdRhFe8wegH-OHzH1An9E97D5XmRGurbwN2HNg14Zubg9H460Ywgug0",
+        "name": "app.symfonik.music.player",
+        "versions": [
+          "14.0.0",
+          "14.1.0",
+          "15.0.1",
+          "14.0.0 TV"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "f344336aa75de7d56405479a",
+    "compatiblePackages": {
+      "com.streetwriters.notesnook": [
+        "3.4.12"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks task lists, callouts, app lock, and the notebook, tag, colour and reminder limits. Requires a signed-in account. The server still enforces storage, attachment size, monographs and SMS 2FA.",
+    "id": "f344336aa75de7d56405479a:45",
+    "legacy_id": 51286,
+    "metadata_status": "verified",
+    "name": "Unlock pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Notesnook - Private notes app",
+        "icon_url": "https://f-droid.org/repo/com.streetwriters.notesnook/en-US/icon_Nk2GNMARrw8YIx3LDUA9RbsGBC0FZWB57kpqYLn8QR0%3D.png",
+        "name": "com.streetwriters.notesnook",
+        "versions": [
+          "3.4.12"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.29.0",
+    "source_id": "fc1270c71c72708c",
+    "use": true
+  },
+  {
+    "bundle_id": "facf17f6476490e280e833cc",
+    "compatiblePackages": {
+      "org.cris.aikyam": [
+        "2.1.66",
+        "2.1.62"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the FLAG_SECURE restriction that makes screenshots and screen recordings of the app come out black. The in-app WebView (WavesActivity) stops applying it, and the bundled no_screenshot plugin's own FLAG_SECURE hook is neutered so no screen can re-apply it.",
+    "id": "facf17f6476490e280e833cc:0",
+    "legacy_id": 51287,
+    "metadata_status": "verified",
+    "name": "Allow screenshots",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RailOne",
+        "icon_url": "https://play-lh.googleusercontent.com/7XxvSU3Kzy0cfDKCPwHi3z6c8MG2HGklycjrfRR8OpujqdlV_5FbymMKSm3QNFvagNtoDcGAViKD-cEoZZPq-Q",
+        "name": "org.cris.aikyam",
+        "versions": [
+          "2.1.66",
+          "2.1.62"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.1",
+    "source_id": "625e865887dc8fb1",
+    "use": true
+  },
+  {
+    "bundle_id": "facf17f6476490e280e833cc",
+    "compatiblePackages": {
+      "org.cris.aikyam": [
+        "2.1.66",
+        "2.1.62"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralises the rjsniffer library's own adb_enabled check. It runs in the app's isolated :com.emrys.rjsniffer.rjsniffer.Sniffer process, independently of the main app.",
+    "id": "facf17f6476490e280e833cc:1",
+    "legacy_id": 51288,
+    "metadata_status": "verified",
+    "name": "Bypass rjsniffer ADB check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RailOne",
+        "icon_url": "https://play-lh.googleusercontent.com/7XxvSU3Kzy0cfDKCPwHi3z6c8MG2HGklycjrfRR8OpujqdlV_5FbymMKSm3QNFvagNtoDcGAViKD-cEoZZPq-Q",
+        "name": "org.cris.aikyam",
+        "versions": [
+          "2.1.66",
+          "2.1.62"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.1",
+    "source_id": "625e865887dc8fb1",
+    "use": true
+  },
+  {
+    "bundle_id": "facf17f6476490e280e833cc",
+    "compatiblePackages": {
+      "org.cris.aikyam": [
+        "2.1.66",
+        "2.1.62"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the app's own signing-certificate check (SHA-256 of the APK signature) to return true, so a re-signed build is accepted by the Flutter layer.",
+    "id": "facf17f6476490e280e833cc:2",
+    "legacy_id": 51289,
+    "metadata_status": "verified",
+    "name": "Bypass signature verification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RailOne",
+        "icon_url": "https://play-lh.googleusercontent.com/7XxvSU3Kzy0cfDKCPwHi3z6c8MG2HGklycjrfRR8OpujqdlV_5FbymMKSm3QNFvagNtoDcGAViKD-cEoZZPq-Q",
+        "name": "org.cris.aikyam",
+        "versions": [
+          "2.1.66",
+          "2.1.62"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.1",
+    "source_id": "625e865887dc8fb1",
+    "use": true
+  },
+  {
+    "bundle_id": "facf17f6476490e280e833cc",
+    "compatiblePackages": {
+      "org.cris.aikyam": [
+        "2.1.66",
+        "2.1.62"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the adb_enabled, adb_wifi_enabled and development_settings_enabled checks to return false, so the app runs normally while USB debugging / developer options are on.",
+    "id": "facf17f6476490e280e833cc:3",
+    "legacy_id": 51290,
+    "metadata_status": "verified",
+    "name": "Bypass USB-debugging detection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RailOne",
+        "icon_url": "https://play-lh.googleusercontent.com/7XxvSU3Kzy0cfDKCPwHi3z6c8MG2HGklycjrfRR8OpujqdlV_5FbymMKSm3QNFvagNtoDcGAViKD-cEoZZPq-Q",
+        "name": "org.cris.aikyam",
+        "versions": [
+          "2.1.66",
+          "2.1.62"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.1",
+    "source_id": "625e865887dc8fb1",
+    "use": true
+  },
+  {
+    "bundle_id": "fb46b1eae442a159ae402291",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.16.256",
+        "21.13.164",
+        "21.07.247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Translates every YouTube Auto-translate language in real time through your OpenAI-compatible API.",
+    "id": "fb46b1eae442a159ae402291:0",
+    "legacy_id": 51291,
+    "metadata_status": "verified",
+    "name": "AI caption translator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.16.256",
+          "21.13.164",
+          "21.07.247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.1",
+    "source_id": "86894ebe06b427ab",
+    "use": false
+  },
+  {
+    "bundle_id": "fb46b1eae442a159ae402291",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.16.256",
+        "21.13.164",
+        "21.07.247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remembers caption language, source/translation mode and on/off selection across videos for this app session, with or without AI.",
+    "id": "fb46b1eae442a159ae402291:1",
+    "legacy_id": 51292,
+    "metadata_status": "verified",
+    "name": "Remember caption selection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.16.256",
+          "21.13.164",
+          "21.07.247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.1",
+    "source_id": "86894ebe06b427ab",
+    "use": false
+  },
+  {
+    "bundle_id": "55dae819b75ba4bcfd1ae7fb",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon and on the screen Maps opens with. With Add microG support, microG's C sits in the pin's circle.",
+    "id": "55dae819b75ba4bcfd1ae7fb:23",
+    "legacy_id": 51293,
+    "metadata_status": "verified",
+    "name": "Legacy icon",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.0",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "55dae819b75ba4bcfd1ae7fb",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Location source choice to the Customization screen: Android's own location providers, microG's (microg Services) or Google Play services' fused provider. With Android, neither is ever asked for a location. A source that is missing or disabled is never used, so location keeps working without it. Also keeps the network (Wi-Fi/cell) provider registered when no fused provider answers, instead of GPS only, so a fix does not go stale indoors.",
+    "id": "55dae819b75ba4bcfd1ae7fb:24",
+    "legacy_id": 51294,
+    "metadata_status": "verified",
+    "name": "Location provider toggle",
+    "options": [
+      {
+        "default": false,
+        "description": "The location source Maps starts with. On: the fused provider -- Google Play services', or microG's in microG Maps -- whenever it is installed and enabled, Android's own providers otherwise. Off: Android's own providers. Can be changed later on the Customization screen.",
+        "key": "useFusedProvider",
+        "required": false,
+        "title": "Default to Play services location",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.0",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "55dae819b75ba4bcfd1ae7fb",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "The old Waze mods' map skin, as changes to Waze's own: bigger map labels, a wider navigation arrow head and a warm day background. The night background is Full black's.",
+    "id": "55dae819b75ba4bcfd1ae7fb:25",
+    "legacy_id": 51295,
+    "metadata_status": "verified",
+    "name": "Map skin",
+    "options": [
+      {
+        "default": 18,
+        "description": "Waze: 14.",
+        "key": "fontHuge",
+        "required": true,
+        "title": "Map labels: huge",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 14,
+        "description": "Waze: 12.",
+        "key": "fontBig",
+        "required": true,
+        "title": "Map labels: big",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 12,
+        "description": "Waze: 10.",
+        "key": "fontMedium",
+        "required": true,
+        "title": "Map labels: medium",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 10,
+        "description": "Waze: 8.",
+        "key": "fontSmall",
+        "required": true,
+        "title": "Map labels: small",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 10.0,
+        "description": "As a multiple of the arrow's tail width. Waze: 3.0.",
+        "key": "arrowHead",
+        "required": true,
+        "title": "Navigation arrow head width",
+        "type": "kotlin.Float",
+        "values": null
+      },
+      {
+        "default": "ebe7dd",
+        "description": "Waze: fafcfa, near white.",
+        "key": "dayBackground",
+        "required": true,
+        "title": "Day map background (hex)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.0",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "55dae819b75ba4bcfd1ae7fb",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "How far ahead Android Auto gives its heads-up, and how long a jam must last before the traffic bar shows it. The defaults are the old Waze mods' (Chuppito).",
+    "id": "55dae819b75ba4bcfd1ae7fb:26",
+    "legacy_id": 51296,
+    "metadata_status": "verified",
+    "name": "Navigation distances",
+    "options": [
+      {
+        "default": 1200,
+        "description": "Waze: 200 m.",
+        "key": "headsUp",
+        "required": false,
+        "title": "Android Auto heads-up, normal roads (m)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 1300,
+        "description": "Waze: 500 m.",
+        "key": "headsUpFreeway",
+        "required": false,
+        "title": "Android Auto heads-up, freeways (m)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 180,
+        "description": "Waze: 360 s.",
+        "key": "trafficBar",
+        "required": false,
+        "title": "Traffic bar: time in traffic (s)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.0",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  }
+]
