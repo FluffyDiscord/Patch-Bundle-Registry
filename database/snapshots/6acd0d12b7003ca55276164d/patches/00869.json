@@ -1,0 +1,4058 @@
+[
+  {
+    "bundle_id": "e74fd5caf1c89f476da2aaf6",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.20",
+        "2.0.21",
+        "2.0.22",
+        "2.0.23"
+      ]
+    },
+    "dependencies": [],
+    "description": "Offsets the HMD OpenXR pose-query time and zeroes the exported HMD velocity fields, so head tracking leads the rendered frame. Controllers are unaffected.",
+    "id": "e74fd5caf1c89f476da2aaf6:38",
+    "legacy_id": 90018,
+    "metadata_status": "verified",
+    "name": "Visual Delay Fix",
+    "options": [
+      {
+        "default": 60,
+        "description": "libvrlink_scene.so: AArch64 MOVZ/MOVK at PLT cave adds value×1e6 ns to X2 in QSVLDeviceHmd::GetPose. Tested default: 60 ms. Allowed range: 0 to 4000 ms.",
+        "key": "offsetMs",
+        "required": true,
+        "title": "Pose offset (ms)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.valvesoftware.steamlinkvr",
+        "icon_url": null,
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.20",
+          "2.0.21",
+          "2.0.22",
+          "2.0.23"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.28.0-dev.19",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "e74fd5caf1c89f476da2aaf6",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.20",
+        "2.0.21",
+        "2.0.22"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs the XR runtime bridge resources and extension DEX that the other XR patches need.",
+    "id": "e74fd5caf1c89f476da2aaf6:39",
+    "legacy_id": 90019,
+    "metadata_status": "verified",
+    "name": "XR Core Runtime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.valvesoftware.steamlinkvr",
+        "icon_url": null,
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.20",
+          "2.0.21",
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.28.0-dev.19",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "e74fd5caf1c89f476da2aaf6",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.20",
+        "2.0.21",
+        "2.0.22"
+      ]
+    },
+    "dependencies": [
+      "XR Core Runtime"
+    ],
+    "description": "Installs baseline Galaxy XR HMD, controller and default config payloads plus the dashboard bootstrap assets.",
+    "id": "e74fd5caf1c89f476da2aaf6:40",
+    "legacy_id": 90020,
+    "metadata_status": "verified",
+    "name": "XR Device Config Baseline",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.valvesoftware.steamlinkvr",
+        "icon_url": null,
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.20",
+          "2.0.21",
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.28.0-dev.19",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "e74fd5caf1c89f476da2aaf6",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.20",
+        "2.0.21",
+        "2.0.22"
+      ]
+    },
+    "dependencies": [
+      "XR Manifest Capability Pack"
+    ],
+    "description": "Installs ui_config.json so XR pointer and button input reaches the launcher UI.",
+    "id": "e74fd5caf1c89f476da2aaf6:41",
+    "legacy_id": 90021,
+    "metadata_status": "verified",
+    "name": "XR Input Routing Config",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.valvesoftware.steamlinkvr",
+        "icon_url": null,
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.20",
+          "2.0.21",
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.28.0-dev.19",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "3f64fa33ea6c6aa5f6cbb2e4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.20.53",
+        "9.15.51"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options for theming, and settings to change the app foreground and background colors.",
+    "id": "3f64fa33ea6c6aa5f6cbb2e4:171",
+    "legacy_id": 90022,
+    "metadata_status": "verified",
+    "name": "Theme",
+    "options": [
+      {
+        "default": "in-app",
+        "description": "Can be a hex color (#RRGGBB) or a color resource reference. Setting a color of either theme applies both while patching and removes the in-app theme color settings.",
+        "key": "darkThemeColor",
+        "required": false,
+        "title": "Dark theme color",
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Mocha)": "#181825",
+          "Change in the app": "in-app",
+          "Classic YouTube": "#212121",
+          "Dark blue": "#001029",
+          "Dark green": "#002905",
+          "Dark orange": "#291800",
+          "Dark pink": "#290025",
+          "Dark red": "#290000",
+          "Dark yellow": "#282900",
+          "Material You (Neutral)": "@android:color/system_neutral1_900",
+          "Material You (Primary)": "@android:color/system_accent1_800",
+          "Material You (Secondary)": "@android:color/system_accent2_800",
+          "Material You (Tertiary)": "@android:color/system_accent3_800",
+          "Modern YouTube": "#0F0F0F",
+          "Pure black": "@android:color/black"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.20.53",
+          "9.15.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0-dev.3-dualvot.8.5.3",
+    "source_id": "56bd51655ff0d965",
+    "use": true
+  },
+  {
+    "bundle_id": "3f64fa33ea6c6aa5f6cbb2e4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.20.405",
+        "21.16.256",
+        "20.51.39",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options for theming, and settings to change the app foreground and background colors.",
+    "id": "3f64fa33ea6c6aa5f6cbb2e4:172",
+    "legacy_id": 90023,
+    "metadata_status": "verified",
+    "name": "Theme",
+    "options": [
+      {
+        "default": "in-app",
+        "description": "Can be a hex color (#RRGGBB) or a color resource reference. Setting a color of either theme applies both while patching and removes the in-app theme color settings.",
+        "key": "darkThemeColor",
+        "required": false,
+        "title": "Dark theme color",
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Mocha)": "#181825",
+          "Change in the app": "in-app",
+          "Classic YouTube": "#212121",
+          "Dark blue": "#001029",
+          "Dark green": "#002905",
+          "Dark orange": "#291800",
+          "Dark pink": "#290025",
+          "Dark red": "#290000",
+          "Dark yellow": "#282900",
+          "Material You (Neutral)": "@android:color/system_neutral1_900",
+          "Material You (Primary)": "@android:color/system_accent1_800",
+          "Material You (Secondary)": "@android:color/system_accent2_800",
+          "Material You (Tertiary)": "@android:color/system_accent3_800",
+          "Modern YouTube": "#0F0F0F",
+          "Pure black": "@android:color/black"
+        }
+      },
+      {
+        "default": "in-app",
+        "description": "Can be a hex color (#RRGGBB) or a color resource reference. Setting a color of either theme applies both while patching and removes the in-app theme color settings.",
+        "key": "lightThemeColor",
+        "required": false,
+        "title": "Light theme color",
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Latte)": "#E6E9EF",
+          "Change in the app": "in-app",
+          "Light blue": "#D1E0FF",
+          "Light green": "#CCFFCC",
+          "Light orange": "#FFE6CC",
+          "Light pink": "#FCCFF3",
+          "Light red": "#FFD6D6",
+          "Light yellow": "#FDFFCC",
+          "Material You (Neutral)": "@android:color/system_neutral1_100",
+          "Material You (Primary)": "@android:color/system_accent1_200",
+          "Material You (Secondary)": "@android:color/system_accent2_200",
+          "Material You (Tertiary)": "@android:color/system_accent3_200",
+          "White": "@android:color/white"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.20.405",
+          "21.16.256",
+          "20.51.39",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0-dev.3-dualvot.8.5.3",
+    "source_id": "56bd51655ff0d965",
+    "use": true
+  },
+  {
+    "bundle_id": "3f64fa33ea6c6aa5f6cbb2e4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.20.53",
+        "9.15.51"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to show synced lyrics with experience enhancement from 16+ providers in the lyrics panel.",
+    "id": "3f64fa33ea6c6aa5f6cbb2e4:173",
+    "legacy_id": 90024,
+    "metadata_status": "verified",
+    "name": "Third-party lyrics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.20.53",
+          "9.15.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0-dev.3-dualvot.8.5.3",
+    "source_id": "56bd51655ff0d965",
+    "use": true
+  },
+  {
+    "bundle_id": "3f64fa33ea6c6aa5f6cbb2e4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.20.405",
+        "21.16.256",
+        "20.51.39",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to set default video qualities and always use the advanced video quality menu.",
+    "id": "3f64fa33ea6c6aa5f6cbb2e4:174",
+    "legacy_id": 90025,
+    "metadata_status": "verified",
+    "name": "Video quality",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.20.405",
+          "21.16.256",
+          "20.51.39",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0-dev.3-dualvot.8.5.3",
+    "source_id": "56bd51655ff0d965",
+    "use": true
+  },
+  {
+    "bundle_id": "3f64fa33ea6c6aa5f6cbb2e4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.20.405",
+        "21.16.256",
+        "20.51.39",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds additional voice over languages using text-to-speech synchronized to the video playback.",
+    "id": "3f64fa33ea6c6aa5f6cbb2e4:175",
+    "legacy_id": 90026,
+    "metadata_status": "verified",
+    "name": "Voice over translation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.20.405",
+          "21.16.256",
+          "20.51.39",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0-dev.3-dualvot.8.5.3",
+    "source_id": "56bd51655ff0d965",
+    "use": true
+  },
+  {
+    "bundle_id": "3f64fa33ea6c6aa5f6cbb2e4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.20.405",
+        "21.16.256",
+        "20.51.39",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a wide search bar to the top of the home and subscription feed.",
+    "id": "3f64fa33ea6c6aa5f6cbb2e4:176",
+    "legacy_id": 90027,
+    "metadata_status": "verified",
+    "name": "Wide search bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.20.405",
+          "21.16.256",
+          "20.51.39",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0-dev.3-dualvot.8.5.3",
+    "source_id": "56bd51655ff0d965",
+    "use": true
+  },
+  {
+    "bundle_id": "3f64fa33ea6c6aa5f6cbb2e4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.20.405",
+        "21.16.256",
+        "20.51.39",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [
+      "Voice over translation"
+    ],
+    "description": "Adds a separate Yandex translation button alongside Morphe voice-over translation.",
+    "id": "3f64fa33ea6c6aa5f6cbb2e4:177",
+    "legacy_id": 90028,
+    "metadata_status": "verified",
+    "name": "Yandex voice-over translation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.20.405",
+          "21.16.256",
+          "20.51.39",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0-dev.3-dualvot.8.5.3",
+    "source_id": "56bd51655ff0d965",
+    "use": true
+  },
+  {
+    "bundle_id": "e74fd5caf1c89f476da2aaf6",
+    "compatiblePackages": {
+      "com.valvesoftware.steamlinkvr": [
+        "2.0.20",
+        "2.0.21",
+        "2.0.22"
+      ]
+    },
+    "dependencies": [
+      "XR Core Runtime"
+    ],
+    "description": "Adds the Android XR/OpenXR permissions, features and app properties Steam Link needs.",
+    "id": "e74fd5caf1c89f476da2aaf6:42",
+    "legacy_id": 90029,
+    "metadata_status": "verified",
+    "name": "XR Manifest Capability Pack",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.valvesoftware.steamlinkvr",
+        "icon_url": null,
+        "name": "com.valvesoftware.steamlinkvr",
+        "versions": [
+          "2.0.20",
+          "2.0.21",
+          "2.0.22"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.28.0-dev.19",
+    "source_id": "951aef0d0813783c",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips ARCore native binaries (libarcore_sdk_c.so, libarcore_sdk_jni.so) and AR effect/face tracking asset models. WARNING: Disables camera AR filters, 3D face effects, and body/face tracking.",
+    "id": "2679bdf1b9da72e6dfda5cd8:0",
+    "legacy_id": 90030,
+    "metadata_status": "stale",
+    "name": "AR Effects Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "Instagram Crash & Diagnostics Manifest Purge"
+    ],
+    "description": "Neutralizes crash-dump uploaders, Lacrima detector broadcasts, debug diagnostics, carrier preload trackers, and lead-ads entrypoints.",
+    "id": "2679bdf1b9da72e6dfda5cd8:1",
+    "legacy_id": 90031,
+    "metadata_status": "stale",
+    "name": "Block Crash & Diagnostics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [
+      "CapCut Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes Google AppMeasurement event dispatchers.",
+    "id": "2679bdf1b9da72e6dfda5cd8:2",
+    "legacy_id": 90032,
+    "metadata_status": "stale",
+    "name": "Block Telemetry & Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "Instagram Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes Facebook Analytics2, DataTransport, FDID/PhoneId providers, and strips AD_ID permissions.",
+    "id": "2679bdf1b9da72e6dfda5cd8:3",
+    "legacy_id": 90033,
+    "metadata_status": "stale",
+    "name": "Block Telemetry & Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [
+      "Lightroom Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes Google AppMeasurement and Firebase Crashlytics dispatchers, strips advertising permissions, and injects analytics opt-out flags.",
+    "id": "2679bdf1b9da72e6dfda5cd8:4",
+    "legacy_id": 90034,
+    "metadata_status": "stale",
+    "name": "Block Telemetry & Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [
+      "Moovit Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes AppsFlyer, Braze, and Inneractive DEX dispatchers, disables analytics services/providers, and strips advertising permissions.",
+    "id": "2679bdf1b9da72e6dfda5cd8:5",
+    "legacy_id": 90035,
+    "metadata_status": "stale",
+    "name": "Block Telemetry & Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.officehubrow": [
+        "16.0.20527.20022"
+      ]
+    },
+    "dependencies": [
+      "Copilot Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes Microsoft OneDS/Aria lifecycle, aggregated-metric and failure-logging dispatch methods, nullifies ad measurement platform identifiers (AIFA, AppSetId), rewrites default telemetry endpoints inside telemetry packages and custom blocked hosts unscoped to 0.0.0.0, disables cross-sell, Floodgate, HockeyApp and DataTransport components, and strips advertising permissions.",
+    "id": "2679bdf1b9da72e6dfda5cd8:6",
+    "legacy_id": 90036,
+    "metadata_status": "stale",
+    "name": "Block Telemetry & Trackers",
+    "options": [
+      {
+        "default": null,
+        "description": "Comma-separated list of additional telemetry hostnames or domains to redirect to 0.0.0.0. Single-label, credentialed-URL, and IPv6 entries are skipped.",
+        "key": "custom-blocked-hosts",
+        "required": false,
+        "title": "Custom Blocked Hosts",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Microsoft Copilot",
+        "icon_url": "https://play-lh.googleusercontent.com/LO0qJeIk4uKo6HJB5fkMpipB9x4BedNr0YegnCJKOxsX8SNZIoY-NC8-KL-cLQyUgmmKFyZRa0cdyaNkDsyBveg",
+        "name": "com.microsoft.office.officehubrow",
+        "versions": [
+          "16.0.20527.20022"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [
+      "PowerPoint Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes Microsoft OneDS/Aria lifecycle, aggregated-metric and failure-logging dispatch methods, nullifies ad measurement platform identifiers (AIFA, AppSetId), disables HockeyApp activities and DataTransport components, and strips advertising permissions.",
+    "id": "2679bdf1b9da72e6dfda5cd8:7",
+    "legacy_id": 90037,
+    "metadata_status": "stale",
+    "name": "Block Telemetry & Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "X Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes Google AppMeasurement and Firebase Performance Trace dispatchers, and strips advertising identifiers.",
+    "id": "2679bdf1b9da72e6dfda5cd8:8",
+    "legacy_id": 90038,
+    "metadata_status": "stale",
+    "name": "Block Telemetry & Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks the 'This app is out of date' screen and suppresses in-app update prompts on launch",
+    "id": "2679bdf1b9da72e6dfda5cd8:9",
+    "legacy_id": 90039,
+    "metadata_status": "stale",
+    "name": "Block Update Screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [],
+    "description": "Zeroes Google Breakpad native crash reporter binaries (libbreakpad.so, libbreakpad_cpp_helper.so) in-situ. WARNING: Native crash reporting is silenced. If the host application loads these libraries unconditionally without exception guards, startup crashes could occur.",
+    "id": "2679bdf1b9da72e6dfda5cd8:10",
+    "legacy_id": 90040,
+    "metadata_status": "stale",
+    "name": "Breakpad Crash Reporter Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.officehubrow": [
+        "16.0.20527.20022"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the code-transparency failure dialog and reports local verification success, unblocking sideloaded installs.",
+    "id": "2679bdf1b9da72e6dfda5cd8:11",
+    "legacy_id": 90041,
+    "metadata_status": "stale",
+    "name": "Bypass Code Transparency",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft Copilot",
+        "icon_url": "https://play-lh.googleusercontent.com/LO0qJeIk4uKo6HJB5fkMpipB9x4BedNr0YegnCJKOxsX8SNZIoY-NC8-KL-cLQyUgmmKFyZRa0cdyaNkDsyBveg",
+        "name": "com.microsoft.office.officehubrow",
+        "versions": [
+          "16.0.20527.20022"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the code transparency checks.",
+    "id": "2679bdf1b9da72e6dfda5cd8:12",
+    "legacy_id": 90042,
+    "metadata_status": "stale",
+    "name": "Bypass Code Transparency",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Fixes effects, transitions, and templates failing to load (ByteDance Shark WAF block) by spoofing device_platform to 'windows' and resetting deviceId in effect requests.",
+    "id": "2679bdf1b9da72e6dfda5cd8:13",
+    "legacy_id": 90043,
+    "metadata_status": "stale",
+    "name": "Bypass Effects Region Restriction",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents automatic scrolling to the next video in immersive view",
+    "id": "2679bdf1b9da72e6dfda5cd8:14",
+    "legacy_id": 90044,
+    "metadata_status": "stale",
+    "name": "Control Video Auto Scroll",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.officehubrow": [
+        "16.0.20527.20022"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips optional companion native binaries (React Native, Hermes, SlimCV) via in-situ zeroing. WARNING: Hermes and React Native are load-bearing for React Native initialization - enabling this WILL crash Copilot React Native surfaces (Copilot chat host) with UnsatisfiedLinkError. The HockeyApp native exception handler (proven UnsatisfiedLinkError in OfficeApplication.onMAMCreate) and voice/dictation SDKs (libofficevoicesdk, libofficevoicetranscriptionsdk; proven dlopen FATAL on boot path) are load-bearing at startup and are therefore never stripped.",
+    "id": "2679bdf1b9da72e6dfda5cd8:15",
+    "legacy_id": 90045,
+    "metadata_status": "stale",
+    "name": "Copilot Companion Native Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft Copilot",
+        "icon_url": "https://play-lh.googleusercontent.com/LO0qJeIk4uKo6HJB5fkMpipB9x4BedNr0YegnCJKOxsX8SNZIoY-NC8-KL-cLQyUgmmKFyZRa0cdyaNkDsyBveg",
+        "name": "com.microsoft.office.officehubrow",
+        "versions": [
+          "16.0.20527.20022"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.officehubrow": [
+        "16.0.20527.20022"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips drawables for unselected screen densities from Copilot base APK while preserving launcher icons and single-density assets. Non-phone UI mode qualifiers (watch, television, car, vrheadset) are purged from drawable/mipmap resources. WARNING: Displays matching stripped densities will scale preserved assets.",
+    "id": "2679bdf1b9da72e6dfda5cd8:16",
+    "legacy_id": 90046,
+    "metadata_status": "stale",
+    "name": "Copilot DPI Slimmer",
+    "options": [
+      {
+        "default": "xxhdpi",
+        "description": "Screen density to preserve (ldpi, mdpi, tvdpi, hdpi, xhdpi, xxhdpi, xxxhdpi). Default is xxhdpi.",
+        "key": "dpi",
+        "required": false,
+        "title": "Target screen density",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Microsoft Copilot",
+        "icon_url": "https://play-lh.googleusercontent.com/LO0qJeIk4uKo6HJB5fkMpipB9x4BedNr0YegnCJKOxsX8SNZIoY-NC8-KL-cLQyUgmmKFyZRa0cdyaNkDsyBveg",
+        "name": "com.microsoft.office.officehubrow",
+        "versions": [
+          "16.0.20527.20022"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.officehubrow": [
+        "16.0.20527.20022"
+      ]
+    },
+    "dependencies": [],
+    "description": "Purges non-functional build metadata, properties, proto descriptors, and duplicate license notices from APK root and META-INF while strictly protecting runtime assets and signatures.",
+    "id": "2679bdf1b9da72e6dfda5cd8:17",
+    "legacy_id": 90047,
+    "metadata_status": "stale",
+    "name": "Copilot Junk Cleaner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft Copilot",
+        "icon_url": "https://play-lh.googleusercontent.com/LO0qJeIk4uKo6HJB5fkMpipB9x4BedNr0YegnCJKOxsX8SNZIoY-NC8-KL-cLQyUgmmKFyZRa0cdyaNkDsyBveg",
+        "name": "com.microsoft.office.officehubrow",
+        "versions": [
+          "16.0.20527.20022"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.officehubrow": [
+        "16.0.20527.20022"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes login requirement and FTUX paywall screens. Cloud-backed features still require sign-in server-side.",
+    "id": "2679bdf1b9da72e6dfda5cd8:18",
+    "legacy_id": 90048,
+    "metadata_status": "stale",
+    "name": "Disable Login Requirement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft Copilot",
+        "icon_url": "https://play-lh.googleusercontent.com/LO0qJeIk4uKo6HJB5fkMpipB9x4BedNr0YegnCJKOxsX8SNZIoY-NC8-KL-cLQyUgmmKFyZRa0cdyaNkDsyBveg",
+        "name": "com.microsoft.office.officehubrow",
+        "versions": [
+          "16.0.20527.20022"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes login requirement and FTUX paywall screens.",
+    "id": "2679bdf1b9da72e6dfda5cd8:19",
+    "legacy_id": 90049,
+    "metadata_status": "stale",
+    "name": "Disable Login Requirement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hide call buttons and composer actions in direct message conversations",
+    "id": "2679bdf1b9da72e6dfda5cd8:20",
+    "legacy_id": 90050,
+    "metadata_status": "stale",
+    "name": "DM Debloat",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide audio and video call buttons in direct message conversation header. WARNING: neutralizing the unified xchat calling flag disables DM outgoing-call entrypoints, not just the icons.",
+        "key": "hideDmCalls",
+        "required": false,
+        "title": "Hide DM Calls",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hide individual items in the navigation drawer",
+    "id": "2679bdf1b9da72e6dfda5cd8:21",
+    "legacy_id": 90051,
+    "metadata_status": "stale",
+    "name": "Drawer Items",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide Profile entry in navigation drawer",
+        "key": "hideProfile",
+        "required": false,
+        "title": "Hide Profile",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Premium subscription entry and discount badges in navigation drawer",
+        "key": "hidePremium",
+        "required": false,
+        "title": "Hide Premium",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Communities entry in navigation drawer",
+        "key": "hideCommunities",
+        "required": false,
+        "title": "Hide Communities",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Bookmarks entry in navigation drawer",
+        "key": "hideBookmarks",
+        "required": false,
+        "title": "Hide Bookmarks",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Lists entry in navigation drawer",
+        "key": "hideLists",
+        "required": false,
+        "title": "Hide Lists",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Spaces entry in navigation drawer",
+        "key": "hideSpaces",
+        "required": false,
+        "title": "Hide Spaces",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Creator Studio entry in navigation drawer",
+        "key": "hideCreatorStudio",
+        "required": false,
+        "title": "Hide Creator Studio",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Get Grok assistant entry in navigation drawer",
+        "key": "hideGetGrok",
+        "required": false,
+        "title": "Hide Get Grok",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Help Center and feedback entries in navigation drawer",
+        "key": "hideHelpCenter",
+        "required": false,
+        "title": "Hide Help Center",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [
+      "Moovit Custom Maps API Key"
+    ],
+    "description": "Restores Google Maps rendering by spoofing the original package signature to Google Play Services.",
+    "id": "2679bdf1b9da72e6dfda5cd8:22",
+    "legacy_id": 90052,
+    "metadata_status": "stale",
+    "name": "Fix Google Maps",
+    "options": [
+      {
+        "default": null,
+        "description": "Optional custom Google Maps Platform key. When omitted, built-in keys work automatically via signature spoofing.",
+        "key": "mapsApiKey",
+        "required": false,
+        "title": "Google Maps Platform API key",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables WorkManager background sync services, scheduled jobs, and boot receiver. The WorkManager startup initializer is intentionally preserved because removing it prevents application boot. WARNING: Disabling WorkManager can affect background photo uploads, syncing, and exports.",
+    "id": "2679bdf1b9da72e6dfda5cd8:23",
+    "legacy_id": 90053,
+    "metadata_status": "stale",
+    "name": "Lightroom Background Sync",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Purges non-functional build metadata, compiler properties, and duplicate license files from the APK root and META-INF.",
+    "id": "2679bdf1b9da72e6dfda5cd8:24",
+    "legacy_id": 90054,
+    "metadata_status": "stale",
+    "name": "Lightroom Junk Cleaner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected language string tables, resources, and asset JSON files from the APK. Base fallback and English are always preserved.",
+    "id": "2679bdf1b9da72e6dfda5cd8:25",
+    "legacy_id": 90055,
+    "metadata_status": "stale",
+    "name": "Locale Slimmer",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to preserve (e.g. 'en, es, pt, fr, de'). Base fallback and English are always retained.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected language string tables and resources from base APK. Base fallback and English are always preserved.",
+    "id": "2679bdf1b9da72e6dfda5cd8:26",
+    "legacy_id": 90056,
+    "metadata_status": "stale",
+    "name": "Locale Slimmer",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to preserve (e.g. 'en, es, pt, fr, de'). Base fallback and English are always retained.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable MLKit component discovery and registrars. WARNING: this breaks in-app QR and barcode scanning.",
+    "id": "2679bdf1b9da72e6dfda5cd8:27",
+    "legacy_id": 90057,
+    "metadata_status": "stale",
+    "name": "MLKit Vision Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips non-essential companion native libraries by zeroing bytes in-situ. Always zeroes AppLovin ad crash reporter. WARNING: Stripping speech recognition and synthesis engines (libspeech*.so) disables voice recognition, voiceover captions, and speech-to-text features.",
+    "id": "2679bdf1b9da72e6dfda5cd8:28",
+    "legacy_id": 90058,
+    "metadata_status": "stale",
+    "name": "Native Bloat Slimmer",
+    "options": [
+      {
+        "default": false,
+        "description": "WARNING: Stripping speech recognition and synthesis engines (libspeechengine.so, libspeechepg.so, libspeechsdk.so) breaks voice effects, text-to-speech, and automatic captions.",
+        "key": "trimSpeechEngines",
+        "required": false,
+        "title": "Trim Speech Engines (Breaks Voice Features)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bottom navigation, FAB, tabs and bars",
+    "id": "2679bdf1b9da72e6dfda5cd8:29",
+    "legacy_id": 90059,
+    "metadata_status": "stale",
+    "name": "Navigation UI",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide badges and unread indicator counters from navigation bar icons",
+        "key": "hideBadges",
+        "required": false,
+        "title": "Hide Badges",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide secondary action expansion menu on floating action button",
+        "key": "hideFabMenu",
+        "required": false,
+        "title": "Hide FAB Menu",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle persistent bottom navigation bar behavior",
+        "key": "navigationBar",
+        "required": false,
+        "title": "Navigation Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Grok tab from bottom navigation bar",
+        "key": "grokTab",
+        "required": false,
+        "title": "Grok Tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle rich explore tab surfaces",
+        "key": "exploreTabs",
+        "required": false,
+        "title": "Explore Tabs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle rich search tab items and surfaces",
+        "key": "searchTabItems",
+        "required": false,
+        "title": "Search Tab Items",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle drawer sidebar items including Grok assistant entry",
+        "key": "sideBarItems",
+        "required": false,
+        "title": "Side Bar Items",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Expands t.co shortened URLs, removing the click-tracking intermediary",
+    "id": "2679bdf1b9da72e6dfda5cd8:30",
+    "legacy_id": 90060,
+    "metadata_status": "stale",
+    "name": "No Shortened URL",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops persisting search suggestions locally without breaking search",
+    "id": "2679bdf1b9da72e6dfda5cd8:31",
+    "legacy_id": 90061,
+    "metadata_status": "stale",
+    "name": "Pause Search Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Post actions, profile header and Grok surfaces",
+    "id": "2679bdf1b9da72e6dfda5cd8:32",
+    "legacy_id": 90062,
+    "metadata_status": "stale",
+    "name": "Post & Profile UI",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide Grok analysis action button in post headers",
+        "key": "hideGrokPostAction",
+        "required": false,
+        "title": "Hide Grok Post Action",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Grok Imagine action button on profile header banner",
+        "key": "hideProfileGrokButton",
+        "required": false,
+        "title": "Hide Profile Grok Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle extra connect and media tabs on user profiles",
+        "key": "profileTabs",
+        "required": false,
+        "title": "Profile Tabs",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips optional companion native binaries (React Native and Hermes JavaScript runtime stack) via in-situ zeroing. WARNING: stripped libraries are load-bearing for React Native initialization - enabling this WILL crash the app with UnsatisfiedLinkError when Copilot or other React Native surfaces start, not merely hide those features.",
+    "id": "2679bdf1b9da72e6dfda5cd8:33",
+    "legacy_id": 90063,
+    "metadata_status": "stale",
+    "name": "PowerPoint Companion Native Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips drawables for unselected screen densities from PowerPoint base APK while preserving launcher icons and single-density assets. WARNING: Displays matching stripped densities will scale preserved assets.",
+    "id": "2679bdf1b9da72e6dfda5cd8:34",
+    "legacy_id": 90064,
+    "metadata_status": "stale",
+    "name": "PowerPoint DPI Slimmer",
+    "options": [
+      {
+        "default": "xxhdpi",
+        "description": "Screen density to preserve (ldpi, mdpi, tvdpi, hdpi, xhdpi, xxhdpi, xxxhdpi). Default is xxhdpi.",
+        "key": "dpi",
+        "required": false,
+        "title": "Target screen density",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected localized resource directories (res/values-<locale>/) from PowerPoint base APK. English (en, en-us) is always retained. WARNING: Application strings for stripped locales will fall back to English.",
+    "id": "2679bdf1b9da72e6dfda5cd8:35",
+    "legacy_id": 90065,
+    "metadata_status": "stale",
+    "name": "PowerPoint Locale Slimmer",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to preserve (e.g. 'en, es, fr, de'). English fallback (en, en-us) is always retained.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides banner and inline ads and neutralizes ad unit ID lookups.",
+    "id": "2679bdf1b9da72e6dfda5cd8:36",
+    "legacy_id": 90066,
+    "metadata_status": "stale",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes promoted posts, trends and ads from timeline",
+    "id": "2679bdf1b9da72e6dfda5cd8:37",
+    "legacy_id": 90067,
+    "metadata_status": "stale",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes premium upsell surfaces",
+    "id": "2679bdf1b9da72e6dfda5cd8:38",
+    "legacy_id": 90068,
+    "metadata_status": "stale",
+    "name": "Remove Premium Upsell",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide Get Verified upsell pill on user profile",
+        "key": "hideProfileGetVerified",
+        "required": false,
+        "title": "Hide Profile Get Verified",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the sharedUserId attribute from the manifest to prevent installation conflicts.",
+    "id": "2679bdf1b9da72e6dfda5cd8:39",
+    "legacy_id": 90069,
+    "metadata_status": "stale",
+    "name": "Remove Shared User ID",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected screen density assets and purges non-phone UI mode qualifiers. Launcher icons, nodpi/anydpi, and single-density orphans are always preserved.",
+    "id": "2679bdf1b9da72e6dfda5cd8:40",
+    "legacy_id": 90070,
+    "metadata_status": "stale",
+    "name": "Screen Density Slimmer",
+    "options": [
+      {
+        "default": "xxhdpi",
+        "description": "Screen density to preserve (e.g. 'xxhdpi', 'xhdpi', 'hdpi', 'mdpi', 'xxxhdpi'). Single-density orphans, launcher icons, and nodpi/anydpi are always protected.",
+        "key": "density",
+        "required": false,
+        "title": "Target screen density",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected screen density assets and purges non-phone UI mode qualifiers. Launcher icons, nodpi/anydpi, and single-density orphans are always preserved.",
+    "id": "2679bdf1b9da72e6dfda5cd8:41",
+    "legacy_id": 90071,
+    "metadata_status": "stale",
+    "name": "Screen Density Slimmer",
+    "options": [
+      {
+        "default": "xxhdpi",
+        "description": "Screen density to preserve (e.g. 'xxhdpi', 'xhdpi', 'hdpi', 'mdpi', 'xxxhdpi'). Single-density orphans, launcher icons, and nodpi/anydpi are always protected.",
+        "key": "density",
+        "required": false,
+        "title": "Target screen density",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Custom sharing domain, handle custom links and legacy share links",
+    "id": "2679bdf1b9da72e6dfda5cd8:42",
+    "legacy_id": 90072,
+    "metadata_status": "stale",
+    "name": "Share Links",
+    "options": [
+      {
+        "default": true,
+        "description": "Substitutes twitter.com/x.com with custom domain when sharing post links",
+        "key": "customSharingDomain",
+        "required": false,
+        "title": "Enable Custom Domain",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "https://fxtwitter.com",
+        "description": "Domain replacing x.com when sharing post links, e.g. https://fxtwitter.com",
+        "key": "sharingDomain",
+        "required": false,
+        "title": "Custom Sharing Domain",
+        "type": "kotlin.String",
+        "values": {
+          "FixTweet (fxtwitter.com)": "https://fxtwitter.com",
+          "FixUpX (fixupx.com)": "https://fixupx.com",
+          "VXTwitter (vxtwitter.com)": "https://vxtwitter.com"
+        }
+      },
+      {
+        "default": true,
+        "description": "Enables in-app handling of alternative Twitter domains (vxtwitter.com, fxtwitter.com, fixupx.com)",
+        "key": "handleCustomLinks",
+        "required": false,
+        "title": "Handle Custom Links",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Restores post author username in shared links instead of the modern generic /i/status/ format",
+        "key": "legacyShareLinks",
+        "required": false,
+        "title": "Legacy Share Links",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Displays sensitive media directly without requiring tap to reveal",
+    "id": "2679bdf1b9da72e6dfda5cd8:43",
+    "legacy_id": 90073,
+    "metadata_status": "stale",
+    "name": "Show Sensitive Media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Ensures compatibility for sideloaded lab installs by allowing local installer source checks to report success and completing Play Integrity token requests. Required for sideloaded lab installs: without it the app routes to the Play Store.",
+    "id": "2679bdf1b9da72e6dfda5cd8:44",
+    "legacy_id": 90074,
+    "metadata_status": "stale",
+    "name": "Sideload Install Support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses subscription paywalls, onboarding upgrade dialogs, and promotional cards.",
+    "id": "2679bdf1b9da72e6dfda5cd8:45",
+    "legacy_id": 90075,
+    "metadata_status": "stale",
+    "name": "Suppress Paywalls",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Timeline surfaces: posts, threads, banners, recommendations and video entry points",
+    "id": "2679bdf1b9da72e6dfda5cd8:46",
+    "legacy_id": 90076,
+    "metadata_status": "stale",
+    "name": "Timeline UI",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides new post banner",
+        "key": "hideBanner",
+        "required": false,
+        "title": "Hide Banner",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides promote button under self posts",
+        "key": "hidePromoteButton",
+        "required": false,
+        "title": "Hide Promote Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides follow/subscribe/follow back buttons on posts",
+        "key": "hideNudgeButton",
+        "required": false,
+        "title": "Hide Nudge Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides recommendation items such as Who to follow and Today's news in timeline, search, and replies",
+        "key": "hideRecommendationItems",
+        "required": false,
+        "title": "Hide Recommendation Items",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides Discover more recommendations in tweet reply threads",
+        "key": "hideDiscoverMore",
+        "required": false,
+        "title": "Hide Discover More",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides recommended users popup shown when following someone",
+        "key": "hideRecommendedUsers",
+        "required": false,
+        "title": "Hide Recommended Users",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides live threads",
+        "key": "hideLiveThreads",
+        "required": false,
+        "title": "Hide Live Threads",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide community notes and birdwatch contributions on posts",
+        "key": "hideCommunityNotes",
+        "required": false,
+        "title": "Hide Community Notes",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide like, repost, and reply count metrics on timeline posts",
+        "key": "hidePostMetrics",
+        "required": false,
+        "title": "Hide Post Metrics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide post view count metrics on timeline and post detail",
+        "key": "hideViewCount",
+        "required": false,
+        "title": "Hide View Count",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle inline action buttons across notification timeline",
+        "key": "inlineActionBar",
+        "required": false,
+        "title": "Inline Action Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide add tab (+) button in home timeline tab header",
+        "key": "timelineAddTab",
+        "required": false,
+        "title": "Timeline Add Tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle top bar elements in home and custom timelines",
+        "key": "timelineTopBar",
+        "required": false,
+        "title": "Timeline Top Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides live and broadcast pill at top of home timeline",
+        "key": "hideLiveBanner",
+        "required": false,
+        "title": "Hide Live Banner",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Microsoft 365 Family subscription features locally.",
+    "id": "2679bdf1b9da72e6dfda5cd8:47",
+    "legacy_id": 90077,
+    "metadata_status": "stale",
+    "name": "Unlock 365 Family",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Moovit+ premium subscription features locally, including Safe Ride and address search in favorites.",
+    "id": "2679bdf1b9da72e6dfda5cd8:48",
+    "legacy_id": 90078,
+    "metadata_status": "stale",
+    "name": "Unlock Moovit+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces CapCut VIP gates to return true (SubscribeImpl, PayVipImpl, UserVipInfo, UserDetailInfo, VipUserServiceImpl, SubscribeCloudImpl). Cloud-gated assets may still fail.",
+    "id": "2679bdf1b9da72e6dfda5cd8:49",
+    "legacy_id": 90079,
+    "metadata_status": "stale",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [
+      "Sideload Install Support"
+    ],
+    "description": "Enables app features locked behind subscription paywalls by activating the internal Limited-Time Premium Unlock (LTPU) gate. Requires Sideload Install Support (applied automatically as dependency).",
+    "id": "2679bdf1b9da72e6dfda5cd8:50",
+    "legacy_id": 90080,
+    "metadata_status": "stale",
+    "name": "Unlock Premium Features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "2679bdf1b9da72e6dfda5cd8",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables MLKit component discovery and registrars. WARNING: this breaks in-app QR and barcode scanning.",
+    "id": "2679bdf1b9da72e6dfda5cd8:51",
+    "legacy_id": 90081,
+    "metadata_status": "stale",
+    "name": "X MLKit Vision Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.4",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Allow Screen Capture (Setup)"
+    ],
+    "description": "Removes screenshot blocking and capture detection.",
+    "id": "29c1a54ae353fca4a113a39e:0",
+    "legacy_id": 90082,
+    "metadata_status": "stale",
+    "name": "Allow Screenshots",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces video publish/upload date to remain visible in video author information across all feed types.",
+    "id": "29c1a54ae353fca4a113a39e:1",
+    "legacy_id": 90083,
+    "metadata_status": "stale",
+    "name": "Always Show Publish Date",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Automatically pauses the first video when opening TikTok, allowing the application to finish background initialization and preventing playback lag.",
+    "id": "29c1a54ae353fca4a113a39e:2",
+    "legacy_id": 90084,
+    "metadata_status": "stale",
+    "name": "Auto-Pause First Video",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Closing a tab picks the previous tab in the same group.",
+    "id": "29c1a54ae353fca4a113a39e:3",
+    "legacy_id": 90085,
+    "metadata_status": "stale",
+    "name": "Better Tab Closing",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [
+      "Remove Ads (Setup)"
+    ],
+    "description": "Blocks ad loaders and unlocks ad-free status.",
+    "id": "29c1a54ae353fca4a113a39e:4",
+    "legacy_id": 90086,
+    "metadata_status": "stale",
+    "name": "Block Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Protects against other apps hijacking Gboard and removes debug tools.",
+    "id": "29c1a54ae353fca4a113a39e:5",
+    "legacy_id": 90087,
+    "metadata_status": "stale",
+    "name": "Block App Hijacking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops sites from reading motion sensors to identify you.",
+    "id": "29c1a54ae353fca4a113a39e:6",
+    "legacy_id": 90088,
+    "metadata_status": "stale",
+    "name": "Block Motion Sensors",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks rating popups, review requests and promo dialogs.",
+    "id": "29c1a54ae353fca4a113a39e:7",
+    "legacy_id": 90089,
+    "metadata_status": "stale",
+    "name": "Block Popups & Rating Requests",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops background metrics, event logging and crash reporting.",
+    "id": "29c1a54ae353fca4a113a39e:8",
+    "legacy_id": 90090,
+    "metadata_status": "stale",
+    "name": "Block Trackers",
+    "options": [
+      {
+        "default": true,
+        "description": "Also blocks Google ad servers. Turn off to keep them.",
+        "key": "blockAdwordsHost",
+        "required": false,
+        "title": "Block ad servers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.hevy": [
+        "3.1.14"
+      ]
+    },
+    "dependencies": [
+      "Remove Trackers (Setup)"
+    ],
+    "description": "Blocks crash reporting, ad attribution and referral tracking.",
+    "id": "29c1a54ae353fca4a113a39e:9",
+    "legacy_id": 90091,
+    "metadata_status": "stale",
+    "name": "Block Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "3.1.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [
+      "Remove Trackers (Setup)"
+    ],
+    "description": "Blocks analytics and ad tracking.",
+    "id": "29c1a54ae353fca4a113a39e:10",
+    "legacy_id": 90092,
+    "metadata_status": "stale",
+    "name": "Block Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Remove Trackers (Setup)"
+    ],
+    "description": "Stops analytics and usage reporting.",
+    "id": "29c1a54ae353fca4a113a39e:11",
+    "legacy_id": 90093,
+    "metadata_status": "stale",
+    "name": "Block Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [
+      "Privacy Defaults (Setup)",
+      "Block Tracking Servers"
+    ],
+    "description": "Blocks usage analytics, crash uploads and experiment downloads.",
+    "id": "29c1a54ae353fca4a113a39e:12",
+    "legacy_id": 90094,
+    "metadata_status": "stale",
+    "name": "Block Tracking",
+    "options": [
+      {
+        "default": true,
+        "description": "Also blocks the shopping offers server. Turn off to keep it.",
+        "key": "blockOffersHost",
+        "required": false,
+        "title": "Block offers server",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables analytics, crash and ad SDKs inside the app.",
+    "id": "29c1a54ae353fca4a113a39e:13",
+    "legacy_id": 90095,
+    "metadata_status": "stale",
+    "name": "Block Tracking SDKs",
+    "options": [
+      {
+        "default": true,
+        "description": "Neutralize New Relic, Datadog, and Dynatrace monitoring, metric reporting, and HTTP transaction tracing methods.",
+        "key": "blockApm",
+        "required": false,
+        "title": "Performance monitors",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Raygun, Shake, Embrace, Splunk Mint, App Center, OpenTelemetry, ACRA, Sentry, Bugsnag, Crashlytics (legacy and Firebase), Fabric, Instabug, Countly, and HockeyApp crash reporters.",
+        "key": "blockCrashReporters",
+        "required": false,
+        "title": "Crash reporters",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Firebase Analytics, Matomo, Leanplum, Localytics, WebEngage, PostHog, MoEngage, Snowplow, mParticle, Treasure Data, Huawei Analytics, Yandex Metrica, Facebook AppEvents, and Sensors Analytics event tracking, capture, and session logging methods.",
+        "key": "blockAnalytics",
+        "required": false,
+        "title": "Analytics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize AppsFlyer, Adjust, Amplitude, Mixpanel, CleverTap, Segment, Branch, Singular, Kochava, Tenjin, Unity Analytics, Flurry, and GameAnalytics conversion, tracking, and attribution SDKs.",
+        "key": "blockAttribution",
+        "required": false,
+        "title": "Ad attribution",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize pre-Firebase Google Analytics tracking, hit dispatching, and activity reporting methods (com.google.analytics and com.google.android.gms.analytics).",
+        "key": "blockLegacyAnalytics",
+        "required": false,
+        "title": "Old Google Analytics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Neutralize OneSignal, Airship, and Braze push engagement and tagging SDKs. WARNING: this breaks push notification delivery; enable only to fully silence push engagement SDK runtimes.",
+        "key": "blockPushEngagement",
+        "required": false,
+        "title": "Push SDKs (breaks push!)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize UXCam, Smartlook, FullStory, Contentsquare, and Bugsee screen and session recording SDK methods.",
+        "key": "blockSessionReplay",
+        "required": false,
+        "title": "Screen recorders",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Radar, Gimbal, and Estimote beacon and location tracking SDKs; note OS location permission controls remain the primary gate.",
+        "key": "blockLocationTrackers",
+        "required": false,
+        "title": "Location trackers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Rewrites tracking addresses to nowhere using your blocklist.",
+    "id": "29c1a54ae353fca4a113a39e:14",
+    "legacy_id": 90096,
+    "metadata_status": "stale",
+    "name": "Block Tracking Servers",
+    "options": [
+      {
+        "default": null,
+        "description": "Blocklist file on this device. Empty skips the patch.",
+        "key": "hostsFile",
+        "required": false,
+        "title": "Blocklist file",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "0.0.0.0",
+        "description": "Address written instead of blocked hosts.",
+        "key": "sinkIp",
+        "required": false,
+        "title": "Replace with",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "When enabled, a blocklist entry also matches its subdomains (entry 'example.com' matches 'a.example.com').",
+        "key": "matchSubdomains",
+        "required": false,
+        "title": "Include subdomains",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [
+      "Origin Switches (Setup)"
+    ],
+    "description": "Unlocks Brave Origin feature switches.",
+    "id": "29c1a54ae353fca4a113a39e:15",
+    "legacy_id": 90097,
+    "metadata_status": "stale",
+    "name": "Brave Origin",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes mandatory login walls, dynamic regional forced login gates, and guest browsing restrictions.",
+    "id": "29c1a54ae353fca4a113a39e:16",
+    "legacy_id": 90098,
+    "metadata_status": "stale",
+    "name": "Bypass Mandatory Login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Clears FLAG_SECURE on protected windows, restores Circle to Search / screen translate and recent apps snapshots, and neutralizes screenshot detection listeners and feedback prompts.",
+    "id": "29c1a54ae353fca4a113a39e:17",
+    "legacy_id": 90099,
+    "metadata_status": "stale",
+    "name": "Bypass Screen Capture Detection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows a corner mark while TikTok holds camera/mic open.",
+    "id": "29c1a54ae353fca4a113a39e:18",
+    "legacy_id": 90100,
+    "metadata_status": "stale",
+    "name": "Camera & Microphone Indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes build leftovers and duplicate files.",
+    "id": "29c1a54ae353fca4a113a39e:19",
+    "legacy_id": 90101,
+    "metadata_status": "stale",
+    "name": "Clean App Packaging",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes clutter from the share panel and direct message dialog, including suggested quick emojis and the 'Send to new group' button.",
+    "id": "29c1a54ae353fca4a113a39e:20",
+    "legacy_id": 90102,
+    "metadata_status": "stale",
+    "name": "Clean Share Panel",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes the horizontal row of suggested quick emojis from the direct share panel.",
+        "key": "hideQuickEmojis",
+        "required": false,
+        "title": "Hide Quick Emojis",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the 'Send to new group' button and hint from the direct share panel.",
+        "key": "hideSendToNewGroup",
+        "required": false,
+        "title": "Hide 'Send to New Group'",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips tracking parameters, user IDs, device fingerprints, and marketing tokens from shared TikTok links, with optional custom host redirection.",
+    "id": "29c1a54ae353fca4a113a39e:21",
+    "legacy_id": 90103,
+    "metadata_status": "stale",
+    "name": "Clean Share URL",
+    "options": [
+      {
+        "default": "",
+        "description": "Custom hostname to replace in shared links (e.g. 'vxtiktok.com', 'tiktxk.com', or empty to keep original host).",
+        "key": "shareHost",
+        "required": false,
+        "title": "Custom Share Host",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes tracking codes from links you share or copy.",
+    "id": "29c1a54ae353fca4a113a39e:22",
+    "legacy_id": 90104,
+    "metadata_status": "stale",
+    "name": "Clean Shared Links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [
+      "Clean Start Page (Setup)"
+    ],
+    "description": "Removes sponsored wallpapers, news feed and promo cards.",
+    "id": "29c1a54ae353fca4a113a39e:23",
+    "legacy_id": 90105,
+    "metadata_status": "stale",
+    "name": "Clean Start Page",
+    "options": [
+      {
+        "default": false,
+        "description": "Removes most-visited tiles for a blank start page.",
+        "key": "hideTopSites",
+        "required": false,
+        "title": "Hide shortcut tiles",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes on-device machine learning inference (Pitaya), Tako AI chatbot entry points and icons, and AI smart search suggestion clutter.",
+    "id": "29c1a54ae353fca4a113a39e:24",
+    "legacy_id": 90106,
+    "metadata_status": "stale",
+    "name": "Client-Side AI & Behavioral Profiling Governor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customizes TikTok's comment section, including native sort controls, clean text copying, disabling suggested emojis bar, hiding comment quick actions, hiding in-comment surveys and feedback cards, hiding profile photo story rings, enabling voice comments, automatic comment translation, fixing silent comment drops, and hiding comment popup ads.",
+    "id": "29c1a54ae353fca4a113a39e:25",
+    "legacy_id": 90107,
+    "metadata_status": "stale",
+    "name": "Comment Customizer",
+    "options": [
+      {
+        "default": true,
+        "description": "Unlocks TikTok's native comment sorting menu (Hot, Newest, Creator only, With media) across all posts.",
+        "key": "commentSortControls",
+        "required": false,
+        "title": "Comment Sort Controls",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Prevents silent comment publishing drops when the top-page screen context is detached or null.",
+        "key": "commentSendFix",
+        "required": false,
+        "title": "Fix Silent Comment Drops",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Copies only the comment text without prepending the author username.",
+        "key": "copyWithoutUsername",
+        "required": false,
+        "title": "Copy Comments Without Username",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the horizontal bar of suggested quick emojis displayed above the comment input box.",
+        "key": "disableSuggestedEmojis",
+        "required": false,
+        "title": "Disable Suggested Emojis",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the quick action buttons (photo, emoji, and mention) inside the comment input bar.",
+        "key": "hideCommentQuickActions",
+        "required": false,
+        "title": "Hide Comment Quick Actions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides surveys, opinion questionnaires, and feedback cards embedded within comment lists.",
+        "key": "hideCommentSurveys",
+        "required": false,
+        "title": "Hide Comment Surveys & Feedback Cards",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes profile photo story rings from avatars in the comment section.",
+        "key": "hideStoryRings",
+        "required": false,
+        "title": "Hide Comment Story Rings",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Forces the native voice comment recording button in comment input bars, bypassing regional rollout restrictions and remote server blocks.",
+        "key": "enableVoiceComments",
+        "required": false,
+        "title": "Enable Voice Comments",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Suppresses promotional brand surprise animation popups and commercial campaign effects when loading comments or publishing.",
+        "key": "hideCommentPopupAds",
+        "required": false,
+        "title": "Hide Comment Popup Ads",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Automatically expands community-flagged comments inline as normal comments, without showing the warning banner or requiring a tap.",
+        "key": "showFlaggedComments",
+        "required": false,
+        "title": "Show Community-Flagged Comments",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Automatically translates comments into your preferred language using TikTok's native translation engine.",
+        "key": "autoTranslate",
+        "required": false,
+        "title": "Auto-Translate Comments",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Comma-separated ISO 639 codes (e.g. 'en,es,zh') whose comments keep their original text. Applies on top of TikTok's native do-not-translate list and only matters when Auto-Translate Comments is enabled.",
+        "key": "translationExcludedLanguages",
+        "required": false,
+        "title": "Do-Not-Translate Languages",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips embedded Microblink/FinTech card scanner models, Pitaya AI & ByteNN LLM engines, C2PA origin verification, DLNA cast scanners, and redundant non-Latin fonts to save APK space.",
+    "id": "29c1a54ae353fca4a113a39e:26",
+    "legacy_id": 90108,
+    "metadata_status": "stale",
+    "name": "Core Asset De-bloat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customizes the maximum number of videos available for offline download caching.",
+    "id": "29c1a54ae353fca4a113a39e:27",
+    "legacy_id": 90109,
+    "metadata_status": "stale",
+    "name": "Custom Offline Videos Limit",
+    "options": [
+      {
+        "default": 1000,
+        "description": "Maximum number of offline videos that can be cached for offline playback (default: 1000).",
+        "key": "customLimit",
+        "required": false,
+        "title": "Custom Offline Videos Limit",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customizes and cleans the native TikTok share sheet via individual toggle switches for third-party apps, essential sharing features, and secondary utility actions.",
+    "id": "29c1a54ae353fca4a113a39e:28",
+    "legacy_id": 90110,
+    "metadata_status": "stale",
+    "name": "Custom Share Sheet",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides WhatsApp and WhatsApp Status from the share sheet.",
+        "key": "hideWhatsApp",
+        "required": false,
+        "title": "Hide WhatsApp",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides Instagram and Instagram Stories from the share sheet.",
+        "key": "hideInstagram",
+        "required": false,
+        "title": "Hide Instagram",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides Facebook, Facebook Stories, and Messenger from the share sheet.",
+        "key": "hideFacebook",
+        "required": false,
+        "title": "Hide Facebook & Messenger",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides Telegram from the share sheet.",
+        "key": "hideTelegram",
+        "required": false,
+        "title": "Hide Telegram",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides X (Twitter) from the share sheet.",
+        "key": "hideTwitter",
+        "required": false,
+        "title": "Hide X / Twitter",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides Snapchat from the share sheet.",
+        "key": "hideSnapchat",
+        "required": false,
+        "title": "Hide Snapchat",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides Reddit and Discord from the share sheet.",
+        "key": "hideReddit",
+        "required": false,
+        "title": "Hide Reddit & Discord",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides SMS and Google Messages from the share sheet.",
+        "key": "hideSms",
+        "required": false,
+        "title": "Hide SMS & Messages",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides regional and secondary third-party social apps (Line, Kakao, Viber, VK, Lemon8, etc.).",
+        "key": "hideSecondaryApps",
+        "required": false,
+        "title": "Hide Secondary Networks",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the native Repost button from the share sheet. Note: disabling this also disables the long-press to repost gesture.",
+        "key": "hideRepost",
+        "required": false,
+        "title": "Hide 'Repost' Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the QR code sharing button from the share sheet.",
+        "key": "hideQrCode",
+        "required": false,
+        "title": "Hide QR Code",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Copy link button from the share sheet.",
+        "key": "hideCopyLink",
+        "required": false,
+        "title": "Hide 'Copy Link'",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the system share dialog ('More') button from the share sheet.",
+        "key": "hideSystemShare",
+        "required": false,
+        "title": "Hide System Share ('More')",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the top row of direct message friend and contact avatars ('Send to') in the share sheet.",
+        "key": "hideFriendsRow",
+        "required": false,
+        "title": "Hide Friends / Direct Messages Row",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the commercial Promote action from the bottom utilities row.",
+        "key": "hidePromote",
+        "required": false,
+        "title": "Hide 'Promote' Action",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the recommendation explanation action from the bottom utilities row.",
+        "key": "hideWhyThisVideo",
+        "required": false,
+        "title": "Hide 'Why This Video'",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Create group action from the bottom utilities row.",
+        "key": "hideCreateGroup",
+        "required": false,
+        "title": "Hide 'Create Group' Action",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Add to Story action from the bottom utilities row.",
+        "key": "hideAddToStory",
+        "required": false,
+        "title": "Hide 'Add to Story'",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the sticker creation tool from the bottom utilities row.",
+        "key": "hideCreateSticker",
+        "required": false,
+        "title": "Hide 'Create Sticker'",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Duet action from the bottom utilities row.",
+        "key": "hideDuet",
+        "required": false,
+        "title": "Hide 'Duet' Action",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Stitch action from the bottom utilities row.",
+        "key": "hideStitch",
+        "required": false,
+        "title": "Hide 'Stitch' Action",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Picture-in-Picture floating player action from the bottom utilities row.",
+        "key": "hidePip",
+        "required": false,
+        "title": "Hide 'Picture-in-Picture' (PiP)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Clear display mode action from the bottom utilities row.",
+        "key": "hideClearDisplay",
+        "required": false,
+        "title": "Hide 'Clear Display'",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the background audio playback action from the bottom utilities row.",
+        "key": "hideListenAudio",
+        "required": false,
+        "title": "Hide 'Background Audio'",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides Live wallpaper and GIF creation actions from the bottom utilities row.",
+        "key": "hideWallpaperAndGif",
+        "required": false,
+        "title": "Hide Live Wallpaper & GIF",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the 'Not interested' action from the bottom utilities row.",
+        "key": "hideNotInterested",
+        "required": false,
+        "title": "Hide 'Not Interested'",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the Report action from the bottom utilities row.",
+        "key": "hideReport",
+        "required": false,
+        "title": "Hide 'Report'",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes invasive runtime permissions, contacts queries, package inventory inspection, location hardware tracking, advertising ID profiling, background clipboard snooping routines, and motion sensor profiling to protect user data.",
+    "id": "29c1a54ae353fca4a113a39e:29",
+    "legacy_id": 90111,
+    "metadata_status": "stale",
+    "name": "Device Privacy Guard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes visual clutter in direct messages and chat list, including the call button, reaction tray, message forward button, camera icons, input action buttons, try effect button, sticker reply suggestions, and the typing-triggered sticker strip.",
+    "id": "29c1a54ae353fca4a113a39e:30",
+    "legacy_id": 90112,
+    "metadata_status": "stale",
+    "name": "Direct Message Declutter",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes the camera icon next to chats in the direct messages conversation list.",
+        "key": "hideChatListCamera",
+        "required": false,
+        "title": "Hide Chat List Camera Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the phone receiver (voice/video call) button from the direct message chat header.",
+        "key": "hideCallButton",
+        "required": false,
+        "title": "Hide Header Call Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the quick forward/share arrow button displayed next to messages and shared videos.",
+        "key": "hideMessageForwardButton",
+        "required": false,
+        "title": "Hide Message Forward Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the reaction bar and streak mascot banner displayed above the text input bar.",
+        "key": "hideReactionTray",
+        "required": false,
+        "title": "Hide Reaction and Streak Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the camera button located to the left of the direct message text input field.",
+        "key": "hideInputCamera",
+        "required": false,
+        "title": "Hide Input Bar Camera Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the photo gallery button located inside the right side of the text input field.",
+        "key": "hideGalleryButton",
+        "required": false,
+        "title": "Hide Gallery Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the stickers and emoji button located inside the right side of the text input field.",
+        "key": "hideEmojiButton",
+        "required": false,
+        "title": "Hide Emoji/Stickers Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the audio recording/microphone button located inside the right side of the text input field.",
+        "key": "hideVoiceRecordButton",
+        "required": false,
+        "title": "Hide Voice Recording Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the 'Try effect' camera button shown on shared videos that use an effect in direct messages.",
+        "key": "hideTryEffectButton",
+        "required": false,
+        "title": "Hide Try Effect Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the automatic 'Tap a sticker to reply' suggestion panel and the typing-triggered sticker/GIF strip above the input bar. The manual sticker reply button keeps working.",
+        "key": "hideStickerReplySuggestions",
+        "required": false,
+        "title": "Hide Sticker Reply Suggestions",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables double tap like in the feed.",
+    "id": "29c1a54ae353fca4a113a39e:31",
+    "legacy_id": 90113,
+    "metadata_status": "stale",
+    "name": "Disable Double Tap to Like",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables long-press action gestures on feed buttons, including Like to repost, Share to quick DMs, and Comment to quick emojis, with optional long-press video body redirection.",
+    "id": "29c1a54ae353fca4a113a39e:32",
+    "legacy_id": 90114,
+    "metadata_status": "stale",
+    "name": "Disable Feed Long-Press Actions",
+    "options": [
+      {
+        "default": true,
+        "description": "Prevents holding the Like button on feed videos from opening the Repost action panel.",
+        "key": "disableLikeRepost",
+        "required": false,
+        "title": "Disable Long-Press Like (Repost)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Prevents holding the Share button on feed videos from opening the quick share recent contacts tray.",
+        "key": "disableShareQuickDms",
+        "required": false,
+        "title": "Disable Long-Press Share (Quick DMs)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Prevents holding the Comment button on feed videos from opening the quick reaction emojis picker.",
+        "key": "disableCommentReactions",
+        "required": false,
+        "title": "Disable Long-Press Comment (Quick Emojis)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "nothing",
+        "description": "Action when long pressing feed video body: 'nothing' (default, suppresses menu/repost), 'comments' (opens comments), 'copyLink' (copies link to clipboard), or 'saveSound' (favorites/saves audio).",
+        "key": "longPressVideo",
+        "required": false,
+        "title": "Long Press Video Action",
+        "type": "kotlin.String",
+        "values": {
+          "Copy link": "copyLink",
+          "Do nothing": "nothing",
+          "Open comments": "comments",
+          "Save sound": "saveSound"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the video playback engine to select standard SDR bitrates (BT.709/sRGB) instead of HDR (HDR10/PQ/HLG), preventing blinding screen brightness spikes and display thermal throttling while preserving smooth playback.",
+    "id": "29c1a54ae353fca4a113a39e:33",
+    "legacy_id": 90115,
+    "metadata_status": "stale",
+    "name": "Disable HDR Video Playback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses the automatic 'Share to' and friend suggestions bottom sheet that pops up after finishing a download.",
+    "id": "29c1a54ae353fca4a113a39e:34",
+    "legacy_id": 90116,
+    "metadata_status": "stale",
+    "name": "Disable Post-Download Share Dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "29c1a54ae353fca4a113a39e",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the pulsing LIVE ring and badge from creator avatars in the feed and ensures clicking navigates strictly to the user profile instead of launching the live stream.",
+    "id": "29c1a54ae353fca4a113a39e:35",
+    "legacy_id": 90117,
+    "metadata_status": "stale",
+    "name": "Disable Profile Photo LIVE Status",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.10",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  }
+]
