@@ -1,0 +1,3725 @@
+[
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "3ec1001477cf3c950dee3e00:111",
+    "legacy_id": 59762,
+    "metadata_status": "verified",
+    "name": "Settings for YouTube",
+    "options": [
+      {
+        "default": "@string/parent_tools_key",
+        "description": "The settings menu name that the RVX settings menu should be above.",
+        "name": "insertPosition",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "About": "@string/about_key",
+          "Accessibility": "@string/accessibility_settings_key",
+          "Account": "@string/account_switcher_key",
+          "Autoplay": "@string/auto_play_key",
+          "Background": "@string/offline_key",
+          "Billing & payments": "@string/billing_and_payment_key",
+          "Billing and payments": "@string/billing_and_payment_key",
+          "Captions": "@string/captions_key",
+          "Connected apps": "@string/connected_accounts_browse_page_key",
+          "Data saving": "@string/data_saving_settings_key",
+          "General": "@string/general_key",
+          "History & privacy": "@string/privacy_key",
+          "Live chat": "@string/live_chat_key",
+          "Manage all history": "@string/history_key",
+          "Notifications": "@string/notification_key",
+          "Parent settings": "@string/parent_tools_key",
+          "Privacy": "@string/privacy_key",
+          "Purchases and memberships": "@string/subscription_product_setting_key",
+          "Try experimental new features": "@string/premium_early_access_browse_page_key",
+          "Video quality preferences": "@string/video_quality_settings_key",
+          "Watch on TV": "@string/pair_with_tv_key",
+          "Your data in YouTube": "@string/your_data_key"
+        }
+      },
+      {
+        "default": "RVX",
+        "description": "The name of the RVX settings menu.",
+        "name": "rvxSettingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "RVX": "RVX",
+          "ReVanced Extended": "ReVanced Extended"
+        }
+      },
+      {
+        "default": true,
+        "description": "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        "name": "settingsSummaries",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies mandatory patches to implement ReVanced Extended settings into the application.",
+    "id": "3ec1001477cf3c950dee3e00:112",
+    "legacy_id": 59763,
+    "metadata_status": "verified",
+    "name": "Settings for YouTube Music",
+    "options": [
+      {
+        "default": "RVX",
+        "description": "The name of the RVX settings menu.",
+        "name": "rvxSettingsLabel",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "RVX": "RVX",
+          "ReVanced Extended": "ReVanced Extended"
+        }
+      },
+      {
+        "default": true,
+        "description": "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        "name": "settingsSummaries",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to YouTube Shorts.",
+    "id": "3ec1001477cf3c950dee3e00:113",
+    "legacy_id": 59764,
+    "metadata_status": "verified",
+    "name": "Shorts components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components related to the snack bar.",
+    "id": "3ec1001477cf3c950dee3e00:114",
+    "legacy_id": 59765,
+    "metadata_status": "verified",
+    "name": "Snack bar components",
+    "options": [
+      {
+        "default": "8.0dip",
+        "description": "Specify a corner radius for the snack bar.",
+        "name": "cornerRadius",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Whether to apply the same corner radius to the bottom bar of the playlist as the snack bar.",
+        "name": "applyCornerRadiusToPlaylistBottomBar",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "@color/yt_black3",
+        "description": "Specify a background color for the snack bar. You can specify hex color (#AARRGGBB) or color resource reference.",
+        "name": "darkThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Amoled Black": "@android:color/black",
+          "Catppuccin (Mocha)": "#FF181825",
+          "Dark Blue": "#FF001029",
+          "Dark Green": "#FF002905",
+          "Dark Orange": "#FF291800",
+          "Dark Pink": "#FF290025",
+          "Dark Red": "#FF290000",
+          "Dark Yellow": "#FF282900",
+          "YouTube Dark": "@color/yt_black3"
+        }
+      },
+      {
+        "default": "@color/yt_white3",
+        "description": "Specify a background color for the snack bar. You can specify hex color (#AARRGGBB) or color resource reference.",
+        "name": "lightThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Latte)": "#FFE6E9EF",
+          "Light Blue": "#FFD1E0FF",
+          "Light Green": "#FFCCFFCC",
+          "Light Orange": "#FFFFE6CC",
+          "Light Pink": "#FFFCCFF3",
+          "Light Red": "#FFFFD6D6",
+          "Light Yellow": "#FFFDFFCC",
+          "White": "@android:color/white",
+          "YouTube Light": "@color/yt_white3"
+        }
+      },
+      {
+        "default": "",
+        "description": "Specify a stroke color for the snack bar. You can specify hex color.",
+        "name": "strokeColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Blue": "?attr/ytThemedBlue",
+          "Chip": "?attr/ytChipBackground",
+          "None": ""
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections.",
+    "id": "3ec1001477cf3c950dee3e00:115",
+    "legacy_id": 59766,
+    "metadata_status": "verified",
+    "name": "SponsorBlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as sponsored content.",
+    "id": "3ec1001477cf3c950dee3e00:116",
+    "legacy_id": 59767,
+    "metadata_status": "verified",
+    "name": "SponsorBlock",
+    "options": [
+      {
+        "default": true,
+        "description": "Apply the outline icon.",
+        "name": "outlineIcon",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "right",
+        "description": "Align new segment window.",
+        "name": "NewSegmentAlignment",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Left": "left",
+          "Right": "right"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features.",
+    "id": "3ec1001477cf3c950dee3e00:117",
+    "legacy_id": 59768,
+    "metadata_status": "verified",
+    "name": "Spoof app version",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features.",
+    "id": "3ec1001477cf3c950dee3e00:118",
+    "legacy_id": 59769,
+    "metadata_status": "verified",
+    "name": "Spoof app version",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Spoofs the client to fix various functions of the app.",
+    "id": "3ec1001477cf3c950dee3e00:119",
+    "legacy_id": 59770,
+    "metadata_status": "verified",
+    "name": "Spoof client",
+    "options": [
+      {
+        "default": 4345,
+        "description": "The port to use for the listener that intercepts and handles spoofed requests. Port must be between 0 and 65535. Do not change this option, if you do not know what you are doing.",
+        "name": "requestListenerPort",
+        "required": false,
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": "iphone-9.0.58.558.g200011c",
+        "description": "The client version used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
+        "name": "clientVersion",
+        "required": false,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "iPhone16,1",
+        "description": "The hardware machine used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
+        "name": "hardwareMachine",
+        "required": false,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "17.7.2",
+        "description": "The system version used for spoofing the client token. Do not change this option, if you do not know what you are doing.",
+        "name": "systemVersion",
+        "required": false,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to spoof player parameter to allow playback.",
+    "id": "3ec1001477cf3c950dee3e00:120",
+    "legacy_id": 59771,
+    "metadata_status": "verified",
+    "name": "Spoof player parameter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to spoof the streaming data to allow playback.",
+    "id": "3ec1001477cf3c950dee3e00:121",
+    "legacy_id": 59772,
+    "metadata_status": "verified",
+    "name": "Spoof streaming data",
+    "options": [
+      {
+        "default": false,
+        "description": "Apply the outline icon.",
+        "name": "outlineIcon",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Add setting to set iOS client (Deprecated) as default client.",
+        "name": "useIOSClient",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds an option to change the domain of the watch history or check its status.",
+    "id": "3ec1001477cf3c950dee3e00:122",
+    "legacy_id": 59773,
+    "metadata_status": "verified",
+    "name": "Spoof watch history",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs an existing Wi-Fi connection.",
+    "id": "3ec1001477cf3c950dee3e00:123",
+    "legacy_id": 59774,
+    "metadata_status": "verified",
+    "name": "Spoof Wi-Fi connection",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player.",
+    "id": "3ec1001477cf3c950dee3e00:124",
+    "legacy_id": 59775,
+    "metadata_status": "verified",
+    "name": "Swipe controls",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Changes the app's themes to the values specified in patch options.",
+    "id": "3ec1001477cf3c950dee3e00:125",
+    "legacy_id": 59776,
+    "metadata_status": "verified",
+    "name": "Theme",
+    "options": [
+      {
+        "default": "@android:color/black",
+        "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        "name": "darkThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Amoled Black": "@android:color/black",
+          "Catppuccin (Mocha)": "#FF181825",
+          "Classic (Old YouTube)": "#FF212121",
+          "Dark Blue": "#FF001029",
+          "Dark Green": "#FF002905",
+          "Dark Orange": "#FF291800",
+          "Dark Pink": "#FF290025",
+          "Dark Red": "#FF290000",
+          "Dark Yellow": "#FF282900"
+        }
+      },
+      {
+        "default": "@android:color/white",
+        "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        "name": "lightThemeBackgroundColor",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Catppuccin (Latte)": "#FFE6E9EF",
+          "Light Blue": "#FFD1E0FF",
+          "Light Green": "#FFCCFFCC",
+          "Light Orange": "#FFFFE6CC",
+          "Light Pink": "#FFFCCFF3",
+          "Light Red": "#FFFFD6D6",
+          "Light Yellow": "#FFFDFFCC",
+          "Pale Blue": "#FFD4FFF8",
+          "Pale Green": "#FFD1FFCC",
+          "Pale Yellow": "#FFFFE9AA",
+          "White": "@android:color/white"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": false
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons.",
+    "id": "3ec1001477cf3c950dee3e00:126",
+    "legacy_id": 59777,
+    "metadata_status": "verified",
+    "name": "Toolbar components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Add translations or remove string resources.",
+    "id": "3ec1001477cf3c950dee3e00:127",
+    "legacy_id": 59778,
+    "metadata_status": "verified",
+    "name": "Translations for YouTube",
+    "options": [
+      {
+        "default": "",
+        "description": "The path to the 'strings.xml' file.\nPlease note that applying the 'strings.xml' file will overwrite all existing translations.",
+        "name": "customTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "ar, bg-rBG, de-rDE, el-rGR, es-rES, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "name": "selectedTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "name": "selectedStringResources",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Add translations or remove string resources.",
+    "id": "3ec1001477cf3c950dee3e00:128",
+    "legacy_id": 59779,
+    "metadata_status": "verified",
+    "name": "Translations for YouTube Music",
+    "options": [
+      {
+        "default": "",
+        "description": "The path to the 'strings.xml' file.\nPlease note that applying the 'strings.xml' file will overwrite all existing translations.",
+        "name": "customTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "bg-rBG, bn, cs-rCZ, el-rGR, es-rES, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, nl-rNL, pl-rPL, pt-rBR, ro-rRO, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "description": "A list of translations to be added for the RVX settings, separated by commas.",
+        "name": "selectedTranslations",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "af, am, ar, ar-rXB, as, az, b+es+419, b+sr+Latn, be, bg, bn, bs, ca, cs, da, de, el, en-rAU, en-rCA, en-rGB, en-rIN, en-rXA, en-rXC, es, es-rUS, et, eu, fa, fi, fr, fr-rCA, gl, gu, hi, hr, hu, hy, id, in, is, it, iw, ja, ka, kk, km, kn, ko, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, no, or, pa, pl, pt, pt-rBR, pt-rPT, ro, ru, si, sk, sl, sq, sr, sv, sw, ta, te, th, tl, tr, uk, ur, uz, vi, zh, zh-rCN, zh-rHK, zh-rTW, zu",
+        "description": "A list of string resources to be kept, separated by commas.\nString resources not in the list will be removed from the app.\n\nDefault string resource, English, is not removed.",
+        "name": "selectedStringResources",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
+    "id": "3ec1001477cf3c950dee3e00:129",
+    "legacy_id": 59780,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
+    "id": "3ec1001477cf3c950dee3e00:130",
+    "legacy_id": 59781,
+    "metadata_status": "verified",
+    "name": "Video playback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds options to customize settings related to video playback, such as default video quality and playback speed.",
+    "id": "3ec1001477cf3c950dee3e00:131",
+    "legacy_id": 59782,
+    "metadata_status": "verified",
+    "name": "Video playback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "description": "Adds icons to specific preferences in the settings.",
+    "id": "3ec1001477cf3c950dee3e00:132",
+    "legacy_id": 59783,
+    "metadata_status": "verified",
+    "name": "Visual preferences icons for YouTube",
+    "options": [
+      {
+        "default": "extension",
+        "description": "The icon for the RVX settings menu.",
+        "name": "settingsMenuIcon",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Custom branding icon": "custom_branding_icon",
+          "Extension": "extension",
+          "Gear": "gear",
+          "RVX Letters": "rvx_letters",
+          "RVX Letters Bold": "rvx_letters_bold",
+          "ReVanced": "revanced",
+          "ReVanced Colored": "revanced_colored",
+          "YT alt": "yt_alt"
+        }
+      },
+      {
+        "default": true,
+        "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
+        "name": "applyToAll",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "19.05.36",
+          "19.16.39",
+          "19.43.41",
+          "19.44.39",
+          "19.47.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds icons to specific preferences in the settings.",
+    "id": "3ec1001477cf3c950dee3e00:133",
+    "legacy_id": 59784,
+    "metadata_status": "verified",
+    "name": "Visual preferences icons for YouTube Music",
+    "options": [
+      {
+        "default": "extension",
+        "description": "The icon for the RVX settings menu.",
+        "name": "settingsMenuIcon",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Custom branding icon": "custom_branding_icon",
+          "Extension": "extension",
+          "Gear": "gear",
+          "RVX Letters": "rvx_letters",
+          "RVX Letters Bold": "rvx_letters_bold",
+          "ReVanced": "revanced",
+          "ReVanced Colored": "revanced_colored",
+          "YT alt": "yt_alt"
+        }
+      },
+      {
+        "default": true,
+        "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
+        "name": "applyToAll",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "3ec1001477cf3c950dee3e00",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "dependencies": [
+      "Settings for YouTube Music"
+    ],
+    "description": "Adds an option to change the domain of the watch history or check its status.",
+    "id": "3ec1001477cf3c950dee3e00:134",
+    "legacy_id": 59785,
+    "metadata_status": "verified",
+    "name": "Watch history",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "6.20.51",
+          "6.29.59",
+          "6.42.55",
+          "6.51.53",
+          "7.16.53",
+          "7.25.53",
+          "8.05.51",
+          "8.12.53"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.11.0-dev.2",
+    "source_id": "7b6f2418c479e5d0",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "切換新版或舊版 Access Points 選單樣式\nSwitch between the new and legacy Access Points menu styles.",
+    "id": "50593f257a8173f1d165e903:0",
+    "legacy_id": 59786,
+    "metadata_status": "verified",
+    "name": "Access Points menu style",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "攔截 Gboard 的簽章白名單檢查並強制通過\nBypass Gboard signature whitelist checks and force them to pass.",
+    "id": "50593f257a8173f1d165e903:1",
+    "legacy_id": 59787,
+    "metadata_status": "verified",
+    "name": "Add Gboard Signature Bypass",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用進階語音輸入（包含自動標點功能），並另外為不支援進階語音輸入的繁體中文語音啟用自動標點\nEnable Advanced Voice Typing with automatic punctuation, and separately enable automatic punctuation for Traditional Chinese voice typing, which does not support Advanced Voice Typing.",
+    "id": "50593f257a8173f1d165e903:2",
+    "legacy_id": 59788,
+    "metadata_status": "verified",
+    "name": "Advanced Voice Typing",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 AI 撰寫工具，支援所有語言\nEnable AI writing tools with support for all languages.",
+    "id": "50593f257a8173f1d165e903:3",
+    "legacy_id": 59789,
+    "metadata_status": "verified",
+    "name": "AI Writing Tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "變更表情符號大小\nChange emoji size.",
+    "id": "50593f257a8173f1d165e903:4",
+    "legacy_id": 59790,
+    "metadata_status": "verified",
+    "name": "Change emoji size",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "自訂每個文字剪貼簿項目的最大字元數\nCustomize the maximum character count for each text clipboard item.",
+    "id": "50593f257a8173f1d165e903:5",
+    "legacy_id": 59791,
+    "metadata_status": "verified",
+    "name": "Clipboard Custom Character Limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "增強剪貼簿的保留時間、數量上限、預覽行數、倒數/建立時間、順序編號與欄數\nEnhance clipboard retention time, item count limit, preview lines, countdown/creation time labels, order index, and column count.",
+    "id": "50593f257a8173f1d165e903:6",
+    "legacy_id": 59792,
+    "metadata_status": "verified",
+    "name": "Clipboard Enhancements",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "新增獨立的特殊符號分頁，長按逗號->愛心\nAdd a dedicated custom symbols tab and replace the long-press comma entry with a heart shortcut.",
+    "id": "50593f257a8173f1d165e903:7",
+    "legacy_id": 59793,
+    "metadata_status": "verified",
+    "name": "Custom Symbols",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 開發人員選項 與 Flag 編輯器，你可以自己修改Flag的值\nEnable Developer options and the Flag Editor, allowing you to modify flag values.",
+    "id": "50593f257a8173f1d165e903:8",
+    "legacy_id": 59794,
+    "metadata_status": "verified",
+    "name": "Developer options",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "自訂 Gboard「Emojis, stickers & GIFs」底部 tabs 的排序，支援拖曳調整\nCustomize the bottom tab order in Gboard's Emojis, stickers & GIFs panel with drag-and-drop reordering.",
+    "id": "50593f257a8173f1d165e903:9",
+    "legacy_id": 59795,
+    "metadata_status": "verified",
+    "name": "Emojis, stickers & GIFs Tab Order",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用無障礙鍵盤配置\nEnable accessibility layout.",
+    "id": "50593f257a8173f1d165e903:10",
+    "legacy_id": 59796,
+    "metadata_status": "verified",
+    "name": "Enable accessibility layout",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "長按空白鍵開啟游標觸控板與鎖定模式\nLong-press the space bar to use cursor trackpad and lock modes.",
+    "id": "50593f257a8173f1d165e903:11",
+    "legacy_id": 59797,
+    "metadata_status": "verified",
+    "name": "Enable cursor trackpad mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用內嵌自動填入建議\nEnable Inline Autofill Suggestions",
+    "id": "50593f257a8173f1d165e903:12",
+    "legacy_id": 59798,
+    "metadata_status": "verified",
+    "name": "Enable Inline Autofill Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 OCR / 掃描文字功能，支援 拉丁、中文、日文、韓文 與 天城文 辨識後端\nEnable the OCR / Scan Text feature with Latin, Chinese, Japanese, Korean, and Devanagari recognition backends.",
+    "id": "50593f257a8173f1d165e903:13",
+    "legacy_id": 59799,
+    "metadata_status": "verified",
+    "name": "Enable OCR / Scan Text",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用分離式鍵盤\nEnable the split keyboard layout.",
+    "id": "50593f257a8173f1d165e903:14",
+    "legacy_id": 59800,
+    "metadata_status": "verified",
+    "name": "Enable split keyboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "英文 QWERTY 鍵盤上滑大小寫\nFlick up on the English QWERTY keyboard to toggle uppercase and lowercase.",
+    "id": "50593f257a8173f1d165e903:15",
+    "legacy_id": 59801,
+    "metadata_status": "verified",
+    "name": "English QWERTY Up-Flick Uppercase",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "在空白鍵顯示 G Logo，並隱藏語言名稱\nShow the G Logo on the spacebar and hide the language label.",
+    "id": "50593f257a8173f1d165e903:16",
+    "legacy_id": 59802,
+    "metadata_status": "verified",
+    "name": "G Logo on Spacebar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 修正和建議 > 文法檢查\nEnable Text correction > Grammar check.",
+    "id": "50593f257a8173f1d165e903:17",
+    "legacy_id": 59803,
+    "metadata_status": "verified",
+    "name": "Grammar Checker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "在 Access Point 工具列新增無痕模式切換按鈕，並可設定無痕模式下是否啟用剪貼簿與語音輸入\nAdd an Incognito toggle to the Access Point toolbar and configure clipboard and voice typing availability while Incognito mode is active.",
+    "id": "50593f257a8173f1d165e903:18",
+    "legacy_id": 59804,
+    "metadata_status": "verified",
+    "name": "Incognito Mode Toggle",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 修正和建議 > 智慧撰寫\nEnable Text correction > Smart Compose.",
+    "id": "50593f257a8173f1d165e903:19",
+    "legacy_id": 59805,
+    "metadata_status": "verified",
+    "name": "Inline Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用圓角按鍵，主題詳情 > 按鍵形狀\nEnable Key shape in Theme details.",
+    "id": "50593f257a8173f1d165e903:20",
+    "legacy_id": 59806,
+    "metadata_status": "verified",
+    "name": "Key Shape Selection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "新增英文鍵盤地球鍵忽略時間覆寫，可獨立控制輸入後切語言延遲\nAdd an independent English globe key ignore interval override for post-typing language-switch delay.",
+    "id": "50593f257a8173f1d165e903:21",
+    "legacy_id": 59807,
+    "metadata_status": "verified",
+    "name": "Latin Globe Key Ignore Interval",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "在英文 QWERTY 與注音鍵盤加入全選、復原、複製、剪下、貼上與重做長按快捷鍵\nAdd Select all, Undo, Copy, Cut, Paste, and Redo long-press shortcuts to English QWERTY and Zhuyin.",
+    "id": "50593f257a8173f1d165e903:22",
+    "legacy_id": 59808,
+    "metadata_status": "verified",
+    "name": "Long-Press Editing Shortcuts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "將套件名稱改成 dev.jason.com.google.android.inputmethod.latin 以便共存安裝\nRename the package to dev.jason.com.google.android.inputmethod.latin so it can be installed alongside the official Gboard.",
+    "id": "50593f257a8173f1d165e903:23",
+    "legacy_id": 59809,
+    "metadata_status": "verified",
+    "name": "Package Rename",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "允許切換新版或舊版 Gboard 設定頁面\nAllow switching between the new and legacy Gboard settings pages.",
+    "id": "50593f257a8173f1d165e903:24",
+    "legacy_id": 59810,
+    "metadata_status": "verified",
+    "name": "Settings Homepage Override",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "滑動鍵盤第一排，在原生列與可自訂文字/JavaScript 列之間切換\nSwipe the keyboard top row to switch between the stock row and a customizable text/JavaScript row.",
+    "id": "50593f257a8173f1d165e903:25",
+    "legacy_id": 59811,
+    "metadata_status": "verified",
+    "name": "Swipeable Custom Top Row",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 語音輸入 -> 使用藍芽麥克風\nEnable Voice typing -> Use Bluetooth microphone.",
+    "id": "50593f257a8173f1d165e903:26",
+    "legacy_id": 59812,
+    "metadata_status": "verified",
+    "name": "Use Bluetooth Microphone",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "新增手機自架的 Web Clipboard，支援瀏覽器同步、配對碼與快速設定開關\nAdd the phone-hosted Web Clipboard with browser sync, pairing, and a Quick Settings Tile.",
+    "id": "50593f257a8173f1d165e903:27",
+    "legacy_id": 59813,
+    "metadata_status": "verified",
+    "name": "Web Clipboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "調整注音鍵盤底排按鍵大小\nAdjust Zhuyin keyboard bottom-row key sizes.",
+    "id": "50593f257a8173f1d165e903:28",
+    "legacy_id": 59814,
+    "metadata_status": "verified",
+    "name": "Zhuyin Bottom Row Key Sizes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [
+      "Zhuyin Slide Input"
+    ],
+    "description": "注音 ㄥ 上滑快速切換繁簡\nSwipe up on Zhuyin ㄥ to quickly toggle Traditional and Simplified Chinese.",
+    "id": "50593f257a8173f1d165e903:29",
+    "legacy_id": 59815,
+    "metadata_status": "verified",
+    "name": "Zhuyin Quick Traditional/Simplified Toggle",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "50593f257a8173f1d165e903",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "注音鍵盤支持上下滑輸入\nEnable slide-up and slide-down input on the Zhuyin keyboard.",
+    "id": "50593f257a8173f1d165e903:30",
+    "legacy_id": 59816,
+    "metadata_status": "verified",
+    "name": "Zhuyin Slide Input",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.0.0",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "55256a1245ba36a9fd456008",
+    "compatiblePackages": {
+      "org.zotero.android": [
+        "1.0.0-247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uploads the file when the sync server authorizes an upload without an S3 form envelope. Without this, an authorization the server completed is thrown away as a parse error and the attachment never uploads.",
+    "id": "55256a1245ba36a9fd456008:0",
+    "legacy_id": 59817,
+    "metadata_status": "verified",
+    "name": "Accept upload authorization that carries no upload form",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Zotero",
+        "icon_url": "https://play-lh.googleusercontent.com/P-3mL1Zei5D5HTZKIL9m1Vsp8oIT4Bl6_Qej36oK4D2mPNn-GP_cz1LZ-LT8naJNpRnFE2DkmqWxKym_MCy5",
+        "name": "org.zotero.android",
+        "versions": [
+          "1.0.0-247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.3",
+    "source_id": "bfe43b8f4ae32586",
+    "use": true
+  },
+  {
+    "bundle_id": "55256a1245ba36a9fd456008",
+    "compatiblePackages": {
+      "org.zotero.android": [
+        "1.0.0-247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Redirects Zotero's sync API and live-update stream to your own server.",
+    "id": "55256a1245ba36a9fd456008:1",
+    "legacy_id": 59818,
+    "metadata_status": "verified",
+    "name": "Custom sync server",
+    "options": [
+      {
+        "default": null,
+        "description": "HTTPS origin of your self-hosted Zotero server, for example https://zotero.example.org. Only the host (with an optional port) is accepted: no path and no trailing slash. A missing scheme is assumed to be https://.",
+        "key": "server",
+        "required": true,
+        "title": "Server address",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Full WebSocket URL for live updates, for example wss://zotero.example.org/stream or ws://zotero.example.org/stream. A path is allowed. Leave empty to derive it from the server address as wss://<server>/stream.",
+        "key": "streaming",
+        "required": false,
+        "title": "Streaming address (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Zotero",
+        "icon_url": "https://play-lh.googleusercontent.com/P-3mL1Zei5D5HTZKIL9m1Vsp8oIT4Bl6_Qej36oK4D2mPNn-GP_cz1LZ-LT8naJNpRnFE2DkmqWxKym_MCy5",
+        "name": "org.zotero.android",
+        "versions": [
+          "1.0.0-247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.3",
+    "source_id": "bfe43b8f4ae32586",
+    "use": true
+  },
+  {
+    "bundle_id": "55256a1245ba36a9fd456008",
+    "compatiblePackages": {
+      "org.zotero.android": [
+        "1.0.0-247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds the chosen streaming host to the app's cleartext allow-list when the stream URL is ws:// or http://.",
+    "id": "55256a1245ba36a9fd456008:2",
+    "legacy_id": 59819,
+    "metadata_status": "verified",
+    "name": "Custom sync server: allow cleartext streaming",
+    "options": [
+      {
+        "default": null,
+        "description": "HTTPS origin of your self-hosted Zotero server, for example https://zotero.example.org. Only the host (with an optional port) is accepted: no path and no trailing slash. A missing scheme is assumed to be https://.",
+        "key": "server",
+        "required": true,
+        "title": "Server address",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Full WebSocket URL for live updates, for example wss://zotero.example.org/stream or ws://zotero.example.org/stream. A path is allowed. Leave empty to derive it from the server address as wss://<server>/stream.",
+        "key": "streaming",
+        "required": false,
+        "title": "Streaming address (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Zotero",
+        "icon_url": "https://play-lh.googleusercontent.com/P-3mL1Zei5D5HTZKIL9m1Vsp8oIT4Bl6_Qej36oK4D2mPNn-GP_cz1LZ-LT8naJNpRnFE2DkmqWxKym_MCy5",
+        "name": "org.zotero.android",
+        "versions": [
+          "1.0.0-247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.3",
+    "source_id": "bfe43b8f4ae32586",
+    "use": true
+  },
+  {
+    "bundle_id": "55256a1245ba36a9fd456008",
+    "compatiblePackages": {
+      "org.zotero.android": [
+        "1.0.0-247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Plants Timber's debug tree so the app's own log lines reach logcat. Diagnostics only — expect a lot of output.",
+    "id": "55256a1245ba36a9fd456008:3",
+    "legacy_id": 59820,
+    "metadata_status": "verified",
+    "name": "Enable verbose logging",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Zotero",
+        "icon_url": "https://play-lh.googleusercontent.com/P-3mL1Zei5D5HTZKIL9m1Vsp8oIT4Bl6_Qej36oK4D2mPNn-GP_cz1LZ-LT8naJNpRnFE2DkmqWxKym_MCy5",
+        "name": "org.zotero.android",
+        "versions": [
+          "1.0.0-247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.3",
+    "source_id": "bfe43b8f4ae32586",
+    "use": false
+  },
+  {
+    "bundle_id": "55256a1245ba36a9fd456008",
+    "compatiblePackages": {
+      "org.zotero.android": [
+        "1.0.0-247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uploads attachments whose stored MD5 is empty or malformed, instead of sending an unusable digest the server rejects. Without this, the attachment's file never uploads and never reaches other devices.",
+    "id": "55256a1245ba36a9fd456008:4",
+    "legacy_id": 59821,
+    "metadata_status": "verified",
+    "name": "Recover attachments with an unusable MD5",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Zotero",
+        "icon_url": "https://play-lh.googleusercontent.com/P-3mL1Zei5D5HTZKIL9m1Vsp8oIT4Bl6_Qej36oK4D2mPNn-GP_cz1LZ-LT8naJNpRnFE2DkmqWxKym_MCy5",
+        "name": "org.zotero.android",
+        "versions": [
+          "1.0.0-247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.3",
+    "source_id": "bfe43b8f4ae32586",
+    "use": true
+  },
+  {
+    "bundle_id": "55256a1245ba36a9fd456008",
+    "compatiblePackages": {
+      "org.zotero.android": [
+        "1.0.0-247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uploads attachments whose stored modification time cannot be parsed, instead of skipping them forever. Without this, an attachment whose mtime is empty never uploads its file.",
+    "id": "55256a1245ba36a9fd456008:5",
+    "legacy_id": 59822,
+    "metadata_status": "verified",
+    "name": "Recover attachments with an unusable modification time",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Zotero",
+        "icon_url": "https://play-lh.googleusercontent.com/P-3mL1Zei5D5HTZKIL9m1Vsp8oIT4Bl6_Qej36oK4D2mPNn-GP_cz1LZ-LT8naJNpRnFE2DkmqWxKym_MCy5",
+        "name": "org.zotero.android",
+        "versions": [
+          "1.0.0-247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.3",
+    "source_id": "bfe43b8f4ae32586",
+    "use": true
+  },
+  {
+    "bundle_id": "55256a1245ba36a9fd456008",
+    "compatiblePackages": {
+      "org.zotero.android": [
+        "1.0.0-247"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sends an attachment upload without the multipart form around it when the server authorized the upload without an S3 form. Workaround for servers that take the bytes themselves; uploads that carry a form are unaffected.",
+    "id": "55256a1245ba36a9fd456008:6",
+    "legacy_id": 59823,
+    "metadata_status": "verified",
+    "name": "Send attachment uploads as the file itself",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Zotero",
+        "icon_url": "https://play-lh.googleusercontent.com/P-3mL1Zei5D5HTZKIL9m1Vsp8oIT4Bl6_Qej36oK4D2mPNn-GP_cz1LZ-LT8naJNpRnFE2DkmqWxKym_MCy5",
+        "name": "org.zotero.android",
+        "versions": [
+          "1.0.0-247"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.3",
+    "source_id": "bfe43b8f4ae32586",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Always opens Gboard in incognito mode to disable typing history collection and personalization.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:0",
+    "legacy_id": 59824,
+    "metadata_status": "verified",
+    "name": "Always-incognito mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Blocks ads, trackers, analytics, and unwanted content in apps and games using a hosts file.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:1",
+    "legacy_id": 59825,
+    "metadata_status": "verified",
+    "name": "Block ads, trackers, and analytics",
+    "options": [
+      {
+        "default": null,
+        "description": "The hosts file containing hosts or domains you want to block. Select a file or paste the full file path.",
+        "key": "hosts",
+        "required": true,
+        "title": "Hosts file",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "0.0.0.0",
+        "description": "The IP address to redirect blocked domains to. This will be used with your hosts list to block content.",
+        "key": "redirectionIp",
+        "required": true,
+        "title": "Redirection IP",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "0.0.0.0",
+          "localhost": "127.0.0.1"
+        }
+      },
+      {
+        "default": true,
+        "description": "When enabled, entries like \"example.com\" also block subdomains like \"www.example.com\" and \"sub.www.example.com\".",
+        "key": "isWildcard",
+        "required": false,
+        "title": "Wildcard blocking",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".adobo\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:2",
+    "legacy_id": 59826,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": true,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update other permissions declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateOtherPermissions",
+        "required": false,
+        "title": "Update other permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update content provider URI authorities. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update content providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the default gray comment indent lines with color-coded lines.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:3",
+    "legacy_id": 59827,
+    "metadata_status": "verified",
+    "name": "Colorize comment indent lines",
+    "options": [
+      {
+        "default": "#2A9D8F",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 1.",
+        "key": "indentLineColors1",
+        "required": false,
+        "title": "Line color 1",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Teal Cascade)": "#2A9D8F",
+          "Material (Crimson Flash)": "#F44336",
+          "Monokai (Charcoal Stone)": "#272822",
+          "Nord (Frost Mint)": "#8FBCBB",
+          "Solarized (Crimson Ember)": "#DC322F",
+          "Synthwave (Neon Blizzard)": "#0066FF"
+        }
+      },
+      {
+        "default": "#C96B2C",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 2.",
+        "key": "indentLineColors2",
+        "required": false,
+        "title": "Line color 2",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Burnt Apricot)": "#C96B2C",
+          "Material (Sunset Blaze)": "#FF5722",
+          "Monokai (Neon Pink)": "#F92672",
+          "Nord (Ice Shard)": "#88C0D0",
+          "Solarized (Rust Orange)": "#CB4B16",
+          "Synthwave (Laser Pink)": "#FF2E88"
+        }
+      },
+      {
+        "default": "#7A8F3A",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 3.",
+        "key": "indentLineColors3",
+        "required": false,
+        "title": "Line color 3",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Olive Moss)": "#7A8F3A",
+          "Material (Marigold Glow)": "#FF9800",
+          "Monokai (Lime Pop)": "#A6E22E",
+          "Nord (Arctic Skies)": "#81A1C1",
+          "Solarized (Dark Ochre)": "#B58900",
+          "Synthwave (Cyber Violet)": "#9B5CFF"
+        }
+      },
+      {
+        "default": "#8C4A5B",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 4.",
+        "key": "indentLineColors4",
+        "required": false,
+        "title": "Line color 4",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Muted Mulberry)": "#8C4A5B",
+          "Material (Honey Gold)": "#FFC107",
+          "Monokai (Sunset Amber)": "#FD971F",
+          "Nord (Deep Aurora)": "#5E81AC",
+          "Solarized (Moss Green)": "#859900",
+          "Synthwave (Electric Cyan)": "#2DE2E6"
+        }
+      },
+      {
+        "default": "#4A6FA5",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 5.",
+        "key": "indentLineColors5",
+        "required": false,
+        "title": "Line color 5",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Slate Blue)": "#4A6FA5",
+          "Material (Electric Lemon)": "#FFEB3B",
+          "Monokai (Electric Cyan)": "#66D9EF",
+          "Nord (Fjord Wave)": "#6D8FB3",
+          "Solarized (Deep Cyan)": "#2AA198",
+          "Synthwave (Miami Sunset)": "#FF5FA2"
+        }
+      },
+      {
+        "default": "#B85C38",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 6.",
+        "key": "indentLineColors6",
+        "required": false,
+        "title": "Line color 6",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Rust Clay)": "#B85C38",
+          "Material (Lime Zing)": "#CDDC39",
+          "Monokai (Vivid Purple)": "#AE81FF",
+          "Nord (Winter Denim)": "#7AA0C4",
+          "Solarized (Ocean Blue)": "#268BD2",
+          "Synthwave (Rad Orange)": "#FF8A3D"
+        }
+      },
+      {
+        "default": "#6B7A2B",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 7.",
+        "key": "indentLineColors7",
+        "required": false,
+        "title": "Line color 7",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Juniper Berry)": "#6B7A2B",
+          "Material (Sprout Green)": "#8BC34A",
+          "Monokai (Vintage Straw)": "#E6DB74",
+          "Nord (Powder Blue)": "#8BB2D1",
+          "Solarized (Cosmic Iris)": "#6C71C4",
+          "Synthwave (Retro Gold)": "#FFD166"
+        }
+      },
+      {
+        "default": "#7B5E8E",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 8.",
+        "key": "indentLineColors8",
+        "required": false,
+        "title": "Line color 8",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Heather Purple)": "#7B5E8E",
+          "Material (Shamrock Green)": "#4CAF50",
+          "Monokai (Stark Frost)": "#F8F8F2",
+          "Nord (Pale Ice)": "#9BC4DC",
+          "Solarized (Royal Magenta)": "#D33682",
+          "Synthwave (Arcade Lime)": "#3CFF7F"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Deactivates Firebase Analytics and removes its associated broadcast receivers and services.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:4",
+    "legacy_id": 59828,
+    "metadata_status": "verified",
+    "name": "Deactivate Firebase Analytics",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Deactivates the collection of performance data on app start up time, network requests, and other related metrics.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:5",
+    "legacy_id": 59829,
+    "metadata_status": "verified",
+    "name": "Deactivate Firebase Performance Monitoring",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables the Google Safe Browsing checks in WebView. This doesn't apply to WebView within the SDK Runtime.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:6",
+    "legacy_id": 59830,
+    "metadata_status": "verified",
+    "name": "Disable Google Safe Browsing in WebView",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the automatic refresh of the home feed after viewing a post or after being away from the app.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:7",
+    "legacy_id": 59831,
+    "metadata_status": "verified",
+    "name": "Disable home feed auto-refresh",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the horizontal page swipe gesture used to switch feeds.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:8",
+    "legacy_id": 59832,
+    "metadata_status": "verified",
+    "name": "Disable home feed swipe",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the automatic redirect to the home screen after being away from the app or returning from the background.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:9",
+    "legacy_id": 59833,
+    "metadata_status": "verified",
+    "name": "Disable home screen redirect",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables the collection of diagnostic data or usage statistics that are sent to Google.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:10",
+    "legacy_id": 59834,
+    "metadata_status": "verified",
+    "name": "Disable metrics collection in WebView",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables banner, interstitial, and other ad formats.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:11",
+    "legacy_id": 59835,
+    "metadata_status": "verified",
+    "name": "Disable mobile ads",
+    "options": [
+      {
+        "default": true,
+        "description": "Disable App Open, Banner & MREC, Interstitial, Native, and Rewarded ad formats.",
+        "key": "disableAppLovinMax",
+        "required": false,
+        "title": "AppLovin MAX",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Native, Interstitial, Pop-up, Rewarded, and Splash ad formats.",
+        "key": "disableBigo",
+        "required": false,
+        "title": "BIGO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, Rewarded Interstitial, and App Open ad formats.",
+        "key": "disableGoogleAdMob",
+        "required": false,
+        "title": "Google AdMob",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Medium rectangle, Interstitial, Native, Native Banner, Rewarded Video, and Rewarded Interstitial ad formats.",
+        "key": "disableMetaAudienceNetwork",
+        "required": false,
+        "title": "Meta Audience Network",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Rewarded Video, Native, and Splash ad formats.",
+        "key": "disableMintegral",
+        "required": false,
+        "title": "Mintegral",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Rewarded, Native, Native Banner, In-Stream Video and Audio, and Carousel ad formats.",
+        "key": "disableMyTarget",
+        "required": false,
+        "title": "myTarget",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded Video, and App Open ad formats.",
+        "key": "disablePangle",
+        "required": false,
+        "title": "Pangle",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, and App Open ad formats.",
+        "key": "disableTopOn",
+        "required": false,
+        "title": "TopOn",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, and Rewarded Video ad formats.",
+        "key": "disableUnity",
+        "required": false,
+        "title": "Unity",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, and App Open ad formats.",
+        "key": "disableVungle",
+        "required": false,
+        "title": "Liftoff Monetize",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, App Open, InStream, and Feed ad formats.",
+        "key": "disableYandex",
+        "required": false,
+        "title": "Yandex Advertising Network",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the horizontal swipe gesture used to navigate between posts.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:12",
+    "legacy_id": 59836,
+    "metadata_status": "verified",
+    "name": "Disable post detail swipe",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the banner that shows up after taking a screenshot.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:13",
+    "legacy_id": 59837,
+    "metadata_status": "verified",
+    "name": "Disable screenshot banner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables the redesign of the additional actions menu.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:14",
+    "legacy_id": 59838,
+    "metadata_status": "verified",
+    "name": "Enable access points menu redesign",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables clipboard support in incognito mode.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:15",
+    "legacy_id": 59839,
+    "metadata_status": "verified",
+    "name": "Enable clipboard in incognito",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables an option to select a key shape from the theme.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:16",
+    "legacy_id": 59840,
+    "metadata_status": "verified",
+    "name": "Enable key shape selection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables the Scan Text feature to extract text from images and insert them into text fields.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:17",
+    "legacy_id": 59841,
+    "metadata_status": "verified",
+    "name": "Enable OCR feature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables the undo feature to quickly undo or correct typing mistakes.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:18",
+    "legacy_id": 59842,
+    "metadata_status": "verified",
+    "name": "Enable Undo feature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables voice typing in incognito mode.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:19",
+    "legacy_id": 59843,
+    "metadata_status": "verified",
+    "name": "Enable voice typing in incognito",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Ask button (Reddit Answers) from the search bar.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:20",
+    "legacy_id": 59844,
+    "metadata_status": "verified",
+    "name": "Hide Ask button from search bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the awards on Reddit posts and comments.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:21",
+    "legacy_id": 59845,
+    "metadata_status": "verified",
+    "name": "Hide awards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the community highlights section.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:22",
+    "legacy_id": 59846,
+    "metadata_status": "verified",
+    "name": "Hide community highlights",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the \"views\" indicator from the post metadata.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:23",
+    "legacy_id": 59847,
+    "metadata_status": "verified",
+    "name": "Hide post view counts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the new prominent search bar on the main screen. Applicable only to version 2026.24.0 and earlier.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:24",
+    "legacy_id": 59848,
+    "metadata_status": "verified",
+    "name": "Hide prominent search bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the share count on Reddit posts.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:25",
+    "legacy_id": 59849,
+    "metadata_status": "verified",
+    "name": "Hide share count",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the scores on Reddit posts and comments.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:26",
+    "legacy_id": 59850,
+    "metadata_status": "verified",
+    "name": "Hide upvote scores",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes scores from posts in feeds and search results.",
+        "key": "hidePostScores",
+        "required": false,
+        "title": "Hide post scores",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes scores from comments in threads and search results.",
+        "key": "hideCommentScores",
+        "required": false,
+        "title": "Hide comment scores",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the user community badges on Reddit comments.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:27",
+    "legacy_id": 59851,
+    "metadata_status": "verified",
+    "name": "Hide user community badges",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the user flairs on Reddit comments.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:28",
+    "legacy_id": 59852,
+    "metadata_status": "verified",
+    "name": "Hide user flairs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens external links directly without going through out.reddit.com.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:29",
+    "legacy_id": 59853,
+    "metadata_status": "verified",
+    "name": "Open external links directly",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.ninegag.android.app": [
+        "8.17.5",
+        "8.17.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes ads, trackers, and analytics in the 9GAG app.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:30",
+    "legacy_id": 59854,
+    "metadata_status": "verified",
+    "name": "Remove 9GAG's ads, trackers, and analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "9GAG: Funny GIF, Meme & Video",
+        "icon_url": "https://play-lh.googleusercontent.com/O3exMzvq4XfEBBr96KeMynd3E30tk4xPGcnYrQGrHtBZAVUgOIEHMqTA7hU_VHniqTO1wIZu5d7wPb4xxDA5F5U",
+        "name": "com.ninegag.android.app",
+        "versions": [
+          "8.17.5",
+          "8.17.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes ads and telemetry everywhere.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:31",
+    "legacy_id": 59855,
+    "metadata_status": "verified",
+    "name": "Remove ads and telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.imdb.mobile": null
+    },
+    "dependencies": [],
+    "description": "Removes ads, trackers, and analytics in the IMDb app.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:32",
+    "legacy_id": 59856,
+    "metadata_status": "verified",
+    "name": "Remove IMDb's ads, trackers, and analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "IMDb: Movies & TV Shows",
+        "icon_url": "https://play-lh.googleusercontent.com/jvuf103Qv_fqVVlHeXWws8zdPPEIhyZBB2d0xnVVSLOvcsCzf8qDN8r1jMpHUFfZqugcpFywwFvH3lWuZzNbMw",
+        "name": "com.imdb.mobile",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes unnecessary internet permission from apps that can still work without internet access.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:33",
+    "legacy_id": 59857,
+    "metadata_status": "verified",
+    "name": "Remove internet permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Replaces the Google Maps API key with a custom key.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:34",
+    "legacy_id": 59858,
+    "metadata_status": "verified",
+    "name": "Replace Google Maps API key",
+    "options": [
+      {
+        "default": null,
+        "description": "This key must be a valid Google Maps API key starting with \"AIzaSy\". \n\nFollow the instructions at https://developers.google.com/maps/documentation/android-sdk/get-api-key to generate a new API key if you don't have one. \n\nLeave it unrestricted to use it with any app (recommended), or restrict it by adding the SHA-1 fingerprint of the app's signing certificate and the package name.",
+        "key": "apiKey",
+        "required": true,
+        "title": "Maps API Key",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.28.0",
+        "2026.27.0",
+        "2026.26.0",
+        "2026.25.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unshortens and removes the tracking query parameters from shared links.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:35",
+    "legacy_id": 59859,
+    "metadata_status": "verified",
+    "name": "Sanitize share links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.28.0",
+          "2026.27.0",
+          "2026.26.0",
+          "2026.25.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the device's advertising ID with a string of zeros.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:36",
+    "legacy_id": 59860,
+    "metadata_status": "verified",
+    "name": "Spoof Advertising ID",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "5f7d1375bbf0f050c5a3b3ba",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the app's package certificate hash used by Firebase Installations so that push notifications, remote config, and other Firebase services continue to work as expected.",
+    "id": "5f7d1375bbf0f050c5a3b3ba:37",
+    "legacy_id": 59861,
+    "metadata_status": "verified",
+    "name": "Spoof Firebase certificate hash",
+    "options": [
+      {
+        "default": null,
+        "description": "The SHA-1 hash of the app's package certificate.",
+        "key": "certificateHash",
+        "required": true,
+        "title": "Certificate hash",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev.8",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  }
+]

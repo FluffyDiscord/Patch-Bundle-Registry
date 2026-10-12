@@ -1,0 +1,3051 @@
+[
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Customization row under Settings on the account sheet, with switches for the patches here that can be turned back off inside the app.",
+    "id": "ec49d578310ca54187efafec:10",
+    "legacy_id": 65463,
+    "metadata_status": "verified",
+    "name": "Customization screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides promoted map pins and \"Sponsored\" search results, Gemini's AI summaries (\"Know before you go\" and the review summary), the row of businesses under an address on its place sheet, the home tab's Explore feed and the Explore / Contribute / You tabs. Each can be switched back on on the Customization screen.",
+    "id": "ec49d578310ca54187efafec:11",
+    "legacy_id": 65464,
+    "metadata_status": "verified",
+    "name": "Hide ads and clutter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon and on the screen Maps opens with. With Add microG support, microG's C sits in the pin's circle.",
+    "id": "ec49d578310ca54187efafec:12",
+    "legacy_id": 65465,
+    "metadata_status": "verified",
+    "name": "Legacy icon",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Location source choice to the Customization screen: Android's own location providers, or Google Play services' fused provider. With Android, Play services is never asked for a location. Play services is never used while it is missing or disabled, so location keeps working on phones without it. Also keeps the network (Wi-Fi/cell) provider registered when no fused provider answers, instead of GPS only, so a fix does not go stale indoors.",
+    "id": "ec49d578310ca54187efafec:13",
+    "legacy_id": 65466,
+    "metadata_status": "verified",
+    "name": "Location provider toggle",
+    "options": [
+      {
+        "default": false,
+        "description": "The location source Maps starts with. On: Google Play services' fused provider whenever Play services is installed and enabled, Android's own providers otherwise. Off: Android's own providers. Either can be changed later on the Customization screen.",
+        "key": "useFusedProvider",
+        "required": false,
+        "title": "Default to Play services location",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Save places without a Google account, kept only on the phone: Save opens Maps' own \"Place saved\" sheet (Want to go, Travel plans, Starred places, Favorites, your own lists, a note), and a \"Local saved\" row on the account sheet rebuilds Maps' You tab -- your recent places, your lists and labels (Home, Work, your own) -- with export and import (backup file, KML, Google Takeout's saved lists and Saved Places.json, several files or the whole Takeout .zip at once). It also has a Timeline: where the phone has been, grouped into days and visits, kept only on the phone, with GPX export. Recording is off until switched on there; it shows a notification while it runs. With Add microG support, Maps' own Save keeps syncing to your account and Local saved instead copies the account's saved lists to the phone (Pull from Google account).",
+    "id": "ec49d578310ca54187efafec:14",
+    "legacy_id": 65467,
+    "metadata_status": "verified",
+    "name": "Offline saved places",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Customization screen"
+    ],
+    "description": "Brings the Pixel-only power saving mode to every phone: while driving with navigation, press the power button and Maps shows only key information such as the next turn on a black screen. Turn it on or off in Settings > Navigation > Power saving mode. Pixels that have it built in keep Google's own version unless Power saving mode is turned on in Power Saving Options, a row on the account sheet under Customization, which also has: a navigation button that opens the power saving screen without locking the phone, switching to it by itself when idle, a speedometer on it, a lower frame rate, and its black map in navigation or all over Maps.",
+    "id": "ec49d578310ca54187efafec:15",
+    "legacy_id": 65468,
+    "metadata_status": "verified",
+    "name": "Power saving mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Customization screen"
+    ],
+    "description": "Adds a Proxy screen to Customization that sends Maps' own traffic, map data included, through an HTTP proxy -- for example Orbot's (127.0.0.1:8118) to use Tor. Map data never falls back to a direct connection: if the proxy stops, Maps stops loading. Needs a recent Play services network engine (Cronet); Maps warns when it cannot take the proxy.",
+    "id": "ec49d578310ca54187efafec:16",
+    "legacy_id": 65469,
+    "metadata_status": "verified",
+    "name": "Proxy",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Squares off rounded corners across the UI, including the two round navigation buttons.",
+    "id": "ec49d578310ca54187efafec:17",
+    "legacy_id": 65470,
+    "metadata_status": "verified",
+    "name": "Rectangle shapes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes permissions that only serve Google-account features or Google's data collection: background location, physical activity, contacts, microphone (voice search stops working), camera (Lens and Live View stop working), car speed, advertising ID, push messages and Google services settings. Left out with Add microG support, whose account features need them.",
+    "id": "ec49d578310ca54187efafec:18",
+    "legacy_id": 65471,
+    "metadata_status": "verified",
+    "name": "Remove permissions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Google's sign-in prompts: the first-launch \"Make it your map\" page, the search screen's \"Tired of typing?\" card and the account sheet's \"Sign in\" pill. Tapping \"Your profile\" (or the pill, where it still shows) answers with a \"Can't sign in\" toast instead of nothing. Left out with Add microG support, which signs in.",
+    "id": "ec49d578310ca54187efafec:19",
+    "legacy_id": 65472,
+    "metadata_status": "verified",
+    "name": "Remove sign-in prompts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Points the Firebase Installations and Play services compliance check-ins at an unresolvable host, stops every ad impression and click ping from being sent, and deregisters Google's logging, performance-monitoring, survey and Location History libraries and the on-device federated-learning services. With Add microG support, Firebase Installations and Location History are left alone, so Timeline, account sync and push messages keep working.",
+    "id": "ec49d578310ca54187efafec:20",
+    "legacy_id": 65473,
+    "metadata_status": "verified",
+    "name": "Remove telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet. Left out with Add microG support, whose account features need them.",
+    "id": "ec49d578310ca54187efafec:21",
+    "legacy_id": 65474,
+    "metadata_status": "verified",
+    "name": "Trim account menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds +, − and reset tiles during turn-by-turn that change the navigation zoom while the camera keeps following the car.",
+    "id": "ec49d578310ca54187efafec:22",
+    "legacy_id": 65475,
+    "metadata_status": "verified",
+    "name": "Zoom controls in navigation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ede438ae003dfa3cce09e3b1",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "31.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Kizu Twitch enhancements: third-party emotes, live ad blocking, appearance controls, deleted-message display, privacy controls, native Video Stats and single-tap Reload Stream, PurpleTV-style landscape brightness/volume gestures with swipe-to-portrait collapse prevention, Hide Stories, Go Ad-Free hiding, and patched-app compatibility.",
+    "id": "ede438ae003dfa3cce09e3b1:0",
+    "legacy_id": 65476,
+    "metadata_status": "verified",
+    "name": "Twitch Enhancement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "31.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.3-beta.19",
+    "source_id": "6af02e4c275751fe",
+    "use": true
+  },
+  {
+    "bundle_id": "f45aa1bfa82c39615e54e06c",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "Removes FLAG_SECURE from all windows so screenshots and screen recordings work in Instagram.",
+    "id": "f45aa1bfa82c39615e54e06c:0",
+    "legacy_id": 65477,
+    "metadata_status": "verified",
+    "name": "Remove screenshot restriction",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.6",
+    "source_id": "b6c2f66ebdb65668",
+    "use": true
+  },
+  {
+    "bundle_id": "f7093d1d91f0c394fd9e43fb",
+    "compatiblePackages": {
+      "com.example.app": [
+        "2.0.0",
+        "1.0.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Example patch to start with.",
+    "id": "f7093d1d91f0c394fd9e43fb:0",
+    "legacy_id": 65478,
+    "metadata_status": "verified",
+    "name": "Example Patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.example.app",
+        "icon_url": null,
+        "name": "com.example.app",
+        "versions": [
+          "2.0.0",
+          "1.0.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.5",
+    "source_id": "46422588f2daae94",
+    "use": true
+  },
+  {
+    "bundle_id": "f7093d1d91f0c394fd9e43fb",
+    "compatiblePackages": {
+      "audioeditor.musiceditor.soundeditor.songeditor": [
+        "2.01.64.0916"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the purchase verification method to always return true, unlocking premium features in Audio Editor.",
+    "id": "f7093d1d91f0c394fd9e43fb:1",
+    "legacy_id": 65479,
+    "metadata_status": "verified",
+    "name": "Unlock Premium Features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Audio Editor & Music Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/hqUYJhTcCZfBIiCvCwkl89FnOIzdvi_DyTSiH4rxvC4h0UHqPYZ7wPWjlJGhJxED6V1BnwrulgGC4qIIj9em8Q",
+        "name": "audioeditor.musiceditor.soundeditor.songeditor",
+        "versions": [
+          "2.01.64.0916"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.5",
+    "source_id": "46422588f2daae94",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.community.mbox.in": [
+        "4.0.01.0813.02"
+      ],
+      "com.community.oneroom": [
+        "4.0.01.0813.02"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks VIP premium, removes ads and upsells, bypasses region lock and force update, unlocks HD and downloads, enables 5 parallel downloads.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:0",
+    "legacy_id": 65480,
+    "metadata_status": "verified",
+    "name": "All-In-One",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.mbox.in",
+        "icon_url": null,
+        "name": "com.community.mbox.in",
+        "versions": [
+          "4.0.01.0813.02"
+        ]
+      },
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "4.0.01.0813.02"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.community.mbox.tv": [
+        "1.1.8.0814.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks TV premium, removes ads and upsells, bypasses region lock and force update.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:1",
+    "legacy_id": 65481,
+    "metadata_status": "verified",
+    "name": "All-In-One",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.mbox.tv",
+        "icon_url": null,
+        "name": "com.community.mbox.tv",
+        "versions": [
+          "1.1.8.0814.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows screenshots and screen recording in all conversations including end-to-end encrypted ones.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:2",
+    "legacy_id": 65482,
+    "metadata_status": "verified",
+    "name": "Allow screen capture",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.89.0.968035987"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes Google Photos dark surfaces true black.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:3",
+    "legacy_id": 65483,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.89.0.968035987"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents messages deleted by other users from being removed locally.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:4",
+    "legacy_id": 65484,
+    "metadata_status": "verified",
+    "name": "Anti-delete messages",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps view-once photos, videos and voice messages viewable indefinitely.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:5",
+    "legacy_id": 65485,
+    "metadata_status": "verified",
+    "name": "Anti-disappearing media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks screenshot notifications from being sent to the other user.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:6",
+    "legacy_id": 65486,
+    "metadata_status": "verified",
+    "name": "Anti-screenshot notification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents Messenger from notifying other participants when you take a screenshot or screen recording.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:7",
+    "legacy_id": 65487,
+    "metadata_status": "verified",
+    "name": "Block screenshot detection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows opening, viewing, saving and forwarding content from restricted, sensitive, and copyright-restricted channels.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:8",
+    "legacy_id": 65488,
+    "metadata_status": "verified",
+    "name": "Bypass channel restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows saving and forwarding content from restricted channels, chats, and users.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:9",
+    "legacy_id": 65489,
+    "metadata_status": "verified",
+    "name": "Bypass content restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.google.android.verifier": [
+        "1.0.958871038"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces all APK install verification sessions to be bypassed, preventing the verifier from blocking sideloaded or unsigned apps on Android 16+ devices. Only available for root (mount) installations.Important: Requires pushing the patched APK as a system app replacement (e.g. via Magisk module or ADB with root)since the original holds DEVELOPER_VERIFICATION_AGENT permission. ADB installs are exempt from verification regardless.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:10",
+    "legacy_id": 65490,
+    "metadata_status": "verified",
+    "name": "Bypass developer verification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Android Developer Verifier",
+        "icon_url": "https://play-lh.googleusercontent.com/zBtyRmGC0sI5x8aBQuSC7mY8uSGerOnkoJuD2G6yMCbvwT8vtgq4Y1w3Xmo0Sg9_dUi4HuCOGS4sknTjfVO20w",
+        "name": "com.google.android.verifier",
+        "versions": [
+          "1.0.958871038"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs certificate fingerprint and SafetyNet results so login works on patched APK.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:11",
+    "legacy_id": 65491,
+    "metadata_status": "verified",
+    "name": "Bypass integrity check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.king.moja": [
+        "9.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses DNS blocker gate and tamper class detection.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:12",
+    "legacy_id": 65492,
+    "metadata_status": "verified",
+    "name": "Bypass Protections",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.king.moja",
+        "icon_url": null,
+        "name": "com.king.moja",
+        "versions": [
+          "9.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.89.0.968035987"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs Google Photos beside the system Photos app by changing package, permissions, providers, and app name.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:13",
+    "legacy_id": 65493,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "app.morphe.android.apps.photos",
+        "description": "Package name for the cloned Google Photos app.",
+        "key": "googlePhotosPackageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "Photos Morphe",
+        "description": "Launcher name for the cloned Google Photos app.",
+        "key": "googlePhotosAppName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.89.0.968035987"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs Messenger beside the original by renaming the manifest package and provider authorities, removing duplicate permission declarations.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:14",
+    "legacy_id": 65494,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "app.morphe.messenger.orca",
+        "description": "Package name for the cloned Messenger app.",
+        "key": "messengerPackageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "Messenger Morphe",
+        "description": "Launcher label for the cloned Messenger.",
+        "key": "messengerAppName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Changes android:versionCode.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:15",
+    "legacy_id": 65495,
+    "metadata_status": "verified",
+    "name": "Change version code",
+    "options": [
+      {
+        "default": "2147483647",
+        "description": "Version code to write into AndroidManifest.xml.",
+        "key": "universalVersionCode",
+        "required": true,
+        "title": "Version code",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.15.0.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Force dark mode for Amazon Shopping.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:16",
+    "legacy_id": 65496,
+    "metadata_status": "verified",
+    "name": "Dark mode",
+    "options": [
+      {
+        "default": "follow_system",
+        "description": "Off / Follow system / Always on.",
+        "key": "amazonDarkMode",
+        "required": false,
+        "title": "Dark mode",
+        "type": "kotlin.String",
+        "values": {
+          "Always on": "on",
+          "Follow system": "follow_system",
+          "Off": "off"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "Amazon India Shop, Pay, miniTV",
+        "icon_url": "https://play-lh.googleusercontent.com/E2Nyw1kSrYFvi5DFOznWOR2iXY9mwxwfYHXV37aLHmuKtEW3gs7StIvVptoV2x8_ykiHQQmliwpfDsFm0Quuwbk",
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.15.0.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "No-ops common ad SDK load/show/init/fetch methods in bundled ad packages.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:17",
+    "legacy_id": 65497,
+    "metadata_status": "verified",
+    "name": "Disable ad SDK calls",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.feeperfect.airsend.android": [
+        "6.10.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AdMob interstitial and banner ads.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:18",
+    "legacy_id": 65498,
+    "metadata_status": "verified",
+    "name": "Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Feem. Share Files Offline",
+        "icon_url": "https://play-lh.googleusercontent.com/wp1PqGSXSKS3_CJIplLMCllKBWDng5lvuM-WBIei1PwPZImF5OmsKF6fyZN671lDsIt5fx1i36egxfgmTVdw",
+        "name": "com.feeperfect.airsend.android",
+        "versions": [
+          "6.10.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks Firebase analytics and event tracking in Telegram Plus. FirebaseApp.initializeApp() is preserved so push notifications keep working.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:19",
+    "legacy_id": 65499,
+    "metadata_status": "verified",
+    "name": "Disable analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": [
+        "6.38.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables all Cloudflare telemetry by no-oping the analytics bundle builder and the Firebase event dispatchers.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:20",
+    "legacy_id": 65500,
+    "metadata_status": "verified",
+    "name": "Disable Analytics / Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1.1.1.1 + WARP: Safer Internet",
+        "icon_url": "https://play-lh.googleusercontent.com/PDwXxcvulfxi2bH4UjcMGJ7i0CQ7_QNypYohkhhg02zE7FdNTNRyF21-ikrLM5kyvcmNxtr77Va-7sS3NLbpNg",
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": [
+          "6.38.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables automatic app update checks, the blocking update screen, and the proxy sponsor channel insertion. On Telegram Plus also disables the Plus-specific updater and update settings flag.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:21",
+    "legacy_id": 65501,
+    "metadata_status": "verified",
+    "name": "Disable auto-update",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the pull-down gesture that switches to the next unread channel.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:22",
+    "legacy_id": 65502,
+    "metadata_status": "verified",
+    "name": "Disable channel switching",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Blocks app clipboard reads and writes.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:23",
+    "legacy_id": 65503,
+    "metadata_status": "verified",
+    "name": "Disable clipboard access",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.tiktok.lite.go": [
+        "44.9.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes TikTok Lite mandatory login gate so the app can be browsed without an account.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:24",
+    "legacy_id": 65504,
+    "metadata_status": "verified",
+    "name": "Disable Login Requirement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok Lite - Faster TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/S86MXXSj9_08E__by-NaXaKwJTSYZXWuwOdEkeOeD1jH1Yu-l6yIdjOvjQWyphkYoarRyMSHKzTN83L73ZPieA",
+        "name": "com.tiktok.lite.go",
+        "versions": [
+          "44.9.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sends photos and videos at original quality without re-encoding.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:25",
+    "legacy_id": 65505,
+    "metadata_status": "verified",
+    "name": "Disable media transcoding",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables PairIP license verification, VM checks, and repeated background checks.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:26",
+    "legacy_id": 65506,
+    "metadata_status": "verified",
+    "name": "Disable PairIP license check",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses the share prompt that appears after taking a screenshot.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:27",
+    "legacy_id": 65507,
+    "metadata_status": "verified",
+    "name": "Disable Screenshot Popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.15.0.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents search keypress and focus events from being sent with suggestion requests.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:28",
+    "legacy_id": 65508,
+    "metadata_status": "verified",
+    "name": "Disable search suggestions tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "Amazon India Shop, Pay, miniTV",
+        "icon_url": "https://play-lh.googleusercontent.com/E2Nyw1kSrYFvi5DFOznWOR2iXY9mwxwfYHXV37aLHmuKtEW3gs7StIvVptoV2x8_ykiHQQmliwpfDsFm0Quuwbk",
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.15.0.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Skips SensorManager.registerListener calls that can power shake-to-ad behavior.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:29",
+    "legacy_id": 65509,
+    "metadata_status": "verified",
+    "name": "Disable shake ads",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": [
+        "6.38.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses OkHttp certificate pinning on Cloudflare API calls to allow TLS traffic inspection.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:30",
+    "legacy_id": 65510,
+    "metadata_status": "verified",
+    "name": "Disable SSL Pinning",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1.1.1.1 + WARP: Safer Internet",
+        "icon_url": "https://play-lh.googleusercontent.com/PDwXxcvulfxi2bH4UjcMGJ7i0CQ7_QNypYohkhhg02zE7FdNTNRyF21-ikrLM5kyvcmNxtr77Va-7sS3NLbpNg",
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": [
+          "6.38.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.tiktok.lite.go": [
+        "44.9.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables ByteDance analytics by blocking LiteApplogServiceImpl, AppLogNetworkClient, and startup tracker init tasks.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:31",
+    "legacy_id": 65511,
+    "metadata_status": "verified",
+    "name": "Disable Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok Lite - Faster TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/S86MXXSj9_08E__by-NaXaKwJTSYZXWuwOdEkeOeD1jH1Yu-l6yIdjOvjQWyphkYoarRyMSHKzTN83L73ZPieA",
+        "name": "com.tiktok.lite.go",
+        "versions": [
+          "44.9.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.intsig.camscanner": [
+        "7.22.5.2607250000"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables CamScanner's custom telemetry/log-agent system.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:32",
+    "legacy_id": 65512,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CamScanner- scanner, PDF maker",
+        "icon_url": "https://play-lh.googleusercontent.com/XSoqEDquJuenUosbMN_EA2n2U5lsomPEUdCKj4j9bUdPfdWMCtRqXlyPgQ6zxQxWaDFIXrqbqyFjwXQ5FMYubw",
+        "name": "com.intsig.camscanner",
+        "versions": [
+          "7.22.5.2607250000"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.estrongs.android.pop": [
+        "4.4.3.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables UMeng analytics and crash reporting in ES File Explorer.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:33",
+    "legacy_id": 65513,
+    "metadata_status": "verified",
+    "name": "Disable Tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.estrongs.android.pop",
+        "icon_url": null,
+        "name": "com.estrongs.android.pop",
+        "versions": [
+          "4.4.3.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the indicator while typing a message.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:34",
+    "legacy_id": 65514,
+    "metadata_status": "verified",
+    "name": "Disable typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.15.0.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents videos from autoplaying in Amazon's in-app WebView pages.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:35",
+    "legacy_id": 65515,
+    "metadata_status": "verified",
+    "name": "Disable video autoplay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "Amazon India Shop, Pay, miniTV",
+        "icon_url": "https://play-lh.googleusercontent.com/E2Nyw1kSrYFvi5DFOznWOR2iXY9mwxwfYHXV37aLHmuKtEW3gs7StIvVptoV2x8_ykiHQQmliwpfDsFm0Quuwbk",
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.15.0.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Increases download chunk size to 1 MB and max concurrent requests to 12.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:36",
+    "legacy_id": 65516,
+    "metadata_status": "verified",
+    "name": "Download speed boost",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.tiktok.lite.go": [
+        "44.9.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables downloading all videos",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:37",
+    "legacy_id": 65517,
+    "metadata_status": "verified",
+    "name": "Downloads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok Lite - Faster TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/S86MXXSj9_08E__by-NaXaKwJTSYZXWuwOdEkeOeD1jH1Yu-l6yIdjOvjQWyphkYoarRyMSHKzTN83L73ZPieA",
+        "name": "com.tiktok.lite.go",
+        "versions": [
+          "44.9.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Sets android:debuggable=true.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:38",
+    "legacy_id": 65518,
+    "metadata_status": "verified",
+    "name": "Enable Android debugging",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables chat heads (bubbles) for all devices regardless of API level or RAM class.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:39",
+    "legacy_id": 65519,
+    "metadata_status": "verified",
+    "name": "Enable chat heads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.89.0.968035987"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows controlling Camera and other DCIM folder backup individually.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:40",
+    "legacy_id": 65520,
+    "metadata_status": "verified",
+    "name": "Enable DCIM folders backup control",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.89.0.968035987"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces compatible BUILD_TARGET debug providers to debug=true.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:41",
+    "legacy_id": 65521,
+    "metadata_status": "verified",
+    "name": "Enable debug build target",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.duolingo": [
+        "6.90.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables Duolingo's hidden debug menu in settings.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:42",
+    "legacy_id": 65522,
+    "metadata_status": "verified",
+    "name": "Enable Debug Menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": [
+          "6.90.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.tiktok.lite.go": [
+        "44.9.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Duet and Stitch on all videos regardless of creator permission settings.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:43",
+    "legacy_id": 65523,
+    "metadata_status": "verified",
+    "name": "Enable Duet and Stitch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok Lite - Faster TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/S86MXXSj9_08E__by-NaXaKwJTSYZXWuwOdEkeOeD1jH1Yu-l6yIdjOvjQWyphkYoarRyMSHKzTN83L73ZPieA",
+        "name": "com.tiktok.lite.go",
+        "versions": [
+          "44.9.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Adds fake-signature permission and metadata.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:44",
+    "legacy_id": 65524,
+    "metadata_status": "verified",
+    "name": "Enable ROM signature spoofing",
+    "options": [
+      {
+        "default": "",
+        "description": "",
+        "key": "universalFakeSignature",
+        "required": false,
+        "title": "Certificate hex/signature",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes all activities exportable.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:45",
+    "legacy_id": 65525,
+    "metadata_status": "verified",
+    "name": "Export all activities",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Registers an extension DocumentsProvider for the app internal data directory.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:46",
+    "legacy_id": 65526,
+    "metadata_status": "verified",
+    "name": "Export internal data documents provider",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.tiktok.lite.go": [
+        "44.9.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes ads, sponsored content, and commerce posts from the TikTok Lite home feed.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:47",
+    "legacy_id": 65527,
+    "metadata_status": "verified",
+    "name": "Feed Filter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok Lite - Faster TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/S86MXXSj9_08E__by-NaXaKwJTSYZXWuwOdEkeOeD1jH1Yu-l6yIdjOvjQWyphkYoarRyMSHKzTN83L73ZPieA",
+        "name": "com.tiktok.lite.go",
+        "versions": [
+          "44.9.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.15.0.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Updates shared Amazon permissions so other Amazon apps can coexist.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:48",
+    "legacy_id": 65528,
+    "metadata_status": "verified",
+    "name": "Fix Amazon manifest conflicts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "Amazon India Shop, Pay, miniTV",
+        "icon_url": "https://play-lh.googleusercontent.com/E2Nyw1kSrYFvi5DFOznWOR2iXY9mwxwfYHXV37aLHmuKtEW3gs7StIvVptoV2x8_ykiHQQmliwpfDsFm0Quuwbk",
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.15.0.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.89.0.968035987"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents non-Camera DCIM folders from being grouped as Camera.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:49",
+    "legacy_id": 65529,
+    "metadata_status": "verified",
+    "name": "Fix DCIM folder classification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.89.0.968035987"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Fixes Firebase services (push notifications, Remote Config, Firebase Auth) that break after Morphe re-signs the app with a different certificate.\n\nApply with Original app certificate patch — no other config needed.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:50",
+    "legacy_id": 65530,
+    "metadata_status": "verified",
+    "name": "Fix Firebase after re-signing",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces common AppCompat, UiModeManager, and Configuration dark-mode checks to night mode.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:51",
+    "legacy_id": 65531,
+    "metadata_status": "verified",
+    "name": "Force dark theme",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": [
+        "7.89.0.968035987"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds MicroG/GmsCore support metadata for Google Photos.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:52",
+    "legacy_id": 65532,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": [
+          "7.89.0.968035987"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Routes Google Play Services calls through MicroG instead of real GPS.\n\nWorks for: Google apps (YouTube, Maps, News, Photos) and third-party apps using classic Google Sign-In (Android 13 and below).\n\nDoes not work for: Android 14+ Credential Manager sign-in (most modern third-party apps), Play Integrity / SafetyNet checks, or apps with custom auth.\n\nRequires MicroG RE installed. Apply with Original app certificate patch.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:53",
+    "legacy_id": 65533,
+    "metadata_status": "verified",
+    "name": "GmsCore support (MicroG)",
+    "options": [
+      {
+        "default": "app.revanced.android.gms",
+        "description": "Which MicroG / GmsCore app is installed on your device. Check your device's app list for \"MicroG\" or \"GmsCore\" if unsure — most users should leave this as the default.",
+        "key": "gmsCoreVendor",
+        "required": true,
+        "title": "MicroG package name",
+        "type": "kotlin.String",
+        "values": {
+          "app.morphe.android.gms": "app.morphe.android.gms",
+          "app.morphe.manager": "app.morphe.manager",
+          "app.revanced.android.gms (default)": "app.revanced.android.gms",
+          "app.revanced.manager": "app.revanced.manager",
+          "app.rvx.manager": "app.rvx.manager",
+          "com.google.android.gms": "com.google.android.gms",
+          "org.microg.gms": "org.microg.gms"
+        }
+      },
+      {
+        "default": null,
+        "description": "The app's main Activity class name ending with a semicolon, e.g. /MainActivity; Used to inject the MicroG check at startup. Leave blank for auto-detection.",
+        "key": "mainActivityName",
+        "required": false,
+        "title": "Main activity class (optional)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Rename the app to this package name. Leave blank to keep the original. Must be a valid package name (e.g. com.example.myapp).",
+        "key": "packageName",
+        "required": false,
+        "title": "Custom package name (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides adb_enabled and development_settings_enabled.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:54",
+    "legacy_id": 65534,
+    "metadata_status": "verified",
+    "name": "Hide ADB status",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [
+      "Spoof app signature",
+      "Fix Firebase after re-signing",
+      "Spoof install source"
+    ],
+    "description": "Removes promoted posts and comment ads without requiring Reddit Premium unlock.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:55",
+    "legacy_id": 65535,
+    "metadata_status": "verified",
+    "name": "Hide Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the AI Answers tab from the bottom navigation bar.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:56",
+    "legacy_id": 65536,
+    "metadata_status": "verified",
+    "name": "Hide Answers Tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes launcher category from MAIN launcher filters.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:57",
+    "legacy_id": 65537,
+    "metadata_status": "verified",
+    "name": "Hide app icon",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes award icons and badges from posts and comments.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:58",
+    "legacy_id": 65538,
+    "metadata_status": "verified",
+    "name": "Hide Awards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.tiktok.lite.go": [
+        "44.9.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses browsing CAPTCHA dialogs from SecApiImpl.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:59",
+    "legacy_id": 65539,
+    "metadata_status": "verified",
+    "name": "Hide CAPTCHA Popups",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok Lite - Faster TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/S86MXXSj9_08E__by-NaXaKwJTSYZXWuwOdEkeOeD1jH1Yu-l6yIdjOvjQWyphkYoarRyMSHKzTN83L73ZPieA",
+        "name": "com.tiktok.lite.go",
+        "versions": [
+          "44.9.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Chat button from the bottom navigation bar.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:60",
+    "legacy_id": 65540,
+    "metadata_status": "verified",
+    "name": "Hide Chat Tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides vote counts on all comments.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:61",
+    "legacy_id": 65541,
+    "metadata_status": "verified",
+    "name": "Hide Comment Score",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the related or suggested communities shelf in subreddits.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:62",
+    "legacy_id": 65542,
+    "metadata_status": "verified",
+    "name": "Hide Communities Shelf",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides buttons and shortcuts that open Facebook.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:63",
+    "legacy_id": 65543,
+    "metadata_status": "verified",
+    "name": "Hide Facebook buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Games tab from the bottom navigation bar.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:64",
+    "legacy_id": 65544,
+    "metadata_status": "verified",
+    "name": "Hide Games Tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides ads in the Messenger inbox.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:65",
+    "legacy_id": 65545,
+    "metadata_status": "verified",
+    "name": "Hide inbox ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the stories and notes horizontal tray at the top of the inbox.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:66",
+    "legacy_id": 65546,
+    "metadata_status": "verified",
+    "name": "Hide inbox stories and notes tray",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Home and Channels tabs between active now tray and chats.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:67",
+    "legacy_id": 65547,
+    "metadata_status": "verified",
+    "name": "Hide inbox subtabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.tiktok.lite.go": [
+        "44.9.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes live stream cards from the TikTok Lite home feed.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:68",
+    "legacy_id": 65548,
+    "metadata_status": "verified",
+    "name": "Hide Live Cards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok Lite - Faster TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/S86MXXSj9_08E__by-NaXaKwJTSYZXWuwOdEkeOeD1jH1Yu-l6yIdjOvjQWyphkYoarRyMSHKzTN83L73ZPieA",
+        "name": "com.tiktok.lite.go",
+        "versions": [
+          "44.9.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides mock-location signals from app checks.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:69",
+    "legacy_id": 65549,
+    "metadata_status": "verified",
+    "name": "Hide mock location",
+    "options": [
+      {
+        "default": "full",
+        "description": "Which mock-location checks to hide.",
+        "key": "hideMockLocationMode",
+        "required": true,
+        "title": "Mode",
+        "type": "kotlin.String",
+        "values": {
+          "Accuracy only": "accuracy",
+          "AppOps only": "appops",
+          "Extras and provider only": "extras_provider",
+          "Full": "full",
+          "Location API only": "location",
+          "Settings only": "settings"
+        }
+      },
+      {
+        "default": "gps",
+        "description": "Provider returned when app reads an unknown/mock provider.",
+        "key": "hideMockLocationProvider",
+        "required": true,
+        "title": "Provider",
+        "type": "kotlin.String",
+        "values": {
+          "Fused": "fused",
+          "GPS": "gps",
+          "Network": "network",
+          "Original": "original",
+          "Passive": "passive"
+        }
+      },
+      {
+        "default": "5.0",
+        "description": "Accuracy value returned by Location.getAccuracy().",
+        "key": "hideMockLocationAccuracy",
+        "required": true,
+        "title": "Accuracy meters",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Create Post button from the bottom navigation bar.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:70",
+    "legacy_id": 65550,
+    "metadata_status": "verified",
+    "name": "Hide Navigation Buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides NSFW posts from the feed by treating all posts as SFW.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:71",
+    "legacy_id": 65551,
+    "metadata_status": "verified",
+    "name": "Hide NSFW Posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides vote counts on all posts in the feed.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:72",
+    "legacy_id": 65552,
+    "metadata_status": "verified",
+    "name": "Hide Post Score",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [
+      "Spoof app signature",
+      "Fix Firebase after re-signing",
+      "Spoof install source"
+    ],
+    "description": "Blanks the promoted post render method and forces promoted/ad flags to false at the model layer.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:73",
+    "legacy_id": 65553,
+    "metadata_status": "verified",
+    "name": "Hide Promoted Posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the repost (crosspost) button from all posts.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:74",
+    "legacy_id": 65554,
+    "metadata_status": "verified",
+    "name": "Hide Repost Button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.15.0.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Rufus AI assistant tab from Amazon's bottom navigation bar.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:75",
+    "legacy_id": 65555,
+    "metadata_status": "verified",
+    "name": "Hide Rufus tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "Amazon India Shop, Pay, miniTV",
+        "icon_url": "https://play-lh.googleusercontent.com/E2Nyw1kSrYFvi5DFOznWOR2iXY9mwxwfYHXV37aLHmuKtEW3gs7StIvVptoV2x8_ykiHQQmliwpfDsFm0Quuwbk",
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.15.0.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides About, Resources, and Reddit Pro sections from the community sidebar.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:76",
+    "legacy_id": 65556,
+    "metadata_status": "verified",
+    "name": "Hide Sidebar Components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.34.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Trending Today from the feed and trending searches from the search screen.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:77",
+    "legacy_id": 65557,
+    "metadata_status": "verified",
+    "name": "Hide Trending Shelves",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.34.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.0"
+      ],
+      "org.telegram.messenger.web": [
+        "12.10.0"
+      ],
+      "org.telegram.plus": [
+        "12.9.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides your typing indicator from other users in all chats. On Telegram Plus also silences the controller-level sendTyping dispatcher.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:78",
+    "legacy_id": 65558,
+    "metadata_status": "verified",
+    "name": "Hide typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "12.10.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.9.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides common VPN transport/interface and Java proxy property checks.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:79",
+    "legacy_id": 65559,
+    "metadata_status": "verified",
+    "name": "Hide VPN and proxy",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "app.simple.inure": [
+        "build107.2.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the 15-day trial gate and unlocks all premium features in Inure App Manager (GitHub).",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:80",
+    "legacy_id": 65560,
+    "metadata_status": "verified",
+    "name": "Inure — Unlock Full Version (GitHub)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Inure App Manager (Trial)",
+        "icon_url": "https://f-droid.org/repo/app.simple.inure/en-US/icon_EjOp_w2Is_90dPdxjZXZq8HPYlMNUc3fi0TAfml4rtg%3D.png",
+        "name": "app.simple.inure",
+        "versions": [
+          "build107.2.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.facebook.orca": [
+        "575.0.0.48.90"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens links in the external browser instead of the in-app browser.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:81",
+    "legacy_id": 65561,
+    "metadata_status": "verified",
+    "name": "Open links externally",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/cuRpiGqvAMkcbAOibD-AKCBagAunUkspQUWC_jVZF2Hob_ODdmkefnZeqkofW1idFQHhgZgnLIjsqT-2v7JKBw",
+        "name": "com.facebook.orca",
+        "versions": [
+          "575.0.0.48.90"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "f7e4b3ad0ee0d93dd662ab0d",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.13.2.100"
+      ],
+      "in.amazon.mShop.android.shopping": [
+        "32.15.0.300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens non-Amazon URLs in the default browser instead of the in-app WebView.",
+    "id": "f7e4b3ad0ee0d93dd662ab0d:82",
+    "legacy_id": 65562,
+    "metadata_status": "verified",
+    "name": "Open links in browser",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.13.2.100"
+        ]
+      },
+      {
+        "app_name": "Amazon India Shop, Pay, miniTV",
+        "icon_url": "https://play-lh.googleusercontent.com/E2Nyw1kSrYFvi5DFOznWOR2iXY9mwxwfYHXV37aLHmuKtEW3gs7StIvVptoV2x8_ykiHQQmliwpfDsFm0Quuwbk",
+        "name": "in.amazon.mShop.android.shopping",
+        "versions": [
+          "32.15.0.300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.21.0-dev.2",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  }
+]
