@@ -74,10 +74,15 @@ def test_history_is_published_without_replacing_channels_and_restores_on_fresh_r
             "tag_name": "v0",
             "published_at": "2025-01-01T00:00:00Z",
             "assets": [{"browser_download_url": "https://example.test/v0.rvp"}],
-        }
+        },
+        {
+            "tag_name": "v1",
+            "created_at": "2026-01-01T00:00:00Z",
+            "assets": [{"browser_download_url": "https://example.test/demo.rvp"}],
+        },
     ]
     registry = save_history(tmp_path, inventory, {"https://github.com/owner/demo": releases})
-    assert len(registry) == 1
+    assert len(registry) == 2
     first = db.build_database(tmp_path)
     snapshot = tmp_path / "database" / first["snapshot"]
     bundles = db.read_json(snapshot / "bundles.json")
@@ -385,3 +390,112 @@ def test_latest_history_replacement_is_not_covered_by_a_stale_channel_pointer(
     assert bundles[0]["is_latest"] and bundles[0]["need_patches_update"]
     assert bundles[0]["download_url"] == replacement["browser_download_url"]
     assert bundles[0]["provider_digest"] == replacement.get("digest")
+
+
+def prerelease_catalog(root):
+    folder = fixture(root)
+    source = "https://github.com/owner/demo"
+    write(root / "config/sources.json", {"demo": {"patches": source, "disabled": False}})
+    for path in folder.glob("demo-stable-*"):
+        path.unlink()
+    for path in folder.glob("demo-latest-*"):
+        shutil.copyfile(path, path.with_name(path.name.replace("-latest-", "-dev-")))
+    for channel in ("latest", "dev"):
+        path = folder / f"demo-{channel}-patches-bundle.json"
+        write(path, {**db.read_json(path), "is_prerelease": True})
+    release = {
+        "tag_name": "v1",
+        "prerelease": True,
+        "created_at": "2026-01-01T00:00:00Z",
+        "assets": [{"browser_download_url": "https://example.test/demo.rvp"}],
+    }
+    inventory = db.read_json(root / "config/sources.json")
+    save_history(root, inventory, {source: [release]})
+    manifest = db.build_database(root)
+    _, bundles = snapshot(root, manifest)
+    assert len(bundles) == 1 and bundles[0]["is_prerelease"]
+    return source, inventory, release, bundles[0]["id"]
+
+
+def test_promoted_prerelease_merges_history_and_preserves_patch_proof(tmp_path):
+    source, inventory, release, identifier = prerelease_catalog(tmp_path)
+    release["prerelease"] = False
+    save_history(tmp_path, inventory, {source: [release]})
+    # Stale extraction-run metadata must not reverse the upstream classification.
+    write(
+        tmp_path / "internal/cache/bundle-run-metadata.json",
+        {"bundles": {"demo-latest": {"is_prerelease": True}}},
+    )
+    manifest = db.build_database(tmp_path)
+    path, bundles = snapshot(tmp_path, manifest)
+    assert len(bundles) == 1
+    bundle = bundles[0]
+    assert bundle["id"] == identifier
+    assert not bundle["is_prerelease"]
+    assert bundle["is_latest"]
+    assert "dev" not in bundle["channels"]
+    assert bundle["metadata_status"] == "verified" and bundle["patch_count"] == 1
+    assert db.read_json(path / f"imports/{bundle['source_id']}.json")[0]["is_prerelease"] is False
+    shutil.rmtree(tmp_path / "internal/cache")
+    assert db.build_database(tmp_path) == manifest
+
+
+@pytest.mark.parametrize("change", ["deleted", "draft", "upcoming", "apk_only", "no_assets"])
+def test_removed_prerelease_cannot_return_through_history_or_fresh_checkout(tmp_path, change):
+    source, inventory, release, identifier = prerelease_catalog(tmp_path)
+    if change == "deleted":
+        releases = []
+    else:
+        if change in ("draft", "upcoming"):
+            release["draft" if change == "draft" else "upcoming_release"] = True
+        else:
+            release["assets"] = (
+                [{"browser_download_url": "https://example.test/app.apk"}]
+                if change == "apk_only"
+                else []
+            )
+        releases = [release]
+    assert save_history(tmp_path, inventory, {source: releases}) == {}
+    manifest = db.build_database(tmp_path)
+    path, bundles = snapshot(tmp_path, manifest)
+    assert bundles == []
+    assert identifier in db.read_json(path / "availability.json")["retired_history"]
+    assert db.read_json(path / "releases.json") == {source: {}}
+    shutil.rmtree(tmp_path / "internal/cache")
+    restored, bundles = snapshot(tmp_path, db.build_database(tmp_path))
+    assert bundles == []
+    assert db.read_json(restored / "releases.json") == {source: {}}
+    assert save_history(tmp_path, inventory, {}) == {}
+
+
+def test_empty_release_list_only_retires_the_successfully_checked_source(tmp_path):
+    first = "https://github.com/owner/first"
+    second = "https://github.com/owner/second"
+    inventory = {"first": {"patches": first}, "second": {"patches": second}}
+    release = {
+        "tag_name": "v1",
+        "prerelease": True,
+        "assets": [{"browser_download_url": "https://example.test/demo.rvp"}],
+    }
+    save_history(tmp_path, inventory, {first: [release], second: [release]})
+    registry = save_history(tmp_path, inventory, {first: []})
+    assert {item["patches"] for item in registry.values()} == {second}
+    assert db.read_json(tmp_path / "internal/cache/history/releases.json") == {
+        first: {},
+        second: {"v1": True},
+    }
+
+
+def test_upstream_outage_preserves_release_inventory_and_cached_prerelease(tmp_path):
+    _source, inventory, _release, identifier = prerelease_catalog(tmp_path)
+    observations = tmp_path / "internal/cache/history/releases.json"
+    before = observations.read_bytes()
+    save_history(tmp_path, inventory, {})
+    assert observations.read_bytes() == before
+    manifest = db.build_database(tmp_path)
+    _, bundles = snapshot(tmp_path, manifest)
+    assert len(bundles) == 1 and bundles[0]["id"] == identifier
+    assert bundles[0]["is_prerelease"] and bundles[0]["is_latest"]
+    assert bundles[0]["metadata_status"] == "verified"
+    shutil.rmtree(tmp_path / "internal/cache")
+    assert db.build_database(tmp_path) == manifest

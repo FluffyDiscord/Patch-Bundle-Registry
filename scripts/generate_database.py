@@ -15,13 +15,13 @@ try:
     from scripts.git_hosts import hosts
     from scripts.git_hosts import normalize_source as normalize_repository
     from scripts.release_assets import canonical_bundle_type, digest_matches, migrate_bundle_types
-    from scripts.release_history import release_is_prerelease
+    from scripts.release_history import reconcile_release, release_is_prerelease
     from scripts.snapshot_retention import apply_retention, published_snapshots, retention_plan
 except ModuleNotFoundError:
     from git_hosts import hosts
     from git_hosts import normalize_source as normalize_repository
     from release_assets import canonical_bundle_type, digest_matches, migrate_bundle_types
-    from release_history import release_is_prerelease
+    from release_history import reconcile_release, release_is_prerelease
     from snapshot_retention import apply_retention, published_snapshots, retention_plan
 
 try:
@@ -176,6 +176,11 @@ def restore_catalog_cache(root=ROOT):
     if not re.fullmatch(r"snapshots/[a-f0-9]{24}", snapshot):
         return
     history = migrate_bundle_types(read_json(root / "database" / snapshot / "history.json", {}))
+    observations_path = root / "internal/cache/history/releases.json"
+    if not observations_path.exists():
+        observations = read_json(root / "database" / snapshot / "releases.json", {})
+        observations_path.parent.mkdir(parents=True, exist_ok=True)
+        observations_path.write_bytes(encoded(observations))
     availability = read_json(root / "database" / snapshot / "availability.json", {})
     missing_channels = {
         (row["source_id"], row["channel"])
@@ -316,6 +321,10 @@ def build_database(root=ROOT, *, restore=True):
         for item in inventory.values()
         if isinstance(item, dict) and item.get("patches")
     }
+    observations = read_json(root / "internal/cache/history/releases.json", {})
+    observations = {
+        url: versions for url, versions in observations.items() if url in configured_urls
+    }
     historical_inventory = read_json(root / "internal/cache/history/sources.json", {})
     inventory = {
         **inventory,
@@ -406,6 +415,16 @@ def build_database(root=ROOT, *, restore=True):
             missing.append({"source_id": source_id, "channel": channel, "reason": "invalid_bundle"})
             continue
         version = artifact.get("version")
+        if not reconcile_release(raw, url, observations):
+            continue
+        if (
+            url.lower() in observations
+            and not settings.get("historical")
+            and channel != "latest"
+            and raw["is_prerelease"] != (channel == "dev")
+        ):
+            missing.append({"source_id": source_id, "channel": channel, "reason": "no_release"})
+            continue
         download = artifact.get("download_url" if modern else "url")
         if (
             not version
@@ -532,6 +551,8 @@ def build_database(root=ROOT, *, restore=True):
                 or prior_release.get("release_url"),
             },
         )
+        if url.lower() in observations:
+            bundle["is_prerelease"] = raw["is_prerelease"]
         if timestamp_rank(status.get("attempted_at")) > timestamp_rank(
             bundle["patch_refresh_attempted_at"]
         ):
@@ -619,8 +640,11 @@ def build_database(root=ROOT, *, restore=True):
         if item["bundle"]["source_id"] not in sources:
             retired.append(identity)
             continue
+        bundle = item["bundle"].copy()
+        if not reconcile_release(bundle, sources[bundle["source_id"]]["url"], observations):
+            retired.append(identity)
+            continue
         if identity not in bundles:
-            bundle = item["bundle"].copy()
             if sources[bundle["source_id"]]["enabled"]:
                 bundle.update(channels=[], is_latest=False, import_urls={})
             bundles[identity], details[identity] = bundle, item["patches"]
@@ -797,7 +821,11 @@ def build_database(root=ROOT, *, restore=True):
         # Keep the same description as the detail response for SQL comparisons.
         summary = {**bundle, "detail_file": files_name}
         summaries.append(summary)
-    files = {"sources.json": list(sources.values()), "bundles.json": summaries}
+    files = {
+        "sources.json": list(sources.values()),
+        "bundles.json": summaries,
+        "releases.json": observations,
+    }
     # GraphQL scans scalar bundle fields without downloading the growing
     # release descriptions or repeating object keys thousands of times.
     # Keep the full text separately for description filters and projections.

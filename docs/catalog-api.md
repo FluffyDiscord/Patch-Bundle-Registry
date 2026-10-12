@@ -98,6 +98,8 @@ subscription NewBundles {
 
 The `is_latest` flag identifies the newest stable release and newest prerelease separately for each source, across bundle formats and retained history. Configured channel pointers remain available independently through `channels` and REST channel filters; manager latest imports use `is_latest`.
 
+A successful, complete release discovery updates the saved upstream inventory in `releases.json`. Promoted releases are reclassified without losing verified patch data. Deleted releases, drafts and releases without patch assets are removed from the catalog. Temporary provider failures retain the last successful inventory. Fresh CI runners restore this inventory from the published snapshot, so retired prereleases cannot reappear. A latest prerelease import returns 404 when no eligible prerelease remains.
+
 Refresh-job queries combine separate `BUNDLES` discovery and `PATCHES` extraction records with recent GitHub Actions refresh runs (`ALL`). Statuses are STARTED (including queued phases), COMPLETED and FAILED; cancellation is reported as FAILED. The status endpoint accepts a phase's UUID `job_id` or a numeric Actions run ID and returns the upstream fields `jobId`, `type`, `status`, `startedAt`, `completedAt` and `error`. Collection and GraphQL records retain snake_case field names. Phase status follows catalog checkpoints. Actions status may be cached for up to two minutes without authentication, or 15 seconds with an optional server-side status token.
 
 Mutations, triggering administrative jobs and database administration remain outside the public read-only API.

@@ -5,8 +5,10 @@ import json
 
 try:
     from scripts.release_assets import canonical_bundle_type
+    from scripts.release_history import reconcile_release
 except ModuleNotFoundError:
     from release_assets import canonical_bundle_type
+    from release_history import reconcile_release
 
 
 def restore_history(root, history, inventory):
@@ -16,6 +18,10 @@ def restore_history(root, history, inventory):
         registry = json.loads(registry_path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         registry = {}
+    try:
+        observations = json.loads((directory / "releases.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        observations = {}
     active = set(inventory)
     for item in sorted(
         history.values(),
@@ -26,6 +32,8 @@ def restore_history(root, history, inventory):
         bundle["bundle_type"] = canonical_bundle_type(bundle["bundle_type"])
         source = inventory.get(bundle["source_id"])
         if bundle["source_id"] not in active or source is None:
+            continue
+        if not reconcile_release(bundle, source["url"], observations):
             continue
         identity = hashlib.sha256(
             json.dumps(

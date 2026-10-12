@@ -28,6 +28,23 @@ test("cached v3 lookup normalizes URLs and selects latest/stable/prerelease/exac
   assert.equal((await call(state, base + "&version=absent")).response.status, 404);
   assert(state.requests.every(url => url.startsWith("https://example.test/database/")));
 });
+test("reconciled releases do not reappear in prerelease imports or GraphQL", async () => {
+  const original = fixture();
+  const promoted = { ...original.dev, is_prerelease: false, is_latest: false, channels: [] };
+  const state = fixture({
+    "bundles.json": [original.bundle, promoted],
+    ["bundles/" + promoted.id + ".json"]: promoted
+  });
+  const base = "/api/v3/bundle?source_url=" + encodeURIComponent("https://github.com/owner/repo");
+  assert.equal((await call(state, base + "&version=latest&channel=prerelease")).response.status, 404);
+  assert.equal((await call(state, "/api/v2/bundle/owner/repo/latest?channel=dev")).response.status, 404);
+  assert.equal((await call(state, "/api/v1/bundle/owner/repo/latest?prerelease=true")).response.status, 404);
+  assert.equal((await call(state, base + "&version=latest&channel=stable")).body.version, "v1");
+  assert.equal((await call(state, base + "&version=v2-dev")).body.version, "v2-dev");
+  const listed = await query(state, "{ bundle(where:{is_prerelease:{_eq:true}}){id} }");
+  assert.equal(listed.body.errors, undefined);
+  assert.deepEqual(listed.body.data.bundle, []);
+});
 test("REST pagination, package compatibility, freshness, search, and update status", async () => {
   const state = fixture();
   assert.equal((await call(state, "/bundles?limit=1&offset=1")).body.data.length, 1);

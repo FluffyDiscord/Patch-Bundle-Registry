@@ -44,6 +44,19 @@ def release_is_prerelease(release):
     )
 
 
+def reconcile_release(raw, source, observations):
+    """Apply the last successful upstream inventory; an outage supplies no new inventory."""
+    versions = observations.get(source.lower())
+    if versions is None:
+        return True  # Older snapshots have no authoritative release inventory yet.
+    legacy = raw.get("patches")
+    version = raw.get("version") or (legacy.get("version") if isinstance(legacy, dict) else None)
+    if version not in versions:
+        return False
+    raw["is_prerelease"] = versions[version]
+    return True
+
+
 def mark_latest_history(root, registry, inventory):
     """Rank both release categories against history and configured channel inputs."""
     try:
@@ -51,6 +64,12 @@ def mark_latest_history(root, registry, inventory):
     except ModuleNotFoundError:
         from source_policy import source_channels
     inventory = source_channels(inventory, root)
+    try:
+        observations = json.loads(
+            (root / "internal/cache/history/releases.json").read_text(encoding="utf-8")
+        )
+    except (OSError, ValueError):
+        observations = {}
     newest = {}
     selected_history = {}
 
@@ -73,7 +92,7 @@ def mark_latest_history(root, registry, inventory):
         )
 
     def consider(source, raw, key=None):
-        if not isinstance(raw, dict):
+        if not isinstance(raw, dict) or not reconcile_release(raw, source, observations):
             return
         try:
             stamp = datetime.fromisoformat(str(raw.get("created_at")).replace("Z", "+00:00"))
@@ -93,7 +112,7 @@ def mark_latest_history(root, registry, inventory):
                 continue
             source = normalize_source(item["patches"], root)
             raw = json.loads(path.read_text(encoding="utf-8"))
-            if not isinstance(raw, dict):
+            if not isinstance(raw, dict) or not reconcile_release(raw, source, observations):
                 continue
             selected_history[(source.lower(), artifact(raw)[0], bool(raw.get("is_prerelease")))] = (
                 raw
@@ -119,6 +138,12 @@ def mark_latest_history(root, registry, inventory):
                 "is_prerelease", bool(settings.get("prerelease")) and not settings.get("latest")
             )
             source = normalize_source(settings["patches"], root)
+            if not reconcile_release(raw, source, observations):
+                continue
+            if not settings.get("latest") and bool(settings.get("prerelease")) != bool(
+                raw.get("is_prerelease")
+            ):
+                continue
             identity = artifact(raw)
             selected = selected_history.get(
                 (source.lower(), identity[0], bool(raw.get("is_prerelease")))
@@ -144,6 +169,11 @@ def save_history(root, inventory, release_sets):
         registry = json.loads(registry_path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         registry = {}
+    observations_path = directory / "releases.json"
+    try:
+        observations = json.loads(observations_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        observations = {}
     active = {
         normalize_source(item["patches"], root).lower()
         for item in inventory.values()
@@ -174,18 +204,12 @@ def save_history(root, inventory, release_sets):
         releases = release_sets.get(source.lower())
         if releases is None:
             continue  # Preserve existing history when a host is unavailable.
+        # A fully fetched release list is authoritative, including an empty list.
+        # Drop registry pointers for deleted releases and removed patch assets.
+        for key, _ in by_source.get(source.lower(), []):
+            registry.pop(key, None)
+        observations[source.lower()] = {}
         base = re.sub(r"-(latest|stable|dev)$", "", alias)
-        previous_versions = {}
-        for key, item in by_source.get(source.lower(), []):
-            try:
-                path = (root / item["cache_path"]).resolve()
-                if not path.is_relative_to(directory.resolve()):
-                    continue
-                raw = json.loads(path.read_text(encoding="utf-8"))
-                version = raw.get("version") or raw.get("patches", {}).get("version")
-                previous_versions.setdefault(version, []).append(key)
-            except (OSError, ValueError, KeyError):
-                continue
         for release in releases:
             if (
                 release.get("draft")
@@ -196,10 +220,9 @@ def save_history(root, inventory, release_sets):
             assets = release_assets(release)
             selected = choose_patch_bundle(assets)
             if selected:
-                # Replace earlier multi-asset inputs for this version. Published
-                # history remains available, but only this asset is refreshed.
-                for key in previous_versions.get(str(release["tag_name"]), []):
-                    registry.pop(key, None)
+                observations[source.lower()][str(release["tag_name"])] = release_is_prerelease(
+                    release
+                )
             for asset in [selected] if selected else []:
                 extension = asset_extension(asset)
                 download = asset["url"]
@@ -235,6 +258,13 @@ def save_history(root, inventory, release_sets):
                     "cache_path": path.relative_to(root).as_posix(),
                     "prerelease": raw["is_prerelease"],
                 }
+    observations = {
+        source: versions for source, versions in observations.items() if source in active
+    }
+    directory.mkdir(parents=True, exist_ok=True)
+    temporary = observations_path.with_suffix(".tmp")
+    temporary.write_text(json.dumps(observations, sort_keys=True) + "\n", encoding="utf-8")
+    temporary.replace(observations_path)
     mark_latest_history(root, registry, inventory)
     directory.mkdir(parents=True, exist_ok=True)
     temporary = registry_path.with_suffix(".tmp")
