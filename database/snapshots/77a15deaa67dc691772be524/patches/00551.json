@@ -1,0 +1,2797 @@
+[
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.3.2"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds a setting to render big DCCon at normal DCCon size.",
+    "id": "ce257255ef8e29257953bc41:89",
+    "legacy_id": 58095,
+    "metadata_status": "verified",
+    "name": "Render big DCCon as normal size",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.3.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.3.2"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds a setting to restore DCInside 4.7.x post list and read footer icons.",
+    "id": "ce257255ef8e29257953bc41:90",
+    "legacy_id": 58096,
+    "metadata_status": "verified",
+    "name": "Restore old post icons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.3.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.3.2"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds options to show the author identifier next to the nickname in posts, post lists, comments, and the recently-viewed posts list. The recently-viewed list only shows it for posts opened after this patch is installed.",
+    "id": "ce257255ef8e29257953bc41:91",
+    "legacy_id": 58097,
+    "metadata_status": "verified",
+    "name": "Show author identifier",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.3.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows the channel ID in chatroom settings and copies it when tapping the chat side title.",
+    "id": "ce257255ef8e29257953bc41:92",
+    "legacy_id": 58098,
+    "metadata_status": "verified",
+    "name": "Show chatroom channel ID",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Allows you to see deleted, hidden, and edited message history in chat logs.",
+    "id": "ce257255ef8e29257953bc41:93",
+    "legacy_id": 58099,
+    "metadata_status": "verified",
+    "name": "Show deleted, hidden, or edited messages",
+    "options": [
+      {
+        "default": "0xFFFF4444",
+        "description": "32-bit ARGB. Accepts #RRGGBB, #AARRGGBB, 0xAARRGGBB, or signed decimal.",
+        "key": "deletedColor",
+        "required": false,
+        "title": "Deleted color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "0xFF999999",
+        "description": "32-bit ARGB. Accepts #RRGGBB, #AARRGGBB, 0xAARRGGBB, or signed decimal.",
+        "key": "hiddenColor",
+        "required": false,
+        "title": "Hidden color",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Shows the members who have or have not read each chat message.",
+    "id": "ce257255ef8e29257953bc41:94",
+    "legacy_id": 58100,
+    "metadata_status": "verified",
+    "name": "Show message read receipts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the apk checksums to pass integrity checks.",
+    "id": "ce257255ef8e29257953bc41:95",
+    "legacy_id": 58101,
+    "metadata_status": "verified",
+    "name": "Spoof apk checksums",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the App ID to bypass integrity checks. (to bypass biometric auth etc.)",
+    "id": "ce257255ef8e29257953bc41:96",
+    "legacy_id": 58102,
+    "metadata_status": "verified",
+    "name": "Spoof App ID",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.3.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the app signature to bypass integrity checks.",
+    "id": "ce257255ef8e29257953bc41:97",
+    "legacy_id": 58103,
+    "metadata_status": "verified",
+    "name": "Spoof Signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.3.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the app signature to pass integrity checks.",
+    "id": "ce257255ef8e29257953bc41:98",
+    "legacy_id": 58104,
+    "metadata_status": "verified",
+    "name": "Spoof signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Removes EXIF metadata, including the GPS capture location, from images sent in original quality, while keeping the picture and its orientation intact.",
+    "id": "ce257255ef8e29257953bc41:99",
+    "legacy_id": 58105,
+    "metadata_status": "verified",
+    "name": "Strip image metadata",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.navercorp.game.android.community": [
+        "3.10.0",
+        "3.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks CHZZK cheat key subscription benefits without an active subscription.",
+    "id": "ce257255ef8e29257953bc41:100",
+    "legacy_id": 58106,
+    "metadata_status": "verified",
+    "name": "Unlock cheat key",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "치지직 – CHZZK",
+        "icon_url": "https://play-lh.googleusercontent.com/iXsrDPNvJHIaMr9xdpUHCeHhq-KezuNQl9Z-svSuMOL4EglyVTkaS4Qpib7wHl-wrVlYFRdLRfuvya5vaUKQKw",
+        "name": "com.navercorp.game.android.community",
+        "versions": [
+          "3.10.0",
+          "3.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.flexcil.flexcilnote": [
+        "1.4.4.10",
+        "1.4.4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "ce257255ef8e29257953bc41:101",
+    "legacy_id": 58107,
+    "metadata_status": "verified",
+    "name": "Unlock Premium features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flexcil Notes & PDF Reader",
+        "icon_url": "https://play-lh.googleusercontent.com/Jfrzp1yaMjP2EDdMn5TtPAfpbjkGOnXRMFUvK9gc-28ZI3BM3X1yXbRDcjkCsigoGBg2PnZk94dNgtT5TPLV",
+        "name": "com.flexcil.flexcilnote",
+        "versions": [
+          "1.4.4.10",
+          "1.4.4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ce257255ef8e29257953bc41",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Patches the version info to include '(ReVanced)' in the version string.",
+    "id": "ce257255ef8e29257953bc41:102",
+    "legacy_id": 58108,
+    "metadata_status": "verified",
+    "name": "Version info patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.6",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "d529c96d6c204e2becd5f79d",
+    "compatiblePackages": {
+      "com.alightcreative.motion": [
+        "5.0.273.1028426",
+        "5.0.272.1028371",
+        "5.0.273",
+        "5.0.272"
+      ],
+      "com.alightcreative.motioo": [
+        "5.0.272.1028371",
+        "5.0.273.1028426",
+        "5.0.273.1028420",
+        "5.0.273",
+        "5.0.272"
+      ]
+    },
+    "dependencies": [],
+    "description": "Eliminates all startup, update, signature verification, and modded-by popups in After Motion Z+ (v5.0.272 / v5.0.273).",
+    "id": "d529c96d6c204e2becd5f79d:0",
+    "legacy_id": 58109,
+    "metadata_status": "verified",
+    "name": "After Motion Z+ Popup Suppression (Complete Suite)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Alight Motion",
+        "icon_url": "https://play-lh.googleusercontent.com/LRjRXaVEtoeHyiFcnMLCHs1ZJV8Q4q70PggflRDAfgOkulzFTbJg65y0drg6Yapo22Xoos_XCbyh7EgycBhQ",
+        "name": "com.alightcreative.motion",
+        "versions": [
+          "5.0.273.1028426",
+          "5.0.272.1028371",
+          "5.0.273",
+          "5.0.272"
+        ]
+      },
+      {
+        "app_name": "com.alightcreative.motioo",
+        "icon_url": null,
+        "name": "com.alightcreative.motioo",
+        "versions": [
+          "5.0.272.1028371",
+          "5.0.273.1028426",
+          "5.0.273.1028420",
+          "5.0.273",
+          "5.0.272"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.0",
+    "source_id": "741a57ea30b25cb7",
+    "use": true
+  },
+  {
+    "bundle_id": "d529c96d6c204e2becd5f79d",
+    "compatiblePackages": {
+      "com.alightcreative.motion": [
+        "5.0.273.1028420",
+        "5.0.273.1028426",
+        "5.0.272.1028371",
+        "5.0.273",
+        "5.0.272"
+      ]
+    },
+    "dependencies": [],
+    "description": "Eliminates all startup, update, and modded-by popups in Alight Motion Pro (BangAlbin mod v5.0.273).",
+    "id": "d529c96d6c204e2becd5f79d:1",
+    "legacy_id": 58110,
+    "metadata_status": "verified",
+    "name": "Alight Motion Pro Popup Suppression (Complete Suite)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Alight Motion",
+        "icon_url": "https://play-lh.googleusercontent.com/LRjRXaVEtoeHyiFcnMLCHs1ZJV8Q4q70PggflRDAfgOkulzFTbJg65y0drg6Yapo22Xoos_XCbyh7EgycBhQ",
+        "name": "com.alightcreative.motion",
+        "versions": [
+          "5.0.273.1028420",
+          "5.0.273.1028426",
+          "5.0.272.1028371",
+          "5.0.273",
+          "5.0.272"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.0",
+    "source_id": "741a57ea30b25cb7",
+    "use": true
+  },
+  {
+    "bundle_id": "d99581e0a8ccdeafe94427d8",
+    "compatiblePackages": {
+      "com.mladinska.mkplus": null
+    },
+    "dependencies": [],
+    "description": "Forces the app to report 'plus' permissions to the server.",
+    "id": "d99581e0a8ccdeafe94427d8:0",
+    "legacy_id": 58111,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Mladinska knjiga PLUS",
+        "icon_url": "https://play-lh.googleusercontent.com/nwE5Tf5qrR_UNsxna92hCProsZOudohhs5WMUTwpvlJoT31dGniWhOMRWnkK28DuUF0yj_zp3_o4YQN80WQDizY",
+        "name": "com.mladinska.mkplus",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "7db639676afea71d",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "org.zwanoo.android.speedtest": [
+        "7.0.4"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:0",
+    "legacy_id": 58112,
+    "metadata_status": "verified",
+    "name": "AdFree Account",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Speedtest by Ookla",
+        "icon_url": "https://play-lh.googleusercontent.com/ZH4EUfCHaf8hoFSpeLx_guqWN-DkGdJWbP5Ydim9dbvqO4L95TC3V7WD20-KsEpGaZuCrWz62ClSYdmCanL9",
+        "name": "org.zwanoo.android.speedtest",
+        "versions": [
+          "7.0.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:1",
+    "legacy_id": 58113,
+    "metadata_status": "verified",
+    "name": "Bypass ADB/Developer Options Detection",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": false
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.llamalab.automate": [
+        "1.51.1"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:2",
+    "legacy_id": 58114,
+    "metadata_status": "verified",
+    "name": "Bypass Blocks Limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Automate",
+        "icon_url": "https://play-lh.googleusercontent.com/5zKwrzhGPJzJzHibo1JUdFvDNWyy6zpfMjObSwvEN46khSGnH3e8GoCLy5KrC-H8ib6cWxC8z0nms-LmKxqTCA",
+        "name": "com.llamalab.automate",
+        "versions": [
+          "1.51.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:3",
+    "legacy_id": 58115,
+    "metadata_status": "verified",
+    "name": "Disable Facebook SDK Tracking",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": false
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:4",
+    "legacy_id": 58116,
+    "metadata_status": "verified",
+    "name": "Disable Firebase(Google) Analytics",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": false
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.vitotechnology.sky.tonight.map.star.walk": [
+        "2.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:5",
+    "legacy_id": 58117,
+    "metadata_status": "verified",
+    "name": "Disable In-App Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sky Tonight - Star Gazer Guide",
+        "icon_url": "https://play-lh.googleusercontent.com/EVp-0jvKf6PUU788sieuq-Q8KYKPvRta-5-dSDpkXKcRrEucNrSx8MW21DKIf-EhhxDDp7QbPeK7xKrNBuF7dw",
+        "name": "com.vitotechnology.sky.tonight.map.star.walk",
+        "versions": [
+          "2.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": false
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.vitotechnology.StarWalk2Free": [
+        "2.20.3"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:6",
+    "legacy_id": 58118,
+    "metadata_status": "verified",
+    "name": "Disable In-App Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Star Walk 2 Plus: Sky Map View",
+        "icon_url": "https://play-lh.googleusercontent.com/zZ5e1E8yT8YGhWv4tLxMGgIWM5VGab8HATT5IKOw8dfyKUBy6LUJyZcehzyWJQsj3YpxrCLkS4Q7-mdlcMwO290",
+        "name": "com.vitotechnology.StarWalk2Free",
+        "versions": [
+          "2.20.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": false
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "org.zwanoo.android.speedtest": [
+        "7.0.4"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:7",
+    "legacy_id": 58119,
+    "metadata_status": "verified",
+    "name": "Disable Logging(analytics)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Speedtest by Ookla",
+        "icon_url": "https://play-lh.googleusercontent.com/ZH4EUfCHaf8hoFSpeLx_guqWN-DkGdJWbP5Ydim9dbvqO4L95TC3V7WD20-KsEpGaZuCrWz62ClSYdmCanL9",
+        "name": "org.zwanoo.android.speedtest",
+        "versions": [
+          "7.0.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.atmfee": [
+        "3.7.9"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:8",
+    "legacy_id": 58120,
+    "metadata_status": "verified",
+    "name": "Hide Location Permission Popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ATM Fee Saver",
+        "icon_url": "https://play-lh.googleusercontent.com/-L2UZ2La61Xzq91GIDjlgQYLrnDBh0JFM7M9DtYDZeY8NctQ35sMyGbqm_sFDiO6gOB9ei4Q53l8H3tUEPEFRco",
+        "name": "com.atmfee",
+        "versions": [
+          "3.7.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.noctuasoftware.stellarium_free": [
+        "1.16.3",
+        "1.16.2"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:9",
+    "legacy_id": 58121,
+    "metadata_status": "verified",
+    "name": "Install Extended (Deep Sky) Catalog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Stellarium - Star Map",
+        "icon_url": "https://play-lh.googleusercontent.com/UiUfUaonnw8gKqR91CamVZeJu7AuPG5TgBgX51niEwuSua5mu4Bmlgs8w0cwmIzYctJCjRtdW7KlmzdN8p8lKw",
+        "name": "com.noctuasoftware.stellarium_free",
+        "versions": [
+          "1.16.3",
+          "1.16.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.ttxapps.autosync": [
+        "7.5.10"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:10",
+    "legacy_id": 58122,
+    "metadata_status": "verified",
+    "name": "Purchase All Items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Autosync - File Sync & Backup",
+        "icon_url": "https://play-lh.googleusercontent.com/76yYygy2ye5lmyLfl5zKhP18gVXsIMtKB2R9CZa7r5KXgEuKHiD0oe1yk-uorTKitef_aA4ATadCm0SR_xoj7A",
+        "name": "com.ttxapps.autosync",
+        "versions": [
+          "7.5.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.nis.app": [
+        "6.12.15"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:11",
+    "legacy_id": 58123,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Inshorts - News in 60 words",
+        "icon_url": "https://play-lh.googleusercontent.com/rEvzp3rzXLcV14TaKdHWcMYlbwQEggA0EuQ9PcsPdc97vGs-60vu86gInbL_GWvbxqwO7jx5GZvTKsdJKFp3",
+        "name": "com.nis.app",
+        "versions": [
+          "6.12.15"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.nis.app": [
+        "6.12.15"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:12",
+    "legacy_id": 58124,
+    "metadata_status": "verified",
+    "name": "Skip Login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Inshorts - News in 60 words",
+        "icon_url": "https://play-lh.googleusercontent.com/rEvzp3rzXLcV14TaKdHWcMYlbwQEggA0EuQ9PcsPdc97vGs-60vu86gInbL_GWvbxqwO7jx5GZvTKsdJKFp3",
+        "name": "com.nis.app",
+        "versions": [
+          "6.12.15"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.proto.circuitsimulator": [
+        "1.48.0"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:13",
+    "legacy_id": 58125,
+    "metadata_status": "verified",
+    "name": "Unlock All Features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "PROTO - circuit simulator",
+        "icon_url": "https://play-lh.googleusercontent.com/g_1cfwsprSY0STKXDrcVq47Vgh8148aphTNf_fC45sQ5HrrjI5X9qH_tq5N4axXd1VwEaMUU9eJRxE090BcxpqA",
+        "name": "com.proto.circuitsimulator",
+        "versions": [
+          "1.48.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.noctuasoftware.stellarium_free": [
+        "1.16.3",
+        "1.16.2"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:14",
+    "legacy_id": 58126,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Stellarium - Star Map",
+        "icon_url": "https://play-lh.googleusercontent.com/UiUfUaonnw8gKqR91CamVZeJu7AuPG5TgBgX51niEwuSua5mu4Bmlgs8w0cwmIzYctJCjRtdW7KlmzdN8p8lKw",
+        "name": "com.noctuasoftware.stellarium_free",
+        "versions": [
+          "1.16.3",
+          "1.16.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.atmfee": [
+        "3.7.9"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:15",
+    "legacy_id": 58127,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ATM Fee Saver",
+        "icon_url": "https://play-lh.googleusercontent.com/-L2UZ2La61Xzq91GIDjlgQYLrnDBh0JFM7M9DtYDZeY8NctQ35sMyGbqm_sFDiO6gOB9ei4Q53l8H3tUEPEFRco",
+        "name": "com.atmfee",
+        "versions": [
+          "3.7.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.vitotechnology.sky.tonight.map.star.walk": [
+        "2.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:16",
+    "legacy_id": 58128,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sky Tonight - Star Gazer Guide",
+        "icon_url": "https://play-lh.googleusercontent.com/EVp-0jvKf6PUU788sieuq-Q8KYKPvRta-5-dSDpkXKcRrEucNrSx8MW21DKIf-EhhxDDp7QbPeK7xKrNBuF7dw",
+        "name": "com.vitotechnology.sky.tonight.map.star.walk",
+        "versions": [
+          "2.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.vitotechnology.StarWalk2Free": [
+        "2.20.3"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:17",
+    "legacy_id": 58129,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Star Walk 2 Plus: Sky Map View",
+        "icon_url": "https://play-lh.googleusercontent.com/zZ5e1E8yT8YGhWv4tLxMGgIWM5VGab8HATT5IKOw8dfyKUBy6LUJyZcehzyWJQsj3YpxrCLkS4Q7-mdlcMwO290",
+        "name": "com.vitotechnology.StarWalk2Free",
+        "versions": [
+          "2.20.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "e8140b4e82e4792c6231d79f",
+    "compatiblePackages": {
+      "com.vpn.free.hotspot.secure.vpnify": [
+        "2.2.9"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "e8140b4e82e4792c6231d79f:18",
+    "legacy_id": 58130,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "vpnify - Unlimited VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/ad5NXZUssUmB4MehCRji5XLSkDO4GzWsMPNRCPETOVPP4AM7D0dj90dOcFvEapdqEWHzErrVHV35mf9FSe-uZQ",
+        "name": "com.vpn.free.hotspot.secure.vpnify",
+        "versions": [
+          "2.2.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.9.0",
+    "source_id": "c2003c7c52c281bd",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Removes tracking parameters when sharing links",
+    "id": "f57d4e457ca84f171ead7090:0",
+    "legacy_id": 58131,
+    "metadata_status": "verified",
+    "name": "Clear tracking params",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Change the download directory for video downloads",
+    "id": "f57d4e457ca84f171ead7090:1",
+    "legacy_id": 58132,
+    "metadata_status": "verified",
+    "name": "Custom download folder",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "f57d4e457ca84f171ead7090:2",
+    "legacy_id": 58133,
+    "metadata_status": "verified",
+    "name": "Disable chirp font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Unlocks the ability to download videos and gifs from Twitter/X",
+    "id": "f57d4e457ca84f171ead7090:3",
+    "legacy_id": 58134,
+    "metadata_status": "verified",
+    "name": "Download patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Enables reader mode on long threads",
+    "id": "f57d4e457ca84f171ead7090:4",
+    "legacy_id": 58135,
+    "metadata_status": "verified",
+    "name": "Enable Reader Mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Enable ability to undo posts before it gets posted",
+    "id": "f57d4e457ca84f171ead7090:5",
+    "legacy_id": 58136,
+    "metadata_status": "verified",
+    "name": "Enable Undo Posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Remove Google Ads",
+    "id": "f57d4e457ca84f171ead7090:6",
+    "legacy_id": 58137,
+    "metadata_status": "verified",
+    "name": "Google Ads Patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Hide new post banner",
+    "id": "f57d4e457ca84f171ead7090:7",
+    "legacy_id": 58138,
+    "metadata_status": "verified",
+    "name": "Hide Banner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "f57d4e457ca84f171ead7090:8",
+    "legacy_id": 58139,
+    "metadata_status": "verified",
+    "name": "Hide Community Notes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "f57d4e457ca84f171ead7090:9",
+    "legacy_id": 58140,
+    "metadata_status": "verified",
+    "name": "Hide FAB",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "f57d4e457ca84f171ead7090:10",
+    "legacy_id": 58141,
+    "metadata_status": "verified",
+    "name": "Hide FAB Menu Buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Hides For You tab from timeline",
+    "id": "f57d4e457ca84f171ead7090:11",
+    "legacy_id": 58142,
+    "metadata_status": "verified",
+    "name": "Hide For You",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "f57d4e457ca84f171ead7090:12",
+    "legacy_id": 58143,
+    "metadata_status": "verified",
+    "name": "Hide Live Threads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "f57d4e457ca84f171ead7090:13",
+    "legacy_id": 58144,
+    "metadata_status": "verified",
+    "name": "Hide Promoted Trends",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Hide recommended users that pops up when you follow someone",
+    "id": "f57d4e457ca84f171ead7090:14",
+    "legacy_id": 58145,
+    "metadata_status": "verified",
+    "name": "Hide Recommended Users",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Get rid of t.co short urls.",
+    "id": "f57d4e457ca84f171ead7090:15",
+    "legacy_id": 58146,
+    "metadata_status": "verified",
+    "name": "No shortened URL",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Removes the view count from the bottom of tweets",
+    "id": "f57d4e457ca84f171ead7090:16",
+    "legacy_id": 58147,
+    "metadata_status": "verified",
+    "name": "Remove view count",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Makes bio and username selectable",
+    "id": "f57d4e457ca84f171ead7090:17",
+    "legacy_id": 58148,
+    "metadata_status": "verified",
+    "name": "Selectable Text",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "f57d4e457ca84f171ead7090",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Shows sensitive media",
+    "id": "f57d4e457ca84f171ead7090:18",
+    "legacy_id": 58149,
+    "metadata_status": "verified",
+    "name": "Show sensitive media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.12.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.kick.mobile": null
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black. Disables over-the-air updates that would restore the original background.",
+    "id": "0364f6c4b3e3fb617d7cc4da:0",
+    "legacy_id": 58150,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KICK: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/zEMwKW77990UYUC6aJrJhJmnKdHpr_56Y4W1n7C9xrk2a2gSTT62_Lk1uaLek-cYH4UBl12pc8Au4444oYQK",
+        "name": "com.kick.mobile",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "ai.perplexity.app.android": null
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black.",
+    "id": "0364f6c4b3e3fb617d7cc4da:1",
+    "legacy_id": 58151,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Perplexity - Ask Anything",
+        "icon_url": "https://play-lh.googleusercontent.com/vg7sPhgWiPr0L2cK_NLLcCl0mrkEmNNv7C-aUkBdIUEa-9uSnCi5x4z_3Mw0vNYWKoSVWHfgri7THMOsOZKQuA",
+        "name": "ai.perplexity.app.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black.",
+    "id": "0364f6c4b3e3fb617d7cc4da:2",
+    "legacy_id": 58152,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.michaldrabik.showly2": null
+    },
+    "dependencies": [],
+    "description": "Replaces the dark theme background with pure black.",
+    "id": "0364f6c4b3e3fb617d7cc4da:3",
+    "legacy_id": 58153,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Showly",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.michaldrabik.showly2/en-US/icon.png",
+        "name": "com.michaldrabik.showly2",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.spocky.projengmenu": null
+    },
+    "dependencies": [],
+    "description": "Disables analytics and crash reporting.",
+    "id": "0364f6c4b3e3fb617d7cc4da:4",
+    "legacy_id": 58154,
+    "metadata_status": "verified",
+    "name": "Disable tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Projectivy Launcher",
+        "icon_url": "https://play-lh.googleusercontent.com/Qo3kWBOmNFWGcGxiBHs-tR2_0uVcrGGUzKXb_e_JwpbwwzsYHAs-qvNhE-QDr2c8B4_8w0bq8yl5uo88pTdb",
+        "name": "com.spocky.projengmenu",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.etsy.android": [
+        "7.90.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes promoted listings and the \"with Ads\" label from search results.",
+    "id": "0364f6c4b3e3fb617d7cc4da:5",
+    "legacy_id": 58155,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Etsy: Shop from Real People",
+        "icon_url": "https://play-lh.googleusercontent.com/QjuCfvGNr91o5Do9OyNjBprY12cNi4d-uAm73zlHucElV306V5S2Rl1g02kqsXcDqA9XFYIeOD-LI0rdiJk_",
+        "name": "com.etsy.android",
+        "versions": [
+          "7.90.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.gamma.scan": [
+        "2.2.221"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, and native ads.",
+    "id": "0364f6c4b3e3fb617d7cc4da:6",
+    "legacy_id": 58156,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "QR & Barcode Scanner",
+        "icon_url": "https://play-lh.googleusercontent.com/0QweSUOytSSdqMwlE1AWZ1piX68JLr92qmpm4WkK0waLvi6lzSxO9PCWdXO50O4-HugHrO9FDqrPcPZ060EZnw",
+        "name": "com.gamma.scan",
+        "versions": [
+          "2.2.221"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.thetrainline": [
+        "407.0.0.178994"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the adverts shown between search results.",
+    "id": "0364f6c4b3e3fb617d7cc4da:7",
+    "legacy_id": 58157,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Trainline: Book Europe Trains",
+        "icon_url": "https://play-lh.googleusercontent.com/M3DswNatq2IZlqNc5RWzSaekFDgQKyN9zl2uK6XI6j7cnrCXtwLvkHIg38OxcfFly0sDxIYDtBWVZXTIiK5P",
+        "name": "com.thetrainline",
+        "versions": [
+          "407.0.0.178994"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.audible.application": null
+    },
+    "dependencies": [],
+    "description": "Hides the membership promotion on the Home screen and the free trial bottom sheet.",
+    "id": "0364f6c4b3e3fb617d7cc4da:8",
+    "legacy_id": 58158,
+    "metadata_status": "verified",
+    "name": "Hide membership upselling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Audible: Audiobooks & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/LrA0bv-RgOlwONOM-yNHiQQJncEsOlQCLjMEOQTMNUw1gbbLBq92gVcr3SSoVNl5WKFw-3JeJFaKWVcYYvE6",
+        "name": "com.audible.application",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the top-bar upgrade button and promotional sidebar rows.",
+    "id": "0364f6c4b3e3fb617d7cc4da:9",
+    "legacy_id": 58159,
+    "metadata_status": "verified",
+    "name": "Hide upgrade upselling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.audible.application": null
+    },
+    "dependencies": [],
+    "description": "Opens the Library tab instead of Home on launch. Applies only while signed in.",
+    "id": "0364f6c4b3e3fb617d7cc4da:10",
+    "legacy_id": 58160,
+    "metadata_status": "verified",
+    "name": "Open Library on launch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Audible: Audiobooks & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/LrA0bv-RgOlwONOM-yNHiQQJncEsOlQCLjMEOQTMNUw1gbbLBq92gVcr3SSoVNl5WKFw-3JeJFaKWVcYYvE6",
+        "name": "com.audible.application",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 'Sent from Proton Mail' signature from emails.",
+    "id": "0364f6c4b3e3fb617d7cc4da:11",
+    "legacy_id": 58161,
+    "metadata_status": "verified",
+    "name": "Remove 'Sent from' signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the limit for maximum free accounts logged in.",
+    "id": "0364f6c4b3e3fb617d7cc4da:12",
+    "legacy_id": 58162,
+    "metadata_status": "verified",
+    "name": "Remove free accounts limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "org.readera": [
+        "26.05.20+2300"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the rate this app dialog and the promotional dialogs shown on startup.",
+    "id": "0364f6c4b3e3fb617d7cc4da:13",
+    "legacy_id": 58163,
+    "metadata_status": "verified",
+    "name": "Remove nags",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ReadEra – book reader pdf epub",
+        "icon_url": "https://play-lh.googleusercontent.com/IYYIJY9HttxtQhZjbsA7tzQRdMQ675qFtOJFiRbvJvRJarsBzvBn4tcjE2RbWgSQfhEJn4wpbUtEzq-4CXUorg",
+        "name": "org.readera",
+        "versions": [
+          "26.05.20+2300"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores push notifications by spoofing the original app signature.",
+    "id": "0364f6c4b3e3fb617d7cc4da:14",
+    "legacy_id": 58164,
+    "metadata_status": "verified",
+    "name": "Spoof signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "ch.protonmail.android": [
+        "7.10.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables picking a custom date and time when snoozing conversations and scheduling messages.",
+    "id": "0364f6c4b3e3fb617d7cc4da:15",
+    "legacy_id": 58165,
+    "metadata_status": "verified",
+    "name": "Unlock custom time picker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": [
+          "7.10.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.myvitale.forus": null
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "0364f6c4b3e3fb617d7cc4da:16",
+    "legacy_id": 58166,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ForusApp",
+        "icon_url": "https://play-lh.googleusercontent.com/HQl7wIZjPOMZHojduQcS9jOnT_vsDIYp3ydapBQzBbuVpAsqtkcaxUP24VXmDAa4CM3q2AaqbG0EGYawBFVf-_M",
+        "name": "com.myvitale.forus",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.spocky.projengmenu": null
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "0364f6c4b3e3fb617d7cc4da:17",
+    "legacy_id": 58167,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Projectivy Launcher",
+        "icon_url": "https://play-lh.googleusercontent.com/Qo3kWBOmNFWGcGxiBHs-tR2_0uVcrGGUzKXb_e_JwpbwwzsYHAs-qvNhE-QDr2c8B4_8w0bq8yl5uo88pTdb",
+        "name": "com.spocky.projengmenu",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "com.michaldrabik.showly2": [
+        "3.70.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks ad removal, light theme, custom images, list view types, quick ratings, and transparent widgets. The News feed is not included.",
+    "id": "0364f6c4b3e3fb617d7cc4da:18",
+    "legacy_id": 58168,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Showly",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.michaldrabik.showly2/en-US/icon.png",
+        "name": "com.michaldrabik.showly2",
+        "versions": [
+          "3.70.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "0364f6c4b3e3fb617d7cc4da",
+    "compatiblePackages": {
+      "app.symfonik.music.player": [
+        "14.0.0",
+        "14.1.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium features.",
+    "id": "0364f6c4b3e3fb617d7cc4da:19",
+    "legacy_id": 58169,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Symfonium: Music player & cast",
+        "icon_url": "https://play-lh.googleusercontent.com/Rc1boOlAWnUlwZNG8LCm9IFn3ZRnDTdRhFe8wegH-OHzH1An9E97D5XmRGurbwN2HNg14Zubg9H460Ywgug0",
+        "name": "app.symfonik.music.player",
+        "versions": [
+          "14.0.0",
+          "14.1.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.1",
+    "source_id": "c1f06178caad9800",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the Play Store license check, which a patched app always fails and which closes the app on launch. Needed by every patched build.",
+    "id": "3d47c269a015fd734ac19bb6:0",
+    "legacy_id": 58170,
+    "metadata_status": "verified",
+    "name": "Disable Play license check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Drops the ANSI escape sequences JPTT's terminal emulator cannot parse, which otherwise swallow the screen content that follows them. Fixes the article list being stuck at 載入中, and keeps the next sequence PTT adds from breaking the app again.",
+    "id": "3d47c269a015fd734ac19bb6:1",
+    "legacy_id": 58171,
+    "metadata_status": "verified",
+    "name": "Fix article list loading",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows the picture for links an image host answers with a web page: an imgur album or .mp4, an address missing the i. subdomain, a meee.com.tw page. Only the preview and the full size image change, not the article text.",
+    "id": "3d47c269a015fd734ac19bb6:2",
+    "legacy_id": 58172,
+    "metadata_status": "verified",
+    "name": "Fix image links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Fixes taking a photo to upload when the Clone app patch has renamed the package. Changes nothing on a normal install.",
+    "id": "3d47c269a015fd734ac19bb6:3",
+    "legacy_id": 58173,
+    "metadata_status": "verified",
+    "name": "Fix photo upload in clones",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Raises the image cache limit so images you have already seen are not downloaded again when you scroll back.",
+    "id": "3d47c269a015fd734ac19bb6:4",
+    "legacy_id": 58174,
+    "metadata_status": "verified",
+    "name": "Increase image cache size",
+    "options": [
+      {
+        "default": 512,
+        "description": "Starting value for the maximum disk space the image cache may use. Changeable in the app afterwards, under Settings > Morphe.",
+        "key": "cacheSizeMb",
+        "required": false,
+        "title": "Image cache size (MB)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows more of your recent search keywords in the article search dialog.",
+    "id": "3d47c269a015fd734ac19bb6:5",
+    "legacy_id": 58175,
+    "metadata_status": "verified",
+    "name": "More recent searches",
+    "options": [
+      {
+        "default": 15,
+        "description": "Starting value, changeable in the app afterwards. Recent keywords used on the board you are currently in. JPTT shows 5 of them.",
+        "key": "boardKeywordCount",
+        "required": false,
+        "title": "最近看板搜尋 entries",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 30,
+        "description": "Starting value, changeable in the app afterwards. Recent keywords used on any board. JPTT shows 15 of them.",
+        "key": "allKeywordCount",
+        "required": false,
+        "title": "最近搜尋 entries",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a tab to JPTT's own settings where the options these patches add can be changed without patching the app again, and where every setting can be exported to a file and read back.",
+    "id": "3d47c269a015fd734ac19bb6:6",
+    "legacy_id": 58176,
+    "metadata_status": "verified",
+    "name": "Patch settings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Downloads an article's images as soon as you open it instead of when you scroll to each one. Respects the app's own image loading settings.",
+    "id": "3d47c269a015fd734ac19bb6:7",
+    "legacy_id": 58177,
+    "metadata_status": "verified",
+    "name": "Preload article images",
+    "options": [
+      {
+        "default": 60,
+        "description": "Starting value for how many of an article's images are downloaded ahead of time. Images past the limit still load the normal way when scrolled to. Changeable in the app afterwards.",
+        "key": "preloadLimit",
+        "required": false,
+        "title": "Images to preload per article",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 4,
+        "description": "Starting value for how many images are preloaded in parallel, changeable in the app afterwards. Fresco keeps a whole encoded image in memory for as long as its request is in flight, so raising this raises the peak memory use. Lower it if the app is killed on image heavy articles.",
+        "key": "concurrency",
+        "required": false,
+        "title": "Images downloading at once",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reconnects the moment you come back to the app, instead of leaving you on a countdown that grows to eight seconds and does not even run while the app is in the background.",
+    "id": "3d47c269a015fd734ac19bb6:8",
+    "legacy_id": 58178,
+    "metadata_status": "verified",
+    "name": "Reconnect on return",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops the banner, the rows inside articles and lists, and the ad the app falls back to when it thinks AdMob is blocked. No ad is requested at all, so nothing is downloaded and nothing is reported.",
+    "id": "3d47c269a015fd734ac19bb6:9",
+    "legacy_id": 58179,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Long press a recent search keyword in the article search dialog to delete it, clear the history, or add a home screen shortcut that opens the board with that search. Shortcuts made from the 最近搜尋 tab open the search too.",
+    "id": "3d47c269a015fd734ac19bb6:10",
+    "legacy_id": 58180,
+    "metadata_status": "verified",
+    "name": "Search history actions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "3d47c269a015fd734ac19bb6",
+    "compatiblePackages": {
+      "com.joshua.jptt": [
+        "3.8.4",
+        "3.8.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lays the recent search keywords out over several lines instead of one line you have to scroll sideways.",
+    "id": "3d47c269a015fd734ac19bb6:11",
+    "legacy_id": 58181,
+    "metadata_status": "verified",
+    "name": "Wrap recent searches",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "JPTT - 行動裝置也能輕鬆瀏覽PTT!",
+        "icon_url": "https://play-lh.googleusercontent.com/hVikxQn3nlEzVjHbMPr8g7rRJ6igSQR49ck4CkNp5Q-67iSbINvc__g6e83733yYIVgIRky6zfWlKxD36dCG",
+        "name": "com.joshua.jptt",
+        "versions": [
+          "3.8.4",
+          "3.8.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.8",
+    "source_id": "32c5f57d69638380",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "攔截 Gboard 的簽章白名單檢查並強制通過\nBypass Gboard signature whitelist checks and force them to pass.",
+    "id": "619da48c6826765b11c484b2:0",
+    "legacy_id": 58182,
+    "metadata_status": "verified",
+    "name": "Add Gboard Signature Bypass",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 AI 撰寫工具，支援所有語言\nEnable AI writing tools with support for all languages.",
+    "id": "619da48c6826765b11c484b2:1",
+    "legacy_id": 58183,
+    "metadata_status": "verified",
+    "name": "AI Writing Tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "強制啟用中文語音\nForce-enable Chinese voice input.",
+    "id": "619da48c6826765b11c484b2:2",
+    "legacy_id": 58184,
+    "metadata_status": "verified",
+    "name": "Chinese Online Voice Input",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "增強剪貼簿的保留時間、數量上限、預覽行數、倒數/建立時間、順序編號與欄數\nEnhance clipboard retention time, item count limit, preview lines, countdown/creation time labels, order index, and column count.",
+    "id": "619da48c6826765b11c484b2:3",
+    "legacy_id": 58185,
+    "metadata_status": "verified",
+    "name": "Clipboard Enhancements",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 剪貼簿 > 顯示從最近複製文字中攝取的資訊，例如地址、電話號碼和其他項目\nEnable Clipboard > Show addresses, phone numbers, and other items pulled from recently copied text.",
+    "id": "619da48c6826765b11c484b2:4",
+    "legacy_id": 58186,
+    "metadata_status": "verified",
+    "name": "Clipboard Entity Extraction",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "長按 剪貼簿 顯示編輯\nEnable Edit when long-pressing a clipboard item.",
+    "id": "619da48c6826765b11c484b2:5",
+    "legacy_id": 58187,
+    "metadata_status": "verified",
+    "name": "Clipboard Item Edit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "新增獨立的特殊符號分頁，長按逗號->愛心\nAdd a dedicated custom symbols tab and replace the long-press comma entry with a heart shortcut.",
+    "id": "619da48c6826765b11c484b2:6",
+    "legacy_id": 58188,
+    "metadata_status": "verified",
+    "name": "Custom Symbols",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "自訂 Gboard「Emojis, stickers & GIFs」底部 tabs 的排序，支援拖曳調整\nCustomize the bottom tab order in Gboard's Emojis, stickers & GIFs panel with drag-and-drop reordering.",
+    "id": "619da48c6826765b11c484b2:7",
+    "legacy_id": 58189,
+    "metadata_status": "verified",
+    "name": "Emojis, stickers & GIFs Tab Order",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用內嵌自動填入建議 / Enable Inline Autofill Suggestions",
+    "id": "619da48c6826765b11c484b2:8",
+    "legacy_id": 58190,
+    "metadata_status": "verified",
+    "name": "Enable Inline Autofill Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 Undo/Redo 功能\nEnable the Undo/Redo feature.",
+    "id": "619da48c6826765b11c484b2:9",
+    "legacy_id": 58191,
+    "metadata_status": "verified",
+    "name": "Enable Undo/Redo feature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "英文 QWERTY 鍵盤上滑大小寫\nFlick up on the English QWERTY keyboard to toggle uppercase and lowercase.",
+    "id": "619da48c6826765b11c484b2:10",
+    "legacy_id": 58192,
+    "metadata_status": "verified",
+    "name": "English QWERTY Up-Flick Uppercase",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 修正和建議 > 文法檢查\nEnable Text correction > Grammar check.",
+    "id": "619da48c6826765b11c484b2:11",
+    "legacy_id": 58193,
+    "metadata_status": "verified",
+    "name": "Grammar Checker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "619da48c6826765b11c484b2",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "17.0.10.880768217-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 修正和建議 > 智慧撰寫\nEnable Text correction > Smart Compose.",
+    "id": "619da48c6826765b11c484b2:12",
+    "legacy_id": 58194,
+    "metadata_status": "verified",
+    "name": "Inline Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "17.0.10.880768217-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.14.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  }
+]
