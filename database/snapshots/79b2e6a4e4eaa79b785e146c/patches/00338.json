@@ -1,0 +1,3044 @@
+[
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Allows screenshots and screen recording on screens the app protects.",
+    "id": "b814e38a069021891ee45505:3",
+    "legacy_id": 36683,
+    "metadata_status": "verified",
+    "name": "Allow screenshots",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Allows screenshots of chats, view-once media and vanish mode. Pair with ghost mode's screenshot setting so the sender is not notified.",
+    "id": "b814e38a069021891ee45505:4",
+    "legacy_id": 36684,
+    "metadata_status": "verified",
+    "name": "Allow screenshots in DMs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.6"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.telegram.core.telegramSettings"
+    ],
+    "description": "Strips FLAG_SECURE from view-once / self-destruct media viewers so you can screenshot or screen-record.",
+    "id": "b814e38a069021891ee45505:5",
+    "legacy_id": 36685,
+    "metadata_status": "verified",
+    "name": "Allow screenshots in secret viewers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.internal.navigationBarHook",
+      "reseam-patches/app.reseam.patches.youtube.internal.playerTypeHook",
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Replaces thumbnails with DeArrow images or still captures, with separate choices for each feed.",
+    "id": "b814e38a069021891ee45505:6",
+    "legacy_id": 36686,
+    "metadata_status": "verified",
+    "name": "Alternative thumbnails",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Ignores the comment sort a post or community suggests and uses your default sort.",
+    "id": "b814e38a069021891ee45505:7",
+    "legacy_id": 36687,
+    "metadata_status": "verified",
+    "name": "Always use my default comment sort",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Unlocks the \"Don't play music videos\" setting, which plays songs without their video.",
+    "id": "b814e38a069021891ee45505:8",
+    "legacy_id": 36688,
+    "metadata_status": "verified",
+    "name": "Audio-only playback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Keeps playing when the app is in the background or the screen is off.",
+    "id": "b814e38a069021891ee45505:9",
+    "legacy_id": 36689,
+    "metadata_status": "verified",
+    "name": "Background playback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Use a higher video quality when preparing uploads. Upload limits stay the same.",
+    "id": "b814e38a069021891ee45505:10",
+    "legacy_id": 36690,
+    "metadata_status": "verified",
+    "name": "Better video quality",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Stop Discord from logging usage events.",
+    "id": "b814e38a069021891ee45505:11",
+    "legacy_id": 36691,
+    "metadata_status": "verified",
+    "name": "Block analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Stops Reddit's event and metric logging and turns off AppsFlyer tracking.",
+    "id": "b814e38a069021891ee45505:12",
+    "legacy_id": 36692,
+    "metadata_status": "verified",
+    "name": "Block analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Stop Discord from initializing its native crash reporter.",
+    "id": "b814e38a069021891ee45505:13",
+    "legacy_id": 36693,
+    "metadata_status": "verified",
+    "name": "Block crash reports",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Stops Reddit from remotely blocking this version with a forced update screen.",
+    "id": "b814e38a069021891ee45505:14",
+    "legacy_id": 36694,
+    "metadata_status": "verified",
+    "name": "Block remote forced updates",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Loads avatars and channel images from a host that is not blocked in some countries.",
+    "id": "b814e38a069021891ee45505:15",
+    "legacy_id": 36695,
+    "metadata_status": "verified",
+    "name": "Bypass image region restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.6"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.spoofSignature"
+    ],
+    "description": "Allows login on rooted or non-Google devices.",
+    "id": "b814e38a069021891ee45505:16",
+    "legacy_id": 36696,
+    "metadata_status": "verified",
+    "name": "Bypass integrity",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Opens a link directly instead of through youtube.com/redirect, which logs the click.",
+    "id": "b814e38a069021891ee45505:17",
+    "legacy_id": 36697,
+    "metadata_status": "verified",
+    "name": "Bypass URL redirects",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Serves the phone, tablet or wearable layout regardless of the device.",
+    "id": "b814e38a069021891ee45505:18",
+    "legacy_id": 36698,
+    "metadata_status": "verified",
+    "name": "Change form factor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubecommon.reseamMark",
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Adds an option to change the logo in YouTube's top-left header.",
+    "id": "b814e38a069021891ee45505:19",
+    "legacy_id": 36699,
+    "metadata_status": "verified",
+    "name": "Change header",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Installs the app under a new package name, so a clone runs alongside the original. Appends \".reseam\" by default. Some apps misbehave under a changed package name.",
+    "id": "b814e38a069021891ee45505:20",
+    "legacy_id": 36700,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": null,
+        "description": "The new package name, or empty to append \".reseam\" to the original.",
+        "key": "packageName",
+        "required": false,
+        "title": "Package name",
+        "type": "string",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Opens a page of your choice instead of the home feed.",
+    "id": "b814e38a069021891ee45505:21",
+    "legacy_id": 36701,
+    "metadata_status": "verified",
+    "name": "Change start page",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Use the GIF autoplay switch to also turn off chat emoji animation.",
+    "id": "b814e38a069021891ee45505:22",
+    "legacy_id": 36702,
+    "metadata_status": "verified",
+    "name": "Chat animation switch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Warns at launch when the device DNS server blocks the domain that records watch history.",
+    "id": "b814e38a069021891ee45505:23",
+    "legacy_id": 36703,
+    "metadata_status": "verified",
+    "name": "Check watch history domain name resolution",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Remove tracking parameters from supported links when you send them.",
+    "id": "b814e38a069021891ee45505:24",
+    "legacy_id": 36704,
+    "metadata_status": "verified",
+    "name": "Clean outgoing links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck"
+    ],
+    "description": "Allows the app to be installed alongside the official Instagram app with a distinct package name.",
+    "id": "b814e38a069021891ee45505:25",
+    "legacy_id": 36705,
+    "metadata_status": "verified",
+    "name": "Clone Instagram",
+    "options": [
+      {
+        "default": "com.instagram.android.clone",
+        "description": "New package name for the cloned app",
+        "key": "packageName",
+        "required": false,
+        "title": "Package name",
+        "type": "string",
+        "values": null
+      },
+      {
+        "default": "Instagram Clone",
+        "description": "Display name for the cloned app",
+        "key": "appName",
+        "required": false,
+        "title": "App name",
+        "type": "string",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings",
+      "reseam-patches/app.reseam.patches.youtube.internal.videoPlaybackStateHook",
+      "reseam-patches/app.reseam.patches.youtube.internal.playerControls"
+    ],
+    "description": "Adds player buttons that copy the current video's URL, optionally with its timestamp.",
+    "id": "b814e38a069021891ee45505:26",
+    "legacy_id": 36706,
+    "metadata_status": "verified",
+    "name": "Copy video URL",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings",
+      "reseam-patches/app.reseam.patches.youtubecommon.reseamMark"
+    ],
+    "description": "Adds selectable launcher icon and app-name presets, plus your own name and icon.",
+    "id": "b814e38a069021891ee45505:27",
+    "legacy_id": 36707,
+    "metadata_status": "verified",
+    "name": "Custom branding",
+    "options": [
+      {
+        "default": null,
+        "description": "Adds this name to the App name setting and makes it the default.",
+        "key": "customName",
+        "required": false,
+        "title": "Custom app name",
+        "type": "string",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "A folder with one or more of mipmap-mdpi, mipmap-hdpi, mipmap-xhdpi, mipmap-xxhdpi and mipmap-xxxhdpi. Each holds foreground.png and background.png, the adaptive icon layers: 108 px at mdpi, 162 px at hdpi, 216 px at xhdpi, 324 px at xxhdpi, 432 px at xxxhdpi. Adds it to the App icon setting and makes it the default.",
+        "key": "customIcon",
+        "required": false,
+        "title": "Custom icon",
+        "type": "path",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings",
+      "reseam-patches/app.reseam.patches.youtubecommon.reseamMark"
+    ],
+    "description": "Adds selectable launcher icon and app-name presets, plus your own name and icon.",
+    "id": "b814e38a069021891ee45505:28",
+    "legacy_id": 36708,
+    "metadata_status": "verified",
+    "name": "Custom branding",
+    "options": [
+      {
+        "default": null,
+        "description": "Adds this name to the App name setting and makes it the default.",
+        "key": "customName",
+        "required": false,
+        "title": "Custom app name",
+        "type": "string",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "A folder with one or more of mipmap-mdpi, mipmap-hdpi, mipmap-xhdpi, mipmap-xxhdpi and mipmap-xxxhdpi. Each holds foreground.png and background.png, the adaptive icon layers: 108 px at mdpi, 162 px at hdpi, 216 px at xhdpi, 324 px at xxhdpi, 432 px at xxxhdpi. Adds it to the App icon setting and makes it the default.",
+        "key": "customIcon",
+        "required": false,
+        "title": "Custom icon",
+        "type": "path",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Changes the size of the play and pause button in the middle of the player.",
+    "id": "b814e38a069021891ee45505:29",
+    "legacy_id": 36709,
+    "metadata_status": "verified",
+    "name": "Custom play and pause button size",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings",
+      "reseam-patches/app.reseam.patches.youtube.internal.videoInformationHook",
+      "reseam-patches/app.reseam.patches.youtubecommon.lithoFilter",
+      "reseam-patches/app.reseam.patches.youtube.internal.lithoTextHook"
+    ],
+    "description": "Adds configured playback speeds and supports the modern tap-and-hold speed.",
+    "id": "b814e38a069021891ee45505:30",
+    "legacy_id": 36710,
+    "metadata_status": "verified",
+    "name": "Custom playback speed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Changes the opacity of the player background while controls are visible.",
+    "id": "b814e38a069021891ee45505:31",
+    "legacy_id": 36711,
+    "metadata_status": "verified",
+    "name": "Custom player overlay opacity",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.x.featureswitches.featureSwitchOverrides",
+      "reseam-patches/app.reseam.patches.x.core.xSettings"
+    ],
+    "description": "Opens Following by default and prevents automatic switches to For You.",
+    "id": "b814e38a069021891ee45505:32",
+    "legacy_id": 36712,
+    "metadata_status": "verified",
+    "name": "Default to Following",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Show Discord's existing developer tools in Settings.",
+    "id": "b814e38a069021891ee45505:33",
+    "legacy_id": 36713,
+    "metadata_status": "verified",
+    "name": "Developer menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.internal.playerTypeHook",
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Dims the Shorts overlay and toolbar, with an optional immersive status bar.",
+    "id": "b814e38a069021891ee45505:34",
+    "legacy_id": 36714,
+    "metadata_status": "verified",
+    "name": "Dim Shorts overlay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Prevents captions from being enabled automatically.",
+    "id": "b814e38a069021891ee45505:35",
+    "legacy_id": 36715,
+    "metadata_status": "verified",
+    "name": "Disable auto captions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.6"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.telegram.core.telegramSettings"
+    ],
+    "description": "Stops in-app update checks and prompts.",
+    "id": "b814e38a069021891ee45505:36",
+    "legacy_id": 36716,
+    "metadata_status": "verified",
+    "name": "Disable auto-update",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Double tapping the player seeks by the usual amount instead of jumping to a chapter.",
+    "id": "b814e38a069021891ee45505:37",
+    "legacy_id": 36717,
+    "metadata_status": "verified",
+    "name": "Disable double tap actions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Stops the fullscreen background from glowing with the video's colours.",
+    "id": "b814e38a069021891ee45505:38",
+    "legacy_id": 36718,
+    "metadata_status": "verified",
+    "name": "Disable fullscreen ambient mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Turns off the player's vibration for chapters, seeking and zoom.",
+    "id": "b814e38a069021891ee45505:39",
+    "legacy_id": 36719,
+    "metadata_status": "verified",
+    "name": "Disable haptic feedback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Stop swipes from starting replies or edits.",
+    "id": "b814e38a069021891ee45505:40",
+    "legacy_id": 36720,
+    "metadata_status": "verified",
+    "name": "Disable message swipes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Stops panels such as live chat from opening by themselves over the player.",
+    "id": "b814e38a069021891ee45505:41",
+    "legacy_id": 36721,
+    "metadata_status": "verified",
+    "name": "Disable player popup panels",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Stops Reddit from asking for a Play Store rating.",
+    "id": "b814e38a069021891ee45505:42",
+    "legacy_id": 36722,
+    "metadata_status": "verified",
+    "name": "Disable rate-the-app prompt",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Turns off Reddit Answers, prompts, nudges, upsells, search ads, feed unit requests, ad autoplay, Games and more through Reddit's own feature flags.",
+    "id": "b814e38a069021891ee45505:43",
+    "legacy_id": 36723,
+    "metadata_status": "verified",
+    "name": "Disable Reddit features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Stops YouTube reopening the last Short when the app starts.",
+    "id": "b814e38a069021891ee45505:44",
+    "legacy_id": 36724,
+    "metadata_status": "verified",
+    "name": "Disable resuming Shorts on startup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Stops animated number transitions in the player.",
+    "id": "b814e38a069021891ee45505:45",
+    "legacy_id": 36725,
+    "metadata_status": "verified",
+    "name": "Disable rolling number animations",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Stops Reddit from detecting screenshots, so neither its share prompt nor the system's screenshot notice appears.",
+    "id": "b814e38a069021891ee45505:46",
+    "legacy_id": 36726,
+    "metadata_status": "verified",
+    "name": "Disable screenshot banner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Hides the prompt to sign in to a TV on the same network.",
+    "id": "b814e38a069021891ee45505:47",
+    "legacy_id": 36727,
+    "metadata_status": "verified",
+    "name": "Disable sign in to TV popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Keeps a story on screen after it finishes, until you tap to move on.",
+    "id": "b814e38a069021891ee45505:48",
+    "legacy_id": 36728,
+    "metadata_status": "verified",
+    "name": "Disable story auto-advance",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Stops feed and reels videos from auto-playing.",
+    "id": "b814e38a069021891ee45505:49",
+    "legacy_id": 36729,
+    "metadata_status": "verified",
+    "name": "Disable video autoplay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Turns off HDR and the VP9 codec, which lowers battery use at the cost of quality.",
+    "id": "b814e38a069021891ee45505:50",
+    "legacy_id": 36730,
+    "metadata_status": "verified",
+    "name": "Disable video codecs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.refs.mediaRefs"
+    ],
+    "description": "Adds a download button to the Instants viewer.",
+    "id": "b814e38a069021891ee45505:51",
+    "legacy_id": 36731,
+    "metadata_status": "verified",
+    "name": "Download Instants",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.refs.mediaRefs",
+      "reseam-patches/app.reseam.patches.instagram.refs.userRefs",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Adds a download option to feed, reels, and story overflow menus.",
+    "id": "b814e38a069021891ee45505:52",
+    "legacy_id": 36732,
+    "metadata_status": "verified",
+    "name": "Download media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.6"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.telegram.core.telegramSettings"
+    ],
+    "description": "Larger chunks (512 KiB) and 8 parallel requests instead of 128 KiB / 4.",
+    "id": "b814e38a069021891ee45505:53",
+    "legacy_id": 36733,
+    "metadata_status": "verified",
+    "name": "Download speed boost",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.x.premium.unlockPremium",
+      "reseam-patches/app.reseam.patches.x.featureswitches.featureSwitchOverrides",
+      "reseam-patches/app.reseam.patches.x.core.xSettings"
+    ],
+    "description": "Offers Download Video on every video and saves the original file instead of the watermarked copy X gives non-Premium accounts.",
+    "id": "b814e38a069021891ee45505:54",
+    "legacy_id": 36734,
+    "metadata_status": "verified",
+    "name": "Download videos",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings",
+      "reseam-patches/app.reseam.patches.youtube.internal.videoPlaybackStateHook",
+      "reseam-patches/app.reseam.patches.youtube.internal.playerControls"
+    ],
+    "description": "Adds an optional external-downloader player button and intercepts YouTube's download action.",
+    "id": "b814e38a069021891ee45505:55",
+    "legacy_id": 36735,
+    "metadata_status": "verified",
+    "name": "Downloads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Marks the app debuggable, so adb can run-as it and attach debuggers without root.",
+    "id": "b814e38a069021891ee45505:56",
+    "legacy_id": 36736,
+    "metadata_status": "verified",
+    "name": "Enable debugging",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Surfaces Instagram's hidden developer menu as 'Internal Settings' at the bottom of the settings screen. Recommended on alpha/beta builds.",
+    "id": "b814e38a069021891ee45505:57",
+    "legacy_id": 36737,
+    "metadata_status": "verified",
+    "name": "Enable developer menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Lets you pin YouTube's A/B experiment flags on or off by id.",
+    "id": "b814e38a069021891ee45505:58",
+    "legacy_id": 36738,
+    "metadata_status": "verified",
+    "name": "Feature flag overrides",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.spoofSignature"
+    ],
+    "description": "Shows Firebase the signature Reddit was published with, so push notifications work after re-signing.",
+    "id": "b814e38a069021891ee45505:59",
+    "legacy_id": 36739,
+    "metadata_status": "verified",
+    "name": "Fix push notifications",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.6"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.spoofSignature"
+    ],
+    "description": "Shows Firebase the signature Telegram was published with, so push notifications work after re-signing.",
+    "id": "b814e38a069021891ee45505:60",
+    "legacy_id": 36740,
+    "metadata_status": "verified",
+    "name": "Fix push notifications",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets Instagram trust itself after re-signing, so it does not crash on startup. Other apps still need Meta's signature. Required for clone patch.",
+    "id": "b814e38a069021891ee45505:61",
+    "legacy_id": 36741,
+    "metadata_status": "verified",
+    "name": "Fix signature check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Loads the home feed from accounts you follow, without suggested posts.",
+    "id": "b814e38a069021891ee45505:62",
+    "legacy_id": 36742,
+    "metadata_status": "verified",
+    "name": "Following-only feed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Shows a 'Follows you' badge next to usernames in search results.",
+    "id": "b814e38a069021891ee45505:63",
+    "legacy_id": 36743,
+    "metadata_status": "verified",
+    "name": "Follows you indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings",
+      "reseam-patches/app.reseam.patches.youtube.internal.videoInformationHook"
+    ],
+    "description": "Prefers the original audio stream when YouTube offers a dubbed track.",
+    "id": "b814e38a069021891ee45505:64",
+    "legacy_id": 36744,
+    "metadata_status": "verified",
+    "name": "Force original audio",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Prefers the original audio track when a dubbed one is offered.",
+    "id": "b814e38a069021891ee45505:65",
+    "legacy_id": 36745,
+    "metadata_status": "verified",
+    "name": "Force original audio",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Keeps the app in portrait when the device is rotated.",
+    "id": "b814e38a069021891ee45505:66",
+    "legacy_id": 36746,
+    "metadata_status": "verified",
+    "name": "Force portrait",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "12.10.6"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.telegram.core.telegramSettings"
+    ],
+    "description": "Re-sends as a new message when forwarding from a no-forwards chat.",
+    "id": "b814e38a069021891ee45505:67",
+    "legacy_id": 36747,
+    "metadata_status": "verified",
+    "name": "Forward from restricted chats",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "12.10.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Send locked custom emoji as image links.",
+    "id": "b814e38a069021891ee45505:68",
+    "legacy_id": 36748,
+    "metadata_status": "verified",
+    "name": "Freemoji",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Hides your activity: typing indicators, DM read receipts, story/live views, and screenshot notifications. Risk of account ban.",
+    "id": "b814e38a069021891ee45505:69",
+    "legacy_id": 36749,
+    "metadata_status": "verified",
+    "name": "Ghost mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs alongside the Play Store app under its own package name and signs in through\nGmsCore instead of Google Play Services. GmsCore has to be installed separately.",
+    "id": "b814e38a069021891ee45505:70",
+    "legacy_id": 36750,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [
+      {
+        "default": "app.revanced",
+        "description": "The group ID the installed GmsCore build was published under",
+        "key": "gmsCoreVendorGroupId",
+        "required": true,
+        "title": "GmsCore vendor group ID",
+        "type": "string",
+        "values": null
+      },
+      {
+        "default": "app.reseam.android.youtube",
+        "description": "New package name for the patched app",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "string",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs alongside the Play Store app under its own package name and signs in through\nGmsCore instead of Google Play Services. GmsCore has to be installed separately.",
+    "id": "b814e38a069021891ee45505:71",
+    "legacy_id": 36751,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [
+      {
+        "default": "app.revanced",
+        "description": "The group ID the installed GmsCore build was published under",
+        "key": "gmsCoreVendorGroupId",
+        "required": true,
+        "title": "GmsCore vendor group ID",
+        "type": "string",
+        "values": null
+      },
+      {
+        "default": "app.reseam.android.apps.youtube.music",
+        "description": "New package name for the patched app",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "string",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.x.featureswitches.featureSwitchOverrides",
+      "reseam-patches/app.reseam.patches.x.core.xSettings"
+    ],
+    "description": "Hides the Grok tab, the Grok buttons on posts and profiles, Imagine prompts, Grok in the composer and the drawer, and can turn off Grok translations.",
+    "id": "b814e38a069021891ee45505:72",
+    "legacy_id": 36752,
+    "metadata_status": "verified",
+    "name": "Grok",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubecommon.lithoFilter",
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Adds options to hide the buttons below the player.",
+    "id": "b814e38a069021891ee45505:73",
+    "legacy_id": 36753,
+    "metadata_status": "verified",
+    "name": "Hide action buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Hide activity invite cards in messages.",
+    "id": "b814e38a069021891ee45505:74",
+    "legacy_id": 36754,
+    "metadata_status": "verified",
+    "name": "Hide activity invites",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Stops Instagram from inserting sponsored posts into feed, stories, explore, reels and search.",
+    "id": "b814e38a069021891ee45505:75",
+    "legacy_id": 36755,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.x.featureswitches.featureSwitchOverrides",
+      "reseam-patches/app.reseam.patches.x.timeline.timelineQueryFilter",
+      "reseam-patches/app.reseam.patches.x.core.xSettings"
+    ],
+    "description": "Removes promoted posts and Google ads from timelines.",
+    "id": "b814e38a069021891ee45505:76",
+    "legacy_id": 36756,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubecommon.lithoFilter",
+      "reseam-patches/app.reseam.patches.youtube.internal.engagementPanelHook",
+      "reseam-patches/app.reseam.patches.youtube.internal.clientContextHook",
+      "reseam-patches/app.reseam.patches.youtube.internal.verticalScrollFix",
+      "reseam-patches/app.reseam.patches.youtube.internal.fixBackToExitGesture",
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Removes general ads and promotional components.",
+    "id": "b814e38a069021891ee45505:77",
+    "legacy_id": 36757,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Stops the autoplay preview from appearing over the player.",
+    "id": "b814e38a069021891ee45505:78",
+    "legacy_id": 36758,
+    "metadata_status": "verified",
+    "name": "Hide autoplay preview",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Adds options to hide the cast, search, history and activity feed buttons.",
+    "id": "b814e38a069021891ee45505:79",
+    "legacy_id": 36759,
+    "metadata_status": "verified",
+    "name": "Hide buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Removes the row of mood and genre chips above feeds.",
+    "id": "b814e38a069021891ee45505:80",
+    "legacy_id": 36760,
+    "metadata_status": "verified",
+    "name": "Hide category bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Removes the ads under a post and between its comments.",
+    "id": "b814e38a069021891ee45505:81",
+    "legacy_id": 36761,
+    "metadata_status": "verified",
+    "name": "Hide comment ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Remove the contact sync promotion from the friends screen.",
+    "id": "b814e38a069021891ee45505:82",
+    "legacy_id": 36762,
+    "metadata_status": "verified",
+    "name": "Hide contact sync prompt",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Removes cards shown over the video at the end of playback.",
+    "id": "b814e38a069021891ee45505:83",
+    "legacy_id": 36763,
+    "metadata_status": "verified",
+    "name": "Hide end screen cards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Removes the suggested video shown at the end of playback.",
+    "id": "b814e38a069021891ee45505:84",
+    "legacy_id": 36764,
+    "metadata_status": "verified",
+    "name": "Hide end-screen suggested video",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Hides like, comment, share and repost counts beside the feed action buttons.",
+    "id": "b814e38a069021891ee45505:85",
+    "legacy_id": 36765,
+    "metadata_status": "verified",
+    "name": "Hide engagement counts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Removes promoted posts from feeds and search results.",
+    "id": "b814e38a069021891ee45505:86",
+    "legacy_id": 36766,
+    "metadata_status": "verified",
+    "name": "Hide feed ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Removes Trending, carousels, promos, surveys, nudges and other units Reddit injects into feeds and posts.",
+    "id": "b814e38a069021891ee45505:87",
+    "legacy_id": 36767,
+    "metadata_status": "verified",
+    "name": "Hide feed units",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Remove the gift button from the message box.",
+    "id": "b814e38a069021891ee45505:88",
+    "legacy_id": 36768,
+    "metadata_status": "verified",
+    "name": "Hide gift button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Hide gift redemption cards in messages.",
+    "id": "b814e38a069021891ee45505:89",
+    "legacy_id": 36769,
+    "metadata_status": "verified",
+    "name": "Hide gift cards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Remove the Nitro recipient limit promotion from group chats.",
+    "id": "b814e38a069021891ee45505:90",
+    "legacy_id": 36770,
+    "metadata_status": "verified",
+    "name": "Hide group chat promotion",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings",
+      "reseam-patches/app.reseam.patches.youtubecommon.lithoFilter"
+    ],
+    "description": "Removes information cards shown over videos.",
+    "id": "b814e38a069021891ee45505:91",
+    "legacy_id": 36771,
+    "metadata_status": "verified",
+    "name": "Hide info cards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.37.42"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubecommon.lithoFilter",
+      "reseam-patches/app.reseam.patches.youtube.internal.engagementPanelHook",
+      "reseam-patches/app.reseam.patches.youtube.internal.navigationBarHook",
+      "reseam-patches/app.reseam.patches.youtube.core.youTubeSettings"
+    ],
+    "description": "Adds options to hide feed, player, description, comment and channel components.",
+    "id": "b814e38a069021891ee45505:92",
+    "legacy_id": 36772,
+    "metadata_status": "verified",
+    "name": "Hide layout components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.37.42"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubecommon.lithoFilter",
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Adds options to hide the Speed dial shelf and parts of the player.",
+    "id": "b814e38a069021891ee45505:93",
+    "legacy_id": 36773,
+    "metadata_status": "verified",
+    "name": "Hide layout components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Hide message preview cards while keeping text links, attachments and emoji or sticker images.",
+    "id": "b814e38a069021891ee45505:94",
+    "legacy_id": 36774,
+    "metadata_status": "verified",
+    "name": "Hide link cards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.x.featureswitches.featureSwitchOverrides",
+      "reseam-patches/app.reseam.patches.x.core.xSettings"
+    ],
+    "description": "Removes the Live bar of Spaces and broadcasts above Home, and can hide the live rings on avatars.",
+    "id": "b814e38a069021891ee45505:95",
+    "legacy_id": 36775,
+    "metadata_status": "verified",
+    "name": "Hide Live bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.40.51"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.youtubecommon.lithoFilter",
+      "reseam-patches/app.reseam.patches.youtubemusic.core.youTubeMusicSettings"
+    ],
+    "description": "Adds options to hide items from the long-press and three-dot menus.",
+    "id": "b814e38a069021891ee45505:96",
+    "legacy_id": 36776,
+    "metadata_status": "verified",
+    "name": "Hide menu items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.40.51"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Removes Meta AI from Explore search, DMs and the post menu.",
+    "id": "b814e38a069021891ee45505:97",
+    "legacy_id": 36777,
+    "metadata_status": "verified",
+    "name": "Hide Meta AI",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hides that the location comes from a mock location app.",
+    "id": "b814e38a069021891ee45505:98",
+    "legacy_id": 36778,
+    "metadata_status": "verified",
+    "name": "Hide mock location",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": false
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.instagram.core.signatureCheck",
+      "reseam-patches/app.reseam.patches.instagram.core.instagramSettings"
+    ],
+    "description": "Removes the Reels or Create tab from the bottom bar.",
+    "id": "b814e38a069021891ee45505:99",
+    "legacy_id": 36779,
+    "metadata_status": "verified",
+    "name": "Hide navigation tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.reddit.core.redditSettings"
+    ],
+    "description": "Removes the Create or Inbox tab from the bottom bar.",
+    "id": "b814e38a069021891ee45505:100",
+    "legacy_id": 36780,
+    "metadata_status": "verified",
+    "name": "Hide navigation tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.discord": [
+        "347.12 - Stable"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.discord.core.discordSettings"
+    ],
+    "description": "Remove small Nitro promotion buttons from feature screens.",
+    "id": "b814e38a069021891ee45505:101",
+    "legacy_id": 36781,
+    "metadata_status": "verified",
+    "name": "Hide Nitro buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Discord - Talk, Play, Hang Out",
+        "icon_url": "https://play-lh.googleusercontent.com/w2DdjDHGSj3DQElQQM0_J3PsNsALS-WD3CBeH0aXOYceR-F3aT02gFonhoFzz-Tc9ec8Dx9cLqh48-tzIFcP",
+        "name": "com.discord",
+        "versions": [
+          "347.12 - Stable"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  },
+  {
+    "bundle_id": "b814e38a069021891ee45505",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.x.featureswitches.featureSwitchOverrides",
+      "reseam-patches/app.reseam.patches.x.core.xSettings"
+    ],
+    "description": "Stops the full-screen prompt, the dialog, and the banner asking to turn on notifications.",
+    "id": "b814e38a069021891ee45505:102",
+    "legacy_id": 36782,
+    "metadata_status": "verified",
+    "name": "Hide notification prompts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.22.0",
+    "source_id": "e7c4ab5655342b05",
+    "use": true
+  }
+]
