@@ -5,7 +5,7 @@ import re
 import shutil
 
 MAX_SNAPSHOT_GENERATIONS = 8
-MAX_SNAPSHOT_BYTES = 512 * 1024 * 1024
+MAX_SNAPSHOT_BYTES = 3 * 1024 * 1024 * 1024
 SNAPSHOT_PATTERN = re.compile(r"snapshots/[a-f0-9]{24}")
 
 
@@ -48,7 +48,7 @@ def retention_plan(output, current, previous):
         selected.add(previous)
     total = sum(sizes[name] for name in selected)
     if total > MAX_SNAPSHOT_BYTES:
-        raise ValueError("Current and previous snapshots exceed the 512 MiB publication budget")
+        raise ValueError("Current and previous snapshots exceed the 3 GiB publication budget")
     for name in reversed(lineage):
         if name in selected:
             continue
