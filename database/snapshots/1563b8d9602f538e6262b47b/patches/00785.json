@@ -1,0 +1,3094 @@
+[
+  {
+    "bundle_id": "4af9f2e16752ff0cd628d255",
+    "compatiblePackages": {
+      "com.meesho.supply": [
+        "29.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sorts Meesho catalog, search and collection feeds by number of ratings (descending) and removes ad catalogs.",
+    "id": "4af9f2e16752ff0cd628d255:2",
+    "legacy_id": 81573,
+    "metadata_status": "verified",
+    "name": "Sort by number of ratings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Meesho: Online Shopping App",
+        "icon_url": "https://play-lh.googleusercontent.com/lQrsRJ7PT25f2J8n14Zp4j0695_2NIpIUEQpG6bEuljhk7oJ8q_GeA5iYgWm1DiDq0WFPBWP4iaJcXi4XPwoWCk",
+        "name": "com.meesho.supply",
+        "versions": [
+          "29.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "cd26a4bb77d706e0",
+    "use": false
+  },
+  {
+    "bundle_id": "4af9f2e16752ff0cd628d255",
+    "compatiblePackages": {
+      "com.myntra.android": [
+        "4.2609.30"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sorts Myntra search and listing results by number of ratings (descending) and removes sponsored items.",
+    "id": "4af9f2e16752ff0cd628d255:3",
+    "legacy_id": 81574,
+    "metadata_status": "verified",
+    "name": "Sort by number of ratings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Myntra - Fashion Shopping App",
+        "icon_url": "https://play-lh.googleusercontent.com/G4PzdZ4rHsX_itOqEa603UMdUmCcEgA4uvmuGJ4mSRkA8zJ8UkPGSGYptSK0yM9mmx6WlJCKEASy8WxXE8XBHg",
+        "name": "com.myntra.android",
+        "versions": [
+          "4.2609.30"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "cd26a4bb77d706e0",
+    "use": false
+  },
+  {
+    "bundle_id": "6847cf517787425d44373a26",
+    "compatiblePackages": {
+      "com.suno.android": null
+    },
+    "dependencies": [],
+    "description": "Clones Suno to a different package name, with optional app-name and launcher-icon customization. Accepts Morphe's adaptive custom-icon folder layout or a simple icon.png folder.",
+    "id": "6847cf517787425d44373a26:0",
+    "legacy_id": 81575,
+    "metadata_status": "verified",
+    "name": "Customize Suno branding",
+    "options": [
+      {
+        "default": null,
+        "description": "Optional replacement name shown by Android for the patched Suno app.",
+        "key": "customName",
+        "required": false,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "com.suno.android.morphe",
+        "description": "Android package ID for the patched Suno clone. It must differ from com.suno.android.",
+        "key": "customPackageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Optional folder containing the launcher icon.\n\nEasy layout:\n- icon.png\n\nMorphe adaptive layout:\n- mipmap-mdpi/morphe_adaptive_background_custom.png\n- mipmap-mdpi/morphe_adaptive_foreground_custom.png\n- mipmap-hdpi/morphe_adaptive_background_custom.png\n- mipmap-hdpi/morphe_adaptive_foreground_custom.png\n- mipmap-xhdpi/morphe_adaptive_background_custom.png\n- mipmap-xhdpi/morphe_adaptive_foreground_custom.png\n- mipmap-xxhdpi/morphe_adaptive_background_custom.png\n- mipmap-xxhdpi/morphe_adaptive_foreground_custom.png\n- mipmap-xxxhdpi/morphe_adaptive_background_custom.png\n- mipmap-xxxhdpi/morphe_adaptive_foreground_custom.png\n\nYou may provide only the density folders you need, but each provided density\nmust contain both the background and foreground image.",
+        "key": "customIcon",
+        "required": false,
+        "title": "Custom icon",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Suno - AI Music & Songs Maker",
+        "icon_url": "https://play-lh.googleusercontent.com/lIxYxKnQwksOzWMmNqWK3x3S5W7fDIVW9c5XWG9QF9KPHk5oZbsZcJKzWiKA-YOU7QiENwviQuyqXUkLPBaxNA",
+        "name": "com.suno.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.13.3",
+    "source_id": "aa8ef6619db865d0",
+    "use": false
+  },
+  {
+    "bundle_id": "6847cf517787425d44373a26",
+    "compatiblePackages": {
+      "com.opera.gx": null
+    },
+    "dependencies": [],
+    "description": "Adds a visible Download Mod button in Opera GX, with URL auto-detection and a Share fallback.",
+    "id": "6847cf517787425d44373a26:1",
+    "legacy_id": 81576,
+    "metadata_status": "verified",
+    "name": "Download GX mods as files",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Opera GX: Gaming Browser",
+        "icon_url": "https://play-lh.googleusercontent.com/kxXK3ADh1qi3Rtad1StlXpSRAVlvZ27qaqZ4CIHcQ4YmU3sy54GVPQ2_g-eu6kd1xrZ4E2uINJaT_Jxu04iMEoo",
+        "name": "com.opera.gx",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.13.3",
+    "source_id": "aa8ef6619db865d0",
+    "use": true
+  },
+  {
+    "bundle_id": "6847cf517787425d44373a26",
+    "compatiblePackages": {
+      "com.suno.android": null
+    },
+    "dependencies": [],
+    "description": "Adds an in-app Lyrics button and share target that exports Suno timing data as LRC, enhanced LRC, SRT, WebVTT, or JSON.",
+    "id": "6847cf517787425d44373a26:2",
+    "legacy_id": 81577,
+    "metadata_status": "verified",
+    "name": "Download timestamped lyrics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Suno - AI Music & Songs Maker",
+        "icon_url": "https://play-lh.googleusercontent.com/lIxYxKnQwksOzWMmNqWK3x3S5W7fDIVW9c5XWG9QF9KPHk5oZbsZcJKzWiKA-YOU7QiENwviQuyqXUkLPBaxNA",
+        "name": "com.suno.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.13.3",
+    "source_id": "aa8ef6619db865d0",
+    "use": true
+  },
+  {
+    "bundle_id": "6847cf517787425d44373a26",
+    "compatiblePackages": {
+      "com.opera.gx": null
+    },
+    "dependencies": [],
+    "description": "Adds a separate native selector for all 56 Opera GX launcher icons. Open it from the GX Icon Pack long-press shortcut.",
+    "id": "6847cf517787425d44373a26:3",
+    "legacy_id": 81578,
+    "metadata_status": "verified",
+    "name": "GX icon pack",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Opera GX: Gaming Browser",
+        "icon_url": "https://play-lh.googleusercontent.com/kxXK3ADh1qi3Rtad1StlXpSRAVlvZ27qaqZ4CIHcQ4YmU3sy54GVPQ2_g-eu6kd1xrZ4E2uINJaT_Jxu04iMEoo",
+        "name": "com.opera.gx",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.13.3",
+    "source_id": "aa8ef6619db865d0",
+    "use": false
+  },
+  {
+    "bundle_id": "6847cf517787425d44373a26",
+    "compatiblePackages": {
+      "com.android.chrome": null
+    },
+    "dependencies": [],
+    "description": "Adds a Chrome 150 Material You userscript manager using a Violentmonkey-derived parser, native app-menu integration, guaranteed Fork-page installation, Greasy Fork/Sleazy Fork support, publishing, and configurable app/package cloning.",
+    "id": "6847cf517787425d44373a26:4",
+    "legacy_id": 81579,
+    "metadata_status": "verified",
+    "name": "MonkeyScript userscript manager",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Chrome",
+        "icon_url": "https://play-lh.googleusercontent.com/gbkzfC3R1fXcGR4Uag1uRSN_123Tpo_KxhVZFLFCatmthFuO1bzPczUomFtxI42YYEQMJeAaZuIFVrTF58gZYg",
+        "name": "com.android.chrome",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.13.3",
+    "source_id": "aa8ef6619db865d0",
+    "use": true
+  },
+  {
+    "bundle_id": "6847cf517787425d44373a26",
+    "compatiblePackages": {
+      "com.pixilart.app": [
+        "1.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hard-disables Pixilart native banner/interstitial ads, injected web ads, and promoted/feed ad cards.",
+    "id": "6847cf517787425d44373a26:5",
+    "legacy_id": 81580,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pixilart - Make Pixel Art",
+        "icon_url": "https://play-lh.googleusercontent.com/RVfwFoANWJdA2R7Wa5APiHQur0GxA1AijoRfBZTlG_06LsAGVTl2O96ylkZfKqpyf7bXBNnmf7Ddq6kQpsYvCto",
+        "name": "com.pixilart.app",
+        "versions": [
+          "1.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.3",
+    "source_id": "aa8ef6619db865d0",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "切換新版或舊版 Access Points 選單樣式\nSwitch between the new and legacy Access Points menu styles.",
+    "id": "6ebbbfb311e3852964a02e20:0",
+    "legacy_id": 81581,
+    "metadata_status": "verified",
+    "name": "Access Points menu style",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "攔截 Gboard 的簽章白名單檢查並強制通過\nBypass Gboard signature whitelist checks and force them to pass.",
+    "id": "6ebbbfb311e3852964a02e20:1",
+    "legacy_id": 81582,
+    "metadata_status": "verified",
+    "name": "Add Gboard Signature Bypass",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用進階語音輸入（包含自動標點功能），並另外為不支援進階語音輸入的繁體中文語音啟用自動標點\nEnable Advanced Voice Typing with automatic punctuation, and separately enable automatic punctuation for Traditional Chinese voice typing, which does not support Advanced Voice Typing.",
+    "id": "6ebbbfb311e3852964a02e20:2",
+    "legacy_id": 81583,
+    "metadata_status": "verified",
+    "name": "Advanced Voice Typing",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 AI 撰寫工具，支援所有語言\nEnable AI writing tools with support for all languages.",
+    "id": "6ebbbfb311e3852964a02e20:3",
+    "legacy_id": 81584,
+    "metadata_status": "verified",
+    "name": "AI Writing Tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "變更表情符號大小\nChange emoji size.",
+    "id": "6ebbbfb311e3852964a02e20:4",
+    "legacy_id": 81585,
+    "metadata_status": "verified",
+    "name": "Change emoji size",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "自訂每個文字剪貼簿項目的最大字元數\nCustomize the maximum character count for each text clipboard item.",
+    "id": "6ebbbfb311e3852964a02e20:5",
+    "legacy_id": 81586,
+    "metadata_status": "verified",
+    "name": "Clipboard Custom Character Limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "增強剪貼簿的保留時間、數量上限、預覽行數、倒數/建立時間、順序編號與欄數\nEnhance clipboard retention time, item count limit, preview lines, countdown/creation time labels, order index, and column count.",
+    "id": "6ebbbfb311e3852964a02e20:6",
+    "legacy_id": 81587,
+    "metadata_status": "verified",
+    "name": "Clipboard Enhancements",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "在主動建議列顯示關閉按鈕\nShow a dismiss button in the proactive suggestions bar.",
+    "id": "6ebbbfb311e3852964a02e20:7",
+    "legacy_id": 81588,
+    "metadata_status": "verified",
+    "name": "Close Proactive Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "新增獨立的特殊符號分頁，長按逗號->愛心\nAdd a dedicated custom symbols tab and replace the long-press comma entry with a heart shortcut.",
+    "id": "6ebbbfb311e3852964a02e20:8",
+    "legacy_id": 81589,
+    "metadata_status": "verified",
+    "name": "Custom Symbols",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 開發人員選項 與 Flag 編輯器，你可以自己修改Flag的值\nEnable Developer options and the Flag Editor, allowing you to modify flag values.",
+    "id": "6ebbbfb311e3852964a02e20:9",
+    "legacy_id": 81590,
+    "metadata_status": "verified",
+    "name": "Developer options",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "自訂 Gboard「Emojis, stickers & GIFs」底部 tabs 的排序，支援拖曳調整\nCustomize the bottom tab order in Gboard's Emojis, stickers & GIFs panel with drag-and-drop reordering.",
+    "id": "6ebbbfb311e3852964a02e20:10",
+    "legacy_id": 81591,
+    "metadata_status": "verified",
+    "name": "Emojis, stickers & GIFs Tab Order",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用無障礙鍵盤配置\nEnable accessibility layout.",
+    "id": "6ebbbfb311e3852964a02e20:11",
+    "legacy_id": 81592,
+    "metadata_status": "verified",
+    "name": "Enable accessibility layout",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "長按空白鍵開啟游標觸控板與鎖定模式\nLong-press the space bar to use cursor trackpad and lock modes.",
+    "id": "6ebbbfb311e3852964a02e20:12",
+    "legacy_id": 81593,
+    "metadata_status": "verified",
+    "name": "Enable cursor trackpad mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用內嵌自動填入建議\nEnable Inline Autofill Suggestions",
+    "id": "6ebbbfb311e3852964a02e20:13",
+    "legacy_id": 81594,
+    "metadata_status": "verified",
+    "name": "Enable Inline Autofill Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 OCR / 掃描文字功能，支援 拉丁、中文、日文、韓文 與 天城文 辨識後端\nEnable the OCR / Scan Text feature with Latin, Chinese, Japanese, Korean, and Devanagari recognition backends.",
+    "id": "6ebbbfb311e3852964a02e20:14",
+    "legacy_id": 81595,
+    "metadata_status": "verified",
+    "name": "Enable OCR / Scan Text",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用分離式鍵盤\nEnable the split keyboard layout.",
+    "id": "6ebbbfb311e3852964a02e20:15",
+    "legacy_id": 81596,
+    "metadata_status": "verified",
+    "name": "Enable split keyboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "英文 QWERTY 鍵盤上滑大小寫\nFlick up on the English QWERTY keyboard to toggle uppercase and lowercase.",
+    "id": "6ebbbfb311e3852964a02e20:16",
+    "legacy_id": 81597,
+    "metadata_status": "verified",
+    "name": "English QWERTY Up-Flick Uppercase",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "直接從 Gboard 開啟懸浮網頁，快速搜尋需要的資訊。\nOpen a floating web page directly from Gboard to quickly search for the information you need.",
+    "id": "6ebbbfb311e3852964a02e20:17",
+    "legacy_id": 81598,
+    "metadata_status": "verified",
+    "name": "Floating Web Search",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "在空白鍵顯示 G Logo，並隱藏語言名稱\nShow the G Logo on the spacebar and hide the language label.",
+    "id": "6ebbbfb311e3852964a02e20:18",
+    "legacy_id": 81599,
+    "metadata_status": "verified",
+    "name": "G Logo on Spacebar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 修正和建議 > 文法檢查\nEnable Text correction > Grammar check.",
+    "id": "6ebbbfb311e3852964a02e20:19",
+    "legacy_id": 81600,
+    "metadata_status": "verified",
+    "name": "Grammar Checker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "持續快速輸入時顯示動畫，並支援所有鍵盤\nShow the animation during sustained fast typing with support for all keyboards.",
+    "id": "6ebbbfb311e3852964a02e20:20",
+    "legacy_id": 81601,
+    "metadata_status": "verified",
+    "name": "Hyperspeed Typing Animation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "在 Access Point 工具列新增無痕模式切換按鈕，並可設定無痕模式下是否啟用剪貼簿與語音輸入\nAdd an Incognito toggle to the Access Point toolbar and configure clipboard and voice typing availability while Incognito mode is active.",
+    "id": "6ebbbfb311e3852964a02e20:21",
+    "legacy_id": 81602,
+    "metadata_status": "verified",
+    "name": "Incognito Mode Toggle",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 修正和建議 > 智慧撰寫\nEnable Text correction > Smart Compose.",
+    "id": "6ebbbfb311e3852964a02e20:22",
+    "legacy_id": 81603,
+    "metadata_status": "verified",
+    "name": "Inline Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用圓角按鍵，主題詳情 > 按鍵形狀\nEnable Key shape in Theme details.",
+    "id": "6ebbbfb311e3852964a02e20:23",
+    "legacy_id": 81604,
+    "metadata_status": "verified",
+    "name": "Key Shape Selection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "新增英文鍵盤地球鍵忽略時間覆寫，可獨立控制輸入後切語言延遲\nAdd an independent English globe key ignore interval override for post-typing language-switch delay.",
+    "id": "6ebbbfb311e3852964a02e20:24",
+    "legacy_id": 81605,
+    "metadata_status": "verified",
+    "name": "Latin Globe Key Ignore Interval",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "在英文 QWERTY 與注音鍵盤加入全選、復原、複製、剪下、貼上與重做長按快捷鍵\nAdd Select all, Undo, Copy, Cut, Paste, and Redo long-press shortcuts to English QWERTY and Zhuyin.",
+    "id": "6ebbbfb311e3852964a02e20:25",
+    "legacy_id": 81606,
+    "metadata_status": "verified",
+    "name": "Long-Press Editing Shortcuts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "將套件名稱改成 dev.jason.com.google.android.inputmethod.latin，並可自訂 App 名稱，以便共存安裝\nRename the package to dev.jason.com.google.android.inputmethod.latin and allow a custom app name so it can be installed alongside the official Gboard.",
+    "id": "6ebbbfb311e3852964a02e20:26",
+    "legacy_id": 81607,
+    "metadata_status": "verified",
+    "name": "Package Rename",
+    "options": [
+      {
+        "default": "GboardWu",
+        "description": "",
+        "key": "app_display_name",
+        "required": true,
+        "title": "App 名稱 / App name",
+        "type": "kotlin.String",
+        "values": {
+          "Gboard": "Gboard",
+          "Gboard Dev": "Gboard Dev",
+          "Gboard Mod": "Gboard Mod",
+          "Gboard Patches": "Gboard Patches",
+          "GboardWu": "GboardWu"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用快速插入面板與工具列入口\nEnable the Quick Insert panel and toolbar access point.",
+    "id": "6ebbbfb311e3852964a02e20:27",
+    "legacy_id": 81608,
+    "metadata_status": "verified",
+    "name": "Quick Insert",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "自訂鍵盤面板哪些角落呈現圓角，並分別設定上方與下方半徑。\nCustomize which corners of the keyboard panel are rounded, and set the top and bottom radii separately.",
+    "id": "6ebbbfb311e3852964a02e20:28",
+    "legacy_id": 81609,
+    "metadata_status": "verified",
+    "name": "Rounded Keyboard Panel",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "允許切換新版或舊版 Gboard 設定頁面\nAllow switching between the new and legacy Gboard settings pages.",
+    "id": "6ebbbfb311e3852964a02e20:29",
+    "legacy_id": 81610,
+    "metadata_status": "verified",
+    "name": "Settings Homepage Override",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "滑動鍵盤第一排，在原生列與可自訂文字/JavaScript 列之間切換\nSwipe the keyboard top row to switch between the stock row and a customizable text/JavaScript row.",
+    "id": "6ebbbfb311e3852964a02e20:30",
+    "legacy_id": 81611,
+    "metadata_status": "verified",
+    "name": "Swipeable Custom Top Row",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "自訂 Gboard 頂端工具列項目數量\nCustomize the Gboard top toolbar item count.",
+    "id": "6ebbbfb311e3852964a02e20:31",
+    "legacy_id": 81612,
+    "metadata_status": "verified",
+    "name": "Top Toolbar Item Count",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "啟用 語音輸入 -> 使用藍芽麥克風\nEnable Voice typing -> Use Bluetooth microphone.",
+    "id": "6ebbbfb311e3852964a02e20:32",
+    "legacy_id": 81613,
+    "metadata_status": "verified",
+    "name": "Use Bluetooth Microphone",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "新增手機自架的 Web Clipboard，支援瀏覽器同步、配對碼與快速設定開關\nAdd the phone-hosted Web Clipboard with browser sync, pairing, and a Quick Settings Tile.",
+    "id": "6ebbbfb311e3852964a02e20:33",
+    "legacy_id": 81614,
+    "metadata_status": "verified",
+    "name": "Web Clipboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "調整注音鍵盤底排按鍵大小\nAdjust Zhuyin keyboard bottom-row key sizes.",
+    "id": "6ebbbfb311e3852964a02e20:34",
+    "legacy_id": 81615,
+    "metadata_status": "verified",
+    "name": "Zhuyin Bottom Row Key Sizes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [
+      "Zhuyin Slide Input"
+    ],
+    "description": "注音 ㄥ 上滑快速切換繁簡\nSwipe up on Zhuyin ㄥ to quickly toggle Traditional and Simplified Chinese.",
+    "id": "6ebbbfb311e3852964a02e20:35",
+    "legacy_id": 81616,
+    "metadata_status": "verified",
+    "name": "Zhuyin Quick Traditional/Simplified Toggle",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "6ebbbfb311e3852964a02e20",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.0.3.954559732-release-arm64-v8a"
+      ]
+    },
+    "dependencies": [],
+    "description": "注音鍵盤支持上下滑輸入\nEnable slide-up and slide-down input on the Zhuyin keyboard.",
+    "id": "6ebbbfb311e3852964a02e20:36",
+    "legacy_id": 81617,
+    "metadata_status": "verified",
+    "name": "Zhuyin Slide Input",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.0.3.954559732-release-arm64-v8a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.7.0-dev.1",
+    "source_id": "70111f7901243d81",
+    "use": true
+  },
+  {
+    "bundle_id": "7779f280282ab1e3ad6c7708",
+    "compatiblePackages": {
+      "com.andrewshu.android.reddit": null
+    },
+    "dependencies": [],
+    "description": "Removes AppLovin native feed ads, banner ads, and image-viewer ads from rif is fun.",
+    "id": "7779f280282ab1e3ad6c7708:0",
+    "legacy_id": 81618,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.andrewshu.android.reddit",
+        "icon_url": null,
+        "name": "com.andrewshu.android.reddit",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.8",
+    "source_id": "4fb414d6b2cd440e",
+    "use": true
+  },
+  {
+    "bundle_id": "7779f280282ab1e3ad6c7708",
+    "compatiblePackages": {
+      "com.andrewshu.android.reddit": null
+    },
+    "dependencies": [],
+    "description": "Renders direct image links in comments as embedded inline images.",
+    "id": "7779f280282ab1e3ad6c7708:1",
+    "legacy_id": 81619,
+    "metadata_status": "verified",
+    "name": "Inline comment images",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.andrewshu.android.reddit",
+        "icon_url": null,
+        "name": "com.andrewshu.android.reddit",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.0.8",
+    "source_id": "4fb414d6b2cd440e",
+    "use": true
+  },
+  {
+    "bundle_id": "7e98d99e00d4995ee958a16c",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "31.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Kizu Twitch enhancements: third-party emotes, live ad blocking, appearance controls, deleted-message display, privacy controls, Hide Stories, Go Ad-Free hiding, and patched-app compatibility.",
+    "id": "7e98d99e00d4995ee958a16c:0",
+    "legacy_id": 81620,
+    "metadata_status": "verified",
+    "name": "Twitch Enhancement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "31.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.3-beta.1.10",
+    "source_id": "6af02e4c275751fe",
+    "use": true
+  },
+  {
+    "bundle_id": "8206f74d9f50f29c025cb9f8",
+    "compatiblePackages": {
+      "com.marsvard.stickermakerforwhatsapp": [
+        "1.0.5-3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Premium features are unlocked and ads are disabled.",
+    "id": "8206f74d9f50f29c025cb9f8:0",
+    "legacy_id": 81621,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sticker maker",
+        "icon_url": "https://play-lh.googleusercontent.com/PTcO4Uf0LJzFZDp-N_5PYR0_4CuFqjm1ipAy-bUhOb-oPlzX18OSgQoSs_94gt8M_tXUslGXUKruObvbQzyR",
+        "name": "com.marsvard.stickermakerforwhatsapp",
+        "versions": [
+          "1.0.5-3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0",
+    "source_id": "b22756a818762efb",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the AD_SERVICES_CONFIG property so Android Privacy Sandbox ad APIs (Topics, Attribution Reporting, Custom Audiences) are not opted into.",
+    "id": "a3a3c698bd5485970f7158bd:0",
+    "legacy_id": 81622,
+    "metadata_status": "verified",
+    "name": "Disable Android Privacy Sandbox Ad Services",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralises the AppsFlyer attribution / tracking SDK. init() becomes a no-op and isStopped() always returns true, so no events, installs, uninstalls or attribution data are transmitted.",
+    "id": "a3a3c698bd5485970f7158bd:1",
+    "legacy_id": 81623,
+    "metadata_status": "verified",
+    "name": "Disable AppsFlyer tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Bugsnag API key metadata so the crash reporting SDK cannot initialize or upload telemetry.",
+    "id": "a3a3c698bd5485970f7158bd:2",
+    "legacy_id": 81624,
+    "metadata_status": "verified",
+    "name": "Disable Bugsnag crash tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Google Mobile Ads (AdMob) initialization metadata so the SDK never starts.",
+    "id": "a3a3c698bd5485970f7158bd:3",
+    "legacy_id": 81625,
+    "metadata_status": "verified",
+    "name": "Disable Google Ads SDK",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Google Engage broadcast receiver so Pinterest cannot publish content recommendations back to Google (Discover, Assistant, Play Store, etc.).",
+    "id": "a3a3c698bd5485970f7158bd:4",
+    "legacy_id": 81626,
+    "metadata_status": "verified",
+    "name": "Disable Google Engage integration",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Rewrites GoogleEngageWorker.createWork() to return null so WorkManager fails the periodic job and no content recommendations are ever published to Google.",
+    "id": "a3a3c698bd5485970f7158bd:5",
+    "legacy_id": 81627,
+    "metadata_status": "verified",
+    "name": "Disable Google Engage worker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Overrides every `isPromoted` getter on the Pinterest pin/story models to return false, so ad chrome, ad beacons and click-out CTAs are never rendered or fired.",
+    "id": "a3a3c698bd5485970f7158bd:6",
+    "legacy_id": 81628,
+    "metadata_status": "verified",
+    "name": "Hide promoted pins",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sets the default Google Analytics consent flags to false so the Firebase Measurement SDK does not collect analytics, ad data or personalization signals.",
+    "id": "a3a3c698bd5485970f7158bd:7",
+    "legacy_id": 81629,
+    "metadata_status": "verified",
+    "name": "Opt out of Google Analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips the com.google.android.gms.permission.AD_ID permission so any residual SDK cannot read the device's Google Advertising ID.",
+    "id": "a3a3c698bd5485970f7158bd:8",
+    "legacy_id": 81630,
+    "metadata_status": "verified",
+    "name": "Remove Advertising ID permission",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "a3a3c698bd5485970f7158bd",
+    "compatiblePackages": {
+      "com.pinterest": [
+        "14.25.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips UTM and click-ID tracking parameters from the URL the app puts on the Android share sheet, so friends receive clean pin links.",
+    "id": "a3a3c698bd5485970f7158bd:9",
+    "legacy_id": 81631,
+    "metadata_status": "verified",
+    "name": "Sanitize sharing links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": [
+          "14.25.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "480de387b20151c6",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Overrides the feed flyout 'Play next in queue' with the Morphe video queue.",
+    "id": "ac4e0d98c106c3042997dcd4:0",
+    "legacy_id": 81632,
+    "metadata_status": "verified",
+    "name": "Add to queue",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
+    "id": "ac4e0d98c106c3042997dcd4:1",
+    "legacy_id": 81633,
+    "metadata_status": "verified",
+    "name": "Alternative thumbnails",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
+    "id": "ac4e0d98c106c3042997dcd4:2",
+    "legacy_id": 81634,
+    "metadata_status": "verified",
+    "name": "Ambient mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses certificate checks which prevent YouTube Music from working on Android Auto.",
+    "id": "ac4e0d98c106c3042997dcd4:3",
+    "legacy_id": 81635,
+    "metadata_status": "verified",
+    "name": "Bypass certificate checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to use a different host for user avatar and channel images and can fix missing images that are blocked in some countries.",
+    "id": "ac4e0d98c106c3042997dcd4:4",
+    "legacy_id": 81636,
+    "metadata_status": "verified",
+    "name": "Bypass image region restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to bypass redirects and open the original link directly.",
+    "id": "ac4e0d98c106c3042997dcd4:5",
+    "legacy_id": 81637,
+    "metadata_status": "verified",
+    "name": "Bypass link redirects",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable captions from being automatically enabled or to set caption cookies.",
+    "id": "ac4e0d98c106c3042997dcd4:6",
+    "legacy_id": 81638,
+    "metadata_status": "verified",
+    "name": "Captions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to change the UI appearance to a phone, tablet, or automotive device.",
+    "id": "ac4e0d98c106c3042997dcd4:7",
+    "legacy_id": 81639,
+    "metadata_status": "verified",
+    "name": "Change form factor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to change the header logo in the top left corner of the app.",
+    "id": "ac4e0d98c106c3042997dcd4:8",
+    "legacy_id": 81640,
+    "metadata_status": "verified",
+    "name": "Change header",
+    "options": [
+      {
+        "default": null,
+        "description": "Folder with images to use as a custom header logo.\n\nThe folder must contain one or more of the following folders, depending on the DPI of the device:\n- drawable-hdpi\n- drawable-xhdpi\n- drawable-xxhdpi\n- drawable-xxxhdpi\n\nEach of the folders must contain the following file(s):\n- morphe_header_custom_dark.png\n\nRequired dimensions:\n- drawable-hdpi: 121x36 px\n- drawable-xhdpi: 160x48 px\n- drawable-xxhdpi: 240x72 px\n- drawable-xxxhdpi: 320x96 px",
+        "key": "custom",
+        "required": false,
+        "title": "Custom header logo",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to change the header logo in the top left corner of the app.",
+    "id": "ac4e0d98c106c3042997dcd4:9",
+    "legacy_id": 81641,
+    "metadata_status": "verified",
+    "name": "Change header",
+    "options": [
+      {
+        "default": null,
+        "description": "Folder with images to use as a custom header logo.\n\nThe folder must contain one or more of the following folders, depending on the DPI of the device:\n- drawable-hdpi\n- drawable-xhdpi\n- drawable-xxhdpi\n- drawable-xxxhdpi\n\nEach of the folders must contain the following file(s):\n- morphe_header_custom_light.png\n- morphe_header_custom_dark.png\n\nRequired dimensions:\n- drawable-hdpi: 194x72 px\n- drawable-xhdpi: 258x96 px\n- drawable-xxhdpi: 387x144 px\n- drawable-xxxhdpi: 512x192 px",
+        "key": "custom",
+        "required": false,
+        "title": "Custom header logo",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to change the miniplayer background color to match the fullscreen player.",
+    "id": "ac4e0d98c106c3042997dcd4:10",
+    "legacy_id": 81642,
+    "metadata_status": "verified",
+    "name": "Change miniplayer color",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".morphe\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
+    "id": "ac4e0d98c106c3042997dcd4:11",
+    "legacy_id": 81643,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update custom permissions declared by the app. Enabling this can fix installation conflicts, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation conflicts, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": false
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to set which page the app opens in instead of the homepage.",
+    "id": "ac4e0d98c106c3042997dcd4:12",
+    "legacy_id": 81644,
+    "metadata_status": "verified",
+    "name": "Change start page",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to set which page the app opens in instead of the homepage.",
+    "id": "ac4e0d98c106c3042997dcd4:13",
+    "legacy_id": 81645,
+    "metadata_status": "verified",
+    "name": "Change start page",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Checks if the device DNS server is preventing user watch history from being saved.",
+    "id": "ac4e0d98c106c3042997dcd4:14",
+    "legacy_id": 81646,
+    "metadata_status": "verified",
+    "name": "Check watch history domain name resolution",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Checks if the device DNS server is preventing user watch history from being saved.",
+    "id": "ac4e0d98c106c3042997dcd4:15",
+    "legacy_id": 81647,
+    "metadata_status": "verified",
+    "name": "Check watch history domain name resolution",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to display buttons in the video player to copy video links.",
+    "id": "ac4e0d98c106c3042997dcd4:16",
+    "legacy_id": 81648,
+    "metadata_status": "verified",
+    "name": "Copy video link",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a true dual-player crossfade between consecutive tracks. Requires YouTube Music 9.00 or newer; on older versions the patch is a no-op.",
+    "id": "ac4e0d98c106c3042997dcd4:17",
+    "legacy_id": 81649,
+    "metadata_status": "verified",
+    "name": "Crossfade",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to change the app icon and app name. Branding cannot be changed for mounted (root) installations.",
+    "id": "ac4e0d98c106c3042997dcd4:18",
+    "legacy_id": 81650,
+    "metadata_status": "verified",
+    "name": "Custom branding",
+    "options": [
+      {
+        "default": null,
+        "description": "Custom app name.",
+        "key": "customName",
+        "required": false,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Folder with images to use as a custom icon.\n\nThe folder must contain one or more of the following folders, depending on the DPI of the device:\n- mipmap-mdpi\n- mipmap-hdpi\n- mipmap-xhdpi\n- mipmap-xxhdpi\n- mipmap-xxxhdpi\n\nEach of the folders must contain all of the following files:\nmorphe_adaptive_background_custom.png\nmorphe_adaptive_foreground_custom.png\n\nThe image dimensions must be as follows:\n- mipmap-mdpi: 108x108 px\n- mipmap-hdpi: 162x162 px\n- mipmap-xhdpi: 216x216 px\n- mipmap-xxhdpi: 324x324 px\n- mipmap-xxxhdpi: 432x432 px\n\nOptionally, the path contains a 'drawable' folder with a monochrome icon file:\nmorphe_adaptive_monochrome_custom.xml\n\nOptionally, the path contains a notification icon in one of the following formats:\n- XML vector drawable placed in 'drawable':\nmorphe_notification_icon_custom.xml\n- PNG raster images placed in the matching 'drawable-<dpi>' folders:\n- drawable-mdpi/morphe_notification_icon_custom.png (24x24 px)\n- drawable-hdpi/morphe_notification_icon_custom.png (36x36 px)\n- drawable-xhdpi/morphe_notification_icon_custom.png (48x48 px)\n- drawable-xxhdpi/morphe_notification_icon_custom.png (72x72 px)\n- drawable-xxxhdpi/morphe_notification_icon_custom.png (96x96 px)",
+        "key": "customIcon",
+        "required": false,
+        "title": "Custom icon",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to change the app icon and app name. Branding cannot be changed for mounted (root) installations.",
+    "id": "ac4e0d98c106c3042997dcd4:19",
+    "legacy_id": 81651,
+    "metadata_status": "verified",
+    "name": "Custom branding",
+    "options": [
+      {
+        "default": null,
+        "description": "Custom app name.",
+        "key": "customName",
+        "required": false,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Folder with images to use as a custom icon.\n\nThe folder must contain one or more of the following folders, depending on the DPI of the device:\n- mipmap-mdpi\n- mipmap-hdpi\n- mipmap-xhdpi\n- mipmap-xxhdpi\n- mipmap-xxxhdpi\n\nEach of the folders must contain all of the following files:\nmorphe_adaptive_background_custom.png\nmorphe_adaptive_foreground_custom.png\n\nThe image dimensions must be as follows:\n- mipmap-mdpi: 108x108 px\n- mipmap-hdpi: 162x162 px\n- mipmap-xhdpi: 216x216 px\n- mipmap-xxhdpi: 324x324 px\n- mipmap-xxxhdpi: 432x432 px\n\nOptionally, the path contains a 'drawable' folder with a monochrome icon file:\nmorphe_adaptive_monochrome_custom.xml\n\nOptionally, the path contains a notification icon in one of the following formats:\n- XML vector drawable placed in 'drawable':\nmorphe_notification_icon_custom.xml\n- PNG raster images placed in the matching 'drawable-<dpi>' folders:\n- drawable-mdpi/morphe_notification_icon_custom.png (24x24 px)\n- drawable-hdpi/morphe_notification_icon_custom.png (36x36 px)\n- drawable-xhdpi/morphe_notification_icon_custom.png (48x48 px)\n- drawable-xxhdpi/morphe_notification_icon_custom.png (72x72 px)\n- drawable-xxxhdpi/morphe_notification_icon_custom.png (96x96 px)",
+        "key": "customIcon",
+        "required": false,
+        "title": "Custom icon",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.14.0",
+        "2026.04.0"
+      ]
+    },
+    "dependencies": [
+      "Spoof signature"
+    ],
+    "description": "Changes the Reddit app name to the name specified in patch options.",
+    "id": "ac4e0d98c106c3042997dcd4:20",
+    "legacy_id": 81652,
+    "metadata_status": "verified",
+    "name": "Custom branding name for Reddit",
+    "options": [
+      {
+        "default": "Reddit Morphe",
+        "description": "The name of the app.",
+        "key": "appName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Reddit Morphe"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.14.0",
+          "2026.04.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": false
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.14.0",
+        "2026.04.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to replace Reddit Sans / Roboto with a custom TTF or OTF font file at runtime.",
+    "id": "ac4e0d98c106c3042997dcd4:21",
+    "legacy_id": 81653,
+    "metadata_status": "verified",
+    "name": "Custom font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.14.0",
+          "2026.04.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to change the opacity of the video player background when player controls are visible.",
+    "id": "ac4e0d98c106c3042997dcd4:22",
+    "legacy_id": 81654,
+    "metadata_status": "verified",
+    "name": "Custom player overlay opacity",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to prevent skipping to the next track when the dislike button is pressed.",
+    "id": "ac4e0d98c106c3042997dcd4:23",
+    "legacy_id": 81655,
+    "metadata_status": "verified",
+    "name": "Disable dislike redirection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable player double tap gestures.",
+    "id": "ac4e0d98c106c3042997dcd4:24",
+    "legacy_id": 81656,
+    "metadata_status": "verified",
+    "name": "Disable double tap actions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable DRC (Dynamic Range Compression) audio.",
+    "id": "ac4e0d98c106c3042997dcd4:25",
+    "legacy_id": 81657,
+    "metadata_status": "verified",
+    "name": "Disable DRC audio",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable DRC (Dynamic Range Compression) audio.",
+    "id": "ac4e0d98c106c3042997dcd4:26",
+    "legacy_id": 81658,
+    "metadata_status": "verified",
+    "name": "Disable DRC audio",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to selectively disable gestures for entering and exiting fullscreen mode.",
+    "id": "ac4e0d98c106c3042997dcd4:27",
+    "legacy_id": 81659,
+    "metadata_status": "verified",
+    "name": "Disable fullscreen gestures",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable haptic feedback in the player for various actions.",
+    "id": "ac4e0d98c106c3042997dcd4:28",
+    "legacy_id": 81660,
+    "metadata_status": "verified",
+    "name": "Disable haptic feedback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable server side layout updates and use an older UI.",
+    "id": "ac4e0d98c106c3042997dcd4:29",
+    "legacy_id": 81661,
+    "metadata_status": "verified",
+    "name": "Disable layout updates",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.14.0",
+        "2026.04.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable the modern home UI. This patch works with Reddit 2026.24.0 and earlier.",
+    "id": "ac4e0d98c106c3042997dcd4:30",
+    "legacy_id": 81662,
+    "metadata_status": "verified",
+    "name": "Disable modern home",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.14.0",
+          "2026.04.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables Play Store updates by setting the version code to the maximum allowed. This patch does not work if the app is installed by mounting and may cause unexpected issues with some apps.",
+    "id": "ac4e0d98c106c3042997dcd4:31",
+    "legacy_id": 81663,
+    "metadata_status": "verified",
+    "name": "Disable Play Store updates",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": false
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable panels (such as live chat) from opening automatically.",
+    "id": "ac4e0d98c106c3042997dcd4:32",
+    "legacy_id": 81664,
+    "metadata_status": "verified",
+    "name": "Disable player popup panels",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "9.15.51",
+        "8.51.51",
+        "7.29.52"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable QUIC (Quick UDP Internet Connections) network protocol.",
+    "id": "ac4e0d98c106c3042997dcd4:33",
+    "legacy_id": 81665,
+    "metadata_status": "verified",
+    "name": "Disable QUIC protocol",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": [
+          "9.15.51",
+          "8.51.51",
+          "7.29.52"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable QUIC (Quick UDP Internet Connections) network protocol.",
+    "id": "ac4e0d98c106c3042997dcd4:34",
+    "legacy_id": 81666,
+    "metadata_status": "verified",
+    "name": "Disable QUIC protocol",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable rolling number animations of video view count, user likes, and upload time.",
+    "id": "ac4e0d98c106c3042997dcd4:35",
+    "legacy_id": 81667,
+    "metadata_status": "verified",
+    "name": "Disable rolling number animations",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.14.0",
+        "2026.04.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable the popup that appears when taking a screenshot.",
+    "id": "ac4e0d98c106c3042997dcd4:36",
+    "legacy_id": 81668,
+    "metadata_status": "verified",
+    "name": "Disable screenshot popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.14.0",
+          "2026.04.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable Shorts from resuming on app startup when Shorts were last being watched.",
+    "id": "ac4e0d98c106c3042997dcd4:37",
+    "legacy_id": 81669,
+    "metadata_status": "verified",
+    "name": "Disable Shorts resuming on startup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable the popup asking to sign into a TV on the same local network.",
+    "id": "ac4e0d98c106c3042997dcd4:38",
+    "legacy_id": 81670,
+    "metadata_status": "verified",
+    "name": "Disable sign in to TV popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to disable HDR and VP9 codecs.",
+    "id": "ac4e0d98c106c3042997dcd4:39",
+    "legacy_id": 81671,
+    "metadata_status": "verified",
+    "name": "Disable video codecs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  },
+  {
+    "bundle_id": "ac4e0d98c106c3042997dcd4",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "21.04.223",
+        "20.51.39",
+        "20.31.42",
+        "20.21.37"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds additional double-tap to seek values to the YouTube settings menu.",
+    "id": "ac4e0d98c106c3042997dcd4:40",
+    "legacy_id": 81672,
+    "metadata_status": "verified",
+    "name": "Double tap to seek",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "21.04.223",
+          "20.51.39",
+          "20.31.42",
+          "20.21.37"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.36.0",
+    "source_id": "a142ee96279807e2",
+    "use": true
+  }
+]
