@@ -1,0 +1,2950 @@
+[
+  {
+    "bundle_id": "f3ffce694fa38393cce8752d",
+    "compatiblePackages": {
+      "com.sauzask.nicoid": [
+        "6.49"
+      ]
+    },
+    "dependencies": [],
+    "description": "Morphe patch for nicoid. Supports the current NicoNico video service, dark mode, and Android 16, with additional feature improvements.",
+    "id": "f3ffce694fa38393cce8752d:0",
+    "legacy_id": 90218,
+    "metadata_status": "verified",
+    "name": "nicoid Re",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.sauzask.nicoid",
+        "icon_url": null,
+        "name": "com.sauzask.nicoid",
+        "versions": [
+          "6.49"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.3",
+    "source_id": "39a7769dab96ea9f",
+    "use": true
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Always opens Gboard in incognito mode to disable typing history collection and personalization.",
+    "id": "090d00f1224d7e98ffaea564:0",
+    "legacy_id": 90219,
+    "metadata_status": "verified",
+    "name": "Always-incognito mode for Gboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Applies workaround for patcher to fix missing or unsupported resources. This only applies to versions 14.1.x.x and later.",
+    "id": "090d00f1224d7e98ffaea564:1",
+    "legacy_id": 90220,
+    "metadata_status": "verified",
+    "name": "Apply workaround",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": true
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Blocks ads, trackers, analytics, and unwanted content in apps and games using a hosts file.",
+    "id": "090d00f1224d7e98ffaea564:2",
+    "legacy_id": 90221,
+    "metadata_status": "verified",
+    "name": "Block ads, trackers, and analytics",
+    "options": [
+      {
+        "default": null,
+        "description": "The hosts file containing hosts or domains you want to block, one per line.",
+        "name": "hosts",
+        "required": true,
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "0.0.0.0",
+        "description": "The IP address to redirect blocked domains to. This will be used with your hosts list to block content.",
+        "name": "redirectionIp",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Default": "0.0.0.0",
+          "localhost": "127.0.0.1"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Bypasses the signature verification checks when the app starts up. It is recommended to use the unmodified app to work properly.",
+    "id": "090d00f1224d7e98ffaea564:3",
+    "legacy_id": 90222,
+    "metadata_status": "verified",
+    "name": "Bypass signature verification checks",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The package name of the app, if modified. This must match the package name defined when the 'Change package name' patch is selected or as defined in the AndroidManifest.xml.",
+        "name": "packageName",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": "Default",
+        "description": "The base64-encoded signature from the original, unmodified APK. This extracts the certificate/signature in the APK by default.",
+        "name": "signature",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".revanced\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
+    "id": "090d00f1224d7e98ffaea564:4",
+    "legacy_id": 90223,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "name": "packageName",
+        "required": true,
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "name": "updatePermissions",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update other permissions declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "name": "updateOtherPermissions",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update content provider URI authorities. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "name": "updateProviders",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Deactivates Firebase Analytics and removes its associated broadcast receivers and services.",
+    "id": "090d00f1224d7e98ffaea564:5",
+    "legacy_id": 90224,
+    "metadata_status": "verified",
+    "name": "Deactivate Firebase Analytics",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Deactivates the collection of performance data on app start up time, network requests, and other related metrics.",
+    "id": "090d00f1224d7e98ffaea564:6",
+    "legacy_id": 90225,
+    "metadata_status": "verified",
+    "name": "Deactivate Firebase Performance Monitoring",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables the Google Safe Browsing checks in WebView. This doesn't apply to WebView within the SDK Runtime.",
+    "id": "090d00f1224d7e98ffaea564:7",
+    "legacy_id": 90226,
+    "metadata_status": "verified",
+    "name": "Disable Google Safe Browsing in WebView",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables the collection of diagnostic data or usage statistics that are uploaded to Google.",
+    "id": "090d00f1224d7e98ffaea564:8",
+    "legacy_id": 90227,
+    "metadata_status": "verified",
+    "name": "Disable metrics collection in WebView",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables banner, interstitial, and other ad formats.",
+    "id": "090d00f1224d7e98ffaea564:9",
+    "legacy_id": 90228,
+    "metadata_status": "verified",
+    "name": "Disable mobile ads",
+    "options": [
+      {
+        "default": true,
+        "description": "Disable App Open, Banner & MREC, Interstitial, Native, and Rewarded ad formats.",
+        "name": "disableAppLovinMax",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Native, Interstitial, Pop-up, Rewarded, and Splash ad formats.",
+        "name": "disableBigo",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, Rewarded Interstitial, and App Open ad formats.",
+        "name": "disableGoogleAdMob",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Medium rectangle, Interstitial, Native, Native Banner, Rewarded Video, and Rewarded Interstitial ad formats.",
+        "name": "disableMetaAudienceNetwork",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Rewarded Video, Native, and Splash ad formats.",
+        "name": "disableMintegral",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Rewarded, Native, Native Banner, In-Stream Video and Audio, and Carousel ad formats.",
+        "name": "disableMyTarget",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded Video, and App Open ad formats.",
+        "name": "disablePangle",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, and App Open ad formats.",
+        "name": "disableTopOn",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, and Rewarded Video ad formats.",
+        "name": "disableUnity",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, and App Open ad formats.",
+        "name": "disableVungle",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, App Open, InStream, and Feed ad formats.",
+        "name": "disableYandex",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Disables the banner that shows up after taking a screenshot.",
+    "id": "090d00f1224d7e98ffaea564:10",
+    "legacy_id": 90229,
+    "metadata_status": "verified",
+    "name": "Disable screenshot banner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": true
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables OCR feature to extract text from images and insert it into text fields.",
+    "id": "090d00f1224d7e98ffaea564:11",
+    "legacy_id": 90230,
+    "metadata_status": "verified",
+    "name": "Enable OCR feature for Gboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables undo feature to quickly undo or correct typing mistakes.",
+    "id": "090d00f1224d7e98ffaea564:12",
+    "legacy_id": 90231,
+    "metadata_status": "verified",
+    "name": "Enable Undo feature for Gboard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Hides the share count on Reddit posts.",
+    "id": "090d00f1224d7e98ffaea564:13",
+    "legacy_id": 90232,
+    "metadata_status": "verified",
+    "name": "Hide share count",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Hides the scores on Reddit posts and comments.",
+    "id": "090d00f1224d7e98ffaea564:14",
+    "legacy_id": 90233,
+    "metadata_status": "verified",
+    "name": "Hide upvote scores",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes scores from posts in feeds and search results.",
+        "name": "hidePostScores",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes scores from comments in threads and search results.",
+        "name": "hideCommentScores",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Removes ads and telemetry from Home, Popular, Watch, Latest, All, Custom feeds, Search, and Subreddits, including comments.",
+    "id": "090d00f1224d7e98ffaea564:15",
+    "legacy_id": 90234,
+    "metadata_status": "verified",
+    "name": "Remove ads and telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": true
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes unnecessary internet permission from apps that can still work without internet access.",
+    "id": "090d00f1224d7e98ffaea564:16",
+    "legacy_id": 90235,
+    "metadata_status": "verified",
+    "name": "Remove internet permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Unshortens and removes the tracking query parameters from shared links.",
+    "id": "090d00f1224d7e98ffaea564:17",
+    "legacy_id": 90236,
+    "metadata_status": "verified",
+    "name": "Sanitize share links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": true
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the device's advertising ID with a string of zeros.",
+    "id": "090d00f1224d7e98ffaea564:18",
+    "legacy_id": 90237,
+    "metadata_status": "verified",
+    "name": "Spoof Advertising ID",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "090d00f1224d7e98ffaea564",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Toggles Gboard feature flags to enable or disable experimental or hidden features",
+    "id": "090d00f1224d7e98ffaea564:19",
+    "legacy_id": 90238,
+    "metadata_status": "verified",
+    "name": "Toggle feature flags",
+    "options": [
+      {
+        "default": null,
+        "description": "The Gboard feature flags to toggle, such as experimental or hidden features.",
+        "name": "featureFlags",
+        "required": true,
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enables or disables all specified feature flags.",
+        "name": "enableFlags",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v4.4.0",
+    "source_id": "2ba9f498b1b07381",
+    "use": false
+  },
+  {
+    "bundle_id": "13a2fc0deb0c7410c3caf19c",
+    "compatiblePackages": {
+      "de.komoot.android": [
+        "2024.29.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock weather forecasting and multi-days planning (not possible to save a multi-day tour, however)",
+    "id": "13a2fc0deb0c7410c3caf19c:0",
+    "legacy_id": 90239,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "komoot - hike, bike & run",
+        "icon_url": "https://play-lh.googleusercontent.com/IyQKMI6etTvtjEv6pSzQ4TnTlfKWbwT39vQMO4vpBlzQJfGKdA9zZ38sOXtt0yuZbwJBdKoP_RNPZnQiTuaceg",
+        "name": "de.komoot.android",
+        "versions": [
+          "2024.29.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.1",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "13a2fc0deb0c7410c3caf19c",
+    "compatiblePackages": {
+      "com.hevy": [
+        "2.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks PRO Subscription.",
+    "id": "13a2fc0deb0c7410c3caf19c:1",
+    "legacy_id": 90240,
+    "metadata_status": "verified",
+    "name": "Unlock PRO",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "2.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.1",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "13a2fc0deb0c7410c3caf19c",
+    "compatiblePackages": {
+      "com.calistree.calistree": [
+        "4.17.8"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "13a2fc0deb0c7410c3caf19c:2",
+    "legacy_id": 90241,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Calistree: home & gym workouts",
+        "icon_url": "https://play-lh.googleusercontent.com/Zc4WM6AmvTaeCR9F6uVFHrUBEAcZFwFebhAem6x7YLq0HfHhPqmFxfl8klJ-AVf_48G5hggSg--s7kC4o-cLdJU",
+        "name": "com.calistree.calistree",
+        "versions": [
+          "4.17.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.1",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "13a2fc0deb0c7410c3caf19c",
+    "compatiblePackages": {
+      "de.komoot.android": [
+        "2024.29.3"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "13a2fc0deb0c7410c3caf19c:3",
+    "legacy_id": 90242,
+    "metadata_status": "verified",
+    "name": "Unlock the routing and the maps download",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "komoot - hike, bike & run",
+        "icon_url": "https://play-lh.googleusercontent.com/IyQKMI6etTvtjEv6pSzQ4TnTlfKWbwT39vQMO4vpBlzQJfGKdA9zZ38sOXtt0yuZbwJBdKoP_RNPZnQiTuaceg",
+        "name": "de.komoot.android",
+        "versions": [
+          "2024.29.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.1",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a debug option to browse the tweet object in NewX post menus.",
+    "id": "182162ca40457f73d19beb06:0",
+    "legacy_id": 90243,
+    "metadata_status": "verified",
+    "name": "NewX: Browse tweet object",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": false
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lays out post action bars with the spacing NewX used before 12.28.0-alpha.04: counted actions share the row width and icon-only actions keep their intrinsic size, so hiding an action never leaves a gap.",
+    "id": "182162ca40457f73d19beb06:1",
+    "legacy_id": 90244,
+    "metadata_status": "verified",
+    "name": "NewX: Classic inline action spacing",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes the package name and the app name. This allows you to install the patched X alongside the original X or other patched X.",
+    "id": "182162ca40457f73d19beb06:2",
+    "legacy_id": 90245,
+    "metadata_status": "verified",
+    "name": "NewX: Clone",
+    "options": [
+      {
+        "default": "com.twitter.android.piko",
+        "description": "A new package name for the patched app.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "X Piko",
+        "description": "A new app name (label). Entering \"X\" will skip changing the app name.",
+        "key": "appName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": false
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Saves crash logs and shows a notification with share and copy actions.",
+    "id": "182162ca40457f73d19beb06:3",
+    "legacy_id": 90246,
+    "metadata_status": "verified",
+    "name": "NewX: Crash logs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customise font style",
+    "id": "182162ca40457f73d19beb06:4",
+    "legacy_id": 90247,
+    "metadata_status": "verified",
+    "name": "NewX: Custom font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows for using domains like fxtwitter when sharing tweets/posts.",
+    "id": "182162ca40457f73d19beb06:5",
+    "legacy_id": 90248,
+    "metadata_status": "verified",
+    "name": "NewX: Custom sharing domain",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "NewX: Resolve drawer resource names"
+    ],
+    "description": "Lets you hide selected items from the NewX navigation drawer, and optionally add Messages and Grok shortcuts.",
+    "id": "182162ca40457f73d19beb06:6",
+    "legacy_id": 90249,
+    "metadata_status": "verified",
+    "name": "NewX: Customize drawer items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets you hide selected actions from NewX post action bars.",
+    "id": "182162ca40457f73d19beb06:7",
+    "legacy_id": 90250,
+    "metadata_status": "verified",
+    "name": "NewX: Customize inline actions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets you hide selected items from the NewX photo and video long-press menu.",
+    "id": "182162ca40457f73d19beb06:8",
+    "legacy_id": 90251,
+    "metadata_status": "verified",
+    "name": "NewX: Customize media menu items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reorder, hide, and replace NewX bottom navigation bar items.",
+    "id": "182162ca40457f73d19beb06:9",
+    "legacy_id": 90252,
+    "metadata_status": "verified",
+    "name": "NewX: Customize navigation bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets you hide selected items from the NewX post menu.",
+    "id": "182162ca40457f73d19beb06:10",
+    "legacy_id": 90253,
+    "metadata_status": "verified",
+    "name": "NewX: Customize post menu items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reorder and hide the tabs shown on profile screens.",
+    "id": "182162ca40457f73d19beb06:11",
+    "legacy_id": 90254,
+    "metadata_status": "verified",
+    "name": "NewX: Customize profile tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets you hide the For You or Following tab from the NewX home timeline.",
+    "id": "182162ca40457f73d19beb06:12",
+    "legacy_id": 90255,
+    "metadata_status": "verified",
+    "name": "NewX: Customize timeline tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents automatic timeline jumps on startup and foregrounding.",
+    "id": "182162ca40457f73d19beb06:13",
+    "legacy_id": 90256,
+    "metadata_status": "verified",
+    "name": "NewX: Disable automatic timeline refresh",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Haze blur in NewX Compose UI while preserving configured fallback tint and scrim effects.",
+    "id": "182162ca40457f73d19beb06:14",
+    "legacy_id": 90257,
+    "metadata_status": "verified",
+    "name": "NewX: Disable blur effects",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables vertical swipes in the NewX video player while keeping playback controls and other gestures available.",
+    "id": "182162ca40457f73d19beb06:15",
+    "legacy_id": 90258,
+    "metadata_status": "verified",
+    "name": "NewX: Disable video player scrolling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds searchable, typed NewX feature switch overrides.",
+    "id": "182162ca40457f73d19beb06:16",
+    "legacy_id": 90259,
+    "metadata_status": "verified",
+    "name": "NewX: Feature switch overrides",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restricts the NewX For You timeline to selected topics.",
+    "id": "182162ca40457f73d19beb06:17",
+    "legacy_id": 90260,
+    "metadata_status": "verified",
+    "name": "NewX: Filter For You by topic",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Filters NewX posts using user-defined words and phrases.",
+    "id": "182162ca40457f73d19beb06:18",
+    "legacy_id": 90261,
+    "metadata_status": "verified",
+    "name": "NewX: Filter posts by keyword",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces video playback to always select the highest available video and audio stream quality without adaptive quality downscaling or network bitrate caps.",
+    "id": "182162ca40457f73d19beb06:19",
+    "legacy_id": 90262,
+    "metadata_status": "verified",
+    "name": "NewX: Force highest video/audio quality",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "NewX: Set default media tab"
+    ],
+    "description": "Replaces the profile Photos timeline with a three-column media gallery.",
+    "id": "182162ca40457f73d19beb06:20",
+    "legacy_id": 90263,
+    "metadata_status": "verified",
+    "name": "NewX: Gallery profile Photos tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides selected AI-generated posts from NewX timelines.",
+    "id": "182162ca40457f73d19beb06:21",
+    "legacy_id": 90264,
+    "metadata_status": "verified",
+    "name": "NewX: Hide AI-generated posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the compose button from NewX timelines.",
+    "id": "182162ca40457f73d19beb06:22",
+    "legacy_id": 90265,
+    "metadata_status": "verified",
+    "name": "NewX: Hide compose button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Discover more module from post-detail timelines.",
+    "id": "182162ca40457f73d19beb06:23",
+    "legacy_id": 90266,
+    "metadata_status": "verified",
+    "name": "NewX: Hide Discover more",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the new posts pill in NewX timelines.",
+    "id": "182162ca40457f73d19beb06:24",
+    "legacy_id": 90267,
+    "metadata_status": "verified",
+    "name": "NewX: Hide new posts pill",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes post and reply dividers shown in NewX timelines.",
+    "id": "182162ca40457f73d19beb06:25",
+    "legacy_id": 90268,
+    "metadata_status": "verified",
+    "name": "NewX: Hide post dividers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": false
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the persistent post-detail reply bar while keeping the compose button available.",
+    "id": "182162ca40457f73d19beb06:26",
+    "legacy_id": 90269,
+    "metadata_status": "verified",
+    "name": "NewX: Hide post reply bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides posts and replies authored by selected timeline-reported verification types.",
+    "id": "182162ca40457f73d19beb06:27",
+    "legacy_id": 90270,
+    "metadata_status": "verified",
+    "name": "NewX: Hide posts by verified account type",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the premium upsell chip from the NewX home top bar.",
+    "id": "182162ca40457f73d19beb06:28",
+    "legacy_id": 90271,
+    "metadata_status": "verified",
+    "name": "NewX: Hide premium upsell",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Spaces bar above NewX timelines.",
+    "id": "182162ca40457f73d19beb06:29",
+    "legacy_id": 90272,
+    "metadata_status": "verified",
+    "name": "NewX: Hide Spaces bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the For You and Following tabs bar from NewX home timelines, with an option to hide the add-tab (+) button.",
+    "id": "182162ca40457f73d19beb06:30",
+    "legacy_id": 90273,
+    "metadata_status": "verified",
+    "name": "NewX: Hide timeline tabs bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides recommended-user sections (\"Who to follow\") from NewX timelines and profile pages.",
+    "id": "182162ca40457f73d19beb06:31",
+    "legacy_id": 90274,
+    "metadata_status": "verified",
+    "name": "NewX: Hide who to follow",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "NewX: Customize inline actions"
+    ],
+    "description": "Adds a Download button below NewX posts and saves media to a folder you choose, with a customizable filename template.",
+    "id": "182162ca40457f73d19beb06:32",
+    "legacy_id": 90275,
+    "metadata_status": "verified",
+    "name": "NewX: Inline download button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens the expanded (canonical) URL directly when clicking links instead of the shortened t.co link.",
+    "id": "182162ca40457f73d19beb06:33",
+    "legacy_id": 90276,
+    "metadata_status": "verified",
+    "name": "NewX: Open canonical URLs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [
+      "NewX: Inline download button"
+    ],
+    "description": "Saves media downloaded with NewX's own download buttons into the folders chosen for the download feature, using the configured filename template.",
+    "id": "182162ca40457f73d19beb06:34",
+    "legacy_id": 90277,
+    "metadata_status": "verified",
+    "name": "NewX: Redirect downloads to chosen folder",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Filters promoted posts and modules from NewX timelines.",
+    "id": "182162ca40457f73d19beb06:35",
+    "legacy_id": 90278,
+    "metadata_status": "verified",
+    "name": "NewX: Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reopens the pinned list, topic or community tab you last viewed when the app starts.",
+    "id": "182162ca40457f73d19beb06:36",
+    "legacy_id": 90279,
+    "metadata_status": "verified",
+    "name": "NewX: Restore pinned home tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Persists supported timeline positions, then restores them after the app process restarts.",
+    "id": "182162ca40457f73d19beb06:37",
+    "legacy_id": 90280,
+    "metadata_status": "verified",
+    "name": "NewX: Restore timeline position",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bring back old Twitter icons and name",
+    "id": "182162ca40457f73d19beb06:38",
+    "legacy_id": 90281,
+    "metadata_status": "verified",
+    "name": "NewX: Restore Twitter branding",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": false
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Captures parsed NewX server errors in memory and exports them on demand.",
+    "id": "182162ca40457f73d19beb06:39",
+    "legacy_id": 90282,
+    "metadata_status": "verified",
+    "name": "NewX: Server error logging",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": false
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets you choose the default sub-tab (Photos or Videos) for the NewX profile media tab.",
+    "id": "182162ca40457f73d19beb06:40",
+    "legacy_id": 90283,
+    "metadata_status": "verified",
+    "name": "NewX: Set default media tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets you choose whether profile posts open sorted by the most recent or popular posts.",
+    "id": "182162ca40457f73d19beb06:41",
+    "legacy_id": 90284,
+    "metadata_status": "verified",
+    "name": "NewX: Set default profile post sorting",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets you choose the default reply sorting order for NewX post detail.",
+    "id": "182162ca40457f73d19beb06:42",
+    "legacy_id": 90285,
+    "metadata_status": "verified",
+    "name": "NewX: Set default reply sorting",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a rendered-image share action to NewX post menus.",
+    "id": "182162ca40457f73d19beb06:43",
+    "legacy_id": 90286,
+    "metadata_status": "verified",
+    "name": "NewX: Share post as image",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to show NewX poll results without voting.",
+    "id": "182162ca40457f73d19beb06:44",
+    "legacy_id": 90287,
+    "metadata_status": "verified",
+    "name": "NewX: Show poll results",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows sensitive media without requiring confirmation in NewX.",
+    "id": "182162ca40457f73d19beb06:45",
+    "legacy_id": 90288,
+    "metadata_status": "verified",
+    "name": "NewX: Show sensitive media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Chooses between the original NewX colors and the Material You, high-contrast, and Dim themes.",
+    "id": "182162ca40457f73d19beb06:46",
+    "legacy_id": 90289,
+    "metadata_status": "verified",
+    "name": "NewX: Theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the built-in app color selector for non-Premium users.",
+    "id": "182162ca40457f73d19beb06:47",
+    "legacy_id": 90290,
+    "metadata_status": "verified",
+    "name": "NewX: Unlock color customization",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "182162ca40457f73d19beb06",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.27.0-prod.01",
+        "12.28.0-prod.01",
+        "12.29.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks media downloads and offline video saving in NewX.",
+    "id": "182162ca40457f73d19beb06:48",
+    "legacy_id": 90291,
+    "metadata_status": "verified",
+    "name": "NewX: Unlock downloads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.27.0-prod.01",
+          "12.28.0-prod.01",
+          "12.29.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v3.53.1",
+    "source_id": "9661234b890fe73d",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.truecaller": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells.",
+    "id": "28559dd153a6a01c1a2ab5e8:0",
+    "legacy_id": 90292,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Truecaller: Spam Call Blocker",
+        "icon_url": "https://play-lh.googleusercontent.com/kVMxXC3fV4cyG56MZunYS2-HYaHh3eM3YTWoDbYaN5-G9xIU2k235hHVQmRrm79tzBSzt0cZ6GsBbzGzGbbMwg",
+        "name": "com.truecaller",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.shazam.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, sponsored artist recommendations, and Apple Music promotional upsell popups in Shazam.",
+    "id": "28559dd153a6a01c1a2ab5e8:1",
+    "legacy_id": 90293,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Clean UI - Shazam (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Shazam: Find Music & Concerts",
+        "icon_url": "https://play-lh.googleusercontent.com/Ne3g286DhSUmbg75RI5hmJLAFLPZfgIiWVOboDL8Rb08iQAAfqb7CBfwI6eU3rIvI6Kk6B9CySgMUTbh7i42_Q",
+        "name": "com.shazam.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.duolingo": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups.",
+    "id": "28559dd153a6a01c1a2ab5e8:2",
+    "legacy_id": 90294,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Declutter - Duolingo (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.canva.editor": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips in-editor upgrade dialogs, Pro upsell cards in template galleries, subscription CTAs on element detail drawers, and interstitial purchase popups throughout Canva.",
+    "id": "28559dd153a6a01c1a2ab5e8:3",
+    "legacy_id": 90295,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Hide Upgrade Popups - Canva (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Canva: AI Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/52fzAlhKzDyZV8ttyQ_DHB-jOeLZAZEdKlgXnWL__YNMZuvsoRCshJX5mr_ArFZjK7rte4hqEJ4ucjtuKJK5",
+        "name": "com.canva.editor",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "org.zwanoo.android.speedtest": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes banner ads, video survey ads, and post-speedtest sponsored surveys and promotional cards from Speedtest by Ookla.",
+    "id": "28559dd153a6a01c1a2ab5e8:4",
+    "legacy_id": 90296,
+    "metadata_status": "verified",
+    "name": "Ad-Free Speedtest - Speedtest by Ookla (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Speedtest by Ookla",
+        "icon_url": "https://play-lh.googleusercontent.com/ZH4EUfCHaf8hoFSpeLx_guqWN-DkGdJWbP5Ydim9dbvqO4L95TC3V7WD20-KsEpGaZuCrWz62ClSYdmCanL9",
+        "name": "org.zwanoo.android.speedtest",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "free.vpn.unblock.proxy.turbovpn": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups.",
+    "id": "28559dd153a6a01c1a2ab5e8:5",
+    "legacy_id": 90297,
+    "metadata_status": "verified",
+    "name": "Ad-Free Turbo VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Turbo VPN - Secure VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/Tq4j4MqkT86VZD4wMtpTp0iHoBg9rPN4kMpsimM2htphEZw_g4hG5J-rdjYhE3bBMZm-2Ei3GsD1qCrSSv4L4UQ",
+        "name": "free.vpn.unblock.proxy.turbovpn",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips all startup ads, pause banner ads, bottom stream promotions, and full-screen video ads from MX Player.",
+    "id": "28559dd153a6a01c1a2ab5e8:6",
+    "legacy_id": 90298,
+    "metadata_status": "verified",
+    "name": "Ad-Free Video Player - MX Player (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MX Player",
+        "icon_url": "https://play-lh.googleusercontent.com/kuU8L2zHfkE8rDQ8iUwMpYcV8TzUDBz7n_KYaEV4R5M7W5qHiZGqxWk9f1ysP2Lk72GmRTps3iaXUXfH-18pWw",
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock.",
+    "id": "28559dd153a6a01c1a2ab5e8:7",
+    "legacy_id": 90299,
+    "metadata_status": "verified",
+    "name": "Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "org.telegram.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels.",
+    "id": "28559dd153a6a01c1a2ab5e8:8",
+    "legacy_id": 90300,
+    "metadata_status": "verified",
+    "name": "Allow Saving Restricted Media - Telegram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.snapchat.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions.",
+    "id": "28559dd153a6a01c1a2ab5e8:9",
+    "legacy_id": 90301,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Snapchat",
+        "icon_url": "https://play-lh.googleusercontent.com/nOJWJoDAzuRSHmlFfpzHXAj8UbTJwk_JGYf0uAPTKPtiiIX_2Y7r5ATO1ZtxHRqaFTqfIDZ40PnBK4hukeJh",
+        "name": "com.snapchat.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "ai.perplexity.app.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity.",
+    "id": "28559dd153a6a01c1a2ab5e8:10",
+    "legacy_id": 90302,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Block Telemetry - Perplexity (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Perplexity - Ask Anything",
+        "icon_url": "https://play-lh.googleusercontent.com/vg7sPhgWiPr0L2cK_NLLcCl0mrkEmNNv7C-aUkBdIUEa-9uSnCi5x4z_3Mw0vNYWKoSVWHfgri7THMOsOZKQuA",
+        "name": "ai.perplexity.app.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "org.nextcloud.client": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.",
+    "id": "28559dd153a6a01c1a2ab5e8:11",
+    "legacy_id": 90303,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Bypass Lockout - Nextcloud (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.nextcloud.client",
+        "icon_url": null,
+        "name": "org.nextcloud.client",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.openai.chatgpt": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.",
+    "id": "28559dd153a6a01c1a2ab5e8:12",
+    "legacy_id": 90304,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Copy - ChatGPT (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ChatGPT",
+        "icon_url": "https://play-lh.googleusercontent.com/T9J8e9oxxPd600j_KPM4KK2GHfNpUpGBdTy8lHPXBXpOUfGusRuZXj0UMgFNrP8we6LVt9V-AibEgcLootE6VK4",
+        "name": "com.openai.chatgpt",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "mega.privacy.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.",
+    "id": "28559dd153a6a01c1a2ab5e8:13",
+    "legacy_id": 90305,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Export - MEGA (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MEGA",
+        "icon_url": "https://play-lh.googleusercontent.com/4IDzX-5oH2pR3xvhtV7U0q2_3hPFd7KHmcK9Jj5oN0ISJfIBuctADot0Z1kQK1OFLX87nWxmPUzUU6TdymGdIw",
+        "name": "mega.privacy.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "me.proton.android.drive": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.",
+    "id": "28559dd153a6a01c1a2ab5e8:14",
+    "legacy_id": 90306,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Privacy - Proton Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Drive: Cloud Storage",
+        "icon_url": "https://play-lh.googleusercontent.com/VQyox7uaA1_m7iaYgEmLp7e_OESrto7sV3LRBcQO8z69DrC1WtTAA3lt7CwJo96kTSlxYslpn84da1awa9L_mg",
+        "name": "me.proton.android.drive",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics.",
+    "id": "28559dd153a6a01c1a2ab5e8:15",
+    "legacy_id": 90307,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "de.tutao.tutanota": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens.",
+    "id": "28559dd153a6a01c1a2ab5e8:16",
+    "legacy_id": 90308,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Tuta Mail",
+        "icon_url": "https://f-droid.org/repo/de.tutao.tutanota/en-US/icon_aE3ARq5Qudp3i6Ty-5dNtqpE3xtLwyfoWVviXshG_9o%3D.png",
+        "name": "de.tutao.tutanota",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "network.loki.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations.",
+    "id": "28559dd153a6a01c1a2ab5e8:17",
+    "legacy_id": 90309,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - Session (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Session - Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/KxSYezXXvC0AYtYxE4BtVOLqrOGDwTzo5dUHSU7Ap5d4yN8sbjEdzwMjSPhzeTnCOrvYLRuW6ismgJ4vLidEZw",
+        "name": "network.loki.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "org.thoughtcrime.securesms": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced.",
+    "id": "28559dd153a6a01c1a2ab5e8:18",
+    "legacy_id": 90310,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - Signal (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Signal Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/HXEs85Okatm4_lZMmCaLFk3iXQ6_lrr00i8nsxaqBRSy6VGnsP7F50dKUfrO37Sj0nxtzSjMpKbjgWh6d0PTyEA",
+        "name": "org.thoughtcrime.securesms",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "chat.simplex.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens.",
+    "id": "28559dd153a6a01c1a2ab5e8:19",
+    "legacy_id": 90311,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SimpleX Chat",
+        "icon_url": "https://f-droid.org/repo/chat.simplex.app/en-US/icon_IDdtCGG0wL-lNRFuu7OK2tHe0TTFmPfU06AgixSneLM%3D.png",
+        "name": "chat.simplex.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.google.android.apps.docs": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Google Drive to allow screenshots and screen recording of documents, spreadsheets, and presentation previews.",
+    "id": "28559dd153a6a01c1a2ab5e8:20",
+    "legacy_id": 90312,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Secure Share - Google Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Drive",
+        "icon_url": "https://play-lh.googleusercontent.com/chc-Fx3Qi3BisTZw1aOteYK_XkMHUiXKRbX2Hc8shyFI8pYt7DcyUPzVwLGJKIeKCKDD6nFVhEtUrIaEyzcnmA",
+        "name": "com.google.android.apps.docs",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.google.android.apps.bard": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays.",
+    "id": "28559dd153a6a01c1a2ab5e8:21",
+    "legacy_id": 90313,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & UI Tweaks - Google Gemini (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Gemini",
+        "icon_url": "https://play-lh.googleusercontent.com/C64IqPWyFoCZzXVxXVl0Y6mliiNlG_sZJsqul-SBvk9ZL0wJHlU0Eho2wvsBHhho0FT5XQtH55RVGerIwXF_MA",
+        "name": "com.google.android.apps.bard",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Displays real-time ping latency (ms) and transmission speed indicators on all server cards in the connection list.",
+    "id": "28559dd153a6a01c1a2ab5e8:22",
+    "legacy_id": 90314,
+    "metadata_status": "verified",
+    "name": "Always Show Latency & Speed - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type.",
+    "id": "28559dd153a6a01c1a2ab5e8:23",
+    "legacy_id": 90315,
+    "metadata_status": "verified",
+    "name": "Always Show Speedometer & Compass - Google Maps (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.shazam.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
+    "id": "28559dd153a6a01c1a2ab5e8:24",
+    "legacy_id": 90316,
+    "metadata_status": "verified",
+    "name": "Always-On Auto Shazam - Shazam (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Shazam: Find Music & Concerts",
+        "icon_url": "https://play-lh.googleusercontent.com/Ne3g286DhSUmbg75RI5hmJLAFLPZfgIiWVOboDL8Rb08iQAAfqb7CBfwI6eU3rIvI6Kk6B9CySgMUTbh7i42_Q",
+        "name": "com.shazam.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "28559dd153a6a01c1a2ab5e8",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
+    "id": "28559dd153a6a01c1a2ab5e8:25",
+    "legacy_id": 90317,
+    "metadata_status": "verified",
+    "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.28.3",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  }
+]
