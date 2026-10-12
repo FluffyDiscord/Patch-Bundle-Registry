@@ -48655,6 +48655,50 @@
       "latest",
       "stable"
     ],
+    "created_at": "2026-10-12T09:19:33Z",
+    "description": "## [1.31.2](https://github.com/Zanuaimi/UniPatches/compare/v1.31.1...v1.31.2) (2026-10-12)\n\n### 🔧 Improvements\n\n* remove duplicate target SDK spoof flag ([9602682](https://github.com/Zanuaimi/UniPatches/commit/960268259a5f2690a4d4ca903ade9263b6951e5f))\n",
+    "detail_file": "bundles/97f0cab9fa59849583b9adca.json",
+    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.2/patches-1.31.2.mpp",
+    "ecosystem": "morphe",
+    "extracted_provider_digest": null,
+    "extraction_status": "unverified",
+    "extraction_terminal": false,
+    "file_hash": null,
+    "id": "97f0cab9fa59849583b9adca",
+    "import_urls": {
+      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=any",
+      "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=stable"
+    },
+    "integrations": null,
+    "is_latest": true,
+    "is_prerelease": false,
+    "legacy_id": 8998,
+    "metadata_status": "stale",
+    "need_patches_update": true,
+    "packages": [
+      "com.fingersoft.hillclimb"
+    ],
+    "patch_count": 0,
+    "patch_list_available": true,
+    "patch_metadata_schema_version": 3,
+    "patch_metadata_version": "v1.31.1",
+    "patch_refresh_attempted_at": null,
+    "patcher_failure_config_hash": null,
+    "patcher_failure_fingerprint": null,
+    "patcher_runtime": null,
+    "provider_digest": "sha256:8c04e0a7785ed122431cbf237f3262357afa499c6d5547623db6c4b2bc4de65e",
+    "release_status": "unverified",
+    "release_url": null,
+    "signature_download_url": null,
+    "source_id": "308c1f9a8278402c",
+    "version": "v1.31.2"
+  },
+  {
+    "bundle_type": "Morphe:V1",
+    "channels": [
+      "latest",
+      "stable"
+    ],
     "created_at": "2026-10-09T19:08:15Z",
     "description": "Vantage-only morphe patches 0.1.3 built from 4f21900. Stacked on top of the anddea bundle by pmaxhogan/vantage scripts/build.sh. Built 2026-10-09T19:09:56Z.",
     "detail_file": "bundles/a7fc7b38fb4cbda5cf936283.json",
@@ -191400,6 +191444,48 @@
   },
   {
     "bundle_type": "Morphe:V1",
+    "channels": [
+      "dev"
+    ],
+    "created_at": "2026-10-12T09:15:55Z",
+    "description": "## [1.31.2-dev.1](https://github.com/Zanuaimi/UniPatches/compare/v1.31.1...v1.31.2-dev.1) (2026-10-12)\n\n### 🔧 Improvements\n\n* remove duplicate target SDK spoof flag ([9602682](https://github.com/Zanuaimi/UniPatches/commit/960268259a5f2690a4d4ca903ade9263b6951e5f))\n",
+    "detail_file": "bundles/0099a93815dc2e609e0ee747.json",
+    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.2-dev.1/patches-1.31.2-dev.1.mpp",
+    "ecosystem": "morphe",
+    "extracted_provider_digest": null,
+    "extraction_status": "unverified",
+    "extraction_terminal": false,
+    "file_hash": null,
+    "id": "0099a93815dc2e609e0ee747",
+    "import_urls": {
+      "dev": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=prerelease"
+    },
+    "integrations": null,
+    "is_latest": true,
+    "is_prerelease": true,
+    "legacy_id": 8997,
+    "metadata_status": "stale",
+    "need_patches_update": true,
+    "packages": [
+      "com.fingersoft.hillclimb"
+    ],
+    "patch_count": 0,
+    "patch_list_available": true,
+    "patch_metadata_schema_version": 3,
+    "patch_metadata_version": "v1.31.1-dev.1",
+    "patch_refresh_attempted_at": null,
+    "patcher_failure_config_hash": null,
+    "patcher_failure_fingerprint": null,
+    "patcher_runtime": null,
+    "provider_digest": "sha256:d2738805c776fb06233342dc55686d4b024f5e413d4aaa949b3a98ce355946f7",
+    "release_status": "unverified",
+    "release_url": null,
+    "signature_download_url": null,
+    "source_id": "308c1f9a8278402c",
+    "version": "v1.31.2-dev.1"
+  },
+  {
+    "bundle_type": "Morphe:V1",
     "channels": [],
     "created_at": "2026-09-06T17:34:40Z",
     "description": "## [1.2.1](https://github.com/variablenine/morphe-patches/compare/v1.2.0...v1.2.1) (2026-09-06)\n\n### 🐛 Bug Fixes\n\n* Make the NSFW drawer row clone survive a different row shape ([409c4a8](https://github.com/variablenine/morphe-patches/commit/409c4a8bb3e795b38c33ff6691e72194c032625e))\n",
@@ -220361,6 +220447,52 @@
     "signature_download_url": null,
     "source_id": "22d2d62f85a9c22f",
     "version": "v1.9.6"
+  },
+  {
+    "bundle_type": "Morphe:V1",
+    "channels": [
+      "latest",
+      "stable"
+    ],
+    "created_at": "2026-10-12T09:30:17Z",
+    "description": "## Release 1.5.0\n\n### Changes / Fixes\n\n### 🏗️ Build / Compatibility\n\n- bump telegram and web versions to 13.0.2\n- bump telegram and web versions to 13.0.1\n\n### 📌 Other Changes\n\n- Merge pull request #4 from rahul9999xda/dev\n- Merge branch 'main' into dev\n\n### Release information\n\n- **Version:** `1.5.0`\n- **Changes since:** `v1.4.0`\n\nThis release was built automatically by the repository release workflow.\n",
+    "detail_file": "bundles/d400e9edf0d55b5571f9a4a4.json",
+    "download_url": "https://github.com/rahul9999xda/morphe-patches/releases/download/v1.5.0/patches-1.5.0.mpp",
+    "ecosystem": "morphe",
+    "extracted_provider_digest": null,
+    "extraction_status": "unverified",
+    "extraction_terminal": false,
+    "file_hash": null,
+    "id": "d400e9edf0d55b5571f9a4a4",
+    "import_urls": {
+      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Frahul9999xda%2Fmorphe-patches&version=latest&channel=any",
+      "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Frahul9999xda%2Fmorphe-patches&version=latest&channel=stable"
+    },
+    "integrations": null,
+    "is_latest": true,
+    "is_prerelease": false,
+    "legacy_id": 8999,
+    "metadata_status": "stale",
+    "need_patches_update": true,
+    "packages": [
+      "org.telegram.messenger",
+      "org.telegram.messenger.web",
+      "org.telegram.plus"
+    ],
+    "patch_count": 0,
+    "patch_list_available": true,
+    "patch_metadata_schema_version": 3,
+    "patch_metadata_version": "v1.4.0",
+    "patch_refresh_attempted_at": null,
+    "patcher_failure_config_hash": null,
+    "patcher_failure_fingerprint": null,
+    "patcher_runtime": null,
+    "provider_digest": "sha256:2d157271d234280af6482a00767a2ff98094c21f964c5a795a03e40f85fcd442",
+    "release_status": "unverified",
+    "release_url": null,
+    "signature_download_url": null,
+    "source_id": "348c07b2306790a9",
+    "version": "v1.5.0"
   },
   {
     "bundle_type": "ReVanced:v22",
@@ -338052,138 +338184,6 @@
     "signature_download_url": null,
     "source_id": "56bd51655ff0d965",
     "version": "v1.40.0-dev.6-dualvot.8.3"
-  },
-  {
-    "bundle_type": "Morphe:V1",
-    "channels": [
-      "latest",
-      "stable"
-    ],
-    "created_at": "2026-10-12T09:30:17Z",
-    "description": "## Release 1.5.0\n\n### Changes / Fixes\n\n### 🏗️ Build / Compatibility\n\n- bump telegram and web versions to 13.0.2\n- bump telegram and web versions to 13.0.1\n\n### 📌 Other Changes\n\n- Merge pull request #4 from rahul9999xda/dev\n- Merge branch 'main' into dev\n\n### Release information\n\n- **Version:** `1.5.0`\n- **Changes since:** `v1.4.0`\n\nThis release was built automatically by the repository release workflow.\n",
-    "detail_file": "bundles/d400e9edf0d55b5571f9a4a4.json",
-    "download_url": "https://github.com/rahul9999xda/morphe-patches/releases/download/v1.5.0/patches-1.5.0.mpp",
-    "ecosystem": "morphe",
-    "extracted_provider_digest": null,
-    "extraction_status": "unverified",
-    "extraction_terminal": false,
-    "file_hash": null,
-    "id": "d400e9edf0d55b5571f9a4a4",
-    "import_urls": {
-      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Frahul9999xda%2Fmorphe-patches&version=latest&channel=any",
-      "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Frahul9999xda%2Fmorphe-patches&version=latest&channel=stable"
-    },
-    "integrations": null,
-    "is_latest": true,
-    "is_prerelease": false,
-    "legacy_id": 8999,
-    "metadata_status": "stale",
-    "need_patches_update": true,
-    "packages": [
-      "org.telegram.messenger",
-      "org.telegram.messenger.web",
-      "org.telegram.plus"
-    ],
-    "patch_count": 0,
-    "patch_list_available": true,
-    "patch_metadata_schema_version": 3,
-    "patch_metadata_version": "v1.4.0",
-    "patch_refresh_attempted_at": null,
-    "patcher_failure_config_hash": null,
-    "patcher_failure_fingerprint": null,
-    "patcher_runtime": null,
-    "provider_digest": "sha256:2d157271d234280af6482a00767a2ff98094c21f964c5a795a03e40f85fcd442",
-    "release_status": "unverified",
-    "release_url": null,
-    "signature_download_url": "N/A",
-    "source_id": "348c07b2306790a9",
-    "version": "v1.5.0"
-  },
-  {
-    "bundle_type": "Morphe:V1",
-    "channels": [
-      "dev"
-    ],
-    "created_at": "2026-10-12T09:15:55Z",
-    "description": "## [1.31.2-dev.1](https://github.com/Zanuaimi/UniPatches/compare/v1.31.1...v1.31.2-dev.1) (2026-10-12)\n\n### 🔧 Improvements\n\n* remove duplicate target SDK spoof flag ([9602682](https://github.com/Zanuaimi/UniPatches/commit/960268259a5f2690a4d4ca903ade9263b6951e5f))\n",
-    "detail_file": "bundles/0099a93815dc2e609e0ee747.json",
-    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.2-dev.1/patches-1.31.2-dev.1.mpp",
-    "ecosystem": "morphe",
-    "extracted_provider_digest": null,
-    "extraction_status": "unverified",
-    "extraction_terminal": false,
-    "file_hash": null,
-    "id": "0099a93815dc2e609e0ee747",
-    "import_urls": {
-      "dev": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=prerelease"
-    },
-    "integrations": null,
-    "is_latest": true,
-    "is_prerelease": true,
-    "legacy_id": 8997,
-    "metadata_status": "stale",
-    "need_patches_update": true,
-    "packages": [
-      "com.fingersoft.hillclimb"
-    ],
-    "patch_count": 0,
-    "patch_list_available": true,
-    "patch_metadata_schema_version": 3,
-    "patch_metadata_version": "v1.31.1-dev.1",
-    "patch_refresh_attempted_at": null,
-    "patcher_failure_config_hash": null,
-    "patcher_failure_fingerprint": null,
-    "patcher_runtime": null,
-    "provider_digest": "sha256:d2738805c776fb06233342dc55686d4b024f5e413d4aaa949b3a98ce355946f7",
-    "release_status": "unverified",
-    "release_url": null,
-    "signature_download_url": "N/A",
-    "source_id": "308c1f9a8278402c",
-    "version": "v1.31.2-dev.1"
-  },
-  {
-    "bundle_type": "Morphe:V1",
-    "channels": [
-      "latest",
-      "stable"
-    ],
-    "created_at": "2026-10-12T09:19:33Z",
-    "description": "## [1.31.2](https://github.com/Zanuaimi/UniPatches/compare/v1.31.1...v1.31.2) (2026-10-12)\n\n### 🔧 Improvements\n\n* remove duplicate target SDK spoof flag ([9602682](https://github.com/Zanuaimi/UniPatches/commit/960268259a5f2690a4d4ca903ade9263b6951e5f))\n",
-    "detail_file": "bundles/97f0cab9fa59849583b9adca.json",
-    "download_url": "https://github.com/Zanuaimi/UniPatches/releases/download/v1.31.2/patches-1.31.2.mpp",
-    "ecosystem": "morphe",
-    "extracted_provider_digest": null,
-    "extraction_status": "unverified",
-    "extraction_terminal": false,
-    "file_hash": null,
-    "id": "97f0cab9fa59849583b9adca",
-    "import_urls": {
-      "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=any",
-      "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2FZanuaimi%2FUniPatches&version=latest&channel=stable"
-    },
-    "integrations": null,
-    "is_latest": true,
-    "is_prerelease": false,
-    "legacy_id": 8998,
-    "metadata_status": "stale",
-    "need_patches_update": true,
-    "packages": [
-      "com.fingersoft.hillclimb"
-    ],
-    "patch_count": 0,
-    "patch_list_available": true,
-    "patch_metadata_schema_version": 3,
-    "patch_metadata_version": "v1.31.1",
-    "patch_refresh_attempted_at": null,
-    "patcher_failure_config_hash": null,
-    "patcher_failure_fingerprint": null,
-    "patcher_runtime": null,
-    "provider_digest": "sha256:8c04e0a7785ed122431cbf237f3262357afa499c6d5547623db6c4b2bc4de65e",
-    "release_status": "unverified",
-    "release_url": null,
-    "signature_download_url": "N/A",
-    "source_id": "308c1f9a8278402c",
-    "version": "v1.31.2"
   },
   {
     "bundle_type": "Morphe:V1",
