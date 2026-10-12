@@ -1,0 +1,3021 @@
+[
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": [
+        "3.3.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the Smart Enhance toggle with a 0-100% popup slider and keeps the level after lock/unlock.",
+    "id": "2ddeb126e7c72badab58bff6:80",
+    "legacy_id": 49687,
+    "metadata_status": "verified",
+    "name": "Smart Enhance Slider",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MX Player",
+        "icon_url": "https://play-lh.googleusercontent.com/kuU8L2zHfkE8rDQ8iUwMpYcV8TzUDBz7n_KYaEV4R5M7W5qHiZGqxWk9f1ysP2Lk72GmRTps3iaXUXfH-18pWw",
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": [
+          "3.3.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "cn.xender": [
+        "18.8.0.prime"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enters the main activity directly after the splash screen.",
+    "id": "2ddeb126e7c72badab58bff6:81",
+    "legacy_id": 49688,
+    "metadata_status": "verified",
+    "name": "Speed up splash screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xender - Quick Share, Transfer",
+        "icon_url": "https://play-lh.googleusercontent.com/7Hf2rw_3DdwM5015tvel3IE_0S3fhHWK7iRYonCd66RI0y2tFB5w_qYxMjflRFNey37Uqnmgsh8XTIRM5sTu",
+        "name": "cn.xender",
+        "versions": [
+          "18.8.0.prime"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes the app think its signing certificate is unchanged after Morphe re-signs it, useful when an app crashes or shows a tamper warning because it checks its own certificate. Does not bypass Play Integrity / SafetyNet hardware attestation. Apply with Original app certificate patch.",
+    "id": "2ddeb126e7c72badab58bff6:82",
+    "legacy_id": 49689,
+    "metadata_status": "verified",
+    "name": "Spoof App Signature",
+    "options": [
+      {
+        "default": null,
+        "description": "Leave blank — read automatically from the app. Only set this if you changed the app's package name and the patch is using the wrong one.",
+        "key": "packageName",
+        "required": false,
+        "title": "Package name override (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": false
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.bytedz.printflow": [
+        "1.4.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces SecurityTracker.isPremium() to always return true, so every feature gated by the \"st_01\" premium flag stays unlocked.",
+    "id": "2ddeb126e7c72badab58bff6:83",
+    "legacy_id": 49690,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ImpoStack: PDF Imposition",
+        "icon_url": "https://play-lh.googleusercontent.com/k-ACfNI_5c20kJwQyIlnZpgUmHg3wC2J6VADre0nmFY8-Jf5ZTApSv2I8oAJu-TFvi4adi9vjZq7tw8pJfGqqw",
+        "name": "com.bytedz.printflow",
+        "versions": [
+          "1.4.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "calendar.agenda.schedule.event.advance.calendar.planner": [
+        "1.0.34"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features and removes ads.",
+    "id": "2ddeb126e7c72badab58bff6:84",
+    "legacy_id": 49691,
+    "metadata_status": "verified",
+    "name": "Unlock premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Calendar",
+        "icon_url": "https://play-lh.googleusercontent.com/r9GwoC0sO9oINYO3r4tj7QhDUGgGP6kAGggX3WotrKS4tQAIqrjlKwWdok--wotiSxDjhHgMGFRpxN6CkC8KwOY",
+        "name": "calendar.agenda.schedule.event.advance.calendar.planner",
+        "versions": [
+          "1.0.34"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.hdictionary.bn": [
+        "11.5.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the purchase check to always return true, unlocking Pro.",
+    "id": "2ddeb126e7c72badab58bff6:85",
+    "legacy_id": 49692,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "English Bangla Dictionary",
+        "icon_url": "https://play-lh.googleusercontent.com/uhJnAXgtnAFis7jDbFYxBWTOG7BNpg3_tHx_cfzn_t8pueisFO-PaJti3I5pdoWM2YNJe6tgo_y9O5hxF_ZK",
+        "name": "com.hdictionary.bn",
+        "versions": [
+          "11.5.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.downloader.videodownloader": [
+        "2.7.2"
+      ]
+    },
+    "dependencies": [
+      "Spoof App Signature"
+    ],
+    "description": "Signature verification is spoofed automatically if this patch is selected the purchase check passes.",
+    "id": "2ddeb126e7c72badab58bff6:86",
+    "legacy_id": 49693,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Video Downloader",
+        "icon_url": "https://play-lh.googleusercontent.com/oju7a2AuqaQSc_l5O-2yRw8F_M0rUlHnBHjp_MqHNSAT3CXq7xbSqRVL7VSPNhMRjzaM2ft-LBoA05-q9hqmhg",
+        "name": "video.downloader.videodownloader",
+        "versions": [
+          "2.7.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "com.tester.wpswpatester": [
+        "rc-5.164"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the Pro flag true at every read and write site in the dex, unlocking Pro.",
+    "id": "2ddeb126e7c72badab58bff6:87",
+    "legacy_id": 49694,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "WIFI WPS WPA TESTER",
+        "icon_url": "https://play-lh.googleusercontent.com/HoVRH9WxnE1tv65pWFsibicYOc31pgq7oK6v6LrXHwm6U8_N0UEPphws16SlzUPA-huwsil1H5QTzn-XAMJg",
+        "name": "com.tester.wpswpatester",
+        "versions": [
+          "rc-5.164"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "video.player.videoplayer": [
+        "2.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all pro features.",
+    "id": "2ddeb126e7c72badab58bff6:88",
+    "legacy_id": 49695,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Video Player All Format",
+        "icon_url": "https://play-lh.googleusercontent.com/uI_ZfaVBari9cQx3IbtJET5JN8uwxnMSSO8Y8wzWdg7p3gWrEYig5-DlSPiW6IBfBxjelgqATitc5xJ0EdhCWg",
+        "name": "video.player.videoplayer",
+        "versions": [
+          "2.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2ddeb126e7c72badab58bff6",
+    "compatiblePackages": {
+      "abdelrahman.wifianalyzerpro": [
+        "9.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the premium check to always return true, unlocking every Pro feature, and stops the in-app \"rate us\" dialog from ever triggering.",
+    "id": "2ddeb126e7c72badab58bff6:89",
+    "legacy_id": 49696,
+    "metadata_status": "verified",
+    "name": "Unlock Pro & Disable Rate Dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "WiFi Analyzer",
+        "icon_url": "https://play-lh.googleusercontent.com/sNSxt-LXk52t4lRFxGBSsCj8xRD5zhnMoPqA-ReZlSsPMYk9B7v33BkaR8fUpBfzg08kzomT47p6XVap4mzVXQ",
+        "name": "abdelrahman.wifianalyzerpro",
+        "versions": [
+          "9.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.43.3-dev.2",
+    "source_id": "40a47c7b9066441e",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Fixes various app bugs.",
+    "id": "2f0287646be8ff7f60681ce7:0",
+    "legacy_id": 49697,
+    "metadata_status": "verified",
+    "name": "Bug fixes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the original app signature (port of ApkSignatureKillerEx).",
+    "id": "2f0287646be8ff7f60681ce7:1",
+    "legacy_id": 49698,
+    "metadata_status": "verified",
+    "name": "Bypass signature checks",
+    "options": [
+      {
+        "default": false,
+        "description": "Also embeds the original APK and redirects reads of the installed APK file to it. Only enable this for apps that verify the APK file itself; most apps merely ask for the signature. Leave off unless the app needs it.",
+        "key": "spoofApkPath",
+        "required": false,
+        "title": "Spoof APK file access",
+        "type": "bool",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": false
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.shahzaman.pricetracker": [
+        "2.2.1",
+        "2.4.0",
+        "2.4.1",
+        "2.5.0",
+        "2.5.1",
+        "2.5.2",
+        "2.5.3",
+        "2.5.4"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.removePairip"
+    ],
+    "description": "Disables in-app ads",
+    "id": "2f0287646be8ff7f60681ce7:2",
+    "legacy_id": 49699,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Droplert: Price Drop Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/mOkZmzMxyMGhGG2UJZ6q5gQOcRLl-DdhbODIWugu6JIXDkYwyVvrTQkSZYdfTFP9R6Hu7d2p1GJ35umLmuRgcg",
+        "name": "com.shahzaman.pricetracker",
+        "versions": [
+          "2.2.1",
+          "2.4.0",
+          "2.4.1",
+          "2.5.0",
+          "2.5.1",
+          "2.5.2",
+          "2.5.3",
+          "2.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Refuses and blocks analytics collection.",
+    "id": "2f0287646be8ff7f60681ce7:3",
+    "legacy_id": 49700,
+    "metadata_status": "verified",
+    "name": "Disable analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Sets android:extractNativeLibs to true when it is false.",
+    "id": "2f0287646be8ff7f60681ce7:4",
+    "legacy_id": 49701,
+    "metadata_status": "verified",
+    "name": "Force extract native libs",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": false
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Installs Google Photos alongside the original app and signs in through separately installed GmsCore.",
+    "id": "2f0287646be8ff7f60681ce7:5",
+    "legacy_id": 49702,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [
+      {
+        "default": "app.revanced",
+        "description": "",
+        "key": "gmsCoreVendorGroupId",
+        "required": true,
+        "title": "GmsCore vendor group ID",
+        "type": "string",
+        "values": null
+      },
+      {
+        "default": "app.reseam.android.apps.photos",
+        "description": "",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "string",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Skips the promo and terms screens, landing directly on setup.",
+    "id": "2f0287646be8ff7f60681ce7:6",
+    "legacy_id": 49703,
+    "metadata_status": "verified",
+    "name": "Skip intro",
+    "options": [
+      {
+        "default": true,
+        "description": "Marks the terms as accepted, skipping the terms screen.",
+        "key": "acceptTerms",
+        "required": false,
+        "title": "Accept terms",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Jumps the onboarding flow straight to the favorites setup step.",
+        "key": "skipToFavorites",
+        "required": false,
+        "title": "Skip to favorites",
+        "type": "bool",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.shahzaman.pricetracker": [
+        "2.2.1",
+        "2.4.0",
+        "2.4.1",
+        "2.5.0",
+        "2.5.1",
+        "2.5.2",
+        "2.5.3",
+        "2.5.4"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.removePairip"
+    ],
+    "description": "Skips the setup screens, landing directly on home.",
+    "id": "2f0287646be8ff7f60681ce7:7",
+    "legacy_id": 49704,
+    "metadata_status": "verified",
+    "name": "Skip onboarding",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Droplert: Price Drop Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/mOkZmzMxyMGhGG2UJZ6q5gQOcRLl-DdhbODIWugu6JIXDkYwyVvrTQkSZYdfTFP9R6Hu7d2p1GJ35umLmuRgcg",
+        "name": "com.shahzaman.pricetracker",
+        "versions": [
+          "2.2.1",
+          "2.4.0",
+          "2.4.1",
+          "2.5.0",
+          "2.5.1",
+          "2.5.2",
+          "2.5.3",
+          "2.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.adguard.android": null
+    },
+    "dependencies": [],
+    "description": "Configure the app before installing it. Does NOT include the advanced filters available in the app settings.",
+    "id": "2f0287646be8ff7f60681ce7:8",
+    "legacy_id": 49705,
+    "metadata_status": "verified",
+    "name": "Skip setup",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove ads from your search engine results.",
+        "key": "blockSearchAds",
+        "required": false,
+        "title": "Block ads in web search",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Get rid of Like, Share, and other social buttons on websites.",
+        "key": "blockSocialWidgets",
+        "required": false,
+        "title": "Block social media widgets",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove cookie notifications, live chats, and newsletter signups.",
+        "key": "blockAnnoyances",
+        "required": false,
+        "title": "Block annoyances",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": "Standard",
+        "description": "Protect yourself from online trackers and analytics systems.",
+        "key": "privacyLevel",
+        "required": false,
+        "title": "Protect your privacy",
+        "type": "string",
+        "values": {
+          "High": "High",
+          "None": "None",
+          "Standard": "Standard"
+        }
+      },
+      {
+        "default": true,
+        "description": "Be alerted before you access phishing and malicious websites.",
+        "key": "blockDangerousSites",
+        "required": false,
+        "title": "Block dangerous websites",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disables the \"Enable notifications\" prompt shown post-setup.",
+        "key": "hideNotificationPrompt",
+        "required": false,
+        "title": "Hide \"Enable notifications\" prompt",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Treat all annoyance filters as approved to skip consent dialogs when enabling them.",
+        "key": "skipApprovalPopups",
+        "required": false,
+        "title": "Skip approval popups",
+        "type": "bool",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.adguard.android",
+        "icon_url": null,
+        "name": "com.adguard.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Unlocks unlimited Google Photos backup storage through Google's Pixel XL offer by spoofing the device as a Pixel XL.",
+    "id": "2f0287646be8ff7f60681ce7:9",
+    "legacy_id": 49706,
+    "metadata_status": "verified",
+    "name": "Unlimited backup storage",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.accuweather.android": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium-only features.",
+    "id": "2f0287646be8ff7f60681ce7:10",
+    "legacy_id": 49707,
+    "metadata_status": "verified",
+    "name": "Unlock Family Premium+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AccuWeather: Weather Radar",
+        "icon_url": "https://play-lh.googleusercontent.com/wdQXBFb3I1NgNpRzJo9tMHJuV9P069NR5GJ2J7w8eX_SVarWLRarca-6MiemrDbnSqDQflFzvzjSG2smlwe39TQ",
+        "name": "com.accuweather.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.shahzaman.pricetracker": [
+        "2.2.1",
+        "2.4.0",
+        "2.4.1",
+        "2.5.0",
+        "2.5.1",
+        "2.5.2",
+        "2.5.3",
+        "2.5.4"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.removePairip"
+    ],
+    "description": "Unlocks Premium-only features.",
+    "id": "2f0287646be8ff7f60681ce7:11",
+    "legacy_id": 49708,
+    "metadata_status": "verified",
+    "name": "Unlock Lifetime Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Droplert: Price Drop Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/mOkZmzMxyMGhGG2UJZ6q5gQOcRLl-DdhbODIWugu6JIXDkYwyVvrTQkSZYdfTFP9R6Hu7d2p1GJ35umLmuRgcg",
+        "name": "com.shahzaman.pricetracker",
+        "versions": [
+          "2.2.1",
+          "2.4.0",
+          "2.4.1",
+          "2.5.0",
+          "2.5.1",
+          "2.5.2",
+          "2.5.3",
+          "2.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.adguard.android": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium-only features.",
+    "id": "2f0287646be8ff7f60681ce7:12",
+    "legacy_id": 49709,
+    "metadata_status": "verified",
+    "name": "Unlock Lifetime premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adguard.android",
+        "icon_url": null,
+        "name": "com.adguard.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Peak-only features.",
+    "id": "2f0287646be8ff7f60681ce7:13",
+    "legacy_id": 49710,
+    "metadata_status": "verified",
+    "name": "Unlock Peak",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.arn.scrobble": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Plus-only features.",
+    "id": "2f0287646be8ff7f60681ce7:14",
+    "legacy_id": 49711,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pano Scrobbler",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.arn.scrobble/en-US/icon.png",
+        "name": "com.arn.scrobble",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "cz.seznam.mapy": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium-only features.",
+    "id": "2f0287646be8ff7f60681ce7:15",
+    "legacy_id": 49712,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Mapy.com: Offline Outdoor Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/HDxpj_c6Nhf7wDAErKy6JknknJQLthDi4HKx1PRQno2RD28iuBv0b2eRcm1ZEdy_2r4FindeqVsdCU_5m1Bcbwc",
+        "name": "cz.seznam.mapy",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "org.kustom.widget": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "2f0287646be8ff7f60681ce7:16",
+    "legacy_id": 49713,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KWGT Kustom Widget Maker",
+        "icon_url": "https://play-lh.googleusercontent.com/Sv2JZZ87kHDHr_NOTK-5vY9b9U4BClbqat0Gf3tEPewOAyeskcMOTCIUK7rkUa0o6FJzQh6ST3vwvojrgwX1-Q",
+        "name": "org.kustom.widget",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.gymbros.app": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features, including shop items.",
+    "id": "2f0287646be8ff7f60681ce7:17",
+    "legacy_id": 49714,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Liftoff - Ranked Gym Workouts",
+        "icon_url": "https://play-lh.googleusercontent.com/z7MMxIDLH90jSkThpbEPoG13DwDUq6Qnl8lS5DUR1ZD7R-Yqw9eDVJnouqRA4GO2xPsv3mkxT5KhsD1Ei9Ip-w",
+        "name": "com.gymbros.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "2f0287646be8ff7f60681ce7:18",
+    "legacy_id": 49715,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.frontrow.vlog": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "2f0287646be8ff7f60681ce7:19",
+    "legacy_id": 49716,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VN: Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/AdmVEf1YsnbcTx7OFNNbJkqLbLewomf6xR4wWnazycJJC4llEXjmBOixxcgGt3TFa_IZszY9gw-4UOGYKlaKMw",
+        "name": "com.frontrow.vlog",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.yazio.android": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "2f0287646be8ff7f60681ce7:20",
+    "legacy_id": 49717,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Yazio: AI Calorie Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/D5Xef316DD02-J9YflzymVi_XHbhfObY26ReHI3GB2OzcrrDTpXLMlEAcRksGAVqpNxR2zDibzXw1rlyT0dXMg",
+        "name": "com.yazio.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "2f0287646be8ff7f60681ce7",
+    "compatiblePackages": {
+      "com.picsart.studio": null
+    },
+    "dependencies": [
+      "madkarma-patches/top.madkarma.patches.universal.signature.bypassSignatureChecks"
+    ],
+    "description": "Unlocks Ultra-only features. Server credit balances remain unchanged.",
+    "id": "2f0287646be8ff7f60681ce7:21",
+    "legacy_id": 49718,
+    "metadata_status": "verified",
+    "name": "Unlock Ultra",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Picsart AI Photo Editor, Video",
+        "icon_url": "https://play-lh.googleusercontent.com/wXk_X0uT6AeWv5TFfheHP8NrOmtz17BX-2uEZ7H4naTIzuFpSIfohvQTA4pKOCF71TmeUF3DfMAGq1SlK2hH7Qk",
+        "name": "com.picsart.studio",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.18.0-dev.1",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "org.kustom.widget": null
+    },
+    "dependencies": [],
+    "description": "Allows exporting author-locked KWGT presets.",
+    "id": "3fbdf59724a1d091124fd501:0",
+    "legacy_id": 49719,
+    "metadata_status": "verified",
+    "name": "Allow locked preset export",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KWGT Kustom Widget Maker",
+        "icon_url": "https://play-lh.googleusercontent.com/Sv2JZZ87kHDHr_NOTK-5vY9b9U4BClbqat0Gf3tEPewOAyeskcMOTCIUK7rkUa0o6FJzQh6ST3vwvojrgwX1-Q",
+        "name": "org.kustom.widget",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Fixes various app bugs.",
+    "id": "3fbdf59724a1d091124fd501:1",
+    "legacy_id": 49720,
+    "metadata_status": "verified",
+    "name": "Bug fixes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the original app signature (port of ApkSignatureKillerEx).",
+    "id": "3fbdf59724a1d091124fd501:2",
+    "legacy_id": 49721,
+    "metadata_status": "verified",
+    "name": "Bypass signature checks",
+    "options": [
+      {
+        "default": false,
+        "description": "Also embeds the original APK and redirects reads of the installed APK file to it. Only enable this for apps that verify the APK file itself; most apps merely ask for the signature. Leave off unless the app needs it.",
+        "key": "spoofApkPath",
+        "required": false,
+        "title": "Spoof APK file access",
+        "type": "bool",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": false
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.shahzaman.pricetracker": [
+        "2.2.1",
+        "2.4.0",
+        "2.4.1",
+        "2.5.0",
+        "2.5.1",
+        "2.5.2",
+        "2.5.3",
+        "2.5.4"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.removePairip"
+    ],
+    "description": "Disables in-app ads",
+    "id": "3fbdf59724a1d091124fd501:3",
+    "legacy_id": 49722,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Droplert: Price Drop Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/mOkZmzMxyMGhGG2UJZ6q5gQOcRLl-DdhbODIWugu6JIXDkYwyVvrTQkSZYdfTFP9R6Hu7d2p1GJ35umLmuRgcg",
+        "name": "com.shahzaman.pricetracker",
+        "versions": [
+          "2.2.1",
+          "2.4.0",
+          "2.4.1",
+          "2.5.0",
+          "2.5.1",
+          "2.5.2",
+          "2.5.3",
+          "2.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Refuses and blocks analytics collection.",
+    "id": "3fbdf59724a1d091124fd501:4",
+    "legacy_id": 49723,
+    "metadata_status": "verified",
+    "name": "Disable analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Sets android:extractNativeLibs to true when it is false.",
+    "id": "3fbdf59724a1d091124fd501:5",
+    "legacy_id": 49724,
+    "metadata_status": "verified",
+    "name": "Force extract native libs",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": false
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Installs Google Photos alongside the original app and signs in through separately installed GmsCore.",
+    "id": "3fbdf59724a1d091124fd501:6",
+    "legacy_id": 49725,
+    "metadata_status": "verified",
+    "name": "GmsCore support",
+    "options": [
+      {
+        "default": "app.revanced",
+        "description": "",
+        "key": "gmsCoreVendorGroupId",
+        "required": true,
+        "title": "GmsCore vendor group ID",
+        "type": "string",
+        "values": null
+      },
+      {
+        "default": "app.reseam.android.apps.photos",
+        "description": "",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "string",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Skips the promo and terms screens, landing directly on setup.",
+    "id": "3fbdf59724a1d091124fd501:7",
+    "legacy_id": 49726,
+    "metadata_status": "verified",
+    "name": "Skip intro",
+    "options": [
+      {
+        "default": true,
+        "description": "Marks the terms as accepted, skipping the terms screen.",
+        "key": "acceptTerms",
+        "required": false,
+        "title": "Accept terms",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Jumps the onboarding flow straight to the favorites setup step.",
+        "key": "skipToFavorites",
+        "required": false,
+        "title": "Skip to favorites",
+        "type": "bool",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.shahzaman.pricetracker": [
+        "2.2.1",
+        "2.4.0",
+        "2.4.1",
+        "2.5.0",
+        "2.5.1",
+        "2.5.2",
+        "2.5.3",
+        "2.5.4"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.removePairip"
+    ],
+    "description": "Skips the setup screens, landing directly on home.",
+    "id": "3fbdf59724a1d091124fd501:8",
+    "legacy_id": 49727,
+    "metadata_status": "verified",
+    "name": "Skip onboarding",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Droplert: Price Drop Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/mOkZmzMxyMGhGG2UJZ6q5gQOcRLl-DdhbODIWugu6JIXDkYwyVvrTQkSZYdfTFP9R6Hu7d2p1GJ35umLmuRgcg",
+        "name": "com.shahzaman.pricetracker",
+        "versions": [
+          "2.2.1",
+          "2.4.0",
+          "2.4.1",
+          "2.5.0",
+          "2.5.1",
+          "2.5.2",
+          "2.5.3",
+          "2.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.adguard.android": null
+    },
+    "dependencies": [],
+    "description": "Configure the app before installing it. Does NOT include the advanced filters available in the app settings.",
+    "id": "3fbdf59724a1d091124fd501:9",
+    "legacy_id": 49728,
+    "metadata_status": "verified",
+    "name": "Skip setup",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove ads from your search engine results.",
+        "key": "blockSearchAds",
+        "required": false,
+        "title": "Block ads in web search",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Get rid of Like, Share, and other social buttons on websites.",
+        "key": "blockSocialWidgets",
+        "required": false,
+        "title": "Block social media widgets",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove cookie notifications, live chats, and newsletter signups.",
+        "key": "blockAnnoyances",
+        "required": false,
+        "title": "Block annoyances",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": "Standard",
+        "description": "Protect yourself from online trackers and analytics systems.",
+        "key": "privacyLevel",
+        "required": false,
+        "title": "Protect your privacy",
+        "type": "string",
+        "values": {
+          "High": "High",
+          "None": "None",
+          "Standard": "Standard"
+        }
+      },
+      {
+        "default": true,
+        "description": "Be alerted before you access phishing and malicious websites.",
+        "key": "blockDangerousSites",
+        "required": false,
+        "title": "Block dangerous websites",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disables the \"Enable notifications\" prompt shown post-setup.",
+        "key": "hideNotificationPrompt",
+        "required": false,
+        "title": "Hide \"Enable notifications\" prompt",
+        "type": "bool",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Treat all annoyance filters as approved to skip consent dialogs when enabling them.",
+        "key": "skipApprovalPopups",
+        "required": false,
+        "title": "Skip approval popups",
+        "type": "bool",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.adguard.android",
+        "icon_url": null,
+        "name": "com.adguard.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "Unlocks unlimited Google Photos backup storage through Google's Pixel XL offer by spoofing the device as a Pixel XL.",
+    "id": "3fbdf59724a1d091124fd501:10",
+    "legacy_id": 49729,
+    "metadata_status": "verified",
+    "name": "Unlimited backup storage",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.accuweather.android": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium-only features.",
+    "id": "3fbdf59724a1d091124fd501:11",
+    "legacy_id": 49730,
+    "metadata_status": "verified",
+    "name": "Unlock Family Premium+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AccuWeather: Weather Radar",
+        "icon_url": "https://play-lh.googleusercontent.com/wdQXBFb3I1NgNpRzJo9tMHJuV9P069NR5GJ2J7w8eX_SVarWLRarca-6MiemrDbnSqDQflFzvzjSG2smlwe39TQ",
+        "name": "com.accuweather.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.shahzaman.pricetracker": [
+        "2.2.1",
+        "2.4.0",
+        "2.4.1",
+        "2.5.0",
+        "2.5.1",
+        "2.5.2",
+        "2.5.3",
+        "2.5.4"
+      ]
+    },
+    "dependencies": [
+      "reseam-patches/app.reseam.patches.universal.removePairip"
+    ],
+    "description": "Unlocks Premium-only features.",
+    "id": "3fbdf59724a1d091124fd501:12",
+    "legacy_id": 49731,
+    "metadata_status": "verified",
+    "name": "Unlock Lifetime Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Droplert: Price Drop Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/mOkZmzMxyMGhGG2UJZ6q5gQOcRLl-DdhbODIWugu6JIXDkYwyVvrTQkSZYdfTFP9R6Hu7d2p1GJ35umLmuRgcg",
+        "name": "com.shahzaman.pricetracker",
+        "versions": [
+          "2.2.1",
+          "2.4.0",
+          "2.4.1",
+          "2.5.0",
+          "2.5.1",
+          "2.5.2",
+          "2.5.3",
+          "2.5.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.adguard.android": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium-only features.",
+    "id": "3fbdf59724a1d091124fd501:13",
+    "legacy_id": 49732,
+    "metadata_status": "verified",
+    "name": "Unlock Lifetime premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.adguard.android",
+        "icon_url": null,
+        "name": "com.adguard.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Peak-only features.",
+    "id": "3fbdf59724a1d091124fd501:14",
+    "legacy_id": 49733,
+    "metadata_status": "verified",
+    "name": "Unlock Peak",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.arn.scrobble": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Plus-only features.",
+    "id": "3fbdf59724a1d091124fd501:15",
+    "legacy_id": 49734,
+    "metadata_status": "verified",
+    "name": "Unlock Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pano Scrobbler",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.arn.scrobble/en-US/icon.png",
+        "name": "com.arn.scrobble",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "cz.seznam.mapy": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Premium-only features.",
+    "id": "3fbdf59724a1d091124fd501:16",
+    "legacy_id": 49735,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Mapy.com: Offline Outdoor Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/HDxpj_c6Nhf7wDAErKy6JknknJQLthDi4HKx1PRQno2RD28iuBv0b2eRcm1ZEdy_2r4FindeqVsdCU_5m1Bcbwc",
+        "name": "cz.seznam.mapy",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "org.kustom.widget": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "3fbdf59724a1d091124fd501:17",
+    "legacy_id": 49736,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KWGT Kustom Widget Maker",
+        "icon_url": "https://play-lh.googleusercontent.com/Sv2JZZ87kHDHr_NOTK-5vY9b9U4BClbqat0Gf3tEPewOAyeskcMOTCIUK7rkUa0o6FJzQh6ST3vwvojrgwX1-Q",
+        "name": "org.kustom.widget",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.gymbros.app": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features, including shop items.",
+    "id": "3fbdf59724a1d091124fd501:18",
+    "legacy_id": 49737,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Liftoff - Ranked Gym Workouts",
+        "icon_url": "https://play-lh.googleusercontent.com/z7MMxIDLH90jSkThpbEPoG13DwDUq6Qnl8lS5DUR1ZD7R-Yqw9eDVJnouqRA4GO2xPsv3mkxT5KhsD1Ei9Ip-w",
+        "name": "com.gymbros.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "bitpit.launcher": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "3fbdf59724a1d091124fd501:19",
+    "legacy_id": 49738,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Niagara Launcher ‧ Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/ICu0sx5FFQHp03c1DS8L48ULnXDUDDyqSWwi62VktysMO4ZFwVaGSqFKjZ9Iv-1Mu1plJVSB2CvIrdygkKtRFg",
+        "name": "bitpit.launcher",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.frontrow.vlog": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "3fbdf59724a1d091124fd501:20",
+    "legacy_id": 49739,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VN: Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/AdmVEf1YsnbcTx7OFNNbJkqLbLewomf6xR4wWnazycJJC4llEXjmBOixxcgGt3TFa_IZszY9gw-4UOGYKlaKMw",
+        "name": "com.frontrow.vlog",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "3fbdf59724a1d091124fd501",
+    "compatiblePackages": {
+      "com.yazio.android": null
+    },
+    "dependencies": [],
+    "description": "Unlocks Pro-only features.",
+    "id": "3fbdf59724a1d091124fd501:21",
+    "legacy_id": 49740,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Yazio: AI Calorie Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/D5Xef316DD02-J9YflzymVi_XHbhfObY26ReHI3GB2OzcrrDTpXLMlEAcRksGAVqpNxR2zDibzXw1rlyT0dXMg",
+        "name": "com.yazio.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v0.19.0",
+    "source_id": "27ce7482f6aadbee",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks in-app promotional prompts, modals and promotion banners. Note: this only affects in-app promotions. Match-alert push delivery on re-signed builds needs working push delivery - use MicroG integration + signature spoofing where Play Services is absent (issue #25).",
+    "id": "4559095cb675f497283ca8a7:0",
+    "legacy_id": 49741,
+    "metadata_status": "verified",
+    "name": "Block marketing notifications",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sofascore: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/V5evYzdmAVEFl9Gy9fh4-XTIb_mPnMPzNdV8rhDyZ31yftOncktYxWnI5xbX4QlAnoCd1fcBvGTzGJU_MxtY",
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.95.104",
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [
+      "Brave Origin Resource Defaults"
+    ],
+    "description": "Unlocks Brave Origin and enables feature toggle controls.",
+    "id": "4559095cb675f497283ca8a7:1",
+    "legacy_id": 49742,
+    "metadata_status": "verified",
+    "name": "Brave Origin",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.95.104",
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.alarmclock.xtreme.free": [
+        "26.06.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns on the ad-free entitlement so Alarm Clock Xtreme shows no banner, interstitial or consent ads. Only the ad-free feature is changed; the other shop features keep their purchase state.",
+    "id": "4559095cb675f497283ca8a7:2",
+    "legacy_id": 49743,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Alarm Clock Xtreme & Timer",
+        "icon_url": "https://play-lh.googleusercontent.com/Wu_xmWRWoSh4ZqS34POJHlvBki3jAtvn365hI2umZFDKEcIT7iSBzjYF7-IAgbp6w8zRsfwdnGMmd16o2Bw5kQ",
+        "name": "com.alarmclock.xtreme.free",
+        "versions": [
+          "26.06.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.resultadosfutbol.mobile": [
+        "6.6.0"
+      ]
+    },
+    "dependencies": [
+      "Disable license check"
+    ],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads and hides empty banner slots.",
+    "id": "4559095cb675f497283ca8a7:3",
+    "legacy_id": 49744,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BeSoccer: Soccer Live Score",
+        "icon_url": "https://play-lh.googleusercontent.com/fClhuAHQj9QNrtJfE3XL_qjkMQrAUJQ8PCnYYmDPJ5kEvVOrqX7Yj3m9zW5at26bTiAaJHlxXr1a4tiULdJi",
+        "name": "com.resultadosfutbol.mobile",
+        "versions": [
+          "6.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.appgenix.bizcal": [
+        "2.55.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns off Business Calendar 2's ad-serving gate, so the mediation SDKs never start and no interstitial is shown. Pro features are not changed.",
+    "id": "4559095cb675f497283ca8a7:4",
+    "legacy_id": 49745,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Business Calendar 2 Planner",
+        "icon_url": "https://play-lh.googleusercontent.com/eKtR_2gSD6vRMoJ6UJ_PH7aBDayNquDOHOP_z9KV_ujK7xOVrLNEAUCtA1RBXw44wnsqkLMQymk8-YiHbxydywc",
+        "name": "com.appgenix.bizcal",
+        "versions": [
+          "2.55.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9",
+        "5.4.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppLovin interstitial ads.",
+    "id": "4559095cb675f497283ca8a7:5",
+    "legacy_id": 49746,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Box Box Club: Formula Widgets",
+        "icon_url": "https://play-lh.googleusercontent.com/rn3YS5OhNKLK95JBQAZ4ED7GTivqpnXST3nELLiyiCMb_KT-TjVNEyGvwFATCUk3EvmD2V22QvbY__hw8OXZ",
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9",
+          "5.4.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Experimental: hides sponsored new tab images (including full-page takeovers) and the \"Earn BAT for viewing ads\" Rewards signup popup.",
+    "id": "4559095cb675f497283ca8a7:6",
+    "legacy_id": 49747,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": false
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "fm.castbox.audiobook.radio.podcast": [
+        "11.26.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:7",
+    "legacy_id": 49748,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Podcast Player - Castbox",
+        "icon_url": "https://play-lh.googleusercontent.com/7JBofnrqmhFGiyNL0Bi73EhLb-sYijrTTY8xr7Gqw_hnKoNUsE4BRh1kRK4_nQA79c4Ianwxr7SezCkw5vBmxw",
+        "name": "fm.castbox.audiobook.radio.podcast",
+        "versions": [
+          "11.26.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "easynotes.notes.notepad.notebook.privatenotes.note": [
+        "1.3.61.0907",
+        "1.3.63.0921"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the 'notes_edit_banner' unit from utils/AdManager and the app-open ad from App$AppOpenAdManager. Both are gated on the single App.isAdFree() check, which normally depends on a VIP subscription.",
+    "id": "4559095cb675f497283ca8a7:8",
+    "legacy_id": 49749,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "EasyNotes: Notes, Memo & Lists",
+        "icon_url": "https://play-lh.googleusercontent.com/zypSRW6cwIHO6iD-HsFpFFc3mJyKdPlcWGGA81dfPFsaRrAAAXO80408Ia1kK7cWYL0pYJYBQEq0Vm8AuQIE8A",
+        "name": "easynotes.notes.notepad.notebook.privatenotes.note",
+        "versions": [
+          "1.3.61.0907",
+          "1.3.63.0921"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "eu.livesport.FlashScore_com": [
+        "26.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:9",
+    "legacy_id": 49750,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flashscore: Live Scores & News",
+        "icon_url": "https://play-lh.googleusercontent.com/xemiqFey3iTZglLGA_7yBPL9vY0X5OnnW6lp-x6WflRuT_5J0p9JT3EQF2AHl4piOQOuBz2gAQqVnv241xSFOQ",
+        "name": "eu.livesport.FlashScore_com",
+        "versions": [
+          "26.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.futbin": [
+        "27.02",
+        "27.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:10",
+    "legacy_id": 49751,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "FUTBIN FC 27 Evolutions & More",
+        "icon_url": "https://play-lh.googleusercontent.com/ngSLmHEiQe3TMZItZCEN5vNDadZtwS1Dk_3Qo5xY7R6b_2GblFL_jn2BNgbetjKmT4yO0MnpxvLJi2V4oVm4Wg",
+        "name": "com.futbin",
+        "versions": [
+          "27.02",
+          "27.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "ru.iptvremote.android.iptv": [
+        "9.1.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Switches the app to its built-in no-ads provider, removing banner, interstitial and video pre-roll ads (Yandex, Wortise and mediated networks).",
+    "id": "4559095cb675f497283ca8a7:11",
+    "legacy_id": 49752,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "IPTV",
+        "icon_url": "https://play-lh.googleusercontent.com/kTJ4kwC0z32Ce67-FHSubuDEOLTglUyl3Ue9-CxhvcLqVrJfCR99UAE-rrrH2ashjiYSkJMNAohOVe7pXeGt",
+        "name": "ru.iptvremote.android.iptv",
+        "versions": [
+          "9.1.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.foobnix.pdf.reader": [
+        "9.4.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Librera's banner, interstitial and rewarded ads by reporting ads as switched off and the reward window as open, so the Google Mobile Ads SDK never starts.",
+    "id": "4559095cb675f497283ca8a7:12",
+    "legacy_id": 49753,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Librera: EPUB & PDF Reader",
+        "icon_url": "https://play-lh.googleusercontent.com/aijjuf53Z6SMyxj3kQS3H2DWy-LW3xjmOx3RNM6ILTeEu4rvEAbWsu6EgxW-fHaAbp2Vtt49PqiiURsIaRcj6Q",
+        "name": "com.foobnix.pdf.reader",
+        "versions": [
+          "9.4.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.livescore": [
+        "10.1",
+        "10.2.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces AdsRemovalSettings.areAdsDisabled() to return true, disabling banner, interstitial, MPU, hero placement, coverage sponsorship and announcement ads.",
+    "id": "4559095cb675f497283ca8a7:13",
+    "legacy_id": 49754,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "LiveScore: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/143fvnWCsd-0dOJVSJTmYo9dG_1Xk6fEHwvzteUVMRyYiXCOlG5v3oCohG-VkHdNtNPWQf30CK6Si3VDGDY4Sg",
+        "name": "com.livescore",
+        "versions": [
+          "10.1",
+          "10.2.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.flyersoft.moonreader": [
+        "10.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Moon+ Reader's banner, interstitial, exit and native ads by forcing the central ad gate to always report ads as disabled.",
+    "id": "4559095cb675f497283ca8a7:14",
+    "legacy_id": 49755,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moon+ Reader",
+        "icon_url": "https://play-lh.googleusercontent.com/bhF9KcXvINTlxLCqvHRXWmQyGgRQ-7e7KZq9U4VkSaVFHPPNS7FGX34qwl32yokVjOxQpmopCg8Y60zygJPG",
+        "name": "com.flyersoft.moonreader",
+        "versions": [
+          "10.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "one.cricket.app": [
+        "26.08.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native/inline and app-open ads and hides the empty ad slots.",
+    "id": "4559095cb675f497283ca8a7:15",
+    "legacy_id": 49756,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "OneCricket: News & Live Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/J6cmBz_s6YYDkM2kOXInn6BvwRNoJQ3AoanSX3naF5EwjQV-55K8fHy-vyHclDRQvmkVaMytPp0eogv1Gf8C",
+        "name": "one.cricket.app",
+        "versions": [
+          "26.08.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "de.motain.iliga": [
+        "15.142.0",
+        "15.145.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:16",
+    "legacy_id": 49757,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "OneFootball Live Soccer scores",
+        "icon_url": "https://play-lh.googleusercontent.com/YiWhQjmhW6376NzXq_X2I9ORF99n76yFnYZZGDGaqOPMYopp-EGsQYSt8Z6SAd1qqG2NLutE6kniYE5EXoosbxg",
+        "name": "de.motain.iliga",
+        "versions": [
+          "15.142.0",
+          "15.145.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.pocketcolorwheel.PCW": [
+        "3.26"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:17",
+    "legacy_id": 49758,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pocket Color Wheel",
+        "icon_url": "https://play-lh.googleusercontent.com/PK8b1bOBtJuPaDsxtkZyJW4ZYKhvd6LjhBrqixXcq0Mc4BIbeKxWtaqZXjPG38q5DXwvpm4WZpZzNjmdC1sqLw",
+        "name": "com.pocketcolorwheel.PCW",
+        "versions": [
+          "3.26"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.Project100Pi.themusicplayer": [
+        "3.2.0.0_release_2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:18",
+    "legacy_id": 49759,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pi Music Player: Offline Music",
+        "icon_url": "https://play-lh.googleusercontent.com/9N-IWll7yD8jvmEnuMvsUgXTnOKK0Gb_IKj9PNV96tS3Gv3XHaFkQB5XJnwldRvbtiB5nMigcBLrwYf7cc1qxQ",
+        "name": "com.Project100Pi.themusicplayer",
+        "versions": [
+          "3.2.0.0_release_2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.podcast.podcasts": [
+        "9.17.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:19",
+    "legacy_id": 49760,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Podcast Player",
+        "icon_url": "https://play-lh.googleusercontent.com/tmIeLmWg6abubM5bPReSzN3Fqsi9gSA8IvV-eDiEE8Kdcaz_GPJOCI65y82XbUSJXrwpt2jH6Gz6ZJsUbSX-",
+        "name": "com.podcast.podcasts",
+        "versions": [
+          "9.17.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.4",
+        "14.9.5",
+        "14.9.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Google Mobile Ads (AdMob) initialization, blocking banner, interstitial, rewarded, native and mediated ads.",
+    "id": "4559095cb675f497283ca8a7:20",
+    "legacy_id": 49761,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "365Scores: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/33TTGlcWsh5Jl7XAUp36Tj3hog3ICRAapLhj8glREVX-qYXQ7NqH3lMv0ntdHX4uMmtN1PBzoqlI33U0ORUvXQ",
+        "name": "com.scores365",
+        "versions": [
+          "14.9.4",
+          "14.9.5",
+          "14.9.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.streema.simpleradio": [
+        "6.2.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:21",
+    "legacy_id": 49762,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Simple Radio: Live AM FM Radio",
+        "icon_url": "https://play-lh.googleusercontent.com/LYs9q_wGYY3cO-FZMgsKcR5c8htZJxRCuDSmQ_F-rVfW7EwJ45eHHZTmnlm8jR_wR0Kh_V7Iz-xw3Q-WBW2WBdU",
+        "name": "com.streema.simpleradio",
+        "versions": [
+          "6.2.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, feed, native, preroll and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:22",
+    "legacy_id": 49763,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sofascore: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/V5evYzdmAVEFl9Gy9fh4-XTIb_mPnMPzNdV8rhDyZ31yftOncktYxWnI5xbX4QlAnoCd1fcBvGTzGJU_MxtY",
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.melodis.midomiMusicIdentifier.freemium": [
+        "10.5.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "4559095cb675f497283ca8a7:23",
+    "legacy_id": 49764,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SoundHound - Music Discovery",
+        "icon_url": "https://play-lh.googleusercontent.com/kAsEAUhCZcXiTEYHsGrTcTw3P1nu2DcoMGodtyAoVlwUvkq4tQDJf0lzqFgQmtQqEWV49yHDguPPdmcepQdM0JY",
+        "name": "com.melodis.midomiMusicIdentifier.freemium",
+        "versions": [
+          "10.5.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.farproc.wifi.analyzer": [
+        "3.10.5-L"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the banner ad.",
+    "id": "4559095cb675f497283ca8a7:24",
+    "legacy_id": 49765,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.farproc.wifi.analyzer",
+        "icon_url": null,
+        "name": "com.farproc.wifi.analyzer",
+        "versions": [
+          "3.10.5-L"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.ztnstudio.notepad": [
+        "5.4.3.19019"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops the bundled Calldorado ad SDK: no in-app ads and no after-call ad screen.",
+    "id": "4559095cb675f497283ca8a7:25",
+    "legacy_id": 49766,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Notepad – Notes and To Do List",
+        "icon_url": "https://play-lh.googleusercontent.com/Dukm0YHW2xvgs0REv7jbPOsvwnfXS6lpCd_wlMOiMFKD5_bUkafoL2QeagUSHOXxyl8KikDwRAJ7yyj5CCTQ",
+        "name": "com.ztnstudio.notepad",
+        "versions": [
+          "5.4.3.19019"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [
+      "Disable Facebook telemetry"
+    ],
+    "description": "Blocks Facebook Audience Network ads and disables Facebook event tracking while keeping Facebook Login working.",
+    "id": "4559095cb675f497283ca8a7:26",
+    "legacy_id": 49767,
+    "metadata_status": "verified",
+    "name": "Disable Facebook SDK",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sofascore: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/V5evYzdmAVEFl9Gy9fh4-XTIb_mPnMPzNdV8rhDyZ31yftOncktYxWnI5xbX4QlAnoCd1fcBvGTzGJU_MxtY",
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.resultadosfutbol.mobile": [
+        "6.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the Play Store license check so the patched app starts.",
+    "id": "4559095cb675f497283ca8a7:27",
+    "legacy_id": 49768,
+    "metadata_status": "verified",
+    "name": "Disable license check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BeSoccer: Soccer Live Score",
+        "icon_url": "https://play-lh.googleusercontent.com/fClhuAHQj9QNrtJfE3XL_qjkMQrAUJQ8PCnYYmDPJ5kEvVOrqX7Yj3m9zW5at26bTiAaJHlxXr1a4tiULdJi",
+        "name": "com.resultadosfutbol.mobile",
+        "versions": [
+          "6.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.rawcam.app": [
+        "1.4.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the Play Store license check so the patched app starts.",
+    "id": "4559095cb675f497283ca8a7:28",
+    "legacy_id": 49769,
+    "metadata_status": "verified",
+    "name": "Disable license check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Native Camera",
+        "icon_url": "https://play-lh.googleusercontent.com/he6oCfeWQGnltx4sBe9JltjxbtfpsnJM4EB5WHlJPPUpb5Obxt-88KDdk4WSVytM77_51fy3fTq6wJLhzEV_Mrs",
+        "name": "com.rawcam.app",
+        "versions": [
+          "1.4.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9",
+        "5.4.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppsFlyer event logging, app-logged Firebase Analytics events and Crashlytics exception reporting.",
+    "id": "4559095cb675f497283ca8a7:29",
+    "legacy_id": 49770,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Box Box Club: Formula Widgets",
+        "icon_url": "https://play-lh.googleusercontent.com/rn3YS5OhNKLK95JBQAZ4ED7GTivqpnXST3nELLiyiCMb_KT-TjVNEyGvwFATCUk3EvmD2V22QvbY__hw8OXZ",
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9",
+          "5.4.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.96.61",
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Experimental: turns off P3A analytics and the usage ping on every start (overriding the in-app switches), stops crash report uploads and drops the install-referrer attribution code.",
+    "id": "4559095cb675f497283ca8a7:30",
+    "legacy_id": 49771,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.96.61",
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": false
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.shazam.android": [
+        "16.62.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Firebase Analytics event logging and Crashlytics crash reporting.",
+    "id": "4559095cb675f497283ca8a7:31",
+    "legacy_id": 49772,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Shazam: Find Music & Concerts",
+        "icon_url": "https://play-lh.googleusercontent.com/Ne3g286DhSUmbg75RI5hmJLAFLPZfgIiWVOboDL8Rb08iQAAfqb7CBfwI6eU3rIvI6Kk6B9CySgMUTbh7i42_Q",
+        "name": "com.shazam.android",
+        "versions": [
+          "16.62.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.sofascore.results": [
+        "26.07.27",
+        "26.08.24",
+        "26.09.07",
+        "26.09.14",
+        "26.09.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables AppsFlyer and Firebase Analytics event logging, plus Crashlytics crash reporting.",
+    "id": "4559095cb675f497283ca8a7:32",
+    "legacy_id": 49773,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sofascore: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/V5evYzdmAVEFl9Gy9fh4-XTIb_mPnMPzNdV8rhDyZ31yftOncktYxWnI5xbX4QlAnoCd1fcBvGTzGJU_MxtY",
+        "name": "com.sofascore.results",
+        "versions": [
+          "26.07.27",
+          "26.08.24",
+          "26.09.07",
+          "26.09.14",
+          "26.09.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.mobilefootie.wc2010": [
+        "238.17666.20260928",
+        "237.17536.20260911",
+        "236.17398.20260827",
+        "236.17338.20260822"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "4559095cb675f497283ca8a7:33",
+    "legacy_id": 49774,
+    "metadata_status": "verified",
+    "name": "Enable FotMob+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "FotMob - Soccer Live Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/uA97ujyyS5PtfLsJviTN7tW1vcSQgRoN_wM0IMEO3tzn_JUAJGGMv66YxSzPF5uiP2Ysjh_F9YZzknOwKrSS",
+        "name": "com.mobilefootie.wc2010",
+        "versions": [
+          "238.17666.20260928",
+          "237.17536.20260911",
+          "236.17398.20260827",
+          "236.17338.20260822"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "net.dinglisch.android.taskerm": [
+        "6.6.18"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the Play license check so the paid app runs as licensed.",
+    "id": "4559095cb675f497283ca8a7:34",
+    "legacy_id": 49775,
+    "metadata_status": "verified",
+    "name": "Enable Full Version",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Tasker",
+        "icon_url": "https://play-lh.googleusercontent.com/wjXpkVLT-LAzfcYOfhH0hF8ghU79nDHtqVLxBNmWOQJ2ghb4pgp_IBNfGdCTw-aQgh3WwA3Gp1k8Y4waZkGobmA",
+        "name": "net.dinglisch.android.taskerm",
+        "versions": [
+          "6.6.18"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.onesports.score": [
+        "4.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the VIP interface and removes ads. Premium data the AiScore server delivers (e.g. predictions, dropping odds) is validated server-side and is not unlocked.",
+    "id": "4559095cb675f497283ca8a7:35",
+    "legacy_id": 49776,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AiScore - Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/gGNfVnKkQgdX3pWzXQpnMcdVsJaNtYMTxJ8Ad8IFyiJqJGEd0v-DgVhdf6Wgje-DJJrGorMlt2KTzsPny4gQ",
+        "name": "com.onesports.score",
+        "versions": [
+          "4.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "org.kman.AquaMail": [
+        "2.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Pro/Premium features and lifts the free-version feature locks.",
+    "id": "4559095cb675f497283ca8a7:36",
+    "legacy_id": 49777,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Email Aqua Mail - Secure Inbox",
+        "icon_url": "https://play-lh.googleusercontent.com/IFQ5tnxiv1B7iXJ7IbLzyZOnQtCAcnxxs-VsYilwm2aHx-3JPSAr7oeQRm5DCNNyHJjjtDzjQEFR29OLKHtqew",
+        "name": "org.kman.AquaMail",
+        "versions": [
+          "2.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.rammigsoftware.bluecoins": [
+        "13.1.79",
+        "13.1.149"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the premium version (removes ads and lifts premium limits).",
+    "id": "4559095cb675f497283ca8a7:37",
+    "legacy_id": 49778,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Bluecoins Finance & Budget",
+        "icon_url": "https://play-lh.googleusercontent.com/VtTLn-4YSl8gAH16YUueVVS-n7UJSW5Dp-EdIxSYzz7OoecThN_KSu6RXqspBvP0Tt82B8IWxF0IlAW0XcvX5g",
+        "name": "com.rammigsoftware.bluecoins",
+        "versions": [
+          "13.1.79",
+          "13.1.149"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "club.boxbox.android": [
+        "5.4.9",
+        "5.4.16"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features by bypassing RevenueCat subscription checks.",
+    "id": "4559095cb675f497283ca8a7:38",
+    "legacy_id": 49779,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Box Box Club: Formula Widgets",
+        "icon_url": "https://play-lh.googleusercontent.com/rn3YS5OhNKLK95JBQAZ4ED7GTivqpnXST3nELLiyiCMb_KT-TjVNEyGvwFATCUk3EvmD2V22QvbY__hw8OXZ",
+        "name": "club.boxbox.android",
+        "versions": [
+          "5.4.9",
+          "5.4.16"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "easynotes.notes.notepad.notebook.privatenotes.note": [
+        "1.3.61.0907",
+        "1.3.63.0921"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the VIP-only fonts, note backgrounds, stickers and drawing tools. The app checks entitlement entirely locally — there is no license server — so forcing the App.isVip() gate to return true unlocks everything, and stays unlocked even though BillingManager resets the underlying purchase flags from Play on every startup.",
+    "id": "4559095cb675f497283ca8a7:39",
+    "legacy_id": 49780,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "EasyNotes: Notes, Memo & Lists",
+        "icon_url": "https://play-lh.googleusercontent.com/zypSRW6cwIHO6iD-HsFpFFc3mJyKdPlcWGGA81dfPFsaRrAAAXO80408Ia1kK7cWYL0pYJYBQEq0Vm8AuQIE8A",
+        "name": "easynotes.notes.notepad.notebook.privatenotes.note",
+        "versions": [
+          "1.3.61.0907",
+          "1.3.63.0921"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "no.fishbuddy_playground.app": [
+        "11.0.101",
+        "11.0.125"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces User.hasPremium() to return true, unlocking premium features locked behind the RevenueCat subscription entitlement.",
+    "id": "4559095cb675f497283ca8a7:40",
+    "legacy_id": 49781,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Fishbuddy: Fishing Spot Finder",
+        "icon_url": "https://play-lh.googleusercontent.com/cKkvwnswRJ14M9HheoRKU_vNMmUmXgsrZYAqw2u7kMgnHaTBUip4InHio_ijNjlySwFvNpclSeSJ8VF_d3YA",
+        "name": "no.fishbuddy_playground.app",
+        "versions": [
+          "11.0.101",
+          "11.0.125"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.gregacucnik.fishingpoints": [
+        "4.7.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Fishing Points premium features and removes ads.",
+    "id": "4559095cb675f497283ca8a7:41",
+    "legacy_id": 49782,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Fishing Points - Fishing App",
+        "icon_url": "https://play-lh.googleusercontent.com/pF_Dtku6wCQdQpV0jpPdxnHuxqW4ks31qZfIQm6B2QYit7nEfsTbvP4_9-d-owcP7nAYlxnTyHPRDbu_H-tM5A",
+        "name": "com.gregacucnik.fishingpoints",
+        "versions": [
+          "4.7.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "ru.iptvremote.android.iptv": [
+        "9.1.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Pro-only access control settings (parental PIN, locking playlist/EPG/proxy/import-export/recording settings, hiding playlist URLs) and suppresses the in-app review prompt. Start on boot and autoplay last channel are only implemented in the separate IPTV Pro app and stay unavailable.",
+    "id": "4559095cb675f497283ca8a7:42",
+    "legacy_id": 49783,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "IPTV",
+        "icon_url": "https://play-lh.googleusercontent.com/kTJ4kwC0z32Ce67-FHSubuDEOLTglUyl3Ue9-CxhvcLqVrJfCR99UAE-rrrH2ashjiYSkJMNAohOVe7pXeGt",
+        "name": "ru.iptvremote.android.iptv",
+        "versions": [
+          "9.1.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "me.kavishdevar.librepods": [
+        "1.0.0-rc1-play"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the 'Advanced device settings' features (Personalized Volume, Adaptive Audio, accessibility configs, hearing protection, etc.) that LibrePods gates behind the Play Store 'Unlock advanced features' one-time purchase. The patch forces the premium entitlement (PlayBillingProvider's _isPremium StateFlow) to always be true.",
+    "id": "4559095cb675f497283ca8a7:43",
+    "legacy_id": 49784,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "LibrePods",
+        "icon_url": "https://play-lh.googleusercontent.com/huucxEjYNSW5NVyj1qwG5h0buY1XdbMnzusVZCKO6gWPqMFIupxCNkH9w23AaOSmyAztSPmWf9_4T4cl7PK4",
+        "name": "me.kavishdevar.librepods",
+        "versions": [
+          "1.0.0-rc1-play"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.monefy.app.lite": [
+        "1.22.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks the Monefy Pro features.",
+    "id": "4559095cb675f497283ca8a7:44",
+    "legacy_id": 49785,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Monefy: Money & Budget App",
+        "icon_url": "https://play-lh.googleusercontent.com/3YvCk9EkKbEN1Apz1x0elK2EltNctGj1eTtgUZVSTQ87q3uhz0Qg923pJsrj3Qrg0BU6ZM0cQTrtdQlkK_r2tw",
+        "name": "com.monefy.app.lite",
+        "versions": [
+          "1.22.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  },
+  {
+    "bundle_id": "4559095cb675f497283ca8a7",
+    "compatiblePackages": {
+      "com.rawcam.app": [
+        "1.4.3"
+      ]
+    },
+    "dependencies": [
+      "Disable license check"
+    ],
+    "description": "Unlocks Native Camera premium (RAW DNG, 10-bit/HLG/UHDR video, boosted modes and the higher bitrate cap). Premium is a local flag; the license check is disabled as well so the patched app starts.",
+    "id": "4559095cb675f497283ca8a7:45",
+    "legacy_id": 49786,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Native Camera",
+        "icon_url": "https://play-lh.googleusercontent.com/he6oCfeWQGnltx4sBe9JltjxbtfpsnJM4EB5WHlJPPUpb5Obxt-88KDdk4WSVytM77_51fy3fTq6wJLhzEV_Mrs",
+        "name": "com.rawcam.app",
+        "versions": [
+          "1.4.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.13.0",
+    "source_id": "6f3422b13811502f",
+    "use": true
+  }
+]

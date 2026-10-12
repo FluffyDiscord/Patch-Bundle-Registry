@@ -1,0 +1,3156 @@
+[
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Appends \".adobo\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
+    "id": "aa6e9493e6ecb73392c8da1f:2",
+    "legacy_id": 7502,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": true,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update other permissions declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateOtherPermissions",
+        "required": false,
+        "title": "Update other permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update content provider URI authorities. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update content providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the default gray comment indent lines with color-coded lines.",
+    "id": "aa6e9493e6ecb73392c8da1f:3",
+    "legacy_id": 7503,
+    "metadata_status": "verified",
+    "name": "Colorize comment indent lines",
+    "options": [
+      {
+        "default": false,
+        "description": "",
+        "key": "isCurrentLevelOnly",
+        "required": false,
+        "title": "Show indent line at current depth only",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "#2A9D8F",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 1.",
+        "key": "indentLineColors1",
+        "required": false,
+        "title": "Line color 1",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Teal Cascade)": "#2A9D8F",
+          "Material (Crimson Flash)": "#F44336",
+          "Monokai (Charcoal Stone)": "#272822",
+          "Nord (Frost Mint)": "#8FBCBB",
+          "Solarized (Crimson Ember)": "#DC322F",
+          "Synthwave (Neon Blizzard)": "#0066FF"
+        }
+      },
+      {
+        "default": "#C96B2C",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 2.",
+        "key": "indentLineColors2",
+        "required": false,
+        "title": "Line color 2",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Burnt Apricot)": "#C96B2C",
+          "Material (Sunset Blaze)": "#FF5722",
+          "Monokai (Neon Pink)": "#F92672",
+          "Nord (Ice Shard)": "#88C0D0",
+          "Solarized (Rust Orange)": "#CB4B16",
+          "Synthwave (Laser Pink)": "#FF2E88"
+        }
+      },
+      {
+        "default": "#7A8F3A",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 3.",
+        "key": "indentLineColors3",
+        "required": false,
+        "title": "Line color 3",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Olive Moss)": "#7A8F3A",
+          "Material (Marigold Glow)": "#FF9800",
+          "Monokai (Lime Pop)": "#A6E22E",
+          "Nord (Arctic Skies)": "#81A1C1",
+          "Solarized (Dark Ochre)": "#B58900",
+          "Synthwave (Cyber Violet)": "#9B5CFF"
+        }
+      },
+      {
+        "default": "#8C4A5B",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 4.",
+        "key": "indentLineColors4",
+        "required": false,
+        "title": "Line color 4",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Muted Mulberry)": "#8C4A5B",
+          "Material (Honey Gold)": "#FFC107",
+          "Monokai (Sunset Amber)": "#FD971F",
+          "Nord (Deep Aurora)": "#5E81AC",
+          "Solarized (Moss Green)": "#859900",
+          "Synthwave (Electric Cyan)": "#2DE2E6"
+        }
+      },
+      {
+        "default": "#4A6FA5",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 5.",
+        "key": "indentLineColors5",
+        "required": false,
+        "title": "Line color 5",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Slate Blue)": "#4A6FA5",
+          "Material (Electric Lemon)": "#FFEB3B",
+          "Monokai (Electric Cyan)": "#66D9EF",
+          "Nord (Fjord Wave)": "#6D8FB3",
+          "Solarized (Deep Cyan)": "#2AA198",
+          "Synthwave (Miami Sunset)": "#FF5FA2"
+        }
+      },
+      {
+        "default": "#B85C38",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 6.",
+        "key": "indentLineColors6",
+        "required": false,
+        "title": "Line color 6",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Rust Clay)": "#B85C38",
+          "Material (Lime Zing)": "#CDDC39",
+          "Monokai (Vivid Purple)": "#AE81FF",
+          "Nord (Winter Denim)": "#7AA0C4",
+          "Solarized (Ocean Blue)": "#268BD2",
+          "Synthwave (Rad Orange)": "#FF8A3D"
+        }
+      },
+      {
+        "default": "#6B7A2B",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 7.",
+        "key": "indentLineColors7",
+        "required": false,
+        "title": "Line color 7",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Juniper Berry)": "#6B7A2B",
+          "Material (Sprout Green)": "#8BC34A",
+          "Monokai (Vintage Straw)": "#E6DB74",
+          "Nord (Powder Blue)": "#8BB2D1",
+          "Solarized (Cosmic Iris)": "#6C71C4",
+          "Synthwave (Retro Gold)": "#FFD166"
+        }
+      },
+      {
+        "default": "#7B5E8E",
+        "description": "The hex color (#RRGGBB or #AARRGGBB) for comment indent line at depth 8.",
+        "key": "indentLineColors8",
+        "required": false,
+        "title": "Line color 8",
+        "type": "kotlin.String",
+        "values": {
+          "Default (Heather Purple)": "#7B5E8E",
+          "Material (Shamrock Green)": "#4CAF50",
+          "Monokai (Stark Frost)": "#F8F8F2",
+          "Nord (Pale Ice)": "#9BC4DC",
+          "Solarized (Royal Magenta)": "#D33682",
+          "Synthwave (Arcade Lime)": "#3CFF7F"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Deactivates Firebase Analytics and removes its associated broadcast receivers and services.",
+    "id": "aa6e9493e6ecb73392c8da1f:4",
+    "legacy_id": 7504,
+    "metadata_status": "verified",
+    "name": "Deactivate Firebase Analytics",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Deactivates the collection of performance data on app start up time, network requests, and other related metrics.",
+    "id": "aa6e9493e6ecb73392c8da1f:5",
+    "legacy_id": 7505,
+    "metadata_status": "verified",
+    "name": "Deactivate Firebase Performance Monitoring",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the bottom navigation bar from hiding when scrolling down.",
+    "id": "aa6e9493e6ecb73392c8da1f:6",
+    "legacy_id": 7506,
+    "metadata_status": "verified",
+    "name": "Disable bottom navigation bar auto-hide",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables the Google Safe Browsing checks in WebView. This doesn't apply to WebView within the SDK Runtime.",
+    "id": "aa6e9493e6ecb73392c8da1f:7",
+    "legacy_id": 7507,
+    "metadata_status": "verified",
+    "name": "Disable Google Safe Browsing in WebView",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the automatic refresh of the home feed after viewing a post or after being away from the app.",
+    "id": "aa6e9493e6ecb73392c8da1f:8",
+    "legacy_id": 7508,
+    "metadata_status": "verified",
+    "name": "Disable home feed auto-refresh",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the back-to-top scroll and home feed refresh on back navigation to exit.",
+    "id": "aa6e9493e6ecb73392c8da1f:9",
+    "legacy_id": 7509,
+    "metadata_status": "verified",
+    "name": "Disable home feed refresh on back to exit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the horizontal page swipe gesture used to switch feeds.",
+    "id": "aa6e9493e6ecb73392c8da1f:10",
+    "legacy_id": 7510,
+    "metadata_status": "verified",
+    "name": "Disable home feed swipe",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the automatic redirect to the home screen after being away from the app or returning from the background.",
+    "id": "aa6e9493e6ecb73392c8da1f:11",
+    "legacy_id": 7511,
+    "metadata_status": "verified",
+    "name": "Disable home screen redirect",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables the collection of diagnostic data or usage statistics that are sent to Google.",
+    "id": "aa6e9493e6ecb73392c8da1f:12",
+    "legacy_id": 7512,
+    "metadata_status": "verified",
+    "name": "Disable metrics collection in WebView",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables banner, interstitial, and other ad formats.",
+    "id": "aa6e9493e6ecb73392c8da1f:13",
+    "legacy_id": 7513,
+    "metadata_status": "verified",
+    "name": "Disable mobile ads",
+    "options": [
+      {
+        "default": true,
+        "description": "Disable App Open, Banner & MREC, Interstitial, Native, and Rewarded ad formats.",
+        "key": "disableAppLovinMax",
+        "required": false,
+        "title": "AppLovin MAX",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Native, Interstitial, Pop-up, Rewarded, and Splash ad formats.",
+        "key": "disableBigo",
+        "required": false,
+        "title": "BIGO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, Rewarded Interstitial, and App Open ad formats.",
+        "key": "disableGoogleAdMob",
+        "required": false,
+        "title": "Google AdMob",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Medium rectangle, Interstitial, Native, Native Banner, Rewarded Video, and Rewarded Interstitial ad formats.",
+        "key": "disableMetaAudienceNetwork",
+        "required": false,
+        "title": "Meta Audience Network",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Rewarded Video, Native, and Splash ad formats.",
+        "key": "disableMintegral",
+        "required": false,
+        "title": "Mintegral",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Rewarded, Native, Native Banner, In-Stream Video and Audio, and Carousel ad formats.",
+        "key": "disableMyTarget",
+        "required": false,
+        "title": "myTarget",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded Video, and App Open ad formats.",
+        "key": "disablePangle",
+        "required": false,
+        "title": "Pangle",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, and App Open ad formats.",
+        "key": "disableTopOn",
+        "required": false,
+        "title": "TopOn",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, and Rewarded Video ad formats.",
+        "key": "disableUnity",
+        "required": false,
+        "title": "Unity",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, and App Open ad formats.",
+        "key": "disableVungle",
+        "required": false,
+        "title": "Liftoff Monetize",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Banner, Interstitial, Native, Rewarded, App Open, InStream, and Feed ad formats.",
+        "key": "disableYandex",
+        "required": false,
+        "title": "Yandex Advertising Network",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the horizontal swipe gesture used to navigate between posts.",
+    "id": "aa6e9493e6ecb73392c8da1f:14",
+    "legacy_id": 7514,
+    "metadata_status": "verified",
+    "name": "Disable post detail swipe",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [
+      "Remove screenshot detection"
+    ],
+    "description": "Disables the banner that shows up after taking a screenshot.",
+    "id": "aa6e9493e6ecb73392c8da1f:15",
+    "legacy_id": 7515,
+    "metadata_status": "verified",
+    "name": "Disable screenshot banner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables the redesign of the additional actions menu.",
+    "id": "aa6e9493e6ecb73392c8da1f:16",
+    "legacy_id": 7516,
+    "metadata_status": "verified",
+    "name": "Enable access points menu redesign",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables clipboard support in incognito mode.",
+    "id": "aa6e9493e6ecb73392c8da1f:17",
+    "legacy_id": 7517,
+    "metadata_status": "verified",
+    "name": "Enable clipboard in incognito",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables extending the clipboard history expiration time.",
+    "id": "aa6e9493e6ecb73392c8da1f:18",
+    "legacy_id": 7518,
+    "metadata_status": "verified",
+    "name": "Enable extended clipboard history",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables browsing Reddit without signing in.",
+    "id": "aa6e9493e6ecb73392c8da1f:19",
+    "legacy_id": 7519,
+    "metadata_status": "verified",
+    "name": "Enable guest mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables an option to select a key shape from the theme.",
+    "id": "aa6e9493e6ecb73392c8da1f:20",
+    "legacy_id": 7520,
+    "metadata_status": "verified",
+    "name": "Enable key shape selection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables the Scan Text feature to extract text from images and insert them into text fields.",
+    "id": "aa6e9493e6ecb73392c8da1f:21",
+    "legacy_id": 7521,
+    "metadata_status": "verified",
+    "name": "Enable OCR feature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables the undo feature to quickly undo or correct typing mistakes.",
+    "id": "aa6e9493e6ecb73392c8da1f:22",
+    "legacy_id": 7522,
+    "metadata_status": "verified",
+    "name": "Enable Undo feature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Enables voice typing in incognito mode.",
+    "id": "aa6e9493e6ecb73392c8da1f:23",
+    "legacy_id": 7523,
+    "metadata_status": "verified",
+    "name": "Enable voice typing in incognito",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Ask button (Reddit Answers) from the search bar.",
+    "id": "aa6e9493e6ecb73392c8da1f:24",
+    "legacy_id": 7524,
+    "metadata_status": "verified",
+    "name": "Hide Ask button from search bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the awards on Reddit posts and comments.",
+    "id": "aa6e9493e6ecb73392c8da1f:25",
+    "legacy_id": 7525,
+    "metadata_status": "verified",
+    "name": "Hide awards",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the community highlights section.",
+    "id": "aa6e9493e6ecb73392c8da1f:26",
+    "legacy_id": 7526,
+    "metadata_status": "verified",
+    "name": "Hide community highlights",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the red notification badge on the community menu (hamburger menu).",
+    "id": "aa6e9493e6ecb73392c8da1f:27",
+    "legacy_id": 7527,
+    "metadata_status": "verified",
+    "name": "Hide community menu badge",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the \"views\" indicator from the post metadata.",
+    "id": "aa6e9493e6ecb73392c8da1f:28",
+    "legacy_id": 7528,
+    "metadata_status": "verified",
+    "name": "Hide post view counts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the new prominent search bar on the main screen. Applicable only to version 2026.24.0 and earlier.",
+    "id": "aa6e9493e6ecb73392c8da1f:29",
+    "legacy_id": 7529,
+    "metadata_status": "verified",
+    "name": "Hide prominent search bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the share count on Reddit posts.",
+    "id": "aa6e9493e6ecb73392c8da1f:30",
+    "legacy_id": 7530,
+    "metadata_status": "verified",
+    "name": "Hide share count",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the scores on Reddit posts and comments.",
+    "id": "aa6e9493e6ecb73392c8da1f:31",
+    "legacy_id": 7531,
+    "metadata_status": "verified",
+    "name": "Hide upvote scores",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes scores from posts in feeds and search results.",
+        "key": "hidePostScores",
+        "required": false,
+        "title": "Hide post scores",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes scores from comments in threads and search results.",
+        "key": "hideCommentScores",
+        "required": false,
+        "title": "Hide comment scores",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the user community badges on Reddit comments.",
+    "id": "aa6e9493e6ecb73392c8da1f:32",
+    "legacy_id": 7532,
+    "metadata_status": "verified",
+    "name": "Hide user community badges",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the user flairs on Reddit comments.",
+    "id": "aa6e9493e6ecb73392c8da1f:33",
+    "legacy_id": 7533,
+    "metadata_status": "verified",
+    "name": "Hide user flairs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sets the system navigation bar to fully transparent.",
+    "id": "aa6e9493e6ecb73392c8da1f:34",
+    "legacy_id": 7534,
+    "metadata_status": "verified",
+    "name": "Make system navigation bar transparent",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens external links directly without going through out.reddit.com.",
+    "id": "aa6e9493e6ecb73392c8da1f:35",
+    "legacy_id": 7535,
+    "metadata_status": "verified",
+    "name": "Open external links directly",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.ninegag.android.app": [
+        "8.17.5",
+        "8.17.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes ads, trackers, and analytics in the 9GAG app.",
+    "id": "aa6e9493e6ecb73392c8da1f:36",
+    "legacy_id": 7536,
+    "metadata_status": "verified",
+    "name": "Remove 9GAG's ads, trackers, and analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "9GAG: Funny GIF, Meme & Video",
+        "icon_url": "https://play-lh.googleusercontent.com/O3exMzvq4XfEBBr96KeMynd3E30tk4xPGcnYrQGrHtBZAVUgOIEHMqTA7hU_VHniqTO1wIZu5d7wPb4xxDA5F5U",
+        "name": "com.ninegag.android.app",
+        "versions": [
+          "8.17.5",
+          "8.17.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes ads and telemetry everywhere.",
+    "id": "aa6e9493e6ecb73392c8da1f:37",
+    "legacy_id": 7537,
+    "metadata_status": "verified",
+    "name": "Remove ads and telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.imdb.mobile": null
+    },
+    "dependencies": [],
+    "description": "Removes ads, trackers, and analytics in the IMDb app.",
+    "id": "aa6e9493e6ecb73392c8da1f:38",
+    "legacy_id": 7538,
+    "metadata_status": "verified",
+    "name": "Remove IMDb's ads, trackers, and analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "IMDb: Movies & TV Shows",
+        "icon_url": "https://play-lh.googleusercontent.com/jvuf103Qv_fqVVlHeXWws8zdPPEIhyZBB2d0xnVVSLOvcsCzf8qDN8r1jMpHUFfZqugcpFywwFvH3lWuZzNbMw",
+        "name": "com.imdb.mobile",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes unnecessary internet permission from apps that can still work without internet access.",
+    "id": "aa6e9493e6ecb73392c8da1f:39",
+    "legacy_id": 7539,
+    "metadata_status": "verified",
+    "name": "Remove internet permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Prevents the app from detecting when a screenshot is taken.",
+    "id": "aa6e9493e6ecb73392c8da1f:40",
+    "legacy_id": 7540,
+    "metadata_status": "verified",
+    "name": "Remove screenshot detection",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Replaces the Google Maps API key with a custom key.",
+    "id": "aa6e9493e6ecb73392c8da1f:41",
+    "legacy_id": 7541,
+    "metadata_status": "verified",
+    "name": "Replace Google Maps API key",
+    "options": [
+      {
+        "default": null,
+        "description": "This key must be a valid Google Maps API key starting with \"AIzaSy\". \n\nFollow the instructions at https://developers.google.com/maps/documentation/android-sdk/get-api-key to generate a new API key if you don't have one. \n\nLeave it unrestricted to use it with any app (recommended), or restrict it by adding the SHA-1 fingerprint of the app's signing certificate and the package name.",
+        "key": "apiKey",
+        "required": true,
+        "title": "Maps API Key",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2026.38.0",
+        "2026.37.0",
+        "2026.36.0",
+        "2026.24.0",
+        "2026.14.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unshortens and removes the tracking query parameters from shared links.",
+    "id": "aa6e9493e6ecb73392c8da1f:42",
+    "legacy_id": 7542,
+    "metadata_status": "verified",
+    "name": "Sanitize share links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": [
+          "2026.38.0",
+          "2026.37.0",
+          "2026.36.0",
+          "2026.24.0",
+          "2026.14.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the device's advertising ID with a string of zeros.",
+    "id": "aa6e9493e6ecb73392c8da1f:43",
+    "legacy_id": 7543,
+    "metadata_status": "verified",
+    "name": "Spoof Advertising ID",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the app's package certificate hash used by Firebase Installations so that push notifications, remote config, and other Firebase services continue to work as expected.",
+    "id": "aa6e9493e6ecb73392c8da1f:44",
+    "legacy_id": 7544,
+    "metadata_status": "verified",
+    "name": "Spoof Firebase certificate hash",
+    "options": [
+      {
+        "default": null,
+        "description": "The SHA-1 hash of the app's package certificate.",
+        "key": "certificateHash",
+        "required": true,
+        "title": "Certificate hash",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the signature verification when the app starts up. It is recommended to use the unmodified app to work properly.",
+    "id": "aa6e9493e6ecb73392c8da1f:45",
+    "legacy_id": 7545,
+    "metadata_status": "verified",
+    "name": "Spoof signature verification",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The package name of the app, if modified. This must match the package name defined when the 'Change package name' patch is selected or as defined in the AndroidManifest.xml.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": "Default",
+        "description": "The base64-encoded signature from the original, unmodified APK. This extracts the certificate/signature in the APK by default if blank.",
+        "key": "signature",
+        "required": true,
+        "title": "Base64-encoded signature",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9493e6ecb73392c8da1f",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": null
+    },
+    "dependencies": [],
+    "description": "Toggles Gboard feature flags to enable or disable experimental or hidden features.",
+    "id": "aa6e9493e6ecb73392c8da1f:46",
+    "legacy_id": 7546,
+    "metadata_status": "verified",
+    "name": "Toggle feature flags",
+    "options": [
+      {
+        "default": null,
+        "description": "The Gboard feature flags to toggle, such as experimental or hidden features.",
+        "key": "featureFlags",
+        "required": true,
+        "title": "Feature flags",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enables or disables all specified feature flags.",
+        "key": "enableFlags",
+        "required": false,
+        "title": "Enable feature flags",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.5.0",
+    "source_id": "37b2e2602691a1f6",
+    "use": false
+  },
+  {
+    "bundle_id": "aa6e9e33bcc59d6fd388235d",
+    "compatiblePackages": {
+      "io.foodvisor.foodvisor": [
+        "7.0.0-3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks premium features and diets.",
+    "id": "aa6e9e33bcc59d6fd388235d:0",
+    "legacy_id": 7547,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Foodvisor - AI Calorie Counter",
+        "icon_url": "https://play-lh.googleusercontent.com/EF7kwLiABmSdczLWS6dI6v1rvBnSYpS_I6wyuPSvve4sPYZFiKVF_R-dF_a8vm4oFGPhOspFlEn_C1UEhobBiA",
+        "name": "io.foodvisor.foodvisor",
+        "versions": [
+          "7.0.0-3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "24f6c93314d7b318",
+    "use": true
+  },
+  {
+    "bundle_id": "aa6e9e33bcc59d6fd388235d",
+    "compatiblePackages": {
+      "com.roidapp.photogrid": [
+        "8.81"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all PhotoGrid premium features by making IabUtils always report the user as premium.",
+    "id": "aa6e9e33bcc59d6fd388235d:1",
+    "legacy_id": 7548,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.roidapp.photogrid",
+        "icon_url": null,
+        "name": "com.roidapp.photogrid",
+        "versions": [
+          "8.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "24f6c93314d7b318",
+    "use": true
+  },
+  {
+    "bundle_id": "aaf7c3b9fecc9743b46a55ff",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Injects PROPERTY_SATELLITE_DATA_OPTIMIZED meta-data tag into AndroidManifest.xml to enable Direct-To-Cell (DTC) satellite data on T-Mobile / SpaceX network.",
+    "id": "aaf7c3b9fecc9743b46a55ff:0",
+    "legacy_id": 7549,
+    "metadata_status": "verified",
+    "name": "Satellite Data Optimization",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.1.0",
+    "source_id": "1dfda801df19977b",
+    "use": false
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#00D26A",
+        "description": "Subway Surfers by SYBO Games / Kiloo",
+        "name": "Subway Surfers",
+        "packageName": "com.kiloo.subwaysurf",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate in Subway Surfers by configuring WindowManager.LayoutParams.preferredRefreshRate on the game activity.",
+    "id": "abf0ca00e47d9d3a20688158:0",
+    "legacy_id": 7666,
+    "metadata_status": "unverified",
+    "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#00A859",
+        "description": "Temple Run 2 by Imangi Studios",
+        "name": "Temple Run 2",
+        "packageName": "com.imangi.templerun2",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate in Temple Run 2 by configuring WindowManager.LayoutParams.preferredRefreshRate on the game activity.",
+    "id": "abf0ca00e47d9d3a20688158:1",
+    "legacy_id": 7667,
+    "metadata_status": "unverified",
+    "name": "120 FPS High Refresh Rate & Low Latency - Temple Run 2 (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#0288D1",
+        "description": "Windy.com: Weather & Wind Radar Forecast by Windyty SE",
+        "name": "Windy.com",
+        "packageName": "com.windyty.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate and unlocks high-framerate wind particle simulations and smooth satellite weather animation layers in Windy.",
+    "id": "abf0ca00e47d9d3a20688158:2",
+    "legacy_id": 7668,
+    "metadata_status": "unverified",
+    "name": "120 FPS Smooth Radar Animations - Windy.com (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#FF8800",
+        "description": "VLC for Android: Fast, Open-Source Media Player by VideoLAN",
+        "name": "VLC",
+        "packageName": "org.videolan.vlc",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Unlocks 200% volume amplification (software preamp gain up to +12dB) for low-volume videos/audio and prevents volume ducking on notifications.",
+    "id": "abf0ca00e47d9d3a20688158:3",
+    "legacy_id": 7669,
+    "metadata_status": "unverified",
+    "name": "200% Volume Boost & Audio Gain - VLC (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#0087FF",
+        "description": "Truecaller: Caller ID & Block Spam by Truecaller",
+        "name": "Truecaller",
+        "packageName": "com.truecaller",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells by neutralizing ad SDK calls.",
+    "id": "abf0ca00e47d9d3a20688158:4",
+    "legacy_id": 7670,
+    "metadata_status": "unverified",
+    "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#0088FF",
+        "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+        "name": "Shazam",
+        "packageName": "com.shazam.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-recognition banner ads, sponsored track cards, and Apple Music / Spotify subscription nags by neutralizing ad SDK calls.",
+    "id": "abf0ca00e47d9d3a20688158:5",
+    "legacy_id": 7671,
+    "metadata_status": "unverified",
+    "name": "Ad-Free & Clean Interface - Shazam (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#58CC02",
+        "description": "Duolingo: Language Lessons by Duolingo",
+        "name": "Duolingo",
+        "packageName": "com.duolingo",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups.",
+    "id": "abf0ca00e47d9d3a20688158:6",
+    "legacy_id": 7672,
+    "metadata_status": "unverified",
+    "name": "Ad-Free & Declutter - Duolingo (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#0078FF",
+        "description": "MX Player: Video Player & Streaming by MX Media / Time Internet",
+        "name": "MX Player",
+        "packageName": "com.mxtech.videoplayer.ad",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips all banner ads on the main folder list, full-screen interstitial video ads upon pausing or exiting videos, and online OTT feed promotions by neutralizing ad SDK calls.",
+    "id": "abf0ca00e47d9d3a20688158:7",
+    "legacy_id": 7673,
+    "metadata_status": "unverified",
+    "name": "Ad-Free & Pure Player - MX Player (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#D32F2F",
+        "description": "Photomath: Camera Calculator & Math Solver by Google LLC",
+        "name": "Photomath",
+        "packageName": "com.microblink.photomath",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks ads and unlocks deep step-by-step animated explanations, textbook geometry solutions, and calculation tips in Photomath.",
+    "id": "abf0ca00e47d9d3a20688158:8",
+    "legacy_id": 7674,
+    "metadata_status": "unverified",
+    "name": "Ad-Free & Unlock Animated Step Solutions - Photomath (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#141526",
+        "description": "Speedtest by Ookla by Ookla LLC",
+        "name": "Speedtest",
+        "packageName": "org.zwanoo.android.speedtest",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes post-test video ads, top and bottom banner ads, and sponsored server promotions by neutralizing ad SDK calls.",
+    "id": "abf0ca00e47d9d3a20688158:9",
+    "legacy_id": 7675,
+    "metadata_status": "unverified",
+    "name": "Ad-Free Speedtest by Ookla (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#FF6D00",
+        "description": "Turbo VPN - Secure VPN Proxy by Innovative Connecting",
+        "name": "Turbo VPN",
+        "packageName": "free.vpn.unblock.proxy.turbovpn",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups by intercepting ad SDK calls.",
+    "id": "abf0ca00e47d9d3a20688158:10",
+    "legacy_id": 7676,
+    "metadata_status": "unverified",
+    "name": "Ad-Free Turbo VPN (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#E1306C",
+        "description": "Instagram by Meta Platforms Inc.",
+        "name": "Instagram",
+        "packageName": "com.instagram.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds settings to control preferences are patching",
+    "id": "abf0ca00e47d9d3a20688158:11",
+    "legacy_id": 7677,
+    "metadata_status": "unverified",
+    "name": "Add settings - Instagram (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#FF0000",
+        "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+        "name": "YouTube",
+        "packageName": "com.google.android.youtube",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Overrides the feed flyout 'Play next in queue' with the Morphe video queue.",
+    "id": "abf0ca00e47d9d3a20688158:12",
+    "legacy_id": 7678,
+    "metadata_status": "unverified",
+    "name": "Add to queue - YouTube (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton VPN: Fast & Secure by Proton AG",
+        "name": "Proton VPN",
+        "packageName": "ch.protonvpn.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock.",
+    "id": "abf0ca00e47d9d3a20688158:13",
+    "legacy_id": 7679,
+    "metadata_status": "unverified",
+    "name": "Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#24A1DE",
+        "description": "Telegram Messenger by Telegram FZ-LLC",
+        "name": "Telegram",
+        "packageName": "org.telegram.messenger",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels.",
+    "id": "abf0ca00e47d9d3a20688158:14",
+    "legacy_id": 7680,
+    "metadata_status": "unverified",
+    "name": "Allow Saving Restricted Media - Telegram (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#FFFC00",
+        "description": "Snapchat by Snap Inc",
+        "name": "Snapchat",
+        "packageName": "com.snapchat.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions.",
+    "id": "abf0ca00e47d9d3a20688158:15",
+    "legacy_id": 7681,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#20B2AA",
+        "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
+        "name": "Perplexity",
+        "packageName": "ai.perplexity.app.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity.",
+    "id": "abf0ca00e47d9d3a20688158:16",
+    "legacy_id": 7682,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Block Telemetry - Perplexity (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#0082C9",
+        "description": "Nextcloud: Open source file sync and share by Nextcloud",
+        "name": "Nextcloud",
+        "packageName": "org.nextcloud.client",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.",
+    "id": "abf0ca00e47d9d3a20688158:17",
+    "legacy_id": 7683,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Bypass Lockout - Nextcloud (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#10A37F",
+        "description": "ChatGPT: The official AI assistant by OpenAI",
+        "name": "ChatGPT",
+        "packageName": "com.openai.chatgpt",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.",
+    "id": "abf0ca00e47d9d3a20688158:18",
+    "legacy_id": 7684,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Copy - ChatGPT (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#D9272E",
+        "description": "MEGA: Cloud Storage & Chat by Mega Ltd",
+        "name": "MEGA",
+        "packageName": "mega.privacy.android.app",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.",
+    "id": "abf0ca00e47d9d3a20688158:19",
+    "legacy_id": 7685,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Export - MEGA (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton Drive: Cloud Storage by Proton AG",
+        "name": "Proton Drive",
+        "packageName": "me.proton.android.drive",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.",
+    "id": "abf0ca00e47d9d3a20688158:20",
+    "legacy_id": 7686,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Privacy - Proton Drive (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#175DDC",
+        "description": "Bitwarden: Password Manager & Authenticator by Bitwarden Inc.",
+        "name": "Bitwarden",
+        "packageName": "com.x8bit.bitwarden",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to permit taking screenshots and screen recordings in Bitwarden.",
+    "id": "abf0ca00e47d9d3a20688158:21",
+    "legacy_id": 7687,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Screen Capture - Bitwarden (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton VPN: Fast & Secure by Proton AG",
+        "name": "Proton VPN",
+        "packageName": "ch.protonvpn.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics.",
+    "id": "abf0ca00e47d9d3a20688158:22",
+    "legacy_id": 7688,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#C70000",
+        "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+        "name": "Tuta Mail",
+        "packageName": "de.tutao.tutanota",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens.",
+    "id": "abf0ca00e47d9d3a20688158:23",
+    "legacy_id": 7689,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton Pass: Password Manager by Proton AG",
+        "name": "Proton Pass",
+        "packageName": "proton.android.pass",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses Android WindowManager FLAG_SECURE restrictions in Proton Pass, allowing you to take screenshots or record screens of recovery keys, 2FA QR codes, and credentials.",
+    "id": "abf0ca00e47d9d3a20688158:24",
+    "legacy_id": 7690,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Screen Recording - Proton Pass (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#00E599",
+        "description": "Session: Private Messenger by Oxen Privacy Tech / The Session Foundation",
+        "name": "Session",
+        "packageName": "network.loki.messenger",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations.",
+    "id": "abf0ca00e47d9d3a20688158:25",
+    "legacy_id": 7691,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Screen Security Bypass - Session (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#3A76F0",
+        "description": "Signal Private Messenger by Signal Foundation",
+        "name": "Signal",
+        "packageName": "org.thoughtcrime.securesms",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced.",
+    "id": "abf0ca00e47d9d3a20688158:26",
+    "legacy_id": 7692,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Screen Security Bypass - Signal (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#7E3FF2",
+        "description": "SimpleX Chat: Private Messenger with No User IDs by SimpleX Chat Ltd",
+        "name": "SimpleX Chat",
+        "packageName": "chat.simplex.app",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens.",
+    "id": "abf0ca00e47d9d3a20688158:27",
+    "legacy_id": 7693,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#1FA463",
+        "description": "Google Drive: Free Cloud Storage by Google LLC",
+        "name": "Google Drive",
+        "packageName": "com.google.android.apps.docs",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Google Drive to permit taking screenshots and screen recordings of documents, spreadsheets, and presentation previews.",
+    "id": "abf0ca00e47d9d3a20688158:28",
+    "legacy_id": 7694,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & Secure Share - Google Drive (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#4285F4",
+        "description": "Google Gemini: Your AI Assistant by Google LLC",
+        "name": "Google Gemini",
+        "packageName": "com.google.android.apps.bard",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays.",
+    "id": "abf0ca00e47d9d3a20688158:29",
+    "legacy_id": 7695,
+    "metadata_status": "unverified",
+    "name": "Allow Screenshots & UI Tweaks - Google Gemini (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#E1306C",
+        "description": "Instagram by Meta Platforms Inc.",
+        "name": "Instagram",
+        "packageName": "com.instagram.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Allows user network certificate for whitehat testing",
+    "id": "abf0ca00e47d9d3a20688158:30",
+    "legacy_id": 7696,
+    "metadata_status": "unverified",
+    "name": "Allow user network certificate - Instagram (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#FF0000",
+        "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+        "name": "YouTube",
+        "packageName": "com.google.android.youtube",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
+    "id": "abf0ca00e47d9d3a20688158:31",
+    "legacy_id": 7697,
+    "metadata_status": "unverified",
+    "name": "Alternative thumbnails - YouTube (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#34A853",
+        "description": "Google Maps: Navigate & Explore by Google LLC",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type.",
+    "id": "abf0ca00e47d9d3a20688158:32",
+    "legacy_id": 7698,
+    "metadata_status": "unverified",
+    "name": "Always Show Speedometer & Compass - Google Maps (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#0088FF",
+        "description": "Shazam: Identify & Discover Music by Apple Inc. / Shazam",
+        "name": "Shazam",
+        "packageName": "com.shazam.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
+    "id": "abf0ca00e47d9d3a20688158:33",
+    "legacy_id": 7699,
+    "metadata_status": "unverified",
+    "name": "Always-On Auto Shazam - Shazam (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#FF0000",
+        "description": "YouTube: Watch, Stream & Discover Videos by Google LLC",
+        "name": "YouTube",
+        "packageName": "com.google.android.youtube",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
+    "id": "abf0ca00e47d9d3a20688158:34",
+    "legacy_id": 7700,
+    "metadata_status": "unverified",
+    "name": "Ambient mode - YouTube (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#EA4335",
+        "description": "Google Photos: Photo & Video Storage by Google LLC",
+        "name": "Google Photos",
+        "packageName": "com.google.android.apps.photos",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
+    "id": "abf0ca00e47d9d3a20688158:35",
+    "legacy_id": 7701,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton Drive: Cloud Storage by Proton AG",
+        "name": "Proton Drive",
+        "packageName": "me.proton.android.drive",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.",
+    "id": "abf0ca00e47d9d3a20688158:36",
+    "legacy_id": 7702,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black & Declutter - Proton Drive (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton Pass: Password Manager by Proton AG",
+        "name": "Proton Pass",
+        "packageName": "proton.android.pass",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
+    "id": "abf0ca00e47d9d3a20688158:37",
+    "legacy_id": 7703,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#34A853",
+        "description": "Google Maps: Navigate & Explore by Google LLC",
+        "name": "Google Maps",
+        "packageName": "com.google.android.apps.maps",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.",
+    "id": "abf0ca00e47d9d3a20688158:38",
+    "legacy_id": 7704,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black Navigation - Google Maps (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#E50914",
+        "description": "Movix: Movies & Series Streaming",
+        "name": "Movix",
+        "packageName": "com.movix.app",
+        "targets": [
+          {
+            "isExperimental": false,
+            "version": "1.4.8"
+          }
+        ],
+        "versions": [
+          "1.4.8"
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "Injects true OLED pitch black (#000000) into Movix catalog and unlocks Picture-in-Picture (PiP) and background audio playback.",
+    "id": "abf0ca00e47d9d3a20688158:39",
+    "legacy_id": 7705,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black Player & Picture-in-Picture - Movix",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Movix",
+        "icon_url": null,
+        "name": "Movix",
+        "versions": [
+          "1.4.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton Mail: Encrypted Email by Proton AG",
+        "name": "Proton Mail",
+        "packageName": "ch.protonmail.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
+    "id": "abf0ca00e47d9d3a20688158:40",
+    "legacy_id": 7706,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black Theme - Proton Mail (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#6D4AFF",
+        "description": "Proton VPN: Fast & Secure by Proton AG",
+        "name": "Proton VPN",
+        "packageName": "ch.protonvpn.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+    "id": "abf0ca00e47d9d3a20688158:41",
+    "legacy_id": 7707,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#C70000",
+        "description": "Tuta Mail: Secure & Private Email by Tutao GmbH",
+        "name": "Tuta Mail",
+        "packageName": "de.tutao.tutanota",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
+    "id": "abf0ca00e47d9d3a20688158:42",
+    "legacy_id": 7708,
+    "metadata_status": "unverified",
+    "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#00C4CC",
+        "description": "Canva: Design, Photo & Video by Canva",
+        "name": "Canva",
+        "packageName": "com.canva.editor",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.",
+    "id": "abf0ca00e47d9d3a20688158:43",
+    "legacy_id": 7709,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Declutter - Canva (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#10A37F",
+        "description": "ChatGPT: The official AI assistant by OpenAI",
+        "name": "ChatGPT",
+        "packageName": "com.openai.chatgpt",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.",
+    "id": "abf0ca00e47d9d3a20688158:44",
+    "legacy_id": 7710,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#1FA463",
+        "description": "Google Drive: Free Cloud Storage by Google LLC",
+        "name": "Google Drive",
+        "packageName": "com.google.android.apps.docs",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces pure OLED pitch black (#000000) across Google Drive file lists, folder navigation, status bars, and navigation bars, eliminating dark gray tint for maximum OLED power savings.",
+    "id": "abf0ca00e47d9d3a20688158:45",
+    "legacy_id": 7711,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Declutter - Google Drive (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#4285F4",
+        "description": "Google Gemini: Your AI Assistant by Google LLC",
+        "name": "Google Gemini",
+        "packageName": "com.google.android.apps.bard",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.",
+    "id": "abf0ca00e47d9d3a20688158:46",
+    "legacy_id": 7712,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Declutter - Google Gemini (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#D9272E",
+        "description": "MEGA: Cloud Storage & Chat by Mega Ltd",
+        "name": "MEGA",
+        "packageName": "mega.privacy.android.app",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.",
+    "id": "abf0ca00e47d9d3a20688158:47",
+    "legacy_id": 7713,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Declutter - MEGA (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#20B2AA",
+        "description": "Perplexity: Where Knowledge Begins by Perplexity AI",
+        "name": "Perplexity",
+        "packageName": "ai.perplexity.app.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.",
+    "id": "abf0ca00e47d9d3a20688158:48",
+    "legacy_id": 7714,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#FFFC00",
+        "description": "Snapchat by Snap Inc",
+        "name": "Snapchat",
+        "packageName": "com.snapchat.android",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
+    "id": "abf0ca00e47d9d3a20688158:49",
+    "legacy_id": 7715,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#3A76F0",
+        "description": "Signal Private Messenger by Signal Foundation",
+        "name": "Signal",
+        "packageName": "org.thoughtcrime.securesms",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
+    "id": "abf0ca00e47d9d3a20688158:50",
+    "legacy_id": 7716,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  },
+  {
+    "bundle_id": "abf0ca00e47d9d3a20688158",
+    "category": null,
+    "compatiblePackages": [
+      {
+        "appIconColor": "#2A2E3D",
+        "description": "Undercover®: Word Party Game by Yanstar Studio OU",
+        "name": "Undercover",
+        "packageName": "com.yanstarstudio.joss.undercover",
+        "targets": [
+          {
+            "isExperimental": false
+          }
+        ]
+      }
+    ],
+    "default": true,
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover.",
+    "id": "abf0ca00e47d9d3a20688158:51",
+    "legacy_id": 7717,
+    "metadata_status": "unverified",
+    "name": "AMOLED Dark Theme & Privacy - Undercover (Experimental)",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.48.0",
+    "source_id": "ff3294dc5dc950ed"
+  }
+]
