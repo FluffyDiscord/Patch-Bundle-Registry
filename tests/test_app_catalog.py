@@ -12,6 +12,16 @@ from scripts.source_policy import source_channels
 NOW = datetime(2026, 10, 10, tzinfo=UTC)
 
 
+@pytest.fixture(autouse=True)
+def isolate_original_provider_cases(monkeypatch):
+    # These cases exercise the original F-Droid/US behavior in isolation.
+    # Multi-provider and regional behavior are covered in test_metadata_providers.
+    from scripts import refresh_app_metadata as metadata
+
+    monkeypatch.setattr(metadata, "REPOSITORIES", metadata.REPOSITORIES[:1])
+    monkeypatch.setattr(metadata, "PLAY_COUNTRIES", ("US",))
+
+
 def index_v2():
     return {
         "packages": {

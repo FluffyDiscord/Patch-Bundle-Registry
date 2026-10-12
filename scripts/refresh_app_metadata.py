@@ -1,4 +1,4 @@
-"""Cache F-Droid index metadata and bounded Google Play lookups during refreshes."""
+"""Cache repository JSON indexes and bounded regional Google Play metadata."""
 
 import argparse
 import json
@@ -23,6 +23,18 @@ INDEXES = (
     "https://f-droid.org/repo/index-v2.json",
     "https://f-droid.org/repo/index-v1.json",
 )
+REPOSITORIES = (
+    ("fdroid", "https://f-droid.org/repo/", INDEXES),
+    (
+        "izzyondroid",
+        "https://apt.izzysoft.de/fdroid/repo/",
+        (
+            "https://apt.izzysoft.de/fdroid/repo/index-v2.json",
+            "https://apt.izzysoft.de/fdroid/repo/index-v1.json",
+        ),
+    ),
+)
+PLAY_COUNTRIES = ("US", "GB", "IN")
 MAX_INDEX_BYTES = 256 * 1024 * 1024
 PACKAGE = re.compile(r"[A-Za-z][A-Za-z0-9_]*(?:\.[A-Za-z0-9_]+)+")
 
@@ -36,7 +48,7 @@ def localized(value):
     return next((item for item in value.values() if item), None)
 
 
-def fdroid_apps(payload):
+def fdroid_apps(payload, base_url="https://f-droid.org/repo/", source="fdroid"):
     result = {}
     if not isinstance(payload, dict):
         raise ValueError("Unrecognized F-Droid index")
@@ -72,10 +84,10 @@ def fdroid_apps(payload):
         elif icon:
             icon = "icons/" + icon
         if isinstance(icon, str) and ".." not in icon.split("/"):
-            icon = "https://f-droid.org/repo/" + quote(icon.lstrip("/"), safe="/-._~")
+            icon = base_url + quote(icon.lstrip("/"), safe="/-._~")
         else:
             icon = None
-        result[package] = {"app_name": name.strip(), "icon_url": icon, "metadata_source": "fdroid"}
+        result[package] = {"app_name": name.strip(), "icon_url": icon, "metadata_source": source}
     if not result:
         raise ValueError("F-Droid index contains no application metadata")
     return result
@@ -167,7 +179,7 @@ def provider_retry_after(response, received_at):
         return (received_at + timedelta(hours=1)).isoformat()
 
 
-def fetch_index(client, url, headers, deadline):
+def fetch_index(client, url, headers, deadline, base_url, source):
     with client.stream("GET", url, headers=headers) as response:
         if response.status_code == 304:
             return None, dict(response.headers)
@@ -178,7 +190,7 @@ def fetch_index(client, url, headers, deadline):
             if size > MAX_INDEX_BYTES or time.monotonic() >= deadline:
                 raise ValueError("F-Droid index exceeds download budget")
             chunks.append(chunk)
-        return fdroid_apps(json.loads(b"".join(chunks))), dict(response.headers)
+        return fdroid_apps(json.loads(b"".join(chunks)), base_url, source), dict(response.headers)
 
 
 def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep, budget=None):
@@ -192,7 +204,12 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
 
     path = root / "database/app-metadata.json"
     state = read_json(path, {})
-    fdroid = state.setdefault("fdroid", {})
+    repositories = [
+        (source, base, urls, state.setdefault(source, {})) for source, base, urls in REPOSITORIES
+    ]
+    cached_index = {
+        package for _, _, _, cache in repositories for package in cache.get("applications", {})
+    }
     apps = state.setdefault("apps", {})
     manifest = read_json(root / "database/manifest.json", {})
     snapshot = root / "database" / manifest.get("snapshot", "")
@@ -210,7 +227,7 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
 
     pending = sum(
         unchecked(package)
-        and package not in fdroid.get("applications", {})
+        and package not in cached_index
         and package not in overrides
         and PACKAGE.fullmatch(package) is not None
         for package in wanted
@@ -227,51 +244,67 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
         temporary.write_bytes(encoded(state))
         temporary.replace(path)
 
-    if (
-        wanted
-        and expired(fdroid.get("checked_at"), now, timedelta(days=1))
-        and expired(fdroid.get("attempted_at"), now, timedelta(minutes=10))
-        and expired(fdroid.get("retry_after"), now, timedelta(0))
-    ):
-        fdroid["attempted_at"] = stamp
-        for url in INDEXES:
-            headers = {}
-            if fdroid.get("url") == url and fdroid.get("applications"):
-                if fdroid.get("etag"):
-                    headers["If-None-Match"] = fdroid["etag"]
-                if fdroid.get("last_modified"):
-                    headers["If-Modified-Since"] = fdroid["last_modified"]
-            try:
-                applications, received = fetch_index(client, url, headers, deadline)
-                if applications is None and not fdroid.get("applications"):
-                    raise ValueError("F-Droid returned 304 without a cached index")
-                if fdroid.get("url") != url:
-                    fdroid.pop("etag", None)
-                    fdroid.pop("last_modified", None)
-                fdroid.update(
-                    checked_at=stamp,
-                    url=url,
-                    etag=received.get("etag", fdroid.get("etag")),
-                    last_modified=received.get("last-modified", fdroid.get("last_modified")),
-                )
-                if applications is not None:
-                    fdroid["applications"] = applications
-                fdroid.pop("retry_after", None)
-                break
-            except (httpx.HTTPError, ValueError, TypeError) as error:
-                print("Application metadata: F-Droid index unavailable; retaining cached names.")
-                if isinstance(error, httpx.HTTPStatusError) and error.response.status_code in {
-                    429,
-                    503,
-                }:
-                    fdroid["retry_after"] = provider_retry_after(error.response, current_time())
+    for source, base_url, urls, cache in repositories:
+        if (
+            wanted
+            and time.monotonic() < deadline
+            and expired(cache.get("checked_at"), now, timedelta(days=1))
+            and expired(cache.get("attempted_at"), now, timedelta(minutes=10))
+            and expired(cache.get("retry_after"), now, timedelta(0))
+        ):
+            cache["attempted_at"] = stamp
+            for url in urls:
+                headers = {}
+                if cache.get("url") == url and cache.get("applications"):
+                    if cache.get("etag"):
+                        headers["If-None-Match"] = cache["etag"]
+                    if cache.get("last_modified"):
+                        headers["If-Modified-Since"] = cache["last_modified"]
+                try:
+                    applications, received = fetch_index(
+                        client, url, headers, deadline, base_url, source
+                    )
+                    if applications is None and not cache.get("applications"):
+                        raise ValueError("F-Droid returned 304 without a cached index")
+                    if cache.get("url") != url:
+                        cache.pop("etag", None)
+                        cache.pop("last_modified", None)
+                    cache.update(
+                        checked_at=stamp,
+                        url=url,
+                        etag=received.get("etag", cache.get("etag")),
+                        last_modified=received.get("last-modified", cache.get("last_modified")),
+                    )
+                    if applications is not None:
+                        cache["applications"] = applications
+                    cache.pop("retry_after", None)
                     break
-                if time.monotonic() >= deadline:
-                    break
-    indexed = fdroid.get("applications", {})
+                except (httpx.HTTPError, ValueError, TypeError) as error:
+                    print(
+                        f"Application metadata: {source} index unavailable; retaining cached names."
+                    )
+                    if isinstance(error, httpx.HTTPStatusError) and error.response.status_code in {
+                        429,
+                        503,
+                    }:
+                        cache["retry_after"] = provider_retry_after(error.response, current_time())
+                        break
+                    if time.monotonic() >= deadline:
+                        break
+
+    indexed = {}
+    for _, _, _, cache in repositories:
+        for package, info in cache.get("applications", {}).items():
+            indexed.setdefault(package, {**info, "checked_at": cache.get("checked_at")})
+            if not indexed[package].get("icon_url") and info.get("icon_url"):
+                indexed[package]["icon_url"] = info["icon_url"]
     for package in wanted:
         if package in indexed:
-            apps[package] = {**indexed[package], "checked_at": fdroid.get("checked_at")}
+            apps[package] = {
+                **indexed[package],
+                "icon_url": indexed[package].get("icon_url")
+                or apps.get(package, {}).get("icon_url"),
+            }
     save_state()  # Preserve the bulk index even if a long backfill is interrupted.
     candidates = sorted(
         wanted,
@@ -282,63 +315,106 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
         ),
     )
     lookups = 0
+
+    halted = False
     for package in candidates:
         if package in indexed or package in overrides or not PACKAGE.fullmatch(package):
             continue
         cached = apps.get(package, {})
         ttl = timedelta(days=30 if cached.get("app_name") else 7)
+        countries = list(PLAY_COUNTRIES)
+        if cached.get("play_country") in countries:
+            countries.remove(cached["play_country"])
+            countries.insert(0, cached["play_country"])
+        attempted = cached.get("play_checked_countries", [])
+        # Old negative entries covered the US only. Try the new regions now.
+        if not attempted and cached.get("checked_at") and not cached.get("app_name"):
+            attempted = ["US"]
         if not expired(cached.get("checked_at"), now, ttl):
-            continue
-        if lookups >= max_play or time.monotonic() >= deadline:
-            break
-        if not expired(state.get("play_retry_after"), now, timedelta(0)):
-            break
-        if lookups:
-            sleep(delay)
-        if time.monotonic() >= deadline:
-            break
-        if lookups and lookups % 25 == 0:
-            save_state()
-            print(
-                f"Application metadata: checkpoint after {lookups} Google Play lookups.", flush=True
+            if cached.get("app_name") or set(countries).issubset(attempted):
+                continue
+        if expired(cached.get("play_attempted_at", cached.get("checked_at")), now, ttl):
+            attempted = []
+        for country in countries:
+            if country in attempted:
+                continue
+            if (
+                lookups >= max_play
+                or time.monotonic() >= deadline
+                or not expired(state.get("play_retry_after"), current_time(), timedelta(0))
+            ):
+                halted = True
+                break
+            if lookups:
+                sleep(delay)
+            if time.monotonic() >= deadline:
+                halted = True
+                break
+            if lookups and lookups % 25 == 0:
+                save_state()
+                print(
+                    f"Application metadata: checkpoint after {lookups} Google Play lookups.",
+                    flush=True,
+                )
+            lookups += 1
+            url = (
+                "https://play.google.com/store/apps/details?id="
+                + quote(package, safe="")
+                + "&hl=en&gl="
+                + country
             )
-        lookups += 1
-        url = (
-            "https://play.google.com/store/apps/details?id="
-            + quote(package, safe="")
-            + "&hl=en&gl=US"
-        )
-        try:
-            with client.stream("GET", url) as response:
-                if response.status_code in {429, 503}:
-                    state["play_retry_after"] = provider_retry_after(response, current_time())
+            try:
+                found = None
+                with client.stream("GET", url) as response:
+                    if response.status_code in {429, 503}:
+                        state["play_retry_after"] = provider_retry_after(response, current_time())
+                        halted = True
+                        break
+                    if time.monotonic() >= deadline:
+                        halted = True
+                        break
+                    if response.status_code != 404:
+                        response.raise_for_status()
+                        chunks, size = [], 0
+                        for chunk in response.iter_bytes():
+                            size += len(chunk)
+                            if size > 4 * 1024 * 1024 or time.monotonic() >= deadline:
+                                raise ValueError("Google Play response exceeds metadata budget")
+                            chunks.append(chunk)
+                        content = b"".join(chunks).decode("utf-8", errors="replace")
+                        if response.url.host != "play.google.com" or re.search(
+                            r"<title[^>]*>\s*Before you continue", content, re.IGNORECASE
+                        ):
+                            state["play_retry_after"] = (
+                                current_time() + timedelta(hours=1)
+                            ).isoformat()
+                            halted = True
+                            break
+                        parser = PlayMetadata()
+                        parser.feed(content)
+                        found = parser.metadata()
+                if found:
+                    apps[package] = {
+                        **found,
+                        "icon_url": found.get("icon_url") or cached.get("icon_url"),
+                        "checked_at": stamp,
+                        "play_country": country,
+                    }
                     break
-                if response.status_code == 404:
-                    apps[package] = {**cached, "checked_at": stamp}
-                    continue
-                response.raise_for_status()
-                chunks, size = [], 0
-                for chunk in response.iter_bytes():
-                    size += len(chunk)
-                    if size > 4 * 1024 * 1024 or time.monotonic() >= deadline:
-                        raise ValueError("Google Play response exceeds metadata budget")
-                    chunks.append(chunk)
-                content = b"".join(chunks).decode("utf-8", errors="replace")
-            parser = PlayMetadata()
-            parser.feed(content)
-            found = parser.metadata()
-            if found:
-                apps[package] = {**found, "checked_at": stamp}
-            else:
-                # Do not let one unlisted package block all later lookups.
-                if response.url.host != "play.google.com" or re.search(
-                    r"<title[^>]*>\s*Before you continue", content, re.IGNORECASE
-                ):
-                    state["play_retry_after"] = (current_time() + timedelta(hours=1)).isoformat()
-                    break
-                apps[package] = {**cached, "checked_at": stamp}
-        except (httpx.HTTPError, ValueError):
-            state["play_retry_after"] = (current_time() + timedelta(hours=1)).isoformat()
+                attempted = [*attempted, country]
+                cached = {
+                    **cached,
+                    "play_checked_countries": attempted,
+                    "play_attempted_at": current_time().isoformat(),
+                }
+                if set(countries).issubset(attempted):
+                    cached["checked_at"] = stamp
+                apps[package] = cached
+            except (httpx.HTTPError, ValueError):
+                state["play_retry_after"] = (current_time() + timedelta(hours=1)).isoformat()
+                halted = True
+                break
+        if halted:
             break
     save_state()
     named = sum(
@@ -349,7 +425,7 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
     remaining = sum(unchecked(package) and package not in overrides for package in wanted)
     print(
         f"Application metadata: {named}/{len(wanted)} apps named; "
-        f"{lookups} Google Play lookups; {remaining} packages awaiting a first lookup.",
+        f"{lookups} Google Play lookups; {remaining} packages awaiting a completed lookup.",
         flush=True,
     )
     return state

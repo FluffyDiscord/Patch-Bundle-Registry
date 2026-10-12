@@ -31,12 +31,12 @@ test("Statistics count only one newest release per source across history", () =>
     {id:"a2", source_id:"a", is_latest:true, created_at:"2026-01-02", bundle_type:"Morphe:V1", patch_count:8},
     {id:"a0", source_id:"a", is_latest:false, created_at:"2025-01-01", bundle_type:"ReVanced:v21", patch_count:999},
     {id:"b1", source_id:"b", is_latest:true, created_at:"2026-01-01", bundle_type:"ReVanced:v22", patch_count:5},
-    {id:"c1", source_id:"c", is_latest:true, created_at:"2026-01-01", bundle_type:"ReSeam", patch_count:4},
+    {id:"c1", source_id:"c", is_latest:true, created_at:"2026-01-01", bundle_type:"Reseam", patch_count:4},
   ]);
   assert.deepEqual(stats["All bundles"], {bundles:3, patches:17});
   assert.deepEqual(stats.ReVanced, {bundles:1, patches:5});
   assert.deepEqual(stats.Morphe, {bundles:1, patches:8});
-  assert.deepEqual(stats.ReSeam, {bundles:1, patches:4});
+  assert.deepEqual(stats.Reseam, {bundles:1, patches:4});
 });
 
 test("Patch search combines names, descriptions, package names, and version fragments", () => {
@@ -64,6 +64,7 @@ test("Repository labels suppress case-only duplicates and retain actual renames"
 // Exercise the real card event handlers without a browser or network requests.
 import { readFileSync } from "node:fs";
 import { runInNewContext } from "node:vm";
+import { iconAction } from "../../shared/actions.js";
 
 function cardHarness(bundleType = "ReVanced:v21", overrides = {}, fetchChangelog = async () => "Full release notes") {
   const source = readFileSync(new URL("../../web/app.js", import.meta.url), "utf8");
@@ -93,6 +94,7 @@ function cardHarness(bundleType = "ReVanced:v21", overrides = {}, fetchChangelog
     }
   };
   const context = {
+    iconAction, bindActions() {}, URL, siteConfig:{api:"https://api.test"},
     document, detailsBrowser:{activateCard(card,fn){card.openDetails=fn;},openBundle(...args){opened.push(args);}}, escapeHtml: value => String(value || ""), repositoryNames,
     releaseTagUrl: () => "", bundleTypeLabel: type => type,
     formatDate: () => "", bundleImportPath: () => "/v3/bundle",
@@ -129,9 +131,9 @@ test("Bundle cards open details and retain runtime guidance without an inline pa
   assert.equal(typeof card.openDetails, "function");
 });
 
-test("ReSeam cards explain the URV runtime requirement", () => {
-  const card = cardHarness("ReSeam").render();
-  assert.match(card.innerHTML, /Requires the ReSeam runtime plugin in order to be used in URV/);
+test("Reseam cards explain the URV runtime requirement", () => {
+  const card = cardHarness("Reseam").render();
+  assert.match(card.innerHTML, /Requires the Reseam runtime plugin in order to be used in URV/);
   assert.doesNotMatch(card.innerHTML, /Requires the ReVanced v21/);
 });
 
@@ -203,4 +205,13 @@ test("Inline changelog retries failed loading when reopened", async () => {
   await new Promise(done => setImmediate(done));
   assert.equal(content.innerHTML, "Rendered: Recovered release notes");
   assert.equal(attempts, 2);
+});
+
+test("Bundle cards show app counts and compact labeled actions", () => {
+  const card = cardHarness("Morphe:V1",{appCount:1}).render();
+  assert.match(card.innerHTML,/2 patches · 1 app/);
+  assert.match(card.innerHTML,/class="bundle-actions"/);
+  assert.match(card.innerHTML,/aria-label="Download bundle"/);
+  assert.match(card.innerHTML,/aria-label="Copy remote bundle URL"/);
+  assert.doesNotMatch(card.innerHTML,/Explore apps and patch options/);
 });

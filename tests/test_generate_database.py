@@ -877,5 +877,8 @@ def test_header_svg_dimensions_do_not_depend_on_cached_css():
 
     markup = Icons()
     markup.feed((db.ROOT / "web/index.html").read_text(encoding="utf-8"))
-    assert len(markup.icons) == 3
-    assert all(icon["width"] == icon["height"] == "20" for icon in markup.icons)
+    assert len(markup.icons) == 4
+    assert all(
+        icon["width"] == icon["height"] and icon["width"] in {"18", "20"}
+        for icon in markup.icons
+    )

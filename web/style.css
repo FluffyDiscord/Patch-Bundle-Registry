@@ -1195,3 +1195,71 @@ details[open] > summary > .disclosure-arrow svg { transform: rotate(180deg); }
 html[data-browse-pending] :is(.catalog-tabs, .search-row, .filter-row, .filter-buttons, #apps-note) {
     visibility: hidden;
 }
+/* Compact actions share the same surfaces as the existing controls. */
+.icon-action {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    flex: 0 0 auto; width: 32px; height: 32px; padding: 6px;
+    border: 1px solid var(--border); border-radius: 6px; background: var(--surface-hover);
+    color: var(--text-muted); cursor: pointer; vertical-align: middle; text-decoration: none;
+}
+.icon-action svg { width: 18px; height: 18px; flex: none; }
+.icon-action:hover, .icon-action:focus-visible { color: var(--accent-text); border-color: var(--accent); }
+.icon-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.icon-action:disabled { opacity: .45; cursor: not-allowed; }
+.action-tooltip {
+    position: absolute; z-index: 10; top: calc(100% + 6px); right: 0;
+    padding: 7px 9px; border: 1px solid var(--border); border-radius: 6px;
+    background: var(--surface); color: var(--text); box-shadow: var(--card-shadow);
+    font-size: 12px; font-weight: 400; white-space: nowrap; pointer-events: none;
+    visibility: hidden; opacity: 0;
+}
+.icon-action:hover > .action-tooltip, .icon-action:focus-visible > .action-tooltip,
+.icon-action.tooltip-visible > .action-tooltip { visibility: visible; opacity: 1; }
+.bundle-actions { display: flex; justify-content: flex-end; gap: 6px; align-self: flex-end; margin: -4px -4px 8px; }
+.details-group-actions { display: inline-flex; flex-wrap: nowrap; gap: 6px; padding: 0; }
+.details-group:has(.details-group-actions) > summary { grid-template-columns: 48px minmax(0, 1fr) auto auto 32px; }
+.details-heading h2 .icon-action, .details-heading .app-package .icon-action { margin-inline-start: 8px; width: 28px; height: 28px; }
+.details-heading .app-package { margin-bottom: 0; }
+#source-filter[hidden] { display: none; }
+#source-picker {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    width: 100%; min-width: 0; padding: 10px 12px; font: inherit; font-size: 14px;
+    text-align: left; border: 2px solid var(--border); border-radius: 6px;
+    background: var(--surface); color: var(--text); cursor: pointer;
+}
+#source-picker [data-source-label] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#source-picker svg { width: 18px; height: 18px; flex: none; }
+#source-picker:hover, #source-picker:focus-visible { border-color: var(--accent); }
+.source-dialog { width: min(720px, calc(100% - 32px)); }
+.source-options { display: grid; gap: 8px; }
+.source-option {
+    display: flex; flex-direction: column; gap: 4px; padding: 12px 14px;
+    border: 1px solid var(--border); border-radius: 8px; text-align: left;
+    background: var(--surface-soft); color: var(--text); cursor: pointer; font: inherit;
+    overflow-wrap: anywhere;
+}
+.source-option span { font-size: 12px; color: var(--text-muted); }
+.source-option:hover, .source-option[aria-pressed="true"] { border-color: var(--accent); background: var(--surface-hover); }
+.source-option:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.patch-options { margin: 0; border: 0; border-radius: 0; overflow: visible; }
+.patch-options > summary { display: block; padding: 0; font-weight: 400; border-radius: 4px; }
+.patch-options > summary:hover { background: transparent; }
+.patch-heading { display: flex; align-items: center; justify-content: flex-start; gap: 8px; }
+.patch-heading .patch-name { margin: 0; }
+.option-toggle { display: inline-flex; align-items: center; gap: 4px; flex: none; color: var(--text-muted); }
+.option-toggle .disclosure-arrow { width: 26px; height: 26px; border-radius: 6px; }
+.option-count { padding: 0; background: none; }
+.patch-options[open] > summary .disclosure-arrow svg { transform: rotate(180deg); }
+.patch-options > summary:hover .disclosure-arrow { color: var(--accent-text); border-color: var(--accent); }
+.patch-options-list { padding: 8px 0 0; margin-top: 6px; border: 0; gap: 8px; }
+.patch-option { padding: 10px 12px; }
+.patch-option dl { font-size: 12px; gap: 4px; }
+.option-value { white-space: pre-wrap; }
+.patch-description { display: block; }
+@media (max-width: 700px) {
+    .details-group:has(.details-group-actions) > summary { grid-template-columns: 48px minmax(0, 1fr) 32px; }
+    .details-group > summary > .details-group-actions { grid-column: 2; grid-row: 3; justify-self: start; }
+    .details-group:has(.details-group-actions) > summary > .disclosure-arrow { grid-row: 1 / span 3; }
+    .details-group-actions .action-tooltip { left: 0; right: auto; max-width: 230px; white-space: normal; width: max-content; }
+    .details-heading h2 .action-tooltip, .details-heading .app-package .action-tooltip { left: 0; right: auto; }
+}

@@ -9,6 +9,8 @@ import { bundleTypeLabel, bundleImages, Catalog, catalogOrigins, bundleImportPat
 import { filterApps } from "./shared/apps.js";
 import { createBrowsePreferences } from "./shared/preferences.js";
 import { createDetailsBrowser, renderPatchOptions } from "./shared/detail-browser.js";
+import { iconAction, bindActions } from "./shared/actions.js";
+import { createSourcePicker } from "./shared/source-picker.js";
 import { gitHosts } from "./shared/hosts.js";
 import { latestReleaseIds, catalogStats, repositoryNames, matchesReleaseFilter, countLabel } from "./shared/site.js";
 import {
@@ -176,7 +178,7 @@ function setupVirtualizer(anchorBundleIndex = null) {
 const browsePreferences = createBrowsePreferences(() => localStorage, !matchMedia("(max-width: 700px)").matches);
 let currentTab = browsePreferences.activeTab;
 let applications = [];
-let currentFilter = "release";
+let currentFilter = "latest";
 let currentSearchQuery = "";
 let currentPackageFilter = "";
 let currentSourceUrl = "";
@@ -193,6 +195,10 @@ const detailsBrowser = createDetailsBrowser({
     getSummaries: () => summaries, transformBundle, bundlePatches, bundleChangelog, renderMarkdown, renderPatch,
     escapeHtml, installAvatarFallback, formatDate,
     getApi: () => siteConfig.api
+});
+const sourcePicker = createSourcePicker({
+    button: document.getElementById("source-picker"), select: sourceFilter,
+    onSelect: selectSource, escapeHtml
 });
 const renderAfterInput = debounce(() => { void renderFilteredBundles(); }, 150);
 adminAccess.textContent = "Manage sources";
@@ -234,6 +240,7 @@ function restoreBrowsePreferences() {
         bundleVersionFilter.value = currentBundleVersion;
     }
     sourceFilter.value = currentSourceUrl;
+    sourcePicker.sync();
     setVersionControlsEnabled(Boolean(currentSourceUrl));
     allBundles = currentBundleVersion
         ? sourceVersions.filter(bundle => bundle.version === currentBundleVersion).map(transformBundle) : latestBundles;
@@ -387,6 +394,8 @@ async function recoverGeneration(error) {
 }
 
 async function selectSource(sourceUrl) {
+    sourceFilter.value = sourceUrl;
+    sourcePicker.sync();
     currentSourceUrl = sourceUrl;
     sourceVersions = summaries.filter(bundle => bundle.source.url === sourceUrl)
         .sort(compareReleaseDates);
@@ -464,6 +473,7 @@ function populateSourceOptions() {
             options.push(new Option(label, url));
         });
     sourceFilter.replaceChildren(...options);
+    sourcePicker.sync();
 }
 
 function reconcileSourceSelection() {
@@ -475,6 +485,7 @@ function reconcileSourceSelection() {
         populateVersionOptions();
     }
     sourceFilter.value = currentSourceUrl;
+    sourcePicker.sync();
 }
 
 function populateBundleTypeOptions() {
@@ -553,6 +564,7 @@ function transformBundle(bundle) {
         repoStars: metadata.repo_stars,
         isRepoArchived: metadata.is_repo_archived, patches: [],
         patchCount: bundle.patch_count,
+        appCount: new Set((bundle.packages || []).filter(Boolean)).size,
         hasPatches: bundle.patch_list_available, metadataStatus: bundle.metadata_status,
         metadataVersion: bundle.patch_metadata_version
     };
@@ -658,14 +670,14 @@ function renderApp(app, target) {
             <h2 class="app-name">${escapeHtml(app.app_name)}</h2>
             <div class="app-package">${escapeHtml(app.package_name)}</div>
         </div></div>
-        <p class="app-counts">${app.patch_count == null ? "Patch count unavailable" : countLabel(app.patch_count, "patch", "patches")} · ${countLabel(app.bundle_count, "bundle")} · ${countLabel(app.source_count, "source")}</p>
+        <p class="app-counts">${app.patch_count == null ? "Patch count unavailable" : countLabel(app.patch_count, "patch", "patches")} · ${countLabel(app.bundle_count, "bundle")}</p>
         <p class="app-versions">${app.unrestricted ? "Includes patches for all versions" : app.versions.length ?
             (app.versions.length === 1 ? "Version: " : "Versions: ") + escapeHtml(app.versions.join(", ")) : "Version information unavailable"}</p>
         ${app.bundles.some(reference => reference.compatibility_unknown) ?
             '<p class="metadata-note">Compatibility details are not available in this catalog yet.</p>' :
             app.bundles.some(reference => reference.metadata_status !== "verified") ?
             '<div class="v3-warning">Some bundle compatibility metadata is unverified.</div>' : ""}
-        <span class="card-hint">Explore bundles and patches</span>`;
+`;
     target.appendChild(card);
     installAvatarFallback(card, app.app_name);
     detailsBrowser.activateCard(card, () => detailsBrowser.openApp(app));
@@ -698,9 +710,9 @@ function renderBundle(bundle, target) {
         ? `<div class="v3-warning">Repository unavailable: ${escapeHtml(bundle.unavailableReason)}. Showing retained release information.</div>` : "";
     const metadataWarning = bundle.metadataStatus !== "verified"
         ? `<div class="v3-warning">Patch metadata: ${escapeHtml(bundle.metadataStatus)}${bundle.metadataVersion ? " · " + escapeHtml(bundle.metadataVersion) : ""}. Compatibility is unverified for this artifact.</div>` : "";
-    const v3WarningHtml = ["ReVanced:v21", "ReSeam"].includes(bundle.bundleType)
+    const v3WarningHtml = ["ReVanced:v21", "Reseam"].includes(bundle.bundleType)
         ? `<div class="v3-warning">
-                ⚠️ Requires the ${bundle.bundleType === "ReSeam" ? "ReSeam" : "ReVanced v21"} runtime plugin in order to be used in URV.
+                ⚠️ Requires the ${bundle.bundleType === "Reseam" ? "Reseam" : "ReVanced v21"} runtime plugin in order to be used in URV.
            </div>`
         : '';
     const tagUrl = releaseTagUrl(bundle);
@@ -711,7 +723,16 @@ function renderBundle(bundle, target) {
     const { tracked: trackedName } = repositoryNames(bundle);
     const repoLinkText = escapeHtml(trackedName);
 
+    const copyLabel = currentBundleVersion || bundle.pinVersion ? "Copy this version URL" : "Copy remote bundle URL";
     card.innerHTML = `
+        <div class="bundle-actions" aria-label="Bundle actions">
+            ${iconAction("download", "Download bundle", escapeHtml, {href: bundle.downloadUrl})}
+            ${bundle.signatureDownloadUrl ? iconAction("signature", "Download signature", escapeHtml, {href: bundle.signatureDownloadUrl}) : ""}
+            ${iconAction("link", copyLabel, escapeHtml, {
+                copy: new URL(bundleImportPath(bundle, Boolean(currentBundleVersion) || bundle.pinVersion), siteConfig.api).href,
+                disabled: bundle.bundleType === "Reseam" && bundle.metadataStatus !== "verified"
+            })}
+        </div>
         ${v3WarningHtml}
         ${metadataWarning}
         ${availabilityWarning}
@@ -746,23 +767,7 @@ function renderBundle(bundle, target) {
             </div>
         </div>
 
-        <div class="bundle-meta">
-            <a href="${escapeHtml(bundle.downloadUrl)}" target="_blank" rel="noopener">
-                Download bundle
-            </a>
-            ${bundle.signatureDownloadUrl ? `
-                <span>•</span>
-                <a href="${escapeHtml(bundle.signatureDownloadUrl)}" target="_blank" rel="noopener">
-                    Download signature
-                </a>
-            ` : ''}
-            <span>•</span>
-            <button class="copy-btn" ${bundle.bundleType === "ReSeam" && bundle.metadataStatus !== "verified" ? 'disabled' : ''} data-url="${bundleImportPath(bundle, Boolean(currentBundleVersion) || bundle.pinVersion)}">
-                ${currentBundleVersion || bundle.pinVersion ? "Copy this version URL" : "Copy remote bundle URL"}
-            </button>
-        </div>
-
-        <p class="card-hint">${bundle.hasPatches ? countLabel(bundle.patchCount ?? 0, "patch", "patches") : "Patch metadata unavailable"} · Explore apps and patch options</p>
+        <p class="card-hint">${bundle.hasPatches ? countLabel(bundle.patchCount ?? 0, "patch", "patches") : "Patch metadata unavailable"} · ${countLabel(bundle.appCount ?? 0, "app")}</p>
         ${bundle.description ? `
             <div class="card-toggles">
                 <button class="card-toggle" type="button" data-toggle-changelog aria-expanded="false"
@@ -787,30 +792,7 @@ function renderBundle(bundle, target) {
     installAvatarFallback(card, bundle.ownerName || trackedName);
     target.appendChild(card);
 
-    const copyBtn = card.querySelector(".copy-btn");
-    const copyButtonLabel = copyBtn.textContent.trim();
-    let copyFeedbackTimeout;
-    const showCopyFeedback = (text, copied = false) => {
-        clearTimeout(copyFeedbackTimeout);
-        copyBtn.textContent = text;
-        copyBtn.classList.toggle("copied", copied);
-        copyFeedbackTimeout = setTimeout(() => {
-            copyBtn.textContent = copyButtonLabel;
-            copyBtn.classList.remove("copied");
-        }, 1500);
-    };
-    copyBtn.addEventListener("click", async () => {
-        // The copied value must be absolute: it is pasted into the patched-app
-        // manager, which resolves it from the device, not from this page.
-        const url = new URL(copyBtn.dataset.url, siteConfig.api).href;
-        try {
-            await navigator.clipboard.writeText(url);
-            showCopyFeedback("Copied!", true);
-        } catch (err) {
-            console.error("Failed to copy:", err);
-            showCopyFeedback("Failed!");
-        }
-    });
+    bindActions(card);
 
     const changelogButton = card.querySelector("[data-toggle-changelog]");
     const preview = card.querySelector(".changelog-preview");
@@ -872,12 +854,11 @@ function renderPatch(patch) {
         </span>`;
     }).join('');
 
-    return `<div class="patch-item">
-        <div class="patch-name">${escapeHtml(patch.name || 'Unnamed patch')}</div>
-        ${patch.description ? `<div class="patch-description">${escapeHtml(patch.description)}</div>` : ''}
-        ${packages ? `<div class="patch-packages">${packages}</div>` : ''}
-        ${renderPatchOptions(patch.options, escapeHtml)}
-    </div>`;
+    const heading = escapeHtml(patch.name || "Unnamed patch");
+    const overview = `${patch.description ? `<span class="patch-description">${escapeHtml(patch.description)}</span>` : ""}
+        ${packages ? `<span class="patch-packages">${packages}</span>` : ""}`;
+    const options = renderPatchOptions(patch.options, escapeHtml, heading, overview);
+    return `<div class="patch-item">${options || `<div class="patch-name">${heading}</div>${overview}`}</div>`;
 }
 
 function sourceName(sourceUrl, ownerName, repoName) {

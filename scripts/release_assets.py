@@ -10,12 +10,16 @@ from pathlib import PurePosixPath
 from urllib.parse import urlsplit
 
 BUNDLE_TYPES = {".rvp": "ReVanced:v22", ".mpp": "Morphe:V1", ".jar": "ReVanced:v21",
-                ".reseam": "ReSeam"}
+                ".reseam": "Reseam"}
 
 
 def canonical_bundle_type(value):
     # Read old snapshots/caches without rewriting their immutable bytes.
-    return {"ReVanced:V3": "ReVanced:v21", "ReVanced:V4": "ReVanced:v22"}.get(value, value)
+    return {
+        "ReVanced:V3": "ReVanced:v21",
+        "ReVanced:V4": "ReVanced:v22",
+        "ReSeam": "Reseam",
+    }.get(value, value)
 
 
 def migrate_bundle_types(history):

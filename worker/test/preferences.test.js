@@ -15,7 +15,7 @@ test("Browsing preferences survive reload with independent tab searches and filt
     prefs.save("bundles", {search:"Hide Ads", package:"com.video@19.16", source:"https://github.com/a/b",
         version:"v1", type:"Morphe:V1", release:"all", grid:false});
     prefs.activate("apps");
-    prefs.save("apps", {search:"Video App", package:"20.0", type:"ReSeam", release:"latest", grid:true, version:"ignored"});
+    prefs.save("apps", {search:"Video App", package:"20.0", type:"Reseam", release:"latest", grid:true, version:"ignored"});
     const reload = createBrowsePreferences(() => saved);
     assert.equal(reload.activeTab, "apps");
     assert.equal(reload.read("bundles").search, "Hide Ads");
@@ -35,7 +35,7 @@ test("Malformed or blocked storage preserves usable defaults and in-memory tab s
         prefs.save("bundles", {search:"ads", release:"invalid"});
         prefs.activate("apps");
         assert.equal(prefs.read("bundles").search, "ads");
-        assert.equal(prefs.read("bundles").release, "release");
+        assert.equal(prefs.read("bundles").release, "latest");
     }
 });
 test("Count labels use singular for one and plural for zero or many", () => {
@@ -71,7 +71,7 @@ async function frontend(prefs, suppliedSummaries) {
         getElementById:id=>fields[id]??=node(id)},results:node(),container:node(),viewToggle:node(),
         input:node(),packageFilter:node(),sourceFilter:node(),bundleVersionFilter:node(),bundleTypeFilter:node(),
         filterButtons:["all","latest","release","prerelease"].map(filter=>Object.assign(node(),{dataset:{filter}})),
-        browsePreferences:prefs,currentTab:prefs.activeTab,
+        sourcePicker:{sync(){}}, browsePreferences:prefs,currentTab:prefs.activeTab,
         summaries,latestBundles:[transformBundle(summaries[0])],sourceVersions:[],allBundles:[],catalog:{},
         transformBundle,compareReleaseDates,matchesReleaseFilter,bundleTypeLabel:x=>x,
         Option: function(label,value) { this.label=label; this.value=value; },

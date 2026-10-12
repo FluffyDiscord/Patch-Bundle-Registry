@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { groupBundlePatches, filterPatchGroups } from "../../shared/details.js";
 import { patchMatchesSearch } from "../../shared/site.js";
-import { createDetailsBrowser, renderPatchOptions } from "../../shared/detail-browser.js";
+import { createDetailsBrowser, renderPatchOptions, readableOptionType, readableOptionValue } from "../../shared/detail-browser.js";
 import worker from "../src/index.js";
 import { fixture } from "./fixture.js";
 
@@ -32,9 +32,9 @@ test("Options display false, zero, null, required status and escaped choices", (
     ],escape);
     assert.match(html,/Enable &lt;script>/);
     assert.match(html,/&lt;img>/);
-    assert.match(html,/>false</);
+    assert.match(html,/>No</);
     assert.match(html,/>0</);
-    assert.match(html,/>null</);
+    assert.match(html,/>Not set</);
     assert.match(html,/Required<\/dt><dd>Yes/);
     assert.equal(renderPatchOptions([],escape),"");
 });
@@ -259,7 +259,7 @@ test("Single app groups and patch options use singular labels and aligned disclo
     assert.match(dialog.querySelector(".details-body").innerHTML, />1 patch<\/span>/);
     assert.match(dialog.querySelector(".details-body").innerHTML, /disclosure-arrow[^]*?aria-hidden="true"/);
     const options = renderPatchOptions([null, [], {key:"enabled",default:false}], escape);
-    assert.match(options, />Patch option<\/span>/);
+    assert.match(options, /aria-label="1 patch option"/);
     assert.match(options, /option-count">1<\/span>/);
     assert.match(options, /patch-options-list/);
     assert.equal(renderPatchOptions([null, []], escape), "");
@@ -352,3 +352,30 @@ test("Missing or failed changelogs keep app and patch details accessible", async
     assert.equal(dialog.querySelector(".details-body").hidden, false);
 });
 
+
+test("Options use compact patch headings and readable types and structured values", () => {
+    assert.equal(readableOptionType("kotlin.Long"), "Whole number");
+    assert.equal(readableOptionType("kotlin.collections.List<kotlin.String>"), "List of text");
+    assert.equal(readableOptionType("List<String>"), "List of text");
+    assert.equal(readableOptionValue({Low:96, High:240}), "Low: 96\nHigh: 240");
+    assert.equal(readableOptionValue(["one","two"]), "• one\n• two");
+    const html = renderPatchOptions([{title:"Custom DPI",type:"kotlin.Long",default:240}], escape, "Set DPI");
+    assert.match(html, /patch-name">Set DPI</);
+    assert.match(html, /Whole number/);
+    assert.doesNotMatch(html, /kotlin.Long|<code>/);
+});
+
+test("App windows provide name and package copy controls and actions in the bundle header", t => {
+    const {api,dialog} = browser(t,async()=>[],{getSummaries:()=>[{
+        id:"a",version:"v1",sourceUrl:"https://github.com/o/a",bundleType:"Morphe:V1",
+        downloadUrl:"https://example.test/bundle.mpp",metadataStatus:"verified"
+    }]});
+    api.openApp({app_name:"Video App",package_name:"com.video",bundles:[{bundle_id:"a",patch_count:1}]});
+    assert.match(dialog.innerHTML,/aria-label="Copy app name"/);
+    assert.match(dialog.innerHTML,/data-copy-text="com.video"/);
+    const body = dialog.querySelector(".details-body").innerHTML;
+    assert.match(body, /<summary>[^]*?aria-label="Download bundle"[^]*?<\/summary>/);
+    assert.match(body, /aria-label="Open repository"/);
+    assert.match(body, /data-copy-text="https:\/\/api.test\//);
+    assert.doesNotMatch(body, /<div class="details-group-actions"/);
+});

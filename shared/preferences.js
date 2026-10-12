@@ -5,8 +5,8 @@ function normalize(value, grid, tab) {
     const text = key => typeof state[key] === "string" ? state[key].slice(0, 512) : "";
     return {
         search: text("search"), package: text("package"), source: text("source"),
-        version: tab === "bundles" ? text("version") : "", type: text("type"),
-        release: ["all", "latest", "release", "prerelease"].includes(state.release) ? state.release : "release",
+        version: tab === "bundles" ? text("version") : "", type: text("type").replace(/^ReSeam/, "Reseam"),
+        release: ["all", "latest", "release", "prerelease"].includes(state.release) ? state.release : "latest",
         grid: typeof state.grid === "boolean" ? state.grid : grid
     };
 }

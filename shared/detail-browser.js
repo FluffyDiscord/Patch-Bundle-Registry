@@ -1,21 +1,48 @@
 import { bundleImportPath, bundleTypeLabel } from "./catalog.js";
 import { patchMatchesSearch, repositoryNames, countLabel } from "./site.js";
+import { iconAction, bindActions } from "./actions.js";
 import { groupBundlePatches, filterPatchGroups } from "./details.js";
 
-const optionValue = value => value === undefined ? "Not provided" : JSON.stringify(value, null, 2);
 const disclosureArrow = '<span class="disclosure-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-export function renderPatchOptions(options, escape) {
+export function readableOptionType(type) {
+    const text = String(type || "").replace(/(?:kotlin\.(?:collections\.)?|java\.lang\.|java\.util\.)/g, "").replace(/\?/g, "");
+    const names = {Boolean:"Yes / no",String:"Text",Char:"Character",Long:"Whole number",Int:"Whole number",
+        Short:"Whole number",Byte:"Whole number",Float:"Decimal number",Double:"Decimal number"};
+    if (names[text]) return names[text];
+    const list = text.match(/^(?:List|Set|Array|Collection)<(.+)>$/);
+    if (list) return "List of " + readableOptionType(list[1]).toLowerCase();
+    if (/^(?:Map|HashMap)</.test(text)) return "Named values";
+    return text || "Unspecified";
+}
+export function readableOptionValue(value, depth = 0) {
+    if (value === undefined) return "Not provided";
+    if (value === null) return "Not set";
+    if (typeof value === "boolean") return value ? "Yes" : "No";
+    if (value === "") return "Empty text";
+    if (depth > 8) return "Nested values";
+    if (Array.isArray(value)) return value.length ? value.map(item => "• " + readableOptionValue(item, depth + 1)).join("\n") : "None";
+    if (typeof value === "object") {
+        const entries = Object.entries(value);
+        return entries.length ? entries.map(([key, item]) =>
+            key + ": " + readableOptionValue(item, depth + 1)).join("\n") : "None";
+    }
+    return String(value);
+}
+export function renderPatchOptions(options, escape, heading = "Patch options", overview = "") {
     options = Array.isArray(options) ? options.filter(option => option && typeof option === "object" && !Array.isArray(option)) : [];
     if (!options.length) return "";
-    return `<details class="patch-options"><summary><span>Patch ${options.length === 1 ? "option" : "options"}</span><span class="option-count">${options.length}</span>${disclosureArrow}</summary><div class="patch-options-list">
+    const label = countLabel(options.length, "patch option");
+    return `<details class="patch-options"><summary><span class="patch-heading">
+        <span class="patch-name">${heading}</span><span class="option-toggle" title="${label}" aria-label="${label}">
+            <span class="option-count">${options.length}</span>${disclosureArrow}</span></span>${overview}</summary>
+        <div class="patch-options-list" aria-label="${label}">
         ${options.map(option =>
-            `<div class="patch-option"><div class="patch-option-heading"><strong>${escape(option.title || option.name || option.key || "Option")}</strong></div>
-                ${option.key ? `<code>${escape(option.key)}</code>` : ""}
+            `<div class="patch-option"><strong class="patch-option-heading">${escape(option.title || option.name || option.key || "Option")}</strong>
                 ${option.description ? `<p>${escape(option.description)}</p>` : ""}
-                <dl><div><dt>Type</dt><dd>${escape(option.type || "Unspecified")}</dd></div>
+                <dl><div><dt>Type</dt><dd>${escape(readableOptionType(option.type))}</dd></div>
                     <div><dt>Required</dt><dd>${option.required ? "Yes" : "No"}</dd></div>
-                    <div><dt>Default</dt><dd><code>${escape(optionValue(option.default))}</code></dd></div>
-                    ${option.values != null ? `<div><dt>Choices</dt><dd><code>${escape(optionValue(option.values))}</code></dd></div>` : ""}
+                    <div><dt>Default</dt><dd class="option-value">${escape(readableOptionValue(option.default))}</dd></div>
+                    ${option.values != null ? `<div><dt>Choices</dt><dd class="option-value">${escape(readableOptionValue(option.values))}</dd></div>` : ""}
                 </dl></div>`).join("")}</div></details>`;
 }
 
@@ -23,7 +50,7 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
     bundlePatches, bundleChangelog, renderMarkdown, renderPatch, escapeHtml: escape, installAvatarFallback, formatDate, getApi }) {
     let dialog, revision = 0, previousFocus;
     function close() { dialog?.close(); }
-    function shell(title, subtitle, icon, description = "", ownerAvatar = "") {
+    function shell(title, subtitle, icon, description = "", ownerAvatar = "", copyApp = false) {
         revision++;
         if (!dialog) {
             dialog = document.createElement("dialog");
@@ -41,7 +68,8 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
         previousFocus = document.activeElement;
         dialog.innerHTML = `<div class="details-heading">
             <span class="owner-avatar-link app-icon"><img class="owner-avatar" src="${escape(icon || "")}" alt=""></span>
-            <div><h2 id="details-title">${escape(title)}</h2><p class="app-package">${escape(subtitle)}</p>
+            <div><h2 id="details-title">${escape(title)}${copyApp ? iconAction("copy", "Copy app name", escape, {copy:title}) : ""}</h2>
+            <p class="app-package">${escape(subtitle)}${copyApp ? iconAction("copy", "Copy package name", escape, {copy:subtitle}) : ""}</p>
             ${description ? `<p class="details-description">${escape(description)}</p>` : ""}</div>
             <button class="dialog-close" type="button" aria-label="Close details">×</button></div>
             <div class="details-sections" hidden aria-label="Bundle details">
@@ -52,6 +80,7 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
                 <span class="details-count" aria-live="polite"></span></div>
             <div class="details-body"><p role="status">Loading compatibility and patches...</p></div>
             <div class="details-body details-changelog changelog-content" tabindex="0" aria-label="Release changelog" hidden></div>`;
+        bindActions(dialog);
         dialog.setAttribute("aria-labelledby", "details-title");
         dialog.querySelector(".dialog-close").addEventListener("click", close);
         delete dialog.dataset.ownerAvatar;
@@ -159,7 +188,7 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
         await pending;
     }
     function openApp(app) {
-        const view = shell(app.app_name, app.package_name, app.icon_url);
+        const view = shell(app.app_name, app.package_name, app.icon_url, "", "", true);
         const summaries = new Map(getSummaries().map(bundle => [bundle.id, bundle]));
         const groups = app.bundles.flatMap(reference => {
             const summary = summaries.get(reference.bundle_id);
@@ -190,21 +219,20 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
                     <summary>${image(bundle.iconUrl)}<span class="details-group-name">
                         <strong>${escape(label(group))}</strong>
                         <span class="app-package">${escape(bundle.version)} · ${escape(bundleTypeLabel(bundle.bundleType))} · ${escape(formatDate(bundle.createdAt))}</span></span>
-                        <span class="bundle-badge">${group.reference.compatibility_unknown ? "Count unavailable" : countLabel(group.reference.patch_count, "patch", "patches")}</span>${disclosureArrow}</summary>
-                    <div class="details-group-actions"><a href="${escape(bundle.sourceUrl)}" target="_blank" rel="noopener">Repository</a>
-                        <button type="button" class="copy-btn" data-copy-import="${escape(url)}"
-                            ${bundle.bundleType === "ReSeam" && bundle.metadataStatus !== "verified" ? "disabled" : ""}>Copy this version URL</button></div>
+                        <span class="bundle-badge">${group.reference.compatibility_unknown ? "Count unavailable" : countLabel(group.reference.patch_count, "patch", "patches")}</span>
+                        <span class="details-group-actions">
+                            ${iconAction("repository", "Open repository", escape, {href:bundle.sourceUrl})}
+                            ${bundle.downloadUrl ? iconAction("download", "Download bundle", escape, {href:bundle.downloadUrl}) : ""}
+                            ${iconAction("link", "Copy this version URL", escape, {
+                                copy:url, disabled:bundle.bundleType === "Reseam" && bundle.metadataStatus !== "verified"
+                            })}</span>${disclosureArrow}</summary>
                     ${bundle.metadataStatus !== "verified" ? '<p class="metadata-note">Compatibility metadata for this release is unverified.</p>' : ""}
                     <div class="details-patches">${group.error ? `<p role="status">Unable to load patches: ${escape(group.error)}</p>` :
                         group.patches ? patchesHtml(group.patches, terms.every(term => (label(group) + " " + bundle.version).toLowerCase().includes(term)) ? "" : query) :
                         '<p role="status">Loading patches...</p>'}</div></details>`;
             }).join("") || '<p role="status">No bundles or patches match this search.</p>';
             bindImages(view.body);
-            view.body.querySelectorAll("[data-copy-import]").forEach(button =>
-                button.addEventListener("click", async () => {
-                    try { await navigator.clipboard.writeText(button.dataset.copyImport); button.textContent = "Copied!"; }
-                    catch { button.textContent = "Copy failed"; }
-                }));
+            bindActions(view.body);
             view.body.querySelectorAll("[data-bundle]").forEach(element => {
                 const group = groups.find(group => group.bundle.id === element.dataset.bundle);
                 element.addEventListener("toggle", () => {

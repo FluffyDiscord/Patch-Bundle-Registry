@@ -7,13 +7,14 @@ import os
 import re
 import time
 from pathlib import Path
+from urllib.parse import quote, urlsplit
 
 import httpx
 
 try:
-    from scripts.generate_database import timestamp_rank
+    from scripts.generate_database import packages_for, timestamp_rank
 except ModuleNotFoundError:
-    from generate_database import timestamp_rank
+    from generate_database import packages_for, timestamp_rank
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -32,6 +33,20 @@ def capture(root):
     folder = root / "database" / snapshot
     sources = {row["id"]: row for row in read(folder / "sources.json") if row["enabled"]}
     history = read(folder / "history.json")
+    app_index = folder / "apps.json"
+    app_metadata = (
+        {app["package_name"]: app for app in read(app_index)} if app_index.exists() else {}
+    )
+
+    def applications(patches):
+        return {
+            package["name"]: app_metadata.get(package["name"], {}).get("app_name")
+            or package["name"]
+            for patch in patches
+            for package in packages_for(patch)
+            if re.fullmatch(r"[A-Za-z][A-Za-z0-9_]*(?:\.[A-Za-z0-9_]+)+", package["name"])
+        }
+
     verified_history = {}
     for item in history.values():
         bundle = item["bundle"]
@@ -61,6 +76,22 @@ def capture(root):
         releases[f"{source['id']}/{category}"] = {
             "name": f"{source['namespace']}/{source['repo']}",
             "category": category,
+            "url": source.get("url"),
+            "release_url": bundle.get("release_url") or source.get("url"),
+            "apps": applications(patches),
+            "app_urls": {
+                package: (
+                    "https://f-droid.org/packages/"
+                    if info.get("metadata_source") == "fdroid"
+                    else "https://apt.izzysoft.de/fdroid/index/apk/"
+                    if info.get("metadata_source") == "izzyondroid"
+                    else "https://play.google.com/store/apps/details?id="
+                )
+                + quote(package, safe="")
+                for package in applications(patches)
+                for info in [app_metadata.get(package, {})]
+            },
+            "previous_apps": applications(prior["patches"]) if not verified and prior else None,
             "version": bundle["version"],
             "verified": verified,
             "fingerprint": fingerprint,
@@ -109,11 +140,11 @@ def changes(before, after):
     return updated, added
 
 
-def clean(value):
+def clean(value, limit=300):
     # Keep provider text on one line without letting it inject Discord formatting.
-    value = re.sub(r"([\\*_~`|<>])", r"\\\1", " ".join(str(value).split())[:300])
-    truncated = size(value) > 300
-    while size(value) > 300:
+    value = re.sub(r"([\\*_~`|<>\[\]])", r"\\\1", " ".join(str(value).split()))
+    truncated = size(value) > limit
+    while size(value) > limit - int(truncated):
         value = value[:-1]
     return value.rstrip("\\") + "…" if truncated else value
 
@@ -122,42 +153,117 @@ def size(value):
     return len(value.encode("utf-16-le")) // 2
 
 
-def section_messages(title, lines):
-    heading = f"**{title}**\n\n"
-    message = heading
-    for line in lines:
-        if size(message + line) > 1900:
-            yield message.rstrip()
-            message = heading
-        message += line + "\n"
-    if message != heading:
-        yield message.rstrip()
+def link(label, url):
+    label = clean(label, 120)
+    if not isinstance(url, str):
+        return label
+    try:
+        parsed = urlsplit(url)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+            return label
+        url = quote(url, safe=":/?&=%#@+;,.-_~")
+        if len(url) > 350:
+            return label
+        return f"[{label}]({url})"
+    except ValueError:
+        return label
 
 
 def messages(before, after, website):
-    updated, added = changes(before, after)
-    if not updated:
-        return []
-    result = list(section_messages("Updated Bundles", updated))
-    patch_lines = []
-    for bundle, names in added:
-        group = []
-        for name in names:
-            if group and size(", ".join([*group, name]) + " - " + bundle) > 1800:
-                patch_lines.append(", ".join(group) + " - " + bundle)
-                group = []
-            group.append(name)
-        patch_lines.append(", ".join(group) + " - " + bundle)
-    result.extend(section_messages("New Patches", patch_lines or ["None."]))
-    combined = []
-    for section in result:
-        if combined and size(combined[-1] + "\n\n" + section) <= 1900:
-            combined[-1] += "\n\n" + section
+    """Return complete webhook payloads, one rich embed per message."""
+    sections = {name: [] for name in ("New Bundles", "Updated Bundles", "New Apps", "New Patches")}
+    known_sources = {key.rsplit("/", 1)[0] for key in before}
+    known_items = {}
+    for key, row in before.items():
+        source = key.rsplit("/", 1)[0]
+        for field in ("names", "apps"):
+            value = row.get(field) if row["verified"] else row.get("previous_" + field)
+            if value is not None:
+                known_items.setdefault((source, field), set()).update(value)
+
+    def previous_items(source, old, field):
+        known = known_items.get((source, field))
+        if old is None:
+            return known if source in known_sources else set()
+        value = old.get(field) if old["verified"] else old.get("previous_" + field)
+        # Unknown metadata cannot prove an addition; known channels suppress promotions.
+        return None if value is None else set(value) | (known or set())
+
+    announced_sources, announced_apps, announced_patches = set(), set(), set()
+    for key, new in sorted(after.items(), key=lambda item: (item[1]["name"].casefold(), item[0])):
+        old = before.get(key)
+        if not changes({key: old} if old else {}, {key: new})[0]:
+            continue
+        source = key.rsplit("/", 1)[0]
+        label = clean(new["name"], 120)
+        category = " (prerelease)" if new["category"] == "prerelease" else ""
+        bundle_link = link(new["name"], new.get("url"))
+        if source not in known_sources:
+            if source not in announced_sources:
+                sections["New Bundles"].append(f"• {bundle_link}")
+                announced_sources.add(source)
         else:
-            combined.append(section)
-    if website and size(combined[-1] + "\n\n" + website) <= 2000:
-        combined[-1] += "\n\n" + website
-    return combined
+            previous = clean(old["version"], 90) if old else "New"
+            note = ""
+            if (
+                old
+                and old["verified"]
+                and new["verified"]
+                and old["fingerprint"] != new["fingerprint"]
+            ):
+                note = " (patches updated)"
+            elif old and not old["verified"] and new["verified"]:
+                note = " (patch metadata now available)"
+            sections["Updated Bundles"].append(
+                f"• {bundle_link}{category}: {previous} → {clean(new['version'], 90)}{note}"
+            )
+        if not new["verified"]:
+            continue
+        previous_names = previous_items(source, old, "names")
+        if previous_names is not None:
+            for name in sorted(set(new["names"]) - set(previous_names)):
+                identity = (source, name)
+                if identity not in announced_patches:
+                    sections["New Patches"].append(
+                        f"• {link(name, new.get('release_url') or new.get('url'))} ({label})"
+                    )
+                    announced_patches.add(identity)
+        previous_apps = previous_items(source, old, "apps")
+        # A baseline from an older script cannot prove that compatibility is new.
+        if previous_apps is not None:
+            for package, name in sorted(new.get("apps", {}).items()):
+                identity = (source, package)
+                if package not in previous_apps and identity not in announced_apps:
+                    app_url = "https://play.google.com/store/apps/details?id=" + quote(
+                        package, safe=""
+                    )
+                    app_url = new.get("app_urls", {}).get(package, app_url)
+                    sections["New Apps"].append(f"• {link(name, app_url)} ({label})")
+                    announced_apps.add(identity)
+    fields = []
+    for title, lines in sections.items():
+        value = ""
+        for line in lines:
+            if size(value + line + "\n") > 1024:
+                fields.append({"name": title, "value": value.rstrip(), "inline": False})
+                value = ""
+            value += line + "\n"
+        if value:
+            fields.append({"name": title, "value": value.rstrip(), "inline": False})
+    result = []
+    embed = None
+    length = 0
+    for field in fields:
+        field_size = size(field["name"]) + size(field["value"])
+        if embed is None or len(embed["fields"]) >= 25 or length + field_size > 6000:
+            embed = {"title": "Patch Bundle Registry update", "color": 0x79D38A, "fields": []}
+            if isinstance(website, str) and link("website", website) != "website":
+                embed["url"] = website
+            result.append({"embeds": [embed], "allowed_mentions": {"parse": []}})
+            length = size(embed["title"])
+        embed["fields"].append(field)
+        length += field_size
+    return result
 
 
 def send(webhook, contents):
@@ -170,7 +276,7 @@ def send(webhook, contents):
                 try:
                     response = client.post(
                         url,
-                        json={"content": content, "allowed_mentions": {"parse": []}},
+                        json={**content, "allowed_mentions": {"parse": []}},
                     )
                 except httpx.HTTPError:
                     raise RuntimeError("Could not deliver the catalog notification") from None

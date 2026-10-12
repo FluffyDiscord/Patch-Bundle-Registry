@@ -67,7 +67,7 @@ test("Malformed and blocked preferences show usable defaults without waiting for
         const view = startup("{", {...options,mobile:true});
         view.parsed();
         assert.equal(view.root.attrs.has("data-browse-pending"), false);
-        assert.equal(view.filters.find(button => button.classes.has("active")).id, "release");
+        assert.equal(view.filters.find(button => button.classes.has("active")).id, "latest");
         assert.equal(view.get("bundle-version-filter").disabled, true);
         assert.equal(view.get("search").value, "");
         assert.equal(view.get("results").classes.has("grid-view"), false);

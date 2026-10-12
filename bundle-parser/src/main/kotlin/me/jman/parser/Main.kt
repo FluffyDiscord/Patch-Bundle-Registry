@@ -451,8 +451,8 @@ private fun writePatchList(outputFile: File, version: String, patches: JsonArray
 }
 
 private fun generateFallbackPatchList(downloadUri: URI, version: String, family: String? = null): JsonArray? =
-    if (family == "ReSeam") {
-        null // Only the signed catalog supplies ReSeam metadata.
+    if (family == "Reseam") {
+        null // Only the signed catalog supplies Reseam metadata.
     } else if (family == "Morphe:V1" || isMorphePatchBundle(downloadUri)) {
         generateMorphePatchListFromSource(downloadUri, version)
             ?: generatePatchListFromReleaseAsset(downloadUri, version)
@@ -497,7 +497,7 @@ internal fun processBundle(
                 Logger.info("Resolving patch list for ${parsedBundle.downloadUrl}...")
                 val legacy = parsedBundle.format == BundleFormat.LEGACY
                 val family = parsedBundle.family ?: if (legacy) "ReVanced:v21"
-                    else if (downloadUri.path.lowercase().endsWith(".reseam")) "ReSeam"
+                    else if (downloadUri.path.lowercase().endsWith(".reseam")) "Reseam"
                     else if (isMorphePatchBundle(downloadUri)) "Morphe:V1" else "ReVanced:v22"
                 val recordFile = File(bundleFolder, "$bundleName-${variant.releaseTag}-extraction.json")
                 val previous = runCatching {

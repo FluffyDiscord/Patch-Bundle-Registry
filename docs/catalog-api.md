@@ -17,7 +17,7 @@ API base: `https://patch-bundles.api.jmancentral.com`. [OpenAPI specification](h
 | GET `/patches`, `/bundles/:id/patches` | Patch descriptions and app compatibility. |
 | GET `/availability` | Unavailable channels and retired source records. |
 | GET `/api/v3/bundle?source_url=...&version=...&channel=...` | Manager import information. |
-| GET `/api/reseam/bundle?source_url=...&version=...&channel=...` | ReSeam Manager patch-source index with the verified publisher signing key. |
+| GET `/api/reseam/bundle?source_url=...&version=...&channel=...` | Reseam Manager patch-source index with the verified publisher signing key. |
 | GET `/api/v1/bundle/:id` | Legacy import using a numeric bundle ID. |
 | GET `/api/v1/bundle/:owner/:repo/:version` | Legacy repository import for an exact tag or `latest`. |
 | GET `/api/v2/bundle/:owner/:repo/latest?channel=...` | Legacy repository channel import. |
@@ -28,7 +28,7 @@ Disabled sources remain in source queries with `enabled: false` and an `unavaila
 
 For v3 imports, use an exact release tag or `version=latest`. Latest requires `channel=any|stable|prerelease`; `latest` and `dev` are accepted aliases. Channel values accept surrounding whitespace and any capitalization. Exact-version requests can omit channel. Latest imports and default website cards use the newest stable release and newest prerelease across retained history, independently of configured channel pointers.
 
-V1 latest defaults to stable; `prerelease=true` selects prereleases. V2 requires a channel. V1/V2 owner and repository paths use recorded repository metadata, including current names after a rename and sources on other supported hosts. V1/V2 retain the upstream fields: `created_at`, `description`, `version`, `download_url` and `signature_download_url`. V3 adds bundle format, source information and metadata status. All manager import endpoints also return `icon_url` (the preferred bundle image) and `owner_avatar_url` (the fallback owner image); either can be null. ReSeam returns these alongside its native `bundle` and `releases` fields.
+V1 latest defaults to stable; `prerelease=true` selects prereleases. V2 requires a channel. V1/V2 owner and repository paths use recorded repository metadata, including current names after a rename and sources on other supported hosts. V1/V2 retain the upstream fields: `created_at`, `description`, `version`, `download_url` and `signature_download_url`. V3 adds bundle format, source information and metadata status. All manager import endpoints also return `icon_url` (the preferred bundle image) and `owner_avatar_url` (the fallback owner image); either can be null. Reseam returns these alongside its native `bundle` and `releases` fields.
 
 Collection/detail endpoints also accept `/api/v1`, for example `/api/v1/patches`. REST records retain their catalog hash in `id`; `legacy_id` supplies the numeric ID used by legacy imports and GraphQL. Numeric IDs remain stable across refreshes and belong to this catalog. IDs from another catalog installation cannot be reused here.
 
@@ -38,7 +38,7 @@ Patch search accepts `q`, exact `package`, `app_version`, `bundle_id`, source/ec
 
 Patch searches return one window of candidate shards. Follow `next_cursor` as `page_cursor`, keeping filters unchanged. Use offset to read additional rows within that window. Counts and sorting apply to the current window.
 
-Bundle collections/details and GraphQL bundle records expose the same `icon_url` and `owner_avatar_url`. For Morphe, `icon_url` prefers `patches-bundle.png` at the root of the repository's default branch. Otherwise it uses the owner avatar, as ReVanced and ReSeam do. Source metadata includes the discovered `bundle_icon_url`. Images are checked during the daily repository-metadata refresh; temporary upstream failures preserve the last known image. The website falls back to the owner avatar if the preferred image fails to load, then to initials.
+Bundle collections/details and GraphQL bundle records expose the same `icon_url` and `owner_avatar_url`. For Morphe, `icon_url` prefers `patches-bundle.png` at the root of the repository's default branch. Otherwise it uses the owner avatar, as ReVanced and Reseam do. Source metadata includes the discovered `bundle_icon_url`. Images are checked during the daily repository-metadata refresh; temporary upstream failures preserve the last known image. The website falls back to the owner avatar if the preferred image fails to load, then to initials.
 
 The website loads the complete bundle index directly from catalog snapshots, independently of API request budgets. Default browsing shows current stable and prerelease releases; selecting a source exposes its retained historical versions. Cards render as they enter the viewport, and patch lists load on demand.
 
@@ -120,11 +120,11 @@ Repository availability is reported in each source's `unavailable_reason`: perma
 
 Release replacements update the existing source/version/category record and preserve its public ID. Provider asset digests invalidate extracted patch metadata when an artifact changes at the same URL.
 
-Bundle types are `ReVanced:v21`, `ReVanced:v22`, `Morphe:V1`, and `ReSeam`. Use `bundle_type` to filter REST bundle and patch lists, or `ecosystem=reseam` for ReSeam. The ReSeam import endpoint uses the same source/version/channel selection as v3 and returns ReSeam's native `bundle` and `releases` index. It returns 503 until the selected bundle's signing metadata has been verified.
+Bundle types are `ReVanced:v21`, `ReVanced:v22`, `Morphe:V1`, and `Reseam`. Use `bundle_type` to filter REST bundle and patch lists, or `ecosystem=reseam` for Reseam. The Reseam import endpoint uses the same source/version/channel selection as v3 and returns Reseam's native `bundle` and `releases` index. It returns 503 until the selected bundle's signing metadata has been verified.
 
 ## Applications
 
-The catalog caches application names and icon URLs from F-Droid's JSON index, then Google Play listings for packages absent from that index. Metadata is refreshed by the catalog workflow; API requests and website visits do not query either provider for names. Unknown applications use their package name and a null icon. Icons are image URLs loaded by the client.
+The catalog caches application names and icon URLs from F-Droid and IzzyOnDroid's bulk JSON indexes (v2, with v1 fallback), then Google Play listings for packages absent from those indexes. F-Droid names take priority when both indexes contain the same package; a missing icon can be filled from IzzyOnDroid or retained cached metadata. Metadata is refreshed by the catalog workflow; API requests and website visits do not query either provider for names. Unknown applications use their package name and a null icon. Icons are image URLs loaded by the client.
 
 - `GET /apps`: paginated applications, including `package_name`, `app_name`, `icon_url`, `metadata_source`, supported `versions`, `unrestricted`, and matching `bundle_count`, `source_count`, and `patch_count`.
 - `GET /apps/{packageName}`: application summary and paths to its bundles and patches.
@@ -138,8 +138,14 @@ App summaries and app-to-bundle lookups support `q` (application name or package
 
 GraphQL `package` records expose `app_name` and `icon_url`. Patch responses include `app_name` and `icon_url` alongside each package's existing `name` and `versions`. Bundle detail and v3 import responses include `apps` (first 100 applications), `app_count`, and an `apps_url` path for pagination. These fields appear once the new catalog indexes have been published; existing import fields remain compatible.
 
-F-Droid metadata is checked daily with conditional requests. Google Play results are cached for 30 days and unavailable listings for at least 7 days. When more than 50 packages await their first lookup, an initial backfill allows up to 1,500 sequential lookups within 30 minutes. Other refreshes allow up to 50 lookups within three minutes. Requests remain one second apart, unattempted packages take priority, and metadata progress is saved every 25 lookups. Provider failures retain cached names. F-Droid and Google Play rate-limit or temporary-unavailability responses pause further requests to that provider until its `Retry-After` interval expires (one hour when the header is missing or invalid). Names and icons can therefore fill in over multiple refreshes.
+Each repository index is checked daily with its own conditional-request validators, cached applications, and retry interval. A repository outage retains its previous index and does not stop the other repository. Google Play tries the US, then the UK and India after an unavailable listing; a previously successful country takes priority on subsequent refreshes. Results are cached for 30 days, and listings unavailable in all three countries for at least 7 days. Existing US-only negative entries can try the additional countries immediately. When more than 50 packages await their first lookup, an initial backfill allows up to 1,500 sequential lookups within 30 minutes. Other refreshes allow up to 50 lookups within three minutes. Every regional HTTP request counts toward the shared lookup cap and time budget. Requests remain one second apart, unattempted packages take priority, and metadata progress is saved every 25 lookups. Interrupted regional searches resume without repeating completed country lookups or caching a partial search as a missing listing. Provider failures retain cached names. Repository and Google Play rate-limit or temporary-unavailability responses pause further requests to that provider until its `Retry-After` interval expires (one hour when the header is missing or invalid). Names and icons can therefore fill in over multiple refreshes.
 
 ### Patch options
 
 REST patch records and GraphQL `patch { options }` expose the extracted `options` array. Each option can include `key`, `title` or `name`, `description`, `type`, `required`, `default`, and `values` (named choices). Defaults preserve false, zero, and null. An empty array means the extracted patch declares no options; missing or unverified metadata does not establish that no options exist. Options are descriptive metadata; catalog requests do not apply or change them.
+
+## Refresh notifications
+
+The optional Discord webhook sends rich embeds containing **New Bundles**, **Updated Bundles**, **New Apps**, and **New Patches**, omitting empty sections. Updated bundles show the previous version → current version, including patch changes at the same version. App and patch entries name their bundle; links lead to the app listing or bundle repository/release. Long lists continue across fields and messages within Discord's limits, with mentions disabled.
+
+New apps mean newly supported packages for that bundle. Changing an app's cached display name or icon does not create a notification. Delayed extraction compares against the last verified metadata when available, avoiding announcements that label an entire existing patch list as new.

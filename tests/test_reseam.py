@@ -12,7 +12,7 @@ from scripts.release_assets import BUNDLE_TYPES, asset_extension, choose_patch_b
 def test_reseam_assets_and_host():
     asset = {"url": "https://git.reseam.app/download/123", "name": "patches.reseam"}
     assert choose_patch_bundle([{"url": "https://example.test/legacy.jar"}, asset]) == asset
-    assert BUNDLE_TYPES[asset_extension(asset)] == "ReSeam"
+    assert BUNDLE_TYPES[asset_extension(asset)] == "Reseam"
     assert endpoint("https://git.reseam.app/reseam/patches").endswith(
         "/api/v1/repos/reseam/patches/releases"
     )
@@ -50,7 +50,7 @@ def test_reseam_catalog_preserves_publisher_and_native_import(tmp_path):
     for channel in ("stable", "latest"):
         raw_path = folder / f"demo-{channel}-patches-bundle.json"
         raw = db.read_json(raw_path)
-        raw.update(download_url="https://example.test/patches.reseam", bundle_type="ReSeam")
+        raw.update(download_url="https://example.test/patches.reseam", bundle_type="Reseam")
         write(raw_path, raw)
         status_path = folder / f"demo-{channel}-extraction.json"
         status = db.read_json(status_path)

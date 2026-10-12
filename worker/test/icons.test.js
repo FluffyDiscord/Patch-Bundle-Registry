@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import worker from "../src/index.js";
-import { bundleImages, bundleTypeLabel, Catalog } from "../../shared/catalog.js";
+import { bundleImages, bundleTypeLabel, canonicalBundleType, Catalog } from "../../shared/catalog.js";
 import { fixture } from "./fixture.js";
 
 const source = { id: "s1", legacy_id: 1, url: "https://github.com/owner/repo",
@@ -15,14 +15,14 @@ async function call(state, path, query) {
   const response = await worker.fetch(request, state.env);
   return { status: response.status, body: await response.json() };
 }
-test("family labels hide Morphe and ReSeam runtime versions", () => {
+test("family labels hide Morphe and Reseam runtime versions", () => {
   for (const type of ["Morphe:V1", "Morphe:V2"]) assert.equal(bundleTypeLabel(type), "Morphe");
-  for (const type of ["ReSeam", "ReSeam:v0.20.1"]) assert.equal(bundleTypeLabel(type), "ReSeam");
+  for (const type of ["Reseam", "Reseam:v0.20.1"]) assert.equal(bundleTypeLabel(type), "Reseam");
 });
 test("Morphe prefers its root icon; other formats use the owner avatar", () => {
   const morphe = { bundle_type: "Morphe:V1", source };
   assert.equal(bundleImages(morphe).icon_url, source.source_metadatum.bundle_icon_url);
-  for (const type of ["ReSeam", "ReVanced:v21", "ReVanced:v22"])
+  for (const type of ["Reseam", "ReVanced:v21", "ReVanced:v22"])
     assert.equal(bundleImages({ ...morphe, bundle_type: type }).icon_url,
       source.source_metadatum.owner_avatar_url);
 });
@@ -57,10 +57,10 @@ test("bundle collections, details, imports and GraphQL expose consistent images"
   assert.equal(graph.body.data.bundle[0].icon_url, source.source_metadatum.bundle_icon_url);
 });
 
-test("ReSeam native imports include the owner image alongside signed metadata", async () => {
+test("Reseam native imports include the owner image alongside signed metadata", async () => {
   const initial = fixture();
   const publisher = { name: "patches", author: "owner", description: "", public_key: "a".repeat(64) };
-  const bundle = { ...initial.bundle, bundle_type: "ReSeam", reseam_bundle: publisher };
+  const bundle = { ...initial.bundle, bundle_type: "Reseam", reseam_bundle: publisher };
   const state = fixture({ "sources.json": [source], "bundles.json": [bundle],
     ["bundles/" + bundle.id + ".json"]: bundle });
   const result = await call(state, "/api/reseam/bundle?source_url=https://github.com/owner/repo&version=v1");
@@ -77,4 +77,15 @@ test("website catalog reads all records beyond the API input budget", async () =
   assert.equal((await site.bundles()).length, 105);
   const api = await new Catalog("https://example.test/database/", state.env.FETCH).initialize();
   await assert.rejects(api.bundles(), /budget/);
+});
+
+test("Older Reseam snapshots keep imports and labels after the spelling change", async () => {
+    assert.equal(canonicalBundleType("ReSeam"),"Reseam");
+    assert.equal(bundleTypeLabel("ReSeam:v1"),"Reseam");
+    const state = fixture();
+    const row = {...state.bundle,bundle_type:"ReSeam"};
+    const snapshot = fixture({"bundles.json":[row],["bundles/"+row.id+".json"]:row});
+    const catalog = await new Catalog("https://example.test/database/", snapshot.env.FETCH).initialize();
+    assert.equal((await catalog.bundles())[0].bundle_type,"Reseam");
+    assert.equal((await catalog.file("bundles/"+row.id+".json")).bundle_type,"Reseam");
 });

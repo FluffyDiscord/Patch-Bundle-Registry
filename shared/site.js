@@ -20,14 +20,14 @@ export function latestReleaseIds(bundles) {
 }
 
 export function catalogStats(bundles) {
-    const stats = Object.fromEntries(["All bundles", "ReVanced", "Morphe", "ReSeam"]
+    const stats = Object.fromEntries(["All bundles", "ReVanced", "Morphe", "Reseam"]
         .map(name => [name, { bundles: 0, patches: 0 }]));
     const latest = latestReleaseIds(bundles);
     for (const bundle of bundles.filter(bundle => latest.has(bundle.id))) {
         const type = canonicalBundleType(bundle.bundle_type) || "";
         const family = type.startsWith("ReVanced:") ? "ReVanced" :
             type.startsWith("Morphe:") ? "Morphe" :
-            type === "ReSeam" || type.startsWith("ReSeam:") ? "ReSeam" : null;
+            type === "Reseam" || type.startsWith("Reseam:") ? "Reseam" : null;
         for (const name of ["All bundles", family].filter(Boolean)) {
             stats[name].bundles++;
             stats[name].patches += Math.max(0, Number(bundle.patch_count) || 0);

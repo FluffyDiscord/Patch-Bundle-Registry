@@ -443,7 +443,7 @@ async def fetch_release_data(
                 "created_at": patches_created_at,
                 "description": patches_description or "",
                 "download_url": patches_download_urls[".reseam"],
-                "bundle_type": "ReSeam",
+                "bundle_type": "Reseam",
                 "signature_download_url": patches_signature_url or "N/A",
                 "version": patches_version,
             }

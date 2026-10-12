@@ -33,6 +33,7 @@ export function catalogOrigins(config, fallback) {
     encodeURIComponent(config.data_branch) + "/" + (config.database_path ?? "database") + "/", fallback];
 }
 export function canonicalBundleType(value) {
+  if (value === "ReSeam" || value?.startsWith("ReSeam:")) return value.replace("ReSeam", "Reseam");
   if (value === "ReVanced:V3") return "ReVanced:v21";
   if (value === "ReVanced:V4") return "ReVanced:v22";
   return value;
@@ -42,7 +43,7 @@ export function bundleTypeLabel(value) {
   if (value === "ReVanced:v21") return "ReVanced v21";
   if (value === "ReVanced:v22") return "ReVanced v22";
   if (value?.startsWith("Morphe:")) return "Morphe";
-  if (value === "ReSeam" || value?.startsWith("ReSeam:")) return "ReSeam";
+  if (value === "Reseam" || value?.startsWith("Reseam:")) return "Reseam";
   return value;
 }
 export function bundleImages(bundle) {
@@ -72,7 +73,7 @@ export function bundleImportPath(bundle, pinned = false) {
   const params = new URLSearchParams({ source_url: bundle.sourceUrl,
     version: pinned ? bundle.version : "latest",
     channel: bundle.isPrerelease ? "prerelease" : "stable" });
-  return (bundle.bundleType === "ReSeam" || bundle.bundle_type === "ReSeam" ? "/api/reseam/bundle?" : "/api/v3/bundle?") + params;
+  return (canonicalBundleType(bundle.bundleType ?? bundle.bundle_type) === "Reseam" ? "/api/reseam/bundle?" : "/api/v3/bundle?") + params;
 }
 export function releaseTimestamp(value) {
   let date = String(value ?? "");
@@ -313,7 +314,8 @@ export class Catalog {
           .map(n => n.toString(16).padStart(2, "0")).join("");
         if (hash !== metadata.sha256) throw new CatalogError("Catalog integrity mismatch", 503);
         const data = JSON.parse(new TextDecoder().decode(bytes));
-        if (name === "bundles.json" || name.startsWith("imports/")) return data.map(row => ({
+        if (name === "bundles.json" || name === "app-bundles.json" ||
+            name.startsWith("imports/")) return data.map(row => ({
           ...row, bundle_type: canonicalBundleType(row.bundle_type)
         }));
         if (/^bundles\//.test(name)) data.bundle_type = canonicalBundleType(data.bundle_type);

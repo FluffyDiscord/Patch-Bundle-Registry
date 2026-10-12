@@ -20,22 +20,22 @@ test("old catalog family names migrate after integrity verification", async () =
   assert.equal(bundleTypeLabel("Morphe:V1"), "Morphe");
   assert.equal(bundleTypeLabel("Morphe:V2"), "Morphe");
 });
-test("ReSeam imports use the signed publisher's native index, with channel and pinning", async () => {
+test("Reseam imports use the signed publisher's native index, with channel and pinning", async () => {
   const original = fixture();
   const publisher = { name: "patches", author: "Example", description: "Apps", public_key: "a".repeat(64) };
-  const bundle = { ...original.bundle, bundle_type: "ReSeam", ecosystem: "reseam",
+  const bundle = { ...original.bundle, bundle_type: "Reseam", ecosystem: "reseam",
     download_url: "https://example.test/patches.reseam", reseam_bundle: publisher };
   const state = fixture({ "bundles.json": [bundle], ["bundles/" + bundle.id + ".json"]: bundle });
-  const card = { bundleType: "ReSeam", sourceUrl: original.bundle.source?.url ?? "https://github.com/owner/repo",
+  const card = { bundleType: "Reseam", sourceUrl: original.bundle.source?.url ?? "https://github.com/owner/repo",
     version: bundle.version, isPrerelease: false };
   const latest = await call(state, bundleImportPath(card));
   assert.equal(latest.status, 200);
   assert.equal(latest.body.bundle.public_key, publisher.public_key);
   assert.equal(latest.body.releases[0].download_url, bundle.download_url);
   assert.equal((await call(state, bundleImportPath(card, true))).body.releases[0].version, "v1");
-  assert.equal((await call(state, "/bundles?bundle_type=ReSeam")).body.data.length, 1);
+  assert.equal((await call(state, "/bundles?bundle_type=Reseam")).body.data.length, 1);
   assert.equal((await call(state, "/bundles?ecosystem=reseam")).body.data.length, 1);
-  assert.equal((await call(state, "/patches?bundle_type=ReSeam")).body.data.length, 1);
+  assert.equal((await call(state, "/patches?bundle_type=Reseam")).body.data.length, 1);
   const failed = { ...bundle, metadata_status: "unverified" };
   const unavailable = fixture({ "bundles.json": [failed], ["bundles/" + failed.id + ".json"]: failed });
   assert.equal((await call(unavailable, bundleImportPath(card))).status, 503);
@@ -45,7 +45,7 @@ test("ReSeam imports use the signed publisher's native index, with channel and p
 test("manager imports read only their compact source index and selected release", async () => {
   const original = fixture();
   const publisher = { name: "patches", author: "Example", description: "Apps", public_key: "a".repeat(64) };
-  const bundle = { ...original.bundle, bundle_type: "ReSeam", reseam_bundle: publisher };
+  const bundle = { ...original.bundle, bundle_type: "Reseam", reseam_bundle: publisher };
   const state = fixture({
     "bundles.json": [{ ...bundle, description: "x".repeat(13 * 1024 * 1024) }],
     "imports/s1.json": [bundle], ["bundles/" + bundle.id + ".json"]: bundle
@@ -54,4 +54,22 @@ test("manager imports read only their compact source index and selected release"
   assert.equal((await call(state, path)).status, 200);
   assert(state.requests.some(url => url.endsWith("/imports/s1.json")));
   assert(!state.requests.some(url => url.endsWith("/bundles.json")));
+});
+
+
+test("legacy Reseam compact indexes support app filters and canonical responses", async () => {
+  const old = { ...fixture().bundle, bundle_type: "ReSeam" };
+  const state = fixture({ "bundles.json": [old], "app-bundles.json": [old],
+    ["bundles/" + old.id + ".json"]: old });
+  const catalog = await new Catalog("https://example.test/database/", state.env.FETCH).initialize();
+  assert.equal((await catalog.bundles({ compact: true }))[0].bundle_type, "Reseam");
+  for (const type of ["Reseam", "ReSeam"]) {
+    const apps = await call(state, "/apps?bundle_type=" + type);
+    assert.equal(apps.status, 200);
+    assert.equal(apps.body.data.length, 1);
+    const bundles = await call(state, "/apps/com.video/bundles?bundle_type=" + type);
+    assert.equal(bundles.status, 200);
+    assert.equal(bundles.body.data.length, 1);
+    assert.equal(bundles.body.data[0].bundle_type, "Reseam");
+  }
 });

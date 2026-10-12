@@ -188,7 +188,7 @@ private fun extractWithRuntime(
                 if (output.length() > 32L * 1024 * 1024)
                     return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
                 return try {
-                    parseReSeamInspection(output.readText(), hash, runtime.coordinate)
+                    parseReseamInspection(output.readText(), hash, runtime.coordinate)
                 } catch (_: Exception) {
                     RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
                 }
@@ -230,8 +230,8 @@ internal fun extractWithRuntimes(
     val hint = canonicalBundleFamily(familyHint)
     val family = when {
         legacy -> "ReVanced:v21"
-        hint in setOf("Morphe:V1", "ReVanced:v22", "ReSeam") -> hint!!
-        uri.path.lowercase().endsWith(".reseam") -> "ReSeam"
+        hint in setOf("Morphe:V1", "ReVanced:v22", "Reseam") -> hint!!
+        uri.path.lowercase().endsWith(".reseam") -> "Reseam"
         uri.path.lowercase().endsWith(".mpp") -> "Morphe:V1"
         uri.path.lowercase().endsWith(".rvp") -> "ReVanced:v22"
         else -> return RuntimeResult(null, "unsupported_format")
@@ -252,7 +252,7 @@ internal fun extractWithRuntimes(
             canonicalBundleFamily(previous.bundle_type) == family && previous.failure_fingerprint == runtimeFingerprint()) {
             return RuntimeResult(null, previous.status, hash, terminal = true, paused = true)
         }
-        val declared = if (family == "ReSeam") null else try {
+        val declared = if (family == "Reseam") null else try {
             JarFile(artifact).use { it.manifest?.mainAttributes?.getValue("Patcher-Version") }
                 ?.trim()?.takeIf(String::isNotEmpty)
         } catch (_: Exception) {

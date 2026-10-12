@@ -334,7 +334,7 @@ public class PatchKt {
             "runtimes": [
                 {
                     "id": "native",
-                    "family": "ReSeam",
+                    "family": "Reseam",
                     "loader": "reseam",
                     "coordinate": "test:native:1",
                     "dependencies": [],
@@ -382,11 +382,11 @@ public class PatchKt {
         if installed.get(reseam_runtime["id"], {}).get("available"):
             invalid_reseam = folder / "invalid.reseam"
             invalid_reseam.write_bytes(b"invalid archive")
-            rejected = extract(invalid_reseam, "ReSeam rejects invalid archive", config, installed)
+            rejected = extract(invalid_reseam, "Reseam rejects invalid archive", config, installed)
             assert rejected["terminal"] and rejected["status"] == "runtime_parsing_failure"
             # Local live-validation artifacts are optional and never committed.
             for artifact in (ROOT / "internal/reseam-fixtures").glob("*.reseam"):
-                inspected = extract(artifact, "real ReSeam " + artifact.name, config, installed)
+                inspected = extract(artifact, "real Reseam " + artifact.name, config, installed)
                 assert inspected["status"] == "verified" and inspected["patch_count"] > 0
         if real:
             import httpx

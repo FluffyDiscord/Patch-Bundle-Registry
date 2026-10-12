@@ -1,5 +1,5 @@
 import site from "../../config/site.json" with { type: "json" };
-import { Catalog, CatalogError, bundleImages, catalogOrigins, compareReleaseDates, normalizeSource, pagination, selectRows } from "../../shared/catalog.js";
+import { Catalog, CatalogError, bundleImages, canonicalBundleType, catalogOrigins, compareReleaseDates, normalizeSource, pagination, selectRows } from "../../shared/catalog.js";
 import { filterApps } from "../../shared/apps.js";
 import { latestReleaseIds } from "../../shared/site.js";
 import { runGraphQL, withPostgresLocale } from "./graphql.js";
@@ -115,7 +115,7 @@ function filteredBundles(bundles, params) {
     (!source || b.source_id === source || b.source.aliases.includes(source) ||
       b.source.url.toLowerCase() === canonical) &&
     (!params.has("ecosystem") || b.ecosystem === params.get("ecosystem")) &&
-    (!params.has("bundle_type") || b.bundle_type === params.get("bundle_type")) &&
+    (!params.has("bundle_type") || b.bundle_type === canonicalBundleType(params.get("bundle_type"))) &&
     (!params.has("version") || b.version === params.get("version")) &&
     (!params.has("package") || b.packages.includes(params.get("package"))) &&
     (!selectedChannel || b.channels.includes(selectedChannel)) &&
@@ -186,12 +186,12 @@ async function rest(catalog, url) {
     const bundle = { ...bundles[0], ...(await catalog.file("bundles/" + bundles[0].id + ".json")),
                      source: bundles[0].source };
     if (path === "/api/reseam/bundle") {
-      if (bundle.bundle_type !== "ReSeam") throw new CatalogError("Source has no matching ReSeam bundle", 404);
+      if (bundle.bundle_type !== "Reseam") throw new CatalogError("Source has no matching Reseam bundle", 404);
       const publisher = bundle.reseam_bundle;
       if (bundle.metadata_status !== "verified" || !publisher ||
           !["name", "author", "description", "public_key"].every(key => typeof publisher[key] === "string") ||
           !/^[a-f0-9]{64}$/i.test(publisher.public_key))
-        throw new CatalogError("ReSeam signing metadata is not available yet", 503);
+        throw new CatalogError("Reseam signing metadata is not available yet", 503);
       return {
         ...bundleImages(bundle),
         bundle: { ...publisher, homepage: bundle.source.url },

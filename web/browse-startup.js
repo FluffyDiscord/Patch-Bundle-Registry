@@ -8,8 +8,9 @@
     catch { /* Storage is optional. */ }
     const tab = saved?.activeTab === "apps" ? "apps" : "bundles";
     const state = saved?.tabs?.[tab] || {};
-    const text = key => typeof state[key] === "string" ? state[key].slice(0, 512) : "";
-    const release = ["all", "latest", "release", "prerelease"].includes(state.release) ? state.release : "release";
+    const text = key => typeof state[key] === "string"
+        ? (key === "type" ? state[key].replace(/^ReSeam/, "Reseam") : state[key]).slice(0, 512) : "";
+    const release = ["all", "latest", "release", "prerelease"].includes(state.release) ? state.release : "latest";
     const grid = typeof state.grid === "boolean" ? state.grid : !matchMedia("(max-width: 700px)").matches;
     function restore() {
         const byId = id => document.getElementById(id);
@@ -21,12 +22,13 @@
             ["bundle-version-filter", tab === "bundles" ? text("version") : ""]]) {
             const control = byId(id);
             const label = id === "bundle-type-filter"
-                ? value.startsWith("Morphe:") ? "Morphe" : value.startsWith("ReSeam") ? "ReSeam"
+                ? value.startsWith("Morphe:") ? "Morphe" : value.startsWith("Reseam") ? "Reseam"
                     : value.replace(/^ReVanced:v/, "ReVanced v")
                 : value;
             if (value) control.appendChild(new Option(label, value));
             control.value = value;
         }
+        byId("source-picker-value").textContent = text("source") || "All sources";
         byId("bundle-version-filter").disabled = !text("source");
         document.querySelectorAll(".filter-btn").forEach(button =>
             button.classList.toggle("active", button.dataset.filter === release));

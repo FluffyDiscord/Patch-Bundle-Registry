@@ -3,11 +3,11 @@ package me.jman.parser
 import kotlinx.serialization.json.*
 
 /**
- * Independent adapter for ReSeam's published CLI JSON protocol; no upstream code is copied.
+ * Independent adapter for Reseam's published CLI JSON protocol; no upstream code is copied.
  * https://git.reseam.app/reseam/reseam/src/commit/b0f1fcba5f4e681e5526c267eae453242c21ca8f/crates/model/src/sdk.rs
  * https://git.reseam.app/reseam/reseam/src/commit/b0f1fcba5f4e681e5526c267eae453242c21ca8f/crates/model/src/patch.rs
  */
-internal fun parseReSeamInspection(payload: String, hash: String, runtime: String): RuntimeResult {
+internal fun parseReseamInspection(payload: String, hash: String, runtime: String): RuntimeResult {
     val response = Json.parseToJsonElement(payload).jsonObject
     val bundles = response.getValue("bundles").jsonArray
     require(bundles.size == 1) { "Expected one inspected bundle" }
@@ -36,7 +36,7 @@ internal fun parseReSeamInspection(payload: String, hash: String, runtime: Strin
                     require(versions.all { version -> version is JsonPrimitive && version.isString })
                     entry.text("package") to if (versions.isEmpty()) JsonNull else versions
                 })
-                else -> error("Unsupported ReSeam compatibility")
+                else -> error("Unsupported Reseam compatibility")
             }
             buildJsonObject {
                 put("name", patch.text("name"))
@@ -65,5 +65,6 @@ internal fun parseReSeamInspection(payload: String, hash: String, runtime: Strin
 internal fun canonicalBundleFamily(value: String?): String? = when (value) {
     "ReVanced:V3" -> "ReVanced:v21"
     "ReVanced:V4" -> "ReVanced:v22"
+    "ReSeam" -> "Reseam"
     else -> value
 }

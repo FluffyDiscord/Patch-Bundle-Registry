@@ -425,7 +425,7 @@ def build_database(root=ROOT, *, restore=True):
         )
         same_version = isinstance(patches, dict) and patches.get("version") == version
         family = canonical_bundle_type(raw.get("bundle_type")) or (
-            "ReSeam"
+            "Reseam"
             if urlparse(download).path.lower().endswith(".reseam")
             else (
                 "Morphe:V1"
@@ -433,7 +433,7 @@ def build_database(root=ROOT, *, restore=True):
                 else ("ReVanced:v22" if modern else "ReVanced:v21")
             )
         )
-        if family not in {"Morphe:V1", "ReVanced:v22", "ReVanced:v21", "ReSeam"}:
+        if family not in {"Morphe:V1", "ReVanced:v22", "ReVanced:v21", "Reseam"}:
             raise ValueError("Unsupported bundle type: " + str(family))
         # Older extraction could overwrite repeated compatibility entries.
         # Keep its list readable, but re-extract before trusting its compatibility.
@@ -561,7 +561,7 @@ def build_database(root=ROOT, *, restore=True):
                 bundle["channels"].append(channel)
             bundle["import_urls"][channel] = (
                 config["api"].rstrip("/")
-                + ("/api/reseam/bundle?" if family == "ReSeam" else "/api/v3/bundle?")
+                + ("/api/reseam/bundle?" if family == "Reseam" else "/api/v3/bundle?")
                 + urlencode(
                     {
                         "source_url": url,
@@ -760,7 +760,7 @@ def build_database(root=ROOT, *, restore=True):
             id=numeric_id("source_metadata", source["id"]), source_fk=source["legacy_id"]
         )
     for bundle in sorted(bundles.values(), key=lambda item: item["id"]):
-        if bundle["bundle_type"] != "ReSeam":
+        if bundle["bundle_type"] != "Reseam":
             bundle.pop("reseam_bundle", None)
         bundle["legacy_id"] = numeric_id("bundle", bundle["id"])
     summaries = []
