@@ -1,0 +1,306 @@
+[
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [
+      "Suppress In-App Updates and Rating Prompts"
+    ],
+    "description": "Disables Microsoft CodePush OTA updates and neutralizes Dalvik root and tamper detection SDKs (RootBeer and JailMonkey).",
+    "id": "8c313d0cb1ba46bc826af851:54",
+    "legacy_id": 74400,
+    "metadata_status": "verified",
+    "name": "Suppress Updates and Integrity Checks",
+    "options": [
+      {
+        "default": true,
+        "description": "Prevents Microsoft CodePush from downloading remote JavaScript bundles that override local patches.",
+        "key": "disableCodePush",
+        "required": false,
+        "title": "Disable CodePush OTA",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Bypasses RootBeer and JailMonkey checks in Dalvik bytecode so modified or rooted devices are never flagged.",
+        "key": "bypassRootAndTamperDetection",
+        "required": false,
+        "title": "Bypass Root & Tamper Detection",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks advanced cache search filters and sorting options without prompting for Geocaching Premium.",
+    "id": "8c313d0cb1ba46bc826af851:55",
+    "legacy_id": 74401,
+    "metadata_status": "verified",
+    "name": "Unlock Cache Filter and Sorting Tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables custom launcher app icons (Arctic, Peach, Glass, Rainbow, Sand, Classic) without requiring a Sezzle Premium subscription.",
+    "id": "8c313d0cb1ba46bc826af851:56",
+    "legacy_id": 74402,
+    "metadata_status": "verified",
+    "name": "Unlock Custom App Icons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes the internal Development Settings menu visible to every signed-in account.",
+    "id": "8c313d0cb1ba46bc826af851:57",
+    "legacy_id": 74403,
+    "metadata_status": "verified",
+    "name": "Unlock Developer Settings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks beta and experimental features in Settings without Geocaching Premium.",
+    "id": "8c313d0cb1ba46bc826af851:58",
+    "legacy_id": 74404,
+    "metadata_status": "verified",
+    "name": "Unlock Experimental Features",
+    "options": [
+      {
+        "default": true,
+        "description": "Unlocks all 10% beta features (Activity Feed, Cache Log Translation, Autofill, Confetti, etc.).",
+        "key": "unlockAllBetaFeatures",
+        "required": false,
+        "title": "Unlock All Beta Projects",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.adobe.scan.android": [
+        "26.09.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables locally executable premium OCR, editing, compression, and page-organization tools without cloud or GenAI access.",
+    "id": "8c313d0cb1ba46bc826af851:59",
+    "legacy_id": 74405,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes broken cloud-dependent actions like Generative summary.",
+        "key": "removeBrokenFeatures",
+        "required": false,
+        "title": "Remove Broken Features",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables Combine, Export, and Protect PDF for signed-in accounts with compatible Adobe Document Cloud access.",
+        "key": "unlockCloudTools",
+        "required": false,
+        "title": "Enable Cloud Tools (Experimental)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Adobe Scan AI PDF Scanner, OCR",
+        "icon_url": "https://play-lh.googleusercontent.com/4xN2UipKYDSBDuW0FKLJQ1tnhvgZyfnKj7rnoBJYhWHwUuOTMta3m-Dwc4Lo881wOIz8YUQiFY6XpcJF5h1r",
+        "name": "com.adobe.scan.android",
+        "versions": [
+          "26.09.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [
+      "Unlock Developer Settings"
+    ],
+    "description": "Makes the receipt scanner available from Development Settings and forces its V2 flow to render. REQUIRES Unlock Developer Settings to be enabled.",
+    "id": "8c313d0cb1ba46bc826af851:60",
+    "legacy_id": 74406,
+    "metadata_status": "verified",
+    "name": "Unlock Receipt Scanner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks geocache log templates, allowing creating, editing, and applying custom log templates without Geocaching Premium.",
+    "id": "8c313d0cb1ba46bc826af851:61",
+    "legacy_id": 74407,
+    "metadata_status": "verified",
+    "name": "Unlock Templates",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "8c313d0cb1ba46bc826af851",
+    "compatiblePackages": {
+      "com.adobe.scan.android": [
+        "26.09.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Overrides Adobe Clean fonts across XML layouts, dialogs, and Jetpack Compose screens with the device's system font.",
+    "id": "8c313d0cb1ba46bc826af851:62",
+    "legacy_id": 74408,
+    "metadata_status": "verified",
+    "name": "Use System Font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Adobe Scan AI PDF Scanner, OCR",
+        "icon_url": "https://play-lh.googleusercontent.com/4xN2UipKYDSBDuW0FKLJQ1tnhvgZyfnKj7rnoBJYhWHwUuOTMta3m-Dwc4Lo881wOIz8YUQiFY6XpcJF5h1r",
+        "name": "com.adobe.scan.android",
+        "versions": [
+          "26.09.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  }
+]
