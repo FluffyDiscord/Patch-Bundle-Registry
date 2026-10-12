@@ -1,0 +1,4809 @@
+[
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Hardens the app against task-hijacking overlays (StrandHogg): clears the cloneable task affinity, disables activity re-parenting and pins launcher activities to singleTask so no other app can interleave phishing UI in front of this one. Recents behavior can change (relaunch resumes instead of restarting; splash launchers may act differently). All mitigations are on by default — open the patch options (gear) to deselect.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:20",
+    "legacy_id": 48097,
+    "metadata_status": "verified",
+    "name": "Prevent task hijacking (StrandHogg)",
+    "options": [
+      {
+        "default": true,
+        "description": "Sets android:taskAffinity to empty on the application element — nothing left for a malicious app to clone.",
+        "key": "stripTaskAffinity",
+        "required": false,
+        "title": "Clear task affinity",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Sets allowTaskReparenting=false on the application element and on every activity that declared it — the mechanism StrandHogg 2.0 used.",
+        "key": "stripTaskReparenting",
+        "required": false,
+        "title": "Disable task re-parenting",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Sets launchMode=singleTask on launcher activities, pinning the app's root so no other activity can share its task. The highest-impact toggle of the three on app behavior.",
+        "key": "forceSingleTaskLauncher",
+        "required": false,
+        "title": "Force launcher singleTask",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's ad-stack declarations — interest profiling, the advertising identifier and cross-app attribution measurement. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:21",
+    "legacy_id": 48098,
+    "metadata_status": "verified",
+    "name": "Remove ad & Privacy Sandbox permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Privacy Sandbox Topics — your advertising-interest profile.",
+        "key": "stripAdTopics",
+        "required": false,
+        "title": "ACCESS_ADSERVICES_TOPICS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The Privacy Sandbox advertising ID used for attribution and profiling.",
+        "key": "stripAdId",
+        "required": false,
+        "title": "ACCESS_AD_SERVICES_AD_ID",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Cross-app attribution measurement — install and conversion matching.",
+        "key": "stripAdAttribution",
+        "required": false,
+        "title": "ACCESS_ADSERVICES_ATTRIBUTION",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's calendar declarations — the read side harvests schedules offline, the write side injects phantom events into the trusted Calendar UI. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:22",
+    "legacy_id": 48099,
+    "metadata_status": "verified",
+    "name": "Remove calendar permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Schedules, attendees, meeting links and locations — rich metadata harvested offline.",
+        "key": "stripReadCalendar",
+        "required": false,
+        "title": "READ_CALENDAR",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Integrity attack: injects phantom events with attacker links into the trusted Calendar UI.",
+        "key": "stripWriteCalendar",
+        "required": false,
+        "title": "WRITE_CALENDAR",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's camera and flashlight permission declarations, capture included. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:23",
+    "legacy_id": 48100,
+    "metadata_status": "verified",
+    "name": "Remove camera & flashlight permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Capture of faces, documents and surroundings — works fully offline for later exfiltration.",
+        "key": "stripCamera",
+        "required": false,
+        "title": "CAMERA",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 14+ service-context camera capture behind a persistent-process notification.",
+        "key": "stripFgsCamera",
+        "required": false,
+        "title": "FOREGROUND_SERVICE_CAMERA",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy normal permission, deprecated since Android 6 — the modern torch (setTorchMode) needs no permission, so the declaration is dead weight; stripping is hygiene. Apps that branch on the permission check may hide their own torch button.",
+        "key": "stripFlashlight",
+        "required": false,
+        "title": "FLASHLIGHT",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's social-graph and account-enum declarations — the read side harvests offline, the write side is an integrity attack vector. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:24",
+    "legacy_id": 48101,
+    "metadata_status": "verified",
+    "name": "Remove contacts & accounts permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Your full social graph — names, numbers, emails, addresses — harvested offline.",
+        "key": "stripReadContacts",
+        "required": false,
+        "title": "READ_CONTACTS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Integrity attack: swaps bank and support contacts for attacker numbers, no network needed.",
+        "key": "stripWriteContacts",
+        "required": false,
+        "title": "WRITE_CONTACTS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enumerates on-device accounts for cross-service identity linkage; deprecated, pure hardening.",
+        "key": "stripGetAccounts",
+        "required": false,
+        "title": "GET_ACCOUNTS",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the Google Play-defined permission declarations from the manifest: advertising ID, Play Billing, legacy license checks, install referrer attribution, push (C2DM), legacy account auth scopes, legacy activity recognition and Google Services Framework sync. Inert on devices without Google Play; on Play devices it kills the matching capability. All removals are on by default — open the patch options (gear) to deselect specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:25",
+    "legacy_id": 48102,
+    "metadata_status": "verified",
+    "name": "Remove GMS permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "The cross-app advertising identifier ad SDKs profile against. With the declaration gone, apps read a zeroed ID.",
+        "key": "stripAdId",
+        "required": false,
+        "title": "Remove AD_ID (Google Play Services)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Play Billing gate for in-app purchases and subscriptions — already broken in re-signed patched APKs regardless.",
+        "key": "stripBilling",
+        "required": false,
+        "title": "Remove BILLING (Google Play)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The legacy License Verification Library gate, still declared by old paid apps. On Play devices a stripped declaration makes the license check throw — the wall that unlock patches replace. Inert without Play.",
+        "key": "stripCheckLicense",
+        "required": false,
+        "title": "Remove CHECK_LICENSE (Play Licensing)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Play Install Referrer API: the campaign and attribution token that matches installs to ad clicks.",
+        "key": "stripInstallReferrer",
+        "required": false,
+        "title": "Remove BIND_GET_INSTALL_REFERRER_SERVICE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "GCM/FCM push delivery (com.google.android.c2dm.permission.RECEIVE) and the sender-side SEND permission. On devices with Play — including GrapheneOS's sandboxed Play Services — removal silences the app's push notifications.",
+        "key": "stripPush",
+        "required": false,
+        "title": "Remove C2DM permissions (push)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The per-app signature permission from the classic GCM client setup (<package>.permission.C2D_MESSAGE) that locks registration to the app's signature. Pairs with push removal; the matching receiver declaration is left untouched.",
+        "key": "stripC2dMessage",
+        "required": false,
+        "title": "Remove C2D_MESSAGE (app-scoped push lock)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The legacy Google Services Framework account-data gate, still declared by play-services era apps.",
+        "key": "stripGoogleServicesFramework",
+        "required": false,
+        "title": "Remove READ_GSERVICES (Google Services Framework)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The GMS-defined alias fitness apps declared before Android 10 — gait and motion profiling via play services. The modern platform ACTIVITY_RECOGNITION permission is covered by its own separate patch.",
+        "key": "stripLegacyActivityRecognition",
+        "required": false,
+        "title": "Remove legacy ACTIVITY_RECOGNITION (Google Play Services)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The pre-Firebase account auth-scope family (GOOGLE_AUTH and its service variants like GOOGLE_AUTH.writely, GOOGLE_AUTH.wise, GOOGLE_AUTH.ALL_SERVICES) — account-token gates held by the Google stack. Old Google-integrated apps may fail account flows on Play devices once stripped; test per app.",
+        "key": "stripGoogleAuth",
+        "required": false,
+        "title": "Remove GOOGLE_AUTH scopes (legacy account tokens)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's Health Connect declarations — background reads granted without a separate prompt, and history reaching back before install. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:26",
+    "legacy_id": 48103,
+    "metadata_status": "verified",
+    "name": "Remove Health Connect permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Background health reads — steps, sleep, heart rate — granted without a separate prompt.",
+        "key": "stripHealthBackground",
+        "required": false,
+        "title": "READ_HEALTH_DATA_IN_BACKGROUND",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "History access reaching back to health data from before the app was installed.",
+        "key": "stripHealthHistory",
+        "required": false,
+        "title": "READ_HEALTH_DATA_HISTORY",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the android.permission.INTERNET permission from the manifest. Blocks every socket the app opens, so bundled ad, analytics and telemetry SDKs cannot phone home. Also disables any legitimate online features — only enable for apps you want fully offline.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:27",
+    "legacy_id": 48104,
+    "metadata_status": "verified",
+    "name": "Remove INTERNET permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's location permission declarations, GNSS and service-context capture included. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:28",
+    "legacy_id": 48105,
+    "metadata_status": "verified",
+    "name": "Remove location permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "A GNSS pattern-of-life trail — home, work, habits — receive-only, works fully offline.",
+        "key": "stripFineLocation",
+        "required": false,
+        "title": "ACCESS_FINE_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Approximate position stream — the same pattern-of-life leak at lower fidelity.",
+        "key": "stripCoarseLocation",
+        "required": false,
+        "title": "ACCESS_COARSE_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Silent 24/7 location trail with no visible app use — the highest-risk location grant.",
+        "key": "stripBackgroundLocation",
+        "required": false,
+        "title": "ACCESS_BACKGROUND_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 14+ service-context continuous location behind a persistent-process notification.",
+        "key": "stripFgsLocation",
+        "required": false,
+        "title": "FOREGROUND_SERVICE_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's media and shared-storage declarations — the full library including PII screenshots, EXIF GPS location history, and legacy shared-storage integrity. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:29",
+    "legacy_id": 48106,
+    "metadata_status": "verified",
+    "name": "Remove media & storage permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Your entire photo library, including PII screenshots, captured offline.",
+        "key": "stripReadMediaImages",
+        "required": false,
+        "title": "READ_MEDIA_IMAGES",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Your entire video library, harvested offline.",
+        "key": "stripReadMediaVideo",
+        "required": false,
+        "title": "READ_MEDIA_VIDEO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Voice notes and recordings, harvested offline.",
+        "key": "stripReadMediaAudio",
+        "required": false,
+        "title": "READ_MEDIA_AUDIO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The specific media items granted in the partial-photo-access flow.",
+        "key": "stripReadMediaVisualUserSelected",
+        "required": false,
+        "title": "READ_MEDIA_VISUAL_USER_SELECTED",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "EXIF GPS from shared media — a location-history leak bypassing location permissions.",
+        "key": "stripAccessMediaLocation",
+        "required": false,
+        "title": "ACCESS_MEDIA_LOCATION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy (API ≤32) shared-storage read, including other apps' Download dropboxes.",
+        "key": "stripReadExternalStorage",
+        "required": false,
+        "title": "READ_EXTERNAL_STORAGE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy (API ≤32) shared-storage write — an integrity surface over every app's Downloads.",
+        "key": "stripWriteExternalStorage",
+        "required": false,
+        "title": "WRITE_EXTERNAL_STORAGE",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's audio declarations — microphone capture, service-context capture, and global audio-state modification. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:30",
+    "legacy_id": 48107,
+    "metadata_status": "verified",
+    "name": "Remove microphone & audio permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Ambient eavesdropping and long background capture — the stalkerware staple.",
+        "key": "stripRecordAudio",
+        "required": false,
+        "title": "RECORD_AUDIO",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 14+ service-context background audio capture behind a persistent-process notification.",
+        "key": "stripFgsMicrophone",
+        "required": false,
+        "title": "FOREGROUND_SERVICE_MICROPHONE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Granted at install with no prompt: the app can modify global audio state — volume, ringer mode and audio routing during calls. An integrity surface over the device's audio configuration; call and voice apps lose their adjustments.",
+        "key": "stripModifyAudioSettings",
+        "required": false,
+        "title": "MODIFY_AUDIO_SETTINGS",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's Bluetooth, UWB, Wi-Fi Aware and NFC declarations — beacon presence mapping, discoverability and direct RF exfiltration links, all offline-capable. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:31",
+    "legacy_id": 48108,
+    "metadata_status": "verified",
+    "name": "Remove nearby radio permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Legacy (pre-12) Bluetooth access — discovery reveals nearby devices and MAC addresses for fingerprinting.",
+        "key": "stripBluetooth",
+        "required": false,
+        "title": "BLUETOOTH",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Legacy (pre-12) Bluetooth admin — initiates discovery and makes the device discoverable.",
+        "key": "stripBluetoothAdmin",
+        "required": false,
+        "title": "BLUETOOTH_ADMIN",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Scans for nearby devices and beacons — a retail-tracker presence census, no internet needed.",
+        "key": "stripBluetoothScan",
+        "required": false,
+        "title": "BLUETOOTH_SCAN",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Direct RF data link to nearby hardware — an offline exfiltration path.",
+        "key": "stripBluetoothConnect",
+        "required": false,
+        "title": "BLUETOOTH_CONNECT",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Broadcasts a presence beacon your device can be tracked by over RF.",
+        "key": "stripBluetoothAdvertise",
+        "required": false,
+        "title": "BLUETOOTH_ADVERTISE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Ultra-wideband fine-ranging — precise proximity and motion analytics, collected offline.",
+        "key": "stripUwbRanging",
+        "required": false,
+        "title": "UWB_RANGING",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Wi-Fi Aware NAN peer links — direct device-to-device transfer with no access point.",
+        "key": "stripNearbyWifiDevices",
+        "required": false,
+        "title": "NEARBY_WIFI_DEVICES",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The NFC radio gate — tag reads and short-range RF peer links off the internet stack.",
+        "key": "stripNfc",
+        "required": false,
+        "title": "NFC",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's network-visibility declarations — Wi-Fi identity, VPN detection and LAN inventory. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:32",
+    "legacy_id": 48109,
+    "metadata_status": "verified",
+    "name": "Remove network state permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Wi-Fi connection details — network names and BSSIDs identify and locate you.",
+        "key": "stripAccessWifiState",
+        "required": false,
+        "title": "ACCESS_WIFI_STATE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Current network type and availability; lets ad SDKs detect active VPNs.",
+        "key": "stripAccessNetworkState",
+        "required": false,
+        "title": "ACCESS_NETWORK_STATE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Android 16+ gate for LAN access — inventories your home network, every device a fingerprint.",
+        "key": "stripAccessLocalNetwork",
+        "required": false,
+        "title": "ACCESS_LOCAL_NETWORK",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the android.permission.POST_NOTIFICATIONS permission from the manifest — a lure and phishing delivery channel into your notification shade. Apps go quiet; that is the point.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:33",
+    "legacy_id": 48110,
+    "metadata_status": "verified",
+    "name": "Remove notification permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's persistence and wake-scheduling declarations — boot auto-start, CPU hold and precise periodic wakeups, the backbone of always-on background telemetry. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:34",
+    "legacy_id": 48111,
+    "metadata_status": "verified",
+    "name": "Remove persistence & wakeup permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Auto-start on every boot — the persistence backbone of always-on telemetry.",
+        "key": "stripBootCompleted",
+        "required": false,
+        "title": "RECEIVE_BOOT_COMPLETED",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Holds the CPU awake — the enabler of unbounded background processing and beacons.",
+        "key": "stripWakeLock",
+        "required": false,
+        "title": "WAKE_LOCK",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Precise scheduled wakeups — the backbone of periodic telemetry beacons.",
+        "key": "stripScheduleExactAlarm",
+        "required": false,
+        "title": "SCHEDULE_EXACT_ALARM",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Non-revocable exact-alarm bypass; removal is the only way to revoke it.",
+        "key": "stripUseExactAlarm",
+        "required": false,
+        "title": "USE_EXACT_ALARM",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's telephony declarations — silent dialing, identity correlation, call hijacking and call-record tampering. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:35",
+    "legacy_id": 48112,
+    "metadata_status": "verified",
+    "name": "Remove phone & call permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Silent dialing without the dialer — premium-rate fraud and tracking callbacks.",
+        "key": "stripCallPhone",
+        "required": false,
+        "title": "CALL_PHONE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Phone identifiers and call state for identity correlation, harvested offline.",
+        "key": "stripReadPhoneState",
+        "required": false,
+        "title": "READ_PHONE_STATE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Your phone number — identity linkage and SIM-swap prep.",
+        "key": "stripReadPhoneNumbers",
+        "required": false,
+        "title": "READ_PHONE_NUMBERS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Answer and control incoming calls — a call-hijack primitive.",
+        "key": "stripAnswerPhoneCalls",
+        "required": false,
+        "title": "ANSWER_PHONE_CALLS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Your who-talks-to-whom call history, captured offline.",
+        "key": "stripReadCallLog",
+        "required": false,
+        "title": "READ_CALL_LOG",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Integrity attack: edits or deletes call records to cover tracks.",
+        "key": "stripWriteCallLog",
+        "required": false,
+        "title": "WRITE_CALL_LOG",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Internet telephony; neutralized once INTERNET is removed, stripped as hardening.",
+        "key": "stripUseSip",
+        "required": false,
+        "title": "USE_SIP",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes the android.permission.DETECT_SCREEN_CAPTURE permission from the manifest (Android 15+) — banking apps scold you and surveillance apps learn that evidence is being collected. Removing it makes your screenshots silent. Pair with the Universal Screenshot Protection Bypass to also clear FLAG_SECURE.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:36",
+    "legacy_id": 48113,
+    "metadata_status": "verified",
+    "name": "Remove screenshot detection permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's motion and body-sensor declarations — activity inference, tap logging, gait profiling and device fingerprinting. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:37",
+    "legacy_id": 48114,
+    "metadata_status": "verified",
+    "name": "Remove sensor & motion permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Android 15+ 'other' sensors — accelerometer, magnetometer: activity inference and fingerprinting.",
+        "key": "stripOtherSensors",
+        "required": false,
+        "title": "OTHER_SENSORS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Gait and motion-state profiling — a cheap, continuous passive fingerprint.",
+        "key": "stripActivityRecognition",
+        "required": false,
+        "title": "ACTIVITY_RECOGNITION",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Health signals such as heart rate where sensors exist.",
+        "key": "stripBodySensors",
+        "required": false,
+        "title": "BODY_SENSORS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Continuous background body-sensor reads with no visible app use.",
+        "key": "stripBodySensorsBackground",
+        "required": false,
+        "title": "BODY_SENSORS_BACKGROUND",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Removes android.permission.DOWNLOAD_WITHOUT_NOTIFICATION — the grant apps declare to run DownloadManager transfers with hidden visibility, so payload pulls (including dropper self-updates) happen with no visible notification. Once stripped, a hidden download request fails loudly at enqueue (SecurityException: Invalid value for visibility: 2) instead of hiding — the transfer can no longer be invisible. Pairs with the REQUEST_INSTALL_PACKAGES toggle in the special-access patch; apps that legitimately download quietly in the background (e.g. podcast auto-updates) will surface notifications or fail at the attempt — smoke test per app.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:38",
+    "legacy_id": 48115,
+    "metadata_status": "verified",
+    "name": "Remove silent download permission",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's messaging declarations — premium-SMS fraud, OTP interception and the carrier push channel, all of which bypass the internet stack entirely. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:39",
+    "legacy_id": 48116,
+    "metadata_status": "verified",
+    "name": "Remove SMS & MMS permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "The premium-SMS billing fraud channel — carrier-billed, never touches the internet.",
+        "key": "stripSendSms",
+        "required": false,
+        "title": "SEND_SMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Message content, including bank and 2FA codes, harvested offline.",
+        "key": "stripReadSms",
+        "required": false,
+        "title": "READ_SMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Intercepts incoming messages — including OTP codes — the moment they arrive.",
+        "key": "stripReceiveSms",
+        "required": false,
+        "title": "RECEIVE_SMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Auto-retrieves MMS payloads — a media-parser attack surface on the radio path.",
+        "key": "stripReceiveMms",
+        "required": false,
+        "title": "RECEIVE_MMS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Carrier OMA provisioning pushes — a silent configuration channel off the internet.",
+        "key": "stripReceiveWapPush",
+        "required": false,
+        "title": "RECEIVE_WAP_PUSH",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the app's special-access declarations — usage-history surveillance, overlay tapjacking, all-files access, the dropper channel and settings hijacking; removal means the app can never reach its Settings grant state. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:40",
+    "legacy_id": 48117,
+    "metadata_status": "verified",
+    "name": "Remove special-access permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "The Usage Access grant — your full app-usage history; the parental-control/stalkerware channel.",
+        "key": "stripPackageUsageStats",
+        "required": false,
+        "title": "PACKAGE_USAGE_STATS",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The overlay grant — tapjacking, fake-dialog phishing and ad spam over other apps.",
+        "key": "stripSystemAlertWindow",
+        "required": false,
+        "title": "SYSTEM_ALERT_WINDOW",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The All-files-access grant — read and write over the entire shared storage.",
+        "key": "stripManageExternalStorage",
+        "required": false,
+        "title": "MANAGE_EXTERNAL_STORAGE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The Media-management grant — modify and delete all media without per-item grants.",
+        "key": "stripManageMedia",
+        "required": false,
+        "title": "MANAGE_MEDIA",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The dropper channel — silently self-update and sideload further APKs.",
+        "key": "stripRequestInstallPackages",
+        "required": false,
+        "title": "REQUEST_INSTALL_PACKAGES",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "The system-settings grant — an integrity surface over ringtone, DND and default apps.",
+        "key": "stripWriteSettings",
+        "required": false,
+        "title": "WRITE_SETTINGS",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips the BIND_* family — system-signature declarations no third-party app can ever be granted, kept in the manifest only as intent markers for accessibility scraping, device admin, notification listening and keylogging. All removals are on by default — open the patch options (gear) to keep specific ones.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:41",
+    "legacy_id": 48118,
+    "metadata_status": "verified",
+    "name": "Remove surveillance service declarations",
+    "options": [
+      {
+        "default": true,
+        "description": "System-signature declaration no third-party app can hold — the accessibility-scraping stalkerware marker.",
+        "key": "stripBindAccessibilityService",
+        "required": false,
+        "title": "BIND_ACCESSIBILITY_SERVICE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "System-signature declaration signaling device-admin intent — remote lock, wipe, enforced policy.",
+        "key": "stripBindDeviceAdmin",
+        "required": false,
+        "title": "BIND_DEVICE_ADMIN",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "System-signature declaration signaling a notification listener — every notification, including 2FA codes.",
+        "key": "stripBindNotificationListener",
+        "required": false,
+        "title": "BIND_NOTIFICATION_LISTENER_SERVICE",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "System-signature declaration signaling a keyboard — every keystroke in every app.",
+        "key": "stripBindInputMethod",
+        "required": false,
+        "title": "BIND_INPUT_METHOD",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Nops every logging call site — android.util.Log writers, System.out/err print and println, and Throwable.printStackTrace — so tokens, credentials and PII never reach the logcat ring buffer, where adb, bug reports and forensic capture read them. Bundled wrappers like Timber funnel through android.util.Log and are silenced transitively. Log-based debug features and in-app log viewers go empty — that is the point.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:42",
+    "legacy_id": 48119,
+    "metadata_status": "verified",
+    "name": "Silence app logging",
+    "options": [
+      {
+        "default": true,
+        "description": "Nop all Log.v/d/i/w/e/wtf/println call sites — every overload, including format-string and throwable variants.",
+        "key": "silenceAndroidLog",
+        "required": false,
+        "title": "Silence android.util.Log",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Nop all PrintStream print/println call sites. Default is false: this rewrites every PrintStream call site, not only System.out/err — an app writing text files through PrintStream.println would lose those writes.",
+        "key": "silenceSystemStreams",
+        "required": false,
+        "title": "Silence System.out / System.err",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Nop Throwable.printStackTrace call sites — exception messages often carry the very secret being handled when the error occurred.",
+        "key": "silenceStackTraces",
+        "required": false,
+        "title": "Silence printStackTrace",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": false
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": {
+      "com.meteoblue.droid": [
+        "Cirrus Uncinus 3.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all meteoblue Weather premium features by making the billing data source's purchase-state flow always report an active purchase.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:43",
+    "legacy_id": 48120,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Weather forecast & live radar",
+        "icon_url": "https://play-lh.googleusercontent.com/aRrPlWJYcFL6mw-VragMuFVVPU4iRiwRIEpKjHGPrXvU9g8F0-DoTnKo1Z-g1Zd4n0s0l37XTOdNVfBXCx2HVA",
+        "name": "com.meteoblue.droid",
+        "versions": [
+          "Cirrus Uncinus 3.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": {
+      "com.teslacoilsw.launcher": [
+        "81006 (8.1.6)"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Nova Launcher Prime on 8.1.6 by forcing the runtime prime flags (Lzg/t1;->y / ->t) to true at every write — the settings initializer and the Prime-unlocker package-change handler.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:44",
+    "legacy_id": 48121,
+    "metadata_status": "verified",
+    "name": "Unlock Prime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Nova Launcher: Home Screen",
+        "icon_url": "https://play-lh.googleusercontent.com/EihoqDPSzditTLnmP-N0GjXmbvNdnZyW7YZKxRocA_kVIsaXhM9lBlfPrJmhBcSQmiydPXgise1ZTAlOOH7ZsQ",
+        "name": "com.teslacoilsw.launcher",
+        "versions": [
+          "81006 (8.1.6)"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": {
+      "com.appgenix.bizcal": [
+        "2.55.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Business Calendar 2 Pro by forcing the complete pro status and the force-pro override to return true, routing every feature gate to the full package (7) without touching billing.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:45",
+    "legacy_id": 48122,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Business Calendar 2 Planner",
+        "icon_url": "https://play-lh.googleusercontent.com/eKtR_2gSD6vRMoJ6UJ_PH7aBDayNquDOHOP_z9KV_ujK7xOVrLNEAUCtA1RBXw44wnsqkLMQymk8-YiHbxydywc",
+        "name": "com.appgenix.bizcal",
+        "versions": [
+          "2.55.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": {
+      "com.otp.octopilauncher": [
+        "1.92"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Octopi Launcher Pro by returning true from the isPro LiveData getter, bypassing all pro feature gates without modifying billing or database logic.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:46",
+    "legacy_id": 48123,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Octopi Launcher • Home Screens",
+        "icon_url": "https://play-lh.googleusercontent.com/RKGS5zmybeB22d-Pw587gRHe27sK3hXsg4WqP4jnHwyRK5TUjgRakwvdtYYxpBEkqRB3cJKFXHCAhFLW-qbz0Q",
+        "name": "com.otp.octopilauncher",
+        "versions": [
+          "1.92"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": {
+      "com.pittvandewitt.wavelet": [
+        "26.05"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Wavelet's pro features (Reverberation, Virtualizer, Bass tuner, Equal loudness) by initializing the purchase-verified state flow to true and making the purchase processor always report a verified purchase, which also suppresses the purchase flow.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:47",
+    "legacy_id": 48124,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Wavelet: headphone equalizer",
+        "icon_url": "https://play-lh.googleusercontent.com/Z5KUi-6umNJeOWVrxrBbWOt3StcvG4FS_nB39f9hVib2UcNNFvdAGpVZu9r4v3tv4qcQNq4VFEHxjQFCNkWP",
+        "name": "com.pittvandewitt.wavelet",
+        "versions": [
+          "26.05"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": {
+      "de.mash.android.calendar": [
+        "1.71.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Kills AdMob at every evidenced seam: auto-init provider (attachInfo), overview + settings + promotion-screen banner loaders, the timed promotion popup, and the rewarded-ad bootstrap + display (AdManager load/show). Works independently of the Pro patch.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:48",
+    "legacy_id": 48125,
+    "metadata_status": "verified",
+    "name": "Your Calendar Widget: Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Your Calendar Widget",
+        "icon_url": "https://play-lh.googleusercontent.com/XpO9v9k9KBfJFK70c8wCUyl1mI0goCnJhRY7dhMDgggD7gZfrQihsbuzfZs00hfSxU1R9leUSLLiuLkM24ixjw",
+        "name": "de.mash.android.calendar",
+        "versions": [
+          "1.71.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "46e4f6a6eaaebb44eb0aca6e",
+    "compatiblePackages": {
+      "de.mash.android.calendar": [
+        "1.71.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all Pro/task features by forcing the read-side gates (both Utility.isProVersion overloads + Utility.hasTaskAccess). Erosion-safe: purchase state lives in sticky settings that only these gates read; billing failure paths never bypass them. Without GMS, Play Billing can never resolve purchases.",
+    "id": "46e4f6a6eaaebb44eb0aca6e:49",
+    "legacy_id": 48126,
+    "metadata_status": "verified",
+    "name": "Your Calendar Widget: Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Your Calendar Widget",
+        "icon_url": "https://play-lh.googleusercontent.com/XpO9v9k9KBfJFK70c8wCUyl1mI0goCnJhRY7dhMDgggD7gZfrQihsbuzfZs00hfSxU1R9leUSLLiuLkM24ixjw",
+        "name": "de.mash.android.calendar",
+        "versions": [
+          "1.71.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "29be1e7a56a61f41",
+    "use": true
+  },
+  {
+    "bundle_id": "c53d32ffdb9e268b1359365d",
+    "compatiblePackages": {
+      "pl.neptis.yanosik.mobi.android": [
+        "26.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the Car App Library host certificate validation so Yanosik works on Android Auto.",
+    "id": "c53d32ffdb9e268b1359365d:0",
+    "legacy_id": 48127,
+    "metadata_status": "verified",
+    "name": "Bypass Android Auto certificate checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Yanosik antiradar & navigation",
+        "icon_url": "https://play-lh.googleusercontent.com/uhXY8rcBv497Wn7BvHh16HVcMXFpvIfZPKgJ_SBXz4YGPUUkW_g4L3RMGtm-Tgaww5tB1o9EJOXyZOSsTan9",
+        "name": "pl.neptis.yanosik.mobi.android",
+        "versions": [
+          "26.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.1",
+    "source_id": "2007aa59a179a9c6",
+    "use": true
+  },
+  {
+    "bundle_id": "c53d32ffdb9e268b1359365d",
+    "compatiblePackages": {
+      "pl.neptis.yanosik.mobi.android": [
+        "26.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes banner ads, splash/start adverts and advert-based navigation POIs.",
+    "id": "c53d32ffdb9e268b1359365d:1",
+    "legacy_id": 48128,
+    "metadata_status": "verified",
+    "name": "Remove Yanosik ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Yanosik antiradar & navigation",
+        "icon_url": "https://play-lh.googleusercontent.com/uhXY8rcBv497Wn7BvHh16HVcMXFpvIfZPKgJ_SBXz4YGPUUkW_g4L3RMGtm-Tgaww5tB1o9EJOXyZOSsTan9",
+        "name": "pl.neptis.yanosik.mobi.android",
+        "versions": [
+          "26.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.1",
+    "source_id": "2007aa59a179a9c6",
+    "use": true
+  },
+  {
+    "bundle_id": "c53d32ffdb9e268b1359365d",
+    "compatiblePackages": {
+      "pl.neptis.yanosik.mobi.android": [
+        "26.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the built-in Radio Yanosik from the main screen and the map button.",
+    "id": "c53d32ffdb9e268b1359365d:2",
+    "legacy_id": 48129,
+    "metadata_status": "verified",
+    "name": "Remove Yanosik radio",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Yanosik antiradar & navigation",
+        "icon_url": "https://play-lh.googleusercontent.com/uhXY8rcBv497Wn7BvHh16HVcMXFpvIfZPKgJ_SBXz4YGPUUkW_g4L3RMGtm-Tgaww5tB1o9EJOXyZOSsTan9",
+        "name": "pl.neptis.yanosik.mobi.android",
+        "versions": [
+          "26.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.1",
+    "source_id": "2007aa59a179a9c6",
+    "use": true
+  },
+  {
+    "bundle_id": "c53d32ffdb9e268b1359365d",
+    "compatiblePackages": {
+      "pl.neptis.yanosik.mobi.android": [
+        "26.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reports an active premium entitlement and unlocks the PRO-only settings (view after launch, floating icon).",
+    "id": "c53d32ffdb9e268b1359365d:3",
+    "legacy_id": 48130,
+    "metadata_status": "verified",
+    "name": "Unlock Yanosik PRO",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Yanosik antiradar & navigation",
+        "icon_url": "https://play-lh.googleusercontent.com/uhXY8rcBv497Wn7BvHh16HVcMXFpvIfZPKgJ_SBXz4YGPUUkW_g4L3RMGtm-Tgaww5tB1o9EJOXyZOSsTan9",
+        "name": "pl.neptis.yanosik.mobi.android",
+        "versions": [
+          "26.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.1",
+    "source_id": "2007aa59a179a9c6",
+    "use": true
+  },
+  {
+    "bundle_id": "05c16b4d9dfc5bb08fb937e6",
+    "compatiblePackages": {
+      "com.indymobileapp.document.scanner": [
+        "10.2.18"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces cloud sync with a local backup. The Sync button opens the backup screen the first time. After a backup file has been chosen, Sync overwrites that file automatically.",
+    "id": "05c16b4d9dfc5bb08fb937e6:0",
+    "legacy_id": 48131,
+    "metadata_status": "verified",
+    "name": "Local auto backup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Clear Scan - PDF Scanner App",
+        "icon_url": "https://play-lh.googleusercontent.com/5_d63Y8lT4oOmTDh9ntaYrhkd_BDz910aQhA22WJ3ffU-qmkGU3_tMPoQL1f5m03M21-7vDDrPpqxAkgE5f-dQ",
+        "name": "com.indymobileapp.document.scanner",
+        "versions": [
+          "10.2.18"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.4",
+    "source_id": "1d7c9556da0c930c",
+    "use": true
+  },
+  {
+    "bundle_id": "05c16b4d9dfc5bb08fb937e6",
+    "compatiblePackages": {
+      "fm.castbox.audiobook.radio.podcast": [
+        "11.26.1-260915290",
+        "11.24.0-260114369"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the banner and interstitial ads. Premium and purchases are not touched.",
+    "id": "05c16b4d9dfc5bb08fb937e6:1",
+    "legacy_id": 48132,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Podcast Player - Castbox",
+        "icon_url": "https://play-lh.googleusercontent.com/7JBofnrqmhFGiyNL0Bi73EhLb-sYijrTTY8xr7Gqw_hnKoNUsE4BRh1kRK4_nQA79c4Ianwxr7SezCkw5vBmxw",
+        "name": "fm.castbox.audiobook.radio.podcast",
+        "versions": [
+          "11.26.1-260915290",
+          "11.24.0-260114369"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.4",
+    "source_id": "1d7c9556da0c930c",
+    "use": true
+  },
+  {
+    "bundle_id": "05c16b4d9dfc5bb08fb937e6",
+    "compatiblePackages": {
+      "com.indymobileapp.document.scanner": [
+        "10.2.18"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes banner, interstitial and app open ads, and the \"get Pro\" ad banners.",
+    "id": "05c16b4d9dfc5bb08fb937e6:2",
+    "legacy_id": 48133,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Clear Scan - PDF Scanner App",
+        "icon_url": "https://play-lh.googleusercontent.com/5_d63Y8lT4oOmTDh9ntaYrhkd_BDz910aQhA22WJ3ffU-qmkGU3_tMPoQL1f5m03M21-7vDDrPpqxAkgE5f-dQ",
+        "name": "com.indymobileapp.document.scanner",
+        "versions": [
+          "10.2.18"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.4",
+    "source_id": "1d7c9556da0c930c",
+    "use": true
+  },
+  {
+    "bundle_id": "05c16b4d9dfc5bb08fb937e6",
+    "compatiblePackages": {
+      "com.hdqwalls.hdqwalls1": [
+        "2.5.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the full-screen interstitial ads. Subscriptions and purchases are not touched.",
+    "id": "05c16b4d9dfc5bb08fb937e6:3",
+    "legacy_id": 48134,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "HDQWALLS 4k Wallpapers",
+        "icon_url": "https://play-lh.googleusercontent.com/TRloG8bVMfXwDM1zyUCAcJ2udl-my8xGD95klOpO_E3FsTLDClxwo0_yLHMAYR0IH4djKSNPuhBoh8MT-Cuo",
+        "name": "com.hdqwalls.hdqwalls1",
+        "versions": [
+          "2.5.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.4",
+    "source_id": "1d7c9556da0c930c",
+    "use": true
+  },
+  {
+    "bundle_id": "05c16b4d9dfc5bb08fb937e6",
+    "compatiblePackages": {
+      "com.aj.renamer": [
+        "18.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the banner ad and the interstitial ads.",
+    "id": "05c16b4d9dfc5bb08fb937e6:4",
+    "legacy_id": 48135,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Renamer : Bulk rename and alot",
+        "icon_url": "https://play-lh.googleusercontent.com/Nm0Ci8edR54HDSubmV5O9DxGQB36XkzCOuWpMKJ9CF1PARBHJaD6DgtVM54J6AbzpLl9WUOefha-cih2a1eTmg",
+        "name": "com.aj.renamer",
+        "versions": [
+          "18.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.4",
+    "source_id": "1d7c9556da0c930c",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents messages deleted by other users from being removed locally.",
+    "id": "1675aa8fc8443691ddaea913:0",
+    "legacy_id": 48136,
+    "metadata_status": "verified",
+    "name": "Anti-delete messages",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps view-once photos, videos and voice messages viewable indefinitely without modifying SecretMediaViewer lifecycle callbacks.",
+    "id": "1675aa8fc8443691ddaea913:1",
+    "legacy_id": 48137,
+    "metadata_status": "verified",
+    "name": "Anti-disappearing media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks screenshot notifications from being sent to the other user.",
+    "id": "1675aa8fc8443691ddaea913:2",
+    "legacy_id": 48138,
+    "metadata_status": "verified",
+    "name": "Anti-screenshot notification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows opening and viewing content from restricted, sensitive, and copyright-restricted channels.",
+    "id": "1675aa8fc8443691ddaea913:3",
+    "legacy_id": 48139,
+    "metadata_status": "verified",
+    "name": "Bypass channel restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows saving and forwarding content from restricted channels, chats, and users.",
+    "id": "1675aa8fc8443691ddaea913:4",
+    "legacy_id": 48140,
+    "metadata_status": "verified",
+    "name": "Bypass content restrictions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs certificate fingerprint and SafetyNet results so login works on patched APK.",
+    "id": "1675aa8fc8443691ddaea913:5",
+    "legacy_id": 48141,
+    "metadata_status": "verified",
+    "name": "Bypass integrity check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Telegram update availability, update-version storage and proxy sponsor-channel insertion.",
+    "id": "1675aa8fc8443691ddaea913:6",
+    "legacy_id": 48142,
+    "metadata_status": "verified",
+    "name": "Disable auto-update",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the pull-down gesture that switches to the next unread channel when a stable target exists.",
+    "id": "1675aa8fc8443691ddaea913:7",
+    "legacy_id": 48143,
+    "metadata_status": "verified",
+    "name": "Disable channel switching",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [
+      "Privacy telemetry manifest settings"
+    ],
+    "description": "Disables Firebase Analytics and Crashlytics collection where bundled and blocks app telemetry logging entry points.",
+    "id": "1675aa8fc8443691ddaea913:8",
+    "legacy_id": 48144,
+    "metadata_status": "verified",
+    "name": "Disable telemetry and analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": false
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Increases download chunk size to 1 MB and max concurrent requests to 12.",
+    "id": "1675aa8fc8443691ddaea913:9",
+    "legacy_id": 48145,
+    "metadata_status": "verified",
+    "name": "Download speed boost",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Fixes Firebase services (push notifications, Remote Config, Firebase Auth) that break after Morphe re-signs the app with a different certificate.\n\nApply with Original app certificate patch — no other config needed.",
+    "id": "1675aa8fc8443691ddaea913:10",
+    "legacy_id": 48146,
+    "metadata_status": "verified",
+    "name": "Fix Firebase after re-signing",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": false
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks Telegram's controller-level sendTyping dispatch on 12.10.x builds.",
+    "id": "1675aa8fc8443691ddaea913:11",
+    "legacy_id": 48147,
+    "metadata_status": "verified",
+    "name": "Hide typing indicator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Automatically reads the signing certificate from the APK you are patching — no original app installed or file provided needed. Only fill the options below if you are patching an APK that was already re-signed (e.g. a previously patched build): in that case point to the original APK file, or enter the certificate manually.",
+    "id": "1675aa8fc8443691ddaea913:12",
+    "legacy_id": 48148,
+    "metadata_status": "verified",
+    "name": "Provide Original app certificate",
+    "options": [
+      {
+        "default": null,
+        "description": "Full path to the original APK or .apks bundle. Example: /sdcard/Download/Waze.apks",
+        "key": "originalApkPath",
+        "required": false,
+        "title": "Path to original APK (if uninstalled)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "40-char hex. Found on APKMirror under app signature info.",
+        "key": "manualCertSha1",
+        "required": false,
+        "title": "Certificate SHA-1 (manual)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "64-char hex. Optional companion to SHA-1.",
+        "key": "manualCertSha256",
+        "required": false,
+        "title": "Certificate SHA-256 (manual)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Needed only for Signature spoof patch. Get it with: apksigner verify --print-certs original.apk",
+        "key": "manualCertBase64",
+        "required": false,
+        "title": "Certificate Base64 DER (manual)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": false
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes sponsored messages and video ads. On Telegram Plus also blocks the Plus ad loader.",
+    "id": "1675aa8fc8443691ddaea913:13",
+    "legacy_id": 48149,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Makes the app think its signing certificate is unchanged after Morphe re-signs it.\n\nUseful when an app crashes or shows a tamper warning because it checks its own certificate.\n\nDoes not bypass Play Integrity / SafetyNet hardware attestation.\n\nApply with Original app certificate patch.",
+    "id": "1675aa8fc8443691ddaea913:14",
+    "legacy_id": 48150,
+    "metadata_status": "verified",
+    "name": "Spoof app signature",
+    "options": [
+      {
+        "default": null,
+        "description": "Leave blank — read automatically from the app. Only set this if you changed the app's package name and the patch is using the wrong one.",
+        "key": "packageName",
+        "required": false,
+        "title": "Package name override (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": false
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes the app think it was installed from a specific store (default: Google Play).\n\nUseful when an app blocks features or shows errors because it detects it was not installed from the Play Store.\n\nOnly affects what the app itself sees - does not change the real system install record.",
+    "id": "1675aa8fc8443691ddaea913:15",
+    "legacy_id": 48151,
+    "metadata_status": "verified",
+    "name": "Spoof install source",
+    "options": [
+      {
+        "default": "com.android.vending",
+        "description": "Most apps only check for the Google Play Store, so the default is usually correct. Pick from the list, or type any package name directly if your app checks for a different store.",
+        "key": "installerPackageName",
+        "required": true,
+        "title": "Store to impersonate",
+        "type": "kotlin.String",
+        "values": {
+          "Amazon Appstore": "com.amazon.venezia",
+          "F-Droid": "org.fdroid.fdroid",
+          "Google Play Store": "com.android.vending",
+          "Huawei AppGallery": "com.huawei.appmarket",
+          "Samsung Galaxy Store": "com.sec.android.app.samsungapps",
+          "Xiaomi GetApps": "com.xiaomi.mipicks"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": false
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Telegram Premium features for the current account.",
+    "id": "1675aa8fc8443691ddaea913:16",
+    "legacy_id": 48152,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "1675aa8fc8443691ddaea913",
+    "compatiblePackages": {
+      "org.telegram.messenger": [
+        "13.0.0"
+      ],
+      "org.telegram.messenger.web": [
+        "13.0.0"
+      ],
+      "org.telegram.plus": [
+        "12.10.6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Plays voice notes through the music-player path while preserving Raise-to-Listen.",
+    "id": "1675aa8fc8443691ddaea913:17",
+    "legacy_id": 48153,
+    "metadata_status": "verified",
+    "name": "Voice to music",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "org.telegram.messenger.web",
+        "icon_url": null,
+        "name": "org.telegram.messenger.web",
+        "versions": [
+          "13.0.0"
+        ]
+      },
+      {
+        "app_name": "Plus Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/tvinmqPRqEdX_C3x319DHieZ6XDUL5PyLZa-8TDJe9gb4d05G9I5zaakv7MOWmXTMQi-Lq5W0yDfUeiHPk9d",
+        "name": "org.telegram.plus",
+        "versions": [
+          "12.10.6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev1",
+    "source_id": "348c07b2306790a9",
+    "use": true
+  },
+  {
+    "bundle_id": "180ee868e741636c202fd0d0",
+    "compatiblePackages": {
+      "com.example.app": [
+        "2.0.0",
+        "1.0.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Example patch to start with.",
+    "id": "180ee868e741636c202fd0d0:0",
+    "legacy_id": 48154,
+    "metadata_status": "verified",
+    "name": "Example Patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.example.app",
+        "icon_url": null,
+        "name": "com.example.app",
+        "versions": [
+          "2.0.0",
+          "1.0.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.0-dev.1",
+    "source_id": "41542550c1314abc",
+    "use": true
+  },
+  {
+    "bundle_id": "180ee868e741636c202fd0d0",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips sensitive Android permissions (such as camera and microphone access) from the application manifest to enhance privacy.",
+    "id": "180ee868e741636c202fd0d0:1",
+    "legacy_id": 48155,
+    "metadata_status": "verified",
+    "name": "Strip sensitive permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove camera access permissions (android.permission.CAMERA).",
+        "key": "stripCamera",
+        "required": false,
+        "title": "Strip Camera",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove microphone and audio recording permissions (android.permission.RECORD_AUDIO, etc.).",
+        "key": "stripMicrophone",
+        "required": false,
+        "title": "Strip Microphone",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove location tracking permissions (ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, etc.).",
+        "key": "stripLocation",
+        "required": false,
+        "title": "Strip Location",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove body sensor and activity recognition permissions.",
+        "key": "stripSensors",
+        "required": false,
+        "title": "Strip Sensors",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.0.0-dev.1",
+    "source_id": "41542550c1314abc",
+    "use": false
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "de.motain.iliga": [
+        "15.145.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables banner, interstitial, native, app-open and rewarded ads.",
+    "id": "33d5e926b210a17a6a3e3fee:0",
+    "legacy_id": 48156,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "OneFootball Live Soccer scores",
+        "icon_url": "https://play-lh.googleusercontent.com/YiWhQjmhW6376NzXq_X2I9ORF99n76yFnYZZGDGaqOPMYopp-EGsQYSt8Z6SAd1qqG2NLutE6kniYE5EXoosbxg",
+        "name": "de.motain.iliga",
+        "versions": [
+          "15.145.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "de.wetteronline.wetterapp": [
+        "2026.19"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables premium features: ad-free experience, HD radar and all gated content. Works without an account.",
+    "id": "33d5e926b210a17a6a3e3fee:1",
+    "legacy_id": 48157,
+    "metadata_status": "verified",
+    "name": "Enable Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Weather & Radar Forecast",
+        "icon_url": "https://play-lh.googleusercontent.com/ihZXDRIiDTOc95bdHzlEiCiVxT7ibFWb9s7U0x2o0pHwY6lyLZs91-vTTbACSMCPDyiIevGNSFDg-4wQW5A0QNU",
+        "name": "de.wetteronline.wetterapp",
+        "versions": [
+          "2026.19"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "com.isarinteractive.skat.android.ad": [
+        "19.2.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes banner and fullscreen (interstitial) ads from the game. Interstitials are reported as shown and closed immediately so the Qt game flow is unaffected. Works without an account.",
+    "id": "33d5e926b210a17a6a3e3fee:2",
+    "legacy_id": 48158,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Skat",
+        "icon_url": "https://play-lh.googleusercontent.com/vUYYhIL2-34OQzPP7PX2Mi6pH8jNAMKLwYnErveX8CrKRAWePgimO5Do48tCjeJxtDePmP6fni2WbIGVO7hgsQ",
+        "name": "com.isarinteractive.skat.android.ad",
+        "versions": [
+          "19.2.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "com.mtv.sai": [
+        "2.4.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the PairIP license check that redirects to the Play Store and exits on sideloaded installs.",
+    "id": "33d5e926b210a17a6a3e3fee:3",
+    "legacy_id": 48159,
+    "metadata_status": "verified",
+    "name": "Remove Play Store redirect",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SAI: Split APKs Installer",
+        "icon_url": "https://play-lh.googleusercontent.com/NZEdYeZWgBVa10wkMBpdJrWQyL6lXuUWZDWx-ZSfWa4YJnatabcXAl7B55m1q83MrBq5OcqqFJCthyJ7muX9Hw",
+        "name": "com.mtv.sai",
+        "versions": [
+          "2.4.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "com.isarinteractive.skat.android.ad": [
+        "19.2.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the PairIP license check that redirects to the Play Store and exits on sideloaded installs.",
+    "id": "33d5e926b210a17a6a3e3fee:4",
+    "legacy_id": 48160,
+    "metadata_status": "verified",
+    "name": "Remove Play Store redirect",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Skat",
+        "icon_url": "https://play-lh.googleusercontent.com/vUYYhIL2-34OQzPP7PX2Mi6pH8jNAMKLwYnErveX8CrKRAWePgimO5Do48tCjeJxtDePmP6fni2WbIGVO7hgsQ",
+        "name": "com.isarinteractive.skat.android.ad",
+        "versions": [
+          "19.2.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "de.lineas.lit.ntv.android": [
+        "8.5.7.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks ntv Plus premium features (ad-free, premium content) by forcing the subscription state to active.",
+    "id": "33d5e926b210a17a6a3e3fee:5",
+    "legacy_id": 48161,
+    "metadata_status": "verified",
+    "name": "Unlock ntv Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ntv Nachrichten",
+        "icon_url": "https://play-lh.googleusercontent.com/Oq12HHVX215Useeeb8x1aASJEWFE4Y4tj-6wa-2TwzsODiQpF6pOXRL35q6DllrUhhbT9dAqQ67ERlEHIbeMKlU",
+        "name": "de.lineas.lit.ntv.android",
+        "versions": [
+          "8.5.7.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "com.mtv.sai": [
+        "2.4.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks SAI Split APKs Installer premium (backups, themes) by forcing the \"SAI Premium\" entitlement state to active.",
+    "id": "33d5e926b210a17a6a3e3fee:6",
+    "legacy_id": 48162,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SAI: Split APKs Installer",
+        "icon_url": "https://play-lh.googleusercontent.com/NZEdYeZWgBVa10wkMBpdJrWQyL6lXuUWZDWx-ZSfWa4YJnatabcXAl7B55m1q83MrBq5OcqqFJCthyJ7muX9Hw",
+        "name": "com.mtv.sai",
+        "versions": [
+          "2.4.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "33d5e926b210a17a6a3e3fee",
+    "compatiblePackages": {
+      "com.eisterhues_media_2": [
+        "7.6.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Toralarm premium content by forcing the subscription state to active.",
+    "id": "33d5e926b210a17a6a3e3fee:7",
+    "legacy_id": 48163,
+    "metadata_status": "verified",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "GoalAlert - Live Soccer Score",
+        "icon_url": "https://play-lh.googleusercontent.com/S1Vy8EazHRpmqCkQd37GcCAGL6rWKs_mvAhpqG3NDaUl5EgYZeMkehkYd2mnXVAElhEwkotV8zkVenGA79Py5A",
+        "name": "com.eisterhues_media_2",
+        "versions": [
+          "7.6.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.6.0",
+    "source_id": "14e2ab7c3bd04b7e",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds old style splash animation.",
+    "id": "34029ed03dc4c1d33ec9af8b:0",
+    "legacy_id": 48164,
+    "metadata_status": "verified",
+    "name": "Add splash animation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": false
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
+    "id": "34029ed03dc4c1d33ec9af8b:1",
+    "legacy_id": 48165,
+    "metadata_status": "verified",
+    "name": "Alternative thumbnails",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to bypass the restrictions of ambient mode or disable it completely.",
+    "id": "34029ed03dc4c1d33ec9af8b:2",
+    "legacy_id": 48166,
+    "metadata_status": "verified",
+    "name": "Ambient mode switch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Applies a pure black theme to some components.",
+    "id": "34029ed03dc4c1d33ec9af8b:3",
+    "legacy_id": 48167,
+    "metadata_status": "verified",
+    "name": "Amoled",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to add the current video quality or playback speed in brackets next to the current time.",
+    "id": "34029ed03dc4c1d33ec9af8b:4",
+    "legacy_id": 48168,
+    "metadata_status": "verified",
+    "name": "Append time stamps information",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Enables playing music in the background.",
+    "id": "34029ed03dc4c1d33ec9af8b:5",
+    "legacy_id": 48169,
+    "metadata_status": "verified",
+    "name": "Background play",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Sets the audio quality to \"Always High\" when you first install the app.",
+    "id": "34029ed03dc4c1d33ec9af8b:6",
+    "legacy_id": 48170,
+    "metadata_status": "verified",
+    "name": "Bitrate default value",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate.",
+    "id": "34029ed03dc4c1d33ec9af8b:7",
+    "legacy_id": 48171,
+    "metadata_status": "verified",
+    "name": "Certificate spoof",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Changes the package name for Reddit to the name specified in options.json.",
+    "id": "34029ed03dc4c1d33ec9af8b:8",
+    "legacy_id": 48172,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "com.reddit.frontpage.rvx",
+        "description": "The name of the package to rename the app to.",
+        "name": "",
+        "required": false,
+        "type": "kotlin.Any",
+        "values": {
+          "Clone": "com.reddit.frontpage.revanced",
+          "Default": "com.reddit.frontpage.rvx"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": false
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to use text toggles instead of switch toggles within the additional settings menu.",
+    "id": "34029ed03dc4c1d33ec9af8b:9",
+    "legacy_id": 48173,
+    "metadata_status": "verified",
+    "name": "Change player flyout panel toggles",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": false
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Adds an option to set which page the app opens in instead of the homepage.",
+    "id": "34029ed03dc4c1d33ec9af8b:10",
+    "legacy_id": 48174,
+    "metadata_status": "verified",
+    "name": "Change start page",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to set which page the app opens in instead of the homepage.",
+    "id": "34029ed03dc4c1d33ec9af8b:11",
+    "legacy_id": 48175,
+    "metadata_status": "verified",
+    "name": "Change start page",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies a custom heading in the top left corner within the app.",
+    "id": "34029ed03dc4c1d33ec9af8b:12",
+    "legacy_id": 48176,
+    "metadata_status": "verified",
+    "name": "Custom branding heading",
+    "options": [
+      {
+        "default": "yt_premium_wordmark_header",
+        "description": "The header to apply to the app.\n\nIf a path to a folder is provided, the folder must contain one or more of the following folders, depending on the DPI of the device:\n\n- drawable-xxxhdpi\n- drawable-xxhdpi\n- drawable-xhdpi\n- drawable-hdpi\n- drawable-mdpi\n\nEach of the folders must contain all of the following files:\n\n- yt_wordmark_header_light.png\n- yt_wordmark_header_dark.png\nThe image dimensions must be as follows:\n- drawable-xxxhdpi: 512px x 192px\n- drawable-xxhdpi: 387px x 144px\n- drawable-xhdpi: 258px x 96px\n- drawable-hdpi: 194px x 72px\n- drawable-mdpi: 129px x 48px",
+        "name": "",
+        "required": false,
+        "type": "kotlin.Any",
+        "values": {
+          "YouTube": "yt_wordmark_header",
+          "YouTube Premium": "yt_premium_wordmark_header"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Change the YouTube launcher icon to the icon specified in options.json.",
+    "id": "34029ed03dc4c1d33ec9af8b:13",
+    "legacy_id": 48177,
+    "metadata_status": "verified",
+    "name": "Custom branding icon YouTube",
+    "options": [
+      {
+        "default": "Revancify Blue",
+        "description": "The path to a folder must contain one or more of the following folders matching the DPI of your device:\n\n- mipmap-xxxhdpi\n- mipmap-xxhdpi\n- mipmap-xhdpi\n- mipmap-hdpi\n- mipmap-mdpi\n\nEach of these folders has to have the following files:\n\n- adaptiveproduct_youtube_background_color_108.png\n- adaptiveproduct_youtube_foreground_color_108.png\n- ic_launcher.png\n- ic_launcher_round.png",
+        "name": "",
+        "required": false,
+        "type": "kotlin.Any",
+        "values": {
+          "MMT": "mmt",
+          "Revancify Blue": "revancify_blue",
+          "Revancify Red": "revancify_red"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Changes the YouTube Music app icon to the icon specified in options.json.",
+    "id": "34029ed03dc4c1d33ec9af8b:14",
+    "legacy_id": 48178,
+    "metadata_status": "verified",
+    "name": "Custom branding icon YouTube Music",
+    "options": [
+      {
+        "default": "Revancify Blue",
+        "description": "The path to a folder containing the following folders:\n\n- mipmap-xxxhdpi\n- mipmap-xxhdpi\n- mipmap-xhdpi\n- mipmap-hdpi\n- mipmap-mdpi\n\nEach of these folders has to have the following files:\n\n- adaptiveproduct_youtube_music_background_color_108.png\n- adaptiveproduct_youtube_music_foreground_color_108.png\n- ic_launcher_release.png",
+        "name": "",
+        "required": false,
+        "type": "kotlin.Any",
+        "values": {
+          "MMT": "mmt",
+          "Revancify Blue": "revancify_blue",
+          "Revancify Red": "revancify_red"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "Renames the Reddit app to the name specified in options.json.",
+    "id": "34029ed03dc4c1d33ec9af8b:15",
+    "legacy_id": 48179,
+    "metadata_status": "verified",
+    "name": "Custom branding name Reddit",
+    "options": [
+      {
+        "default": "RVX Reddit",
+        "description": "The name of the app.",
+        "name": "",
+        "required": false,
+        "type": "kotlin.Any",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": false
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Rename the YouTube app to the name specified in options.json.",
+    "id": "34029ed03dc4c1d33ec9af8b:16",
+    "legacy_id": 48180,
+    "metadata_status": "verified",
+    "name": "Custom branding name YouTube",
+    "options": [
+      {
+        "default": "ReVanced Extended",
+        "description": "The name of the app.",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": {
+          "Full name": "ReVanced Extended",
+          "Short name": "RVX"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Renames the YouTube Music app to the name specified in options.json.",
+    "id": "34029ed03dc4c1d33ec9af8b:17",
+    "legacy_id": 48181,
+    "metadata_status": "verified",
+    "name": "Custom branding name YouTube Music",
+    "options": [
+      {
+        "default": "ReVanced Extended Music",
+        "description": "The name of the app as it appears in the notification panel.",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": {
+          "Full name": "ReVanced Extended Music",
+          "Short name": "RVX Music"
+        }
+      },
+      {
+        "default": "RVX Music",
+        "description": "The name of the app as it appears in the launcher.",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": {
+          "Full name": "ReVanced Extended Music",
+          "Short name": "RVX Music"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Add 'double-tap to seek' value.",
+    "id": "34029ed03dc4c1d33ec9af8b:18",
+    "legacy_id": 48182,
+    "metadata_status": "verified",
+    "name": "Custom double tap length",
+    "options": [
+      {
+        "default": "3, 5, 10, 15, 20, 30, 60, 120, 180",
+        "description": "A list of custom double-tap to seek lengths. Be sure to separate them with commas (,).",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null,
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "Changes the package name for the non-root build of YouTube and YouTube Music to the name specified in options.json.",
+    "id": "34029ed03dc4c1d33ec9af8b:19",
+    "legacy_id": 48183,
+    "metadata_status": "verified",
+    "name": "Custom package name",
+    "options": [
+      {
+        "default": "app.rvx.android.youtube",
+        "description": "The name of the package to use in MicroG support",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": {
+          "Clone": "com.rvx.android.youtube",
+          "Default": "app.rvx.android.youtube"
+        }
+      },
+      {
+        "default": "app.rvx.android.apps.youtube.music",
+        "description": "The name of the package to use in MicroG support",
+        "name": "",
+        "required": true,
+        "type": "kotlin.Any",
+        "values": {
+          "Clone": "com.rvx.android.apps.youtube.music",
+          "Default": "app.rvx.android.apps.youtube.music"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      },
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Adds an option to customize available playback speeds.",
+    "id": "34029ed03dc4c1d33ec9af8b:20",
+    "legacy_id": 48184,
+    "metadata_status": "verified",
+    "name": "Custom playback speed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to customize available playback speeds.",
+    "id": "34029ed03dc4c1d33ec9af8b:21",
+    "legacy_id": 48185,
+    "metadata_status": "verified",
+    "name": "Custom playback speed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to change the opacity of the video player background when player controls are visible.",
+    "id": "34029ed03dc4c1d33ec9af8b:22",
+    "legacy_id": 48186,
+    "metadata_status": "verified",
+    "name": "Custom player overlay opacity",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to customize seekbar colors in video players and video thumbnails.",
+    "id": "34029ed03dc4c1d33ec9af8b:23",
+    "legacy_id": 48187,
+    "metadata_status": "verified",
+    "name": "Custom seekbar color",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to set the default playback speed.",
+    "id": "34029ed03dc4c1d33ec9af8b:24",
+    "legacy_id": 48188,
+    "metadata_status": "verified",
+    "name": "Default playback speed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to set the default video quality.",
+    "id": "34029ed03dc4c1d33ec9af8b:25",
+    "legacy_id": 48189,
+    "metadata_status": "verified",
+    "name": "Default video quality",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable captions from being automatically enabled.",
+    "id": "34029ed03dc4c1d33ec9af8b:26",
+    "legacy_id": 48190,
+    "metadata_status": "verified",
+    "name": "Disable auto captions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable captions from being automatically enabled.",
+    "id": "34029ed03dc4c1d33ec9af8b:27",
+    "legacy_id": 48191,
+    "metadata_status": "verified",
+    "name": "Disable auto captions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable haptic feedback when swiping the video player.",
+    "id": "34029ed03dc4c1d33ec9af8b:28",
+    "legacy_id": 48192,
+    "metadata_status": "verified",
+    "name": "Disable haptic feedback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds options to disable HDR video.",
+    "id": "34029ed03dc4c1d33ec9af8b:29",
+    "legacy_id": 48193,
+    "metadata_status": "verified",
+    "name": "Disable HDR video",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable landscape mode when entering fullscreen.",
+    "id": "34029ed03dc4c1d33ec9af8b:30",
+    "legacy_id": 48194,
+    "metadata_status": "verified",
+    "name": "Disable landscape mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": false
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Removes the dark overlay when comment, share, save to playlist, and flyout panels are open.",
+    "id": "34029ed03dc4c1d33ec9af8b:31",
+    "legacy_id": 48195,
+    "metadata_status": "verified",
+    "name": "Disable overlay filter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": false
+  },
+  {
+    "bundle_id": "34029ed03dc4c1d33ec9af8b",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.25.40",
+        "18.27.36",
+        "18.29.38",
+        "18.30.37",
+        "18.31.40",
+        "18.32.39",
+        "18.33.40",
+        "18.34.38",
+        "18.35.36",
+        "18.36.39",
+        "18.37.36",
+        "18.38.44",
+        "18.39.41",
+        "18.40.34",
+        "18.41.39",
+        "18.42.41",
+        "18.43.45",
+        "18.44.41",
+        "18.45.43",
+        "18.46.45",
+        "18.48.39",
+        "18.49.37",
+        "19.01.34",
+        "19.02.39",
+        "19.03.36",
+        "19.04.38",
+        "19.05.36",
+        "19.06.39",
+        "19.07.40"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable pip notification when you first launch pip mode.",
+    "id": "34029ed03dc4c1d33ec9af8b:32",
+    "legacy_id": 48196,
+    "metadata_status": "verified",
+    "name": "Disable pip notification",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "18.25.40",
+          "18.27.36",
+          "18.29.38",
+          "18.30.37",
+          "18.31.40",
+          "18.32.39",
+          "18.33.40",
+          "18.34.38",
+          "18.35.36",
+          "18.36.39",
+          "18.37.36",
+          "18.38.44",
+          "18.39.41",
+          "18.40.34",
+          "18.41.39",
+          "18.42.41",
+          "18.43.45",
+          "18.44.41",
+          "18.45.43",
+          "18.46.45",
+          "18.48.39",
+          "18.49.37",
+          "19.01.34",
+          "19.02.39",
+          "19.03.36",
+          "19.04.38",
+          "19.05.36",
+          "19.06.39",
+          "19.07.40"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.220.10",
+    "source_id": "23bdebd7ee7f4682",
+    "use": true
+  }
+]
