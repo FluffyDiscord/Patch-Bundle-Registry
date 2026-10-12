@@ -1,0 +1,2987 @@
+[
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds Morphe settings resources to the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:4",
+    "legacy_id": 65363,
+    "metadata_status": "verified",
+    "name": "Add settings resources",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds Morphe settings layout resources to the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:5",
+    "legacy_id": 65364,
+    "metadata_status": "verified",
+    "name": "Add settings resources",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings resources",
+      "Register settings activity"
+    ],
+    "description": "Adds a settings tab to the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:6",
+    "legacy_id": 65365,
+    "metadata_status": "verified",
+    "name": "Add settings tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Adds or updates the sharedUserId attribute in the app's manifest. This allows multiple apps with the same sharedUserId to share data and run in the same process. Use with caution as this can affect app permissions and data isolation.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:7",
+    "legacy_id": 65366,
+    "metadata_status": "verified",
+    "name": "Add shared user ID",
+    "options": [
+      {
+        "default": "revanced",
+        "description": "The shared user ID to add to the app's manifest.",
+        "key": "sharedUserId",
+        "required": true,
+        "title": "Shared User ID",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "revanced"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Moves the image download menu buttons upward by adding bottom padding.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:8",
+    "legacy_id": 65367,
+    "metadata_status": "verified",
+    "name": "Adjust image download menu",
+    "options": [
+      {
+        "default": 180,
+        "description": "Bottom padding in dp for the image download menu. The original value is 10dp.",
+        "key": "bottomPadding",
+        "required": true,
+        "title": "Bottom padding",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Users with hiding privileges can hide any chat, including their own messages.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:9",
+    "legacy_id": 65368,
+    "metadata_status": "verified",
+    "name": "Allow Hide on Any Chat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows replying to feed messages",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:10",
+    "legacy_id": 65369,
+    "metadata_status": "verified",
+    "name": "Allow reply to feed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Always shows the kick button in group member management.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:11",
+    "legacy_id": 65370,
+    "metadata_status": "verified",
+    "name": "Always Show Kick Button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.navercorp.game.android.community": [
+        "3.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Automatically claims CHZZK TongPow rewards when they become available while watching streams.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:12",
+    "legacy_id": 65371,
+    "metadata_status": "verified",
+    "name": "Auto claim TongPow",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "치지직 – CHZZK",
+        "icon_url": "https://play-lh.googleusercontent.com/iXsrDPNvJHIaMr9xdpUHCeHhq-KezuNQl9Z-svSuMOL4EglyVTkaS4Qpib7wHl-wrVlYFRdLRfuvya5vaUKQKw",
+        "name": "com.navercorp.game.android.community",
+        "versions": [
+          "3.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the integrity check for getText.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:13",
+    "legacy_id": 65372,
+    "metadata_status": "verified",
+    "name": "Bypass getText",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypass the limit of input mentions in non-multichat rooms",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:14",
+    "legacy_id": 65373,
+    "metadata_status": "verified",
+    "name": "Bypass input mention limit in non-multichat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.flexcil.flexcilnote": [
+        "1.4.4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the mandatory account sign-in on launch and opens the app directly.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:15",
+    "legacy_id": 65374,
+    "metadata_status": "verified",
+    "name": "Bypass login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flexcil Notes & PDF Reader",
+        "icon_url": "https://play-lh.googleusercontent.com/Jfrzp1yaMjP2EDdMn5TtPAfpbjkGOnXRMFUvK9gc-28ZI3BM3X1yXbRDcjkCsigoGBg2PnZk94dNgtT5TPLV",
+        "name": "com.flexcil.flexcilnote",
+        "versions": [
+          "1.4.4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Add a setting to bypass the Moat integrity check that can prevent KakaoPay from running.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:16",
+    "legacy_id": 65375,
+    "metadata_status": "verified",
+    "name": "Bypass Moat check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes the device model to supporting subdevice features",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:17",
+    "legacy_id": 65376,
+    "metadata_status": "verified",
+    "name": "Change model",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [
+      "Bypass getText",
+      "Spoof Signature"
+    ],
+    "description": "Appends \".revanced\" to the package name by default. For DCinside only",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:18",
+    "legacy_id": 65377,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Appends \".revanced\" to the package name by default. For KakaoTalk only",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:19",
+    "legacy_id": 65378,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The name of the package to rename the app to.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customize app branding (name and icon)",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:20",
+    "legacy_id": 65379,
+    "metadata_status": "verified",
+    "name": "Custom branding",
+    "options": [
+      {
+        "default": null,
+        "description": "Custom app name",
+        "key": "customName",
+        "required": false,
+        "title": "Custom app name",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "Original",
+        "description": "            App icon source.\n\n            Special values:\n            - Original: Keep the original app icon.\n            - Bundled: Use the bundled icon from patches/src/main/resources/custom-branding.\n\n            Any other value is treated as a folder path with custom DCinside launcher icons.\n\n            A custom icon folder must contain one or more of the following directories:\n            - mipmap-mdpi\n- mipmap-hdpi\n- mipmap-xhdpi\n- mipmap-xxhdpi\n- mipmap-xxxhdpi\n\n            Each icon directory must contain exactly one launcher icon file:\n            - ic_launcher.png\n- ic_launcher.webp\n\n            The expected launcher icon sizes are:\n            - mipmap-mdpi: 48x48 px\n- mipmap-hdpi: 72x72 px\n- mipmap-xhdpi: 96x96 px\n- mipmap-xxhdpi: 144x144 px\n- mipmap-xxxhdpi: 192x192 px\n\n            Optionally, you can provide a notification icon as either:\n            - drawable/ic_symbol.xml\n            - drawable-<dpi>/ic_symbol.png or ic_symbol.webp with sizes:\n            - drawable-mdpi: 24x24 px\n- drawable-hdpi: 36x36 px\n- drawable-xhdpi: 48x48 px\n- drawable-xxhdpi: 72x72 px\n- drawable-xxxhdpi: 96x96 px",
+        "key": "customIcon",
+        "required": false,
+        "title": "Custom app icon",
+        "type": "kotlin.String",
+        "values": {
+          "Bundled": "Bundled",
+          "Original": "Original"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customize app branding (name)",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:21",
+    "legacy_id": 65380,
+    "metadata_status": "verified",
+    "name": "Custom branding",
+    "options": [
+      {
+        "default": null,
+        "description": "Custom app name",
+        "key": "customName",
+        "required": false,
+        "title": "Custom app name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Sets the default external browser for KakaoTalk to the system's default browser.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:22",
+    "legacy_id": 65381,
+    "metadata_status": "verified",
+    "name": "Default external browser",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "reassigns ad_minimum_height to 0dp to remove ads from the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:23",
+    "legacy_id": 65382,
+    "metadata_status": "verified",
+    "name": "Dimens Patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Always show the real unread count instead of '300+' in chatroom list",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:24",
+    "legacy_id": 65383,
+    "metadata_status": "verified",
+    "name": "Disable 300+ unread limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Skip the 99-cap so unread count shows full value",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:25",
+    "legacy_id": 65384,
+    "metadata_status": "verified",
+    "name": "Disable 99 unread limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the ad controller that manages ads in the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:26",
+    "legacy_id": 65385,
+    "metadata_status": "verified",
+    "name": "Disable ad controller",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable the chat room list ad.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:27",
+    "legacy_id": 65386,
+    "metadata_status": "verified",
+    "name": "Disable chat room list ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the open-link chat room BizBoard ad controller.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:28",
+    "legacy_id": 65387,
+    "metadata_status": "verified",
+    "name": "Disable ChatRoomAdController",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable collapse button on OpenChatList",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:29",
+    "legacy_id": 65388,
+    "metadata_status": "verified",
+    "name": "Disable Collapse Button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the comment ad in the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:30",
+    "legacy_id": 65389,
+    "metadata_status": "verified",
+    "name": "Disable Comment Ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Community Tab",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:31",
+    "legacy_id": 65390,
+    "metadata_status": "verified",
+    "name": "Disable Community Tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds settings to block DCCon image loading in posts and replies.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:32",
+    "legacy_id": 65391,
+    "metadata_status": "verified",
+    "name": "Disable DCCon loading",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the Friend Feed tab in KakaoTalk.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:33",
+    "legacy_id": 65392,
+    "metadata_status": "verified",
+    "name": "Disable Friend Feed tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the friend tab BizBoard ads in KakaoTalk.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:34",
+    "legacy_id": 65393,
+    "metadata_status": "verified",
+    "name": "Disable Friend Lists ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the image ad in the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:35",
+    "legacy_id": 65394,
+    "metadata_status": "verified",
+    "name": "Disable Image Ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Adds a setting to disable comments in open chat rooms.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:36",
+    "legacy_id": 65395,
+    "metadata_status": "verified",
+    "name": "Disable open chat room comments",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the OpenChat tab feed ad load and render paths.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:37",
+    "legacy_id": 65396,
+    "metadata_status": "verified",
+    "name": "Disable OpenChat feed ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.navercorp.game.android.community": [
+        "3.9.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables CHZZK peer-assisted grid streaming and forces CDN playback.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:38",
+    "legacy_id": 65397,
+    "metadata_status": "verified",
+    "name": "Disable P2P",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "치지직 – CHZZK",
+        "icon_url": "https://play-lh.googleusercontent.com/iXsrDPNvJHIaMr9xdpUHCeHhq-KezuNQl9Z-svSuMOL4EglyVTkaS4Qpib7wHl-wrVlYFRdLRfuvya5vaUKQKw",
+        "name": "com.navercorp.game.android.community",
+        "versions": [
+          "3.9.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "kr.co.nowcom.mobile.afreeca": [
+        "8.28.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables SOOP peer-assisted grid streaming.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:39",
+    "legacy_id": 65398,
+    "metadata_status": "verified",
+    "name": "Disable P2P",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SOOP",
+        "icon_url": "https://play-lh.googleusercontent.com/kkYJ-GrCRS0WWNWjshvFCyqnYPdC7PY6UZ5NK5ju7OFnp0lmU7JlOLIfPvQnr4Y_LWhnab-Fqz9PkCrEwpPjLQ",
+        "name": "kr.co.nowcom.mobile.afreeca",
+        "versions": [
+          "8.28.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the KakaoPay banner ad load and render paths.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:40",
+    "legacy_id": 65399,
+    "metadata_status": "verified",
+    "name": "Disable Pay banner ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Tracker",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:41",
+    "legacy_id": 65400,
+    "metadata_status": "verified",
+    "name": "Disable S2Event",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the SDK Tracker in KakaoTalk.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:42",
+    "legacy_id": 65401,
+    "metadata_status": "verified",
+    "name": "Disable SDK Tracker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Disable Sentry telemetry"
+    ],
+    "description": "Disables Sentry error reporting in KakaoTalk.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:43",
+    "legacy_id": 65402,
+    "metadata_status": "verified",
+    "name": "Disable Sentry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables Sentry telemetry. See https://sentry.io/for/android/ for more information.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:44",
+    "legacy_id": 65403,
+    "metadata_status": "verified",
+    "name": "Disable Sentry telemetry",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the shortform ad load and render paths.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:45",
+    "legacy_id": 65404,
+    "metadata_status": "verified",
+    "name": "Disable ShortForm ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable talk share log",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:46",
+    "legacy_id": 65405,
+    "metadata_status": "verified",
+    "name": "Disable Talk Share Log",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the app's update check.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:47",
+    "legacy_id": 65406,
+    "metadata_status": "verified",
+    "name": "Disable update check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the signature verification check that prevents the app from running.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:48",
+    "legacy_id": 65407,
+    "metadata_status": "verified",
+    "name": "Disable verifying signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Render plain text messages with markdown-style formatting.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:49",
+    "legacy_id": 65408,
+    "metadata_status": "verified",
+    "name": "Enable Markdown",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables the OneStore feature in DC Inside app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:50",
+    "legacy_id": 65409,
+    "metadata_status": "verified",
+    "name": "Enable OneStore feature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables the reaction mention flag in KakaoTalk chat logs.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:51",
+    "legacy_id": 65410,
+    "metadata_status": "verified",
+    "name": "Enable reaction mention flag",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": false
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Allows sending big text messages in KakaoTalk.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:52",
+    "legacy_id": 65411,
+    "metadata_status": "verified",
+    "name": "Enable send big text",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Enables debug mode in the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:53",
+    "legacy_id": 65412,
+    "metadata_status": "verified",
+    "name": "Force enable debug mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Force enable emoticon plus feature (Unpurchased emoticon can be sent once per day)",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:54",
+    "legacy_id": 65413,
+    "metadata_status": "verified",
+    "name": "Force enable emoticon plus feature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Don't expose your typing status to the other party.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:55",
+    "legacy_id": 65414,
+    "metadata_status": "verified",
+    "name": "Ghost Mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Hides official DCInside operator notices from gallery notice lists.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:56",
+    "legacy_id": 65415,
+    "metadata_status": "verified",
+    "name": "Hide DC official notices",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds settings to hide selected DCInside home screen components.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:57",
+    "legacy_id": 65416,
+    "metadata_status": "verified",
+    "name": "Hide home components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the main ad in the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:58",
+    "legacy_id": 65417,
+    "metadata_status": "verified",
+    "name": "Hide Main Ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds a setting to hide the mini gallery cover image above post lists.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:59",
+    "legacy_id": 65418,
+    "metadata_status": "verified",
+    "name": "Hide mini gallery cover image",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Adds options to hide components from the More tab.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:60",
+    "legacy_id": 65419,
+    "metadata_status": "verified",
+    "name": "Hide More tab components",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Hides the Game tab from the More tab.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:61",
+    "legacy_id": 65420,
+    "metadata_status": "verified",
+    "name": "Hide More tab Game tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hooks the Package Manager to bypass integrity checks.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:62",
+    "legacy_id": 65421,
+    "metadata_status": "verified",
+    "name": "Hook Package Manager",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens open chat member profiles from join and leave feed messages.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:63",
+    "legacy_id": 65422,
+    "metadata_status": "verified",
+    "name": "Open profile from open chat feed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Overrides the feature flag to enable the feature.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:64",
+    "legacy_id": 65423,
+    "metadata_status": "verified",
+    "name": "Override feature flag",
+    "options": [
+      {
+        "default": null,
+        "description": "Enter feature flag overrides as semicolon-separated key=value pairs.",
+        "key": "featureFlags",
+        "required": false,
+        "title": "Feature flag overrides",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Registers the Morphe settings activity in the app manifest.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:65",
+    "legacy_id": 65424,
+    "metadata_status": "verified",
+    "name": "Register settings activity",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Registers the Morphe settings activity in the app manifest.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:66",
+    "legacy_id": 65425,
+    "metadata_status": "verified",
+    "name": "Register settings activity",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the BizBoard ad by forcing its dimensions to 0x0 and visibility to GONE in onMeasure.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:67",
+    "legacy_id": 65426,
+    "metadata_status": "verified",
+    "name": "Remove BizBoard ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the feed ad from the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:68",
+    "legacy_id": 65427,
+    "metadata_status": "verified",
+    "name": "Remove feed ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the focus ad from the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:69",
+    "legacy_id": 65428,
+    "metadata_status": "verified",
+    "name": "Remove focus ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the ad from the More tab.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:70",
+    "legacy_id": 65429,
+    "metadata_status": "verified",
+    "name": "Remove More tab ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the native ad from the app.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:71",
+    "legacy_id": 65430,
+    "metadata_status": "verified",
+    "name": "Remove native ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the OpenLink chat room list ad.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:72",
+    "legacy_id": 65431,
+    "metadata_status": "verified",
+    "name": "Remove OpenLink chat room list ad",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the shop tab from the bottom navigation bar.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:73",
+    "legacy_id": 65432,
+    "metadata_status": "verified",
+    "name": "Remove shop tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Removes the Short-form tab from the now fragment.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:74",
+    "legacy_id": 65433,
+    "metadata_status": "verified",
+    "name": "Remove Short-form Tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds a setting to render big DCCon at normal DCCon size.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:75",
+    "legacy_id": 65434,
+    "metadata_status": "verified",
+    "name": "Render big DCCon as normal size",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [
+      "Add settings"
+    ],
+    "description": "Adds a setting to restore DCInside 4.7.x post list and read footer icons.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:76",
+    "legacy_id": 65435,
+    "metadata_status": "verified",
+    "name": "Restore old post icons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows the channel ID in chatroom settings and copies it when tapping the chat side title.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:77",
+    "legacy_id": 65436,
+    "metadata_status": "verified",
+    "name": "Show chatroom channel ID",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Allows you to see deleted, hidden, and edited message history in chat logs.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:78",
+    "legacy_id": 65437,
+    "metadata_status": "verified",
+    "name": "Show deleted, hidden, or edited messages",
+    "options": [
+      {
+        "default": "0xFFFF4444",
+        "description": "32-bit ARGB. Accepts #RRGGBB, #AARRGGBB, 0xAARRGGBB, or signed decimal.",
+        "key": "deletedColor",
+        "required": false,
+        "title": "Deleted color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "0xFF999999",
+        "description": "32-bit ARGB. Accepts #RRGGBB, #AARRGGBB, 0xAARRGGBB, or signed decimal.",
+        "key": "hiddenColor",
+        "required": false,
+        "title": "Hidden color",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [
+      "Add settings tab"
+    ],
+    "description": "Shows the members who have or have not read each chat message.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:79",
+    "legacy_id": 65438,
+    "metadata_status": "verified",
+    "name": "Show message read receipts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the apk checksums to pass integrity checks.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:80",
+    "legacy_id": 65439,
+    "metadata_status": "verified",
+    "name": "Spoof apk checksums",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the App ID to bypass integrity checks. (to bypass biometric auth etc.)",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:81",
+    "legacy_id": 65440,
+    "metadata_status": "verified",
+    "name": "Spoof App ID",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.dcinside.app.android": [
+        "5.2.17"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the app signature to bypass integrity checks.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:82",
+    "legacy_id": 65441,
+    "metadata_status": "verified",
+    "name": "Spoof Signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "디시인사이드 - 대한민국 대표 커뮤니티",
+        "icon_url": "https://play-lh.googleusercontent.com/3wsShIT-BhtperkPcnd0wcEz4M0ajLQn2jokq7oPnrimnazOcDJt3wC9fxt68P-jeiabWPsPkWMnkPgWNqJpoA",
+        "name": "com.dcinside.app.android",
+        "versions": [
+          "5.2.17"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the app signature to pass integrity checks.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:83",
+    "legacy_id": 65442,
+    "metadata_status": "verified",
+    "name": "Spoof signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.flexcil.flexcilnote": [
+        "1.4.4.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables app features locked behind the subscription paywall.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:84",
+    "legacy_id": 65443,
+    "metadata_status": "verified",
+    "name": "Unlock Premium features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flexcil Notes & PDF Reader",
+        "icon_url": "https://play-lh.googleusercontent.com/Jfrzp1yaMjP2EDdMn5TtPAfpbjkGOnXRMFUvK9gc-28ZI3BM3X1yXbRDcjkCsigoGBg2PnZk94dNgtT5TPLV",
+        "name": "com.flexcil.flexcilnote",
+        "versions": [
+          "1.4.4.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "eb7c9e3b69ffb0fc7dfdf534",
+    "compatiblePackages": {
+      "com.kakao.talk": [
+        "26.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Patches the version info to include '(ReVanced)' in the version string.",
+    "id": "eb7c9e3b69ffb0fc7dfdf534:85",
+    "legacy_id": 65444,
+    "metadata_status": "verified",
+    "name": "Version info patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "KakaoTalk : Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/VaxoIL0V83FKXsQ5fOR0XJ3CQ7Q_eOt_WXuKFtnuK3nWUH_SOll1_LRK5AlXE7b8sUg4iHNKBVof1zV1haQRyw",
+        "name": "com.kakao.talk",
+        "versions": [
+          "26.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0-dev.15",
+    "source_id": "d40303c7e4bf0c8f",
+    "use": true
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables debuggable flags in AndroidManifest and exports settings activities for local testing and debugging.",
+    "id": "ec0e1eec1cfe93512948fce3:0",
+    "legacy_id": 65445,
+    "metadata_status": "verified",
+    "name": "Developer Tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": false
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Eliminates bottom advertising banners across all screens without layout padding, suppresses rate-this-app dialogs, and hides sponsored works in feeds.",
+    "id": "ec0e1eec1cfe93512948fce3:1",
+    "legacy_id": 65446,
+    "metadata_status": "verified",
+    "name": "Pixiv Adblocker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": true
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Identifies AI-generated works, dims thumbnails with an [AI] badge (or hides them completely), displays a full-width warning banner below the top toolbar on artwork detail, adds title [AI] pill, auto-blocks AI artists, and provides in-app settings with tag editor.",
+    "id": "ec0e1eec1cfe93512948fce3:2",
+    "legacy_id": 65447,
+    "metadata_status": "verified",
+    "name": "Pixiv AI Work Flagger",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": true
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes Firebase Analytics, Google Measurement telemetry, and internal Pixiv event logging dispatchers for enhanced privacy.",
+    "id": "ec0e1eec1cfe93512948fce3:3",
+    "legacy_id": 65448,
+    "metadata_status": "verified",
+    "name": "Pixiv Analytics Blocker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": true
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a button to the illustration and manga detail view to download original full-quality artwork directly to your Photos library with clean metadata filenames.",
+    "id": "ec0e1eec1cfe93512948fce3:4",
+    "legacy_id": 65449,
+    "metadata_status": "verified",
+    "name": "Pixiv Downloader",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": true
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Displays the standard-resolution artwork as an instant placeholder while the full-resolution image loads, allows immediate pinch-to-zoom/pan preserving zoom coordinates upon high-res load, and shows a discreet loading indicator.",
+    "id": "ec0e1eec1cfe93512948fce3:5",
+    "legacy_id": 65450,
+    "metadata_status": "verified",
+    "name": "Pixiv Enhanced Viewer & Instant Zoom",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": true
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Overrides dark gray surface and background colors with pure pitch black (#ff000000) for OLED battery savings and true high-contrast dark mode.",
+    "id": "ec0e1eec1cfe93512948fce3:6",
+    "legacy_id": 65451,
+    "metadata_status": "verified",
+    "name": "Pixiv OLED Dark Theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": true
+  },
+  {
+    "bundle_id": "ec0e1eec1cfe93512948fce3",
+    "compatiblePackages": {
+      "jp.pxv.android": [
+        "6.196.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks popularity sort sorting (popular_desc) in search, removes mute limits, and emulates client-side Pixiv Premium membership status.",
+    "id": "ec0e1eec1cfe93512948fce3:7",
+    "legacy_id": 65452,
+    "metadata_status": "verified",
+    "name": "Pixiv Premium Features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "pixiv",
+        "icon_url": "https://play-lh.googleusercontent.com/UADIlh0kSQkh59fl-s3RgLFILa_EY5RqA4sMOtKD-fX0z0fDVUR7_a7ysylufmhH-K-XfhSVVdpspD8K0jtu",
+        "name": "jp.pxv.android",
+        "versions": [
+          "6.196.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.1",
+    "source_id": "a7e4b76d7fd75428",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lifts the 60 Hz limit Maps puts on itself, on the app and on the map, so it can run at your screen's full refresh rate (such as 120 Hz). Uses more battery, most of all while navigating. Off by default: switch it on on the Customization screen.",
+    "id": "ec49d578310ca54187efafec:0",
+    "legacy_id": 65453,
+    "metadata_status": "verified",
+    "name": "120 refresh rate",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the \"More from this app\" label from the account sheet, and keeps the sheet open when you come back from Settings or Customization or tap \"Your profile\", instead of dropping back to the map.",
+    "id": "ec49d578310ca54187efafec:1",
+    "legacy_id": 65454,
+    "metadata_status": "verified",
+    "name": "Account sheet cleanup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Builds microG Maps, a separate app (org.ungoogled.android.apps.maps.microg) that signs in to your Google account through microG: saved places and lists, Timeline, location sharing, contributions and push messages. Remove sign-in prompts, Trim account menu and Remove permissions are left out of this build, Offline saved places keeps only its Local saved screen, which copies your account's saved lists to the phone (Pull from Google account), and its icon carries microG's C. Needs microG: MicroG-RE or ReVanced GmsCore. Not for root (mount) installs.",
+    "id": "ec49d578310ca54187efafec:2",
+    "legacy_id": 65455,
+    "metadata_status": "verified",
+    "name": "Add microG support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Navigation's Default media app (Settings > Navigation) offers every music and podcast app that works with Android Auto, such as Poweramp, not only Spotify, YouTube Music and Pandora.",
+    "id": "ec49d578310ca54187efafec:3",
+    "legacy_id": 65456,
+    "metadata_status": "verified",
+    "name": "Any media app",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reworks the offline area picker: zooming out really selects more instead of being shrunk to Google's size cap, the box can be resized by dragging its edges and corners, a large area is split into several downloads whose true total size is shown, and areas already downloaded are drawn on the map. Can be turned off on the Customization screen.",
+    "id": "ec49d578310ca54187efafec:4",
+    "legacy_id": 65457,
+    "metadata_status": "verified",
+    "name": "Better offline maps",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "AMOLED-black theme. Pins Maps' own dark mode and its separate navigation colour scheme, and remaps colour resources, drawable fills and draw-time paints so no surface is left grey.",
+    "id": "ec49d578310ca54187efafec:5",
+    "legacy_id": 65458,
+    "metadata_status": "verified",
+    "name": "Black theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Chromium-coloured flat map pin on every in-app product logo and the search bar's leading icon.",
+    "id": "ec49d578310ca54187efafec:6",
+    "legacy_id": 65459,
+    "metadata_status": "verified",
+    "name": "Blue pin",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes Maps' bundled Play services signature and availability checks always pass, so it runs re-signed and with Play services disabled or absent, and lets it load tiles, search and routing by sending Google's own package and certificate in the identity headers the Maps backend checks. Where Play services rejects the re-signed app, Maps degrades instead of crashing.",
+    "id": "ec49d578310ca54187efafec:7",
+    "legacy_id": 65460,
+    "metadata_status": "verified",
+    "name": "Bypass Play Services checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sets the launcher and in-app app name.",
+    "id": "ec49d578310ca54187efafec:8",
+    "legacy_id": 65461,
+    "metadata_status": "verified",
+    "name": "Change app name",
+    "options": [
+      {
+        "default": "Ungoogled Maps",
+        "description": "The name shown under the launcher icon and in the app switcher. Left at Ungoogled Maps, Add microG support names the app microG Maps instead.",
+        "key": "appName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "ec49d578310ca54187efafec",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs alongside stock Google Maps under its own package name. On by default, because stock Maps comes built into most phones and cannot be replaced by a patched copy.",
+    "id": "ec49d578310ca54187efafec:9",
+    "legacy_id": 65462,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "org.ungoogled.android.apps.maps",
+        "description": "The package name to install under. Must be a valid Android package name. Left at org.ungoogled.android.apps.maps, Add microG support installs under org.ungoogled.android.apps.maps.microg instead.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.9",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  }
+]

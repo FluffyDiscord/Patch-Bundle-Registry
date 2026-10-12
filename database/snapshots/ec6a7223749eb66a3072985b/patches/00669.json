@@ -1,0 +1,3424 @@
+[
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reworks the offline area picker: zooming out really selects more instead of being shrunk to Google's size cap, the box can be resized by dragging its edges and corners, a large area is split into several downloads whose true total size is shown, and areas already downloaded are drawn on the map. Can be turned off on the Customization screen.",
+    "id": "e919c0d7fe0f944248b8ba9e:8",
+    "legacy_id": 69967,
+    "metadata_status": "verified",
+    "name": "Better offline maps",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": [
+        "26.3.20"
+      ]
+    },
+    "dependencies": [
+      "Experimental screen"
+    ],
+    "description": "Adds a Better tracking switch to the Experimental screen. With it on, recordings work the way Gaia GPS records: the phone's GPS directly with every fix delivered live (no Play services batching), fixes worse than 65 m or physically impossible dropped, points kept 3 m apart, no trail-biased smoothing, and elevation converted to sea level and counted in 2 m steps.",
+    "id": "e919c0d7fe0f944248b8ba9e:9",
+    "legacy_id": 69968,
+    "metadata_status": "verified",
+    "name": "Better tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": [
+          "26.3.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bigger digits on the speedometer, and on the speed limit sign beside it, so they can be read at a glance.",
+    "id": "e919c0d7fe0f944248b8ba9e:10",
+    "legacy_id": 69969,
+    "metadata_status": "verified",
+    "name": "Bigger speedometer",
+    "options": [
+      {
+        "default": 32,
+        "description": "Waze: 26.",
+        "key": "speed",
+        "required": true,
+        "title": "Speed digits (dp)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 14,
+        "description": "The \"mph\" or \"km/h\" under the speed. Waze: 12.",
+        "key": "units",
+        "required": true,
+        "title": "Unit label (dp)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 24,
+        "description": "Limits under 100. Waze: 20.",
+        "key": "limit",
+        "required": true,
+        "title": "Speed limit sign digits (sp)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 16,
+        "description": "Waze: 13.",
+        "key": "limitThreeDigits",
+        "required": true,
+        "title": "Speed limit sign digits, 100 and over (sp)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": [
+        "26.3.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uses a white AllTrails logo on black for the launcher icon and the splash screen, instead of green on dark green, so this build is easy to tell apart from the stock app.",
+    "id": "e919c0d7fe0f944248b8ba9e:11",
+    "legacy_id": 69970,
+    "metadata_status": "verified",
+    "name": "Black icon",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": [
+          "26.3.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "AMOLED-black theme. Pins Maps' own dark mode and its separate navigation colour scheme, and remaps colour resources, drawable fills and draw-time paints so no surface is left grey.",
+    "id": "e919c0d7fe0f944248b8ba9e:12",
+    "legacy_id": 69971,
+    "metadata_status": "verified",
+    "name": "Black theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Chromium-coloured flat map pin on every in-app product logo and the search bar's leading icon.",
+    "id": "e919c0d7fe0f944248b8ba9e:13",
+    "legacy_id": 69972,
+    "metadata_status": "verified",
+    "name": "Blue pin",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes Maps' bundled Play services signature and availability checks always pass, so it runs re-signed and with Play services disabled or absent, and lets it load tiles, search and routing by sending Google's own package and certificate in the identity headers the Maps backend checks. Where Play services rejects the re-signed app, Maps degrades instead of crashing.",
+    "id": "e919c0d7fe0f944248b8ba9e:14",
+    "legacy_id": 69973,
+    "metadata_status": "verified",
+    "name": "Bypass Play Services checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sets the launcher and in-app app name.",
+    "id": "e919c0d7fe0f944248b8ba9e:15",
+    "legacy_id": 69974,
+    "metadata_status": "verified",
+    "name": "Change app name",
+    "options": [
+      {
+        "default": "Ungoogled Maps",
+        "description": "The name shown under the launcher icon and in the app switcher. Left at Ungoogled Maps, Add microG support names the app microG Maps instead.",
+        "key": "appName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": [
+        "26.3.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs alongside stock AllTrails under its own package name.",
+    "id": "e919c0d7fe0f944248b8ba9e:16",
+    "legacy_id": 69975,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "org.ungoogled.alltrails",
+        "description": "The package name to install under. Must be a valid Android package name.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": [
+          "26.3.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs alongside stock Google Maps under its own package name. On by default, because stock Maps comes built into most phones and cannot be replaced by a patched copy.",
+    "id": "e919c0d7fe0f944248b8ba9e:17",
+    "legacy_id": 69976,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "org.ungoogled.android.apps.maps",
+        "description": "The package name to install under. Must be a valid Android package name. Left at org.ungoogled.android.apps.maps, Add microG support installs under org.ungoogled.android.apps.maps.microg instead.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Customization row under Settings on the account sheet, with switches for the patches here that can be turned back off inside the app.",
+    "id": "e919c0d7fe0f944248b8ba9e:18",
+    "legacy_id": 69977,
+    "metadata_status": "verified",
+    "name": "Customization screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": [
+        "26.3.20"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an Experimental row to your profile's menu, under Edit profile and Share profile, that opens an Experimental screen.",
+    "id": "e919c0d7fe0f944248b8ba9e:19",
+    "legacy_id": 69978,
+    "metadata_status": "verified",
+    "name": "Experimental screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": [
+          "26.3.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Waze's dark mode in true black for AMOLED screens: the app's dark backgrounds are black, and with Black night map the night map's background too. Roads, labels, buttons and text keep their colours.",
+    "id": "e919c0d7fe0f944248b8ba9e:20",
+    "legacy_id": 69979,
+    "metadata_status": "verified",
+    "name": "Full black",
+    "options": [
+      {
+        "default": false,
+        "description": "The night map's background black as well. Skipped by Morphe Manager 1.35 and other patcher 1.15+ builds, which would crash Waze when the map opens; patch with Morphe Desktop to get it.",
+        "key": "blackMap",
+        "required": false,
+        "title": "Black night map",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the sponsored pins on the map and on Android Auto, the full-screen ads shown while you are stopped, and the ad statistics Waze sends.",
+    "id": "e919c0d7fe0f944248b8ba9e:21",
+    "legacy_id": 69980,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides promoted map pins and \"Sponsored\" search results, Gemini's AI summaries (\"Know before you go\" and the review summary), the row of businesses under an address on its place sheet, the home tab's Explore feed and the Explore / Contribute / You tabs. Each can be switched back on on the Customization screen.",
+    "id": "e919c0d7fe0f944248b8ba9e:22",
+    "legacy_id": 69981,
+    "metadata_status": "verified",
+    "name": "Hide ads and clutter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon and on the screen Maps opens with. With Add microG support, microG's C sits in the pin's circle.",
+    "id": "e919c0d7fe0f944248b8ba9e:23",
+    "legacy_id": 69982,
+    "metadata_status": "verified",
+    "name": "Legacy icon",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Location source choice to the Customization screen: Android's own location providers, microG's (microg Services) or Google Play services' fused provider. With Android, neither is ever asked for a location. A source that is missing or disabled is never used, so location keeps working without it. Also keeps the network (Wi-Fi/cell) provider registered when no fused provider answers, instead of GPS only, so a fix does not go stale indoors.",
+    "id": "e919c0d7fe0f944248b8ba9e:24",
+    "legacy_id": 69983,
+    "metadata_status": "verified",
+    "name": "Location provider toggle",
+    "options": [
+      {
+        "default": false,
+        "description": "The location source Maps starts with. On: the fused provider -- Google Play services', or microG's in microG Maps -- whenever it is installed and enabled, Android's own providers otherwise. Off: Android's own providers. Can be changed later on the Customization screen.",
+        "key": "useFusedProvider",
+        "required": false,
+        "title": "Default to Play services location",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "The old Waze mods' map skin, as changes to Waze's own: bigger map labels, a wider navigation arrow head and a warm day background. The night background is Full black's. Skipped by Morphe Manager 1.35 and other patcher 1.15+ builds, which would crash Waze when the map opens; patch with Morphe Desktop to get it.",
+    "id": "e919c0d7fe0f944248b8ba9e:25",
+    "legacy_id": 69984,
+    "metadata_status": "verified",
+    "name": "Map skin",
+    "options": [
+      {
+        "default": 18,
+        "description": "Waze: 14.",
+        "key": "fontHuge",
+        "required": true,
+        "title": "Map labels: huge",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 14,
+        "description": "Waze: 12.",
+        "key": "fontBig",
+        "required": true,
+        "title": "Map labels: big",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 12,
+        "description": "Waze: 10.",
+        "key": "fontMedium",
+        "required": true,
+        "title": "Map labels: medium",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 10,
+        "description": "Waze: 8.",
+        "key": "fontSmall",
+        "required": true,
+        "title": "Map labels: small",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 10.0,
+        "description": "As a multiple of the arrow's tail width. Waze: 3.0.",
+        "key": "arrowHead",
+        "required": true,
+        "title": "Navigation arrow head width",
+        "type": "kotlin.Float",
+        "values": null
+      },
+      {
+        "default": "ebe7dd",
+        "description": "Waze: fafcfa, near white.",
+        "key": "dayBackground",
+        "required": true,
+        "title": "Day map background (hex)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "How far ahead Android Auto gives its heads-up, and how long a jam must last before the traffic bar shows it. The defaults are the old Waze mods' (Chuppito).",
+    "id": "e919c0d7fe0f944248b8ba9e:26",
+    "legacy_id": 69985,
+    "metadata_status": "verified",
+    "name": "Navigation distances",
+    "options": [
+      {
+        "default": 1200,
+        "description": "Waze: 200 m.",
+        "key": "headsUp",
+        "required": false,
+        "title": "Android Auto heads-up, normal roads (m)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 1300,
+        "description": "Waze: 500 m.",
+        "key": "headsUpFreeway",
+        "required": false,
+        "title": "Android Auto heads-up, freeways (m)",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 180,
+        "description": "Waze: 360 s.",
+        "key": "trafficBar",
+        "required": false,
+        "title": "Traffic bar: time in traffic (s)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns off conversational reporting, Waze's Gemini voice assistant for reports, together with its activation dialog, tips and onboarding.",
+    "id": "e919c0d7fe0f944248b8ba9e:27",
+    "legacy_id": 69986,
+    "metadata_status": "verified",
+    "name": "No AI reporting",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Keeps Google Assistant out of Waze: no Assistant button, onboarding or settings entry, whatever Waze's server enables for your region.",
+    "id": "e919c0d7fe0f944248b8ba9e:28",
+    "legacy_id": 69987,
+    "metadata_status": "verified",
+    "name": "No Google Assistant",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Save places without a Google account, kept only on the phone: Save opens Maps' own \"Place saved\" sheet (Want to go, Travel plans, Starred places, Favorites, your own lists, a note), and a \"Local saved\" row on the account sheet rebuilds Maps' You tab -- your recent places, your lists and labels (Home, Work, your own) -- with export and import (backup file, KML, Google Takeout's saved lists and Saved Places.json, several files or the whole Takeout .zip at once). It also has a Timeline: where the phone has been, grouped into days and visits, kept only on the phone, with GPX export. Recording is off until switched on there; it shows a notification while it runs. With Add microG support, Maps' own Save keeps syncing to your account and Local saved instead copies the account's saved lists to the phone (Pull from Google account).",
+    "id": "e919c0d7fe0f944248b8ba9e:29",
+    "legacy_id": 69988,
+    "metadata_status": "verified",
+    "name": "Offline saved places",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Customization screen"
+    ],
+    "description": "Brings the Pixel-only power saving mode to every phone: while driving with navigation, press the power button and Maps shows only key information such as the next turn on a black screen. Turn it on or off in Settings > Navigation > Power saving mode. Pixels that have it built in keep Google's own version unless Power saving mode is turned on in Power Saving Options, a row on the account sheet under Customization, which also has: a navigation button that opens the power saving screen without locking the phone, switching to it by itself when idle, a speedometer on it, a lower frame rate, and its black map in navigation or all over Maps.",
+    "id": "e919c0d7fe0f944248b8ba9e:30",
+    "legacy_id": 69989,
+    "metadata_status": "verified",
+    "name": "Power saving mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Customization screen"
+    ],
+    "description": "Adds a Proxy screen to Customization that sends Maps' own traffic, map data included, through an HTTP proxy -- for example Orbot's (127.0.0.1:8118) to use Tor. Map data never falls back to a direct connection: if the proxy stops, Maps stops loading. Needs a recent Play services network engine (Cronet); Maps warns when it cannot take the proxy.",
+    "id": "e919c0d7fe0f944248b8ba9e:31",
+    "legacy_id": 69990,
+    "metadata_status": "verified",
+    "name": "Proxy",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Squares off rounded corners across the UI, including the two round navigation buttons.",
+    "id": "e919c0d7fe0f944248b8ba9e:32",
+    "legacy_id": 69991,
+    "metadata_status": "verified",
+    "name": "Rectangle shapes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": [
+        "26.3.20"
+      ]
+    },
+    "dependencies": [
+      "Experimental screen"
+    ],
+    "description": "Adds a Remember filter states switch to the Experimental screen. With it on, the trail filters you set (length, elevation, rating, difficulty, activities, features and the rest, but not Distance away) stay set when you go back to the home screen and after the app restarts, instead of resetting.",
+    "id": "e919c0d7fe0f944248b8ba9e:33",
+    "legacy_id": 69992,
+    "metadata_status": "verified",
+    "name": "Remember filters",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": [
+          "26.3.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes permissions that only serve Google-account features or Google's data collection: background location, physical activity, contacts, microphone (voice search stops working), camera (Lens and Live View stop working), car speed, advertising ID, push messages and Google services settings. Left out with Add microG support, whose account features need them.",
+    "id": "e919c0d7fe0f944248b8ba9e:34",
+    "legacy_id": 69993,
+    "metadata_status": "verified",
+    "name": "Remove permissions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Google's sign-in prompts: the first-launch \"Make it your map\" page, the search screen's \"Tired of typing?\" card and the account sheet's \"Sign in\" pill. Tapping \"Your profile\" (or the pill, where it still shows) answers with a \"Can't sign in\" toast instead of nothing. Left out with Add microG support, which signs in.",
+    "id": "e919c0d7fe0f944248b8ba9e:35",
+    "legacy_id": 69994,
+    "metadata_status": "verified",
+    "name": "Remove sign-in prompts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Points the Firebase Installations and Play services compliance check-ins at an unresolvable host, stops every ad impression and click ping from being sent, and deregisters Google's logging, performance-monitoring, survey and Location History libraries and the on-device federated-learning services. With Add microG support, Firebase Installations and Location History are left alone, so Timeline, account sync and push messages keep working.",
+    "id": "e919c0d7fe0f944248b8ba9e:36",
+    "legacy_id": 69995,
+    "metadata_status": "verified",
+    "name": "Remove telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns on Waze's own switch for correcting the speed limit from the speedometer, the old mods' \"Report speed limit\". Waze's server keeps it off; what it shows is not verified here.",
+    "id": "e919c0d7fe0f944248b8ba9e:37",
+    "legacy_id": 69996,
+    "metadata_status": "verified",
+    "name": "Report speed limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Plays the speed camera sound for every camera, not only when you are over the speed limit.",
+    "id": "e919c0d7fe0f944248b8ba9e:38",
+    "legacy_id": 69997,
+    "metadata_status": "verified",
+    "name": "Speed camera sound at any speed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Chimes and shows a note when a speed or red light camera is coming up ahead, and puts the cameras on the map, from OpenStreetMap. Off until turned on in Waze Features, a row on the account sheet, because it downloads the cameras near you from an OpenStreetMap server.",
+    "id": "e919c0d7fe0f944248b8ba9e:39",
+    "legacy_id": 69998,
+    "metadata_status": "verified",
+    "name": "Speed cameras",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns speed camera and police alerts back on in the countries where Waze's server switches them off. Warning of speed cameras is against the law in some of those countries.",
+    "id": "e919c0d7fe0f944248b8ba9e:40",
+    "legacy_id": 69999,
+    "metadata_status": "verified",
+    "name": "Speed cameras everywhere",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.24.5.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "The style of the speed limit sign beside the speedometer, whatever the country.",
+    "id": "e919c0d7fe0f944248b8ba9e:41",
+    "legacy_id": 70000,
+    "metadata_status": "verified",
+    "name": "Speed limit sign",
+    "options": [
+      {
+        "default": "us",
+        "description": "Waze picks one by country.",
+        "key": "style",
+        "required": true,
+        "title": "Sign style",
+        "type": "kotlin.String",
+        "values": {
+          "US (white rectangle)": "us",
+          "World (red circle)": "world"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.24.5.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": false
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Plays a chime when your speed passes the speed limit during navigation, as Waze does. Maps itself only turns its speedometer red. When it chimes is chosen in Waze Features, a row on the account sheet.",
+    "id": "e919c0d7fe0f944248b8ba9e:42",
+    "legacy_id": 70001,
+    "metadata_status": "verified",
+    "name": "Speeding chime",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.alltrails.alltrails": [
+        "26.3.20"
+      ]
+    },
+    "dependencies": [
+      "Experimental screen"
+    ],
+    "description": "Adds a Theme choice to the Experimental screen: Follow phone, Light, Dark or AMOLED black (dark with pure black backgrounds). AllTrails itself only follows the phone.",
+    "id": "e919c0d7fe0f944248b8ba9e:43",
+    "legacy_id": 70002,
+    "metadata_status": "verified",
+    "name": "Theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AllTrails: Hike, Bike & Run",
+        "icon_url": "https://play-lh.googleusercontent.com/VGEJRpXhcohBLp64CcZkufSHI97tfN1LQBJsvcNojlHZZTy6bQRFxr6xogqlEv-f5RwkLIcvVLiBAEfkZqrXqA",
+        "name": "com.alltrails.alltrails",
+        "versions": [
+          "26.3.20"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet. Left out with Add microG support, whose account features need them.",
+    "id": "e919c0d7fe0f944248b8ba9e:44",
+    "legacy_id": 70003,
+    "metadata_status": "verified",
+    "name": "Trim account menu",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "e919c0d7fe0f944248b8ba9e",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds +, − and reset tiles during turn-by-turn that change the navigation zoom while the camera keeps following the car.",
+    "id": "e919c0d7fe0f944248b8ba9e:45",
+    "legacy_id": 70004,
+    "metadata_status": "verified",
+    "name": "Zoom controls in navigation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.2.4",
+    "source_id": "6da25d54b19c98a0",
+    "use": true
+  },
+  {
+    "bundle_id": "6c3c2e2ff6661f70f6b492a4",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds +, − and reset tiles during turn-by-turn that change the navigation zoom while the camera keeps following the car.",
+    "id": "6c3c2e2ff6661f70f6b492a4:15",
+    "legacy_id": 70005,
+    "metadata_status": "verified",
+    "name": "Zoom controls in navigation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.20",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "994e357cb2c9bd3b199e760a",
+    "compatiblePackages": {
+      "com.facebook.katana": [
+        "582.0.0.50.54"
+      ]
+    },
+    "dependencies": [
+      "Hushfacebook settings"
+    ],
+    "description": "Keeps you off the viewer list of stories you watch, because Facebook isn't told which ones you've seen. Replying or reacting still shows you, and watched stories still look new. Starts off. Turn it on in Hushfacebook settings > Stories.",
+    "id": "994e357cb2c9bd3b199e760a:87",
+    "legacy_id": 70006,
+    "metadata_status": "verified",
+    "name": "View stories anonymously",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Facebook",
+        "icon_url": "https://play-lh.googleusercontent.com/12KEJDhgk6oyE1VgmfCuFzFrQripZ_endElbvEhU1rZawQgV3RI-v3II8fDslI1sdC_WKBkmtxS3jxuIihk33Q",
+        "name": "com.facebook.katana",
+        "versions": [
+          "582.0.0.50.54"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.11.0",
+    "source_id": "c45f6b97d72b8e46",
+    "use": true
+  },
+  {
+    "bundle_id": "02299227c832fd365c04fedf",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "31.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Claims Twitch's Channel Points bonus chest automatically on the channel you are watching.",
+    "id": "02299227c832fd365c04fedf:0",
+    "legacy_id": 70007,
+    "metadata_status": "verified",
+    "name": "Auto claim channel points",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "31.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.4",
+    "source_id": "6af02e4c275751fe",
+    "use": true
+  },
+  {
+    "bundle_id": "02299227c832fd365c04fedf",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "31.3.1"
+      ]
+    },
+    "dependencies": [
+      "Auto claim channel points"
+    ],
+    "description": "Kizu Twitch enhancements: third-party emotes in chat and the native Twitch emote menu, animated emote playback, live ad blocking, appearance controls, privacy controls, and patched-app compatibility.",
+    "id": "02299227c832fd365c04fedf:1",
+    "legacy_id": 70008,
+    "metadata_status": "verified",
+    "name": "Twitch Enhancement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "31.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.4",
+    "source_id": "6af02e4c275751fe",
+    "use": true
+  },
+  {
+    "bundle_id": "0d418f57c86598d8fad06041",
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "20.14.43",
+        "20.21.37",
+        "20.26.46",
+        "20.31.42",
+        "20.37.48",
+        "20.40.45"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to show two subtitle lines at the same time, the spoken language and a translation, for language learning.",
+    "id": "0d418f57c86598d8fad06041:0",
+    "legacy_id": 70009,
+    "metadata_status": "verified",
+    "name": "Better captions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": [
+          "20.14.43",
+          "20.21.37",
+          "20.26.46",
+          "20.31.42",
+          "20.37.48",
+          "20.40.45"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.1",
+    "source_id": "9ac79baa73b7118a",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Configures radar/camera and hazard alert announcement distances.\nCredits: Waze CGE Mod.\n",
+    "id": "1e46521a72579fe9790ff25f:0",
+    "legacy_id": 70010,
+    "metadata_status": "verified",
+    "name": "Alert Distances",
+    "options": [
+      {
+        "default": 2000,
+        "description": "Official: 600m.",
+        "key": "accidentDist",
+        "required": false,
+        "title": "Accident alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1000,
+        "description": "Official: 600m.",
+        "key": "alertDist",
+        "required": false,
+        "title": "General alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1000,
+        "description": "Official: 600m.",
+        "key": "policeDist",
+        "required": false,
+        "title": "Police / camera alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1200,
+        "description": "Official: 2000m.",
+        "key": "freewayDist",
+        "required": false,
+        "title": "Enforcement — freeways (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 900,
+        "description": "Official: 1000m.",
+        "key": "highwayDist",
+        "required": false,
+        "title": "Enforcement — highways (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 700,
+        "description": "Official: 500m.",
+        "key": "streetDist",
+        "required": false,
+        "title": "Enforcement — streets (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 500,
+        "description": "Official: 600m.",
+        "key": "hazardDist",
+        "required": false,
+        "title": "Hazard alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 3000,
+        "description": "Official: 600m.",
+        "key": "heavyTrafDist",
+        "required": false,
+        "title": "Heavy traffic alert (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 200,
+        "description": "Official: 300m.",
+        "key": "betweenDist",
+        "required": false,
+        "title": "Min between alerts (m)",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Controls how aggressively the map zooms in/out based on driving speed.\nCredits: Waze Chuppito Mod",
+    "id": "1e46521a72579fe9790ff25f:1",
+    "legacy_id": 70011,
+    "metadata_status": "verified",
+    "name": "AutoZoom",
+    "options": [
+      {
+        "default": 20,
+        "description": "Higher = more zoom-out at speed. Official: 10.",
+        "key": "speedFactor",
+        "required": false,
+        "title": "Speed factor",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 25,
+        "description": "Overall zoom scale multiplier. Official: 25.",
+        "key": "scaleFactor",
+        "required": false,
+        "title": "Scale factor",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 8000,
+        "description": "Maximum zoom-out scale. Official: 8000.",
+        "key": "maxScale",
+        "required": false,
+        "title": "Max scale",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 60,
+        "description": "Zoom gradient activates above this speed. Official: 30.",
+        "key": "gradientSpeed",
+        "required": false,
+        "title": "Gradient speed threshold (km/h)",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": [
+        "26.23.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses PairIP DRM license verification to prevent forced app shutdown on non-Play-licensed installs.",
+    "id": "1e46521a72579fe9790ff25f:2",
+    "legacy_id": 70012,
+    "metadata_status": "verified",
+    "name": "Bypass License Check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CrimeRadar: Dispatch Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/3b7_a7m50wFj68Afd6q0bhq2HPTWQlgeViv9B9tEbhChS3h4nVTo-HotZF4OmShKwT2_zhNAr3alwYRWBjiC_g",
+        "name": "com.newsbreak.crimeradar",
+        "versions": [
+          "26.23.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.community.oneroom": [
+        "3.0.15.0616.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces MemberCheckResult.isPassed() to always return Boolean.TRUE, bypassing the server-side membership gate and preventing the 'Get Premium / 7-day trial' dialog.",
+    "id": "1e46521a72579fe9790ff25f:3",
+    "legacy_id": 70013,
+    "metadata_status": "verified",
+    "name": "Bypass member rights check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "3.0.15.0616.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": [
+        "26.23.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the subscription paywall in-app.",
+    "id": "1e46521a72579fe9790ff25f:4",
+    "legacy_id": 70014,
+    "metadata_status": "verified",
+    "name": "Bypass Subscription Paywall",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CrimeRadar: Dispatch Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/3b7_a7m50wFj68Afd6q0bhq2HPTWQlgeViv9B9tEbhChS3h4nVTo-HotZF4OmShKwT2_zhNAr3alwYRWBjiC_g",
+        "name": "com.newsbreak.crimeradar",
+        "versions": [
+          "26.23.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.community.oneroom": [
+        "3.0.15.0616.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces MemberResolutionBean.getVipResolutionTip() to always return Boolean.FALSE, suppressing any 'VIP only' badge shown on resolution options.",
+    "id": "1e46521a72579fe9790ff25f:5",
+    "legacy_id": 70015,
+    "metadata_status": "verified",
+    "name": "Clear VIP resolution tip",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "3.0.15.0616.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Force dark mode for Amazon Shopping.",
+    "id": "1e46521a72579fe9790ff25f:6",
+    "legacy_id": 70016,
+    "metadata_status": "verified",
+    "name": "Dark mode",
+    "options": [
+      {
+        "default": "follow_system",
+        "description": "Off / Follow system / Always on.",
+        "key": "amazonDarkMode",
+        "required": false,
+        "title": "Dark mode",
+        "type": "kotlin.String",
+        "values": {
+          "Always on": "on",
+          "Follow system": "follow_system",
+          "Off": "off"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "sensustech.universal.tv.remote.control": [
+        "1.8.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the AppOpen ad preloader from initialising.",
+    "id": "1e46521a72579fe9790ff25f:7",
+    "legacy_id": 70017,
+    "metadata_status": "verified",
+    "name": "Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Universal TV Remote Control",
+        "icon_url": "https://play-lh.googleusercontent.com/yowpBHteTsFjVgAZN1IExwfucGxJzZ28sXYf4hs_Y4FnemiL9-qrUSr5VrzdXQNcoNTGCJ7-bEufvb--V5gpqw",
+        "name": "sensustech.universal.tv.remote.control",
+        "versions": [
+          "1.8.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses all Waze ad systems via bundled preferences file:\n• AdMob SDK (Ad_.*)\n• Google Ads (Google_Ads.*)\n• Ads Inventory Prediction\n• ExternalPOI pins, coupons, popups (ExternalPO_ + Extern__POI both key variants)\n• Search autocomplete server ads\nCredits: Waze CGE Mod (ExternalPOI keys), Waze Chuppito (dual-key coverage).",
+    "id": "1e46521a72579fe9790ff25f:8",
+    "legacy_id": 70018,
+    "metadata_status": "verified",
+    "name": "Disable Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stubs AdvilRequest.getPageUrl() → \"\" so the Advil ad server receives no page URL and returns no ad content. ",
+    "id": "1e46521a72579fe9790ff25f:9",
+    "legacy_id": 70019,
+    "metadata_status": "verified",
+    "name": "Disable Advil Ad Requests",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": [
+        "6.38.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables App Analytics / Telemetry.",
+    "id": "1e46521a72579fe9790ff25f:10",
+    "legacy_id": 70020,
+    "metadata_status": "verified",
+    "name": "Disable Analytics / Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1.1.1.1 + WARP: Safer Internet",
+        "icon_url": "https://play-lh.googleusercontent.com/PDwXxcvulfxi2bH4UjcMGJ7i0CQ7_QNypYohkhhg02zE7FdNTNRyF21-ikrLM5kyvcmNxtr77Va-7sS3NLbpNg",
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": [
+          "6.38.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents search keypress and focus events from being sent with suggestion requests.",
+    "id": "1e46521a72579fe9790ff25f:11",
+    "legacy_id": 70021,
+    "metadata_status": "verified",
+    "name": "Disable search suggestions tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.intsig.camscanner": [
+        "7.20.0.2606230000"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables CamScanner's custom telemetry/log-agent system.",
+    "id": "1e46521a72579fe9790ff25f:12",
+    "legacy_id": 70022,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CamScanner- scanner, PDF maker",
+        "icon_url": "https://play-lh.googleusercontent.com/XSoqEDquJuenUosbMN_EA2n2U5lsomPEUdCKj4j9bUdPfdWMCtRqXlyPgQ6zxQxWaDFIXrqbqyFjwXQ5FMYubw",
+        "name": "com.intsig.camscanner",
+        "versions": [
+          "7.20.0.2606230000"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents product and ad videos from autoplaying.",
+    "id": "1e46521a72579fe9790ff25f:13",
+    "legacy_id": 70023,
+    "metadata_status": "verified",
+    "name": "Disable video autoplay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Increases speedometer digit size for better readability.",
+    "id": "1e46521a72579fe9790ff25f:14",
+    "legacy_id": 70024,
+    "metadata_status": "verified",
+    "name": "Enlarged Speedometer",
+    "options": [
+      {
+        "default": 28,
+        "description": "Speedometer font size when speed < 100. Default: 28sp (original: 20sp).",
+        "key": "smallTextSize",
+        "required": false,
+        "title": "Text size — speed below 100",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 21,
+        "description": "Speedometer font size when speed ≥ 100. Default: 21sp (original: 13sp).",
+        "key": "largeTextSize",
+        "required": false,
+        "title": "Text size — speed 100+",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Fixes Firebase services (push notifications, Remote Config, Firebase Auth) that break after Morphe re-signs the app with a different certificate.\n\nApply with Original app certificate patch no other config needed.",
+    "id": "1e46521a72579fe9790ff25f:15",
+    "legacy_id": 70025,
+    "metadata_status": "verified",
+    "name": "Fix Firebase after re-signing",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Routes Google Play Services calls through MicroG instead of real GPS.\n\nWorks for: Google apps (YouTube, Maps, News, Photos) and third-party apps using classic Google Sign-In (Android 13 and below).\n\nDoes not work for: Android 14+ Credential Manager sign-in (most modern third-party apps), Play Integrity / SafetyNet checks, or apps with custom auth.\n\nRequires MicroG RE installed. Apply with Original app certificate patch.",
+    "id": "1e46521a72579fe9790ff25f:16",
+    "legacy_id": 70026,
+    "metadata_status": "verified",
+    "name": "GmsCore support (MicroG)",
+    "options": [
+      {
+        "default": "app.revanced.android.gms",
+        "description": "Which MicroG / GmsCore app is installed on your device. Check your device's app list for \"MicroG\" or \"GmsCore\" if unsure — most users should leave this as the default.",
+        "key": "gmsCoreVendor",
+        "required": true,
+        "title": "MicroG package name",
+        "type": "kotlin.String",
+        "values": {
+          "app.morphe.android.gms": "app.morphe.android.gms",
+          "app.morphe.manager": "app.morphe.manager",
+          "app.revanced.android.gms (default)": "app.revanced.android.gms",
+          "app.revanced.manager": "app.revanced.manager",
+          "app.rvx.manager": "app.rvx.manager",
+          "com.google.android.gms": "com.google.android.gms",
+          "org.microg.gms": "org.microg.gms"
+        }
+      },
+      {
+        "default": null,
+        "description": "The app's main Activity class name ending with a semicolon, e.g. /MainActivity; Used to inject the MicroG check at startup. Leave blank for auto-detection.",
+        "key": "mainActivityName",
+        "required": false,
+        "title": "Main activity class (optional)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Rename the app to this package name. Leave blank to keep the original. Must be a valid package name (e.g. com.example.myapp).",
+        "key": "packageName",
+        "required": false,
+        "title": "Custom package name (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Rufus AI assistant tab from Amazon's bottom navigation bar.",
+    "id": "1e46521a72579fe9790ff25f:17",
+    "legacy_id": 70027,
+    "metadata_status": "verified",
+    "name": "Hide Rufus tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Applies Chuppito's 'Vitamin C' map skin. All visual values configurable.\n• Night: true black AMOLED background (saves battery, prevents burn-in)\n• Day: warm beige background\n• Larger font labels across the board\n• Wider navigation arrow head for better visibility\n• Custom car 3D models: Batmobile, Riddler, race car, 3D arrow\nCredits: ALEX02-GTT (skin design), Waze Chuppito Mod (integration).",
+    "id": "1e46521a72579fe9790ff25f:18",
+    "legacy_id": 70028,
+    "metadata_status": "verified",
+    "name": "Map Skin (Vitamin C)",
+    "options": [
+      {
+        "default": "000000",
+        "description": "Default: 000000 (true black, AMOLED). Original Waze: 1a1a2e.",
+        "key": "nightBg",
+        "required": false,
+        "title": "Night background color (hex)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "ebe7dd",
+        "description": "Default: ebe7dd (warm beige). Original Waze: f7f3eb.",
+        "key": "dayBg",
+        "required": false,
+        "title": "Day background color (hex)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": 18,
+        "description": "Default: 18 (original: 14).",
+        "key": "fontHuge",
+        "required": false,
+        "title": "Font size — huge labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 14,
+        "description": "Default: 14 (original: 12).",
+        "key": "fontBig",
+        "required": false,
+        "title": "Font size — big labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 12,
+        "description": "Default: 12 (original: 10).",
+        "key": "fontMedium",
+        "required": false,
+        "title": "Font size — medium labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 10,
+        "description": "Default: 10 (original: 8).",
+        "key": "fontSmall",
+        "required": false,
+        "title": "Font size — small labels",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": "10.0",
+        "description": "Default: 10.0 (original: 3.0). Wider = more visible chevron.",
+        "key": "navArrow",
+        "required": false,
+        "title": "Nav arrow head width factor",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Configures navigation and map behaviour:\n• Nearing destination distance (Credits: CGE Mod)\n• Android Auto head-up alert distances\n• Map turn mode (auto-zoom to upcoming turn)\n• Traffic bar minimum time threshold\n• GPS icon visibility\n• Route notifications (hazard, school zone) both disabled by default\nCredits: Waze CGE Mod (nearing destination), Waze Chuppito (remaining keys).",
+    "id": "1e46521a72579fe9790ff25f:19",
+    "legacy_id": 70029,
+    "metadata_status": "verified",
+    "name": "Navigation & Map",
+    "options": [
+      {
+        "default": 0,
+        "description": "0 = silent arrival. Official: ~500m.",
+        "key": "nearingDestDist",
+        "required": false,
+        "title": "Nearing destination distance (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1200,
+        "description": "Official: 800m.",
+        "key": "aaHeadUpNormal",
+        "required": false,
+        "title": "Android Auto head-up — normal roads (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1300,
+        "description": "Official: 1000m.",
+        "key": "aaHeadUpFreeway",
+        "required": false,
+        "title": "Android Auto head-up — freeways (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 180,
+        "description": "Official: 300s.",
+        "key": "trafficBarMinTime",
+        "required": false,
+        "title": "Traffic bar min time in traffic (seconds)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": "no",
+        "description": "Official: yes.",
+        "key": "showGpsIcon",
+        "required": false,
+        "title": "Show GPS icon on map",
+        "type": "kotlin.String",
+        "values": {
+          "Hidden (less clutter)": "no",
+          "Visible": "yes"
+        }
+      },
+      {
+        "default": "1",
+        "description": "Default: enabled.",
+        "key": "mapTurnMode",
+        "required": false,
+        "title": "Map turn mode (auto-zoom to turn)",
+        "type": "kotlin.String",
+        "values": {
+          "Disabled": "0",
+          "Enabled": "1"
+        }
+      },
+      {
+        "default": "0",
+        "description": "Default: disabled (0).",
+        "key": "hazardNotif",
+        "required": false,
+        "title": "Permanent hazard route notification",
+        "type": "kotlin.String",
+        "values": {
+          "Disabled": "0",
+          "Enabled": "1"
+        }
+      },
+      {
+        "default": "0",
+        "description": "Default: disabled (0).",
+        "key": "schoolNotif",
+        "required": false,
+        "title": "School zone route notification",
+        "type": "kotlin.String",
+        "values": {
+          "Disabled": "0",
+          "Enabled": "1"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Opens non-Amazon URLs in the default browser instead of the in-app WebView.",
+    "id": "1e46521a72579fe9790ff25f:20",
+    "legacy_id": 70030,
+    "metadata_status": "verified",
+    "name": "Open links in browser",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents promotional and ad popups from appearing while driving.\nRaises the minimum trigger speed to a near-impossible value so popups never appear.\nCredits: Waze Chuppito Mod.",
+    "id": "1e46521a72579fe9790ff25f:21",
+    "legacy_id": 70031,
+    "metadata_status": "verified",
+    "name": "Popup Suppression",
+    "options": [
+      {
+        "default": 999999,
+        "description": "Default 999999 = never. Official: 0 (always shows).",
+        "key": "minSpeed",
+        "required": false,
+        "title": "Min speed to show popups (MMSec)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": -1,
+        "description": "-1 = disable stopped trigger. Official: 0.",
+        "key": "fullyStoppedSpeed",
+        "required": false,
+        "title": "Fully stopped speed (MMSec)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1,
+        "description": "Official: 100m.",
+        "key": "minDistance",
+        "required": false,
+        "title": "Min distance to show popup (m)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 7000,
+        "description": "Speed at which scroll suppression resets. Official: 1400.",
+        "key": "minResetScrollSpeed",
+        "required": false,
+        "title": "Min reset scroll speed (MMSec)",
+        "type": "kotlin.Long",
+        "values": null
+      },
+      {
+        "default": 1,
+        "description": "Seconds before popup can appear post-interaction. Official: 0.",
+        "key": "delayAfterInteraction",
+        "required": false,
+        "title": "Delay after user interaction (seconds)",
+        "type": "kotlin.Long",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Injects Keepa and CamelCamelCamel price history charts on Amazon product pages.",
+    "id": "1e46521a72579fe9790ff25f:22",
+    "legacy_id": 70032,
+    "metadata_status": "verified",
+    "name": "Price history charts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "By Default it Reads the signing certificate from the original app installed. Required for GmsCore, Firebase, and Signature spoof patches. Only fill options below if the original is uninstalled.",
+    "id": "1e46521a72579fe9790ff25f:23",
+    "legacy_id": 70033,
+    "metadata_status": "verified",
+    "name": "Provide Original app certificate",
+    "options": [
+      {
+        "default": null,
+        "description": "Full path to the original APK or .apks bundle. Example: /sdcard/Download/Waze.apks",
+        "key": "originalApkPath",
+        "required": false,
+        "title": "Path to original APK (if uninstalled)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "40-char hex. Found on APKMirror under app signature info.",
+        "key": "manualCertSha1",
+        "required": false,
+        "title": "Certificate SHA-1 (manual)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "64-char hex. Optional companion to SHA-1.",
+        "key": "manualCertSha256",
+        "required": false,
+        "title": "Certificate SHA-256 (manual)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": null,
+        "description": "Needed only for Signature spoof patch. Get it with: apksigner verify --print-certs original.apk",
+        "key": "manualCertBase64",
+        "required": false,
+        "title": "Certificate Base64 DER (manual)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Plays radar/speed camera sound alerts regardless of current speed. Official Waze only alerts when over the speed limit.\n",
+    "id": "1e46521a72579fe9790ff25f:24",
+    "legacy_id": 70034,
+    "metadata_status": "verified",
+    "name": "Radar Sound (Any Speed)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.toomics.global.google": [
+        "1.6.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remove in-app ads",
+    "id": "1e46521a72579fe9790ff25f:25",
+    "legacy_id": 70035,
+    "metadata_status": "verified",
+    "name": "Remove ADS",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Toomics - Read Premium Comics",
+        "icon_url": "https://play-lh.googleusercontent.com/bVCtSs3SL17q4bEwnVahuJxqoYKKP-2uzicSDoEMVULHahXIZhHeJwbyTBJjMshIPkV8dOQKRkh__Ly_BYHBcw",
+        "name": "com.toomics.global.google",
+        "versions": [
+          "1.6.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.mobond.mindicator": [
+        "18.0.356"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes interstitial and exit native ads from m-Indicator.",
+    "id": "1e46521a72579fe9790ff25f:26",
+    "legacy_id": 70036,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "m-Indicator: Mumbai Local",
+        "icon_url": "https://play-lh.googleusercontent.com/6NH-2g_kwAlEExsNbcAA0w5bjfxoHMaALX4DrMpIhQe64-ZfaxLW085Cax9J-e_mvk9TNeNKZXDzeo8BNF-eExY",
+        "name": "com.mobond.mindicator",
+        "versions": [
+          "18.0.356"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.vizmanga.android": [
+        "4.13.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remove in-app ads.",
+    "id": "1e46521a72579fe9790ff25f:27",
+    "legacy_id": 70037,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VIZ Manga",
+        "icon_url": "https://play-lh.googleusercontent.com/EY_X2EIcNjp6ugIGzz-2g6H-OXfJlA78ompF5sbOc52e1YYy3_rrmBnB_5zhEOIKUa0gwV1rDC3yGt9WBw4e3w",
+        "name": "com.vizmanga.android",
+        "versions": [
+          "4.13.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.finalwire.aida64": [
+        "2.21"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stubs all ad loading paths: banner/interstitial loaders, billing callbacks, and ad SDK init.",
+    "id": "1e46521a72579fe9790ff25f:28",
+    "legacy_id": 70038,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AIDA64",
+        "icon_url": "https://play-lh.googleusercontent.com/KNLC9bz3iU2eQsPZmFRUTR7tjjvYQOXggWwkmFjk774XcKBX4f-qLjzViH6aoEaZuLUtj5Tk-3JghquUo-lJSw",
+        "name": "com.finalwire.aida64",
+        "versions": [
+          "2.21"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides sponsored and ad content in Amazon Shopping via CSS injection.",
+    "id": "1e46521a72579fe9790ff25f:29",
+    "legacy_id": 70039,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "game.puzzle.blockpuzzle": [
+        "6.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Block Puzzle AdMob initialization, banner, and interstitial ads.",
+    "id": "1e46521a72579fe9790ff25f:30",
+    "legacy_id": 70040,
+    "metadata_status": "verified",
+    "name": "Remove ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Block Puzzle",
+        "icon_url": "https://play-lh.googleusercontent.com/LykZe_bTYCKYSv8j903U7YSynvqmMTPaikpAHGiS65aYr_Za8RV9pGuXNqDhTmglMN6ppdB209IIihK874DxMA",
+        "name": "game.puzzle.blockpuzzle",
+        "versions": [
+          "6.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.psiphon3.subscription": [
+        "479"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces SubscriptionStateImpl.getStatus() (LB2/c.h) to always return HAS_UNLIMITED_SUBSCRIPTION and getPurchase() (LB2/c.g) to return a well-formed fake Purchase, removing ads and the upgrade button/banner without crashing on the now-expected non-null Purchase object.",
+    "id": "1e46521a72579fe9790ff25f:31",
+    "legacy_id": 70041,
+    "metadata_status": "verified",
+    "name": "Remove Ads / Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Psiphon VPN: Secure Access",
+        "icon_url": "https://play-lh.googleusercontent.com/8lvPDjWAexZh4EZAfCD-IX4eDdPu7k-eJI0PJacFqIS2WnRs0f5qzIXF4JdvV3eK889yRlPwD-Y58RdiVBY7",
+        "name": "com.psiphon3.subscription",
+        "versions": [
+          "479"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": [
+        "26.23.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes all  item limits in-app.",
+    "id": "1e46521a72579fe9790ff25f:32",
+    "legacy_id": 70042,
+    "metadata_status": "verified",
+    "name": "Remove Item Limits",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CrimeRadar: Dispatch Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/3b7_a7m50wFj68Afd6q0bhq2HPTWQlgeViv9B9tEbhChS3h4nVTo-HotZF4OmShKwT2_zhNAr3alwYRWBjiC_g",
+        "name": "com.newsbreak.crimeradar",
+        "versions": [
+          "26.23.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.canva.editor": [
+        "2.367.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes watermarks from Canva exports and previews.",
+    "id": "1e46521a72579fe9790ff25f:33",
+    "legacy_id": 70043,
+    "metadata_status": "verified",
+    "name": "Remove Watermark",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Canva: AI Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/52fzAlhKzDyZV8ttyQ_DHB-jOeLZAZEdKlgXnWL__YNMZuvsoRCshJX5mr_ArFZjK7rte4hqEJ4ucjtuKJK5",
+        "name": "com.canva.editor",
+        "versions": [
+          "2.367.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Report option when tapping the speedometer to report wrong or missing speed limits. Not available in the official version.\n",
+    "id": "1e46521a72579fe9790ff25f:34",
+    "legacy_id": 70044,
+    "metadata_status": "verified",
+    "name": "Report Speed Limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.amazon.mShop.android.shopping": [
+        "32.12.4.100"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips tracking parameters from copied/shared Amazon links, leaving only the clean product URL.",
+    "id": "1e46521a72579fe9790ff25f:35",
+    "legacy_id": 70045,
+    "metadata_status": "verified",
+    "name": "Sanitize share links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Amazon Shopping",
+        "icon_url": "https://play-lh.googleusercontent.com/UIYZ9hTFNg-zZUg_uzLS9YdyDpvoo1VHNFb6VlzHy5JqNMq9Uq-p2S1VPwzXCipHTFacfGKhJkyAuKL19VVlcWA",
+        "name": "com.amazon.mShop.android.shopping",
+        "versions": [
+          "32.12.4.100"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Sets the speed limit sign style shown on the map.",
+    "id": "1e46521a72579fe9790ff25f:36",
+    "legacy_id": 70046,
+    "metadata_status": "verified",
+    "name": "Speed Limit Sign",
+    "options": [
+      {
+        "default": "us",
+        "description": "us = large circular US-style (recommended). metric = small local-style.",
+        "key": "signStyle",
+        "required": false,
+        "title": "Sign style",
+        "type": "kotlin.String",
+        "values": {
+          "Local metric — small": "metric",
+          "US circular — large, more readable": "us"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Provide Original app certificate"
+    ],
+    "description": "Makes the app think its signing certificate is unchanged after Morphe re-signs it.\n\nUseful when an app crashes or shows a tamper warning because it checks its own certificate.\n\nDoes not bypass Play Integrity / SafetyNet hardware attestation.\n\nApply with Original app certificate patch.",
+    "id": "1e46521a72579fe9790ff25f:37",
+    "legacy_id": 70047,
+    "metadata_status": "verified",
+    "name": "Spoof app signature",
+    "options": [
+      {
+        "default": null,
+        "description": "Leave blank — read automatically from the app. Only set this if you changed the app's package name and the patch is using the wrong one.",
+        "key": "packageName",
+        "required": false,
+        "title": "Package name override (optional)",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Makes the app think it was installed from a specific store (default: Google Play).\n\nUseful when an app blocks features or shows errors because it detects it was not installed from the Play Store.\n\nOnly affects what the app itself sees - does not change the real system install record.",
+    "id": "1e46521a72579fe9790ff25f:38",
+    "legacy_id": 70048,
+    "metadata_status": "verified",
+    "name": "Spoof install source",
+    "options": [
+      {
+        "default": "com.android.vending",
+        "description": "Most apps only check for the Google Play Store, so the default is usually correct. Pick from the list, or type any package name directly if your app checks for a different store.",
+        "key": "installerPackageName",
+        "required": true,
+        "title": "Store to impersonate",
+        "type": "kotlin.String",
+        "values": {
+          "Amazon Appstore": "com.amazon.venezia",
+          "F-Droid": "org.fdroid.fdroid",
+          "Google Play Store": "com.android.vending",
+          "Huawei AppGallery": "com.huawei.appmarket",
+          "Samsung Galaxy Store": "com.sec.android.app.samsungapps"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.community.oneroom": [
+        "3.0.15.0616.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces MemberInfo.isActive() to always return true, making the app believe the membership subscription is active.",
+    "id": "1e46521a72579fe9790ff25f:39",
+    "legacy_id": 70049,
+    "metadata_status": "verified",
+    "name": "Spoof member active status",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "3.0.15.0616.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.community.oneroom": [
+        "3.0.15.0616.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces MemberInfo.getDaysLeft() to always return 3650 (10 years), preventing the '0 days left' display on the premium screen.",
+    "id": "1e46521a72579fe9790ff25f:40",
+    "legacy_id": 70050,
+    "metadata_status": "verified",
+    "name": "Spoof member days left",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "3.0.15.0616.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.community.oneroom": [
+        "3.0.15.0616.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces MemberProvider.c() (kv_is_pay_enable_member) and MemberProvider.e() (kv_is_skip_ad) to always return true.",
+    "id": "1e46521a72579fe9790ff25f:41",
+    "legacy_id": 70051,
+    "metadata_status": "verified",
+    "name": "Spoof member provider flags",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "3.0.15.0616.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.cloudflare.onedotonedotonedotone": [
+        "6.38.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks WARP+ UI locally.",
+    "id": "1e46521a72579fe9790ff25f:42",
+    "legacy_id": 70052,
+    "metadata_status": "verified",
+    "name": "Spoof WARP+ Unlimited UI",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "1.1.1.1 + WARP: Safer Internet",
+        "icon_url": "https://play-lh.googleusercontent.com/PDwXxcvulfxi2bH4UjcMGJ7i0CQ7_QNypYohkhhg02zE7FdNTNRyF21-ikrLM5kyvcmNxtr77Va-7sS3NLbpNg",
+        "name": "com.cloudflare.onedotonedotonedotone",
+        "versions": [
+          "6.38.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Reports Widevine L1 (hardware DRM) to apps that check DRM level locally.\n\nUseful for apps that refuse to play HD/4K content on L3 devices or after re-signing.\n\nDoes not bypass server-side DRM - Netflix, Disney+ and similar are not affected.",
+    "id": "1e46521a72579fe9790ff25f:43",
+    "legacy_id": 70053,
+    "metadata_status": "verified",
+    "name": "Spoof Widevine / DRM level",
+    "options": [
+      {
+        "default": "L1",
+        "description": "L1 = hardware DRM (highest quality). L3 = software only. Default L1.",
+        "key": "securityLevel",
+        "required": true,
+        "title": "Widevine security level to report",
+        "type": "kotlin.String",
+        "values": {
+          "L1 (highest — hardware)": "L1",
+          "L2": "L2",
+          "L3 (software only)": "L3"
+        }
+      },
+      {
+        "default": "HDCP_V2_2",
+        "description": "HDCP_V2_2 is required for 4K content on most streaming apps.",
+        "key": "hdcpLevel",
+        "required": false,
+        "title": "HDCP level to report",
+        "type": "kotlin.String",
+        "values": {
+          "HDCP 1.x": "HDCP_V1",
+          "HDCP 2.2": "HDCP_V2_2",
+          "HDCP 2.3": "HDCP_V2_3",
+          "None (disable)": "HDCP_LEVEL_NONE"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": false
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.community.oneroom": [
+        "3.0.15.0616.03"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes MemberProvider.w(F)V return immediately, suppressing the 'Claim 7-day trial / newbies bonus' ClaimMemberDialog popup.",
+    "id": "1e46521a72579fe9790ff25f:44",
+    "legacy_id": 70054,
+    "metadata_status": "verified",
+    "name": "Suppress newbie bonus dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.community.oneroom",
+        "icon_url": null,
+        "name": "com.community.oneroom",
+        "versions": [
+          "3.0.15.0616.03"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "sensustech.universal.tv.remote.control": [
+        "1.8.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses the in-app paywall.",
+    "id": "1e46521a72579fe9790ff25f:45",
+    "legacy_id": 70055,
+    "metadata_status": "verified",
+    "name": "Suppress Paywall",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Universal TV Remote Control",
+        "icon_url": "https://play-lh.googleusercontent.com/yowpBHteTsFjVgAZN1IExwfucGxJzZ28sXYf4hs_Y4FnemiL9-qrUSr5VrzdXQNcoNTGCJ7-bEufvb--V5gpqw",
+        "name": "sensustech.universal.tv.remote.control",
+        "versions": [
+          "1.8.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.newsbreak.crimeradar": [
+        "26.23.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Supress all premium promotions in-app.",
+    "id": "1e46521a72579fe9790ff25f:46",
+    "legacy_id": 70056,
+    "metadata_status": "verified",
+    "name": "Suppress Premium Promotions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CrimeRadar: Dispatch Alerts",
+        "icon_url": "https://play-lh.googleusercontent.com/3b7_a7m50wFj68Afd6q0bhq2HPTWQlgeViv9B9tEbhChS3h4nVTo-HotZF4OmShKwT2_zhNAr3alwYRWBjiC_g",
+        "name": "com.newsbreak.crimeradar",
+        "versions": [
+          "26.23.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.waze": [
+        "5.21.0.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows exact fixed and mobile speed camera locations, including those not yet in the official Waze radar zone. Enables enforcement alerts via preferences keys:\nCredits: Waze CGE Mod.",
+    "id": "1e46521a72579fe9790ff25f:47",
+    "legacy_id": 70057,
+    "metadata_status": "verified",
+    "name": "Uncensored Radar / Camera Display",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Waze Navigation & Live Traffic",
+        "icon_url": "https://play-lh.googleusercontent.com/d4dltd4baeDGnfJD1H-ut68ERsIynfywij9zHRL7ioB-PJW3ENw-bFgg08KGPo8zQfSyRW36e58xhlqQ0pE1gg",
+        "name": "com.waze",
+        "versions": [
+          "5.21.0.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "org.zwanoo.android.speedtest": [
+        "7.0.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes ads and unlocks ad-free status in Speedtest by Ookla.",
+    "id": "1e46521a72579fe9790ff25f:48",
+    "legacy_id": 70058,
+    "metadata_status": "verified",
+    "name": "Unlock Ad-Free",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Speedtest by Ookla",
+        "icon_url": "https://play-lh.googleusercontent.com/ZH4EUfCHaf8hoFSpeLx_guqWN-DkGdJWbP5Ydim9dbvqO4L95TC3V7WD20-KsEpGaZuCrWz62ClSYdmCanL9",
+        "name": "org.zwanoo.android.speedtest",
+        "versions": [
+          "7.0.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.kevinforeman.nzb360": [
+        "23.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks All access in Nzb360.",
+    "id": "1e46521a72579fe9790ff25f:49",
+    "legacy_id": 70059,
+    "metadata_status": "verified",
+    "name": "Unlock All Access",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "nzb360 - Media Server Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/CZpq1UrZc2UUONba1GM8OWEGeYeJ1_NrBcjhGpENnhSEIzbLb-f6lW76fuso685c3pdK8KuV2nfb8AVxISJlPv8",
+        "name": "com.kevinforeman.nzb360",
+        "versions": [
+          "23.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "verbosus.pialytic": [
+        "1.2.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses PairIP DRM license check, removes all paywalls, and unlocks all premium features including cloud sync and remote access.",
+    "id": "1e46521a72579fe9790ff25f:50",
+    "legacy_id": 70060,
+    "metadata_status": "verified",
+    "name": "Unlock All Features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pialytic Julia Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/YHmhFroyMdSOsI7xNBqL-EGL76I-5rL3uGioNR8Ul3W49cK-ZoVUQaZE1x3I-HIyqoRWEwBaeuhDi0Ir3ClO",
+        "name": "verbosus.pialytic",
+        "versions": [
+          "1.2.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.flightradar24free": [
+        "11.6.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Business/Gold premium features in Flightradar24: ad-free map, weather layers, ATC, 3D view, flight history, and unlimited saved locations.",
+    "id": "1e46521a72579fe9790ff25f:51",
+    "legacy_id": 70061,
+    "metadata_status": "verified",
+    "name": "Unlock Business Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flightradar24 Flight Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8KtIuiRHYtY0XJigXIl-iN6X6-ht85ELWXFiynenpCW40b6zNUnLFGKwIN0iITV_1L3sN3G53PaiNiWsn5RSIv8",
+        "name": "com.flightradar24free",
+        "versions": [
+          "11.6.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.citymapper.app.release": [
+        "11.55.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Citymapper Club Membership Note: Need to manually Purchase inside APP!.",
+    "id": "1e46521a72579fe9790ff25f:52",
+    "legacy_id": 70062,
+    "metadata_status": "verified",
+    "name": "Unlock Club",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Citymapper",
+        "icon_url": "https://play-lh.googleusercontent.com/U0baiS5SFsdl6hU6WW2Rq94xd5lIscxgwVZNw0rsN2G7Tqlg3m86KieOuhgR9GTQZMYngD_ilppCeot9lBuBPQ",
+        "name": "com.citymapper.app.release",
+        "versions": [
+          "11.55.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.weawow": [
+        "7.1.7"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces h0() to return \"yes\" so donate dialog never shows and providers unlock.",
+    "id": "1e46521a72579fe9790ff25f:53",
+    "legacy_id": 70063,
+    "metadata_status": "verified",
+    "name": "Unlock donation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Weather & Widget - Weawow",
+        "icon_url": "https://play-lh.googleusercontent.com/mo_d82SnAfbPtjpR3nVHs-wBPZ2ByUyR_30SUxSoxDpD1DMjU7mPpnV5QD4O7dMMvKp5AgefBpb1yDtf2y7J",
+        "name": "com.weawow",
+        "versions": [
+          "7.1.7"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.oasisfeng.greenify": [
+        "5.1.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium donation features in Greenify.",
+    "id": "1e46521a72579fe9790ff25f:54",
+    "legacy_id": 70064,
+    "metadata_status": "verified",
+    "name": "Unlock Donation Features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Greenify",
+        "icon_url": "https://play-lh.googleusercontent.com/4Uqi_lGZdgUL4GGxELdNdBaDMs2OjhC9emw5LWtEb1XN3NWlybG9IYD5yXSLuhwtt66cuMz4L4zWYgXzgxR1sA",
+        "name": "com.oasisfeng.greenify",
+        "versions": [
+          "5.1.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.localaiapp.scoops": [
+        "3.28.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the IAA (ad-watch-to-unlock) episode gate for drama mini-series.",
+    "id": "1e46521a72579fe9790ff25f:55",
+    "legacy_id": 70065,
+    "metadata_status": "verified",
+    "name": "Unlock Drama Episodes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Scoopz: Real Life, Real Videos",
+        "icon_url": "https://play-lh.googleusercontent.com/Lm1Lyl9fN-E0QCmqzMvYOGfnEJ2zK6jGRlquVxY35QBVspVr1LkY6Qb4hpuAchXpQ3harkLmIN12nmnbQ0F15g",
+        "name": "com.localaiapp.scoops",
+        "versions": [
+          "3.28.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  },
+  {
+    "bundle_id": "1e46521a72579fe9790ff25f",
+    "compatiblePackages": {
+      "com.tecso.MigraConnect": [
+        "2.8.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Enterprise features in app.",
+    "id": "1e46521a72579fe9790ff25f:56",
+    "legacy_id": 70066,
+    "metadata_status": "verified",
+    "name": "Unlock Enterprise",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MigraConnect Case Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/o9N_gaJAFkQEFV4XMgMdR954dODb4vwNLiJFlhRQmGTn__EzEwdhoT-bU0xx6BgHxGOyvpDh5G6t42sQgwxUIg",
+        "name": "com.tecso.MigraConnect",
+        "versions": [
+          "2.8.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.11.0-dev.3",
+    "source_id": "3cc3c0bc9a607742",
+    "use": true
+  }
+]
