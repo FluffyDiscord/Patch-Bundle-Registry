@@ -1,0 +1,2823 @@
+[
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:3",
+    "legacy_id": 85106,
+    "metadata_status": "unverified",
+    "name": "Change app icon",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Changes the version code of the app. This will turn off app store updates and allows downgrading an existing app install to an older app version.",
+    "id": "16a6b490e6859392f4917f11:4",
+    "legacy_id": 85107,
+    "metadata_status": "unverified",
+    "name": "Change version code",
+    "options": [
+      {
+        "default": 2147483647,
+        "description": "The version code to use. Using the highest value turns off app store updates and allows downgrading an existing app install to an older app version.",
+        "key": "versionCode",
+        "required": true,
+        "title": "Version code",
+        "type": "kotlin.Int",
+        "values": {
+          "Highest": 2147483647,
+          "Lowest": 1
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Removes tracking parameters when sharing links",
+    "id": "16a6b490e6859392f4917f11:5",
+    "legacy_id": 85108,
+    "metadata_status": "unverified",
+    "name": "Clear tracking params",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Control video auto scroll in immersive view",
+    "id": "16a6b490e6859392f4917f11:6",
+    "legacy_id": 85109,
+    "metadata_status": "unverified",
+    "name": "Control video auto scroll",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Change the download directory for video downloads",
+    "id": "16a6b490e6859392f4917f11:7",
+    "legacy_id": 85110,
+    "metadata_status": "unverified",
+    "name": "Custom download folder",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Customise emoji font style",
+    "id": "16a6b490e6859392f4917f11:8",
+    "legacy_id": 85111,
+    "metadata_status": "unverified",
+    "name": "Custom emoji font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Customise font style",
+    "id": "16a6b490e6859392f4917f11:9",
+    "legacy_id": 85112,
+    "metadata_status": "unverified",
+    "name": "Custom font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Allows for using domains like fxtwitter when sharing tweets/posts.",
+    "id": "16a6b490e6859392f4917f11:10",
+    "legacy_id": 85113,
+    "metadata_status": "unverified",
+    "name": "Custom sharing domain",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Requires X 11.0.0-release.0 or higher.",
+    "id": "16a6b490e6859392f4917f11:11",
+    "legacy_id": 85114,
+    "metadata_status": "unverified",
+    "name": "Custom translator",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:12",
+    "legacy_id": 85115,
+    "metadata_status": "unverified",
+    "name": "Customise post font size",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:13",
+    "legacy_id": 85116,
+    "metadata_status": "unverified",
+    "name": "Customize default reply sorting",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:14",
+    "legacy_id": 85117,
+    "metadata_status": "unverified",
+    "name": "Customize explore tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:15",
+    "legacy_id": 85118,
+    "metadata_status": "unverified",
+    "name": "Customize Inline action Bar items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:16",
+    "legacy_id": 85119,
+    "metadata_status": "unverified",
+    "name": "Customize Navigation Bar items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:17",
+    "legacy_id": 85120,
+    "metadata_status": "unverified",
+    "name": "Customize notification tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:18",
+    "legacy_id": 85121,
+    "metadata_status": "unverified",
+    "name": "Customize profile tabs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:19",
+    "legacy_id": 85122,
+    "metadata_status": "unverified",
+    "name": "Customize search suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:20",
+    "legacy_id": 85123,
+    "metadata_status": "unverified",
+    "name": "Customize search tab items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:21",
+    "legacy_id": 85124,
+    "metadata_status": "unverified",
+    "name": "Customize side bar items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:22",
+    "legacy_id": 85125,
+    "metadata_status": "unverified",
+    "name": "Customize timeline top bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Delete entries from database(cache)",
+    "id": "16a6b490e6859392f4917f11:23",
+    "legacy_id": 85126,
+    "metadata_status": "unverified",
+    "name": "Delete from database",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:24",
+    "legacy_id": 85127,
+    "metadata_status": "unverified",
+    "name": "Disable auto timeline scroll on launch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:25",
+    "legacy_id": 85128,
+    "metadata_status": "unverified",
+    "name": "Disable chirp font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Bring back legacy features like messages and share sheet.",
+    "id": "16a6b490e6859392f4917f11:26",
+    "legacy_id": 85129,
+    "metadata_status": "unverified",
+    "name": "Disunify xchat system",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Unlocks the ability to download videos and gifs from Twitter/X",
+    "id": "16a6b490e6859392f4917f11:27",
+    "legacy_id": 85130,
+    "metadata_status": "unverified",
+    "name": "Download patch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Replaces the default Twitter Blue with the user's Material You palette.",
+    "id": "16a6b490e6859392f4917f11:28",
+    "legacy_id": 85131,
+    "metadata_status": "unverified",
+    "name": "Dynamic color",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:29",
+    "legacy_id": 85132,
+    "metadata_status": "unverified",
+    "name": "Enable debug menu for posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Videos will be played in highest quality always",
+    "id": "16a6b490e6859392f4917f11:30",
+    "legacy_id": 85133,
+    "metadata_status": "unverified",
+    "name": "Enable force HD videos",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Enables PiP mode when you close the app",
+    "id": "16a6b490e6859392f4917f11:31",
+    "legacy_id": 85134,
+    "metadata_status": "unverified",
+    "name": "Enable PiP mode automatically",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Enables ability to undo posts before posting",
+    "id": "16a6b490e6859392f4917f11:32",
+    "legacy_id": 85135,
+    "metadata_status": "unverified",
+    "name": "Enable Undo Posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [],
+    "description": "Makes all app activities exportable.",
+    "id": "16a6b490e6859392f4917f11:33",
+    "legacy_id": 85136,
+    "metadata_status": "unverified",
+    "name": "Export all activities",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": false
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Get translate option for all posts",
+    "id": "16a6b490e6859392f4917f11:34",
+    "legacy_id": 85137,
+    "metadata_status": "unverified",
+    "name": "Force enable translate",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Adds support for opening custom twitter links such as vxtwitter, fxtwitter, and fixupx within the app. These will have to be manually enabled under the \"Open by default\" section in the app info!",
+    "id": "16a6b490e6859392f4917f11:35",
+    "legacy_id": 85138,
+    "metadata_status": "unverified",
+    "name": "Handle custom twitter links",
+    "options": [
+      {
+        "default": [
+          "vxtwitter.com",
+          "fixvx.com",
+          "fxtwitter.com",
+          "fixupx.com",
+          "twittpr.com",
+          "hitlerx.com",
+          "girlcockx.com",
+          "stupidpenisx.com",
+          "cunnyx.com",
+          "autistic.kids"
+        ],
+        "description": "The custom sharing domains to register to be opened in Twitter",
+        "key": "customLinkHosts",
+        "required": true,
+        "title": "Custom sharing domains",
+        "type": "kotlin.collections.List<kotlin.String>",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Hides notification nudges & counts from navigation bar icons",
+    "id": "16a6b490e6859392f4917f11:36",
+    "legacy_id": 85139,
+    "metadata_status": "unverified",
+    "name": "Hide badges from navigation bar icons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Hide new post banner",
+    "id": "16a6b490e6859392f4917f11:37",
+    "legacy_id": 85140,
+    "metadata_status": "unverified",
+    "name": "Hide Banner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:38",
+    "legacy_id": 85141,
+    "metadata_status": "unverified",
+    "name": "Hide bookmark icon in timeline",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:39",
+    "legacy_id": 85142,
+    "metadata_status": "unverified",
+    "name": "Hide community badges",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:40",
+    "legacy_id": 85143,
+    "metadata_status": "unverified",
+    "name": "Hide Community Notes",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Adds an option to hide Floating action button",
+    "id": "16a6b490e6859392f4917f11:41",
+    "legacy_id": 85144,
+    "metadata_status": "unverified",
+    "name": "Hide FAB",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:42",
+    "legacy_id": 85145,
+    "metadata_status": "unverified",
+    "name": "Hide FAB Menu Buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Hides followed by context under profile",
+    "id": "16a6b490e6859392f4917f11:43",
+    "legacy_id": 85146,
+    "metadata_status": "unverified",
+    "name": "Hide followed by context",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:44",
+    "legacy_id": 85147,
+    "metadata_status": "unverified",
+    "name": "Hide hidden replies",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Removes swipe up for more videos in video player",
+    "id": "16a6b490e6859392f4917f11:45",
+    "legacy_id": 85148,
+    "metadata_status": "unverified",
+    "name": "Hide immersive player",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:46",
+    "legacy_id": 85149,
+    "metadata_status": "unverified",
+    "name": "Hide Live Threads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Hides follow/subscribe/follow back buttons on posts",
+    "id": "16a6b490e6859392f4917f11:47",
+    "legacy_id": 85150,
+    "metadata_status": "unverified",
+    "name": "Hide nudge button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Hides like, reposts etc counts.",
+    "id": "16a6b490e6859392f4917f11:48",
+    "legacy_id": 85151,
+    "metadata_status": "unverified",
+    "name": "Hide post metrics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Hides promote button under self posts",
+    "id": "16a6b490e6859392f4917f11:49",
+    "legacy_id": 85152,
+    "metadata_status": "unverified",
+    "name": "Hide promote button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Hide recommended users that pops up when you follow someone",
+    "id": "16a6b490e6859392f4917f11:50",
+    "legacy_id": 85153,
+    "metadata_status": "unverified",
+    "name": "Hide Recommended Users",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Hides different post category like who to follow, news today etc from timeline.",
+    "id": "16a6b490e6859392f4917f11:51",
+    "legacy_id": 85154,
+    "metadata_status": "unverified",
+    "name": "Hide timeline posts by category",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "ResourcePatch",
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:52",
+    "legacy_id": 85155,
+    "metadata_status": "unverified",
+    "name": "Hook feature flag",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Brings back username on post share links. Works post 11.4x.xx",
+    "id": "16a6b490e6859392f4917f11:53",
+    "legacy_id": 85156,
+    "metadata_status": "unverified",
+    "name": "Legacy share links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Log json responses received from server",
+    "id": "16a6b490e6859392f4917f11:54",
+    "legacy_id": 85157,
+    "metadata_status": "unverified",
+    "name": "Log server response",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Requires X 11.0.0-release.0 or higher.",
+    "id": "16a6b490e6859392f4917f11:55",
+    "legacy_id": 85158,
+    "metadata_status": "unverified",
+    "name": "Native downloader",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "ResourcePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Requires X 11.0.0-release.0 or higher.",
+    "id": "16a6b490e6859392f4917f11:56",
+    "legacy_id": 85159,
+    "metadata_status": "unverified",
+    "name": "Native reader mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Get rid of t.co short urls.",
+    "id": "16a6b490e6859392f4917f11:57",
+    "legacy_id": 85160,
+    "metadata_status": "unverified",
+    "name": "No shortened URL",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Search suggestions will not be saved locally",
+    "id": "16a6b490e6859392f4917f11:58",
+    "legacy_id": 85161,
+    "metadata_status": "unverified",
+    "name": "Pause search suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Removed promoted posts, trends and google ads",
+    "id": "16a6b490e6859392f4917f11:59",
+    "legacy_id": 85162,
+    "metadata_status": "unverified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Removes premium upsell in home timeline",
+    "id": "16a6b490e6859392f4917f11:60",
+    "legacy_id": 85163,
+    "metadata_status": "unverified",
+    "name": "Remove premium upsell",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Hide/Remove search suggestion in explore section",
+    "id": "16a6b490e6859392f4917f11:61",
+    "legacy_id": 85164,
+    "metadata_status": "unverified",
+    "name": "Remove search suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Removes the view count from the bottom of tweets",
+    "id": "16a6b490e6859392f4917f11:62",
+    "legacy_id": 85165,
+    "metadata_status": "unverified",
+    "name": "Remove view count",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Enable or disable rounding off numbers",
+    "id": "16a6b490e6859392f4917f11:63",
+    "legacy_id": 85166,
+    "metadata_status": "unverified",
+    "name": "Round off numbers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "ResourcePatch"
+    ],
+    "description": "Makes bio and username selectable",
+    "id": "16a6b490e6859392f4917f11:64",
+    "legacy_id": 85167,
+    "metadata_status": "unverified",
+    "name": "Selectable Text",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "description": "Share tweets as rendered image. Requires X 11.0.0-release.0 or higher.",
+    "id": "16a6b490e6859392f4917f11:65",
+    "legacy_id": 85168,
+    "metadata_status": "unverified",
+    "name": "Share Tweet as Image",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Shows changelogs when new a patch is installed.",
+    "id": "16a6b490e6859392f4917f11:66",
+    "legacy_id": 85169,
+    "metadata_status": "unverified",
+    "name": "Show changelogs",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Adds an option to show poll results without voting",
+    "id": "16a6b490e6859392f4917f11:67",
+    "legacy_id": 85170,
+    "metadata_status": "unverified",
+    "name": "Show poll results",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": "Source label will be shown only on public posts",
+    "id": "16a6b490e6859392f4917f11:68",
+    "legacy_id": 85171,
+    "metadata_status": "unverified",
+    "name": "Show post source label",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "16a6b490e6859392f4917f11",
+    "compatiblePackages": {
+      "com.twitter.android": null
+    },
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "description": null,
+    "id": "16a6b490e6859392f4917f11:69",
+    "legacy_id": 85172,
+    "metadata_status": "unverified",
+    "name": "Show sensitive media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v3.1.0",
+    "source_id": "4abe8f323b2f3212",
+    "use": true
+  },
+  {
+    "bundle_id": "2415fd1d4b8d669da311f405",
+    "compatiblePackages": {
+      "com.walmart.android": [
+        "26.38"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a 'Plan my route' button to the Walmart shopping list screen that opens Walmart's own in-store map with every list item's aisle pinned at once.",
+    "id": "2415fd1d4b8d669da311f405:0",
+    "legacy_id": 85173,
+    "metadata_status": "verified",
+    "name": "Route My List",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Walmart: Shopping & Savings",
+        "icon_url": "https://play-lh.googleusercontent.com/uWXZHyYx_7M_aOFK_qINeboJGvmNgXSNRpCzjKyIWyHYcJbgZ0Ky0KlQBy5i1bmkphZdZ-lo9zc2De-KbQBKKA",
+        "name": "com.walmart.android",
+        "versions": [
+          "26.38"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.0.1",
+    "source_id": "c55687301ae9f18b",
+    "use": true
+  },
+  {
+    "bundle_id": "377f541eb06a3038ca9c73a6",
+    "compatiblePackages": {
+      "com.chess": [
+        "4.9.49",
+        "4.9.49-googleplay",
+        "4.10.0",
+        "4.10.0-googleplay"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes advertisements",
+    "id": "377f541eb06a3038ca9c73a6:0",
+    "legacy_id": 85174,
+    "metadata_status": "verified",
+    "name": "Ad-Free",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chess - Play and Learn Online",
+        "icon_url": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74",
+        "name": "com.chess",
+        "versions": [
+          "4.9.49",
+          "4.9.49-googleplay",
+          "4.10.0",
+          "4.10.0-googleplay"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1-dev.1",
+    "source_id": "22d2d62f85a9c22f",
+    "use": true
+  },
+  {
+    "bundle_id": "377f541eb06a3038ca9c73a6",
+    "compatiblePackages": {
+      "com.chess": [
+        "4.9.49",
+        "4.9.49-googleplay",
+        "4.10.0",
+        "4.10.0-googleplay"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes the package name to com.chess.prathxm, allowing the patched app to be installed side-by-side with the original Chess.com app.",
+    "id": "377f541eb06a3038ca9c73a6:1",
+    "legacy_id": 85175,
+    "metadata_status": "verified",
+    "name": "Clone Chess.com",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chess - Play and Learn Online",
+        "icon_url": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74",
+        "name": "com.chess",
+        "versions": [
+          "4.9.49",
+          "4.9.49-googleplay",
+          "4.10.0",
+          "4.10.0-googleplay"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1-dev.1",
+    "source_id": "22d2d62f85a9c22f",
+    "use": false
+  },
+  {
+    "bundle_id": "377f541eb06a3038ca9c73a6",
+    "compatiblePackages": {
+      "com.chess": [
+        "4.9.49",
+        "4.9.49-googleplay",
+        "4.10.0",
+        "4.10.0-googleplay"
+      ]
+    },
+    "dependencies": [],
+    "description": "Fetches and applies custom titles for users from a remote database. DM PrathxmOp to get yours for fun lol!",
+    "id": "377f541eb06a3038ca9c73a6:2",
+    "legacy_id": 85176,
+    "metadata_status": "verified",
+    "name": "Custom Titles",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chess - Play and Learn Online",
+        "icon_url": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74",
+        "name": "com.chess",
+        "versions": [
+          "4.9.49",
+          "4.9.49-googleplay",
+          "4.10.0",
+          "4.10.0-googleplay"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1-dev.1",
+    "source_id": "22d2d62f85a9c22f",
+    "use": true
+  },
+  {
+    "bundle_id": "377f541eb06a3038ca9c73a6",
+    "compatiblePackages": {
+      "com.chess": [
+        "4.9.49",
+        "4.9.49-googleplay",
+        "4.10.0",
+        "4.10.0-googleplay"
+      ]
+    },
+    "dependencies": [],
+    "description": "Catches uncaught exceptions and displays a custom crash screen with details to report issues.",
+    "id": "377f541eb06a3038ca9c73a6:3",
+    "legacy_id": 85177,
+    "metadata_status": "verified",
+    "name": "Global Crash Handler",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chess - Play and Learn Online",
+        "icon_url": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74",
+        "name": "com.chess",
+        "versions": [
+          "4.9.49",
+          "4.9.49-googleplay",
+          "4.10.0",
+          "4.10.0-googleplay"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1-dev.1",
+    "source_id": "22d2d62f85a9c22f",
+    "use": true
+  },
+  {
+    "bundle_id": "377f541eb06a3038ca9c73a6",
+    "compatiblePackages": {
+      "com.chess": [
+        "4.9.49",
+        "4.9.49-googleplay",
+        "4.10.0",
+        "4.10.0-googleplay"
+      ]
+    },
+    "dependencies": [],
+    "description": "Loads daily puzzles from Lichess and bypasses Chess.com puzzle premium limits.",
+    "id": "377f541eb06a3038ca9c73a6:4",
+    "legacy_id": 85178,
+    "metadata_status": "verified",
+    "name": "Lichess Puzzles",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chess - Play and Learn Online",
+        "icon_url": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74",
+        "name": "com.chess",
+        "versions": [
+          "4.9.49",
+          "4.9.49-googleplay",
+          "4.10.0",
+          "4.10.0-googleplay"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1-dev.1",
+    "source_id": "22d2d62f85a9c22f",
+    "use": true
+  },
+  {
+    "bundle_id": "377f541eb06a3038ca9c73a6",
+    "compatiblePackages": {
+      "com.chess": [
+        "4.9.49",
+        "4.9.49-googleplay",
+        "4.10.0",
+        "4.10.0-googleplay"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables local Stockfish engine for post-game review & analysis.",
+    "id": "377f541eb06a3038ca9c73a6:5",
+    "legacy_id": 85179,
+    "metadata_status": "verified",
+    "name": "Local Stockfish Analysis",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chess - Play and Learn Online",
+        "icon_url": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74",
+        "name": "com.chess",
+        "versions": [
+          "4.9.49",
+          "4.9.49-googleplay",
+          "4.10.0",
+          "4.10.0-googleplay"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1-dev.1",
+    "source_id": "22d2d62f85a9c22f",
+    "use": true
+  },
+  {
+    "bundle_id": "377f541eb06a3038ca9c73a6",
+    "compatiblePackages": {
+      "com.chess": [
+        "4.9.49",
+        "4.9.49-googleplay",
+        "4.10.0",
+        "4.10.0-googleplay"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks all premium and restricted bots in the Versus Bots feature.",
+    "id": "377f541eb06a3038ca9c73a6:6",
+    "legacy_id": 85180,
+    "metadata_status": "verified",
+    "name": "Unlock All Bots",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chess - Play and Learn Online",
+        "icon_url": "https://play-lh.googleusercontent.com/JO7Z75U1oypXpNTAklroO5emKWePni0sK9zn1E_nRgqmbAHoMxz1oQHDfSTpcycdht92dTBejkpEDXttGeCWN74",
+        "name": "com.chess",
+        "versions": [
+          "4.9.49",
+          "4.9.49-googleplay",
+          "4.10.0",
+          "4.10.0-googleplay"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.1-dev.1",
+    "source_id": "22d2d62f85a9c22f",
+    "use": true
+  },
+  {
+    "bundle_id": "3c59e2ed847f108055134dd7",
+    "compatiblePackages": {
+      "com.google.android.apps.bard": null,
+      "com.google.android.googlequicksearchbox": null
+    },
+    "dependencies": [],
+    "description": "Injects the MicroG signature-spoof permission into Gemini's AndroidManifest.",
+    "id": "3c59e2ed847f108055134dd7:0",
+    "legacy_id": 85181,
+    "metadata_status": "verified",
+    "name": "GmsCore MicroG support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Gemini",
+        "icon_url": "https://play-lh.googleusercontent.com/C64IqPWyFoCZzXVxXVl0Y6mliiNlG_sZJsqul-SBvk9ZL0wJHlU0Eho2wvsBHhho0FT5XQtH55RVGerIwXF_MA",
+        "name": "com.google.android.apps.bard",
+        "versions": []
+      },
+      {
+        "app_name": "Google",
+        "icon_url": "https://play-lh.googleusercontent.com/xqk8hd6dMyffxE6iQa59cUt75EA-0YDvjnJlxH4z8W63-e5KwaWXbrNob6Q-OoH5SSDa78Y0I0YA3BB0zDVnB8w",
+        "name": "com.google.android.googlequicksearchbox",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.4",
+    "source_id": "97c6b0d07265f4d9",
+    "use": true
+  },
+  {
+    "bundle_id": "3c59e2ed847f108055134dd7",
+    "compatiblePackages": {
+      "com.google.android.apps.bard": null,
+      "com.google.android.googlequicksearchbox": null
+    },
+    "dependencies": [],
+    "description": "Extends Gemini's package allowlist to include Morphe-patched YouTube and YouTube Music.",
+    "id": "3c59e2ed847f108055134dd7:1",
+    "legacy_id": 85182,
+    "metadata_status": "verified",
+    "name": "Route intents to patched apps",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Gemini",
+        "icon_url": "https://play-lh.googleusercontent.com/C64IqPWyFoCZzXVxXVl0Y6mliiNlG_sZJsqul-SBvk9ZL0wJHlU0Eho2wvsBHhho0FT5XQtH55RVGerIwXF_MA",
+        "name": "com.google.android.apps.bard",
+        "versions": []
+      },
+      {
+        "app_name": "Google",
+        "icon_url": "https://play-lh.googleusercontent.com/xqk8hd6dMyffxE6iQa59cUt75EA-0YDvjnJlxH4z8W63-e5KwaWXbrNob6Q-OoH5SSDa78Y0I0YA3BB0zDVnB8w",
+        "name": "com.google.android.googlequicksearchbox",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.4",
+    "source_id": "97c6b0d07265f4d9",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "57d259d9e21cb0c24f8ef099:0",
+    "legacy_id": 85183,
+    "metadata_status": "verified",
+    "name": "Bypass signature check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
+    "id": "57d259d9e21cb0c24f8ef099:1",
+    "legacy_id": 85184,
+    "metadata_status": "verified",
+    "name": "Disable Reels scrolling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable stories automatically flipping/skipping after some seconds.",
+    "id": "57d259d9e21cb0c24f8ef099:2",
+    "legacy_id": 85185,
+    "metadata_status": "verified",
+    "name": "Disable story auto flipping",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable video autoplay from feed",
+    "id": "57d259d9e21cb0c24f8ef099:3",
+    "legacy_id": 85186,
+    "metadata_status": "verified",
+    "name": "Disable video autoplay",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": false
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "57d259d9e21cb0c24f8ef099:4",
+    "legacy_id": 85187,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides posts and reels from the explore/search page.",
+    "id": "57d259d9e21cb0c24f8ef099:5",
+    "legacy_id": 85188,
+    "metadata_status": "verified",
+    "name": "Hide explore feed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hide the feed content, leaving only stories in the home page.",
+    "id": "57d259d9e21cb0c24f8ef099:6",
+    "legacy_id": 85189,
+    "metadata_status": "verified",
+    "name": "Hide feed content",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": false
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Instants from DMs page.",
+    "id": "57d259d9e21cb0c24f8ef099:7",
+    "legacy_id": 85190,
+    "metadata_status": "verified",
+    "name": "Hide Instants",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": false
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides navigation bar buttons, such as the Reels and Create button. Choose what button to hide using the patch options.",
+    "id": "57d259d9e21cb0c24f8ef099:8",
+    "legacy_id": 85191,
+    "metadata_status": "verified",
+    "name": "Hide navigation buttons",
+    "options": [
+      {
+        "default": false,
+        "description": "Permanently hides the Home button. App starts at next available tab.",
+        "key": "hideHome",
+        "required": false,
+        "title": "Hide Home",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Permanently hides the Reels button.",
+        "key": "hideReels",
+        "required": false,
+        "title": "Hide Reels",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Permanently hides the Direct button.",
+        "key": "hideDirect",
+        "required": false,
+        "title": "Hide Direct",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Permanently hides the Search button.",
+        "key": "hideSearch",
+        "required": false,
+        "title": "Hide Search",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Permanently hides the Profile button.",
+        "key": "hideProfile",
+        "required": false,
+        "title": "Hide Profile",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Permanently hides the Create button.",
+        "key": "hideCreate",
+        "required": false,
+        "title": "Hide Create",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the notes tray from the direct tab.",
+    "id": "57d259d9e21cb0c24f8ef099:9",
+    "legacy_id": 85192,
+    "metadata_status": "verified",
+    "name": "Hide notes tray",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "57d259d9e21cb0c24f8ef099:10",
+    "legacy_id": 85193,
+    "metadata_status": "verified",
+    "name": "Hide Reels save button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": false
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the reshare button from both posts and reels.",
+    "id": "57d259d9e21cb0c24f8ef099:11",
+    "legacy_id": 85194,
+    "metadata_status": "verified",
+    "name": "Hide reshare button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Stories from the main page, by removing the buttons.",
+    "id": "57d259d9e21cb0c24f8ef099:12",
+    "legacy_id": 85195,
+    "metadata_status": "verified",
+    "name": "Hide Stories from Home",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": false
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides suggested stories, reels, threads and survey from feed (Suggested posts will still be shown).",
+    "id": "57d259d9e21cb0c24f8ef099:13",
+    "legacy_id": 85196,
+    "metadata_status": "verified",
+    "name": "Hide suggested content",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the Threads button from the profile page action bar (top right of the profile page).",
+    "id": "57d259d9e21cb0c24f8ef099:14",
+    "legacy_id": 85197,
+    "metadata_status": "verified",
+    "name": "Hide Threads profile button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": false
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Filters the home feed to display only content from profiles you follow.",
+    "id": "57d259d9e21cb0c24f8ef099:15",
+    "legacy_id": 85198,
+    "metadata_status": "verified",
+    "name": "Limit feed to following profiles",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the popup that appears after a while, when the app version ages.",
+    "id": "57d259d9e21cb0c24f8ef099:16",
+    "legacy_id": 85199,
+    "metadata_status": "verified",
+    "name": "Remove build expired popup",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "fr.chargeprice.app": [
+        "3.9.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock Premium features. You have to be logged in with an account.",
+    "id": "57d259d9e21cb0c24f8ef099:17",
+    "legacy_id": 85200,
+    "metadata_status": "verified",
+    "name": "Unlock Premium features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Chargeprice: EV map & prices",
+        "icon_url": "https://play-lh.googleusercontent.com/2ofyHFDtgKkSvDonTT3HIqMI3DuTbMYKU1oxwojwkrb3AzayF6QFLfg6KUf4hgLAB_0dGLCmTGz3CytfKXsbww",
+        "name": "fr.chargeprice.app",
+        "versions": [
+          "3.9.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "de.komoot.android": [
+        "2025.38.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock Premium features. Some features are not possible to patch (server sided), such as saving a multi-days hike.",
+    "id": "57d259d9e21cb0c24f8ef099:18",
+    "legacy_id": 85201,
+    "metadata_status": "verified",
+    "name": "Unlock Premium features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "komoot - hike, bike & run",
+        "icon_url": "https://play-lh.googleusercontent.com/IyQKMI6etTvtjEv6pSzQ4TnTlfKWbwT39vQMO4vpBlzQJfGKdA9zZ38sOXtt0yuZbwJBdKoP_RNPZnQiTuaceg",
+        "name": "de.komoot.android",
+        "versions": [
+          "2025.38.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "cz.seznam.mapy": [
+        "26.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "57d259d9e21cb0c24f8ef099:19",
+    "legacy_id": 85202,
+    "metadata_status": "verified",
+    "name": "Unlock premium features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Mapy.com: Offline Outdoor Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/HDxpj_c6Nhf7wDAErKy6JknknJQLthDi4HKx1PRQno2RD28iuBv0b2eRcm1ZEdy_2r4FindeqVsdCU_5m1Bcbwc",
+        "name": "cz.seznam.mapy",
+        "versions": [
+          "26.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "57d259d9e21cb0c24f8ef099",
+    "compatiblePackages": {
+      "fr.tramb.park4night": [
+        "7.1.11"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlock Pro features (park4night +). You have to be logged in with an account.",
+    "id": "57d259d9e21cb0c24f8ef099:20",
+    "legacy_id": 85203,
+    "metadata_status": "verified",
+    "name": "Unlock Pro features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "park4night - Motorhome camper",
+        "icon_url": "https://play-lh.googleusercontent.com/BwBPqdRT0ibqDIF_38u-LZD55vx8IXJ19T8uJcoIzrGgsr1kJUKOJpfWX3dKKK6E4Q3QaTT2xG7TlCOvdOWC",
+        "name": "fr.tramb.park4night",
+        "versions": [
+          "7.1.11"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1-dev.3",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "5b58ef748eaf5f80516c367a",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "5b58ef748eaf5f80516c367a:0",
+    "legacy_id": 85204,
+    "metadata_status": "verified",
+    "name": "Bypass signature check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  },
+  {
+    "bundle_id": "5b58ef748eaf5f80516c367a",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "426.0.0.37.68"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
+    "id": "5b58ef748eaf5f80516c367a:1",
+    "legacy_id": 85205,
+    "metadata_status": "verified",
+    "name": "Disable Reels scrolling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "426.0.0.37.68"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.6.1",
+    "source_id": "f6ac6ef12374e439",
+    "use": true
+  }
+]

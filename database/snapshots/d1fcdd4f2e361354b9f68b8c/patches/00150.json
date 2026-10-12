@@ -1,0 +1,2482 @@
+[
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.24.5+v16.0.0.231-allAbis",
+        "6.24.8+v16.0.0.361-allAbis"
+      ]
+    },
+    "dependencies": [],
+    "description": "Packages the Prime Video libignite interception library for this APK's ABIs.",
+    "id": "5298311bf59964a2ff11b24b:3",
+    "legacy_id": 17107,
+    "metadata_status": "verified",
+    "name": "Bundle native ad-strip hook",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.24.5+v16.0.0.231-allAbis",
+          "6.24.8+v16.0.0.361-allAbis"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a",
+        "6.24.5+v16.0.0.231-allAbis",
+        "6.24.8+v16.0.0.361-allAbis"
+      ]
+    },
+    "dependencies": [],
+    "description": "Renames the package to <original>.mod (and its provider authorities / custom permissions) so the patched app installs side-by-side with a non-removable system Prime Video. Opt-in.",
+    "id": "5298311bf59964a2ff11b24b:4",
+    "legacy_id": 17108,
+    "metadata_status": "verified",
+    "name": "Clone Prime Video",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a",
+          "6.24.5+v16.0.0.231-allAbis",
+          "6.24.8+v16.0.0.361-allAbis"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": false
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.orange.coloring.learn.kids": [
+        "2.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes all AdMob ads (banner, interstitial, rewarded, rewarded interstitial, app open) by intercepting the Corona SDK AdMob plugin bridge before any ad is initialised, loaded, or shown.",
+    "id": "5298311bf59964a2ff11b24b:5",
+    "legacy_id": 17109,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Coloring & Learn",
+        "icon_url": "https://play-lh.googleusercontent.com/nMwCmFsD4_EgJMspvtUnBK0oDkvhBSYcf5lnvCJz4HHlKEUj-vjr_JEc5OwfVnGjFd8WsCOqzbWXsaQ_lyHU",
+        "name": "com.orange.coloring.learn.kids",
+        "versions": [
+          "2.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.graymatrix.did": [
+        "5.83.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Google IMA ad insertion (client-side and server-side DAI) from the ZEE5 player. The media source factory is returned DRM-configured but with ad-insertion components never attached, so content and DRM playback are unaffected.",
+    "id": "5298311bf59964a2ff11b24b:6",
+    "legacy_id": 17110,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ZEE5: Movies, TV Shows, Series",
+        "icon_url": "https://play-lh.googleusercontent.com/NyMT3ByjkBG1FhdFX9GSj_0mXLNIAuz_IZO8Xr9Noow6D4IQs-Srai9Hklad5gDasSv6F5tHYwsquk1mXErQ5A",
+        "name": "com.graymatrix.did",
+        "versions": [
+          "5.83.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.graymatrix.did": [
+        "5.83.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables all third-party analytics (CleverTap, Firebase, Mixpanel, videoanalytics) by short-circuiting the central analytics dispatch method. No tracking data is sent.",
+    "id": "5298311bf59964a2ff11b24b:7",
+    "legacy_id": 17111,
+    "metadata_status": "verified",
+    "name": "Disable analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ZEE5: Movies, TV Shows, Series",
+        "icon_url": "https://play-lh.googleusercontent.com/NyMT3ByjkBG1FhdFX9GSj_0mXLNIAuz_IZO8Xr9Noow6D4IQs-Srai9Hklad5gDasSv6F5tHYwsquk1mXErQ5A",
+        "name": "com.graymatrix.did",
+        "versions": [
+          "5.83.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a",
+        "6.24.5+v16.0.0.231-allAbis",
+        "6.24.8+v16.0.0.361-allAbis"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents Google Play Store from automatically replacing the patched APK with the official unpatched version.",
+    "id": "5298311bf59964a2ff11b24b:8",
+    "legacy_id": 17112,
+    "metadata_status": "verified",
+    "name": "Disable auto-updates",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a",
+          "6.24.5+v16.0.0.231-allAbis",
+          "6.24.8+v16.0.0.361-allAbis"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.graymatrix.did": [
+        "5.83.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents the CleverTap analytics SDK from initializing, stopping behavioral tracking and advertising-id (GAID) collection.",
+    "id": "5298311bf59964a2ff11b24b:9",
+    "legacy_id": 17113,
+    "metadata_status": "verified",
+    "name": "Disable CleverTap",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ZEE5: Movies, TV Shows, Series",
+        "icon_url": "https://play-lh.googleusercontent.com/NyMT3ByjkBG1FhdFX9GSj_0mXLNIAuz_IZO8Xr9Noow6D4IQs-Srai9Hklad5gDasSv6F5tHYwsquk1mXErQ5A",
+        "name": "com.graymatrix.did",
+        "versions": [
+          "5.83.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.graymatrix.did": [
+        "5.83.2"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents Firebase Analytics from initializing, stopping event and user-property reporting to Google.",
+    "id": "5298311bf59964a2ff11b24b:10",
+    "legacy_id": 17114,
+    "metadata_status": "verified",
+    "name": "Disable Firebase analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ZEE5: Movies, TV Shows, Series",
+        "icon_url": "https://play-lh.googleusercontent.com/NyMT3ByjkBG1FhdFX9GSj_0mXLNIAuz_IZO8Xr9Noow6D4IQs-Srai9Hklad5gDasSv6F5tHYwsquk1mXErQ5A",
+        "name": "com.graymatrix.did",
+        "versions": [
+          "5.83.2"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a"
+      ]
+    },
+    "dependencies": [
+      "Bundle native ad-strip hook",
+      "Prime Video extension"
+    ],
+    "description": "Loads libpvhook.so at startup before Prime Video constructs its media pipeline.",
+    "id": "5298311bf59964a2ff11b24b:11",
+    "legacy_id": 17115,
+    "metadata_status": "verified",
+    "name": "Load native ad-strip hook",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.24.5+v16.0.0.231-allAbis",
+        "6.24.8+v16.0.0.361-allAbis"
+      ]
+    },
+    "dependencies": [
+      "Bundle native ad-strip hook",
+      "Prime Video extension"
+    ],
+    "description": "Loads libpvhook.so at startup before Prime Video constructs its media pipeline.",
+    "id": "5298311bf59964a2ff11b24b:12",
+    "legacy_id": 17116,
+    "metadata_status": "verified",
+    "name": "Load native ad-strip hook",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.24.5+v16.0.0.231-allAbis",
+          "6.24.8+v16.0.0.361-allAbis"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a",
+        "6.24.5+v16.0.0.231-allAbis",
+        "6.24.8+v16.0.0.361-allAbis"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a network_security_config trusting user CAs (no pin sets) so AdGuard Premium can inspect the app's platform-stack HTTPS. Optional adjunct: Prime Video's ad plane is largely native libcurl, so DNS blocking is the primary tool.",
+    "id": "5298311bf59964a2ff11b24b:13",
+    "legacy_id": 17117,
+    "metadata_status": "verified",
+    "name": "Override certificate pinning",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a",
+          "6.24.5+v16.0.0.231-allAbis",
+          "6.24.8+v16.0.0.361-allAbis"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a",
+        "6.24.5+v16.0.0.231-allAbis",
+        "6.24.8+v16.0.0.361-allAbis"
+      ]
+    },
+    "dependencies": [],
+    "description": "Integrates the Prime Video ATV extension for ad group skipping.",
+    "id": "5298311bf59964a2ff11b24b:14",
+    "legacy_id": 17118,
+    "metadata_status": "verified",
+    "name": "Prime Video extension",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a",
+          "6.24.5+v16.0.0.231-allAbis",
+          "6.24.8+v16.0.0.361-allAbis"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "5298311bf59964a2ff11b24b",
+    "compatiblePackages": {
+      "com.amazon.amazonvideo.livingroom": [
+        "6.23.23+v15.5.0.70-armv7a"
+      ]
+    },
+    "dependencies": [
+      "Prime Video extension"
+    ],
+    "description": "Multi-layer ad suppression targeting the SSAI schedule, impression reporting, and the Volley network chokepoint.",
+    "id": "5298311bf59964a2ff11b24b:15",
+    "legacy_id": 17119,
+    "metadata_status": "verified",
+    "name": "Skip ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Prime Video",
+        "icon_url": "https://play-lh.googleusercontent.com/qyXqjzPggunbifX0ODhCehdy4ei0F90u0N3f4pPk8NhgCZD75dH8bdQYPROGRVlTVOs8B8JAT58X6ImMZv5ugHg",
+        "name": "com.amazon.amazonvideo.livingroom",
+        "versions": [
+          "6.23.23+v15.5.0.70-armv7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.4.0",
+    "source_id": "f4b7e4980dced090",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.kiloo.subwaysurf": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate in Subway Surfers by configuring WindowManager.LayoutParams.preferredRefreshRate on the game activity.",
+    "id": "d786d82c84ec4324f71da9a8:0",
+    "legacy_id": 17120,
+    "metadata_status": "verified",
+    "name": "120 FPS High Refresh Rate & Low Latency - Subway Surfers (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Subway Surfers",
+        "icon_url": "https://play-lh.googleusercontent.com/-b6afYVP9kkzaFgDT3bZpGy2ugh1AjzCiXS0o9aZw7bIZ5rCb3Bp8YAwIxyMjUGLjl1pD6ZFGxeKKGlXBw950g",
+        "name": "com.kiloo.subwaysurf",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.imangi.templerun2": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate in Temple Run 2 by configuring WindowManager.LayoutParams.preferredRefreshRate on the game activity.",
+    "id": "d786d82c84ec4324f71da9a8:1",
+    "legacy_id": 17121,
+    "metadata_status": "verified",
+    "name": "120 FPS High Refresh Rate & Low Latency - Temple Run 2 (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Temple Run 2",
+        "icon_url": "https://play-lh.googleusercontent.com/48yHWnGUQ5S8qgQ13CAtp0EOuPN23443EM7K_NG0HiX_icUINAbUPLJoVOuGSTy9zTIPIDJ9shcSVPhe-VHmCE0",
+        "name": "com.imangi.templerun2",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.windyty.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces 120Hz display refresh rate and unlocks high-framerate wind particle simulations and smooth satellite weather animation layers in Windy.",
+    "id": "d786d82c84ec4324f71da9a8:2",
+    "legacy_id": 17122,
+    "metadata_status": "verified",
+    "name": "120 FPS Smooth Radar Animations - Windy.com (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Windy.com - Weather Forecast",
+        "icon_url": "https://play-lh.googleusercontent.com/u-KmXMFiH9SLeIpYeNBKzHrwRX3Fi53H4ij3240cuOqxnrMMTpb8n0bVEC25VzqTKU90m43l4UaBg8ahP9RcUg",
+        "name": "com.windyty.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.videolan.vlc": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Unlocks 200% volume amplification (software preamp gain up to +12dB) for low-volume videos/audio and prevents volume ducking on notifications.",
+    "id": "d786d82c84ec4324f71da9a8:3",
+    "legacy_id": 17123,
+    "metadata_status": "verified",
+    "name": "200% Volume Boost & Audio Gain - VLC (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VLC",
+        "icon_url": "https://f-droid.org/repo/org.videolan.vlc/en-US/icon_yAfSvPRJukZzMMfUzvbYqwaD1XmHXNtiPBtuPVHW-6s%3D.png",
+        "name": "org.videolan.vlc",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.truecaller": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes intrusive post-call ads, banner ads inside the call history and dialer tabs, and promotional Gold upsells by neutralizing ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:4",
+    "legacy_id": 17124,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Clean Dialer - Truecaller (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Truecaller: Spam Call Blocker",
+        "icon_url": "https://play-lh.googleusercontent.com/kVMxXC3fV4cyG56MZunYS2-HYaHh3eM3YTWoDbYaN5-G9xIU2k235hHVQmRrm79tzBSzt0cZ6GsBbzGzGbbMwg",
+        "name": "com.truecaller",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.shazam.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-recognition banner ads, sponsored track cards, and Apple Music / Spotify subscription nags by neutralizing ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:5",
+    "legacy_id": 17125,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Clean Interface - Shazam (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Shazam: Find Music & Concerts",
+        "icon_url": "https://play-lh.googleusercontent.com/Ne3g286DhSUmbg75RI5hmJLAFLPZfgIiWVOboDL8Rb08iQAAfqb7CBfwI6eU3rIvI6Kk6B9CySgMUTbh7i42_Q",
+        "name": "com.shazam.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.duolingo": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks interstitial video ads shown between lessons and disables intrusive Super Duolingo subscription promotional popups.",
+    "id": "d786d82c84ec4324f71da9a8:6",
+    "legacy_id": 17126,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Declutter - Duolingo (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Duolingo: Learn Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/tw_coGKgk1K_zO-Ypf9zBKV1s-KT3dYN1MIUxIqtnbfmON5x_YmuoAr31gE4oSfJHNtA-aStTd-qe9R8S6NVyA",
+        "name": "com.duolingo",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.mxtech.videoplayer.ad": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips all banner ads on the main folder list, full-screen interstitial video ads upon pausing or exiting videos, and online OTT feed promotions by neutralizing ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:7",
+    "legacy_id": 17127,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Pure Player - MX Player (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MX Player",
+        "icon_url": "https://play-lh.googleusercontent.com/kuU8L2zHfkE8rDQ8iUwMpYcV8TzUDBz7n_KYaEV4R5M7W5qHiZGqxWk9f1ysP2Lk72GmRTps3iaXUXfH-18pWw",
+        "name": "com.mxtech.videoplayer.ad",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.microblink.photomath": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks ads and unlocks deep step-by-step animated explanations, textbook geometry solutions, and calculation tips in Photomath.",
+    "id": "d786d82c84ec4324f71da9a8:8",
+    "legacy_id": 17128,
+    "metadata_status": "verified",
+    "name": "Ad-Free & Unlock Animated Step Solutions - Photomath (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Photomath",
+        "icon_url": "https://play-lh.googleusercontent.com/SdtwWRFWpe98RgGwOM1dsBEoNYUd9H6KZKFs8WpWFb6YZvDM3xY3kiUK0BcV-ZzPjjLp_HuFagj1lbm2fsnmcMY",
+        "name": "com.microblink.photomath",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.zwanoo.android.speedtest": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes post-test video ads, top and bottom banner ads, and sponsored server promotions by neutralizing ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:9",
+    "legacy_id": 17129,
+    "metadata_status": "verified",
+    "name": "Ad-Free Speedtest by Ookla (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Speedtest by Ookla",
+        "icon_url": "https://play-lh.googleusercontent.com/ZH4EUfCHaf8hoFSpeLx_guqWN-DkGdJWbP5Ydim9dbvqO4L95TC3V7WD20-KsEpGaZuCrWz62ClSYdmCanL9",
+        "name": "org.zwanoo.android.speedtest",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "free.vpn.unblock.proxy.turbovpn": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes full-screen video ads on connect and disconnect, banner ads at the bottom of the interface, and intrusive interstitial popups by intercepting ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:10",
+    "legacy_id": 17130,
+    "metadata_status": "verified",
+    "name": "Ad-Free Turbo VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Turbo VPN - Secure VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/Tq4j4MqkT86VZD4wMtpTp0iHoBg9rPN4kMpsimM2htphEZw_g4hG5J-rdjYhE3bBMZm-2Ei3GsD1qCrSSv4L4UQ",
+        "name": "free.vpn.unblock.proxy.turbovpn",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds settings to control preferences are patching",
+    "id": "d786d82c84ec4324f71da9a8:11",
+    "legacy_id": 17131,
+    "metadata_status": "verified",
+    "name": "Add settings - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Overrides the feed flyout 'Play next in queue' with the Morphe video queue.",
+    "id": "d786d82c84ec4324f71da9a8:12",
+    "legacy_id": 17132,
+    "metadata_status": "verified",
+    "name": "Add to queue - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enforces persistent VPN tunnel keep-alive packets and instant automatic reconnection upon network switches or screen unlock.",
+    "id": "d786d82c84ec4324f71da9a8:13",
+    "legacy_id": 17133,
+    "metadata_status": "verified",
+    "name": "Aggressive Keep-Alive & Auto-Reconnect - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.telegram.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses 'Copying and forwarding is not allowed' channel restrictions, allowing users to save photos, videos, and copy text from restricted channels.",
+    "id": "d786d82c84ec4324f71da9a8:14",
+    "legacy_id": 17134,
+    "metadata_status": "verified",
+    "name": "Allow Saving Restricted Media - Telegram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.snapchat.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE restrictions on Snapchat chat and media viewer activities, allowing screen capture without black screen restrictions.",
+    "id": "d786d82c84ec4324f71da9a8:15",
+    "legacy_id": 17135,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Anti-Screen Security - Snapchat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Snapchat",
+        "icon_url": "https://play-lh.googleusercontent.com/nOJWJoDAzuRSHmlFfpzHXAj8UbTJwk_JGYf0uAPTKPtiiIX_2Y7r5ATO1ZtxHRqaFTqfIDZ40PnBK4hukeJh",
+        "name": "com.snapchat.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "ai.perplexity.app.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections and disables background analytics/telemetry tracking calls (Adjust, Datadog, Mixpanel) in Perplexity.",
+    "id": "d786d82c84ec4324f71da9a8:16",
+    "legacy_id": 17136,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Block Telemetry - Perplexity (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Perplexity - Ask Anything",
+        "icon_url": "https://play-lh.googleusercontent.com/vg7sPhgWiPr0L2cK_NLLcCl0mrkEmNNv7C-aUkBdIUEa-9uSnCi5x4z_3Mw0vNYWKoSVWHfgri7THMOsOZKQuA",
+        "name": "ai.perplexity.app.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.nextcloud.client": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window protections in Nextcloud to enable screenshots and screen recording even when app passcode lock is configured.",
+    "id": "d786d82c84ec4324f71da9a8:17",
+    "legacy_id": 17137,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Bypass Lockout - Nextcloud (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.nextcloud.client",
+        "icon_url": null,
+        "name": "org.nextcloud.client",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.openai.chatgpt": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions to allow screenshots and screen recording inside conversations and prevents copy restrictions.",
+    "id": "d786d82c84ec4324f71da9a8:18",
+    "legacy_id": 17138,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Copy - ChatGPT (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ChatGPT",
+        "icon_url": "https://play-lh.googleusercontent.com/T9J8e9oxxPd600j_KPM4KK2GHfNpUpGBdTy8lHPXBXpOUfGusRuZXj0UMgFNrP8we6LVt9V-AibEgcLootE6VK4",
+        "name": "com.openai.chatgpt",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "mega.privacy.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to allow taking screenshots of documents and media in MEGA, and bypasses local export restrictions.",
+    "id": "d786d82c84ec4324f71da9a8:19",
+    "legacy_id": 17139,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Export - MEGA (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MEGA",
+        "icon_url": "https://play-lh.googleusercontent.com/4IDzX-5oH2pR3xvhtV7U0q2_3hPFd7KHmcK9Jj5oN0ISJfIBuctADot0Z1kQK1OFLX87nWxmPUzUU6TdymGdIw",
+        "name": "mega.privacy.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "me.proton.android.drive": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton Drive, allowing screenshots and screen recording of previewed documents and media.",
+    "id": "d786d82c84ec4324f71da9a8:20",
+    "legacy_id": 17140,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Privacy - Proton Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Drive: Cloud Storage",
+        "icon_url": "https://play-lh.googleusercontent.com/VQyox7uaA1_m7iaYgEmLp7e_OESrto7sV3LRBcQO8z69DrC1WtTAA3lt7CwJo96kTSlxYslpn84da1awa9L_mg",
+        "name": "me.proton.android.drive",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.x8bit.bitwarden": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables FLAG_SECURE window restrictions to permit taking screenshots and screen recordings in Bitwarden.",
+    "id": "d786d82c84ec4324f71da9a8:21",
+    "legacy_id": 17141,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Capture - Bitwarden (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Bitwarden Password Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/ezsPZ5JtRMkMd6DtbUOZghm4m-EbYcZSzXAIxJMumYOaDP9sI8o-DN8-tZpds0HJUXb-ur7F-oB9rFH78Jy2lA",
+        "name": "com.x8bit.bitwarden",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Proton VPN, allowing screenshots, screen recordings, and wireless display mirroring of connection logs and diagnostics.",
+    "id": "d786d82c84ec4324f71da9a8:22",
+    "legacy_id": 17142,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Mirroring - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "de.tutao.tutanota": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Tuta Mail, allowing users to take screenshots, capture invoice receipts, and mirror screens without black screens.",
+    "id": "d786d82c84ec4324f71da9a8:23",
+    "legacy_id": 17143,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Mirroring - Tuta Mail (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Tuta Mail",
+        "icon_url": "https://f-droid.org/repo/de.tutao.tutanota/en-US/icon_aE3ARq5Qudp3i6Ty-5dNtqpE3xtLwyfoWVviXshG_9o%3D.png",
+        "name": "de.tutao.tutanota",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "proton.android.pass": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses Android WindowManager FLAG_SECURE restrictions in Proton Pass, allowing you to take screenshots or record screens of recovery keys, 2FA QR codes, and credentials.",
+    "id": "d786d82c84ec4324f71da9a8:24",
+    "legacy_id": 17144,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Recording - Proton Pass (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Password Manager - Proton Pass",
+        "icon_url": "https://play-lh.googleusercontent.com/Fl-aCgnpB0xcDpnzFYYccPrHKBoh5zSEUZKrHax9m8jGYJepQZhCNO-vhnsJ2En9Hqv8R3f7VJ62QNfgOfXL",
+        "name": "proton.android.pass",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "network.loki.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window flags in Session Private Messenger, enabling screenshots, receipts saving, and screen recording inside conversations.",
+    "id": "d786d82c84ec4324f71da9a8:25",
+    "legacy_id": 17145,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - Session (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Session - Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/KxSYezXXvC0AYtYxE4BtVOLqrOGDwTzo5dUHSU7Ap5d4yN8sbjEdzwMjSPhzeTnCOrvYLRuW6ismgJ4vLidEZw",
+        "name": "network.loki.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.thoughtcrime.securesms": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses Android FLAG_SECURE window restrictions in Signal, allowing users to take screenshots and record screens even when Screen Security is enforced.",
+    "id": "d786d82c84ec4324f71da9a8:26",
+    "legacy_id": 17146,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - Signal (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Signal Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/HXEs85Okatm4_lZMmCaLFk3iXQ6_lrr00i8nsxaqBRSy6VGnsP7F50dKUfrO37Sj0nxtzSjMpKbjgWh6d0PTyEA",
+        "name": "org.thoughtcrime.securesms",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "chat.simplex.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Neutralizes FLAG_SECURE window flags in SimpleX Chat, allowing screenshots and screen sharing without black screens.",
+    "id": "d786d82c84ec4324f71da9a8:27",
+    "legacy_id": 17147,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Screen Security Bypass - SimpleX (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SimpleX Chat",
+        "icon_url": "https://f-droid.org/repo/chat.simplex.app/en-US/icon_IDdtCGG0wL-lNRFuu7OK2tHe0TTFmPfU06AgixSneLM%3D.png",
+        "name": "chat.simplex.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.apps.docs": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes Android FLAG_SECURE window restrictions in Google Drive to permit taking screenshots and screen recordings of documents, spreadsheets, and presentation previews.",
+    "id": "d786d82c84ec4324f71da9a8:28",
+    "legacy_id": 17148,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & Secure Share - Google Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Drive",
+        "icon_url": "https://play-lh.googleusercontent.com/chc-Fx3Qi3BisTZw1aOteYK_XkMHUiXKRbX2Hc8shyFI8pYt7DcyUPzVwLGJKIeKCKDD6nFVhEtUrIaEyzcnmA",
+        "name": "com.google.android.apps.docs",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.apps.bard": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes FLAG_SECURE window flags in Google Gemini to allow capturing chat responses and enhances privacy in floating assistant overlays.",
+    "id": "d786d82c84ec4324f71da9a8:29",
+    "legacy_id": 17149,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots & UI Tweaks - Google Gemini (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Gemini",
+        "icon_url": "https://play-lh.googleusercontent.com/C64IqPWyFoCZzXVxXVl0Y6mliiNlG_sZJsqul-SBvk9ZL0wJHlU0Eho2wvsBHhho0FT5XQtH55RVGerIwXF_MA",
+        "name": "com.google.android.apps.bard",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Allows user network certificate for whitehat testing",
+    "id": "d786d82c84ec4324f71da9a8:30",
+    "legacy_id": 17150,
+    "metadata_status": "verified",
+    "name": "Allow user network certificate - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
+    "id": "d786d82c84ec4324f71da9a8:31",
+    "legacy_id": 17151,
+    "metadata_status": "verified",
+    "name": "Alternative thumbnails - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces the real-time GPS speedometer and compass navigation overlay to stay permanently visible on screen regardless of speed or route type.",
+    "id": "d786d82c84ec4324f71da9a8:32",
+    "legacy_id": 17152,
+    "metadata_status": "verified",
+    "name": "Always Show Speedometer & Compass - Google Maps (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.shazam.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Keeps Auto Shazam background listening continuously active without battery optimization pauses or auto-timeout limits.",
+    "id": "d786d82c84ec4324f71da9a8:33",
+    "legacy_id": 17153,
+    "metadata_status": "verified",
+    "name": "Always-On Auto Shazam - Shazam (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Shazam: Find Music & Concerts",
+        "icon_url": "https://play-lh.googleusercontent.com/Ne3g286DhSUmbg75RI5hmJLAFLPZfgIiWVOboDL8Rb08iQAAfqb7CBfwI6eU3rIvI6Kk6B9CySgMUTbh7i42_Q",
+        "name": "com.shazam.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.",
+    "id": "d786d82c84ec4324f71da9a8:34",
+    "legacy_id": 17154,
+    "metadata_status": "verified",
+    "name": "Ambient mode - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.apps.photos": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into gallery view and hides Google One subscription paywalls and cloud storage upgrade prompts.",
+    "id": "d786d82c84ec4324f71da9a8:35",
+    "legacy_id": 17155,
+    "metadata_status": "verified",
+    "name": "AMOLED Black & Declutter - Google Photos (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gcam Services Provider (Photos)",
+        "icon_url": "https://apt.izzysoft.de/fdroid/repo/com.google.android.apps.photos/en-US/icon.png",
+        "name": "com.google.android.apps.photos",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "me.proton.android.drive": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Drive file vaults and hides storage quota warning banners and Proton Unlimited upgrade prompts.",
+    "id": "d786d82c84ec4324f71da9a8:36",
+    "legacy_id": 17156,
+    "metadata_status": "verified",
+    "name": "AMOLED Black & Declutter - Proton Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Drive: Cloud Storage",
+        "icon_url": "https://play-lh.googleusercontent.com/VQyox7uaA1_m7iaYgEmLp7e_OESrto7sV3LRBcQO8z69DrC1WtTAA3lt7CwJo96kTSlxYslpn84da1awa9L_mg",
+        "name": "me.proton.android.drive",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "proton.android.pass": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Pass vaults and hides Proton Pass Plus upgrade banners and promotional popups.",
+    "id": "d786d82c84ec4324f71da9a8:37",
+    "legacy_id": 17157,
+    "metadata_status": "verified",
+    "name": "AMOLED Black & Declutter - Proton Pass (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Password Manager - Proton Pass",
+        "icon_url": "https://play-lh.googleusercontent.com/Fl-aCgnpB0xcDpnzFYYccPrHKBoh5zSEUZKrHax9m8jGYJepQZhCNO-vhnsJ2En9Hqv8R3f7VJ62QNfgOfXL",
+        "name": "proton.android.pass",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into navigation mode and map exploration screens to minimize battery consumption and glare.",
+    "id": "d786d82c84ec4324f71da9a8:38",
+    "legacy_id": 17158,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Navigation - Google Maps (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "ch.protonmail.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton Mail's inbox, message reading view, and settings for maximum readability and battery efficiency.",
+    "id": "d786d82c84ec4324f71da9a8:39",
+    "legacy_id": 17159,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Theme - Proton Mail (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton Mail: Encrypted Email",
+        "icon_url": "https://play-lh.googleusercontent.com/TrxNlz9xizn4GBiVB2gWyws0majvL7tuCS1OsoaZxK1Sbi-uWFd51vo7eO9ghIDR6jQkIRF47mHoudd73KHazmI",
+        "name": "ch.protonmail.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "ch.protonvpn.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Proton VPN's connection dashboard, server list, and settings to optimize battery savings on AMOLED screens.",
+    "id": "d786d82c84ec4324f71da9a8:40",
+    "legacy_id": 17160,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Theme - Proton VPN (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Proton VPN - Secure and Free VPN",
+        "icon_url": "https://f-droid.org/repo/ch.protonvpn.android/en-US/icon_xAphlcwMgx7oE7sxB15sxUFIO8geUokWkG01K1fubas%3D.png",
+        "name": "ch.protonvpn.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "de.tutao.tutanota": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Tuta Mail's inbox, message reading view, calendar, and contacts for maximum battery savings on AMOLED displays.",
+    "id": "d786d82c84ec4324f71da9a8:41",
+    "legacy_id": 17161,
+    "metadata_status": "verified",
+    "name": "AMOLED Black Theme - Tuta Mail (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Tuta Mail",
+        "icon_url": "https://f-droid.org/repo/de.tutao.tutanota/en-US/icon_aE3ARq5Qudp3i6Ty-5dNtqpE3xtLwyfoWVviXshG_9o%3D.png",
+        "name": "de.tutao.tutanota",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.canva.editor": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Canva design workspace and dashboard, and hides Canva Pro trial banners and upgrade reminders.",
+    "id": "d786d82c84ec4324f71da9a8:42",
+    "legacy_id": 17162,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Canva (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Canva: AI Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/52fzAlhKzDyZV8ttyQ_DHB-jOeLZAZEdKlgXnWL__YNMZuvsoRCshJX5mr_ArFZjK7rte4hqEJ4ucjtuKJK5",
+        "name": "com.canva.editor",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.openai.chatgpt": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure pitch black (#000000) for OLED screens in ChatGPT conversations and hides 'Upgrade to ChatGPT Plus' marketing banners.",
+    "id": "d786d82c84ec4324f71da9a8:43",
+    "legacy_id": 17163,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - ChatGPT (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "ChatGPT",
+        "icon_url": "https://play-lh.googleusercontent.com/T9J8e9oxxPd600j_KPM4KK2GHfNpUpGBdTy8lHPXBXpOUfGusRuZXj0UMgFNrP8we6LVt9V-AibEgcLootE6VK4",
+        "name": "com.openai.chatgpt",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.apps.docs": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces pure OLED pitch black (#000000) across Google Drive file lists, folder navigation, status bars, and navigation bars, eliminating dark gray tint for maximum OLED power savings.",
+    "id": "d786d82c84ec4324f71da9a8:44",
+    "legacy_id": 17164,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Google Drive (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Drive",
+        "icon_url": "https://play-lh.googleusercontent.com/chc-Fx3Qi3BisTZw1aOteYK_XkMHUiXKRbX2Hc8shyFI8pYt7DcyUPzVwLGJKIeKCKDD6nFVhEtUrIaEyzcnmA",
+        "name": "com.google.android.apps.docs",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.apps.bard": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) across Gemini chat surfaces and removes 'Try Gemini Advanced' upgrade suggestions.",
+    "id": "d786d82c84ec4324f71da9a8:45",
+    "legacy_id": 17165,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Google Gemini (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Gemini",
+        "icon_url": "https://play-lh.googleusercontent.com/C64IqPWyFoCZzXVxXVl0Y6mliiNlG_sZJsqul-SBvk9ZL0wJHlU0Eho2wvsBHhho0FT5XQtH55RVGerIwXF_MA",
+        "name": "com.google.android.apps.bard",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "mega.privacy.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into MEGA cloud file browser, transfer queue, and settings, and hides Pro upgrade promotion banners.",
+    "id": "d786d82c84ec4324f71da9a8:46",
+    "legacy_id": 17166,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - MEGA (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "MEGA",
+        "icon_url": "https://play-lh.googleusercontent.com/4IDzX-5oH2pR3xvhtV7U0q2_3hPFd7KHmcK9Jj5oN0ISJfIBuctADot0Z1kQK1OFLX87nWxmPUzUU6TdymGdIw",
+        "name": "mega.privacy.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "ai.perplexity.app.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Replaces gray backgrounds with pure OLED black (#000000) in Perplexity search threads and removes 'Try Pro' upgrade banners.",
+    "id": "d786d82c84ec4324f71da9a8:47",
+    "legacy_id": 17167,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Perplexity (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Perplexity - Ask Anything",
+        "icon_url": "https://play-lh.googleusercontent.com/vg7sPhgWiPr0L2cK_NLLcCl0mrkEmNNv7C-aUkBdIUEa-9uSnCi5x4z_3Mw0vNYWKoSVWHfgri7THMOsOZKQuA",
+        "name": "ai.perplexity.app.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.snapchat.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Snapchat chat screens and hides sponsored Discover tiles and intrusive Spotlight ads.",
+    "id": "d786d82c84ec4324f71da9a8:48",
+    "legacy_id": 17168,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Declutter - Snapchat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Snapchat",
+        "icon_url": "https://play-lh.googleusercontent.com/nOJWJoDAzuRSHmlFfpzHXAj8UbTJwk_JGYf0uAPTKPtiiIX_2Y7r5ATO1ZtxHRqaFTqfIDZ40PnBK4hukeJh",
+        "name": "com.snapchat.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.thoughtcrime.securesms": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects pure OLED pitch black (#000000) into Signal chat threads and settings, and suppresses donor badges and 'Support Signal' donation reminders.",
+    "id": "d786d82c84ec4324f71da9a8:49",
+    "legacy_id": 17169,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Hide Donation Nags - Signal (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Signal Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/HXEs85Okatm4_lZMmCaLFk3iXQ6_lrr00i8nsxaqBRSy6VGnsP7F50dKUfrO37Sj0nxtzSjMpKbjgWh6d0PTyEA",
+        "name": "org.thoughtcrime.securesms",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.yanstarstudio.joss.undercover": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enforces dark mode and strips analytics telemetry (Firebase Analytics, App Measurement) in Undercover.",
+    "id": "d786d82c84ec4324f71da9a8:50",
+    "legacy_id": 17170,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme & Privacy - Undercover (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Undercover®: Word Party Game",
+        "icon_url": "https://play-lh.googleusercontent.com/jkBaQS-efcDMy-eX-Xko174yZijh9JafmW4xb3dOQyM-p9URLCm-y1s0H2Iy_ONrEBq2mc1ZTtYYEjMjyI1uyA",
+        "name": "com.yanstarstudio.joss.undercover",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.anthropic.claude": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black theme for Claude AI, optimizing contrast and reducing battery consumption on OLED displays.",
+    "id": "d786d82c84ec4324f71da9a8:51",
+    "legacy_id": 17171,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Claude AI (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Claude by Anthropic",
+        "icon_url": "https://play-lh.googleusercontent.com/YeFCFSW5LkBVdsEAL_fjzxDxTbhKz31j1uZUfDbSaCeM0t4Bi3SqyHTWzWsUsZnbwjofXhYajitG_gr2_B2xil8",
+        "name": "com.anthropic.claude",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.infomaniak.euria": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black background in Euria AI dark mode, enhancing battery efficiency and contrast on OLED screens.",
+    "id": "d786d82c84ec4324f71da9a8:52",
+    "legacy_id": 17172,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Euria AI (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Infomaniak Euria",
+        "icon_url": "https://f-droid.org/repo/com.infomaniak.euria/en-US/icon_GsKHXPVXpD19e1UZeq_Lqo0iX5pvOvV7NFQeXpNPpuI%3D.png",
+        "name": "com.infomaniak.euria",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.nextcloud.client": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Replaces dark gray theme with pure pitch black (#000000) for OLED screens in Nextcloud file explorer, uploads monitor, and media gallery.",
+    "id": "d786d82c84ec4324f71da9a8:53",
+    "legacy_id": 17173,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Nextcloud (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "org.nextcloud.client",
+        "icon_url": null,
+        "name": "org.nextcloud.client",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "network.loki.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Injects true OLED pitch black (#000000) into Session chat threads, community rooms, and message views to maximize battery savings.",
+    "id": "d786d82c84ec4324f71da9a8:54",
+    "legacy_id": 17174,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - Session (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Session - Private Messenger",
+        "icon_url": "https://play-lh.googleusercontent.com/KxSYezXXvC0AYtYxE4BtVOLqrOGDwTzo5dUHSU7Ap5d4yN8sbjEdzwMjSPhzeTnCOrvYLRuW6ismgJ4vLidEZw",
+        "name": "network.loki.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "chat.simplex.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Replaces dark grey backgrounds with pure OLED pitch black (#000000) across SimpleX Chat conversation screens and network status monitors.",
+    "id": "d786d82c84ec4324f71da9a8:55",
+    "legacy_id": 17175,
+    "metadata_status": "verified",
+    "name": "AMOLED Dark Theme - SimpleX (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SimpleX Chat",
+        "icon_url": "https://f-droid.org/repo/chat.simplex.app/en-US/icon_IDdtCGG0wL-lNRFuu7OK2tHe0TTFmPfU06AgixSneLM%3D.png",
+        "name": "chat.simplex.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.x8bit.bitwarden": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces deep AMOLED pure black backgrounds across Bitwarden's vault interface, reducing OLED power draw and eye strain.",
+    "id": "d786d82c84ec4324f71da9a8:56",
+    "legacy_id": 17176,
+    "metadata_status": "verified",
+    "name": "AMOLED Pure Black Theme - Bitwarden (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Bitwarden Password Manager",
+        "icon_url": "https://play-lh.googleusercontent.com/ezsPZ5JtRMkMd6DtbUOZghm4m-EbYcZSzXAIxJMumYOaDP9sI8o-DN8-tZpds0HJUXb-ur7F-oB9rFH78Jy2lA",
+        "name": "com.x8bit.bitwarden",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Hides Reels tab button, hides 'Suggested Posts' ('You're all caught up'), hides Shop tab, and hides explore distractions.",
+    "id": "d786d82c84ec4324f71da9a8:57",
+    "legacy_id": 17177,
+    "metadata_status": "verified",
+    "name": "Anti-Distraction UI & Declutter - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds an option to select from the Reddit app icons available in the manifest.",
+    "id": "d786d82c84ec4324f71da9a8:58",
+    "legacy_id": 17178,
+    "metadata_status": "verified",
+    "name": "App icon - Reddit (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Adds an option to change the app refresh rate.",
+    "id": "d786d82c84ec4324f71da9a8:59",
+    "legacy_id": 17179,
+    "metadata_status": "verified",
+    "name": "App refresh rate - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.vpn.lat": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Keeps the VPN tunnel active during screen-off/doze mode, enforces auto-reconnection on network switches, and prevents dropped connections in VPN.lat.",
+    "id": "d786d82c84ec4324f71da9a8:60",
+    "legacy_id": 17180,
+    "metadata_status": "verified",
+    "name": "Auto-Reconnect & Keep-Alive Background Service - VPN.lat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VPN.lat: Unlimited VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/0Dz2MhWQWTJ-NLghs4BxGD-C_5PBtPhkUovA16sOaIKHuJRhMwvfJIsevnxAC74zZFGdzN3ZkVJ-N_fsIU633A",
+        "name": "com.vpn.lat",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "tv.twitch.android.app": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Unlocks background audio playback and seamless Picture-in-Picture (PiP) mode without stream interruptions on Twitch.",
+    "id": "d786d82c84ec4324f71da9a8:61",
+    "legacy_id": 17181,
+    "metadata_status": "verified",
+    "name": "Background & Audio-Only Playback - Twitch (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.google.android.youtube": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Enables background audio playback when the screen is locked or switching between apps, and unlocks Picture-in-Picture (PiP) mode without YouTube Premium.",
+    "id": "d786d82c84ec4324f71da9a8:62",
+    "legacy_id": 17182,
+    "metadata_status": "verified",
+    "name": "Background & PiP Playback - YouTube (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube",
+        "icon_url": "https://play-lh.googleusercontent.com/QNmuZQc9I6Zbe3mWnSr0hycnENqGFCI5p3yE29Hkxtf22T0IWS6zTrpxULLyyjWpB7ONAXDsDQXnXcVWokl3eg",
+        "name": "com.google.android.youtube",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.videolan.vlc": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Forces background audio playback and automatic Picture-in-Picture (PIP) for all videos and audio streams when switching apps or minimizing VLC.",
+    "id": "d786d82c84ec4324f71da9a8:63",
+    "legacy_id": 17183,
+    "metadata_status": "verified",
+    "name": "Background Playback & Universal PIP - VLC (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VLC",
+        "icon_url": "https://f-droid.org/repo/org.videolan.vlc/en-US/icon_yAfSvPRJukZzMMfUzvbYqwaD1XmHXNtiPBtuPVHW-6s%3D.png",
+        "name": "org.videolan.vlc",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.yanstarstudio.joss.undercover": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads between rounds, banner ads in lobby and voting screens, and rewarded video gates by neutralizing ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:64",
+    "legacy_id": 17184,
+    "metadata_status": "verified",
+    "name": "Block Ads & Commercials - Undercover (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Undercover®: Word Party Game",
+        "icon_url": "https://play-lh.googleusercontent.com/jkBaQS-efcDMy-eX-Xko174yZijh9JafmW4xb3dOQyM-p9URLCm-y1s0H2Iy_ONrEBq2mc1ZTtYYEjMjyI1uyA",
+        "name": "com.yanstarstudio.joss.undercover",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.imangi.templerun2": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates post-death full-screen ads, video revive popups, and banner ads in Temple Run 2 by intercepting mediation SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:65",
+    "legacy_id": 17185,
+    "metadata_status": "verified",
+    "name": "Block Ads & Death Interstitials - Temple Run 2 (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Temple Run 2",
+        "icon_url": "https://play-lh.googleusercontent.com/48yHWnGUQ5S8qgQ13CAtp0EOuPN23443EM7K_NG0HiX_icUINAbUPLJoVOuGSTy9zTIPIDJ9shcSVPhe-VHmCE0",
+        "name": "com.imangi.templerun2",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.bandlab.bandlab": null
+    },
+    "dependencies": [],
+    "description": "Removes in-app promotional banners, upgrade prompts, sponsored artist cards, and interstitial ads across the BandLab home feed and studio screens.",
+    "id": "d786d82c84ec4324f71da9a8:66",
+    "legacy_id": 17186,
+    "metadata_status": "verified",
+    "name": "Block Ads & Declutter Feed - BandLab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "BandLab: Music Maker & Studio",
+        "icon_url": "https://play-lh.googleusercontent.com/x_PQHLeE9ptFfTZ4nmhuKDQ34nghCrRcmoYISeAV_O-Oi5yuhoXzkrRjtBgn7yfLyTo2bOtiu6HzqoEhphmliQ",
+        "name": "com.bandlab.bandlab",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.ea.game.pvzfree_row": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads, bottom banners, and promotional popups in Plants vs. Zombies.",
+    "id": "d786d82c84ec4324f71da9a8:67",
+    "legacy_id": 17187,
+    "metadata_status": "verified",
+    "name": "Block Ads & Declutter Menus - Plants vs. Zombies (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Plants vs. Zombies™",
+        "icon_url": "https://play-lh.googleusercontent.com/FGB00L2-aGHPAiRJPxbC3Th_KEaGvVroVF-tPSf_1Unh9kzzY-al4mp1yJT16I16FuLK6oJ-3H-KrVgTrg3ABFc",
+        "name": "com.ea.game.pvzfree_row",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.intsig.camscanner": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-export full-screen video ads, home feed banner promotions, and upgrade popups in CamScanner.",
+    "id": "d786d82c84ec4324f71da9a8:68",
+    "legacy_id": 17188,
+    "metadata_status": "verified",
+    "name": "Block Ads & Declutter UI - CamScanner (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CamScanner- scanner, PDF maker",
+        "icon_url": "https://play-lh.googleusercontent.com/XSoqEDquJuenUosbMN_EA2n2U5lsomPEUdCKj4j9bUdPfdWMCtRqXlyPgQ6zxQxWaDFIXrqbqyFjwXQ5FMYubw",
+        "name": "com.intsig.camscanner",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "org.telegram.messenger": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Removes sponsored messages in public channels, hides stories carousel from the chat list, and eliminates Telegram Premium upgrade reminders.",
+    "id": "d786d82c84ec4324f71da9a8:69",
+    "legacy_id": 17189,
+    "metadata_status": "verified",
+    "name": "Block Ads & Hide Stories - Telegram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Telegram",
+        "icon_url": "https://play-lh.googleusercontent.com/PyZ3akMGXPV0tKKirKNwfO--PSQW3FHR6rD_H9mAaukZ8LiHyYFuBLeU8UZ2ok6r5SP79-3prkfybWKh98AZAD0",
+        "name": "org.telegram.messenger",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.dubox.drive": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips video startup ads, cloud storage interstitial banners, and persistent TeraBox Premium VIP subscription nag popups by neutralizing ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:70",
+    "legacy_id": 17190,
+    "metadata_status": "verified",
+    "name": "Block Ads & Hide VIP Nags - TeraBox (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TeraBox: 1TB Cloud & AI Space",
+        "icon_url": "https://play-lh.googleusercontent.com/b9KKZIvnQ_X3eIqHXeR4e0Ftd3lrDgAIkJ8N1fAvgl6zpTLuX8m74aVlRnoeLQCcAnLMbSMRJGLvsmghheZe",
+        "name": "com.dubox.drive",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.halfbrick.dantheman": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates checkpoint video ads, post-stage commercials, and banner ads in Dan The Man.",
+    "id": "d786d82c84ec4324f71da9a8:71",
+    "legacy_id": 17191,
+    "metadata_status": "verified",
+    "name": "Block Ads & Interstitials - Dan The Man (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Dan the Man: Action Platformer",
+        "icon_url": "https://play-lh.googleusercontent.com/UZOlyfb43PPDa2u6xY7OKFWUwdC3i9jf94U8JVzmynkCRz_-cfKe1snSOrMSCWptEmZS3ohHlvaSZxwwYDzLbr4",
+        "name": "com.halfbrick.dantheman",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.flightradar24free": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips bottom map banner ads, interstitial aircraft viewing promos, and full-screen ads in Flightradar24.",
+    "id": "d786d82c84ec4324f71da9a8:72",
+    "legacy_id": 17192,
+    "metadata_status": "verified",
+    "name": "Block Ads & Map Banners - Flightradar24 (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Flightradar24 Flight Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8KtIuiRHYtY0XJigXIl-iN6X6-ht85ELWXFiynenpCW40b6zNUnLFGKwIN0iITV_1L3sN3G53PaiNiWsn5RSIv8",
+        "name": "com.flightradar24free",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.kiloo.subwaysurf": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads, post-run banners, forced video revives, and promotional popup screens in Subway Surfers by neutralizing Google Mobile Ads, Unity Ads, and AppLovin mediation.",
+    "id": "d786d82c84ec4324f71da9a8:73",
+    "legacy_id": 17193,
+    "metadata_status": "verified",
+    "name": "Block Ads & Promotional Popups - Subway Surfers (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Subway Surfers",
+        "icon_url": "https://play-lh.googleusercontent.com/-b6afYVP9kkzaFgDT3bZpGy2ugh1AjzCiXS0o9aZw7bIZ5rCb3Bp8YAwIxyMjUGLjl1pD6ZFGxeKKGlXBw950g",
+        "name": "com.kiloo.subwaysurf",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.instagram.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips sponsored feed posts, sponsored stories, promoted reels, and shopping tags in Instagram.",
+    "id": "d786d82c84ec4324f71da9a8:74",
+    "legacy_id": 17194,
+    "metadata_status": "verified",
+    "name": "Block Ads & Sponsored Content - Instagram (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.rovio.baba": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates full-screen video ads between levels, pause screen promos, and banner overlays in Angry Birds.",
+    "id": "d786d82c84ec4324f71da9a8:75",
+    "legacy_id": 17195,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Commercials - Angry Birds (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Angry Birds 2",
+        "icon_url": "https://play-lh.googleusercontent.com/XrA1acf-l1YT0jw0QTxWqpJLE_TYSgdGpWE1vrEepFpA2128Zx4to0ARPvKFdhT5vAc0LHHC7xAAwa8aABIFeg",
+        "name": "com.rovio.baba",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.halfbrick.fruitninja": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Disables pre-game video ads, post-match banners, and promotional reward prompts in Fruit Ninja by hooking real mediation SDKs.",
+    "id": "d786d82c84ec4324f71da9a8:76",
+    "legacy_id": 17196,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Commercials - Fruit Ninja (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Fruit Ninja Classic",
+        "icon_url": "https://play-lh.googleusercontent.com/d818bsN4WPvceFmoFLMnZKXR71MYHUxnapAJIHpXEFjs9udD5U5wcJk0rUOr61OXhllO1L3E5qcTWJ3TE90Y-ss",
+        "name": "com.halfbrick.fruitninja",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.halfbrick.jetpackjoyride": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bloque les publicités vidéo plein écran (interstitiels après crash), les bannières publicitaires et les incitations promotionnelles dans Jetpack Joyride.",
+    "id": "d786d82c84ec4324f71da9a8:77",
+    "legacy_id": 17197,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Commercials - Jetpack Joyride (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Jetpack Joyride",
+        "icon_url": "https://play-lh.googleusercontent.com/fo_dS1ZkonPQsBvxnbuIcPU8kuTbmRHsDojJIRsK1zqtlgDHMmzP8hHL2Ex-aapGjYZC7OfsvX92gZNPzxkAwg",
+        "name": "com.halfbrick.jetpackjoyride",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.yodo1.crossyroad": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-death video commercials, prize machine ads, and banner popups in Crossy Road.",
+    "id": "d786d82c84ec4324f71da9a8:78",
+    "legacy_id": 17198,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - Crossy Road (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Crossy Road",
+        "icon_url": "https://play-lh.googleusercontent.com/LX__Y8tKCvkvEgboZtQfDsvYiNFa6kwWSpqObipZI2MLK5rFVd5tEU8xgMNoMj1ICOf9TO7PFoFmiKGeIpf1",
+        "name": "com.yodo1.crossyroad",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.zeptolab.ctr.ads": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips interstitial video ads between levels, bottom banners, and promotional nag screens in Cut the Rope.",
+    "id": "d786d82c84ec4324f71da9a8:79",
+    "legacy_id": 17199,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - Cut the Rope (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Cut the Rope",
+        "icon_url": "https://play-lh.googleusercontent.com/2bTmHHM7DBMVe7fLh16Em-J-tVBMFGL2HJCxPAMNF7gAYIfU6EZoYG1__lQ0cvFMEyp3GU9CGijZzEB1qJHF",
+        "name": "com.zeptolab.ctr.ads",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.lima.doodlejump": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips post-game-over interstitials, bottom banner ads, and popup promotions in Doodle Jump.",
+    "id": "d786d82c84ec4324f71da9a8:80",
+    "legacy_id": 17200,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - Doodle Jump (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Doodle Jump",
+        "icon_url": "https://play-lh.googleusercontent.com/FMY3DWkULM8SNdCo0GXHsM75aRtwqPcYnz8xkCeTYNpiw5qBQVXcsAdG51rJ0iRtZ2fA315QWp8-8FlFVVWUlw",
+        "name": "com.lima.doodlejump",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.vpn.lat": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips full-screen video ads on server connection/disconnection, bottom banner ads, and nag popups in VPN.lat.",
+    "id": "d786d82c84ec4324f71da9a8:81",
+    "legacy_id": 17201,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - VPN.lat (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "VPN.lat: Unlimited VPN Proxy",
+        "icon_url": "https://play-lh.googleusercontent.com/0Dz2MhWQWTJ-NLghs4BxGD-C_5PBtPhkUovA16sOaIKHuJRhMwvfJIsevnxAC74zZFGdzN3ZkVJ-N_fsIU633A",
+        "name": "com.vpn.lat",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.qbis.guessthecountry": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Eliminates full-screen interstitial video ads between quiz rounds, bottom banners, and promotional reward prompts in World Map Quiz.",
+    "id": "d786d82c84ec4324f71da9a8:82",
+    "legacy_id": 17202,
+    "metadata_status": "verified",
+    "name": "Block Ads & Video Interruptions - World Map Quiz (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "World Map Quiz",
+        "icon_url": "https://play-lh.googleusercontent.com/B6F6bSdd0F4RFHgnvjDPAi2Sv3RSnFFmtagBWJ6ZrlMqoL6klPffaDj7phK6eFXuFvuQKy4KBBxWruadP75IUQ",
+        "name": "com.qbis.guessthecountry",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.soundcloud.android": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Bypasses interstitial audio ads between music tracks and removes sponsored promoted tracks from the SoundCloud audio stream by intercepting mediation SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:83",
+    "legacy_id": 17203,
+    "metadata_status": "verified",
+    "name": "Block Audio & Stream Ads - SoundCloud (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SoundCloud: Discover Music",
+        "icon_url": "https://play-lh.googleusercontent.com/rfmCNUApzYntPTdAVmor5vpaOGxIUJWNlpED2pwKcDuCTUaf_2vJlOALNzX1PiejSgZIuAT8k0F5xIBU58JG3g",
+        "name": "com.soundcloud.android",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.yanstarstudio.joss.undercover": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Blocks and removes the GDPR / Google UMP Cookie consent dialog on first launch by spoofing consent status as OBTAINED and neutralizing consent form presentation.",
+    "id": "d786d82c84ec4324f71da9a8:84",
+    "legacy_id": 17204,
+    "metadata_status": "verified",
+    "name": "Block Cookie & Consent Banner - Undercover (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Undercover®: Word Party Game",
+        "icon_url": "https://play-lh.googleusercontent.com/jkBaQS-efcDMy-eX-Xko174yZijh9JafmW4xb3dOQyM-p9URLCm-y1s0H2Iy_ONrEBq2mc1ZTtYYEjMjyI1uyA",
+        "name": "com.yanstarstudio.joss.undercover",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.pinterest": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips sponsored / promoted pins from the home and search feeds, shopping recommendation popups, and interstitial ad banners by neutralizing ad SDK calls.",
+    "id": "d786d82c84ec4324f71da9a8:85",
+    "legacy_id": 17205,
+    "metadata_status": "verified",
+    "name": "Block Promoted Pins & Ads - Pinterest (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Pinterest",
+        "icon_url": "https://play-lh.googleusercontent.com/VExMwhu9Fe5kz72YnPWP6mHrNA5WfgZ-PJMnBnQmXFpLncTAOaaHtK4b8w7b2xxGxtqycDatYslVyNSLucl9QA",
+        "name": "com.pinterest",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  },
+  {
+    "bundle_id": "d786d82c84ec4324f71da9a8",
+    "compatiblePackages": {
+      "com.reddit.frontpage": null
+    },
+    "dependencies": [],
+    "description": "⚠️ [En cours de développement / Non testé] Strips Promoted posts, sponsored comment ads, promoted user carousels, and in-feed commercial cards in Reddit.",
+    "id": "d786d82c84ec4324f71da9a8:86",
+    "legacy_id": 17206,
+    "metadata_status": "verified",
+    "name": "Block Promoted Posts & Ads - Reddit (Experimental)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Reddit",
+        "icon_url": "https://play-lh.googleusercontent.com/8FVS0kvM60JwqZWRNzBIlwrZZxJa8vpli8IWaaTo8QXRe1PHmCNJ8UpWoXkGPV3jKEaTY2OVAeYoisOnGJXY",
+        "name": "com.reddit.frontpage",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.48.6",
+    "source_id": "ff3294dc5dc950ed",
+    "use": true
+  }
+]
