@@ -1,0 +1,3647 @@
+[
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides stories, photo posts, and videos outside configured view or like ranges from the For You feed only. Following, Friends, profiles, search and other surfaces are never filtered.",
+    "id": "01c5162c432eaee57403ca6d:58",
+    "legacy_id": 47687,
+    "metadata_status": "verified",
+    "name": "Feed Content Filter",
+    "options": [
+      {
+        "default": 0,
+        "description": "Hide videos with fewer views than this. 0 disables the minimum.",
+        "key": "minViews",
+        "required": false,
+        "title": "Minimum Views",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 0,
+        "description": "Hide videos with more views than this. 0 disables the maximum.",
+        "key": "maxViews",
+        "required": false,
+        "title": "Maximum Views",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 0,
+        "description": "Hide videos with fewer likes than this. 0 disables the minimum.",
+        "key": "minLikes",
+        "required": false,
+        "title": "Minimum Likes",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": 0,
+        "description": "Hide videos with more likes than this. 0 disables the maximum.",
+        "key": "maxLikes",
+        "required": false,
+        "title": "Maximum Likes",
+        "type": "kotlin.Int",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes story posts from the For You feed.",
+        "key": "hideStories",
+        "required": false,
+        "title": "Hide Stories",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Removes photo-mode posts from the For You feed.",
+        "key": "hidePhotoPosts",
+        "required": false,
+        "title": "Hide Photo Posts",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customizes and cleans feed video overlay elements, including the full screen button, repost pill, interest feedback pills, video descriptions, profile photo follow badges, story rings, playlist bottom bars, save buttons, and music discs.",
+    "id": "01c5162c432eaee57403ca6d:59",
+    "legacy_id": 47688,
+    "metadata_status": "verified",
+    "name": "Feed Interface Declutter",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides the repost and shared-by pill badge ('Shared by' / 'Reposted') above creator details on feed videos.",
+        "key": "hideRepostBadge",
+        "required": false,
+        "title": "Hide Repost Badge",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides video descriptions, captions, and hashtags across feed videos while keeping creator and author title intact.",
+        "key": "hideVideoDescriptions",
+        "required": false,
+        "title": "Hide Video Descriptions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the plus (+) follow badge on creator profile avatars in the feed and disables its touch interaction.",
+        "key": "hideAvatarFollowButton",
+        "required": false,
+        "title": "Hide Profile Photo Follow Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes creator profile photo story rings from feed videos, ensuring avatar photos remain clean without blue story rings.",
+        "key": "disableStoryRings",
+        "required": false,
+        "title": "Disable Story Feed Indicators",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the playlist indicator bar displayed above the bottom navigation when a video is part of a playlist.",
+        "key": "hidePlaylistBar",
+        "required": false,
+        "title": "Hide Playlist Bottom Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the bookmark/favorite save button on the right-side action rail of feed videos.",
+        "key": "hideSaveButton",
+        "required": false,
+        "title": "Hide Save Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the rotating vinyl music album cover disc at the bottom right corner of feed videos.",
+        "key": "hideMusicCover",
+        "required": false,
+        "title": "Hide Music Cover Disc",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Hides the floating 'Full screen' landscape orientation button overlay on horizontal feed videos.",
+        "key": "hideFullscreenButton",
+        "required": false,
+        "title": "Hide Full Screen Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the 'Not interested' / 'Interested' feedback pills above the bottom navigation on feed videos.",
+        "key": "hideFeedbackButtons",
+        "required": false,
+        "title": "Hide Feedback Buttons",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes live stream broadcast cards and live recommendations from the For You and Following feeds.",
+    "id": "01c5162c432eaee57403ca6d:60",
+    "legacy_id": 47689,
+    "metadata_status": "verified",
+    "name": "Feed Live Stream Blocker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores Google account sign-in after patching by forcing fallback to Web-based OAuth when Google Play Services rejects the modified APK signature.",
+    "id": "01c5162c432eaee57403ca6d:61",
+    "legacy_id": 47690,
+    "metadata_status": "verified",
+    "name": "Fix Google Login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores the 'Add to Spotify' music button after patching by routing the Spotify app sign-in, which rejects the modified APK signature, through Spotify's Web-based OAuth.",
+    "id": "01c5162c432eaee57403ca6d:62",
+    "legacy_id": 47691,
+    "metadata_status": "verified",
+    "name": "Fix Spotify Login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces the activation of the native video auto-scroll experiment flag for accounts and regions that lack it due to A/B testing.",
+    "id": "01c5162c432eaee57403ca6d:63",
+    "legacy_id": 47692,
+    "metadata_status": "verified",
+    "name": "Force Auto-Scroll",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Filters out suggested accounts, recommended videos, and non-mutual profiles (such as 'People you may know') from the Friends feed so it only plays videos from accounts you mutually follow.",
+    "id": "01c5162c432eaee57403ca6d:64",
+    "legacy_id": 47693,
+    "metadata_status": "verified",
+    "name": "Friends Feed Strict Mutuals",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Master customization suite bundling in-app toggleable features (AMOLED Pure Black theme, zero bottom inset, independent keyboard vibration, force incognito, voice typing in incognito, clipboard in incognito, clipboard retention, top toolbar icons count, cursor trackpad, and smart flags) managed directly from a top-level Morphe Patches category in Gboard Settings.",
+    "id": "01c5162c432eaee57403ca6d:65",
+    "legacy_id": 47694,
+    "metadata_status": "verified",
+    "name": "Gboard Enhancements",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses mandatory Xiaomi account login checks for firmware update queries, allowing guest users to check and perform device OTA updates.",
+    "id": "01c5162c432eaee57403ca6d:66",
+    "legacy_id": 47695,
+    "metadata_status": "verified",
+    "name": "Guest OTA Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables Gboard internal external intent protection against unauthorized intent hijacking, removes the exported, permissionless web debug bridge content provider, and purges federated learning (Brella) services, receivers, queries, and metadata from AndroidManifest.xml.",
+    "id": "01c5162c432eaee57403ca6d:67",
+    "legacy_id": 47696,
+    "metadata_status": "verified",
+    "name": "Hardened Intent Security",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Filters and skips videos tagged with native AI-generated metadata, C2PA content credentials, or creator AI disclosure tags across the For You, Following, and Friends feeds.",
+    "id": "01c5162c432eaee57403ca6d:68",
+    "legacy_id": 47697,
+    "metadata_status": "verified",
+    "name": "Hide AI-Generated Content",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides promotional banners, streak mascot cards, contact sync suggestions, friend recommendations, and migration guide tooltips in the inbox and direct messages.",
+    "id": "01c5162c432eaee57403ca6d:69",
+    "legacy_id": 47698,
+    "metadata_status": "verified",
+    "name": "Hide Inbox Promos & Alerts",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides header banners including the streak pet / mascot, event announcements, top notice banners, and phone link prompts.",
+        "key": "hideTopPromosAndBanners",
+        "required": false,
+        "title": "Hide Top Promotional Banners",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides user recommendation cards (Chat with contacts / Find and chat with them), suggested accounts, and mutual friends modules in the chatlist.",
+        "key": "hideContactRecommendations",
+        "required": false,
+        "title": "Hide Contact & Friend Recommendations",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides UI migration tooltips (e.g. New followers has moved), bulletin board guide banners, and Shop migration notices.",
+        "key": "hideNavigationNoticesAndTooltips",
+        "required": false,
+        "title": "Hide Navigation Notices & Tooltips",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the horizontal story, notes, and status tray (Skylight) displayed at the top of direct messages and the inbox.",
+    "id": "01c5162c432eaee57403ca6d:70",
+    "legacy_id": 47699,
+    "metadata_status": "verified",
+    "name": "Hide Inbox Story & Status Tray",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides only suggested and non-followed story circles in the inbox tray, preserving followed stories and preventing autoplay into suggested users.",
+        "key": "hideSuggestedOnly",
+        "required": false,
+        "title": "Hide Suggested Stories Only",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the Popular LIVEs recommendation card and live stream broadcasts from the search discovery page.",
+    "id": "01c5162c432eaee57403ca6d:71",
+    "legacy_id": 47700,
+    "metadata_status": "verified",
+    "name": "Hide Popular Lives In Search",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Filters videos disclosing branded/paid-promotional content (Contenido Promocional tag) from For You, Following and Friends feeds.",
+    "id": "01c5162c432eaee57403ca6d:72",
+    "legacy_id": 47701,
+    "metadata_status": "verified",
+    "name": "Hide Promotional Content",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Filters previously watched videos from incoming For You feed batches.",
+    "id": "01c5162c432eaee57403ca6d:73",
+    "legacy_id": 47702,
+    "metadata_status": "verified",
+    "name": "Hide Seen Videos",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes suggested-account cards from profile headers and inbox surfaces.",
+    "id": "01c5162c432eaee57403ca6d:74",
+    "legacy_id": 47703,
+    "metadata_status": "verified",
+    "name": "Hide Suggested Accounts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the suggested search keywords section ('You may like' / 'Search suggestions') from the search discovery page.",
+    "id": "01c5162c432eaee57403ca6d:75",
+    "legacy_id": 47704,
+    "metadata_status": "verified",
+    "name": "Hide Suggested Searches",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes product showcase badges, shopping cart tags, and the TikTok Shop / Mall tab from navigation bars and video posts.",
+    "id": "01c5162c432eaee57403ca6d:76",
+    "legacy_id": 47705,
+    "metadata_status": "verified",
+    "name": "Hide TikTok Shop & Mall",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes the TikTok Shop / Mall navigation tab and indicator from navigation bars. Disable if you want to keep access to your purchases and orders while still hiding video product tags.",
+        "key": "hideShopTab",
+        "required": false,
+        "title": "Hide Shop Navigation Tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes shopping cart tags, product showcase badges, and commercial anchors from FYP and Following feed videos.",
+        "key": "hideVideoAnchors",
+        "required": false,
+        "title": "Hide Video Product Anchors",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Redirects external and third-party web links to the default system browser and neutralizes inline JavaScript tracking, DOM monitoring, and AJAX hooking in residual in-app WebViews.",
+    "id": "01c5162c432eaee57403ca6d:77",
+    "legacy_id": 47706,
+    "metadata_status": "verified",
+    "name": "In-App Browser Privacy Guard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Eliminates cold startup delays, background resume splash advertisements, real-time splash requests, and TopView ad preloading.",
+    "id": "01c5162c432eaee57403ca6d:78",
+    "legacy_id": 47707,
+    "metadata_status": "verified",
+    "name": "Instant Launch & Splash Blocker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected language string bundles from assets/strings#lang_* to save APK space.",
+    "id": "01c5162c432eaee57403ca6d:79",
+    "legacy_id": 47708,
+    "metadata_status": "verified",
+    "name": "Language Pack Purger",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to keep (e.g. 'en, es, pt, fr, de'). English ('en') is always preserved as safe fallback.",
+        "key": "locales",
+        "required": false,
+        "title": "Languages to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Live 3D gift particle effect engine and widget rendering lifecycle to eliminate frame drops during live streams.",
+    "id": "01c5162c432eaee57403ca6d:80",
+    "legacy_id": 47709,
+    "metadata_status": "verified",
+    "name": "Live Stream 3D Gift Optimizer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips Live link mic SDK (liblink_mic_sdk.so), Lyrax RTC broadcasting engines (liblyrax.so), DM voice/video call engine (libvoip.so), live RTM messaging (librtmglobal.so) and live base runtime (libbase_live.so), plus live stream interactive minigames to reduce APK size and memory footprint. Breaks live viewing/broadcasting and direct message calls.",
+    "id": "01c5162c432eaee57403ca6d:81",
+    "legacy_id": 47710,
+    "metadata_status": "verified",
+    "name": "Live Stream SDK & Minigame De-bloat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected language resource PAKs from assets/locales/.",
+    "id": "01c5162c432eaee57403ca6d:82",
+    "legacy_id": 47711,
+    "metadata_status": "verified",
+    "name": "Locale PAK Slimmer",
+    "options": [
+      {
+        "default": "en-US",
+        "description": "Comma-separated locale codes to keep (e.g. 'es, es-419, en-US, pt-BR, fr, de'). English (en-US) is always kept as a safe fallback.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips unselected language translation directories from res/ (e.g. values-*, raw-*, xml-*). Base fallback resources with no language qualifiers are always preserved.",
+    "id": "01c5162c432eaee57403ca6d:83",
+    "legacy_id": 47712,
+    "metadata_status": "verified",
+    "name": "Locale Resource Slimmer",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to preserve (e.g. 'en, es, pt, fr, de'). English fallback is always retained.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unblocks the download button on creator-restricted videos inside the Share panel, and routes downloads to clean unwatermarked media streams.",
+    "id": "01c5162c432eaee57403ca6d:84",
+    "legacy_id": 47713,
+    "metadata_status": "verified",
+    "name": "Media Usability & Watermark-Free Downloader",
+    "options": [
+      {
+        "default": true,
+        "description": "Routes downloads to clean unwatermarked streams and strips client-side watermark overlays. Disable to keep stock watermarked downloads while retaining the unblocked download button.",
+        "key": "removeWatermark",
+        "required": false,
+        "title": "Remove Watermark",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "high",
+        "description": "Download quality control (the single place for download quality; the Video Quality Governor only caps playback): 'high' (best available stream), 'medium', 'low' (smallest stream), or a fixed resolution ceiling in p (1080, 720, 540, 480, 360 - best stream within the ceiling). Anything else falls back to 'high'.",
+        "key": "downloadQuality",
+        "required": false,
+        "title": "Saved-Video Quality Preference",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces DeviceInfoListCache.isShowProduct to return true, bypassing version-gating and distribution restrictions so that all device models are always displayed and discoverable.",
+    "id": "01c5162c432eaee57403ca6d:85",
+    "legacy_id": 47714,
+    "metadata_status": "verified",
+    "name": "Model Catalog Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables orphan billing activities, services, and permissions for alternative OEM stores (Huawei, Xiaomi, Samsung).",
+    "id": "01c5162c432eaee57403ca6d:86",
+    "legacy_id": 47715,
+    "metadata_status": "verified",
+    "name": "Multi-Store Debridger",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unused native companion binaries (Impress Vision AI, WireGuard VPN, and Android XR) to significantly reduce APK size.",
+    "id": "01c5162c432eaee57403ca6d:87",
+    "legacy_id": 47716,
+    "metadata_status": "verified",
+    "name": "Native Bloat Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes clutter from the feed navigation and top header bar, including the Nearby feed tab, Community (Explore) tab, top-left LIVE broadcast button, central '+' create content button, in-video bottom search suggestion bar, friend profile photo previews on the bottom Friends tab, and unread notification badges on the bottom Messages (Inbox) tab.",
+    "id": "01c5162c432eaee57403ca6d:88",
+    "legacy_id": 47717,
+    "metadata_status": "verified",
+    "name": "Navigation & Header Declutter",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes the Nearby (local city or region) feed tab from the top navigation feed strip.",
+        "key": "hideNearbyTab",
+        "required": false,
+        "title": "Hide Nearby Feed Tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the Community (Explore) tab from the top navigation feed strip and bottom bar.",
+        "key": "hideCommunityTab",
+        "required": false,
+        "title": "Hide Community Tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Removes the top-left LIVE broadcast button and tab entry point from the top navigation bar.",
+        "key": "hideTopLiveEntrance",
+        "required": false,
+        "title": "Hide Top-Left LIVE Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the search suggestion pill and trending bar ('Search · <keyword>') from the bottom of feed videos.",
+        "key": "hideFeedSearchBar",
+        "required": false,
+        "title": "Hide Feed Search Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Removes the central '+' create / publish content button from the bottom navigation bar.",
+        "key": "hidePublishTab",
+        "required": false,
+        "title": "Hide Create / Publish Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Prevents friend profile pictures from replacing the Friends icon on the bottom navigation bar and keeps the standard icon visible.",
+        "key": "hideFriendsAvatarPreview",
+        "required": false,
+        "title": "Hide Friends Tab Avatar Preview",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Removes the unread message counter badge and notification red dot from the bottom Messages (Inbox) tab.",
+        "key": "hideInboxBadge",
+        "required": false,
+        "title": "Hide Inbox Notification Badge",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Network Security Config"
+    ],
+    "description": "Disables cleartext traffic, trusts user-installed certificates, and bypasses OkHttp certificate pinning.",
+    "id": "01c5162c432eaee57403ca6d:89",
+    "legacy_id": 47718,
+    "metadata_status": "verified",
+    "name": "Network Security & TLS Inspection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enforces user trust anchors while preserving HTTP cleartext traffic for driver downloads and LAN printers.",
+    "id": "01c5162c432eaee57403ca6d:90",
+    "legacy_id": 47719,
+    "metadata_status": "verified",
+    "name": "Network Security Hardening",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces TikTok's non-personalized search mode instead of the saved account choice.",
+    "id": "01c5162c432eaee57403ca6d:91",
+    "legacy_id": 47720,
+    "metadata_status": "verified",
+    "name": "Non-Personalized Search",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [
+      "Gboard Offline Manifest Purge"
+    ],
+    "description": "Completely isolates Gboard from the network by revoking network permissions, neutralizing HTTP clients (Cronet, OkHttp, Superpacks), and spoofing offline status.",
+    "id": "01c5162c432eaee57403ca6d:92",
+    "legacy_id": 47721,
+    "metadata_status": "verified",
+    "name": "Offline Only",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Offline Manifest Purge"
+    ],
+    "description": "Completely isolates the app from the network by revoking internet permissions and spoofing offline status. Note: do not activate on first launch; pair your earbuds once before enabling.",
+    "id": "01c5162c432eaee57403ca6d:93",
+    "legacy_id": 47722,
+    "metadata_status": "verified",
+    "name": "Offline Only",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips background Peer-to-Peer CDN distribution binaries (libavmdlp2pv2.so and libp2plivevdp.so) to prevent battery drain, background data upload, and mesh relay.",
+    "id": "01c5162c432eaee57403ca6d:94",
+    "legacy_id": 47723,
+    "metadata_status": "verified",
+    "name": "P2P Video Relay & Mesh CDN Blocker",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Persists selected video playback speed across all feed videos and application restarts, and optionally enables the native hold-and-slide 2x speed lock gesture.",
+    "id": "01c5162c432eaee57403ca6d:95",
+    "legacy_id": 47724,
+    "metadata_status": "verified",
+    "name": "Playback Speed Persistence",
+    "options": [
+      {
+        "default": true,
+        "description": "Enables TikTok's native hold, slide down, and release gesture for locking playback at 2x speed (140dp slide distance fallback when the server returns no distance).",
+        "key": "enableSpeedLock",
+        "required": false,
+        "title": "Hold-And-Slide 2x Speed Lock",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Losslessly recompresses PNG assets with maximum zlib compression and strips non-rendering metadata chunks (pHYs, tEXt, tIME) while preserving 9-patch structures and pixel accuracy. In raw-only pipeline mode, optimizes assets/ only as res/ is not decoded.",
+    "id": "01c5162c432eaee57403ca6d:96",
+    "legacy_id": 47725,
+    "metadata_status": "verified",
+    "name": "PNG Asset Optimizer",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses intrusive popups, dialogs, and modal prompts, including 'Follow your friends' dialogs, contacts sync overlays, multi-account notification guides, 2SV security checkup modals, PopLayer promotional sheets, live stream teaser bubbles, sticker recommendations, and DM streak expiration warnings.",
+    "id": "01c5162c432eaee57403ca6d:97",
+    "legacy_id": 47726,
+    "metadata_status": "verified",
+    "name": "Popups & Prompts Suppressor",
+    "options": [
+      {
+        "default": true,
+        "description": "Suppresses 'Follow your friends' modals, 'Find contacts' Friends tab sync overlays, multi-account notification guides, and 'Security checkup 2SV' upsells.",
+        "key": "suppressAccountPrompts",
+        "required": false,
+        "title": "Suppress Account & Permission Nags",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disables personalized sticker suggestion popups and typing recommendations in direct messages.",
+        "key": "suppressStickerRecommendations",
+        "required": false,
+        "title": "Suppress Sticker Recommendations",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Suppresses repetitive PopLayer prompts including favorites collection guides, launcher shortcut dialogs, repost newbie sheets, STEM feed prompts, campus education sheets, creator inbox guides, app review dialogs, marketing opt-ins, FYP surveys, CapCut/Lemon8 upsells, profile visitor prompts, and story intro sheets.",
+        "key": "filterPopLayerPrompts",
+        "required": false,
+        "title": "Filter PopLayer Prompts & Nags",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disables floating live stream preview teasers and popup windows from appearing over the video feed.",
+        "key": "suppressLiveTeaserBubble",
+        "required": false,
+        "title": "Suppress Live Teaser Bubbles",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Suppresses direct message streak expiration warning banners and inline urgency reminders.",
+        "key": "suppressStreakReminders",
+        "required": false,
+        "title": "Suppress DM Streak Reminders",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remembers TikTok's clear-display state between videos and re-applies it when new videos start.",
+    "id": "01c5162c432eaee57403ca6d:98",
+    "legacy_id": 47727,
+    "metadata_status": "verified",
+    "name": "Remember Clear Display",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Throttles background sensor polling (gyroscope/accelerometer 3D ads) and prevents aggressive video buffer preloading to conserve battery and CPU resources.",
+    "id": "01c5162c432eaee57403ca6d:99",
+    "legacy_id": 47728,
+    "metadata_status": "verified",
+    "name": "Resource & Battery Governor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips embedded third-party license text, onboarding tutorial Lottie animations, promotional GIFs, and APK root metadata/junk files.",
+    "id": "01c5162c432eaee57403ca6d:100",
+    "legacy_id": 47729,
+    "metadata_status": "verified",
+    "name": "Resource Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.hevy": [
+        "3.1.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips embedded onboarding MP4 tutorial video, heavy IMG.LY photo editor stickers/textures, and compiler junk metadata.",
+    "id": "01c5162c432eaee57403ca6d:101",
+    "legacy_id": 47730,
+    "metadata_status": "verified",
+    "name": "Resource Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "3.1.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remembers playback timestamp when scrolling away and resumes from where playback stopped upon returning.",
+    "id": "01c5162c432eaee57403ca6d:102",
+    "legacy_id": 47731,
+    "metadata_status": "verified",
+    "name": "Resume Video After Scroll",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes motion, ambient, and orientation sensor providers to prevent hardware fingerprinting and tracking via Generic Sensor APIs.",
+    "id": "01c5162c432eaee57403ca6d:103",
+    "legacy_id": 47732,
+    "metadata_status": "verified",
+    "name": "Sensor Privacy Guard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Displays the creator's country or region code next to their username in video author info across feeds and deep-linked detail views.",
+    "id": "01c5162c432eaee57403ca6d:104",
+    "legacy_id": 47733,
+    "metadata_status": "verified",
+    "name": "Show Author Region",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores TikTok's native video seekbar and scrubbing controls where normally hidden or disabled.",
+    "id": "01c5162c432eaee57403ca6d:105",
+    "legacy_id": 47734,
+    "metadata_status": "verified",
+    "name": "Show Seekbar",
+    "options": [
+      {
+        "default": true,
+        "description": "Displays real-time video frame thumbnail previews while dragging the seekbar thumb.",
+        "key": "showThumbnail",
+        "required": false,
+        "title": "Show Dragging Thumbnail Preview",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Spoofs the detected SIM and network country ISO code, operator numeric codes, operator names, and cell identity MCC/MNC to bypass regional feed restrictions and catalog blocks.",
+    "id": "01c5162c432eaee57403ca6d:106",
+    "legacy_id": 47735,
+    "metadata_status": "verified",
+    "name": "SIM Region Selector",
+    "options": [
+      {
+        "default": "CH",
+        "description": "Two-letter ISO country code for SIM and network country spoofing (e.g. 'CH', 'US', 'JP', 'GB').",
+        "key": "region",
+        "required": false,
+        "title": "Spoofed Region ISO Code",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "5-6 digit MCC+MNC code (e.g. '22801' for Switzerland/Swisscom) used to spoof TelephonyManager operator queries and CellIdentity MCC/MNC reads. Empty keeps stock operator values.",
+        "key": "operatorNumeric",
+        "required": false,
+        "title": "Spoofed Operator Numeric Code (MCC+MNC)",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "",
+        "description": "Display name reported for SIM/network operator queries (e.g. 'Swisscom'). Empty keeps the stock operator name.",
+        "key": "operatorName",
+        "required": false,
+        "title": "Spoofed Operator Name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses and clears sensitive content warnings, graphic media blur overlays, and age gates on feed videos.",
+    "id": "01c5162c432eaee57403ca6d:107",
+    "legacy_id": 47736,
+    "metadata_status": "verified",
+    "name": "Skip Content Warnings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Skips the welcome screen, search engine selection, and onboarding First Run Experience (FRE) on clean installs.",
+    "id": "01c5162c432eaee57403ca6d:108",
+    "legacy_id": 47737,
+    "metadata_status": "verified",
+    "name": "Skip First Run",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses the entire first-run introduction funnel (interest pickers, swipe tutorials, language prompts, and consent sheets) directly to the feed.",
+    "id": "01c5162c432eaee57403ca6d:109",
+    "legacy_id": 47738,
+    "metadata_status": "verified",
+    "name": "Skip First-Launch Onboarding",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses the first-launch About/privacy dialog by applying the app's own accept action silently. The About entry in the menu keeps working.",
+    "id": "01c5162c432eaee57403ca6d:110",
+    "legacy_id": 47739,
+    "metadata_status": "verified",
+    "name": "Skip Welcome Dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unblocks Spatial Audio, hearing enhancement, and voice wake-up restrictions, unbans Spatial Audio on 96kHz aptX Adaptive connections, and bypasses XPAN requirements.",
+    "id": "01c5162c432eaee57403ca6d:111",
+    "legacy_id": 47740,
+    "metadata_status": "verified",
+    "name": "Sound Features Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops videos at the end instead of replaying them in an infinite loop.",
+    "id": "01c5162c432eaee57403ca6d:112",
+    "legacy_id": 47741,
+    "metadata_status": "verified",
+    "name": "Stop Video Looping",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Selectively revokes sensitive hardware, privacy, and system permissions from AndroidManifest.xml.",
+    "id": "01c5162c432eaee57403ca6d:113",
+    "legacy_id": 47742,
+    "metadata_status": "verified",
+    "name": "Strip Permissions",
+    "options": [
+      {
+        "default": false,
+        "description": "Revokes READ_CONTACTS permission from AndroidManifest.xml (disables contact name suggestions).",
+        "key": "stripContacts",
+        "required": false,
+        "title": "Strip Contacts Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes RECORD_AUDIO permission from AndroidManifest.xml (disables voice dictation).",
+        "key": "stripAudio",
+        "required": false,
+        "title": "Strip Microphone Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes photo and media permissions (READ_MEDIA_IMAGES, READ_MEDIA_VISUAL_USER_SELECTED, READ_EXTERNAL_STORAGE) from AndroidManifest.xml (disables custom image background themes).",
+        "key": "stripMedia",
+        "required": false,
+        "title": "Strip Media & Storage Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes system personal dictionary sync permissions (READ_USER_DICTIONARY, WRITE_USER_DICTIONARY) from AndroidManifest.xml.",
+        "key": "stripUserDictionary",
+        "required": false,
+        "title": "Strip System Dictionary Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Revokes INTERACT_ACROSS_PROFILES permission from AndroidManifest.xml to isolate work and personal profiles.",
+        "key": "stripCrossProfile",
+        "required": false,
+        "title": "Strip Cross-Profile Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips heavy video creation plugins, CapCut NLE editor SDKs, effect plugins, camera dynamic features, upload video encoders, on-device AI runtimes (LiteRT), and AR camera face models to significantly reduce APK size.",
+    "id": "01c5162c432eaee57403ca6d:114",
+    "legacy_id": 47743,
+    "metadata_status": "verified",
+    "name": "Studio & Creation De-bloat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses intrusive in-app rating surveys, Play Store review prompts, and marketing promo popups (YouTube promo, ad-free callouts, and Brave Ads onboarding).",
+    "id": "01c5162c432eaee57403ca6d:115",
+    "legacy_id": 47744,
+    "metadata_status": "verified",
+    "name": "Suppress In-App Promos & Surveys",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses Xiaomi OEM gating to enable full feature parity (voice assistant & spatial audio dialogs) on non-Xiaomi devices (Samsung, Pixel, etc.).",
+    "id": "01c5162c432eaee57403ca6d:116",
+    "legacy_id": 47745,
+    "metadata_status": "verified",
+    "name": "Surgical OEM Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces TikTok to use the Android system font instead of bundled proprietary TikTokSans fonts.",
+    "id": "01c5162c432eaee57403ca6d:117",
+    "legacy_id": 47746,
+    "metadata_status": "verified",
+    "name": "System Font",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "When closing the active tab in a tab group, selects the previous tab in the same group instead of jumping outside the group.",
+    "id": "01c5162c432eaee57403ca6d:118",
+    "legacy_id": 47747,
+    "metadata_status": "verified",
+    "name": "Tab Group Close Selection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips advertising and attribution permissions, disables telemetry receivers/services (AppLog, AppsFlyer, Measurement, DataTransport), prunes Firebase analytics/transport registrars, and injects opt-out metadata (Firebase, AppsFlyer, Meta).",
+    "id": "01c5162c432eaee57403ca6d:119",
+    "legacy_id": 47748,
+    "metadata_status": "verified",
+    "name": "Telemetry Manifest Purge",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Selectively strips sensitive privacy, sensor, hardware, and tracking permissions from AndroidManifest.xml via configurable boolean toggles.",
+    "id": "01c5162c432eaee57403ca6d:120",
+    "legacy_id": 47749,
+    "metadata_status": "verified",
+    "name": "TikTok Privacy Permissions Stripper",
+    "options": [
+      {
+        "default": false,
+        "description": "Remove POST_NOTIFICATIONS permission (Android 13+). Notification channels cannot dispatch push alerts.",
+        "key": "stripNotifications",
+        "required": false,
+        "title": "Strip Notification Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove CAMERA permission. WARNING: Breaks camera recording, photo capturing, QR scanning, LIVE broadcasting, and video creation.",
+        "key": "stripCamera",
+        "required": false,
+        "title": "Strip Camera Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove RECORD_AUDIO, FOREGROUND_SERVICE_MICROPHONE, and FOREGROUND_SERVICE_CAMERA permissions. WARNING: Breaks video voice recording, LIVE audio broadcasting, audio comments, and voice/video calling.",
+        "key": "stripMicrophone",
+        "required": false,
+        "title": "Strip Microphone Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove external storage (READ/WRITE_EXTERNAL_STORAGE) and media permissions (READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO, READ_MEDIA_VISUAL_USER_SELECTED, ACCESS_MEDIA_LOCATION). WARNING: Breaks local gallery picker, drafts, and video/photo saving.",
+        "key": "stripStorageMedia",
+        "required": false,
+        "title": "Strip Storage & Media Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove BLUETOOTH, BLUETOOTH_SCAN, BLUETOOTH_CONNECT, and BLUETOOTH_ADVERTISE permissions. WARNING: Breaks Bluetooth audio accessories, wireless headphones low-latency sync, Cast devices, and external remote controls.",
+        "key": "stripBluetooth",
+        "required": false,
+        "title": "Strip Bluetooth Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove NFC permission. WARNING: Disables NFC tag interactions and NFC-based hardware authentication tokens.",
+        "key": "stripNfc",
+        "required": false,
+        "title": "Strip NFC Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove USE_BIOMETRIC and USE_FINGERPRINT permissions. WARNING: Breaks fingerprint/face biometric unlocking, passkeys, and biometric payment authorization.",
+        "key": "stripBiometric",
+        "required": false,
+        "title": "Strip Biometric Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove generic FOREGROUND_SERVICE and specialized types (DATA_SYNC, MEDIA_PLAYBACK, MEDIA_PROJECTION, PHONE_CALL). WARNING: HIGH RISK. Breaks background video uploads, offline caching, media playback notification services, screen sharing, and VoIP calls in background.",
+        "key": "stripForegroundServices",
+        "required": false,
+        "title": "Strip Foreground Service Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove SYSTEM_ALERT_WINDOW permission. WARNING: Breaks Picture-in-Picture overlay window outside the app, floating mini-player, and overlay notification heads.",
+        "key": "stripSystemAlertWindow",
+        "required": false,
+        "title": "Strip System Alert Window Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove WAKE_LOCK permission. WARNING: Device CPU may sleep during media playback or long video uploads/downloads when screen turns off, suspending progress.",
+        "key": "stripWakeLock",
+        "required": false,
+        "title": "Strip Wake Lock Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove DETECT_SCREEN_CAPTURE and DETECT_SCREEN_RECORDING permissions to neutralize system-level capture callbacks.",
+        "key": "stripScreenshotDetection",
+        "required": false,
+        "title": "Strip Screenshot & Recording Detection Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove VIBRATE, MODIFY_AUDIO_SETTINGS, MANAGE_OWN_CALLS, REORDER_TASKS, SET_WALLPAPER, and USE_FULL_SCREEN_INTENT permissions. WARNING: Disables haptic feedback vibration, volume adjustments, alarm priority intents, and live wallpaper export.",
+        "key": "stripMiscHardware",
+        "required": false,
+        "title": "Strip Miscellaneous Hardware & System Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove OEM attribution, launcher badges, AICore bindings, and proprietary TikTok internal IPC permissions. WARNING: Removing DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION may impact runtime dynamic broadcast receivers.",
+        "key": "stripOemSignals",
+        "required": false,
+        "title": "Strip OEM Diagnostic & Background Signals",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google C2DM/FCM and Amazon ADM push receiver permissions. WARNING: Breaks push notification delivery.",
+        "key": "stripPushDelivery",
+        "required": false,
+        "title": "Strip Push Delivery Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Play in-app billing permission (com.android.vending.BILLING). WARNING: Breaks coin purchases and in-app transactions.",
+        "key": "stripBilling",
+        "required": false,
+        "title": "Strip In-App Billing Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes ByteDance AppLog user tracking, APM/Npth/Heimdallr crash monitors, AppsFlyer attribution, and Firebase analytics.",
+    "id": "01c5162c432eaee57403ca6d:121",
+    "legacy_id": 47750,
+    "metadata_status": "verified",
+    "name": "Unified Telemetry & Tracker Silencer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Rewrites Dalvik const-string URL/host literals matching a user-supplied hosts blocklist to a sink IP (default 0.0.0.0). The blocklist file is read at patch time, so daily DNS updates apply without patch releases.",
+    "id": "01c5162c432eaee57403ca6d:122",
+    "legacy_id": 47751,
+    "metadata_status": "verified",
+    "name": "Universal Hosts Blocker",
+    "options": [
+      {
+        "default": null,
+        "description": "Path to a hosts or plain-domain blocklist file on the patching machine (e.g. Hagezi native.tiktok-onlydomains.txt). Leave empty to skip.",
+        "key": "hostsFile",
+        "required": false,
+        "title": "Hosts blocklist file",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "0.0.0.0",
+        "description": "IPv4 address replacing blocked hosts inside const-string literals (e.g. '0.0.0.0').",
+        "key": "sinkIp",
+        "required": false,
+        "title": "Sink IP address",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "When enabled, a blocklist entry also matches its subdomains (entry 'example.com' matches 'a.example.com').",
+        "key": "matchSubdomains",
+        "required": false,
+        "title": "Match subdomains",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips non-essential tracking, crash reporting, and debug companion native libraries in lib/** (e.g. libcrashlytics, libsentry, libbugly, libgwp-asan) by zeroing bytes in-situ. Requires SDK Blocker pairing when the app eagerly loads these libs.",
+    "id": "01c5162c432eaee57403ca6d:123",
+    "legacy_id": 47752,
+    "metadata_status": "verified",
+    "name": "Universal Native Binary Trimmer",
+    "options": [
+      {
+        "default": true,
+        "description": "Zero native crash reporting and tracking libraries (Crashlytics, Sentry, Bugly, PLCrashReporter).",
+        "key": "trimCrashReporters",
+        "required": false,
+        "title": "Trim Crash Reporting Libraries",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Zero debug memory and profiling libraries (GWP-ASan, Simpleperf, Android Studio profilers).",
+        "key": "trimDebugProfilers",
+        "required": false,
+        "title": "Trim Debug & Profiling Libraries",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces offline execution across any application by revoking INTERNET and network permissions from AndroidManifest.xml and blocking cleartext HTTP traffic at the OS level.",
+    "id": "01c5162c432eaee57403ca6d:124",
+    "legacy_id": 47753,
+    "metadata_status": "verified",
+    "name": "Universal Offline Mode",
+    "options": [
+      {
+        "default": false,
+        "description": "Also remove ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE permissions. Default is false to prevent SecurityException crashes in apps that query network status without error handling.",
+        "key": "stripNetworkState",
+        "required": false,
+        "title": "Strip Network State Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove CHANGE_NETWORK_STATE, CHANGE_WIFI_STATE, CHANGE_WIFI_MULTICAST_STATE, and NEARBY_WIFI_DEVICES permissions.",
+        "key": "stripWifiControls",
+        "required": false,
+        "title": "Strip Wi-Fi Control Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Cloud Messaging and Firebase Cloud Messaging push receiver permissions (com.google.android.c2dm.permission.RECEIVE).",
+        "key": "stripPush",
+        "required": false,
+        "title": "Strip Push Notification Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Services Framework and account sync permissions (com.google.android.providers.gsf.permission.READ_GSERVICES, android.permission.GET_ACCOUNTS).",
+        "key": "stripGoogleServices",
+        "required": false,
+        "title": "Strip Google Services Sync Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enforce android:usesCleartextTraffic='false' on the application tag in AndroidManifest.xml.",
+        "key": "blockCleartext",
+        "required": false,
+        "title": "Block Cleartext Traffic",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Selectively strips sensitive privacy, sensor, and hardware permissions from AndroidManifest.xml via configurable boolean toggles.",
+    "id": "01c5162c432eaee57403ca6d:125",
+    "legacy_id": 47754,
+    "metadata_status": "verified",
+    "name": "Universal Privacy Permissions Stripper",
+    "options": [
+      {
+        "default": false,
+        "description": "Remove POST_NOTIFICATIONS permission (Android 13+) from AndroidManifest.xml.",
+        "key": "stripNotifications",
+        "required": false,
+        "title": "Strip Notification Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove CAMERA permission from AndroidManifest.xml.",
+        "key": "stripCamera",
+        "required": false,
+        "title": "Strip Camera Permission",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove RECORD_AUDIO and audio capture permissions from AndroidManifest.xml.",
+        "key": "stripMicrophone",
+        "required": false,
+        "title": "Strip Microphone Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove external storage (READ/WRITE/MANAGE_EXTERNAL_STORAGE) and media permissions (READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO, ACCESS_MEDIA_LOCATION) from AndroidManifest.xml.",
+        "key": "stripMediaAndStorage",
+        "required": false,
+        "title": "Strip Storage & Media Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, and ACCESS_BACKGROUND_LOCATION permissions from AndroidManifest.xml.",
+        "key": "stripLocation",
+        "required": false,
+        "title": "Strip Location Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove READ_CONTACTS, WRITE_CONTACTS, and GET_ACCOUNTS permissions from AndroidManifest.xml.",
+        "key": "stripContacts",
+        "required": false,
+        "title": "Strip Contacts & Accounts Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove READ_CALENDAR and WRITE_CALENDAR permissions from AndroidManifest.xml.",
+        "key": "stripCalendar",
+        "required": false,
+        "title": "Strip Calendar Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Bluetooth scanning/connection and nearby Wi-Fi permissions (BLUETOOTH_SCAN, BLUETOOTH_CONNECT, BLUETOOTH_ADVERTISE, NEARBY_WIFI_DEVICES, UWB_RANGING) from AndroidManifest.xml.",
+        "key": "stripNearbyDevices",
+        "required": false,
+        "title": "Strip Nearby Devices Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove BODY_SENSORS, BODY_SENSORS_BACKGROUND, and ACTIVITY_RECOGNITION permissions from AndroidManifest.xml.",
+        "key": "stripSensors",
+        "required": false,
+        "title": "Strip Body Sensors Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Prevents applications from overriding display brightness (such as in-app brightness sliders, barcode/QR full-screen brightness, or window-level overrides) by neutralizing all direct writes to WindowManager.LayoutParams.screenBrightness.",
+    "id": "01c5162c432eaee57403ca6d:126",
+    "legacy_id": 47755,
+    "metadata_status": "verified",
+    "name": "Universal Screen Brightness Governor",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces the target application to respect system screen timeout and sleep timers by neutralizing keepScreenOn view calls and stripping FLAG_KEEP_SCREEN_ON from windows and layout parameters.",
+    "id": "01c5162c432eaee57403ca6d:127",
+    "legacy_id": 47756,
+    "metadata_status": "verified",
+    "name": "Universal Screen Timeout Enforcer",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Screenshot Protection Bypass Resource"
+    ],
+    "description": "Neutralizes FLAG_SECURE on windows, layout params, and SurfaceViews, unlocks audio playback capture, and suppresses Android 14+ screenshot and screen recording detection callbacks.",
+    "id": "01c5162c432eaee57403ca6d:128",
+    "legacy_id": 47757,
+    "metadata_status": "verified",
+    "name": "Universal Screenshot Protection Bypass",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Neutralizes third-party APM, crash reporting, analytics, attribution, session replay, location tracking, and push engagement SDK init and event methods at DEX level via early return-void; companion runtime layer to Universal Telemetry Neutralizer (manifest layer).",
+    "id": "01c5162c432eaee57403ca6d:129",
+    "legacy_id": 47758,
+    "metadata_status": "verified",
+    "name": "Universal SDK Blocker",
+    "options": [
+      {
+        "default": true,
+        "description": "Neutralize New Relic, Datadog, and Dynatrace monitoring, metric reporting, and HTTP transaction tracing methods.",
+        "key": "blockApm",
+        "required": false,
+        "title": "Block APM & Performance Monitoring SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Raygun, Shake, Embrace, Splunk Mint, App Center, OpenTelemetry, ACRA, Sentry, Bugsnag, Crashlytics (legacy and Firebase), Fabric, Instabug, Countly, and HockeyApp crash reporters.",
+        "key": "blockCrashReporters",
+        "required": false,
+        "title": "Block Crash Reporting SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Firebase Analytics, Matomo, Leanplum, Localytics, WebEngage, PostHog, MoEngage, Snowplow, mParticle, Treasure Data, Huawei Analytics, Yandex Metrica, Facebook AppEvents, and Sensors Analytics event tracking, capture, and session logging methods.",
+        "key": "blockAnalytics",
+        "required": false,
+        "title": "Block Analytics SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize AppsFlyer, Adjust, Amplitude, Mixpanel, CleverTap, Segment, Branch, Singular, Kochava, Tenjin, Unity Analytics, Flurry, and GameAnalytics conversion, tracking, and attribution SDKs.",
+        "key": "blockAttribution",
+        "required": false,
+        "title": "Block Attribution & Engagement SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize pre-Firebase Google Analytics tracking, hit dispatching, and activity reporting methods (com.google.analytics and com.google.android.gms.analytics).",
+        "key": "blockLegacyAnalytics",
+        "required": false,
+        "title": "Block Legacy Google Analytics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Neutralize OneSignal, Airship, and Braze push engagement and tagging SDKs. WARNING: this breaks push notification delivery; enable only to fully silence push engagement SDK runtimes.",
+        "key": "blockPushEngagement",
+        "required": false,
+        "title": "Block Push Engagement SDKs (WARNING: Breaks Push)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize UXCam, Smartlook, FullStory, Contentsquare, and Bugsee screen and session recording SDK methods.",
+        "key": "blockSessionReplay",
+        "required": false,
+        "title": "Block Session Replay SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Radar, Gimbal, and Estimote beacon and location tracking SDKs; note OS location permission controls remain the primary gate.",
+        "key": "blockLocationTrackers",
+        "required": false,
+        "title": "Block Location & Beacon Tracking SDKs",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips advertising and Privacy Sandbox permissions, disables analytics ContentProviders and telemetry background services (Firebase, Sentry, Adjust, AppsFlyer, DataTransport), prunes ComponentDiscovery registrars, and injects telemetry opt-out metadata. Includes an optional toggle to disable push notification services.",
+    "id": "01c5162c432eaee57403ca6d:130",
+    "legacy_id": 47759,
+    "metadata_status": "verified",
+    "name": "Universal Telemetry Neutralizer",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove AD_ID, Privacy Sandbox attribution/topics/audiences, and Play Install Referrer permissions from AndroidManifest.xml.",
+        "key": "revokePermissions",
+        "required": false,
+        "title": "Revoke Advertising & Tracking Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable analytics ContentProviders (Google Measurement, Sentry, Facebook, Flurry, Branch, AppsFlyer).",
+        "key": "disableProviders",
+        "required": false,
+        "title": "Disable Telemetry ContentProviders",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Google Measurement, Google DataTransport, Firebase Sessions, and AppsFlyer background job services.",
+        "key": "disableServices",
+        "required": false,
+        "title": "Disable Telemetry Background Services",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable install referrer and analytics measurement broadcast receivers (Adjust, AppsFlyer, Google Measurement).",
+        "key": "disableReceivers",
+        "required": false,
+        "title": "Disable Telemetry Receivers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Inject meta-data opt-out entries into application tag (Firebase Analytics, Crashlytics, Performance, AppsFlyer, Sentry, Facebook SDK) and prune Firebase discovery registrars.",
+        "key": "injectOptOutFlags",
+        "required": false,
+        "title": "Inject Telemetry Opt-Out Flags & Prune Registrars",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable com.google.firebase.provider.FirebaseInitProvider. Default is false to prevent issues in apps that depend on Firebase Auth or push notifications.",
+        "key": "disableFirebaseInit",
+        "required": false,
+        "title": "Disable Firebase Init Provider",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable Meta Fbns, PushLite, and Firebase Cloud Messaging services plus push receivers (Firebase IID, Braze). WARNING: this breaks push notifications; enable only to fully silence background push delivery.",
+        "key": "disablePushServices",
+        "required": false,
+        "title": "Disable Push Notification Services",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable legacy Google Analytics background services and receivers (distinct from Firebase AppMeasurement, which is covered by the telemetry toggles above).",
+        "key": "disableGoogleAnalytics",
+        "required": false,
+        "title": "Disable Google Analytics Services",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Meta Analytics2/OneFabric upload services, Instagram upload scheduler receiver, and deferred analytics worker components.",
+        "key": "disableMetaAnalytics",
+        "required": false,
+        "title": "Disable Meta Analytics Upload Pipeline",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Lacrima lock-screen/shutdown crash detectors, crash-loop state trackers, and background crash-dump upload services. User-initiated bug reports are untouched.",
+        "key": "disableCrashDetectors",
+        "required": false,
+        "title": "Disable Crash Detectors & Dump Upload",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable attribution, FDID/PhoneId/USDiD, and FamilyApps cross-app identity providers plus referrer and cross-signing components. WARNING: may break login, account switching, and deferred deep links; enable only to fully silence device-identity collection.",
+        "key": "disableDeviceIdProviders",
+        "required": false,
+        "title": "Disable Device-ID & Cross-App Identity Providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable Google ML Kit InitProvider, ComponentDiscoveryService, and prune related registrars. WARNING: Breaks on-device barcode scanning, face detection, and text recognition.",
+        "key": "disableMlKit",
+        "required": false,
+        "title": "Disable ML Kit On-Device Vision",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Prune Firebase RemoteConfig, DynamicLoading, and AB testing (Abt) discovery registrars. WARNING: May break dynamic backend configuration and remote feature flags.",
+        "key": "disableRemoteConfig",
+        "required": false,
+        "title": "Disable Firebase Remote Config",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Prune Firebase Crashlytics discovery registrars. WARNING: Pruning breaks apps hard-requiring the Crashlytics component at startup.",
+        "key": "disableCrashlyticsRegistrars",
+        "required": false,
+        "title": "Disable Firebase Crashlytics Registrars",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove ad SDK auto-init entries (e.g. Unity Ads) from the androidx.startup InitializationProvider. WARNING: may break rewarded ads and ad-gated features; enable only to block SDK auto-initialization.",
+        "key": "disableAdStartupInitializers",
+        "required": false,
+        "title": "Disable Ad SDK Startup Initializers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Losslessly strips non-rendering metadata and ancillary chunks (EXIF, XMP, ICCP) from WebP assets across res/ and assets/ to reduce APK size. In raw-only pipeline mode, optimizes assets/ only as res/ is not decoded.",
+    "id": "01c5162c432eaee57403ca6d:131",
+    "legacy_id": 47760,
+    "metadata_status": "verified",
+    "name": "Universal WebP Asset Optimizer",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove camera parameters, geolocation, and creator metadata chunks from WebP images.",
+        "key": "stripExif",
+        "required": false,
+        "title": "Strip EXIF Metadata",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove Adobe XMP XML metadata chunks from WebP images.",
+        "key": "stripXmp",
+        "required": false,
+        "title": "Strip XMP Metadata",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove ICCP color profile chunks. Default is false to preserve color profile fidelity on wide-gamut displays.",
+        "key": "stripIcc",
+        "required": false,
+        "title": "Strip ICC Color Profiles",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.hevy": [
+        "3.1.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks local Hevy Pro capabilities (unlimited workout routines, routine folders, advanced graphs, and local analytics) by dynamically enabling Pro getters and suppressing grace period payment warnings in Hermes Bytecode (HBC96).",
+    "id": "01c5162c432eaee57403ca6d:132",
+    "legacy_id": 47761,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "3.1.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes background update polling tasks and device ID check routines to prevent forced update popups.",
+    "id": "01c5162c432eaee57403ca6d:133",
+    "legacy_id": 47762,
+    "metadata_status": "verified",
+    "name": "Update Prompt Suppressor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adjusts video display aspect ratio across feeds and story cells: 'fit' ensures the entire video is visible without cropping, or 'fill' expands the video to fill the screen.",
+    "id": "01c5162c432eaee57403ca6d:134",
+    "legacy_id": 47763,
+    "metadata_status": "verified",
+    "name": "Video Fit",
+    "options": [
+      {
+        "default": "fit",
+        "description": "Aspect ratio mode for feed and story videos: 'fit' (entire video visible without crop), or 'fill' (crop to fill screen).",
+        "key": "fitMode",
+        "required": false,
+        "title": "Video Fit Mode",
+        "type": "kotlin.String",
+        "values": {
+          "Fill screen": "fill",
+          "Fit video": "fit"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Caps video playback resolution (1080p, 720p, 540p, 480p, 360p) to conserve battery, GPU/MediaCodec load, and mobile data. Download quality is controlled separately by the Media Usability patch (downloadQuality).",
+    "id": "01c5162c432eaee57403ca6d:135",
+    "legacy_id": 47764,
+    "metadata_status": "verified",
+    "name": "Video Quality Governor",
+    "options": [
+      {
+        "default": "480",
+        "description": "Select maximum video playback resolution ceiling: 1080 (1080p ExtremelyHigh), 720 (720p SuperHigh), 540 (540p H_High), 480 (480p High), or 360 (360p Standard).",
+        "key": "maxQuality",
+        "required": false,
+        "title": "Maximum Playback Resolution",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Drops ByteVC2 renditions from playback bitrate lists when an H.264 or ByteVC1 alternative exists, so videos use the hardware decoder instead of TikTok's CPU-bound ByteVC2 software decoder.",
+        "key": "avoidByteVC2",
+        "required": false,
+        "title": "Avoid ByteVC2 Software Decoding",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "When the ladder's lowest video stream exceeds the device hardware decoder capability (queried via MediaCodecList), drops video streams and keeps audio-only instead of entering decoder-reject retry loops that freeze the device.",
+        "key": "dropUndecodableVideo",
+        "required": false,
+        "title": "Drop Undecodable Video Streams",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "01c5162c432eaee57403ca6d",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips on-device voice recognition and speech synthesis engines (libspeechspg.so, libspeechsdk.so) and their loader stubs (libspeechengine.so, libspeechepg.so) to save APK space. Breaks voice search (microphone button), voice input, and editor text-to-speech/sing features.",
+    "id": "01c5162c432eaee57403ca6d:136",
+    "legacy_id": 47765,
+    "metadata_status": "verified",
+    "name": "Voice & Speech Engine De-bloat",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.6",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "d7a80fb1e5971a1e9da91744",
+    "compatiblePackages": {
+      "tv.twitch.android.app": [
+        "31.3.1"
+      ]
+    },
+    "dependencies": [],
+    "description": "Kizu Twitch enhancements: third-party emotes, live ad blocking, appearance controls, deleted-message display, privacy controls, native Video Stats and single-tap Reload Stream, PurpleTV-style landscape brightness/volume gestures with swipe-to-portrait collapse prevention, Hide Stories, Go Ad-Free hiding, and patched-app compatibility.",
+    "id": "d7a80fb1e5971a1e9da91744:0",
+    "legacy_id": 47766,
+    "metadata_status": "verified",
+    "name": "Twitch Enhancement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Twitch: Live Streaming",
+        "icon_url": "https://play-lh.googleusercontent.com/JHCM4AIyomRp6Lo2-5ugoznlGdsZmNnejVN8DLvtWFHShcz8YRgUE170f1CyOfrleYbtFL2g8tQ3VqlQNAgqoA",
+        "name": "tv.twitch.android.app",
+        "versions": [
+          "31.3.1"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.9.3-beta.41",
+    "source_id": "6af02e4c275751fe",
+    "use": true
+  },
+  {
+    "bundle_id": "18aaa3defc2ee5f881facf4a",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks the 'This app is out of date' update screen and popup on launch.",
+    "id": "18aaa3defc2ee5f881facf4a:0",
+    "legacy_id": 47767,
+    "metadata_status": "verified",
+    "name": "Block update screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "365Scores: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/33TTGlcWsh5Jl7XAUp36Tj3hog3ICRAapLhj8glREVX-qYXQ7NqH3lMv0ntdHX4uMmtN1PBzoqlI33U0ORUvXQ",
+        "name": "com.scores365",
+        "versions": [
+          "14.9.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "4cd6939f4f72a4ae",
+    "use": true
+  },
+  {
+    "bundle_id": "18aaa3defc2ee5f881facf4a",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes the version code of 365Score to prevent forced updates.",
+    "id": "18aaa3defc2ee5f881facf4a:1",
+    "legacy_id": 47768,
+    "metadata_status": "verified",
+    "name": "Change version code",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "365Scores: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/33TTGlcWsh5Jl7XAUp36Tj3hog3ICRAapLhj8glREVX-qYXQ7NqH3lMv0ntdHX4uMmtN1PBzoqlI33U0ORUvXQ",
+        "name": "com.scores365",
+        "versions": [
+          "14.9.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "4cd6939f4f72a4ae",
+    "use": true
+  },
+  {
+    "bundle_id": "18aaa3defc2ee5f881facf4a",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes banner and interstitial advertisements from 365Score.",
+    "id": "18aaa3defc2ee5f881facf4a:2",
+    "legacy_id": 47769,
+    "metadata_status": "verified",
+    "name": "Disable ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "365Scores: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/33TTGlcWsh5Jl7XAUp36Tj3hog3ICRAapLhj8glREVX-qYXQ7NqH3lMv0ntdHX4uMmtN1PBzoqlI33U0ORUvXQ",
+        "name": "com.scores365",
+        "versions": [
+          "14.9.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "4cd6939f4f72a4ae",
+    "use": true
+  },
+  {
+    "bundle_id": "18aaa3defc2ee5f881facf4a",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes analytics and tracking (Firebase Analytics) from 365Score.",
+    "id": "18aaa3defc2ee5f881facf4a:3",
+    "legacy_id": 47770,
+    "metadata_status": "verified",
+    "name": "Disable analytics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "365Scores: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/33TTGlcWsh5Jl7XAUp36Tj3hog3ICRAapLhj8glREVX-qYXQ7NqH3lMv0ntdHX4uMmtN1PBzoqlI33U0ORUvXQ",
+        "name": "com.scores365",
+        "versions": [
+          "14.9.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "4cd6939f4f72a4ae",
+    "use": true
+  },
+  {
+    "bundle_id": "18aaa3defc2ee5f881facf4a",
+    "compatiblePackages": {
+      "com.scores365": [
+        "14.9.5"
+      ]
+    },
+    "dependencies": [],
+    "description": "Allows Google Sign-In and account sync to work on non-rooted devices by redirecting Google Play Services to ReVanced GmsCore / MicroG.",
+    "id": "18aaa3defc2ee5f881facf4a:4",
+    "legacy_id": 47771,
+    "metadata_status": "verified",
+    "name": "MicroG integration",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "365Scores: Live Sports Scores",
+        "icon_url": "https://play-lh.googleusercontent.com/33TTGlcWsh5Jl7XAUp36Tj3hog3ICRAapLhj8glREVX-qYXQ7NqH3lMv0ntdHX4uMmtN1PBzoqlI33U0ORUvXQ",
+        "name": "com.scores365",
+        "versions": [
+          "14.9.5"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.2.0",
+    "source_id": "4cd6939f4f72a4ae",
+    "use": false
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Blocks fullscreen promotions (\"Pendragon\" messages) shown when opening the app.",
+    "id": "a628a9b1a8bedf4068b94dea:0",
+    "legacy_id": 47772,
+    "metadata_status": "verified",
+    "name": "Block popup ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "net.interpals": null
+    },
+    "dependencies": [],
+    "description": "Turns off all ad placements of the app, also the ones shown before the ad config is loaded.",
+    "id": "a628a9b1a8bedf4068b94dea:1",
+    "legacy_id": 47773,
+    "metadata_status": "verified",
+    "name": "Disable ad placements",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Interpals: Penpals & Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/0fPV0ZKU6iTDc5jyhfYgw1aOpSQ0CkhKCiwLteFbqMwQC1s3xiCNhHT6rsxe9nww_RgVMbebd3lWeImcYUjteQ",
+        "name": "net.interpals",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "net.interpals": null
+    },
+    "dependencies": [],
+    "description": "Adds \"Download photo\" to the menu of the photo viewer.",
+    "id": "a628a9b1a8bedf4068b94dea:2",
+    "legacy_id": 47774,
+    "metadata_status": "verified",
+    "name": "Download photos",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Interpals: Penpals & Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/0fPV0ZKU6iTDc5jyhfYgw1aOpSQ0CkhKCiwLteFbqMwQC1s3xiCNhHT6rsxe9nww_RgVMbebd3lWeImcYUjteQ",
+        "name": "net.interpals",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "net.interpals": null
+    },
+    "dependencies": [],
+    "description": "Adds \"Age & gender\" to the filter of the feed.",
+    "id": "a628a9b1a8bedf4068b94dea:3",
+    "legacy_id": 47775,
+    "metadata_status": "verified",
+    "name": "Feed age and gender filter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Interpals: Penpals & Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/0fPV0ZKU6iTDc5jyhfYgw1aOpSQ0CkhKCiwLteFbqMwQC1s3xiCNhHT6rsxe9nww_RgVMbebd3lWeImcYUjteQ",
+        "name": "net.interpals",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Allows the Spotify widgets to be added to third party launchers.",
+    "id": "a628a9b1a8bedf4068b94dea:4",
+    "legacy_id": 47776,
+    "metadata_status": "verified",
+    "name": "Fix third party launchers widgets",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Removes brand ad sections from the home and search page.",
+    "id": "a628a9b1a8bedf4068b94dea:5",
+    "legacy_id": 47777,
+    "metadata_status": "verified",
+    "name": "Hide ad sections",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Hides ad banners, display ads and the ad player.",
+    "id": "a628a9b1a8bedf4068b94dea:6",
+    "legacy_id": 47778,
+    "metadata_status": "verified",
+    "name": "Hide ad views",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.untappdllc.app": null,
+      "net.interpals": null
+    },
+    "dependencies": [],
+    "description": "Blocks banner, interstitial, rewarded, app open and native Google ads.",
+    "id": "a628a9b1a8bedf4068b94dea:7",
+    "legacy_id": 47779,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Untappd: Find Beer You'll Love",
+        "icon_url": "https://play-lh.googleusercontent.com/HSgPPTgpVXisbVXO6fwF55NwNE2dclt2z68-QAS9m0Rrct2w84ExFSXnODHnWUyghOTyrrFJfrH5pMGW2D33",
+        "name": "com.untappdllc.app",
+        "versions": []
+      },
+      {
+        "app_name": "Interpals: Penpals & Languages",
+        "icon_url": "https://play-lh.googleusercontent.com/0fPV0ZKU6iTDc5jyhfYgw1aOpSQ0CkhKCiwLteFbqMwQC1s3xiCNhHT6rsxe9nww_RgVMbebd3lWeImcYUjteQ",
+        "name": "net.interpals",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.ebay.kleinanzeigen": null
+    },
+    "dependencies": [],
+    "description": "Hides ads in the feed, search results and listings, and the promoted sellers in the feed.",
+    "id": "a628a9b1a8bedf4068b94dea:8",
+    "legacy_id": 47780,
+    "metadata_status": "verified",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Kleinanzeigen - Marketplace",
+        "icon_url": "https://play-lh.googleusercontent.com/PuqeuAmOMsDoB9gRCVr-EQHthinCbtaKPzMbxabfmCY9RI9r1fmWncCb4k6umBszzPaszT_o2RopSpIhy9BAiQ",
+        "name": "com.ebay.kleinanzeigen",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Removes \"Premium\" entries from the context menus of songs, albums and playlists.",
+    "id": "a628a9b1a8bedf4068b94dea:9",
+    "legacy_id": 47781,
+    "metadata_status": "verified",
+    "name": "Hide context menu upsells",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.untappdllc.app": null
+    },
+    "dependencies": [],
+    "description": "Removes the ad slots from the activity feed.",
+    "id": "a628a9b1a8bedf4068b94dea:10",
+    "legacy_id": 47782,
+    "metadata_status": "verified",
+    "name": "Hide feed ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Untappd: Find Beer You'll Love",
+        "icon_url": "https://play-lh.googleusercontent.com/HSgPPTgpVXisbVXO6fwF55NwNE2dclt2z68-QAS9m0Rrct2w84ExFSXnODHnWUyghOTyrrFJfrH5pMGW2D33",
+        "name": "com.untappdllc.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Removes ads embedded into playlists.",
+    "id": "a628a9b1a8bedf4068b94dea:11",
+    "legacy_id": 47783,
+    "metadata_status": "verified",
+    "name": "Hide playlist ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "dependencies": [],
+    "description": "Removes the \"Premium\" tab from the bottom navigation bar.",
+    "id": "a628a9b1a8bedf4068b94dea:12",
+    "legacy_id": 47784,
+    "metadata_status": "verified",
+    "name": "Hide Premium tab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Spotify: Music and Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/IzQgYCcnCFCD08GR-3bdtcT8xzOvrNkC84avGT5CwTX2VIqmTmKKJcP_Cd4JoBOdmCMlTndlOzV6hrthg2fOWA",
+        "name": "com.spotify.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.ebay.kleinanzeigen": null
+    },
+    "dependencies": [],
+    "description": "Hides the offers of the ad free subscription \"Kleinanzeigen Pur\".",
+    "id": "a628a9b1a8bedf4068b94dea:13",
+    "legacy_id": 47785,
+    "metadata_status": "verified",
+    "name": "Hide Pur",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Kleinanzeigen - Marketplace",
+        "icon_url": "https://play-lh.googleusercontent.com/PuqeuAmOMsDoB9gRCVr-EQHthinCbtaKPzMbxabfmCY9RI9r1fmWncCb4k6umBszzPaszT_o2RopSpIhy9BAiQ",
+        "name": "com.ebay.kleinanzeigen",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  },
+  {
+    "bundle_id": "a628a9b1a8bedf4068b94dea",
+    "compatiblePackages": {
+      "com.untappdllc.app": null
+    },
+    "dependencies": [],
+    "description": "Removes sponsored beers, venues and posts from all lists.",
+    "id": "a628a9b1a8bedf4068b94dea:14",
+    "legacy_id": 47786,
+    "metadata_status": "verified",
+    "name": "Hide sponsored content",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Untappd: Find Beer You'll Love",
+        "icon_url": "https://play-lh.googleusercontent.com/HSgPPTgpVXisbVXO6fwF55NwNE2dclt2z68-QAS9m0Rrct2w84ExFSXnODHnWUyghOTyrrFJfrH5pMGW2D33",
+        "name": "com.untappdllc.app",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.1.0-dev.2",
+    "source_id": "699cbf2b3097ea22",
+    "use": true
+  }
+]
