@@ -4,7 +4,7 @@
  */
 import {
   buildSchema, execute, getNamedType, getOperationAST, getVariableValues,
-  isListType, isNonNullType, parse, validate, valueFromASTUntyped
+  isListType, isNonNullType, parse, validate, valueFromASTUntyped, visit
 } from "graphql";
 import site from "../../config/site.json" with {type:"json"};
 import { AsyncLocalStorage } from "node:async_hooks";
@@ -12,7 +12,7 @@ import { createPostgresMatcher } from "./postgres-regex.js";
 import { mergeJobs } from "./jobs.js";
 import { createPostgresComparator } from "../../shared/postgres-collation.js";
 import { streamArguments, streamBatch } from "./streaming.js";
-import { CatalogError, compareValues, configureAggregateMatcher, configureCaseFolder, configureRegexMatcher, configureTextComparator, filterResult, matches, pagination, selectRows } from "../../shared/catalog.js";
+import { bundleImages, CatalogError, compareValues, configureAggregateMatcher, configureCaseFolder, configureRegexMatcher, configureTextComparator, filterResult, matches, pagination, selectRows } from "../../shared/catalog.js";
 
 const regexContext = new AsyncLocalStorage();
 const defaultComparator = createPostgresComparator(site.postgres_locale ?? "en_US.utf8");
@@ -216,9 +216,14 @@ function indexedPackage(where) {
   return names.size === 1 ? [...names][0] : undefined;
 }
 function aggregate(rows, args = {}) {
-  const selected = args.limit === 0 ? { data: [] } : selectRows(rows,
-    { ...args, limit: args.limit ?? Math.max(1, rows.length) }, Math.max(100, rows.length));
-  const data = selected.data;
+  if (args.limit != null && args.limit !== 0)
+    pagination({ limit: args.limit, offset: args.offset ?? 0 }, 100);
+  const fullSet = !args.order_by && !args.distinct_on?.length && !args.offset &&
+    (args.limit == null || args.limit >= rows.length);
+  const data = args.limit === 0 ? [] : fullSet ?
+    rows.filter(row => matches(row, args.where ?? {})) :
+    selectRows(rows, { ...args, limit: args.limit ?? Math.max(1, rows.length) },
+      Math.max(100, rows.length)).data;
   // Aggregate values share the node selection (including distinct, offset and limit).
   const values = {};
   values.count = ({ columns, distinct } = {}) => {
@@ -227,26 +232,43 @@ function aggregate(rows, args = {}) {
       JSON.stringify(columns.map(c => row[c])))).size : counted.length;
   };
   for (const op of ["min", "max", ...numericOperations]) {
-    values[op] = { __aggregateKind: rows[0]?.__kind };
-    const keys = Object.keys(definitions[rows[0]?.__kind] ?? {});
-    for (const key of keys) {
-      const numbers = data.map(row => row[key]).filter(v => v != null);
-      if (!numbers.length) { values[op][key] = null; continue; }
-      if (op === "min" || op === "max") {
-        values[op][key] = numbers.reduce((a,b) => {
-          const timestamp = definitions[rows[0]?.__kind]?.[key] === "timestamptz";
-          const compared = compareValues(a,b,timestamp);
-          return op === "min" ? (compared < 0 ? a : b) : (compared > 0 ? a : b);
-        });
-      } else if (numbers.every(v => typeof v === "number")) {
-        const sum = numbers.reduce((a,b) => a+b, 0), mean = sum / numbers.length;
-        const squares = numbers.reduce((a,b) => a + (b-mean)**2, 0);
-        const sample = ["stddev", "stddev_samp", "variance", "var_samp"].includes(op);
-        const variance = sample && numbers.length < 2 ? null : squares / (numbers.length - Number(sample));
-        values[op][key] = op === "sum" ? sum : op === "avg" ? mean : variance == null ? null :
-          op.startsWith("stddev") ? Math.sqrt(variance) : variance;
+    let cachedFields;
+    // A count-only query must not calculate every numerical aggregate for
+    // every column. GraphQL resolves only the operation and field requested.
+    Object.defineProperty(values, op, { enumerable: true, get() {
+      if (cachedFields) return cachedFields;
+      const fields = { __aggregateKind: rows[0]?.__kind };
+      for (const key of Object.keys(definitions[rows[0]?.__kind] ?? {})) {
+        let cached, resolved = false;
+        Object.defineProperty(fields, key, { enumerable: true, get() {
+          if (resolved) return cached;
+          const numbers = data.map(row => row[key]).filter(v => v != null);
+          if (!numbers.length) { resolved = true; return cached = null; }
+          if (op === "min" || op === "max") {
+            cached = numbers.reduce((a,b) => {
+              const timestamp = definitions[rows[0]?.__kind]?.[key] === "timestamptz";
+              const compared = compareValues(a,b,timestamp);
+              return op === "min" ? (compared < 0 ? a : b) : (compared > 0 ? a : b);
+            });
+            resolved = true;
+            return cached;
+          }
+          if (!numbers.every(v => typeof v === "number")) {
+            resolved = true;
+            return cached = null;
+          }
+          const sum = numbers.reduce((a,b) => a+b, 0), mean = sum / numbers.length;
+          const squares = numbers.reduce((a,b) => a + (b-mean)**2, 0);
+          const sample = ["stddev", "stddev_samp", "variance", "var_samp"].includes(op);
+          const variance = sample && numbers.length < 2 ? null : squares / (numbers.length - Number(sample));
+          cached = op === "sum" ? sum : op === "avg" ? mean : variance == null ? null :
+            op.startsWith("stddev") ? Math.sqrt(variance) : variance;
+          resolved = true;
+          return cached;
+        } });
       }
-    }
+      return cachedFields = fields;
+    } });
   }
   return { aggregate: values, nodes: () => args.limit === 0 ? [] : selectRows(rows, args).data };
 }
@@ -278,28 +300,43 @@ configureAggregateMatcher((rows, condition) => {
   });
   return results.includes(false) ? false : results.includes(null) ? null : true;
 });
+function excludedByDirectives(node, variables) {
+  for (const directive of node.directives ?? []) {
+    const condition = directive.arguments?.find(arg => arg.name.value === "if");
+    if (!condition) continue;
+    const enabled = valueFromASTUntyped(condition.value, variables);
+    if ((directive.name.value === "skip" && enabled === true) ||
+        (directive.name.value === "include" && enabled === false)) return true;
+  }
+  return false;
+}
 function enforceComplexity(document, operation, variables, rootSizes = {}) {
   const fragments = new Map(document.definitions.filter(d => d.kind === "FragmentDefinition")
     .map(d => [d.name.value, d]));
   let fields = 0, cost = 0;
-  function walk(set, depth, multiplier, parentType, stack = new Set()) {
+  function walk(set, depth, multiplier, parentType, stack = new Set(), aggregateLimit) {
     if (!set) return;
     const introspectionType = parentType?.name?.startsWith("__");
     if (depth > (introspectionType ? 24 : 8))
       throw new CatalogError("GraphQL depth exceeds 8");
     for (const node of set.selections) {
-      if (++fields > 300) throw new CatalogError("GraphQL field count exceeds 300");
+      if (excludedByDirectives(node, variables)) continue;
+      if (node.kind === "Field" && ++fields > 300)
+        throw new CatalogError("GraphQL field count exceeds 300");
       if (node.kind === "FragmentSpread") {
         if (stack.has(node.name.value)) throw new CatalogError("Cyclic GraphQL fragment");
         walk(fragments.get(node.name.value)?.selectionSet, depth, multiplier, parentType,
-             new Set([...stack, node.name.value]));
+             new Set([...stack, node.name.value]), aggregateLimit);
       } else if (node.kind === "InlineFragment") {
-        walk(node.selectionSet, depth, multiplier, parentType, stack);
+        walk(node.selectionSet, depth, multiplier, parentType, stack, aggregateLimit);
       } else {
         const arg = node.arguments?.find(a => ["limit", "batch_size"].includes(a.name.value));
         const responseKey = node.alias?.value ?? node.name.value;
         const supplied = depth === 1 && Object.hasOwn(rootSizes, responseKey) ?
-          rootSizes[responseKey] : arg ? valueFromASTUntyped(arg.value, variables) : 25;
+          rootSizes[responseKey] :
+          parentType?.name?.endsWith("_aggregate") && node.name.value === "nodes" ?
+          aggregateLimit ?? 25 :
+          arg ? valueFromASTUntyped(arg.value, variables) : 25;
         const fieldType = parentType?.getFields?.()[node.name.value]?.type ??
           (node.name.value === "__schema" ? schema.getType("__Schema") :
            node.name.value === "__type" ? schema.getType("__Type") : undefined);
@@ -310,13 +347,69 @@ function enforceComplexity(document, operation, variables, rootSizes = {}) {
           throw new CatalogError("GraphQL list limit must be 1–100");
         cost += multiplier;
         if (cost > 20000) throw new CatalogError("GraphQL query complexity exceeds 20000");
+        const nextType = fieldType ? getNamedType(fieldType) : undefined;
+        const nextLimit = nextType?.name?.endsWith("_aggregate") ?
+          (arg ? valueFromASTUntyped(arg.value, variables) : 25) : undefined;
         walk(node.selectionSet, depth + 1, multiplier * factor,
-             fieldType ? getNamedType(fieldType) : undefined, stack);
+             nextType, stack, nextLimit);
       }
     }
   }
   walk(operation.selectionSet, 1, 1,
     operation.operation === "subscription" ? schema.getSubscriptionType() : schema.getQueryType());
+}
+
+function needsBundleDescriptions(document, operation, variables) {
+  const fragments = new Map(document.definitions.filter(def => def.kind === "FragmentDefinition")
+    .map(def => [def.name.value, def]));
+  function inputUsesDescription(type, value) {
+    type = type && getNamedType(type);
+    if (!type || value == null) return false;
+    if (Array.isArray(value)) return value.some(item => inputUsesDescription(type, item));
+    // DISTINCT and aggregate count refer to scalar columns through an enum,
+    // and streaming cursors use a separate input type.
+    if (type.name === "bundle_select_column") return value === "description";
+    if (typeof value !== "object" || !type.getFields) return false;
+    const fields = type.getFields();
+    return Object.entries(value).some(([key, item]) =>
+      ((type.name === "bundle_bool_exp" || type.name === "bundle_order_by") &&
+        key === "description") ||
+      (["bundle_min_order_by", "bundle_max_order_by"].includes(type.name) &&
+        key === "description") ||
+      (type.name === "bundle_stream_cursor_value_input" &&
+        key === "description" && item != null) ||
+      (fields[key] && inputUsesDescription(fields[key].type, item)));
+  }
+  function visit(set, parent, stack = new Set()) {
+    for (const node of set?.selections ?? []) {
+      if (excludedByDirectives(node, variables)) continue;
+      if (node.kind === "FragmentSpread") {
+        const fragment = fragments.get(node.name.value);
+        if (fragment && !stack.has(node.name.value) &&
+            visit(fragment.selectionSet, schema.getType(fragment.typeCondition.name.value),
+              new Set([...stack, node.name.value]))) return true;
+        continue;
+      }
+      if (node.kind === "InlineFragment") {
+        if (visit(node.selectionSet, node.typeCondition ?
+          schema.getType(node.typeCondition.name.value) : parent, stack)) return true;
+        continue;
+      }
+      if (node.name.value === "description" &&
+          ["bundle_min_fields", "bundle_max_fields"].includes(parent?.name))
+        return true;
+      const field = parent?.getFields?.()[node.name.value];
+      if (!field) continue;
+      for (const arg of node.arguments ?? []) {
+        const argType = field.args.find(input => input.name === arg.name.value)?.type;
+        if (inputUsesDescription(argType, valueFromASTUntyped(arg.value, variables))) return true;
+      }
+      if (node.selectionSet && visit(node.selectionSet, getNamedType(field.type), stack)) return true;
+    }
+    return false;
+  }
+  return visit(operation.selectionSet, operation.operation === "subscription" ?
+    schema.getSubscriptionType() : schema.getQueryType());
 }
 
 export function withPostgresLocale(locale, callback) {
@@ -359,15 +452,62 @@ async function executeQuery(catalog, payload, options) {
   const variables = getVariableValues(schema, operation.variableDefinitions ?? [], payload.variables ?? {});
   if (variables.errors) return { errors: variables.errors.map(e => ({ message: e.message })) };
   enforceComplexity(document, operation, variables.coerced);
-  const sourceRows = await catalog.sources(), bundleRows = await catalog.bundles();
+  let needsPackageLinks = false;
+  const fragments = new Map(document.definitions.filter(d=>d.kind==="FragmentDefinition")
+    .map(d=>[d.name.value,d]));
+  const seenPackageFragments = new Set();
+  function scanPackageLinks(root) {
+    visit(root,{
+      Field(node) {
+        if (excludedByDirectives(node, variables.coerced)) return false;
+        if (node.name.value.startsWith("patch_package")) needsPackageLinks = true;
+        // Only variables referenced by an executed field can require package
+        // relations. A skipped field's unused variables must not force I/O.
+        if (node.arguments?.some(arg =>
+          containsKey(valueFromASTUntyped(arg.value, variables.coerced), "patch_packages") ||
+          containsKey(valueFromASTUntyped(arg.value, variables.coerced), "patch_packages_aggregate")))
+          needsPackageLinks = true;
+      },
+      ObjectField(node) {
+        if (node.name.value.startsWith("patch_packages")) needsPackageLinks = true;
+      },
+      InlineFragment(node) {
+        if (excludedByDirectives(node, variables.coerced)) return false;
+      },
+      FragmentSpread(node) {
+        if (excludedByDirectives(node, variables.coerced)) return false;
+        const name = node.name.value;
+        if (!seenPackageFragments.has(name) && fragments.has(name)) {
+          seenPackageFragments.add(name);
+          scanPackageLinks(fragments.get(name).selectionSet);
+        }
+      }
+    });
+  }
+  scanPackageLinks(operation.selectionSet);
   const sourceMap = new Map(), bundleMap = new Map();
   const tables = { source: [], bundle: [], source_metadata: [] };
-  sourceRows.forEach((row, i) => {
+  let bundleRows = [];
+  let graphPromise, descriptionsPromise;
+  async function ensureGraph() {
+    graphPromise ??= (async () => {
+      const sourceRows = await catalog.sources();
+      if (catalog.manifest.files["graphql-bundles.json"]) {
+        const compact = await catalog.file("graphql-bundles.json");
+        bundleRows = compact.rows.map(values =>
+          Object.fromEntries(compact.columns.map((name, index) => [name, values[index]])));
+        const enabled = new Map(sourceRows.filter(row => row.enabled !== false).map(row => [row.id, row]));
+        bundleRows = bundleRows.filter(row => enabled.has(row.source_id)).map(row => ({
+          ...row, ...bundleImages({ ...row, source: enabled.get(row.source_id) })
+        }));
+      } else bundleRows = await catalog.bundles();
+      sourceRows.forEach((row, i) => {
     const source = { ...graphRow("source", row), id: row.legacy_id ?? i + 1,
       catalog_id: row.id, unavailable_reason: row.unavailable_reason ?? null, bundles: [] };
     const metadata = { ...graphRow("source_metadata", row.source_metadatum),
       id: row.source_metadatum.id ?? i + 1, source_fk: source.id, source };
     source.source_metadatum = metadata;
+    lazyAggregateOrder(source, "bundles");
     sourceMap.set(row.id, source);
     tables.source.push(source); tables.source_metadata.push(metadata);
   });
@@ -376,8 +516,24 @@ async function executeQuery(catalog, payload, options) {
     const bundle = { ...graphRow("bundle", row), id: row.legacy_id ?? i + 1,
       catalog_id: row.id, source_fk: source.id, source, patches: [],
       patcher_failure_fingerprint: row.patcher_failure_fingerprint ?? null };
+    lazyAggregateOrder(bundle, "patches");
     bundleMap.set(row.id, bundle); source.bundles.push(bundle); tables.bundle.push(bundle);
   });
+    })();
+    return graphPromise;
+  }
+  async function ensureDescriptions() {
+    await ensureGraph();
+    if (!catalog.manifest.files["graphql-bundle-descriptions.json"]) return;
+    descriptionsPromise ??= (async () => {
+      const descriptions = await catalog.file("graphql-bundle-descriptions.json");
+      for (const bundle of tables.bundle)
+        bundle.description = descriptions[bundle.catalog_id] ?? null;
+    })();
+    await descriptionsPromise;
+  }
+  if (needsBundleDescriptions(document, operation, variables.coerced))
+    await ensureDescriptions();
   let packagePromise;
   async function packages() {
     packagePromise ??= (async () => {
@@ -387,53 +543,103 @@ async function executeQuery(catalog, payload, options) {
           (p.versions.length ? p.versions : [null]).map(version => ({ ...p, version })));
       tables.package = rows.map((row, i) => ({ ...graphRow("package", row),
         id: row.id ?? i + 1, patch_packages: [] }));
+      for (const pkg of tables.package) lazyAggregateOrder(pkg, "patch_packages");
       return new Map(tables.package.map(row => [JSON.stringify([row.name, row.version]), row]));
     })();
     return packagePromise;
   }
   const patchesByHash = new Map();
   async function joinPatches(rows) {
-    const packageMap = await packages();
+    if (!rows.length) return [];
+    // Scalar patch fields and bundle relationships do not need the entire
+    // package table. Load and link it only for package relationship queries.
+    const packageMap = needsPackageLinks ? await packages() : null;
     for (const row of rows) {
       if (patchesByHash.has(row.id)) continue;
       const bundle = bundleMap.get(row.bundle_id);
       const patch = { ...graphRow("patch", row), id: row.legacy_id ?? patchesByHash.size + 1,
         catalog_id: row.id, bundle_fk: bundle.id, bundle, patch_packages: [] };
-      for (const pkg of row.packages) for (const version of pkg.versions.length ? pkg.versions : [null]) {
-        const packageRow = packageMap.get(JSON.stringify([pkg.name, version]));
-        if (!packageRow) throw new CatalogError("Package relationship index unavailable", 503);
-        const link = { __kind: "patch_package", package_fk: packageRow.id, patch_fk: patch.id,
-          patch_id: row.id, package: packageRow, patch };
-        patch.patch_packages.push(link); packageRow.patch_packages.push(link);
-      }
+      lazyAggregateOrder(patch, "patch_packages");
+      if (packageMap)
+        for (const pkg of row.packages) for (const version of pkg.versions.length ? pkg.versions : [null]) {
+          const packageRow = packageMap.get(JSON.stringify([pkg.name, version]));
+          if (!packageRow) throw new CatalogError("Package relationship index unavailable", 503);
+          const link = { __kind: "patch_package", package_fk: packageRow.id, patch_fk: patch.id,
+            patch_id: row.id, package: packageRow, patch };
+          patch.patch_packages.push(link); packageRow.patch_packages.push(link);
+        }
       patchesByHash.set(row.id, patch); bundle.patches.push(patch);
     }
-    for (const source of tables.source)
-      source.bundles_aggregate = aggregateOrder(source.bundles);
-    for (const bundle of tables.bundle)
-      bundle.patches_aggregate = aggregateOrder(bundle.patches);
-    for (const patch of patchesByHash.values())
-      patch.patch_packages_aggregate = aggregateOrder(patch.patch_packages);
-    for (const pkg of tables.package)
-      pkg.patch_packages_aggregate = aggregateOrder(pkg.patch_packages);
     return rows.map(row => patchesByHash.get(row.id));
   }
   function aggregateOrder(rows) {
-    const value = aggregate(rows, { limit: rows.length || 1 }).aggregate;
-    return { ...value, count: rows.length };
+    let computed;
+    const value = { count: rows.length };
+    for (const op of ["min", "max", ...numericOperations])
+      Object.defineProperty(value, op, { get() {
+        // Ordering by a relationship's count needs only its length.
+        computed ??= aggregate(rows).aggregate;
+        return computed[op];
+      } });
+    return value;
+  }
+  function lazyAggregateOrder(row, relation) {
+    let count = -1, cached;
+    Object.defineProperty(row, relation + "_aggregate", { get() {
+      // Relationship hydration can append rows after the first lookup.
+      if (row[relation].length !== count) {
+        count = row[relation].length;
+        cached = aggregateOrder(row[relation]);
+      }
+      return cached;
+    } });
   }
   function positive(where, path) {
     // Direct predicates and conjunctions remain mandatory alongside OR/NOT predicates.
     // Never descend into an OR/NOT branch when deriving an index constraint.
-    const direct = equality(where, path);
+    if (!where || typeof where !== "object") return;
+    const direct = path.length ?
+      positive(where[path[0]], path.slice(1)) : where._eq;
     if (direct != null) return direct;
     for (const nested of where?._and ?? []) {
       const value = positive(nested, path);
       if (value != null) return value;
     }
   }
+  function mandatoryIn(where, path) {
+    // Each equality/IN predicate outside OR/NOT is a necessary constraint.
+    // Intersect all conjuncts instead of taking the first (possibly broad)
+    // list, including inside relationship-level conjunctions.
+    if (!where || typeof where !== "object") return;
+    const necessary = [];
+    if (path.length) {
+      const direct = mandatoryIn(where[path[0]], path.slice(1));
+      if (direct) necessary.push(direct);
+    } else {
+      if (Array.isArray(where._in)) necessary.push(where._in);
+      if (where._eq != null) necessary.push([where._eq]);
+    }
+    for (const nested of where._and ?? []) {
+      const values = mandatoryIn(nested, path);
+      if (values) necessary.push(values);
+    }
+    if (necessary.length)
+      return necessary.reduce((intersection, values) =>
+        intersection.filter(value => values.includes(value)));
+  }
+  function mandatoryBundleDescriptions(where) {
+    // Only predicates outside OR/NOT are safe constraints for patch shards.
+    function withinBundle(bundle) {
+      return [...(bundle?.description ? [bundle.description] : []),
+        ...(bundle?._and ?? []).flatMap(withinBundle)];
+    }
+    return [...withinBundle(where?.bundle),
+      ...(where?._and ?? []).flatMap(mandatoryBundleDescriptions)];
+  }
   async function loadPatches(args, scopedBundle, scopedPackage, parentKind) {
+    await ensureGraph();
     const where = args.where ?? {};
+    const exactName = positive(where, ["name"]);
     const numericBundle = (parentKind === "bundle" ? positive(where, ["id"]) : undefined) ??
       positive(where, ["bundle_fk"]) ?? positive(where, ["bundle", "id"]);
     const canonicalBundle = args.bundle_id ?? positive(where, ["bundle_id"]) ??
@@ -444,16 +650,38 @@ async function executeQuery(catalog, payload, options) {
     const sourceId = (parentKind === "source" ? positive(where, ["id"]) : undefined) ??
       (metadataId != null ? tables.source_metadata.find(row => row.id === metadataId)?.source_fk : undefined) ??
       positive(where, ["bundle", "source_fk"]) ?? positive(where, ["source_fk"]);
-    const ids = scopedBundle ? [scopedBundle.catalog_id] :
+    let ids = scopedBundle ? [scopedBundle.catalog_id] :
       canonicalBundle ? [canonicalBundle] :
       numericBundle != null || sourceUrl || sourceId != null ?
       tables.bundle.filter(b => (numericBundle == null || b.id === numericBundle) &&
         (!sourceUrl || b.source.url === sourceUrl) && (sourceId == null || b.source_fk === sourceId))
         .map(b => b.catalog_id) : undefined;
+    const foreignKeyIds = mandatoryIn(where, ["bundle_fk"]);
+    const relationshipIds = mandatoryIn(where, ["bundle", "id"]);
+    // These are predicates on the same numeric bundle ID. Both must hold,
+    // even when each path appears in a separate conjunctive branch.
+    const numericBundleList = foreignKeyIds && relationshipIds ?
+      foreignKeyIds.filter(id => relationshipIds.includes(id)) :
+      foreignKeyIds ?? relationshipIds;
+    if (numericBundleList) {
+      const eligible = new Set(tables.bundle.filter(bundle =>
+        numericBundleList.includes(bundle.id)).map(bundle => bundle.catalog_id));
+      ids = ids ? ids.filter(id => eligible.has(id)) : [...eligible];
+    }
+    const descriptions = mandatoryBundleDescriptions(where);
+    if (descriptions.length) {
+      const eligible = new Set(tables.bundle.filter(bundle =>
+        descriptions.every(condition => matches(bundle, { description: condition })))
+        .map(bundle => bundle.catalog_id));
+      ids = ids ? ids.filter(id => eligible.has(id)) : [...eligible];
+    }
     const rows = (await catalog.patchRows({ all: true,
       bundle_ids: ids, package: scopedPackage ?? args.package_name ?? indexedPackage(where),
-      patch_id: parentKind ? undefined : positive(where, ["id"]), patch_ids: args.patch_ids, q: args.q,
-      include_unverified: true })).rows;
+      patch_id: parentKind ? undefined : positive(where, ["id"]), patch_ids: args.patch_ids,
+      // An exact name is a mandatory substring of the indexed patch text.
+      // Let the trigram index narrow shards before applying the full predicate.
+      q: args.q ?? (typeof exactName === "string" && [...exactName].length >= 3 ? exactName : ""),
+      include_unverified: true, bundle_rows: bundleRows })).rows;
     await joinPatches(rows);
     if (containsKey(where, "patches") || containsKey(where, "patches_aggregate") ||
         containsKey(args.order_by, "patches_aggregate")) {
@@ -467,7 +695,7 @@ async function executeQuery(catalog, payload, options) {
           .map(bundle => bundle.catalog_id);
       }
       await joinPatches((await catalog.patchRows({all:true, bundle_ids:relatedIds,
-        include_unverified:true})).rows);
+        include_unverified:true, bundle_rows:bundleRows})).rows);
     }
     return rows.map(row => patchesByHash.get(row.id));
   }
@@ -507,7 +735,8 @@ async function executeQuery(catalog, payload, options) {
         const ids = [...new Set(rows.map(row => row.catalog_id))];
         const missing = ids.filter(id => !relationLoads.has("bundle:" + id));
         if (missing.length) {
-          const pending = catalog.patchRows({all:true,bundle_ids:missing,include_unverified:true})
+          const pending = catalog.patchRows({all:true,bundle_ids:missing,
+            include_unverified:true,bundle_rows:bundleRows})
             .then(result => joinPatches(result.rows));
           for (const id of missing) relationLoads.set("bundle:" + id, pending);
         }
@@ -516,7 +745,8 @@ async function executeQuery(catalog, payload, options) {
         const names = [...new Set(rows.map(row => row.name))];
         for (const name of names) if (!relationLoads.has("package:" + name))
           relationLoads.set("package:" + name,
-            catalog.patchRows({all:true,package:name,include_unverified:true})
+            catalog.patchRows({all:true,package:name,include_unverified:true,
+              bundle_rows:bundleRows})
               .then(result => joinPatches(result.rows)));
         await Promise.all(names.map(name => relationLoads.get("package:" + name)));
       }
@@ -540,6 +770,7 @@ async function executeQuery(catalog, payload, options) {
     const where = args.where ?? {};
     if (kind === "patch") return loadPatches(args);
     if (kind === "patch_package") {
+      await ensureGraph();
       const packageId = positive(where, ["package_fk"]) ?? positive(where, ["package", "id"]);
       if (packageId != null) await packages();
       const packageRow = packageId != null ? tables.package.find(row => row.id === packageId) : undefined;
@@ -573,6 +804,7 @@ async function executeQuery(catalog, payload, options) {
       }
       return tables.refresh_jobs;
     }
+    await ensureGraph();
     if (kind === "source_metadata") {
       const id = positive(where, ["id"]);
       if (id != null && !tables.source_metadata.some(row => row.id === id)) return [];
@@ -581,7 +813,6 @@ async function executeQuery(catalog, payload, options) {
         containsKey(args.order_by, "patches_aggregate")) {
       await loadPatches(args, undefined, undefined, kind);
     }
-    for (const source of tables.source) source.bundles_aggregate = aggregateOrder(source.bundles);
     return tables[kind];
   }
   const rootValues = {};
@@ -605,6 +836,70 @@ async function executeQuery(catalog, payload, options) {
       ["asc","desc"].includes(order[0].id);
     const idOnly = !args.where || !Object.keys(args.where).length ||
       (Object.keys(args.where).length === 1 && Object.hasOwn(args.where,"id"));
+    const nameList = mandatoryIn(args.where ?? {}, ["name"]);
+    if (!args.q && !args.package_name && !args.bundle_id && !args.patch_ids &&
+        !args.distinct_on?.length && simpleOrder && Array.isArray(nameList) &&
+        nameList.every(name => typeof name === "string") &&
+        catalog.manifest.files["patch-name-ids.json"]) {
+      if (args.limit === 0) return [];
+      const {limit,offset} = pagination(args);
+      const index = await catalog.file("patch-name-ids.json");
+      const ids = [...new Set(nameList.flatMap(name =>
+        Object.hasOwn(index,name) ? index[name] : []))].sort((a,b)=>a-b);
+      const ordered = order[0].id === "desc" ? ids.slice().reverse() : ids;
+      const exactOnly = Object.keys(args.where).length === 1 &&
+        Object.keys(args.where.name ?? {}).length === 1 &&
+        (Object.hasOwn(args.where.name, "_eq") || Object.hasOwn(args.where.name, "_in"));
+      if (exactOnly) {
+        const rows = [];
+        const window = ordered.slice(offset,offset+limit);
+        for (let i = 0; i < window.length; i += 12)
+          rows.push(...await loadPatches({patch_ids:window.slice(i,i+12)}));
+        return selected(rows,{...args,offset:0});
+      }
+      const matched = [];
+      for (let i = 0; i < ordered.length && matched.length < offset + limit; i += 12) {
+        const batch = await loadPatches({patch_ids:ordered.slice(i,i+12)});
+        await prepared(batch,args);
+        batch.sort((a,b)=>order[0].id==="desc" ? b.id-a.id : a.id-b.id);
+        matched.push(...batch.filter(row=>matches(row,args.where)));
+      }
+      return selected(matched,args);
+    }
+    if ((args.q || args.package_name) && (!args.where || !Object.keys(args.where).length) &&
+        !args.bundle_id && !args.distinct_on?.length &&
+        simpleOrder) {
+      if (args.limit === 0) return [];
+      await ensureGraph();
+      const {limit,offset} = pagination(args);
+      const found = [];
+      let cursor = 0;
+      let skipped = 0;
+      if (args.package_name && !args.q &&
+          catalog.manifest.files["patch-package-counts.json"]) {
+        const counts = (await catalog.file("patch-package-counts.json"))[args.package_name] ?? {};
+        const pages = Object.keys(counts).sort();
+        if (order[0].id === "desc") pages.reverse();
+        for (const page of pages) {
+          if (skipped + counts[page] > offset) break;
+          skipped += counts[page];
+          cursor++;
+        }
+      }
+      // Patch shards are sorted by legacy ID. Walk forward or backward to
+      // fetch only the requested window, keeping the same budgets.
+      while (found.length < limit + offset - skipped) {
+        const page = await catalog.patchRows({ q:args.q ?? "",
+          package:args.package_name, page_cursor:cursor,
+          page_count:1, include_unverified:true, bundle_rows:bundleRows,
+          reverse_pages:order[0].id === "desc" });
+        found.push(...page.rows);
+        if (page.next_cursor == null) break;
+        cursor = page.next_cursor;
+      }
+      const rows = await joinPatches(found);
+      return selected(rows,{...args,offset:offset-skipped});
+    }
     if (idOnly && !args.q && !args.package_name &&
         !args.bundle_id && !args.distinct_on?.length && simpleOrder) {
       const index = await catalog.file("patch-index.json");
@@ -622,6 +917,48 @@ async function executeQuery(catalog, payload, options) {
   };
   const defaultPatchAggregate = rootValues.patch_aggregate;
   rootValues.patch_aggregate = async args => {
+    const exactName = args.where?.name?._eq;
+    if (typeof exactName === "string" && Object.keys(args).length === 1 &&
+        Object.keys(args.where).length === 1 &&
+        Object.keys(args.where.name).length === 1 &&
+        catalog.manifest.files["patch-name-ids.json"]) {
+      const index = await catalog.file("patch-name-ids.json");
+      const ids = Object.hasOwn(index,exactName) ? index[exactName] : [];
+      let fallback;
+      const full = async () => {
+        fallback ??= defaultPatchAggregate(args);
+        return (await fallback).aggregate;
+      };
+      let indexedAggregate;
+      const indexedId = op => {
+        indexedAggregate ??= aggregate(ids.map(id => ({__kind:"patch",id}))).aggregate;
+        return indexedAggregate[op].id;
+      };
+      const operations = Object.fromEntries(["min","max",...numericOperations].map(op =>
+        [op, ids.length ? async () => (await full())[op] : () => ({})]));
+      for (const op of ["min","max"]) operations[op] = () => ({
+        name: ids.length ? exactName : null,
+        id: ids.length ? () => indexedId(op) : null,
+        ...Object.fromEntries(Object.entries(definitions.patch)
+          .filter(([key,type]) => key !== "name" && key !== "id" && type !== "Boolean")
+          .map(([key]) => [key, ids.length ?
+            async () => (await full())[op]?.[key] ?? null : null]))
+      });
+      for (const op of numericOperations) operations[op] = () => ({
+        id: ids.length ? () => indexedId(op) : null,
+        bundle_fk: ids.length ? async () => (await full())[op]?.bundle_fk ?? null : null
+      });
+      return {aggregate:{
+        ...operations,
+        count: async ({columns,distinct}={}) => {
+          if (!ids.length) return 0;
+          if (!columns?.length || columns.every(column =>
+            column === "id" || column === "name"))
+            return distinct && columns?.length && !columns.includes("id") ? 1 : ids.length;
+          return (await full()).count({columns,distinct});
+        }
+      },nodes:()=>rootValues.patch(args)};
+    }
     if (!Object.keys(args).length && catalog.manifest.files["patch-statistics.json"]) {
       const stats = await catalog.file("patch-statistics.json");
       const locale = String(catalog.regexLocale ?? site.postgres_locale ?? "en_US.utf8")
@@ -678,14 +1015,22 @@ async function executeQuery(catalog, payload, options) {
       if (["query_root","subscription_root"].includes(info.parentType.name))
         return rootValues[info.fieldName]?.(args,info);
       const field = info.fieldName;
-      if (source?.__kind === "bundle" && field === "description")
+      if (source?.__kind === "bundle" && field === "description") {
+        if (descriptionsPromise) return source.description;
+        const shard = "graphql-descriptions/" + Math.floor(source.id / 400) + ".json";
+        if (catalog.manifest.files[shard])
+          return (await catalog.file(shard))[source.catalog_id] ?? null;
+        if (catalog.manifest.files["graphql-bundle-descriptions.json"])
+          return (await catalog.file("graphql-bundle-descriptions.json"))[source.catalog_id] ?? null;
         return (await catalog.file("bundles/" + source.catalog_id + ".json")).description;
+      }
       const isAggregate = field.endsWith("_aggregate");
       const relation = isAggregate ? field.slice(0, -10) : field;
       if (arrays[source?.__kind]?.[relation]) {
         let rows;
         if (source.__kind === "bundle") rows = await loadPatches(args, source);
         else if (source.__kind === "package") {
+          await ensureGraph();
           await loadPatches(args, undefined, source.name);
           rows = source.patch_packages;
         } else if (source.__kind === "source") {

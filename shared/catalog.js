@@ -370,38 +370,137 @@ export class Catalog {
   }
   async patchRows({ q = "", package: packageName, bundle_id: bundleId, bundle_ids: bundleIds, page_cursor = 0,
                     page_count = 12, all = false, include_unverified = false, patch_id: patchId, patch_ids: patchIds,
-                    compact_bundles = false } = {}) {
-    const index = await this.file("patch-index.json");
-    let pages = index.pages;
+                    compact_bundles = false, bundle_rows: bundleRows, reverse_pages = false } = {}) {
+    const scoped = (bundleId || bundleIds) && !packageName && patchId == null &&
+      !patchIds && this.manifest.files["patch-bundle-index.json"];
+    let index, pages;
+    if (scoped) {
+      const bundles = await this.file("patch-bundle-index.json");
+      const ids = bundleIds ?? [bundleId];
+      pages = [...new Set(ids.flatMap(id =>
+        Object.hasOwn(bundles,id) ? bundles[id] : []))].sort();
+      index = { bundles };
+    } else {
+      index = await this.file("patch-index.json");
+      pages = index.pages;
+    }
     function intersect(candidate) {
       const selected = new Set(candidate ?? []);
       pages = pages.filter(page => selected.has(page));
     }
-    if (patchId != null && index.patch_ids) intersect(index.patch_ids[String(patchId)]);
+    function own(indexRows, key) {
+      return indexRows && Object.hasOwn(indexRows,key) ? indexRows[key] : [];
+    }
+    if (patchId != null && index.patch_ids) intersect(own(index.patch_ids,String(patchId)));
     if (patchIds && index.patch_ids)
-      intersect(patchIds.flatMap(id => index.patch_ids[String(id)] ?? []));
-    if (bundleId) intersect(index.bundles[bundleId]);
-    if (bundleIds) intersect(bundleIds.flatMap(id => index.bundles[id] ?? []));
-    if (packageName) intersect(index.packages[packageName]);
+      intersect(patchIds.flatMap(id => own(index.patch_ids,String(id))));
+    if (bundleId) intersect(own(index.bundles,bundleId));
+    if (bundleIds) intersect(bundleIds.flatMap(id => own(index.bundles,id)));
+    if (packageName) intersect(own(index.packages,packageName));
+    const unicodeSearch = /[^\x00-\x7F]/.test(q);
     q = q.toLowerCase();
     if (q.length > 512) throw new CatalogError("Search text too long");
     const characters = Array.from(q);
-    if (characters.length >= 3) {
+    // Unicode postings are generated with JavaScript lowercase semantics,
+    // independently of Python's Unicode tables. Read a few small buckets,
+    // without loading the full Unicode patch text on every search.
+    const modernUnicode = unicodeSearch && this.manifest.files["search-unicode-v2/0-0.json"];
+    let unicodePages = null;
+    if (modernUnicode && characters.length < 3) {
+      const bucket = characters.length === 1 ?
+        "search-unicode-short/1-" + (characters[0].codePointAt(0) % 16) + ".json" :
+        "search-unicode-short/2-" + (characters[0].codePointAt(0) % 16) + "-" +
+          (characters[1].codePointAt(0) % 16) + ".json";
+      unicodePages = this.manifest.files[bucket] ? (await this.file(bucket))[q] ?? [] : [];
+    } else if (modernUnicode) {
+      const grams = new Map();
+      for (let i = 0; i < characters.length - 2; i++) {
+        const gram = characters.slice(i,i+3).join("");
+        const bucket = "search-unicode-v2/" + (characters[i].codePointAt(0) % 16) +
+          "-" + (characters[i+1].codePointAt(0) % 16) + ".json";
+        grams.set(gram,bucket);
+      }
+      const cheapest = [...grams].sort((a,b) =>
+        (this.manifest.files[a[1]]?.bytes ?? Infinity) -
+        (this.manifest.files[b[1]]?.bytes ?? Infinity));
+      const loaded = new Map();
+      let bytes = 0, chosen = 0;
+      for (const [gram,bucket] of cheapest) {
+        const added = loaded.has(bucket) ? 0 : this.manifest.files[bucket]?.bytes ?? 0;
+        if (chosen && bytes + added > 2 * 1024 * 1024) continue;
+        if (!loaded.has(bucket)) loaded.set(bucket, await this.file(bucket));
+        const postings = loaded.get(bucket)[gram] ?? [];
+        const selected = new Set(postings);
+        unicodePages = unicodePages === null ? postings :
+          unicodePages.filter(page => selected.has(page));
+        bytes += added;
+        if (++chosen === 3 || !unicodePages.length) break;
+      }
+      unicodePages ??= [];
+    } else if (unicodeSearch && this.manifest.files["search-unicode-text.json"]) {
+      // Snapshots written before the sharded index use original text.
+      unicodePages = Object.entries(await this.file("search-unicode-text.json"))
+        .filter(([,texts]) => texts.some(text => text.toLowerCase().includes(q)))
+        .map(([page]) => page);
+    }
+    function intersectSearch(candidate) {
+      intersect(unicodePages ? [...(candidate ?? []), ...unicodePages] : candidate);
+    }
+    if (unicodeSearch && !unicodePages) {
+      // Older snapshots without a Unicode index must scan scoped pages.
+    } else if (unicodeSearch && /[^\x00-\x7F]/.test(q)) {
+      intersect(unicodePages);
+    } else if (characters.length && characters.length < 3) {
+      const bucket = characters.length === 1 ?
+        "search-short/1-" + (characters[0].codePointAt(0) % 16) + ".json" :
+        "search-short/2-" + (characters[0].codePointAt(0) % 16) + "-" +
+          (characters[1].codePointAt(0) % 16) + ".json";
+      if (this.manifest.files[bucket]) intersectSearch((await this.file(bucket))[q]);
+      else if (this.manifest.files["search-v2/0-0.json"]) {
+        // New snapshots intentionally omit empty short-search buckets. Their
+        // absence means no public matches, unlike older snapshots without a
+        // short-search index, which must retain the full-scan fallback.
+        intersectSearch([]);
+      }
+    } else if (characters.length >= 3) {
       const buckets = new Map();
+      const candidateGrams = new Map();
       for (let i = 0; i < characters.length - 2; i++) {
         const gram = characters.slice(i, i + 3).join("");
-        const bucket = gram.codePointAt(0) % 16;
-        if (!buckets.has(bucket)) buckets.set(bucket, await this.file("search/" + bucket + ".json"));
-        intersect(buckets.get(bucket)[gram]);
+        const first = characters[i].codePointAt(0) % 16;
+        const second = characters[i + 1].codePointAt(0) % 16;
+        const v2 = "search-v2/" + first + "-" + second + ".json";
+        const bucket = this.manifest.files[v2] ? v2 : "search/" + first + ".json";
+        candidateGrams.set(gram, bucket);
+      }
+      // A few indexed trigrams form a safe superset of the matches. The
+      // complete substring check below retains exact results, without loading
+      // dozens of large index files for long searches.
+      const cheapest = [...candidateGrams].sort((a,b) =>
+        (this.manifest.files[a[1]]?.bytes ?? Infinity) -
+        (this.manifest.files[b[1]]?.bytes ?? Infinity));
+      let indexBytes = 0, chosen = 0;
+      for (const [gram,bucket] of cheapest) {
+        const added = buckets.has(bucket) ? 0 : this.manifest.files[bucket]?.bytes ?? 0;
+        if (chosen && indexBytes + added > 2 * 1024 * 1024) continue;
+        if (!buckets.has(bucket)) buckets.set(bucket, await this.file(bucket));
+        intersectSearch(buckets.get(bucket)[gram]);
+        indexBytes += added;
+        if (++chosen === 3 || !pages.length) break;
       }
     }
     if (all && pages.length > 24)
       throw new CatalogError("Patch query spans too many shards; filter by bundle or package", 422);
+    if (reverse_pages) pages = pages.slice().reverse();
     if (!Number.isInteger(+page_cursor) || +page_cursor < 0 || +page_cursor > pages.length)
       throw new CatalogError("Invalid page_cursor");
     const selected = all ? pages : pages.slice(+page_cursor, +page_cursor + page_count);
-    const bundles = new Map((await this.bundles({ compact: compact_bundles })).map(b => [b.id, b]));
-    const rows = (await Promise.all(selected.map(page => this.file(page)))).flat()
+    if (!selected.length) return { rows: [], next_cursor: null, candidate_pages: pages.length };
+    const bundles = new Map((bundleRows ?? await this.bundles({ compact: compact_bundles }))
+      .map(b => [b.id, b]));
+    const candidates = (await Promise.all(selected.map(page => this.file(page))))
+      .flatMap(page => reverse_pages ? page.slice().reverse() : page);
+    const rows = candidates
       .filter(p => bundles.has(p.bundle_id) && (!patchIds || patchIds.includes(p.legacy_id)) &&
         (include_unverified || p.metadata_status === "verified") &&
         (!q || ((p.name ?? "") + " " + (p.description ?? "")).toLowerCase().includes(q)) &&

@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 
 SPEC = importlib.util.spec_from_file_location(
@@ -97,8 +98,108 @@ def test_verified_artifact_deduplicates_channels_and_indexes_packages(tmp_path):
     assert not bundles[0]["need_patches_update"]
     index = db.read_json(path / "patch-index.json")
     assert index["packages"]["com.video"] == index["pages"]
+    assert db.read_json(path / "patch-package-counts.json")["com.video"] == {
+        index["pages"][0]: 1
+    }
+    assert db.read_json(path / "patch-name-ids.json")["Hide ads"] == [
+        db.read_json(path / index["pages"][0])[0]["legacy_id"]
+    ]
+    assert db.read_json(path / "search-short/1-1.json")["a"] == index["pages"]
+    assert db.read_json(path / "search-short/2-1-4.json")["ad"] == index["pages"]
+    compact = db.read_json(path / "graphql-bundles.json")
+    assert len(compact["rows"]) == len(bundles)
+    assert "description" not in compact["columns"]
+    descriptions = db.read_json(path / "graphql-bundle-descriptions.json")
+    assert descriptions[bundles[0]["id"]] == bundles[0]["description"]
     assert db.read_json(path / "packages.json")[0]["versions"] == ["1.0", "2.0"]
     assert len(db.read_json(path / "availability.json")["missing"]) == 1
+
+
+def test_compact_indexes_have_deterministic_nested_key_order(tmp_path):
+    folder = fixture(tmp_path)
+    for channel in ("latest", "stable"):
+        patch_path = folder / f"demo-{channel}-patches-list.json"
+        payload = db.read_json(patch_path)
+        payload["patches"][0]["compatiblePackages"] = {
+            "com.zeta": ["1.0"], "com.alpha": ["2.0"]
+        }
+        write(patch_path, payload)
+        extraction_path = folder / f"demo-{channel}-extraction.json"
+        extraction = db.read_json(extraction_path)
+        extraction["patch_list_hash"] = db.digest(patch_path.read_bytes())
+        write(extraction_path, extraction)
+    manifest = db.build_database(tmp_path)
+    path, _ = snapshot(tmp_path, manifest)
+    for name in ("patch-package-counts.json", "patch-name-ids.json",
+                 "graphql-bundle-descriptions.json"):
+        content = (path / name).read_bytes()
+        expected = (json.dumps(json.loads(content), ensure_ascii=False,
+                               sort_keys=True, separators=(",", ":")) + "\n").encode()
+        assert content == expected
+
+
+def test_search_postings_exclude_disabled_source_history(tmp_path):
+    fixture(tmp_path)
+    db.build_database(tmp_path)
+    inventory_path = tmp_path / "config/sources.json"
+    inventory = db.read_json(inventory_path)
+    for key in ("demo-latest", "demo-stable"):
+        inventory[key]["disabled"] = True
+    write(inventory_path, inventory)
+    path, bundles = snapshot(tmp_path, db.build_database(tmp_path))
+    assert bundles and all(bundle["source_id"] for bundle in bundles)
+    assert db.read_json(path / "patch-index.json")["pages"]
+    assert "ads" not in db.read_json(path / "search-v2/1-4.json")
+    assert not (path / "search-short/1-1.json").exists()
+    assert not (path / "search-short/2-1-4.json").exists()
+
+
+def test_unicode_search_postings_track_only_public_patches(tmp_path):
+    folder = fixture(tmp_path)
+    for channel in ("latest", "stable"):
+        patch_path = folder / f"demo-{channel}-patches-list.json"
+        payload = db.read_json(patch_path)
+        payload["patches"][0]["name"] = "café"
+        write(patch_path, payload)
+        extraction_path = folder / f"demo-{channel}-extraction.json"
+        extraction = db.read_json(extraction_path)
+        extraction["patch_list_hash"] = db.digest(patch_path.read_bytes())
+        write(extraction_path, extraction)
+    first = db.build_database(tmp_path)
+    path, _ = snapshot(tmp_path, first)
+    pages = db.read_json(path / "patch-index.json")["pages"]
+    assert db.read_json(path / "search-unicode-v2/3-1.json")["caf"] == pages
+    assert db.read_json(path / "search-unicode-v2/1-6.json")["afé"] == pages
+    assert db.read_json(path / "search-unicode-short/1-9.json")["é"] == pages
+    assert not (path / "search-unicode-text.json").exists()
+    assert db.build_database(tmp_path) == first
+    inventory_path = tmp_path / "config/sources.json"
+    inventory = db.read_json(inventory_path)
+    for name in ("demo-latest", "demo-stable"):
+        inventory[name]["disabled"] = True
+    write(inventory_path, inventory)
+    path, _ = snapshot(tmp_path, db.build_database(tmp_path))
+    assert db.read_json(path / "search-unicode-v2/3-1.json") == {}
+    assert not (path / "search-unicode-short/1-9.json").exists()
+
+
+def test_unicode_postings_do_not_copy_long_patch_descriptions(tmp_path):
+    folder = fixture(tmp_path)
+    for channel in ("latest", "stable"):
+        patch_path = folder / f"demo-{channel}-patches-list.json"
+        payload = db.read_json(patch_path)
+        payload["patches"][0]["description"] = "é" * 20_000
+        write(patch_path, payload)
+        extraction_path = folder / f"demo-{channel}-extraction.json"
+        extraction = db.read_json(extraction_path)
+        extraction["patch_list_hash"] = db.digest(patch_path.read_bytes())
+        write(extraction_path, extraction)
+    path, _ = snapshot(tmp_path, db.build_database(tmp_path))
+    unicode_files = list((path / "search-unicode-v2").glob("*.json"))
+    unicode_files.extend((path / "search-unicode-short").glob("*.json"))
+    assert unicode_files
+    assert sum(item.stat().st_size for item in unicode_files) < 20_000
+    assert "ééé" in db.read_json(path / "search-unicode-v2/9-9.json")
 
 
 def test_generation_is_deterministic_and_old_snapshots_survive(tmp_path):
