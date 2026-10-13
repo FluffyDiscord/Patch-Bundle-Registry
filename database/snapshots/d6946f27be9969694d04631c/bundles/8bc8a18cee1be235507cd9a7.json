@@ -1,0 +1,43 @@
+{
+  "bundle_type": "Morphe:V1",
+  "channels": [
+    "latest",
+    "stable"
+  ],
+  "created_at": "2026-10-13T02:22:12Z",
+  "description": "## 1.8.5 (2026-10-13)\n\n### 🐛 Bug Fixes\n\n* **nicoid:** Initialize an unspecified upload-date range to today's date instead of reusing an old saved range.\n* **nicoid:** Keep video-duration text fields, slider handles and unlimited-range controls in sync.\n* **nicoid:** Preserve existing cached comments when replacement fails and recover interrupted updates.\n* **nicoid:** Correct transfer-size estimates for HLS segments with implicit byte-range offsets.\n* **nicoid:** Handle malformed local playlist data without crashing or overwriting the stored snapshot.\n\n### 🔧 Improvements\n\n* **nicoid:** Limit cache-file lookups to the relevant video folder, reuse metadata and refresh it after writes.\n* **nicoid:** Keep playlist lists and scroll positions during selection, reuse video rows and save changes in the background.\n* **nicoid:** Reduce repeated thumbnail-cache scans while retaining expiry and storage limits.\n* **nicoid:** Verify implementation ownership and packaged helper behavior to prevent source changes from being masked by older overrides.\n",
+  "download_url": "https://github.com/chikuwadon/nicoid-re-patches/releases/download/v1.8.5/patches-1.8.5.mpp",
+  "ecosystem": "morphe",
+  "extracted_provider_digest": null,
+  "extraction_status": "unverified",
+  "extraction_terminal": false,
+  "file_hash": null,
+  "id": "8bc8a18cee1be235507cd9a7",
+  "import_urls": {
+    "latest": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fchikuwadon%2Fnicoid-re-patches&version=latest&channel=any",
+    "stable": "https://patch-bundles.api.jmancentral.com/api/v3/bundle?source_url=https%3A%2F%2Fgithub.com%2Fchikuwadon%2Fnicoid-re-patches&version=latest&channel=stable"
+  },
+  "integrations": null,
+  "is_latest": true,
+  "is_prerelease": false,
+  "legacy_id": 9070,
+  "metadata_status": "stale",
+  "need_patches_update": true,
+  "packages": [
+    "com.sauzask.nicoid"
+  ],
+  "patch_count": 0,
+  "patch_list_available": true,
+  "patch_metadata_schema_version": 3,
+  "patch_metadata_version": "v1.8.3",
+  "patch_refresh_attempted_at": null,
+  "patcher_failure_config_hash": null,
+  "patcher_failure_fingerprint": null,
+  "patcher_runtime": null,
+  "provider_digest": "sha256:454725266347ec76bb8a6fabf041caf81a455dcf0ce2feca330d4a5dab898e05",
+  "release_status": "unverified",
+  "release_url": null,
+  "signature_download_url": null,
+  "source_id": "39a7769dab96ea9f",
+  "version": "v1.8.5"
+}
