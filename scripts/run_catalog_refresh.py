@@ -1,4 +1,4 @@
-"""Refresh in phases and publish checkpoints through the existing GitHub branch.
+"""Refresh in phases with private cloud checkpoints or legacy Git publication.
 
 Only --publish inside GitHub Actions commits or pushes. Local runs never change Git.
 """
@@ -15,16 +15,28 @@ import uuid
 from datetime import UTC, datetime
 from pathlib import Path
 
-from generate_database import (
-    ROOT,
-    build_database,
-    build_site,
-    encoded,
-    read_json,
-    restore_catalog_cache,
-)
-from source_policy import write_extraction_policy
-from validate_database import validate
+try:
+    from scripts.generate_database import (
+        ROOT,
+        build_database,
+        build_site,
+        encoded,
+        read_json,
+        restore_catalog_cache,
+    )
+    from scripts.source_policy import write_extraction_policy
+    from scripts.validate_database import validate
+except ModuleNotFoundError:
+    from generate_database import (
+        ROOT,
+        build_database,
+        build_site,
+        encoded,
+        read_json,
+        restore_catalog_cache,
+    )
+    from source_policy import write_extraction_policy
+    from validate_database import validate
 
 
 def instant():
@@ -32,10 +44,11 @@ def instant():
 
 
 class Refresh:
-    def __init__(self, root, publish=False, interval=30):
+    def __init__(self, root, publish=False, interval=30, cloudflare=False):
         self.root = Path(root)
         self.publish = publish
-        self.interval = interval
+        self.cloudflare = cloudflare
+        self.interval = max(300, interval) if cloudflare else interval
         self.last_publish = 0
         self.jobs = []
         self.run_id = os.environ.get("GITHUB_RUN_ID", str(uuid.uuid4()))
@@ -71,6 +84,12 @@ class Refresh:
         if not force and time.monotonic() - self.last_publish < self.interval:
             return
         self.save_jobs()
+        if self.cloudflare:
+            from scripts.cloudflare_catalog import Cloud
+
+            Cloud().checkpoint()
+            self.last_publish = time.monotonic()
+            return
         build_database(self.root, restore=False)
         validate(self.root)
         if self.publish:
@@ -195,11 +214,17 @@ class Refresh:
     def _run(self):
         restore_catalog_cache(self.root)
         python = sys.executable
-        self.phase("BUNDLES", [python, "scripts/discover_releases.py"], optional=True)
+        self.phase(
+            "BUNDLES", [python, "scripts/discover_releases.py"], optional=not self.cloudflare
+        )
         subprocess.run(  # noqa: S603 -- fixed interpreter and local script
             [python, "scripts/refresh_source_metadata.py"], cwd=self.root, check=False
         )
         write_extraction_policy(self.root)
+        if self.cloudflare:
+            from scripts.prepare_refresh import prepare_extraction
+
+            prepare_extraction(self.root)
         wrapper = self.root / "bundle-parser" / ("gradlew.bat" if os.name == "nt" else "gradlew")
         if os.name != "nt":
             wrapper.chmod(wrapper.stat().st_mode | 0o111)
@@ -208,11 +233,15 @@ class Refresh:
             [python, "scripts/refresh_app_metadata.py"], cwd=self.root, check=False
         )
         self.checkpoint(force=True)
+        if self.cloudflare:
+            build_database(self.root, restore=False)
+            validate(self.root)
         build_site(self.root)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--publish", action="store_true")
+    parser.add_argument("--cloudflare", action="store_true")
     args = parser.parse_args()
-    Refresh(ROOT, publish=args.publish).run()
+    Refresh(ROOT, publish=args.publish, cloudflare=args.cloudflare).run()

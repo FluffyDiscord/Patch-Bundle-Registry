@@ -71,7 +71,7 @@ async function frontend(prefs, suppliedSummaries) {
         getElementById:id=>fields[id]??=node(id)},results:node(),container:node(),viewToggle:node(),
         input:node(),packageFilter:node(),sourceFilter:node(),bundleVersionFilter:node(),bundleTypeFilter:node(),
         filterButtons:["all","latest","release","prerelease"].map(filter=>Object.assign(node(),{dataset:{filter}})),
-        sourcePicker:{sync(){}}, browsePreferences:prefs,currentTab:prefs.activeTab,
+        bundleSelection:0,sourceSelection:0,sourcePicker:{sync(){}}, browsePreferences:prefs,currentTab:prefs.activeTab,
         summaries,latestBundles:[transformBundle(summaries[0])],sourceVersions:[],allBundles:[],catalog:{},
         transformBundle,compareReleaseDates,matchesReleaseFilter,bundleTypeLabel:x=>x,
         Option: function(label,value) { this.label=label; this.value=value; },
@@ -137,4 +137,74 @@ test("Switching sources rebuilds versions after clearing a retired bundle type",
     assert.equal(c.currentBundleVersion,"");
     assert(c.bundleVersionFilter.options.some(option => option.value === "v3"));
     assert.equal(prefs.read("bundles").source,other);
+});
+
+test("Slow version details cannot overwrite a newer selection or a changed source",async()=>{
+    for(const action of ["version","source","tab"]) {
+        const prefs=createBrowsePreferences(()=>storage());
+        prefs.save("bundles",{source:"https://github.com/a/b",release:"all"});
+        const {context:c,tabs}=await frontend(prefs);
+        let resolve;
+        c.catalog={historyBundles:async()=>[],file:()=>new Promise(done=>{resolve=done;})};
+        const pending=c.selectBundleVersion("v1");
+        if(action==="version") await c.selectBundleVersion("");
+        if(action==="source") await c.selectSource("");
+        if(action==="tab") tabs[1].click();
+        resolve({description:"Old release details"});
+        await pending;
+        assert.equal(c.currentBundleVersion,"",action);
+        assert.equal(prefs.read(action==="tab"?"apps":"bundles").version,"",action);
+    }
+});
+
+test("A failed stale version request cannot replace the current status",async()=>{
+    const prefs=createBrowsePreferences(()=>storage());
+    prefs.save("bundles",{source:"https://github.com/a/b",release:"all"});
+    const {context:c}=await frontend(prefs);
+    let reject;
+    c.status={textContent:"Current view"};
+    c.recoverGeneration=async()=>false;
+    c.catalog={historyBundles:async()=>[],file:()=>new Promise((_,fail)=>{reject=fail;})};
+    const pending=c.selectBundleVersion("v1");
+    await c.selectBundleVersion("");
+    reject(new Error("Old request failed"));
+    await pending;
+    assert.equal(c.status.textContent,"Current view");
+});
+
+
+test("A pending source history cannot clear a version restored by tab navigation",async()=>{
+    const prefs=createBrowsePreferences(()=>storage());
+    const url="https://github.com/a/b";
+    prefs.save("bundles",{source:url,release:"all"});
+    const {context:c,tabs}=await frontend(prefs);
+    let resolve;
+    c.catalog={historyBundles:()=>new Promise(done=>{resolve=done;})};
+    const pending=c.selectSource(url);
+    tabs[1].click();
+    prefs.save("bundles",{source:url,version:"v1",release:"all"});
+    tabs[0].click();
+    assert.equal(c.currentBundleVersion,"v1");
+    resolve([]);
+    await pending;
+    assert.equal(c.currentBundleVersion,"v1");
+    assert.equal(prefs.read("bundles").version,"v1");
+});
+
+test("A source error awaiting generation recovery cannot overwrite a newer view",async()=>{
+    const prefs=createBrowsePreferences(()=>storage());
+    const url="https://github.com/a/b";
+    prefs.save("bundles",{source:url,release:"all"});
+    const {context:c}=await frontend(prefs);
+    let finishRecovery,started;
+    const recovering=new Promise(done=>{started=done;});
+    c.status={textContent:"Current view"};
+    c.recoverGeneration=()=>{started();return new Promise(done=>{finishRecovery=done;});};
+    c.catalog={historyBundles:async()=>{throw new Error("Old request failed");}};
+    const pending=c.selectSource(url);
+    await recovering;
+    await c.selectSource("");
+    finishRecovery(false);
+    await pending;
+    assert.equal(c.status.textContent,"Current view");
 });

@@ -14,7 +14,7 @@ The original layout and virtualized cards are retained. Catalog loading, search,
 
 These adapted files retain their original authorship and use **GPL-3.0-only**. The license text is included in [web/COPYING](../web/COPYING) and the published website. Source notices and upstream permalinks appear in each file.
 
-The corresponding website source is available in `web/`, `shared/catalog.js`, and the site-generation scripts and configuration in this repository. Third-party fonts and JavaScript dependencies retain their own licenses.
+The corresponding website source is available in `web/`, `shared/`, and the site-generation scripts and configuration in this repository. Third-party fonts and JavaScript dependencies retain their own licenses.
 
 ## Other project code
 
@@ -36,7 +36,7 @@ Host routing, paginated release-history discovery, historical extraction schedul
 - [API routes](https://github.com/brosssh/revanced-external-bundles/tree/3a59398d667c83cd7033f859f3cb59237da92b3f/src/main/kotlin/me/brosssh/bundles/api)
 - [Hasura public-role metadata](https://github.com/brosssh/revanced-external-bundles/blob/3a59398d667c83cd7033f859f3cb59237da92b3f/src/main/resources/hasura/metadata.json)
 
-These backend behaviors are independently implemented for immutable JSON snapshots and the Worker API. No AGPL backend source has been copied. The adapted website package/version filtering remains covered by its existing GPL notice.
+These backend behaviors are independently implemented for immutable JSON snapshots and the Worker API, including the optional D1 query and R2 archive backend. No AGPL backend source has been copied. The adapted website package/version filtering remains covered by its existing GPL notice.
 
 Interactive documentation uses Swagger UI (Apache-2.0), GraphiQL and React (MIT). These dependencies retain their own licenses. PostgreSQL regex matching is independently implemented from the [official pattern-matching documentation](https://www.postgresql.org/docs/17/functions-matching.html). The ASCII character-name mapping in `worker/src/postgres-character-names.js` is adapted from [PostgreSQL regc_locale.c](https://github.com/postgres/postgres/blob/35c508af520963bf1245b86f437c21f834cc2be0/src/backend/regex/regc_locale.c) and retains its original Scriptics copyright and permissive license notice. `worker/src/postgres-locales.json` contains generated character-class and case-conversion results from PostgreSQL with the libc `en_US.utf8` collation. It contains lookup data, not PostgreSQL implementation code. No reference backend code is copied.
 

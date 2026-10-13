@@ -7,7 +7,8 @@
     "build:worker": "node scripts/build_worker.mjs",
     "dev:worker": "wrangler dev --config worker/wrangler.jsonc",
     "deploy:worker": "wrangler deploy --config worker/wrangler.jsonc --env production",
-    "test:runtime": "node scripts/test_live_worker.mjs"
+    "test:runtime": "node scripts/test_live_worker.mjs",
+    "test:runtime:d1": "node scripts/test_d1_worker.mjs"
   },
   "dependencies": {
     "graphql": "^16.11.0"

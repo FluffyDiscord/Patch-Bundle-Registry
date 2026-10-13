@@ -40,7 +40,7 @@ Patch searches return one window of candidate shards. Follow `next_cursor` as `p
 
 Bundle collections/details and GraphQL bundle records expose the same `icon_url` and `owner_avatar_url`. For Morphe, `icon_url` prefers `patches-bundle.png` at the root of the repository's default branch. Otherwise it uses the owner avatar, as ReVanced and Reseam do. Source metadata includes the discovered `bundle_icon_url`. Images are checked during the daily repository-metadata refresh; temporary upstream failures preserve the last known image. The website falls back to the owner avatar if the preferred image fails to load, then to initials.
 
-The website loads the complete bundle index directly from catalog snapshots, independently of API request budgets. Default browsing shows current stable and prerelease releases; selecting a source exposes its retained historical versions. Cards render as they enter the viewport, and patch lists load on demand.
+Default website browsing shows current stable and prerelease bundles. Select a source to browse its indexed versions and load changelogs and patches on demand. The historical APIs below also expose retained release inventories, including releases without patch artifacts, on deployments that support them.
 
 ## GraphQL
 
@@ -98,23 +98,23 @@ subscription NewBundles {
 
 The `is_latest` flag identifies the newest stable release and newest prerelease separately for each source, across bundle formats and retained history. Configured channel pointers remain available independently through `channels` and REST channel filters; manager latest imports use `is_latest`.
 
-A successful, complete release discovery updates the saved upstream inventory in `releases.json`. Promoted releases are reclassified without losing verified patch data. Deleted releases, drafts and releases without patch assets are removed from the catalog. Temporary provider failures retain the last successful inventory. Fresh CI runners restore this inventory from the published snapshot, so retired prereleases cannot reappear. A latest prerelease import returns 404 when no eligible prerelease remains.
+Promoted releases are reclassified without losing verified patch data. Standard browsing excludes deleted releases, drafts and releases without patch assets. The historical API preserves previously indexed published releases and marks missing upstream releases unavailable; it also includes releases without patch assets. Drafts are excluded. Temporary provider failures retain the last successful inventory. A latest prerelease import returns 404 when no eligible prerelease remains.
 
-Refresh-job queries combine separate `BUNDLES` discovery and `PATCHES` extraction records with recent GitHub Actions refresh runs (`ALL`). Statuses are STARTED (including queued phases), COMPLETED and FAILED; cancellation is reported as FAILED. The status endpoint accepts a phase's UUID `job_id` or a numeric Actions run ID and returns the upstream fields `jobId`, `type`, `status`, `startedAt`, `completedAt` and `error`. Collection and GraphQL records retain snake_case field names. Phase status follows catalog checkpoints. Actions status may be cached for up to two minutes without authentication, or 15 seconds with an optional server-side status token.
+Refresh-job queries combine separate `BUNDLES` discovery and `PATCHES` extraction records with recent GitHub Actions refresh runs (`ALL`). Statuses are STARTED (including queued phases), COMPLETED and FAILED; cancellation is reported as FAILED. The status endpoint accepts a phase's UUID `job_id` or a numeric Actions run ID and returns the upstream fields `jobId`, `type`, `status`, `startedAt`, `completedAt` and `error`. Collection and GraphQL records retain snake_case field names. Legacy phase status follows catalog checkpoints. Cloud mode publishes phase records with the next verified generation; numeric Actions status remains live during a refresh. Live Actions status can be cached for 15 seconds to two minutes.
 
 Mutations, triggering administrative jobs and database administration remain outside the public read-only API.
 
 ## Freshness and request limits
 
-Release history is discovered independently of current channels. Historical patch extraction proceeds in background batches, so newly discovered versions may initially have missing patch lists. Morphe and legacy metadata produced before the compatibility format update is requeued and remains unverified until re-extracted. During a refresh, validated checkpoints publish available results about every 30 seconds and at phase transitions. The site checks for a new generation every 15 seconds while visible; subscriptions check every second. GitHub's content delivery cache can add delay. Readers fall back to the deployed site's catalog if the branch catalog is unavailable.
+Release history is discovered independently of current channels. Historical patch extraction runs in background batches, so a newly discovered version may initially have a missing or unverified patch list. Re-extraction can update that status later. The website checks for a new generation every 15 seconds while visible; subscriptions check every second. Published updates can lag behind upstream releases while refreshes, extraction or caching are in progress.
 
 A verified list was parsed from the matching binary artifact and has matching artifact and patch-list digests. Fallback metadata remains unverified. `need_patches_update` is true while extraction is missing, stale or unverified. Full release notes are available from bundle collections, detail and manager endpoints.
 
-Each request uses one immutable generation and checks fetched file hashes. GitHub snapshot reads use the commit recorded in the manifest, so cached manifests remain usable after newer generations are published. Responses support ETags and conditional GET. API cache lifetime is 60 seconds. Refresh-status responses are not cached, and subscription evaluations read the manifest afresh.
+Each request uses one catalog generation. Responses support ETags and conditional GET, with a 60-second API cache lifetime. Refresh-status responses are not cached, and subscriptions evaluate against the latest published generation. Follow the generation checks below when reading multiple pages of history.
 
 Queries have bounded input, output and work: 100 rows per selection (25 by default), 36 catalog files, 12 MiB catalog input, 2 MiB response and at most 24 patch shards per GraphQL scan. POST bodies are limited to 32 KiB; normal queries to depth 8, 300 fields and complexity 20,000. Standard schema introspection is allowed separately.
 
-Narrow broad queries by source, bundle or package when a budget is exceeded. REST returns 422; GraphQL execution reports an error. The API implements the reference public query surface over catalog snapshots, with these limits; it does not run a Hasura database server.
+Narrow broad queries by source, bundle or package when a budget is exceeded. REST returns 422; GraphQL execution reports an error. These budgets apply to the public query surface, including compatibility queries.
 
 Phase UUIDs remain queryable across catalog refreshes, including older completed jobs. Job collections and GraphQL fall back to published job records when live Actions status is temporarily unavailable; individual numeric Actions-run lookups still require live status. Collection queries retain their existing pagination and response limits.
 
@@ -140,11 +140,95 @@ App summaries and app-to-bundle lookups support `q` (application name or package
 
 GraphQL `package` records expose `app_name` and `icon_url`. Patch responses include `app_name` and `icon_url` alongside each package's existing `name` and `versions`. Bundle detail and v3 import responses include `apps` (first 100 applications), `app_count`, and an `apps_url` path for pagination. These fields appear once the new catalog indexes have been published; existing import fields remain compatible.
 
-Each repository index is checked daily with its own conditional-request validators, cached applications, and retry interval. A repository outage retains its previous index and does not stop the other repository. Google Play tries the US, then the UK and India after an unavailable listing; a previously successful country takes priority on subsequent refreshes. Results are cached for 30 days, and listings unavailable in all three countries for at least 7 days. Existing US-only negative entries can try the additional countries immediately. When more than 50 packages await their first lookup, an initial backfill allows up to 1,500 sequential lookups within 30 minutes. Other refreshes allow up to 50 lookups within three minutes. Every regional HTTP request counts toward the shared lookup cap and time budget. Requests remain one second apart, unattempted packages take priority, and metadata progress is saved every 25 lookups. Interrupted regional searches resume without repeating completed country lookups or caching a partial search as a missing listing. Provider failures retain cached names. Repository and Google Play rate-limit or temporary-unavailability responses pause further requests to that provider until its `Retry-After` interval expires (one hour when the header is missing or invalid). Names and icons can therefore fill in over multiple refreshes.
+Application metadata is cached, so names and icons can lag behind provider changes. Temporary provider failures preserve the last known values; unknown applications keep their package names. Metadata changes do not require clients to change their API requests.
 
 ### Patch options
 
 REST patch records and GraphQL `patch { options }` expose the extracted `options` array. Each option can include `key`, `title` or `name`, `description`, `type`, `required`, `default`, and `values` (named choices). Defaults preserve false, zero, and null. An empty array means the extracted patch declares no options; missing or unverified metadata does not establish that no options exist. Options are descriptive metadata; catalog requests do not apply or change them.
+
+## Historical API
+
+Historical endpoints are available on deployments using the D1 backend. Check `/history/sources` before relying on them; a legacy deployment returns 404 for these routes. Existing Android paths and GraphQL table roots keep their names, numeric IDs and response conventions.
+
+| REST | GraphQL | Coverage |
+| --- | --- | --- |
+| `/history/releases` | `historical_releases` | Full retained published release inventory, including releases with no extractable artifact |
+| `/history/releases/:id` | `historical_release(id:...)` | Original changelog, provider metadata, release/prerelease category, asset metadata and indexed bundle links |
+| `/history/releases/:id/document` | `historical_release { document }` | Complete original release JSON in bounded byte chunks |
+| `/history/sources` | `historical_sources` | Inventory completeness, counts, errors and verification timestamps |
+| `/history/bundles` | `historical_bundles` | All retained indexed bundle metadata, including retired bundles |
+| `/history/patches` | `historical_patches` | All retained indexed patches, options and compatibility status |
+| `/history/packages` | `historical_packages` | Recorded package names and app versions |
+| `/history/patch-packages` | `historical_patch_packages` | Historical patch/application links |
+| `/history/apps` | `historical_apps` | Retained app metadata JSON |
+
+Release history uses `limit=1..100` **per page**, with no total-history ceiling. Follow `next_cursor` as `after` until null. It sorts by publication date then stable release ID, with `order=asc|desc`. Keep filters and order unchanged between pages. Page size can be reduced if a response exceeds the size limit. A cursor pins the generation; HTTP 409 (or the equivalent GraphQL error) means restart pagination after publication. Do not concatenate pages from different generations.
+
+Both release-history protocols accept `source_id`, `source` (repository URL), `bundle_id` (indexed catalog hash), `runtime` (recorded patcher-runtime value), exact `version`, `prerelease`, `availability`, inclusive publication bounds `from`/`to`, `order`, `limit` and `after`.
+
+```http
+GET /history/releases?source=https%3A%2F%2Fgithub.com%2Fowner%2Frepo&limit=100&order=asc
+GET /history/releases?source=https%3A%2F%2Fgithub.com%2Fowner%2Frepo&limit=100&order=asc&after=ENCODED_NEXT_CURSOR
+```
+
+```graphql
+query History($source: String!, $after: String) {
+  historical_releases(source: $source, limit: 100, order: "asc", after: $after) {
+    generation next_cursor
+    data {
+      id source_id source_url upstream_id name tag version is_prerelease
+      created_at published_at updated_at changelog release_notes release_url
+      availability binary_archived assets bundle_assets raw_metadata
+      bundle_ids bundle_types runtimes metadata_document_url
+    }
+  }
+}
+```
+
+REST returns the same release fields without a GraphQL selection set. Set `after` to the returned cursor in either protocol; IDs/cursors are interchangeable between them for identical filters. For original text, preserve JSON string contents without Markdown rewriting. Large records may replace inline changelog/assets/raw metadata with `metadata_document_url`; retrieve the complete JSON through the chunk route below.
+
+Entity histories return a generation in REST. Send it as `generation` on subsequent pages to reject a catalog change with 409. In GraphQL, request `catalog_generation` alongside the first page and pass that value as the optional `generation` argument on subsequent historical entity/source/app roots; a mismatch returns an explicit GraphQL error. Restart the traversal when generations differ.
+
+Entity histories use `limit<=100` and increasing `offset` without the legacy REST 10,000-offset ceiling. REST supports exact entity-specific filters `source_id`, `bundle_id`, `catalog_id`, `name`, `version`, `patcher_runtime`, `metadata_status`, and numeric `source_fk`, `bundle_fk`, `patch_fk`, `package_fk`. GraphQL uses table `where` filters and numeric ID ordering. REST uses catalog hashes plus `legacy_id`; GraphQL uses numeric IDs plus `catalog_id`, as existing APIs do. Historical GraphQL nested relationships include retired metadata. Use source completeness separately from extraction status.
+
+```http
+GET /history/bundles?source_id=SOURCE_HASH&limit=100&offset=0
+GET /history/patches?bundle_id=BUNDLE_HASH&limit=100&offset=0
+GET /history/patch-packages?patch_fk=NUMERIC_PATCH_ID&limit=100&offset=0
+GET /history/packages?limit=100&offset=100
+```
+
+```graphql
+query IndexedHistory($source: String!, $offset: Int!) {
+  historical_bundles(where: {source_id: {_eq: $source}}, limit: 100, offset: $offset) {
+    id catalog_id version description metadata_status
+  }
+  historical_patches(limit: 100, offset: $offset, order_by: {id: asc}) {
+    id catalog_id name description options metadata_status
+    bundle { catalog_id version }
+    patch_packages { package { id name version } }
+  }
+  historical_apps(limit: 100, offset: $offset)
+}
+```
+
+Historical entity roots use the D1-compatible filter/order subset (equality, membership, null/logical/relationship predicates and numeric order). Locale-sensitive text/regex/aggregate queries on existing roots retain the compatibility snapshot engine and its established budgets. Historical entity filters outside that subset return an explicit query error; existing roots retain their full compatibility expressions. Historical release pagination is independent of shard loading and does not have this fallback restriction.
+
+For oversized original documents, use `offset` in **bytes** and `limit<=65536`. Both return `{encoding:"base64",data,total_bytes,next_offset}`. Decode each base64 chunk to bytes, concatenate bytes in order, then decode the complete UTF-8 JSON. Do not decode a partial UTF-8 character separately. Continue until `next_offset=null`.
+
+```http
+GET /history/releases/RELEASE_ID/document?offset=0&limit=65536
+```
+
+```graphql
+{
+  historical_release(id: "RELEASE_ID") {
+    document(offset: 0, limit: 65536) { encoding data total_bytes next_offset }
+  }
+}
+```
+
+A whole page remains subject to the existing 2 MiB response ceiling. If a metadata-rich page exceeds it, reduce page size; original documents remain retrievable in chunks. An unavailable release retains its recorded original metadata, but an upstream asset URL may no longer work: binaries are not archived. Previously deleted, never-indexed metadata cannot be reconstructed.
 
 ## Refresh notifications
 

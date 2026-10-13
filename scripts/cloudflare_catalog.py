@@ -1,0 +1,626 @@
+"""Cloudflare operations used by reviewed GitHub Actions; never called by ordinary tests."""
+
+import argparse
+import hashlib
+import io
+import json
+import os
+import tarfile
+import time
+from pathlib import Path
+
+import httpx
+
+from scripts.catalog_records import catalog_records, encode, record_hash
+from scripts.git_hosts import normalize_source
+from scripts.source_policy import disabled_sources, source_channels
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def merge_ids(*registries):
+    merged = {}
+    for registry in registries:
+        if not isinstance(registry, dict):
+            raise ValueError("Invalid catalog ID registry")
+        for table, mapping in registry.items():
+            if not isinstance(mapping, dict):
+                raise ValueError("Invalid catalog ID mapping")
+            target = merged.setdefault(table, {})
+            owners = {value: key for key, value in target.items()}
+            for key, value in mapping.items():
+                if type(value) is not int or value < 1:
+                    raise ValueError("Invalid catalog numeric ID")
+                if (key in target and target[key] != value) or (
+                    value in owners and owners[value] != key
+                ):
+                    raise ValueError("Catalog conflicts with published numeric IDs")
+                target[key] = value
+                owners[value] = key
+    return merged
+
+
+class Cloud:
+    def __init__(self):
+        import boto3
+        from botocore.config import Config
+
+        self.account = os.environ["CLOUDFLARE_ACCOUNT_ID"]
+        self.database = os.environ.get("CATALOG_D1_ID")
+        self.bucket = os.environ.get("CATALOG_R2_BUCKET") or "patch-bundle-registry"
+        self.http = httpx.Client(
+            base_url="https://api.cloudflare.com/client/v4/accounts/" + self.account,
+            headers={"Authorization": "Bearer " + os.environ["CLOUDFLARE_API_TOKEN"]},
+            timeout=60,
+        )
+        self.s3 = None
+        if os.environ.get("R2_ACCESS_KEY_ID"):
+            self.s3 = boto3.client(
+                "s3",
+                endpoint_url="https://" + self.account + ".r2.cloudflarestorage.com",
+                aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
+                aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
+                region_name="auto",
+                config=Config(retries={"max_attempts": 5, "mode": "standard"}),
+            )
+
+    def api(self, method, path, **kwargs):
+        for attempt in range(5):
+            response = self.http.request(method, path, **kwargs)
+            if response.status_code in (429, 500, 502, 503, 504):
+                # Cloudflare sends seconds; an HTTP-date or junk value must not stop retries.
+                header = response.headers.get("Retry-After", "").strip()
+                requested = float(header) if header.isascii() and header.isdigit() else 0.0
+                time.sleep(max(requested, 2**attempt))
+                continue
+            if not response.is_success:
+                raise RuntimeError("Cloudflare API failed with HTTP " + str(response.status_code))
+            result = response.json()
+            if not result.get("success"):
+                raise RuntimeError("Cloudflare API returned unsuccessful status")
+            return result["result"]
+        raise RuntimeError("Cloudflare API retries exhausted")
+
+    def sql(self, sql, params=()):
+        result = self.api(
+            "POST",
+            "/d1/database/" + self.database + "/query",
+            json={"sql": sql, "params": list(params)},
+        )
+        if not all(row.get("success") for row in result):
+            raise RuntimeError("D1 query failed")
+        return result[0].get("results", [])
+
+    def put(self, key, body):
+        self.s3.put_object(Bucket=self.bucket, Key=key, Body=body)
+
+    def get(self, key):
+        return self.s3.get_object(Bucket=self.bucket, Key=key)["Body"].read()
+
+    def blob(self, body, known):
+        digest = hashlib.sha256(body).hexdigest()
+        if digest not in known:
+            self.put("objects/" + digest, body)
+            known.add(digest)
+        return digest
+
+    def active(self):
+        rows = self.sql(
+            "SELECT g.* FROM catalog_state s JOIN catalog_generations g ON g.seq=s.active_seq"
+            " WHERE s.id=1 AND g.status='ready'"
+        )
+        return rows[0] if rows else None
+
+    def document(self, generation):
+        body = self.get(generation["manifest_key"])
+        document = json.loads(body)
+        if document["manifest"]["generation"] != generation["generation"]:
+            raise ValueError("Generation manifest mismatch")
+        return document
+
+    def verified_blob(self, digest):
+        body = self.get("objects/" + digest)
+        if hashlib.sha256(body).hexdigest() != digest:
+            raise ValueError("R2 object integrity mismatch")
+        return body
+
+    def checkpoint(self):
+        output = io.BytesIO()
+        with tarfile.open(fileobj=output, mode="w:gz") as archive:
+            paths = list((ROOT / "internal/cache").rglob("*.json"))
+            paths += [ROOT / "database/ids.json", ROOT / "database/repository-metadata.json"]
+            for path in paths:
+                if (
+                    path.is_file()
+                    and not path.is_symlink()
+                    and path.resolve().is_relative_to(ROOT.resolve())
+                ):
+                    body = path.read_bytes()
+                    json.loads(
+                        body
+                    )  # Refuse a partially written cache, rather than saving corruption.
+                    entry = tarfile.TarInfo(path.relative_to(ROOT).as_posix())
+                    entry.size = len(body)
+                    archive.addfile(entry, io.BytesIO(body))
+        self.put("checkpoints/latest.tgz", output.getvalue())
+
+    def restore_checkpoint(self):
+        try:
+            body = self.get("checkpoints/latest.tgz")
+        except Exception as error:
+            code = getattr(error, "response", {}).get("Error", {}).get("Code")
+            if code in ("NoSuchKey", "404"):
+                return
+            raise
+        restored = {}
+        with tarfile.open(fileobj=io.BytesIO(body), mode="r:gz") as archive:
+            for member in archive:
+                path = (ROOT / member.name).resolve()
+                allowed = path.is_relative_to((ROOT / "internal/cache").resolve()) or path in (
+                    ROOT / "database/ids.json",
+                    ROOT / "database/repository-metadata.json",
+                )
+                if not allowed or not member.isfile() or path.suffix != ".json":
+                    raise ValueError("Unsafe checkpoint entry")
+                payload = archive.extractfile(member).read()
+                json.loads(payload)
+                restored[path] = payload
+        ids_path = ROOT / "database/ids.json"
+        if ids_path in restored:
+            current = json.loads(ids_path.read_bytes()) if ids_path.exists() else {}
+            saved = json.loads(restored[ids_path])
+            merged = merge_ids(current, saved)
+            restored[ids_path] = encode(merged)
+        for path, payload in restored.items():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(payload)
+
+    def download_catalog(self, document):
+        manifest = document["manifest"]
+        identifiers = json.loads(self.verified_blob(document["ids"]))
+        tips = self.sql(
+            "SELECT * FROM catalog_generations WHERE status='ready' ORDER BY seq DESC LIMIT 1"
+        )
+        if tips:
+            # Rollback changes the public pointer, but newer records still own their IDs.
+            tip = self.document(tips[0])
+            identifiers = merge_ids(identifiers, json.loads(self.verified_blob(tip["ids"])))
+        else:
+            identifiers = merge_ids(identifiers)
+        target = ROOT / "database" / manifest["snapshot"]
+        target.mkdir(parents=True, exist_ok=True)
+        for name, digest in document["files"].items():
+            path = (target / name).resolve()
+            if not path.is_relative_to(target.resolve()):
+                raise ValueError("Unsafe snapshot path")
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(self.verified_blob(digest))
+        (ROOT / "database/manifest.json").write_bytes(encode(manifest))
+        (ROOT / "database/ids.json").write_bytes(encode(identifiers))
+
+    def publish(self, require_complete=True):
+        manifest, records = catalog_records(ROOT)
+        base_generation = manifest["generation"]
+        if require_complete:
+            inventory = source_channels(
+                json.loads((ROOT / "config/sources.json").read_text(encoding="utf-8")), ROOT
+            )
+            required = {
+                normalize_source(row["patches"], ROOT).lower() for row in inventory.values()
+            } - disabled_sources(inventory, ROOT).keys()
+            states = {
+                key.lower(): row for (kind, key), row in records.items() if kind == "history_source"
+            }
+            if not states or any(
+                not states.get(url, {}).get("configured")
+                or not states[url].get("required", True)
+                or states[url].get("status") != "complete"
+                for url in required
+            ):
+                raise ValueError("Historical reconciliation incomplete; publication refused")
+        active = self.active()
+        if active and not require_complete:
+            raise ValueError("Seed is only allowed for an empty catalog; use normal publication")
+        tips = self.sql(
+            "SELECT * FROM catalog_generations WHERE status='ready' ORDER BY seq DESC LIMIT 1"
+        )
+        previous = self.document(tips[0]) if tips else None
+        known = (
+            (set(previous["files"].values()) | set(previous["record_blocks"]))
+            if previous
+            else set()
+        )
+        previous_records = self.read_records(previous) if previous else []
+        # Retain removed source/release/bundle/patch metadata, with explicit availability.
+        for item in previous_records:
+            key = (item["kind"], item["key"])
+            if key in records or key[0] == "refresh_jobs":
+                continue
+            row = item["data"]
+            if key[0] == "source":
+                row = {**row, "enabled": False, "configured": False}
+            elif key[0] == "history_source":
+                row = {**row, "configured": False, "status": "removed"}
+            elif key[0] in ("bundle", "history_release"):
+                row = {**row, "is_latest": False, "availability": "unavailable", "channels": []}
+            records[key] = row
+        for item in previous_records:
+            key = (item["kind"], item["key"])
+            if key[0] == "history_release" and key in records:
+                for field in ("bundle_ids", "runtimes", "bundle_types"):
+                    records[key][field] = sorted(
+                        set(records[key].get(field, [])) | set(item["data"].get(field, []))
+                    )
+        exported = [
+            {"kind": kind, "key": key, "data": row} for (kind, key), row in sorted(records.items())
+        ]
+        blocks = {}
+        for item in exported:
+            bucket = hashlib.sha256((item["kind"] + "/" + item["key"]).encode()).hexdigest()[:2]
+            blocks.setdefault(bucket, []).append(item)
+        record_blocks = [self.blob(encode(block), known) for _, block in sorted(blocks.items())]
+        record_digest = hashlib.sha256(encode(record_blocks)).hexdigest()
+        generation = hashlib.sha256(encode([manifest["generation"], record_digest])).hexdigest()[
+            :24
+        ]
+        existing = self.sql(
+            "SELECT * FROM catalog_generations WHERE generation=? AND status='ready'", [generation]
+        )
+        if existing:
+            self.verify_document(self.document(existing[0]))
+            self.sql("UPDATE catalog_state SET active_seq=? WHERE id=1", [existing[0]["seq"]])
+            print("Reactivated verified existing generation")
+            return
+        if active and active["generation"] == generation:
+            print("Catalog unchanged; no D1 writes")
+            return
+        seq = int(
+            self.sql("SELECT COALESCE(MAX(seq),0)+1 AS next FROM catalog_generations")[0]["next"]
+        )
+        pending = self.sql("SELECT seq FROM catalog_generations WHERE status='staging'")
+        for row in pending:
+            abandoned = row["seq"]
+            self.sql("DELETE FROM catalog_records WHERE from_seq=?", [abandoned])
+            self.sql("UPDATE catalog_records SET to_seq=NULL WHERE to_seq=?", [abandoned])
+            self.sql("DELETE FROM catalog_generations WHERE seq=?", [abandoned])
+        files = {}
+        base = ROOT / "database" / manifest["snapshot"]
+        names = set(manifest["files"]) | {"history.json"}
+        for name in sorted(names):
+            body = (base / name).read_bytes()
+            digest = self.blob(body, known)
+            if name in manifest["files"] and digest != manifest["files"][name]["sha256"]:
+                raise ValueError("Local catalog integrity mismatch")
+            files[name] = digest
+        manifest = {**manifest, "generation": generation, "snapshot": "snapshots/" + generation}
+        manifest.pop("snapshot_ref", None)
+        document = {
+            "manifest": manifest,
+            "base_generation": base_generation,
+            "files": files,
+            "record_blocks": record_blocks,
+            "ids": self.blob((ROOT / "database/ids.json").read_bytes(), known),
+            "complete": require_complete,
+            "record_count": len(records),
+        }
+        manifest_key = "generations/" + generation + ".json"
+        self.put(manifest_key, encode(document))
+        self.sql(
+            "INSERT INTO catalog_generations(seq,generation,manifest_key,status)"
+            " VALUES(?,?,?,'staging')",
+            [seq, generation, manifest_key],
+        )
+        pending_rows = []
+        prior = {
+            (item["kind"], item["key"]): record_hash(item["data"]) for item in previous_records
+        }
+        writes = 0
+        for (kind, key), row in sorted(records.items()):
+            digest = record_hash(row)
+            if prior.get((kind, key)) == digest:
+                continue
+            body = self.storage_row(kind, row)
+            if len(body.encode()) > 1_900_000:
+                raise ValueError("Record exceeds D1 row budget; publication refused")
+            pending_rows.append((kind, key, seq, body, digest))
+            writes += 1
+        # At most 100 bound parameters per D1 statement. Trigger closes old versions atomically.
+        for start in range(0, len(pending_rows), 20):
+            batch = pending_rows[start : start + 20]
+            self.sql(
+                "INSERT INTO catalog_records(kind,record_key,from_seq,data,content_hash)"  # noqa: S608 -- fixed placeholders
+                " VALUES " + ",".join("(?,?,?,?,?)" for _ in batch),
+                [value for row in batch for value in row],
+            )
+        for kind, key in prior.keys() - records.keys():
+            self.sql(
+                "UPDATE catalog_records SET to_seq=? WHERE kind=? AND record_key=?"
+                " AND to_seq IS NULL",
+                [seq, kind, key],
+            )
+        count = self.sql(
+            "SELECT COUNT(*) AS n FROM catalog_records WHERE from_seq<=?"
+            " AND (to_seq IS NULL OR to_seq>?)",
+            [seq, seq],
+        )[0]["n"]
+        if count != len(records):
+            raise ValueError("D1 staged row count mismatch")
+        # Ready generations were verified before activation. Re-read only new blobs here;
+        # the explicit verify/recovery operations still check every retained object.
+        previous_digests = (
+            (set(previous["files"].values()) | set(previous["record_blocks"]) | {previous["ids"]})
+            if previous
+            else set()
+        )
+        self.verify_document(document, skip_digests=previous_digests)
+        # Atomic activation. The workflow concurrency group is the single-writer lock.
+        self.sql("UPDATE catalog_generations SET status='ready' WHERE seq=?", [seq])
+        self.sql("UPDATE catalog_state SET active_seq=? WHERE id=1", [seq])
+        print(json.dumps({"generation": generation, "records_changed": writes, "records": count}))
+
+    def read_records(self, document):
+        return [
+            row
+            for digest in document["record_blocks"]
+            for row in json.loads(self.verified_blob(digest))
+        ]
+
+    def verify_document(self, document, skip_digests=()):
+        record_digest = hashlib.sha256(encode(document["record_blocks"])).hexdigest()
+        generation = hashlib.sha256(
+            encode([document["base_generation"], record_digest])
+        ).hexdigest()[:24]
+        if generation != document["manifest"]["generation"]:
+            raise ValueError("Snapshot manifest integrity mismatch")
+        if document["manifest"]["snapshot"] != "snapshots/" + generation:
+            raise ValueError("Unsafe snapshot path")
+        from scripts.generate_database import encoded
+
+        if (
+            hashlib.sha256(encoded(document["files"])).hexdigest()[:24]
+            != document["base_generation"]
+        ):
+            raise ValueError("Snapshot base integrity mismatch")
+        if set(document["files"]) != set(document["manifest"]["files"]) | {"history.json"}:
+            raise ValueError("Snapshot file set mismatch")
+        for name, metadata in document["manifest"]["files"].items():
+            if document["files"].get(name) != metadata["sha256"]:
+                raise ValueError("Snapshot file index mismatch")
+        for digest in (
+            set(document["files"].values()) | set(document["record_blocks"]) | {document["ids"]}
+        ):
+            if digest not in skip_digests:
+                self.verified_blob(digest)
+        if not skip_digests:
+            records = self.read_records(document)
+            if len(records) != document["record_count"] or len(
+                {(row["kind"], row["key"]) for row in records}
+            ) != len(records):
+                raise ValueError("Snapshot record count or identity mismatch")
+            for row in records:
+                body = encode(row["data"])
+                if row["kind"] == "history_release" and len(body) > 1_500_000:
+                    self.verified_blob(hashlib.sha256(body).hexdigest())
+        return document
+
+    def verify_database(self, sequence, document):
+        expected = {
+            (row["kind"], row["key"]): record_hash(row["data"])
+            for row in self.read_records(document)
+        }
+        after = ("", "")
+        actual = {}
+        while True:
+            rows = self.sql(
+                "SELECT kind,record_key,content_hash FROM catalog_records "
+                "WHERE from_seq<=? AND (to_seq IS NULL OR to_seq>?) "
+                "AND (kind>? OR (kind=? AND record_key>?)) ORDER BY kind,record_key LIMIT 1000",
+                [sequence, sequence, after[0], after[0], after[1]],
+            )
+            for row in rows:
+                actual[(row["kind"], row["record_key"])] = row["content_hash"]
+            if len(rows) < 1000:
+                break
+            after = (rows[-1]["kind"], rows[-1]["record_key"])
+        if actual != expected:
+            raise ValueError("D1 generation does not match verified R2 records")
+
+    def storage_row(self, kind, row):
+        body = encode(row)
+        if len(body) <= 1_500_000:
+            return body.decode()
+        if kind != "history_release":
+            raise ValueError("Record exceeds D1 row budget; publication refused")
+        digest = hashlib.sha256(body).hexdigest()
+        self.put("objects/" + digest, body)
+        compact = {
+            key: value
+            for key, value in row.items()
+            if key not in ("raw_metadata", "assets", "bundle_assets", "changelog", "release_notes")
+        }
+        compact["document_key"] = digest
+        compact["metadata_document_url"] = "/history/releases/" + row["id"] + "/document"
+        return encode(compact).decode()
+
+    def rebuild(self, document, confirmation):
+        if confirmation != "REBUILD":
+            raise ValueError("Database rebuild requires --confirm REBUILD")
+        self.verify_document(document)
+        records = self.read_records(document)
+        # Explicit disaster recovery only. Verified R2 data is loaded before D1 is cleared.
+        self.sql("UPDATE catalog_state SET active_seq=NULL WHERE id=1")
+        self.sql("DELETE FROM catalog_records")
+        self.sql("DELETE FROM catalog_generations")
+        manifest = document["manifest"]
+        key = "generations/" + manifest["generation"] + ".json"
+        self.sql(
+            "INSERT INTO catalog_generations(seq,generation,manifest_key,status)"
+            " VALUES(1,?,?,'staging')",
+            [manifest["generation"], key],
+        )
+        batch = []
+        for row in records:
+            batch.append(
+                (
+                    row["kind"],
+                    row["key"],
+                    1,
+                    self.storage_row(row["kind"], row["data"]),
+                    record_hash(row["data"]),
+                )
+            )
+            if len(batch) == 20:
+                self.insert_rows(batch)
+                batch = []
+        if batch:
+            self.insert_rows(batch)
+        if self.sql("SELECT COUNT(*) AS n FROM catalog_records")[0]["n"] != len(records):
+            raise ValueError("Rebuilt D1 count mismatch")
+        self.sql("UPDATE catalog_generations SET status='ready' WHERE seq=1")
+        self.sql("UPDATE catalog_state SET active_seq=1 WHERE id=1")
+        print("Rebuilt verified generation " + manifest["generation"])
+
+    def insert_rows(self, rows):
+        placeholders = ",".join("(?,?,?,?,?)" for _ in rows)
+        self.sql(
+            "INSERT INTO catalog_records(kind,record_key,from_seq,data,content_hash)"  # noqa: S608 -- fixed placeholders
+            " VALUES " + placeholders,
+            [value for row in rows for value in row],
+        )
+
+    def prune(self, confirmation):
+        retain = max(2, int(os.environ.get("CATALOG_RETENTION_GENERATIONS") or "96"))
+        generations = self.sql("SELECT * FROM catalog_generations ORDER BY seq DESC")
+        active = self.active()
+        keep = generations[:retain] + [
+            row
+            for row in generations
+            if row["status"] == "staging" or (active and row["seq"] == active["seq"])
+        ]
+        keys = {row["manifest_key"] for row in keep}
+        objects = set()
+        for row in keep:
+            document = self.verify_document(self.document(row))
+            objects.update(document["files"].values())
+            objects.update(document["record_blocks"])
+            objects.add(document["ids"])
+            for record in self.read_records(document):
+                if record["kind"] == "history_release" and len(encode(record["data"])) > 1_500_000:
+                    objects.add(hashlib.sha256(encode(record["data"])).hexdigest())
+        obsolete = [row for row in generations if row["manifest_key"] not in keys]
+        orphaned = []
+        for page in self.s3.get_paginator("list_objects_v2").paginate(Bucket=self.bucket):
+            for item in page.get("Contents", []):
+                key = item["Key"]
+                if (key.startswith("objects/") and key[8:] not in objects) or (
+                    key.startswith("generations/") and key not in keys
+                ):
+                    orphaned.append(key)
+        print(
+            json.dumps(
+                {
+                    "retained_generations": len(keys),
+                    "old_generations": len(obsolete),
+                    "orphaned_objects": len(orphaned),
+                    "dry_run": confirmation != "PRUNE",
+                }
+            )
+        )
+        if confirmation != "PRUNE":
+            return
+        if not keep:
+            raise ValueError("No recoverable generations; refusing retention cleanup")
+        floor = min(row["seq"] for row in keep)
+        self.sql("DELETE FROM catalog_records WHERE to_seq<=?", [floor])
+        for row in obsolete:
+            self.sql("DELETE FROM catalog_generations WHERE seq=?", [row["seq"]])
+        for key in orphaned:
+            self.s3.delete_object(Bucket=self.bucket, Key=key)
+
+    def provision(self):
+        name = os.environ.get("CATALOG_D1_NAME") or "patch-bundle-registry"
+        databases = self.api("GET", "/d1/database", params={"name": name, "per_page": 100})
+        found = [row for row in databases if row["name"] == name]
+        database = found[0] if found else self.api("POST", "/d1/database", json={"name": name})
+        buckets = self.api("GET", "/r2/buckets")["buckets"]
+        if not any(row["name"] == self.bucket for row in buckets):
+            self.api("POST", "/r2/buckets", json={"name": self.bucket})
+        print("CATALOG_D1_ID=" + database["uuid"])
+        print("CATALOG_R2_BUCKET=" + self.bucket)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "operation",
+        choices=[
+            "provision",
+            "publish",
+            "seed",
+            "download",
+            "checkpoint",
+            "resume",
+            "verify",
+            "restore",
+            "rebuild",
+            "prune",
+        ],
+    )
+    parser.add_argument("--generation")
+    parser.add_argument("--require-complete", action="store_true")
+    parser.add_argument("--confirm")
+    args = parser.parse_args()
+    cloud = Cloud()
+    if args.operation == "provision":
+        cloud.provision()
+    elif args.operation in ("publish", "seed"):
+        cloud.publish(require_complete=args.operation == "publish")
+    elif args.operation == "checkpoint":
+        cloud.checkpoint()
+    elif args.operation == "prune":
+        cloud.prune(args.confirm)
+    elif args.operation == "resume":
+        cloud.restore_checkpoint()
+    else:
+        active = cloud.active()
+        if args.operation == "rebuild":
+            if not args.generation:
+                raise ValueError("Rebuild requires a verified R2 generation ID")
+            import re
+
+            if not re.fullmatch(r"[a-f0-9]{24}", args.generation):
+                raise ValueError("Invalid generation ID")
+            document = json.loads(cloud.get("generations/" + args.generation + ".json"))
+            cloud.rebuild(document, args.confirm)
+            return
+        if args.generation:
+            rows = cloud.sql(
+                "SELECT * FROM catalog_generations WHERE generation=? AND status='ready'",
+                [args.generation],
+            )
+            if not rows:
+                raise ValueError("Unknown ready generation")
+            active = rows[0]
+        if not active:
+            raise ValueError("No active catalog")
+        document = cloud.document(active)
+        if args.require_complete and not document["complete"]:
+            raise ValueError("Historical backfill is not complete")
+        if args.operation == "verify":
+            cloud.verify_document(document)
+            cloud.verify_database(active["seq"], document)
+            print(
+                json.dumps({"generation": active["generation"], "complete": document["complete"]})
+            )
+        elif args.operation == "download":
+            cloud.download_catalog(document)
+        elif args.operation == "restore":
+            if args.confirm != "RESTORE":
+                raise ValueError("Restore requires --confirm RESTORE")
+            cloud.verify_document(document)
+            cloud.sql("UPDATE catalog_state SET active_seq=? WHERE id=1", [active["seq"]])
+            print("Restored " + active["generation"])
+
+
+if __name__ == "__main__":
+    main()

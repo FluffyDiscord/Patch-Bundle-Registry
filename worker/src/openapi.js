@@ -12,11 +12,12 @@ const list = [parameter("limit","Rows per page",{type:"integer",minimum:1,maximu
   parameter("offset","Rows to skip",{type:"integer",minimum:0,maximum:10000,default:0}),
   parameter("q","Search text"), parameter("sort","Sort field"),
   parameter("order","Sort direction",{type:"string",enum:["asc","desc"]})];
-const get = (summary, parameters = []) => ({get:{summary, parameters, responses}});
+const get = (summary, parameters = [], responseSet = responses) =>
+  ({get:{summary, parameters, responses: responseSet}});
 export const openapi = {
   openapi: "3.0.3",
   info: { title: "Patch Bundle Registry API", version: "3.0.0",
-    description: "Public read-only patch catalog. Catalog records come from immutable snapshots; live refresh status comes from GitHub Actions. " +
+    description: "Public read-only patch catalog. D1 catalog mode serves indexed entities and R2 historical snapshots; legacy mode serves immutable snapshots. Live refresh status comes from GitHub Actions. " +
       "Queries use limits of 100 rows, 2 MiB responses and bounded shard loading. " +
       "Numeric IDs belong to this catalog; IDs from other installations are not interchangeable." },
   servers: [{url:site.api}],
@@ -123,3 +124,24 @@ Object.assign(openapi.paths["/api/v3/bundle"].get.responses[200].content["applic
   app_count: {type:"integer",description:"Total supported applications"},
   apps_url: {type:"string",description:"Paginated application endpoint path"}
 });
+
+// Historical routes are available after the D1 backend is imported and activated.
+const historyPage = [parameter("limit","Rows per page (no total-history cap)",{type:"integer",minimum:1,maximum:100,default:25}),
+  parameter("after","Opaque next_cursor from the previous page; keep filters unchanged"),
+  parameter("order","Publication date and ID order",{type:"string",enum:["asc","desc"]}),
+  ...["source_id","source","bundle_id","runtime","version","availability","from","to"].map(name=>parameter(name,"Exact filter; from/to are inclusive publication-date bounds")),
+  parameter("prerelease","Filter release category",{type:"boolean"})];
+const historyResponses = {...responses, 409:{description:"Generation changed; restart pagination"}};
+openapi.paths["/history/releases"] = get("Original release metadata, prereleases, changelogs and assets (D1)",historyPage,historyResponses);
+openapi.paths["/history/releases/{id}"] = get("Historical release metadata (D1)",[
+  parameter("id","Historical release ID",undefined,true,"path")],historyResponses);
+openapi.paths["/history/releases/{id}/document"] = get("Complete release JSON as base64 byte chunks (D1)",[
+  parameter("id","Historical release ID",undefined,true,"path"),
+  parameter("offset","Byte offset",{type:"integer",minimum:0,default:0}),
+  parameter("limit","Maximum bytes",{type:"integer",minimum:1,maximum:65536,default:65536})],historyResponses);
+for (const kind of ["sources","bundles","patches","packages","patch-packages","apps"])
+  openapi.paths["/history/"+kind] = get("All retained "+kind+" metadata, including retired records (D1)",[
+    parameter("limit","Rows per page",{type:"integer",minimum:1,maximum:100,default:25}),
+    parameter("offset","Rows to skip; no fixed total-history cap",{type:"integer",minimum:0}),
+    parameter("generation","Pin subsequent entity-history pages to the first response generation"),
+    ...["source_id","bundle_id","catalog_id","name","version","patcher_runtime","metadata_status","source_fk","bundle_fk","patch_fk","package_fk"].map(name=>parameter(name,"Exact filter; entity-specific"))],historyResponses);

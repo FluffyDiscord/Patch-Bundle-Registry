@@ -237,7 +237,14 @@ def test_workflow_captures_before_any_published_checkpoint():
         "run_catalog_refresh.py"
     )
     assert workflow.index("notify_catalog_update.py notify") > workflow.index("HEAD:bundles")
-    assert workflow.count('--baseline "$RUNNER_TEMP/catalog-before.json"') == 2
+    assert workflow.count('--baseline "$RUNNER_TEMP/catalog-before.json"') == 4
+    cloud = workflow.split("  cloudflare:", 1)[1]
+    assert cloud.index("notify_catalog_update.py capture") < cloud.index(
+        "scripts.run_catalog_refresh"
+    )
+    assert cloud.index("notify_catalog_update.py notify") > cloud.index(
+        "scripts.cloudflare_catalog publish"
+    )
 
 
 def test_delayed_extraction_reports_additions_against_last_verified_release(tmp_path):

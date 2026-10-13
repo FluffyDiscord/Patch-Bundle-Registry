@@ -1,28 +1,72 @@
 name: Deploy patch catalog API
 on:
   workflow_dispatch:
+    inputs:
+      target:
+        type: choice
+        options: [staging, production]
+        default: staging
+        description: Staging uses a separate Worker without the production custom domain
+      backend:
+        type: choice
+        options: [d1, legacy]
+        default: d1
+        description: Use legacy to roll back to GitHub snapshot storage
+      confirmation:
+        type: string
+        default: ''
+        description: Type ACTIVATE for a production D1 deployment
 permissions:
   contents: read
+concurrency:
+  group: catalog-api-deploy
+  cancel-in-progress: false
 jobs:
   deploy:
     if: vars.CATALOG_WORKER_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment: catalog-api
+    env:
+      CATALOG_BACKEND: ${{ inputs.backend }}
+      TARGET: ${{ inputs.target }}
+      CONFIRMATION: ${{ inputs.confirmation }}
+      CATALOG_D1_ID: ${{ vars.CATALOG_D1_ID }}
+      CATALOG_D1_NAME: ${{ vars.CATALOG_D1_NAME }}
+      CATALOG_R2_BUCKET: ${{ vars.CATALOG_R2_BUCKET }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           ref: bundles
           persist-credentials: false
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version: '24'
           cache: npm
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
+        with:
+          python-version: '3.12'
       - run: npm ci
       - run: npm test
       - run: npm run build:worker
       - run: npm run test:runtime
-      - name: Deploy API and its Custom Domain
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npm run deploy:worker
+      - run: npm run test:runtime:d1
+      - name: Check production activation
+        if: inputs.target == 'production' && inputs.backend == 'd1'
+        run: |
+          test "$CONFIRMATION" = ACTIVATE
+          python -m pip install -r requirements-cloudflare.txt
+          python -m scripts.cloudflare_catalog verify --require-complete
+      - name: Deploy reviewed Worker
+        shell: bash
+        run: |
+          args=()
+          if [ "$TARGET" = staging ]; then args+=(--staging); fi
+          node scripts/configure_cloudflare.mjs "${args[@]}"
+          npx wrangler deploy --config worker/wrangler.generated.json --env production
+      - name: Verify production health
+        if: inputs.target == 'production'
+        run: curl --fail --retry 5 --retry-delay 3 https://patch-bundles.api.jmancentral.com/health

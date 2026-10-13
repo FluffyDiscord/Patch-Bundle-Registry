@@ -1,3 +1,4 @@
+import { ApiCatalog } from "./shared/api-catalog.js";
 /* SPDX-License-Identifier: GPL-3.0-only
  * Adapted from brosssh/revanced-external-bundles, copyright its contributors.
  * Source: https://github.com/brosssh/revanced-external-bundles/blob/3a59398d667c83cd7033f859f3cb59237da92b3f/src/main/resources/static/app.js
@@ -183,6 +184,8 @@ let currentSearchQuery = "";
 let currentPackageFilter = "";
 let currentSourceUrl = "";
 let currentBundleVersion = "";
+let bundleSelection = 0;
+let sourceSelection = 0;
 let currentBundleType = "";
 let latestBundles = [];
 let currentLatestIds = new Set();
@@ -215,6 +218,8 @@ function saveBrowsePreferences() {
     });
 }
 function restoreBrowsePreferences() {
+    bundleSelection++;
+    sourceSelection++;
     const saved = browsePreferences.read(currentTab);
     input.value = saved.search;
     packageFilter.value = saved.package;
@@ -331,6 +336,7 @@ addEventListener("resize", () => {
 });
 
 async function openCatalog() {
+    if (siteConfig.catalog_backend === "d1") return new ApiCatalog(siteConfig.api).initialize();
     let failure;
     for (const origin of catalogOrigins(siteConfig,new URL("./database/",location.href).href)) {
         try { return await new Catalog(origin,fetch,false).initialize(); }
@@ -346,7 +352,8 @@ async function loadBundles(refreshedCatalog = null) {
         siteConfig = await (await fetch("./config.json")).json();
         const nextCatalog = refreshedCatalog ||
             await openCatalog();
-        const nextSummaries = await nextCatalog.bundles();
+        const sources = ["bundles", "apps"].map(tab => browsePreferences.read(tab).source).filter(Boolean);
+        const nextSummaries = await nextCatalog.bundles({ sources });
         applications = await nextCatalog.apps();
         catalog = nextCatalog;
         scheduleCatalogRefresh();
@@ -394,9 +401,26 @@ async function recoverGeneration(error) {
 }
 
 async function selectSource(sourceUrl) {
+    const selection = ++sourceSelection;
+    resetBundleSelection();
     sourceFilter.value = sourceUrl;
     sourcePicker.sync();
     currentSourceUrl = sourceUrl;
+    if (sourceUrl && catalog.historyBundles) {
+        try {
+            const history = await catalog.historyBundles(sourceUrl);
+            if (selection !== sourceSelection) return;
+            const merged = new Map(summaries.map(bundle => [bundle.id, bundle]));
+            for (const bundle of history) merged.set(bundle.id, bundle);
+            summaries = [...merged.values()];
+        } catch (error) {
+            if (selection !== sourceSelection) return;
+            if (await recoverGeneration(error)) return;
+            if (selection !== sourceSelection) return;
+            status.textContent = "History unavailable: " + error.message;
+            return;
+        }
+    }
     sourceVersions = summaries.filter(bundle => bundle.source.url === sourceUrl)
         .sort(compareReleaseDates);
     resetBundleSelection();
@@ -407,6 +431,22 @@ async function selectSource(sourceUrl) {
 }
 
 async function selectBundleVersion(version) {
+    const selection = ++bundleSelection;
+    if (version && catalog.historyBundles) {
+        try {
+            for (const bundle of sourceVersions.filter(bundle => bundle.version === version)) {
+                const detail = await catalog.file("bundles/" + bundle.id + ".json");
+                if (selection !== bundleSelection) return;
+                bundle.description = detail.description;
+            }
+        } catch (error) {
+            if (selection !== bundleSelection) return;
+            if (await recoverGeneration(error)) return;
+            if (selection !== bundleSelection) return;
+            status.textContent = "Changelog unavailable: " + error.message;
+            return;
+        }
+    }
     currentBundleVersion = version;
     allBundles = version
         ? sourceVersions.filter(bundle => bundle.version === version).map(transformBundle) : latestBundles;
@@ -524,6 +564,7 @@ function setVersionControlsEnabled(enabled) {
 }
 
 function resetBundleSelection() {
+    bundleSelection++;
     currentBundleVersion = "";
     bundleVersionFilter.value = "";
     allBundles = latestBundles;

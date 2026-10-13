@@ -41,6 +41,7 @@ jobs:
           npm test
           npm run build:worker
           npm run test:runtime
+          npm run test:runtime:d1
       - name: Kotlin parser release validation
         env:
           GITHUB_ACTOR: ${{ github.repository_owner }}

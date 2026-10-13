@@ -42,13 +42,21 @@ You can also download the bundle directly from its card. Available formats and i
 | Stable | The newest regular release. |
 | Dev | The newest prerelease. |
 
-Sources can come from GitHub, GitLab, Codeberg, Gitea and supported self-hosted servers. Some sources do not publish every channel. Select a source to browse its release history; older patch lists are filled in as the catalog refreshes. New results appear while an update is running.
+Sources can come from GitHub, GitLab, Codeberg, Gitea and supported self-hosted servers. Some sources do not publish every channel. Select a source to browse indexed bundle versions and their changelogs. Older patch lists may remain missing when their artifacts cannot be extracted.
 
 Patch lists display their status: **verified**, **unverified**, **stale**, or **missing**. A verified list was extracted from its matching bundle. An unverified or stale list may still help you explore patches, but may not describe the selected release accurately.
 
 ## API
 
 Building a manager or another integration? The catalog provides a read-only [REST and GraphQL API](docs/catalog-api.md) for sources, bundles, patches, and app compatibility. Explore requests in [Swagger UI](https://patch-bundles.jmancentral.com/api-docs/) or [GraphiQL](https://patch-bundles.jmancentral.com/graphiql/). Subscribe to catalog changes over WebSockets, or check refresh-job status while an update runs.
+
+## Catalog data and history
+
+The catalog indexes patch sources, bundle versions, patch descriptions and options, and app compatibility. Release metadata includes stable/prerelease status, original changelogs, and public asset links. Application names and icons come from cached public listings.
+
+Historical coverage depends on available upstream releases and successful metadata extraction. A recorded release can have a missing patch list, and a saved asset URL may stop working if the publisher removes the download. The registry stores metadata; bundle binaries remain hosted by their publishers.
+
+See the [historical API reference](docs/catalog-api.md#historical-api) for paginated access to release inventories and retained patch/application metadata. Historical endpoints require a deployment with that API enabled; availability is separate from the standard catalog endpoints.
 
 ## Contribute or get help
 

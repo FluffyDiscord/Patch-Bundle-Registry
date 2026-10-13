@@ -173,6 +173,38 @@ const streamInputs = Object.entries(definitions).map(([name, fields]) => `
   input ${name}_stream_cursor_value_input {
     ${Object.entries(fields).map(([key,type]) => key + ": " + type).join("\n")}
   }`).join("\n");
+const historyArgs = "source_id: String, source: String, bundle_id: String, runtime: String, version: String, prerelease: Boolean, availability: String, from: String, to: String, order: String, limit: Int, after: String";
+const historyRoots = `
+  catalog_generation: String!
+  historical_bundles(${argsFor("bundle")}, generation: String): [bundle!]!
+  historical_patches(${argsFor("patch")}, generation: String): [patch!]!
+  historical_packages(${argsFor("package")}, generation: String): [package!]!
+  historical_patch_packages(${argsFor("patch_package")}, generation: String): [patch_package!]!
+  historical_releases(${historyArgs}): historical_release_page!
+  historical_release(id: String!): historical_release
+  historical_apps(limit: Int, offset: Int, generation: String): [jsonb!]!
+  historical_sources(limit: Int, offset: Int, generation: String): [historical_source!]!
+`;
+const historyTypes = `
+  type historical_release {
+    id: String!, source_id: String!, source_url: String!, upstream_id: String,
+    name: String, tag: String, version: String, is_prerelease: Boolean!, draft: Boolean!,
+    created_at: String, published_at: String, updated_at: String, first_seen_at: String,
+    last_verified_at: String, changelog: String, release_notes: String,
+    release_url: String, target_commitish: String, availability: String!,
+    binary_archived: Boolean!, assets: jsonb, bundle_assets: jsonb, raw_metadata: jsonb,
+    bundle_ids: [String!]!, runtimes: [String!]!, bundle_types: [String!]!,
+    metadata_document_url: String, document(offset: Int, limit: Int): metadata_chunk!
+  }
+  type metadata_chunk { encoding: String!, data: String!, total_bytes: Int!, next_offset: Int }
+  type historical_release_page {
+    data: [historical_release!]!, next_cursor: String, generation: String!
+  }
+  type historical_source {
+    source_id: String!, source_url: String!, checked_at: String, verified_at: String,
+    status: String!, configured: Boolean!, required: Boolean, error: String, upstream_count: Int
+  }
+`;
 export const schema = buildSchema(`
   scalar jsonb
   scalar bigint
@@ -182,7 +214,8 @@ export const schema = buildSchema(`
   enum order_by { asc desc asc_nulls_first asc_nulls_last desc_nulls_first desc_nulls_last }
   ${scalarComparisons}
   ${Object.entries(definitions).map(([name, fields]) => schemaFor(name, fields)).join("\n")}
-  type query_root { ${roots} release(${argsFor("bundle")}): [bundle!]! }
+  ${historyTypes}
+  type query_root { ${roots} ${historyRoots} release(${argsFor("bundle")}): [bundle!]! }
   type subscription_root { ${roots} ${streams} release(${argsFor("bundle")}): [bundle!]! }
   schema { query: query_root, subscription: subscription_root }
 `);
@@ -334,7 +367,8 @@ function enforceComplexity(document, operation, variables, rootSizes = {}) {
         const responseKey = node.alias?.value ?? node.name.value;
         const supplied = depth === 1 && Object.hasOwn(rootSizes, responseKey) ?
           rootSizes[responseKey] :
-          parentType?.name?.endsWith("_aggregate") && node.name.value === "nodes" ?
+          (parentType?.name?.endsWith("_aggregate") && node.name.value === "nodes") ||
+          (parentType?.name === "historical_release_page" && node.name.value === "data") ?
           aggregateLimit ?? 25 :
           arg ? valueFromASTUntyped(arg.value, variables) : 25;
         const fieldType = parentType?.getFields?.()[node.name.value]?.type ??
@@ -348,7 +382,7 @@ function enforceComplexity(document, operation, variables, rootSizes = {}) {
         cost += multiplier;
         if (cost > 20000) throw new CatalogError("GraphQL query complexity exceeds 20000");
         const nextType = fieldType ? getNamedType(fieldType) : undefined;
-        const nextLimit = nextType?.name?.endsWith("_aggregate") ?
+        const nextLimit = nextType?.name?.endsWith("_aggregate") || nextType?.name === "historical_release_page" ?
           (arg ? valueFromASTUntyped(arg.value, variables) : 25) : undefined;
         walk(node.selectionSet, depth + 1, multiplier * factor,
              nextType, stack, nextLimit);
@@ -452,6 +486,10 @@ async function executeQuery(catalog, payload, options) {
   const variables = getVariableValues(schema, operation.variableDefinitions ?? [], payload.variables ?? {});
   if (variables.errors) return { errors: variables.errors.map(e => ({ message: e.message })) };
   enforceComplexity(document, operation, variables.coerced);
+  if (catalog.graph) {
+    const planned = await catalog.graph(schema, document, operation, variables.coerced, payload);
+    if (planned) return planned;
+  }
   let needsPackageLinks = false;
   const fragments = new Map(document.definitions.filter(d=>d.kind==="FragmentDefinition")
     .map(d=>[d.name.value,d]));
@@ -983,6 +1021,27 @@ async function executeQuery(catalog, payload, options) {
     return defaultPatchAggregate(args);
   };
   rootValues.release = rootValues.bundle;
+  rootValues.catalog_generation = () => catalog.manifest.generation;
+  rootValues.historical_releases = args => {
+    if (!catalog.history) throw new CatalogError("Historical archive requires the D1 backend",503);
+    return catalog.history(args);
+  };
+  rootValues.historical_release = async args =>
+    (await rootValues.historical_releases({id:args.id,limit:1})).data[0] ?? null;
+  for (const [root,kind] of Object.entries({historical_bundles:"bundle",historical_patches:"patch",
+    historical_packages:"package",historical_patch_packages:"patch_package"}))
+    rootValues[root] = args => {
+      if (!catalog.rows) throw new CatalogError("Historical archive requires the D1 backend",503);
+      return catalog.rows(kind,{...args,include_archived:true});
+    };
+  rootValues.historical_apps = async args => {
+    if (!catalog.rows) throw new CatalogError("Historical archive requires the D1 backend",503);
+    return (await catalog.rows("app",{...args,include_archived:true})).map(({__kind,__archived,...row})=>row);
+  };
+  rootValues.historical_sources = args => {
+    if (!catalog.rows) throw new CatalogError("Historical archive requires the D1 backend",503);
+    return catalog.rows("history_source",args);
+  };
   for (const kind of Object.keys(definitions)) {
     rootValues[kind + "_stream"] = async (args, info) => {
       cursorStream = true;
@@ -1015,6 +1074,13 @@ async function executeQuery(catalog, payload, options) {
       if (["query_root","subscription_root"].includes(info.parentType.name))
         return rootValues[info.fieldName]?.(args,info);
       const field = info.fieldName;
+      if (info.parentType.name === "historical_release" && field === "document")
+        return catalog.historyDocument(source.id,args);
+      if (source?.__archived && catalog.historicalField) {
+        const resolved = await catalog.historicalField(source,args,info);
+        if (resolved.handled) return resolved.value;
+        return source[field];
+      }
       if (source?.__kind === "bundle" && field === "description") {
         if (descriptionsPromise) return source.description;
         const shard = "graphql-descriptions/" + Math.floor(source.id / 400) + ".json";

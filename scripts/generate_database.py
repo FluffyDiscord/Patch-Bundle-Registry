@@ -1205,13 +1205,18 @@ def build_site(root=ROOT):
     public = destination / "database"
     public.mkdir()
     (public / "manifest.json").write_bytes(encoded(manifest))
-    for snapshot in published_snapshots(output, manifest["snapshot"]):
+    for snapshot in (
+        [] if os.environ.get("CATALOG_BACKEND") == "d1"
+        else published_snapshots(output, manifest["snapshot"])
+    ):
         shutil.copytree(
             snapshot,
             public / "snapshots" / snapshot.name,
             ignore=shutil.ignore_patterns("history.json"),
         )
     config = read_json(root / "config/site.json")
+    if os.environ.get("CATALOG_BACKEND") == "d1":
+        config["catalog_backend"] = "d1"
     (destination / "config.json").write_bytes(encoded(config))
     (destination / "config").mkdir(exist_ok=True)
     (destination / "config/git-hosts.json").write_bytes(encoded(hosts(root)))

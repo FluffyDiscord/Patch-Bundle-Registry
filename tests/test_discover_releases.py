@@ -22,7 +22,8 @@ def release(version: str, prerelease: bool = False) -> dict[str, object]:
 
 
 @pytest.fixture(autouse=True)
-def reset_state(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+def reset_state(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Iterator[None]:
+    monkeypatch.setattr(bundles, "RELEASE_CACHE_FILE", tmp_path / "release_cache.json")
     monkeypatch.setattr(bundles, "RELEASE_CACHE", {})
     monkeypatch.setattr(bundles, "RELEASE_REQUESTS", {})
     monkeypatch.setattr(bundles, "RELEASE_COOLDOWNS", {})
@@ -601,3 +602,31 @@ def test_release_endpoint_errors_persist_automatic_source_availability(tmp_path,
         source_availability(tmp_path)["https://github.com/example/patches"]
         == PERMANENT_STATUS[code]
     )
+
+
+def test_successful_pages_checkpoint_independently_before_later_failure(tmp_path, monkeypatch):
+    url = f"{REPO}/releases"
+
+    async def get_page(client, target, headers):
+        if "page=2" in target:
+            raise RuntimeError("Later page failed")
+        return httpx.Response(
+            200,
+            json=[release("v1")],
+            headers={"ETag": '"page-one"', "Link": f'<{url}?page=2>; rel="next"'},
+            request=httpx.Request("GET", target),
+        )
+
+    monkeypatch.setattr(bundles, "_get_with_retries", get_page)
+
+    async def run():
+        async with httpx.AsyncClient() as client:
+            with pytest.raises(RuntimeError, match="Later page"):
+                await bundles._fetch_releases(client, url)
+
+    asyncio.run(run())
+    assert not bundles.RELEASE_CACHE_FILE.exists()
+    assert len(list((tmp_path / "release-pages").glob("*.json"))) == 1
+    saved = bundles._load_release_cache()
+    assert saved[url]["releases"] == [release("v1")]
+    assert saved[url]["next_url"].endswith("page=2")

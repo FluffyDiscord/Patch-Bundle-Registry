@@ -1,4 +1,5 @@
 import asyncio
+import hashlib
 import json
 import os
 import re
@@ -43,23 +44,33 @@ METADATA_PATH = CACHE_DIR / "bundle-run-metadata.json"
 
 
 def _load_release_cache() -> dict[str, Any]:
-    try:
-        data = json.loads(RELEASE_CACHE_FILE.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return {}
-    if not isinstance(data, dict):
-        return {}
-    return {
-        url: entry
-        for url, entry in data.items()
-        if isinstance(entry, dict)
-        and isinstance(entry.get("etag"), str)
-        and isinstance(entry.get("releases"), list)
-        and all(isinstance(release, dict) for release in entry["releases"])
-    }
+    result = {}
+    paths = [
+        RELEASE_CACHE_FILE,
+        *sorted((RELEASE_CACHE_FILE.parent / "release-pages").glob("*.json")),
+    ]
+    for path in paths:
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if not isinstance(data, dict):
+            continue
+        result.update(
+            {
+                url: entry
+                for url, entry in data.items()
+                if isinstance(entry, dict)
+                and isinstance(entry.get("etag"), str)
+                and isinstance(entry.get("releases"), list)
+                and all(isinstance(release, dict) for release in entry["releases"])
+            }
+        )
+    return result
 
 
 METADATA_LOCK = asyncio.Lock()
+RELEASE_CACHE_LOCK = asyncio.Lock()
 RELEASE_CACHE = _load_release_cache()
 RELEASE_REQUESTS: dict[str, asyncio.Task[list[dict[str, Any]]]] = {}
 RELEASE_COOLDOWNS: dict[tuple[str, str], int] = {}
@@ -262,12 +273,14 @@ async def _fetch_releases(client: AsyncClient, api_url: str) -> list[dict[str, A
     releases = []
     next_url = api_url
     visited = set()
+    page_fingerprints = set()
     while next_url:
         if next_url in visited:
             raise ValueError("Cyclic release pagination")
         visited.add(next_url)
-        if len(visited) > 1000:
-            raise ValueError("Release pagination exceeds 1000 pages")
+        page_budget = int(os.environ.get("HISTORY_MAX_PAGES", "0"))
+        if page_budget and len(visited) > page_budget:
+            raise ValueError("Historical inventory incomplete: configured page budget reached")
         headers = _headers_for_url(next_url)
         cached = RELEASE_CACHE.get(next_url)
         if cached and cached["etag"]:
@@ -301,10 +314,25 @@ async def _fetch_releases(client: AsyncClient, api_url: str) -> list[dict[str, A
                 query = dict(parse_qsl(parts.query))
                 query["page"] = response.headers["x-next-page"]
                 following = urlunsplit(parts._replace(query=urlencode(query)))
+            if not following and len(page) == 100:
+                from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+
+                parts = urlsplit(request_url)
+                query = dict(parse_qsl(parts.query))
+                query["page"] = str(int(query.get("page", "1")) + 1)
+                following = urlunsplit(parts._replace(query=urlencode(query)))
             entry = {"etag": response.headers.get("ETag", ""), "releases": page}
             if following:
                 entry["next_url"] = following
             RELEASE_CACHE[next_url] = entry
+            # Checkpoint each successful page even if a later page fails.
+            async with RELEASE_CACHE_LOCK:
+                page_path = (
+                    RELEASE_CACHE_FILE.parent
+                    / "release-pages"
+                    / (hashlib.sha256(next_url.encode()).hexdigest() + ".json")
+                )
+                await asyncio.to_thread(_dump_json_sync, page_path, {next_url: entry})
         if following:
             from urllib.parse import urlparse
 
@@ -313,6 +341,13 @@ async def _fetch_releases(client: AsyncClient, api_url: str) -> list[dict[str, A
                 or urlparse(following).scheme != urlparse(api_url).scheme
             ):
                 raise ValueError("Release pagination changed authority")
+        if page:
+            fingerprint = hashlib.sha256(
+                json.dumps(page, sort_keys=True, separators=(",", ":")).encode()
+            ).hexdigest()
+            if fingerprint in page_fingerprints:
+                raise ValueError("Upstream repeated a release page; inventory incomplete")
+            page_fingerprints.add(fingerprint)
         releases.extend(page)
         next_url = following
     return releases
@@ -628,6 +663,12 @@ async def main() -> int:
         await asyncio.to_thread(
             _dump_json_sync, checks_path, {canonical: True for canonical in release_sets}
         )
+        try:
+            from scripts.release_archive import reconcile_archive
+        except ModuleNotFoundError:
+            from release_archive import reconcile_archive
+
+        archive = await asyncio.to_thread(reconcile_archive, PROJECT_ROOT, sources, release_sets)
         await asyncio.to_thread(save_history, PROJECT_ROOT, sources, release_sets)
         had_task_failure = False
         for (source, _), result in zip(sources.items(), results, strict=False):
@@ -636,6 +677,10 @@ async def main() -> int:
                 had_task_failure = True
             elif result is False:
                 had_task_failure = True
+        had_task_failure = had_task_failure or any(
+            row["configured"] and row.get("required", True) and row["status"] != "complete"
+            for row in archive["sources"].values()
+        )
         timestamp = datetime.now(timezone.utc).isoformat()  # noqa: UP017
         metadata_payload = {
             "generated_at": timestamp,
@@ -647,7 +692,8 @@ async def main() -> int:
             "bundles": BUNDLE_METADATA,
         }
         await asyncio.to_thread(_dump_json_sync, METADATA_PATH, metadata_payload)
-        await asyncio.to_thread(_dump_json_sync, RELEASE_CACHE_FILE, RELEASE_CACHE)
+        if os.environ.get("CATALOG_BACKEND") != "d1":
+            await asyncio.to_thread(_dump_json_sync, RELEASE_CACHE_FILE, RELEASE_CACHE)
         await asyncio.to_thread(
             _dump_json_sync, PATCH_BUNDLES_DIR / "discovery-status.json", DISCOVERY_STATUS
         )

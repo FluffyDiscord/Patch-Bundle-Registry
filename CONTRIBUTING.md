@@ -49,3 +49,9 @@ To correct a name or provide metadata for an unlisted application, add an entry 
 Run `python scripts/preview_site.py --refresh-apps`, then open `http://localhost:8790`. Stop with Ctrl+C. The preview rebuilds its catalog under the ignored `internal/site-preview` directory and serves your current website files; it does not update the tracked database or publish anything.
 
 The optional `--refresh-apps` flag populates cached F-Droid and bounded Google Play metadata. Omit it for faster restarts using cached names and icons. Apps without a public listing still use their package name and an initials icon.
+
+## Validate API changes
+
+Preserve existing REST and GraphQL fields, numeric IDs, manager import URLs, and upstream attribution. Changes to historical queries should include pagination coverage beyond 100 records and preserve original changelogs and asset metadata.
+
+Run `npm test` for API and compatibility tests. For Worker changes, also run `npm run build:worker`, `npm run test:runtime` and `npm run test:runtime:d1`. The runtime checks run locally without cloud credentials. Include the relevant results with your pull request.

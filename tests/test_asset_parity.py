@@ -2,6 +2,7 @@ import asyncio
 import hashlib
 import json
 import shutil
+from pathlib import Path
 
 import httpx
 import pytest
@@ -12,6 +13,11 @@ from scripts import generate_database as db
 from scripts.postgres_collation import text_key
 from scripts.release_assets import artifact_signature, asset_extension
 from scripts.release_history import save_history
+
+
+@pytest.fixture(autouse=True)
+def isolate_release_cache(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(discovery, "RELEASE_CACHE_FILE", tmp_path / "release_cache.json")
 
 
 @pytest.mark.parametrize(

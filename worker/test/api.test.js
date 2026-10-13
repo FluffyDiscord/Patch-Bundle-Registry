@@ -867,6 +867,8 @@ test("OpenAPI and standard GraphiQL introspection remain usable", async () => {
   const spec=await call(state,"/api.json");
   assert.equal(spec.body.openapi,"3.0.3");
   assert(spec.body.paths["/api/v1/bundle/{id}"]);
+  assert.equal(spec.body.paths["/health"].get.responses["409"],undefined);
+  assert(spec.body.paths["/history/releases"].get.responses["409"]);
   const {getIntrospectionQuery}=await import("graphql");
   const introspection=await query(state,getIntrospectionQuery());
   assert.equal(introspection.response.status,200,JSON.stringify(introspection.body));

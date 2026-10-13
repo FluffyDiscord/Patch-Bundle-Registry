@@ -1,6 +1,7 @@
 import asyncio
 import json
 import shutil
+from pathlib import Path
 
 import httpx
 import pytest
@@ -10,6 +11,11 @@ from scripts import discover_releases as discovery
 from scripts import generate_database as db
 from scripts.git_hosts import auth_headers, endpoint, normalize_source
 from scripts.release_history import save_history
+
+
+@pytest.fixture(autouse=True)
+def isolate_release_cache(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(discovery, "RELEASE_CACHE_FILE", tmp_path / "release_cache.json")
 
 
 def test_git_host_endpoints_and_token_scope(tmp_path, monkeypatch):

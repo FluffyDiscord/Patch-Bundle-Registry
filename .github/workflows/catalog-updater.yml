@@ -1,7 +1,21 @@
 name: Refresh patch catalog
 
 on:
+  schedule:
+    - cron: '*/30 * * * *'
+  push:
+    branches: [bundles]
+    paths: ['config/sources.json']
   workflow_dispatch:
+    inputs:
+      source:
+        description: Optional source URL or alias for extraction; all inventories still reconcile
+        type: string
+        default: ''
+      force:
+        description: Re-extract selected bundles (full rebuild when source is empty)
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -13,6 +27,7 @@ concurrency:
 
 jobs:
   refresh:
+    if: vars.CATALOG_DATA_ENABLED != 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -90,3 +105,83 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         run: python scripts/notify_catalog_update.py notify --baseline "$RUNNER_TEMP/catalog-before.json"
+
+  cloudflare:
+    if: vars.CATALOG_DATA_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: catalog-data
+    permissions:
+      contents: read
+      packages: read
+    env:
+      CATALOG_BACKEND: d1
+      CATALOG_SOURCE: ${{ inputs.source }}
+      CATALOG_FORCE: ${{ inputs.force }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CATALOG_D1_ID: ${{ vars.CATALOG_D1_ID }}
+      CATALOG_R2_BUCKET: ${{ vars.CATALOG_R2_BUCKET }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          ref: bundles
+          persist-credentials: false
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24'
+      - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e
+      - run: python -m pip install -r requirements-cloudflare.txt
+      - run: python -m scripts.cloudflare_catalog download
+      - id: resume
+        run: python -m scripts.cloudflare_catalog resume
+      - name: Capture catalog before cloud refresh
+        continue-on-error: true
+        run: python scripts/notify_catalog_update.py capture --baseline "$RUNNER_TEMP/catalog-before.json"
+      - name: Verify sources and reconcile full history
+        env:
+          GITHUB_ACTOR: ${{ github.repository_owner }}
+          GH_PAT: ${{ secrets.GIT_TOKEN }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          GIT_HOST_TOKENS: ${{ secrets.GIT_HOST_TOKENS }}
+          GITHUB_PACKAGES_TOKEN: ${{ secrets.GH_PAT }}
+        run: python -m scripts.run_catalog_refresh --cloudflare
+      - name: Validate before atomic publication
+        run: |
+          python scripts/validate_database.py
+          python -m scripts.cloudflare_catalog publish
+      - name: Notify cloud catalog update
+        continue-on-error: true
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: python scripts/notify_catalog_update.py notify --baseline "$RUNNER_TEMP/catalog-before.json"
+      - name: Upload catalog for Pages
+        if: vars.CATALOG_PAGES_ENABLED == 'true' && vars.CATALOG_BACKEND == 'd1'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: catalog-site
+          path: site-dist
+          include-hidden-files: true
+          retention-days: 2
+      - name: Save resumable progress, including on failure
+        if: always() && steps.resume.outcome == 'success'
+        run: python -m scripts.cloudflare_catalog checkpoint
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: catalog-refresh-diagnostics
+          path: |
+            internal/cache/refresh-jobs.json
+            internal/cache/bundle-run-metadata.json
+            internal/cache/history/archive.json
+          retention-days: 7

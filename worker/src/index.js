@@ -1,4 +1,5 @@
 import site from "../../config/site.json" with { type: "json" };
+import { D1Catalog } from "./d1-catalog.js";
 import { Catalog, CatalogError, bundleImages, canonicalBundleType, catalogOrigins, compareReleaseDates, normalizeSource, pagination, selectRows } from "../../shared/catalog.js";
 import { filterApps } from "../../shared/apps.js";
 import { latestReleaseIds } from "../../shared/site.js";
@@ -163,6 +164,89 @@ async function selectedApps(catalog, params) {
 async function rest(catalog, url) {
   const path = url.pathname.replace(/\/$/, "");
   const params = url.searchParams;
+  if (catalog.rows && path === "/catalog/bundles") {
+    if (params.get("generation") !== catalog.manifest.generation)
+      throw new CatalogError("Catalog changed; restart pagination",409);
+    const where = {source:{enabled:{_eq:true}}};
+    if (params.has("source")) where.source.url = {_eq:normalizeSource(params.get("source"))};
+    else where.is_latest = {_eq:true};
+    const args = {limit:Number(params.get("limit") ?? 100),offset:Number(params.get("offset") ?? 0),where};
+    const data = await Promise.all((await catalog.rows("bundle",args)).map(row=>catalog.restRow(row)));
+    if (params.has("source")) for (const row of data) row.description = row.description ? "Available" : "";
+    return {data,generation:catalog.manifest.generation};
+  }
+  if (catalog.rows && path === "/catalog/patches") {
+    if (params.get("generation") !== catalog.manifest.generation)
+      throw new CatalogError("Catalog changed; restart pagination",409);
+    if (!params.has("bundle_id")) throw new CatalogError("bundle_id is required");
+    return catalog.patchRows({bundle_id:params.get("bundle_id"),package:params.get("package"),
+      include_unverified:params.get("include_unverified")==="true",
+      page_cursor:params.get("page_cursor") ?? 0,limit:100});
+  }
+  const direct = path.replace(/^\/api\/v1/,"").match(/^\/(bundles|sources)\/([a-f0-9]+)$/);
+  if (catalog.rows && direct) {
+    const kind = direct[1] === "bundles" ? "bundle" : "source";
+    const row = (await catalog.rows(kind,{where:{catalog_id:{_eq:direct[2]}},limit:1}))[0];
+    if (!row) throw new CatalogError("Record not found",404);
+    const result = await catalog.restRow(row);
+    return kind === "bundle" ? {...result,...(await bundleApplications(catalog,row.catalog_id))} : result;
+  }
+  const historicalKind = {"/history/bundles":"bundle","/history/patches":"patch",
+    "/history/apps":"app", "/history/packages":"package","/history/patch-packages":"patch_package"}[path];
+  if (catalog.rows && historicalKind) {
+    const where = {};
+    for (const field of ["source_id","bundle_id","name","version","patcher_runtime","metadata_status","catalog_id"])
+      if (params.has(field)) where[field] = {_eq:params.get(field)};
+    for (const field of ["package_fk","patch_fk","bundle_fk","source_fk"]) {
+      if (!params.has(field)) continue;
+      const raw = params.get(field)?.trim() ?? "";
+      const value = Number(raw);
+      if (!/^\d+$/.test(raw) || !Number.isSafeInteger(value))
+        throw new CatalogError("Invalid " + field + " filter");
+      where[field] = {_eq:value};
+    }
+    const args = {where,limit:Number(params.get("limit") ?? 25),offset:Number(params.get("offset") ?? 0),
+      include_archived:true,generation:params.get("generation")};
+    return {generation:catalog.manifest.generation,data:await Promise.all((await catalog.rows(historicalKind,args)).map(row=>catalog.restRow(row))),
+      total:await catalog.count(historicalKind,{where,include_archived:true}),limit:args.limit,offset:args.offset};
+  }
+  if (catalog.history && path.startsWith("/history/")) {
+    const documentMatch = path.match(/^\/history\/releases\/([a-f0-9]{24})\/document$/);
+    if (documentMatch) return catalog.historyDocument(documentMatch[1],Object.fromEntries(params));
+    const match = path.match(/^\/history\/releases(?:\/([a-f0-9]{24}))?$/);
+    if (match) {
+      const args = Object.fromEntries(params);
+      if (match[1]) args.id = match[1];
+      const result = await catalog.history(args);
+      if (match[1] && !result.data.length) throw new CatalogError("Release not found",404);
+      return match[1] ? result.data[0] : result;
+    }
+    if (path === "/history/sources") {
+      const args = {limit:Number(params.get("limit") ?? 25),offset:Number(params.get("offset") ?? 0),generation:params.get("generation")};
+      const rows = await catalog.rows("history_source",args);
+      return {data:await Promise.all(rows.map(row=>catalog.restRow(row))),total:await catalog.count("history_source"),...args,generation:catalog.manifest.generation};
+    }
+  }
+  if (catalog.rows && ["/sources","/bundles","/releases"].includes(path)) {
+    const kind = path === "/sources" ? "source" : "bundle";
+    const where = {};
+    for (const field of ["source_id","version","ecosystem","bundle_type","metadata_status"])
+      if (params.has(field)) where[field] = {_eq:field === "bundle_type" ? canonicalBundleType(params.get(field)) : params.get(field)};
+    if (params.has("source") || params.has("source_url")) {
+      const source = params.get("source") ?? params.get("source_url");
+      const ids = await catalog.sourceIds(source);
+      if (kind === "source") where.id = {_in:ids};
+      else where.source_fk = {_in:ids};
+    }
+    if (params.has("channel")) where.channels = null;
+    const simple = !["q","package","channel","sort"].some(key=>params.has(key));
+    if (simple) {
+      const args = {...restArgs(params,["id"]),where,order_by:{catalog_id:"asc"}};
+      if (kind === "bundle") args.where = {...where,source:{...(where.source ?? {}),enabled:{_eq:true}}};
+      const data = await Promise.all((await catalog.rows(kind,args)).map(row=>catalog.restRow(row)));
+      return {data,total:await catalog.count(kind,{where:args.where}),limit:args.limit,offset:args.offset};
+    }
+  }
   if (path === "/health") return { ok: true, generation: catalog.manifest.generation,
                                   counts: catalog.manifest.counts };
   if (path === "/api/v3/bundle" || path === "/api/reseam/bundle") {
@@ -175,7 +259,7 @@ async function rest(catalog, url) {
     if (latest && !params.get("channel")?.trim())
       throw new CatalogError("channel is required for version=latest");
     const selectedChannel = channel(mode);
-    const bundles = (await catalog.importBundles(source)).filter(b => b.source.url.toLowerCase() === source &&
+    const bundles = (await catalog.importBundles(source,{version,latest,mode})).filter(b => b.source.url.toLowerCase() === source &&
       (latest ? b.is_latest : b.version === version) &&
       (mode === "any" || selectedChannel === "latest" ||
         (selectedChannel === "stable" ? !b.is_prerelease : b.is_prerelease)));
@@ -317,6 +401,13 @@ async function rest(catalog, url) {
   throw new CatalogError("Endpoint not found", 404);
 }
 async function createCatalog(env, context) {
+  if (env.CATALOG_BACKEND === "d1") {
+    if (!env.DB || !env.ARCHIVE) throw new CatalogError("D1/R2 bindings are required",503);
+    const catalog = await new D1Catalog(env).initialize();
+    catalog.regexLocale = env.POSTGRES_LOCALE ?? site.postgres_locale;
+    if (env.REFRESH_STATUS || env.JOBS_FETCH) catalog.liveJobs = () => liveJobs(env);
+    return catalog;
+  }
   const base = env.DATA_BASE_URL ?? site.website + "/" + site.database_path + "/";
   const parsedBase = new URL(base);
   if (parsedBase.protocol !== "https:" && !["localhost", "127.0.0.1"].includes(parsedBase.hostname))
@@ -405,6 +496,42 @@ export default {
       }
       const catalog = await createCatalog(env,context);
       generation = catalog.manifest.generation;
+      if (catalog.document && url.pathname.startsWith("/catalog/data/")) {
+        if (url.pathname === "/catalog/data/manifest.json")
+          return jsonResponse(request,env,catalog.manifest,200,generation);
+        const match = url.pathname.match(/^\/catalog\/data\/snapshots\/([a-f0-9]{24})\/(.+)$/);
+        if (!match) throw new CatalogError("Catalog file not found",404);
+        let document = catalog.document;
+        if (match[1] !== generation) {
+          const row = await catalog.db.prepare("SELECT manifest_key FROM catalog_generations WHERE generation=? AND status='ready'").bind(match[1]).first();
+          const stored = row && await env.ARCHIVE.get(row.manifest_key);
+          if (!stored) throw new CatalogError("Catalog generation unavailable",404);
+          document = await stored.json();
+        }
+        const name = match[2];
+        if (!Object.hasOwn(document.manifest.files,name)) throw new CatalogError("Catalog file not found",404);
+        const object = await env.ARCHIVE.get("objects/"+document.files[name]);
+        if (!object) throw new CatalogError("Catalog object unavailable",503);
+        const headers = {...corsHeaders(request,env),"Content-Type":"application/json",
+          "Cache-Control":"public,max-age=31536000,immutable","ETag":'"'+document.files[name]+'"',
+          "X-Catalog-Generation":match[1],"X-Content-Type-Options":"nosniff"};
+        if (request.headers.get("If-None-Match") === headers.ETag)
+          return new Response(null,{status:304,headers});
+        return new Response(object.body ?? JSON.stringify(await object.json()),{headers});
+      }
+      // Cache completed GET responses by immutable generation and origin. Publication
+      // changes the key immediately; conditional requests reuse the stored ETag.
+      const responseCache = request.method === "GET" && context?.waitUntil ? globalThis.caches?.default : null;
+      const cacheUrl = new URL(request.url);
+      cacheUrl.searchParams.set("__catalog_generation",generation);
+      cacheUrl.searchParams.set("__catalog_origin",request.headers.get("Origin") ?? "");
+      const responseKey = new Request(cacheUrl);
+      const cached = responseCache && await responseCache.match(responseKey);
+      if (cached) {
+        if (request.headers.get("If-None-Match") === cached.headers.get("ETag"))
+          return new Response(null,{status:304,headers:cached.headers});
+        return cached;
+      }
       let result;
       if (graphql) {
         let payload;
@@ -418,7 +545,10 @@ export default {
         result = await runGraphQL(catalog, payload);
       } else result = await withPostgresLocale(catalog.regexLocale ?? "en_US.utf8",
         () => rest(catalog, url));
-      return jsonResponse(request, env, result, 200, generation, !result.errors);
+      const response = await jsonResponse(request, env, result, 200, generation, !result.errors);
+      if (responseCache && response.status === 200 && !result.errors)
+        context.waitUntil(responseCache.put(responseKey,response.clone()));
+      return response;
     } catch (error) {
       const status = error instanceof CatalogError ? error.status : error instanceof SyntaxError ? 400 : 503;
       const message = error instanceof CatalogError || status === 400 ? error.message : "Catalog request failed; retry shortly";
