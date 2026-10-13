@@ -677,10 +677,16 @@ async def main() -> int:
                 had_task_failure = True
             elif result is False:
                 had_task_failure = True
-        had_task_failure = had_task_failure or any(
-            row["configured"] and row.get("required", True) and row["status"] != "complete"
+        incomplete_sources = [
+            row
             for row in archive["sources"].values()
-        )
+            if row["configured"] and row.get("required", True) and row["status"] != "complete"
+        ]
+        for row in incomplete_sources:
+            canonical = row["source_url"].lower()
+            reason = availability.get(canonical) or row.get("error") or row["status"]
+            print(f"Historical reconciliation incomplete for {row['source_url']}: {reason}")
+        had_task_failure = had_task_failure or bool(incomplete_sources)
         timestamp = datetime.now(timezone.utc).isoformat()  # noqa: UP017
         metadata_payload = {
             "generated_at": timestamp,

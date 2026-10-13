@@ -581,7 +581,9 @@ def test_rate_limit_pauses_queued_repositories_but_not_other_hosts(
 
 
 @pytest.mark.parametrize("code", [404, 410, 451])
-def test_release_endpoint_errors_persist_automatic_source_availability(tmp_path, monkeypatch, code):
+def test_release_endpoint_errors_persist_automatic_source_availability(
+    tmp_path, monkeypatch, capsys, code
+):
     from scripts.source_policy import PERMANENT_STATUS, source_availability
 
     monkeypatch.setattr(bundles, "PROJECT_ROOT", tmp_path)
@@ -597,11 +599,16 @@ def test_release_endpoint_errors_persist_automatic_source_availability(tmp_path,
             transport=httpx.MockTransport(lambda request: httpx.Response(code)), **kwargs
         ),
     )
-    asyncio.run(bundles.main())
+    assert asyncio.run(bundles.main()) == 1
     assert (
         source_availability(tmp_path)["https://github.com/example/patches"]
         == PERMANENT_STATUS[code]
     )
+    output = capsys.readouterr().out
+    assert (
+        "Historical reconciliation incomplete for https://github.com/example/patches: "
+        + PERMANENT_STATUS[code]
+    ) in output
 
 
 def test_successful_pages_checkpoint_independently_before_later_failure(tmp_path, monkeypatch):
@@ -630,3 +637,33 @@ def test_successful_pages_checkpoint_independently_before_later_failure(tmp_path
     saved = bundles._load_release_cache()
     assert saved[url]["releases"] == [release("v1")]
     assert saved[url]["next_url"].endswith("page=2")
+
+
+def test_disabled_missing_source_keeps_history_without_blocking_discovery(tmp_path, monkeypatch):
+    from scripts.release_archive import reconcile_archive
+
+    source = "https://github.com/example/patches"
+    inventory = {"demo": {"patches": source, "disabled": False}}
+    original = reconcile_archive(tmp_path, inventory, {source: [release("v1")]})
+    inventory["demo"]["disabled"] = True
+    monkeypatch.setattr(bundles, "PROJECT_ROOT", tmp_path)
+    cache = tmp_path / "internal/cache"
+    monkeypatch.setattr(bundles, "PATCH_BUNDLES_DIR", cache / "bundles")
+    monkeypatch.setattr(bundles, "METADATA_PATH", cache / "bundle-run-metadata.json")
+    monkeypatch.setattr(bundles, "_load_sources_sync", lambda: inventory)
+
+    def unexpected_request(request):
+        pytest.fail(f"Disabled source was requested: {request.url}")
+
+    monkeypatch.setattr(
+        bundles,
+        "AsyncClient",
+        lambda **kwargs: httpx.AsyncClient(
+            transport=httpx.MockTransport(unexpected_request), **kwargs
+        ),
+    )
+    assert asyncio.run(bundles.main()) == 0
+    archive = json.loads((cache / "history/archive.json").read_text(encoding="utf-8"))
+    assert archive["sources"][source]["status"] == "disabled"
+    assert archive["sources"][source]["required"] is False
+    assert archive["releases"] == original["releases"]
