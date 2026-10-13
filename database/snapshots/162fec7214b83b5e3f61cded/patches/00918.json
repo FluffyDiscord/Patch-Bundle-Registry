@@ -1,0 +1,3037 @@
+[
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Ignores the creator's Duet and Stitch setting so the entries appear for videos that closed them. Everything else the app checks still applies: a photo post, a private video or one with music it may not reuse is still refused, and whether the upload is accepted is the server's decision, not the app's. ",
+    "id": "2ee53b877a1f7b1f38f4f083:1",
+    "legacy_id": 94909,
+    "metadata_status": "verified",
+    "name": "Allow Duet and Stitch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Removes secure window flags and disables the Circle to Search block. Off by default; restart after changing.",
+    "id": "2ee53b877a1f7b1f38f4f083:2",
+    "legacy_id": 94910,
+    "metadata_status": "verified",
+    "name": "Allow screenshots and Circle to Search",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Always shows the publish date in video author information. Thanks to lyyako for the original implementation.",
+    "id": "2ee53b877a1f7b1f38f4f083:3",
+    "legacy_id": 94911,
+    "metadata_status": "verified",
+    "name": "Always show publish date",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces TikTok's dark background palette with black or a chosen color. The light theme keeps its colors. Choose this patch to enable it. It is the one patch that rewrites resources, so patching with it on needs the memory limit raised to 768 MB.",
+    "id": "2ee53b877a1f7b1f38f4f083:4",
+    "legacy_id": 94912,
+    "metadata_status": "verified",
+    "name": "AMOLED dark theme",
+    "options": [
+      {
+        "default": "#000000",
+        "description": "An opaque hex color. Black turns off OLED pixels on the main dark surfaces.",
+        "key": "backgroundColor",
+        "required": false,
+        "title": "Dark background color",
+        "type": "kotlin.String",
+        "values": {
+          "Black": "#000000",
+          "Dark gray": "#121212",
+          "Mocha": "#181825"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps TikTok's automatic advance enabled while preserving its pause, dialog and gesture checks, and shows TikTok's own Auto scroll action in the video panel for accounts outside its rollout.",
+    "id": "2ee53b877a1f7b1f38f4f083:5",
+    "legacy_id": 94913,
+    "metadata_status": "verified",
+    "name": "Automatic video advance",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a block button to the video player that blocks the account that posted the current video in one tap, with an undo action.",
+    "id": "2ee53b877a1f7b1f38f4f083:6",
+    "legacy_id": 94914,
+    "metadata_status": "verified",
+    "name": "Block author button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Shows TikTok's own comment sort sheet on every post, with its hot, newest, media and creator options, instead of the cut-down row an account outside the rollout is given.",
+    "id": "2ee53b877a1f7b1f38f4f083:7",
+    "legacy_id": 94915,
+    "metadata_status": "verified",
+    "name": "Comment sort controls",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides comments that contain chosen words or come from chosen accounts, turns the thumbs down on each comment into a block button, hides comments made of an image or a sticker rather than words, and adds a box above the comments that narrows them by what they say or who said it.",
+    "id": "2ee53b877a1f7b1f38f4f083:8",
+    "legacy_id": 94916,
+    "metadata_status": "verified",
+    "name": "Comment tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Adds optional second-tap protection to the feed Follow button and like heart. A red ring marks the armed button.",
+    "id": "2ee53b877a1f7b1f38f4f083:9",
+    "legacy_id": 94917,
+    "metadata_status": "verified",
+    "name": "Confirm feed interactions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Copies only the comment text without including the creator's username.",
+    "id": "2ee53b877a1f7b1f38f4f083:10",
+    "legacy_id": 94918,
+    "metadata_status": "verified",
+    "name": "Copy comments without username",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a custom entry to TikTok's offline videos menu with a configurable limit from 1 to 1000 videos.",
+    "id": "2ee53b877a1f7b1f38f4f083:11",
+    "legacy_id": 94919,
+    "metadata_status": "verified",
+    "name": "Custom offline videos limit",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds optional Morphe diagnostic logging, filtered reports, and local TikTok crash capture.",
+    "id": "2ee53b877a1f7b1f38f4f083:12",
+    "legacy_id": 94920,
+    "metadata_status": "verified",
+    "name": "Diagnostic tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes TikTok's mandatory login gate from supported flows.",
+    "id": "2ee53b877a1f7b1f38f4f083:13",
+    "legacy_id": 94921,
+    "metadata_status": "verified",
+    "name": "Disable login requirement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Prevents TikTok from reacting to screenshots and screen recordings.",
+    "id": "2ee53b877a1f7b1f38f4f083:14",
+    "legacy_id": 94922,
+    "metadata_status": "verified",
+    "name": "Disable screen capture detection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an App behavior toggle that stops ByteDance AppLog analytics, AppsFlyer attribution, explicit Firebase screen reports and crash reporting. TikTok's own diagnostics go quiet with them. Off by default.",
+    "id": "2ee53b877a1f7b1f38f4f083:15",
+    "legacy_id": 94923,
+    "metadata_status": "verified",
+    "name": "Disable telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps long-pressing Share from opening TikTok's quick-share interaction.",
+    "id": "2ee53b877a1f7b1f38f4f083:16",
+    "legacy_id": 94924,
+    "metadata_status": "verified",
+    "name": "Disable the long press quick share",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Keeps holding Like from opening TikTok's repost action.",
+    "id": "2ee53b877a1f7b1f38f4f083:17",
+    "legacy_id": 94925,
+    "metadata_status": "verified",
+    "name": "Disable the long press repost",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Lets double taps do nothing or open the current video's comments.",
+    "id": "2ee53b877a1f7b1f38f4f083:18",
+    "legacy_id": 94926,
+    "metadata_status": "verified",
+    "name": "Double-tap controls",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds watermark-free downloads, comment sticker saving, configurable folders, and filename templates.",
+    "id": "2ee53b877a1f7b1f38f4f083:19",
+    "legacy_id": 94927,
+    "metadata_status": "verified",
+    "name": "Downloads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Turns on TikTok's own voice comment recording and publishing entry points for accounts that do not have them.",
+    "id": "2ee53b877a1f7b1f38f4f083:20",
+    "legacy_id": 94928,
+    "metadata_status": "verified",
+    "name": "Enable voice comments",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an option to show the full Activity and New followers lists instead of collapsing them behind a View all button.",
+    "id": "2ee53b877a1f7b1f38f4f083:21",
+    "legacy_id": 94929,
+    "metadata_status": "verified",
+    "name": "Expand activity list",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a menu for viewing and overriding supported TikTok feature flags and configuration values.",
+    "id": "2ee53b877a1f7b1f38f4f083:22",
+    "legacy_id": 94930,
+    "metadata_status": "verified",
+    "name": "Feature Gate Lab",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Feature Gate Lab"
+    ],
+    "description": "Records feature gate reads while you use TikTok and compares them with their previous values.",
+    "id": "2ee53b877a1f7b1f38f4f083:23",
+    "legacy_id": 94931,
+    "metadata_status": "verified",
+    "name": "Feature Gate Recorder",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides feed ads, TikTok Shop items, livestreams, LIVE replays, stories, photo posts, paid partnerships, AI labelled videos, verified accounts, series, playlists, the playlist bar, the floating event badge and inserted cards. Videos can also be filtered by your own caption words, creator handles or patterns, sound names, length, the country they were posted from and their view, like, comment, favourite and share counts. Sponsored cards are dropped from the profile video viewer, the search grids and the Friends tab as well as the feed.",
+    "id": "2ee53b877a1f7b1f38f4f083:24",
+    "legacy_id": 94932,
+    "metadata_status": "verified",
+    "name": "Feed filter",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Controls which loaded top and bottom navigation tabs remain visible, blocks newly added tabs when requested, and can hide the Tako AI bubble.",
+    "id": "2ee53b877a1f7b1f38f4f083:25",
+    "legacy_id": 94933,
+    "metadata_status": "verified",
+    "name": "Feed tab navigation",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Puts the whole of a vertical video on screen instead of cropping it to the window. On a 9:16 phone nothing changes, because the video already fills it. On a Fold opened up, a squarer phone or a split view the sides or the ends stop being cut off.",
+    "id": "2ee53b877a1f7b1f38f4f083:26",
+    "legacy_id": 94934,
+    "metadata_status": "verified",
+    "name": "Fit the video to the screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores Google account sign-in after patching.",
+    "id": "2ee53b877a1f7b1f38f4f083:27",
+    "legacy_id": 94935,
+    "metadata_status": "verified",
+    "name": "Fix Google login",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Shows comments beside the video on windows wider than a configurable threshold. Off by default.",
+    "id": "2ee53b877a1f7b1f38f4f083:28",
+    "legacy_id": 94936,
+    "metadata_status": "verified",
+    "name": "Foldable split comment view",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reads what the server said about a follow. A follow TikTok turns down comes back looking like a success, so this reports the refusal and its reason once per session and, with diagnostic logging on, writes the whole exchange to the report.",
+    "id": "2ee53b877a1f7b1f38f4f083:29",
+    "legacy_id": 94937,
+    "metadata_status": "verified",
+    "name": "Follow diagnostics",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an option to stop TikTok reporting that you viewed a story or a profile or that you are typing. Online status is unchanged.",
+    "id": "2ee53b877a1f7b1f38f4f083:30",
+    "legacy_id": 94938,
+    "metadata_status": "verified",
+    "name": "Ghost mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Feed filter"
+    ],
+    "description": "Keeps a local record of the videos you have watched and drops them from later feed pages. The record never leaves the device and can be cleared from settings.",
+    "id": "2ee53b877a1f7b1f38f4f083:31",
+    "legacy_id": 94939,
+    "metadata_status": "verified",
+    "name": "Hide already seen videos",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a default-off setting to hide browsing and LIVE puzzle dialogs. Login and account verification stay visible, and so does any puzzle the server raised over a follow, like, comment or repost, because hiding one of those makes the action fail with no message.",
+    "id": "2ee53b877a1f7b1f38f4f083:32",
+    "legacy_id": 94940,
+    "metadata_status": "verified",
+    "name": "Hide CAPTCHA popups",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops the brand animation that plays over the comment sheet when a comment matches an advertiser's trigger word or emoji.",
+    "id": "2ee53b877a1f7b1f38f4f083:33",
+    "legacy_id": 94941,
+    "metadata_status": "verified",
+    "name": "Hide comment popup ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an option to hide the + follow button below creator avatars in video feeds.",
+    "id": "2ee53b877a1f7b1f38f4f083:34",
+    "legacy_id": 94942,
+    "metadata_status": "verified",
+    "name": "Hide feed follow button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an option to hide the LIVE button at the top left of video feeds. Shares its switch with the Live entrance option of Hide video overlays, and stops the button before it is built rather than hiding it once it is on screen.",
+    "id": "2ee53b877a1f7b1f38f4f083:35",
+    "legacy_id": 94943,
+    "metadata_status": "verified",
+    "name": "Hide feed LIVE button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an option to hide the save/favourites button from video feeds.",
+    "id": "2ee53b877a1f7b1f38f4f083:36",
+    "legacy_id": 94944,
+    "metadata_status": "verified",
+    "name": "Hide feed save button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an option to hide the search button at the top right of video feeds.",
+    "id": "2ee53b877a1f7b1f38f4f083:37",
+    "legacy_id": 94945,
+    "metadata_status": "verified",
+    "name": "Hide feed search button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Removes floating promotional badges, coin icons, and timer banners from the Home feed.",
+    "id": "2ee53b877a1f7b1f38f4f083:38",
+    "legacy_id": 94946,
+    "metadata_status": "verified",
+    "name": "Hide floating promotions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a switch for each row and header control on the Inbox tab, so message requests, TikTok Tako, TikTok Shop, the stories tray and the rest can be hidden individually.",
+    "id": "2ee53b877a1f7b1f38f4f083:39",
+    "legacy_id": 94947,
+    "metadata_status": "verified",
+    "name": "Hide inbox items",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops the stories tray at the top of the Inbox from being built. Shares its switch with Hide inbox items.",
+    "id": "2ee53b877a1f7b1f38f4f083:40",
+    "legacy_id": 94948,
+    "metadata_status": "verified",
+    "name": "Hide inbox stories",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides TikTok's exposed quick emoji row in supported comment inputs.",
+    "id": "2ee53b877a1f7b1f38f4f083:41",
+    "legacy_id": 94949,
+    "metadata_status": "verified",
+    "name": "Hide quick comment reactions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides the suggested searches TikTok offers on the search page before you type, and stops the page asking for them. Your own search history is left alone. ",
+    "id": "2ee53b877a1f7b1f38f4f083:42",
+    "legacy_id": 94950,
+    "metadata_status": "verified",
+    "name": "Hide search suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops the suggested accounts list from being built on the Activity, New followers and Inbox pages. Shares its switch with Hide inbox items. ",
+    "id": "2ee53b877a1f7b1f38f4f083:43",
+    "legacy_id": 94951,
+    "metadata_status": "verified",
+    "name": "Hide suggested accounts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Hide CAPTCHA popups"
+    ],
+    "description": "Hides TikTok's risk control CAPTCHA dialog, raised by its BdTuring service, which the browsing CAPTCHA patch does not cover. Answers the Hide CAPTCHA popups setting, never touches SMS or two factor verification, and never hides a check the server raised over a follow, like, comment or repost. Off by default.",
+    "id": "2ee53b877a1f7b1f38f4f083:44",
+    "legacy_id": 94952,
+    "metadata_status": "verified",
+    "name": "Hide the risk control CAPTCHA",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Hides the visual search prompt TikTok lays over videos, the Live entrance in the top left corner, the caption, the music line, the action column on the right, the survey cards and the status bar, each with its own switch.",
+    "id": "2ee53b877a1f7b1f38f4f083:45",
+    "legacy_id": 94953,
+    "metadata_status": "verified",
+    "name": "Hide video overlays",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Enables TikTok's native hold, slide down, and release gesture to lock 2x speed.",
+    "id": "2ee53b877a1f7b1f38f4f083:46",
+    "legacy_id": 94954,
+    "metadata_status": "verified",
+    "name": "Hold-and-slide 2x lock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops TikTok asking the screen to run slower than it can, which it does by asking for the frame rate of the video it is playing. On a 90 or 120 Hz phone that ask takes the whole app down to that rate, scrolling included. A request that is not slower than the screen is left alone.",
+    "id": "2ee53b877a1f7b1f38f4f083:47",
+    "legacy_id": 94955,
+    "metadata_status": "verified",
+    "name": "Keep the screen's refresh rate",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button",
+      "Double-tap controls"
+    ],
+    "description": "Lets a long press on a video keep TikTok's own action, do nothing, open the video's comments, save the original sound, or copy the link to the video or its sound, and can turn a press on the left or right third of the screen into a jump back or forward. Brings Double-tap controls with it, which supplies the comment control. ",
+    "id": "2ee53b877a1f7b1f38f4f083:48",
+    "legacy_id": 94956,
+    "metadata_status": "verified",
+    "name": "Long-press controls",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Adds a button beside the block control to tell TikTok you aren't interested in the current video. Off by default.",
+    "id": "2ee53b877a1f7b1f38f4f083:49",
+    "legacy_id": 94957,
+    "metadata_status": "verified",
+    "name": "Not interested button",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds a switch for the notification saying somebody new followed you, and one for message streaks, neither of which TikTok lets you turn off. The follower switch drops the notification before Android is asked to post it, so nothing else in the drawer is affected.",
+    "id": "2ee53b877a1f7b1f38f4f083:50",
+    "legacy_id": 94958,
+    "metadata_status": "verified",
+    "name": "Notification controls",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Opens profile and story website links in the system browser instead of TikTok's in-app browser. Thanks to lyyako for the original implementation.",
+    "id": "2ee53b877a1f7b1f38f4f083:51",
+    "legacy_id": 94959,
+    "metadata_status": "verified",
+    "name": "Open external links directly",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Selects the lowest, highest or a target video quality for playback, adaptive streams included. A second choice caps quality on mobile data and only ever lowers it. Download quality has its own setting.",
+    "id": "2ee53b877a1f7b1f38f4f083:52",
+    "legacy_id": 94960,
+    "metadata_status": "verified",
+    "name": "Playback quality",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Remembers playback speed or applies a default to each new video, with custom menu choices up to 3x.",
+    "id": "2ee53b877a1f7b1f38f4f083:53",
+    "legacy_id": 94961,
+    "metadata_status": "verified",
+    "name": "Playback speed",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "SIM spoof"
+    ],
+    "description": "Matches locale, timezone and native region getters to the SIM preset, with a separate experimental store-region switch.",
+    "id": "2ee53b877a1f7b1f38f4f083:54",
+    "legacy_id": 94962,
+    "metadata_status": "verified",
+    "name": "Region spoof",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Remembers clear display between videos, or enters it automatically after a chosen delay.",
+    "id": "2ee53b877a1f7b1f38f4f083:55",
+    "legacy_id": 94963,
+    "metadata_status": "verified",
+    "name": "Remember clear display",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Continues supported videos from where playback stopped when returning after a scroll.",
+    "id": "2ee53b877a1f7b1f38f4f083:56",
+    "legacy_id": 94964,
+    "metadata_status": "verified",
+    "name": "Resume videos after scrolling",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Removes tracking parameters from TikTok links before they are shared, and can put a host of your choosing in place of tiktok.com.",
+    "id": "2ee53b877a1f7b1f38f4f083:57",
+    "legacy_id": 94965,
+    "metadata_status": "verified",
+    "name": "Sanitize sharing links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds the Hushfeed settings screen to TikTok.",
+    "id": "2ee53b877a1f7b1f38f4f083:58",
+    "legacy_id": 94966,
+    "metadata_status": "verified",
+    "name": "Settings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Asks for a second tap before a video is sent to a friend from the share sheet, and hides chosen people or share options, or the whole Send to row. ",
+    "id": "2ee53b877a1f7b1f38f4f083:59",
+    "legacy_id": 94967,
+    "metadata_status": "verified",
+    "name": "Share sheet tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Block author button"
+    ],
+    "description": "Adds an option to show the country a video was posted from next to the creator's name on the feed.",
+    "id": "2ee53b877a1f7b1f38f4f083:60",
+    "legacy_id": 94968,
+    "metadata_status": "verified",
+    "name": "Show author region",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows TikTok's search entry in the Live drawer where supported.",
+    "id": "2ee53b877a1f7b1f38f4f083:61",
+    "legacy_id": 94969,
+    "metadata_status": "verified",
+    "name": "Show LIVE search",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Shows TikTok's native video seekbar where it would normally be hidden.",
+    "id": "2ee53b877a1f7b1f38f4f083:62",
+    "legacy_id": 94970,
+    "metadata_status": "verified",
+    "name": "Show the progress bar",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows TikTok's video preview thumbnail while dragging the seekbar.",
+    "id": "2ee53b877a1f7b1f38f4f083:63",
+    "legacy_id": 94971,
+    "metadata_status": "verified",
+    "name": "Show the progress bar thumbnail",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Spoofs SIM country and operator information retrieved by TikTok, with country presets for easier setup.",
+    "id": "2ee53b877a1f7b1f38f4f083:64",
+    "legacy_id": 94972,
+    "metadata_status": "verified",
+    "name": "SIM spoof",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds an option to play videos TikTok has classified without the warning overlay asking to be tapped through first.",
+    "id": "2ee53b877a1f7b1f38f4f083:65",
+    "legacy_id": 94973,
+    "metadata_status": "verified",
+    "name": "Skip content warnings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Stops videos at the end instead of replaying them.",
+    "id": "2ee53b877a1f7b1f38f4f083:66",
+    "legacy_id": 94974,
+    "metadata_status": "verified",
+    "name": "Stop video looping",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings",
+      "Advanced downloads",
+      "Block author button"
+    ],
+    "description": "Saves subtitle files beside downloaded videos and adds caption size, background, and clear-display options.",
+    "id": "2ee53b877a1f7b1f38f4f083:67",
+    "legacy_id": 94975,
+    "metadata_status": "verified",
+    "name": "Subtitle tools",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": false
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Adds comment translation controls using TikTok's translation system, with selectable language exclusions.",
+    "id": "2ee53b877a1f7b1f38f4f083:68",
+    "legacy_id": 94976,
+    "metadata_status": "verified",
+    "name": "Translate comments",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "2ee53b877a1f7b1f38f4f083",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "46.2.3"
+      ]
+    },
+    "dependencies": [
+      "Settings"
+    ],
+    "description": "Uses TikTok's non-personalized search mode instead of its saved account choice.",
+    "id": "2ee53b877a1f7b1f38f4f083:69",
+    "legacy_id": 94977,
+    "metadata_status": "verified",
+    "name": "Use non-personalized search",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "46.2.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v0.28.0",
+    "source_id": "583b8973c00f2205",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces AdSettings.noAd=true and PlayQueue.getDisableAds=true so songs are treated as ad-free locally. Client flag only.",
+    "id": "37afb443e9bc641bc89a6cb9:0",
+    "legacy_id": 94978,
+    "metadata_status": "verified",
+    "name": "Disable audio ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [
+      "Unforce shuffle"
+    ],
+    "description": "Playlist/album headers show Play + Shuffle instead of Shuffle + Edit/Follow/Like (functional LEAVECOLLAB, local-songs ADD_MORE and podcasts untouched). Each tap also sets the remembered shuffle choice. Pulls in 'Unforce shuffle'.",
+    "id": "37afb443e9bc641bc89a6cb9:1",
+    "legacy_id": 94979,
+    "metadata_status": "verified",
+    "name": "Header Play + Shuffle",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces Account.isGold/isGoldUser and all GoldUtilsKt.isGold overloads to false. Hides server-gated Gold UI instead of spoofing it.",
+    "id": "37afb443e9bc641bc89a6cb9:2",
+    "legacy_id": 94980,
+    "metadata_status": "verified",
+    "name": "Hide Gold features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides PLAYS IN SHUFFLE badges on playlist/album headers, feed cards, and rows. Cosmetic only.",
+    "id": "37afb443e9bc641bc89a6cb9:3",
+    "legacy_id": 94981,
+    "metadata_status": "verified",
+    "name": "Hide shuffle badges",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides the nav upgrade entry, header promo banner, feed upsell cards and AI MIX button model (gap-free), and settings subscribe banner. Server-driven UI the Plus spoof cannot remove.",
+    "id": "37afb443e9bc641bc89a6cb9:4",
+    "legacy_id": 94982,
+    "metadata_status": "verified",
+    "name": "Hide upgrade upsell",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides TRY SING ALONG karaoke upsell, the player AI MIX switch, and the playlist AI MIX button. Feature gates untouched.",
+    "id": "37afb443e9bc641bc89a6cb9:5",
+    "legacy_id": 94983,
+    "metadata_status": "verified",
+    "name": "Hide upsell feature buttons",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "When the server returns truncated/empty lyrics, fetches the full text from LRCLIB (opt-in free source) into a separate cache. Native full lyrics and the Plus path are untouched.",
+    "id": "37afb443e9bc641bc89a6cb9:6",
+    "legacy_id": 94984,
+    "metadata_status": "verified",
+    "name": "LRCLIB lyrics fallback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": false
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [
+      "LRCLIB lyrics fallback"
+    ],
+    "description": "Long-press the player LYRICS button or the lyrics view for source info, artist/title retry, synced/plain toggle, or restoring the server teaser. Pulls in 'LRCLIB lyrics fallback'.",
+    "id": "37afb443e9bc641bc89a6cb9:7",
+    "legacy_id": 94985,
+    "metadata_status": "verified",
+    "name": "Lyrics long-press options",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": false
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces the static neon brand accents with wallpaper-based Monet dynamic colors (M3 Expressive primary/secondary/tertiary roles) on Android 12+. Older versions keep stock colors.",
+    "id": "37afb443e9bc641bc89a6cb9:8",
+    "legacy_id": 94986,
+    "metadata_status": "verified",
+    "name": "Monet dynamic colors",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": false
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [
+      "Player theme background"
+    ],
+    "description": "Player theme in one toggle: removes the cover-art tint, keeps the queue readable in day mode, and paints the now-playing row, pills and action icons with the primary accent. Pulls in 'Player theme background' resources.",
+    "id": "37afb443e9bc641bc89a6cb9:9",
+    "legacy_id": 94987,
+    "metadata_status": "verified",
+    "name": "Player theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": false
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Makes the player background, text, icons and seekbar follow the app's day/night theme. Keeps the darker split below the progress bar. Pair with 'Player theme'.",
+    "id": "37afb443e9bc641bc89a6cb9:10",
+    "legacy_id": 94988,
+    "metadata_status": "verified",
+    "name": "Player theme background",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": false
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "No-ops the in-house popup funnel, the fullscreen startup dialog, and the flyer ad callback. Google SDK ads untouched.",
+    "id": "37afb443e9bc641bc89a6cb9:11",
+    "legacy_id": 94989,
+    "metadata_status": "verified",
+    "name": "Remove popup promos",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces SignatureUtils.getAppSignature to hash with the stock cert prefix (he9B...kw=), so X-ANGH-APP-RGSIG matches a stock install. Salt/body hashing unchanged.",
+    "id": "37afb443e9bc641bc89a6cb9:12",
+    "legacy_id": 94990,
+    "metadata_status": "verified",
+    "name": "Spoof stock app signature",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Playlists/albums start in order, the header Shuffle button shuffles for real, and new queues remember your last shuffle choice (session-scoped). Manual toggle keeps working.",
+    "id": "37afb443e9bc641bc89a6cb9:13",
+    "legacy_id": 94991,
+    "metadata_status": "verified",
+    "name": "Unforce shuffle",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "No-ops download limit asserts, forces limited-plan=false and large offline caps (999999). Local gates only; the server still authorizes files.",
+    "id": "37afb443e9bc641bc89a6cb9:14",
+    "legacy_id": 94992,
+    "metadata_status": "verified",
+    "name": "Unlock downloads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces Account.isPlus/isPlusUser=true, enablePlayerRestrictions=false, canPlayOfflineAndFree=true. Local UI/gating only; server premium checks remain.",
+    "id": "37afb443e9bc641bc89a6cb9:15",
+    "legacy_id": 94993,
+    "metadata_status": "verified",
+    "name": "Unlock local Plus",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "37afb443e9bc641bc89a6cb9",
+    "compatiblePackages": {
+      "com.anghami": [
+        "8.0.28"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables skip and queue limits (skipLimitReached/queueRestrictionsEnabled=false, disable-flags=true). Local gates only.",
+    "id": "37afb443e9bc641bc89a6cb9:16",
+    "legacy_id": 94994,
+    "metadata_status": "verified",
+    "name": "Unlock playback limits",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Anghami: Play music & Podcasts",
+        "icon_url": "https://play-lh.googleusercontent.com/Dj-qfFIIZZmjx-zxS_39MrYqiogBj9U9cfSWpjBOaDKA6J5XfBgOp1cWIWxXx9peIcJAwQt_AyvfhGGxs0UE",
+        "name": "com.anghami",
+        "versions": [
+          "8.0.28"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0-dev.2",
+    "source_id": "e8a6c403849c7273",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": null,
+    "dependencies": [
+      "Allow Screen Capture (Setup)"
+    ],
+    "description": "Removes screenshot blocking and capture detection.",
+    "id": "39d4d42a0e6248e2c24fe8f7:0",
+    "legacy_id": 94995,
+    "metadata_status": "verified",
+    "name": "Allow Screenshots",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces video publish/upload date to remain visible in video author information across all feed types.",
+    "id": "39d4d42a0e6248e2c24fe8f7:1",
+    "legacy_id": 94996,
+    "metadata_status": "verified",
+    "name": "Always Show Publish Date",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.zhiliaoapp.musically": [
+        "47.1.4"
+      ]
+    },
+    "dependencies": [],
+    "description": "Pauses the first video on launch so it plays without lag.",
+    "id": "39d4d42a0e6248e2c24fe8f7:2",
+    "legacy_id": 94997,
+    "metadata_status": "verified",
+    "name": "Auto-Pause First Video",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.1.4"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Closing a tab picks the previous tab in the same group.",
+    "id": "39d4d42a0e6248e2c24fe8f7:3",
+    "legacy_id": 94998,
+    "metadata_status": "verified",
+    "name": "Better Tab Closing",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [
+      "Remove Ads (Setup)"
+    ],
+    "description": "Blocks ad loaders and unlocks ad-free status.",
+    "id": "39d4d42a0e6248e2c24fe8f7:4",
+    "legacy_id": 94999,
+    "metadata_status": "verified",
+    "name": "Block Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Protects against other apps hijacking Gboard and removes debug tools.",
+    "id": "39d4d42a0e6248e2c24fe8f7:5",
+    "legacy_id": 95000,
+    "metadata_status": "verified",
+    "name": "Block App Hijacking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops sites from reading motion sensors to identify you.",
+    "id": "39d4d42a0e6248e2c24fe8f7:6",
+    "legacy_id": 95001,
+    "metadata_status": "verified",
+    "name": "Block Motion Sensors",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [],
+    "description": "Blocks rating popups, review requests and promo dialogs.",
+    "id": "39d4d42a0e6248e2c24fe8f7:7",
+    "legacy_id": 95002,
+    "metadata_status": "verified",
+    "name": "Block Popups & Rating Requests",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.google.android.inputmethod.latin": [
+        "18.4.1.985164140-lite_beta-arm64-v8a",
+        "18.4.1.985164140-lite_beta-armeabi-v7a"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops background metrics, event logging and crash reporting.",
+    "id": "39d4d42a0e6248e2c24fe8f7:8",
+    "legacy_id": 95003,
+    "metadata_status": "verified",
+    "name": "Block Trackers",
+    "options": [
+      {
+        "default": true,
+        "description": "Also blocks Google ad servers. Turn off to keep them.",
+        "key": "blockAdwordsHost",
+        "required": false,
+        "title": "Block ad servers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Gboard - the Google Keyboard",
+        "icon_url": "https://play-lh.googleusercontent.com/J4vZ82VsZjnsRsI6ckQFXlO36_52QJerqG5-HfLgHffS34I4EfoAFfNdbf6s4wBAsUEf8DOJVEDEHh5tzWbrnA",
+        "name": "com.google.android.inputmethod.latin",
+        "versions": [
+          "18.4.1.985164140-lite_beta-arm64-v8a",
+          "18.4.1.985164140-lite_beta-armeabi-v7a"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.hevy": [
+        "3.1.14"
+      ]
+    },
+    "dependencies": [
+      "Remove Trackers (Setup)"
+    ],
+    "description": "Blocks crash reporting, ad attribution and referral tracking.",
+    "id": "39d4d42a0e6248e2c24fe8f7:9",
+    "legacy_id": 95004,
+    "metadata_status": "verified",
+    "name": "Block Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "3.1.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.nokoprint": [
+        "5.28.6"
+      ]
+    },
+    "dependencies": [
+      "Remove Trackers (Setup)"
+    ],
+    "description": "Blocks analytics and ad tracking.",
+    "id": "39d4d42a0e6248e2c24fe8f7:10",
+    "legacy_id": 95005,
+    "metadata_status": "verified",
+    "name": "Block Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "NokoPrint - Print from Phone",
+        "icon_url": "https://play-lh.googleusercontent.com/P9pm0BA24n6wI80bnCXmHvOIV-onwcAjnl3erj5unFNnXcusSyChbYgc_WRwLPK71E9AtSJERm2EFVwqtMm0",
+        "name": "com.nokoprint",
+        "versions": [
+          "5.28.6"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Remove Trackers (Setup)"
+    ],
+    "description": "Stops analytics and usage reporting.",
+    "id": "39d4d42a0e6248e2c24fe8f7:11",
+    "legacy_id": 95006,
+    "metadata_status": "verified",
+    "name": "Block Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": {
+      "com.brave.browser": [
+        "1.97.56"
+      ]
+    },
+    "dependencies": [
+      "Privacy Defaults (Setup)",
+      "Block Tracking Servers"
+    ],
+    "description": "Blocks usage analytics, crash uploads and experiment downloads.",
+    "id": "39d4d42a0e6248e2c24fe8f7:12",
+    "legacy_id": 95007,
+    "metadata_status": "verified",
+    "name": "Block Tracking",
+    "options": [
+      {
+        "default": true,
+        "description": "Also blocks the shopping offers server. Turn off to keep it.",
+        "key": "blockOffersHost",
+        "required": false,
+        "title": "Block offers server",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Brave Private Web Browser, VPN",
+        "icon_url": "https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E",
+        "name": "com.brave.browser",
+        "versions": [
+          "1.97.56"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "39d4d42a0e6248e2c24fe8f7",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables analytics, crash and ad SDKs inside the app.",
+    "id": "39d4d42a0e6248e2c24fe8f7:13",
+    "legacy_id": 95008,
+    "metadata_status": "verified",
+    "name": "Block Tracking SDKs",
+    "options": [
+      {
+        "default": true,
+        "description": "Neutralize New Relic, Datadog, and Dynatrace monitoring, metric reporting, and HTTP transaction tracing methods.",
+        "key": "blockApm",
+        "required": false,
+        "title": "Performance monitors",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Raygun, Shake, Embrace, Splunk Mint, App Center, OpenTelemetry, ACRA, Sentry, Bugsnag, Crashlytics (legacy and Firebase), Fabric, Instabug, Countly, and HockeyApp crash reporters.",
+        "key": "blockCrashReporters",
+        "required": false,
+        "title": "Crash reporters",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Firebase Analytics, Matomo, Leanplum, Localytics, WebEngage, PostHog, MoEngage, Snowplow, mParticle, Treasure Data, Huawei Analytics, Yandex Metrica, Facebook AppEvents, and Sensors Analytics event tracking, capture, and session logging methods.",
+        "key": "blockAnalytics",
+        "required": false,
+        "title": "Analytics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize AppsFlyer, Adjust, Amplitude, Mixpanel, CleverTap, Segment, Branch, Singular, Kochava, Tenjin, Unity Analytics, Flurry, and GameAnalytics conversion, tracking, and attribution SDKs.",
+        "key": "blockAttribution",
+        "required": false,
+        "title": "Ad attribution",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize pre-Firebase Google Analytics tracking, hit dispatching, and activity reporting methods (com.google.analytics and com.google.android.gms.analytics).",
+        "key": "blockLegacyAnalytics",
+        "required": false,
+        "title": "Old Google Analytics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Neutralize OneSignal, Airship, and Braze push engagement and tagging SDKs. WARNING: this breaks push notification delivery; enable only to fully silence push engagement SDK runtimes.",
+        "key": "blockPushEngagement",
+        "required": false,
+        "title": "Push SDKs (breaks push!)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize UXCam, Smartlook, FullStory, Contentsquare, and Bugsee screen and session recording SDK methods.",
+        "key": "blockSessionReplay",
+        "required": false,
+        "title": "Screen recorders",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Neutralize Radar, Gimbal, and Estimote beacon and location tracking SDKs; note OS location permission controls remain the primary gate.",
+        "key": "blockLocationTrackers",
+        "required": false,
+        "title": "Location trackers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v2.7.0-experimental.15",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  }
+]
