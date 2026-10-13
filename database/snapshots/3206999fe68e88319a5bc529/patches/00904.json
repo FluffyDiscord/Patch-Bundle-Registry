@@ -1,0 +1,683 @@
+[
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips non-essential tracking, crash reporting, and debug companion native libraries in lib/** (e.g. libcrashlytics, libsentry, libbugly, libgwp-asan) by zeroing bytes in-situ.",
+    "id": "f7dfc0711cebee801bd6a1e8:112",
+    "legacy_id": 93483,
+    "metadata_status": "verified",
+    "name": "Universal Native Binary Trimmer",
+    "options": [
+      {
+        "default": true,
+        "description": "Zero native crash reporting and tracking libraries (Crashlytics, Sentry, Bugly, PLCrashReporter).",
+        "key": "trimCrashReporters",
+        "required": false,
+        "title": "Trim Crash Reporting Libraries",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Zero debug memory and profiling libraries (GWP-ASan, Simpleperf, Android Studio profilers).",
+        "key": "trimDebugProfilers",
+        "required": false,
+        "title": "Trim Debug & Profiling Libraries",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Forces offline execution across any application by revoking INTERNET and network permissions from AndroidManifest.xml and blocking cleartext HTTP traffic at the OS level.",
+    "id": "f7dfc0711cebee801bd6a1e8:113",
+    "legacy_id": 93484,
+    "metadata_status": "verified",
+    "name": "Universal Offline Mode",
+    "options": [
+      {
+        "default": false,
+        "description": "Also remove ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE permissions. Default is false to prevent SecurityException crashes in apps that query network status without error handling.",
+        "key": "stripNetworkState",
+        "required": false,
+        "title": "Strip Network State Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove CHANGE_NETWORK_STATE, CHANGE_WIFI_STATE, CHANGE_WIFI_MULTICAST_STATE, and NEARBY_WIFI_DEVICES permissions.",
+        "key": "stripWifiControls",
+        "required": false,
+        "title": "Strip Wi-Fi Control Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Cloud Messaging and Firebase Cloud Messaging push receiver permissions (com.google.android.c2dm.permission.RECEIVE).",
+        "key": "stripPush",
+        "required": false,
+        "title": "Strip Push Notification Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove Google Services Framework and account sync permissions (com.google.android.providers.gsf.permission.READ_GSERVICES, android.permission.GET_ACCOUNTS).",
+        "key": "stripGoogleServices",
+        "required": false,
+        "title": "Strip Google Services Sync Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enforce android:usesCleartextTraffic='false' on the application tag in AndroidManifest.xml.",
+        "key": "blockCleartext",
+        "required": false,
+        "title": "Block Cleartext Traffic",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Strips advertising and Privacy Sandbox permissions, disables analytics ContentProviders and telemetry background services (Firebase, Sentry, Adjust, AppsFlyer, DataTransport), and injects telemetry opt-out metadata.",
+    "id": "f7dfc0711cebee801bd6a1e8:114",
+    "legacy_id": 93485,
+    "metadata_status": "verified",
+    "name": "Universal Telemetry Neutralizer",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove AD_ID, Privacy Sandbox attribution/topics/audiences, and Play Install Referrer permissions from AndroidManifest.xml.",
+        "key": "revokePermissions",
+        "required": false,
+        "title": "Revoke Advertising & Tracking Permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable analytics ContentProviders (Google Measurement, Sentry, Facebook, Flurry, Branch, AppsFlyer).",
+        "key": "disableProviders",
+        "required": false,
+        "title": "Disable Telemetry ContentProviders",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable Google Measurement, Google DataTransport, and AppsFlyer background job services.",
+        "key": "disableServices",
+        "required": false,
+        "title": "Disable Telemetry Background Services",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Disable install referrer and analytics measurement broadcast receivers (Adjust, AppsFlyer, Google Measurement).",
+        "key": "disableReceivers",
+        "required": false,
+        "title": "Disable Telemetry Receivers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Inject meta-data opt-out entries into application tag (Firebase Analytics, Crashlytics, Performance, AppsFlyer, Sentry).",
+        "key": "injectOptOutFlags",
+        "required": false,
+        "title": "Inject Telemetry Opt-Out Flags",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disable com.google.firebase.provider.FirebaseInitProvider. Default is false to prevent issues in apps that depend on Firebase Auth or push notifications.",
+        "key": "disableFirebaseInit",
+        "required": false,
+        "title": "Disable Firebase Init Provider",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Losslessly strips non-rendering metadata and ancillary chunks (EXIF, XMP, ICCP) from WebP assets across res/ and assets/ to reduce APK size.",
+    "id": "f7dfc0711cebee801bd6a1e8:115",
+    "legacy_id": 93486,
+    "metadata_status": "verified",
+    "name": "Universal WebP Asset Optimizer",
+    "options": [
+      {
+        "default": true,
+        "description": "Remove camera parameters, geolocation, and creator metadata chunks from WebP images.",
+        "key": "stripExif",
+        "required": false,
+        "title": "Strip EXIF Metadata",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Remove Adobe XMP XML metadata chunks from WebP images.",
+        "key": "stripXmp",
+        "required": false,
+        "title": "Strip XMP Metadata",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Remove ICCP color profile chunks. Default is false to preserve color profile fidelity on wide-gamut displays.",
+        "key": "stripIcc",
+        "required": false,
+        "title": "Strip ICC Color Profiles",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.hevy": [
+        "3.1.14"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks local Hevy Pro capabilities (unlimited workout routines, routine folders, advanced graphs, and local analytics) by dynamically enabling Pro getters and suppressing grace period payment warnings in Hermes Bytecode (HBC96).",
+    "id": "f7dfc0711cebee801bd6a1e8:116",
+    "legacy_id": 93487,
+    "metadata_status": "verified",
+    "name": "Unlock Pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Hevy - Gym Log Workout Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/bLlRnwjt0tKva6ob0ZrtxkUs-z4MhQ4cPIOnXeh_knD8QVAXSLFiMGyKo2kLF7PV2uSK1Wly1L4q-6Sv1k13",
+        "name": "com.hevy",
+        "versions": [
+          "3.1.14"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.ss.android.ugc.trill": [
+        "47.0.3"
+      ],
+      "com.zhiliaoapp.musically": [
+        "47.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes background update polling tasks and device ID check routines to prevent forced update popups.",
+    "id": "f7dfc0711cebee801bd6a1e8:117",
+    "legacy_id": 93488,
+    "metadata_status": "verified",
+    "name": "Update Prompt Suppressor",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/U07AzIaLq2iMqMCMtnM5iiSrzy7__SmOkD5qeH1vWy745-0rCv6LbSRuyjlDN-4s8EDW1UkHJPrrpd5jYNNkgA",
+        "name": "com.ss.android.ugc.trill",
+        "versions": [
+          "47.0.3"
+        ]
+      },
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.ss.android.ugc.trill": [
+        "47.0.3"
+      ],
+      "com.zhiliaoapp.musically": [
+        "47.0.3"
+      ]
+    },
+    "dependencies": [],
+    "description": "Caps video playback and download resolutions (1080p, 720p, 540p, 480p, 360p) independently to conserve battery, GPU/MediaCodec load, and mobile data.",
+    "id": "f7dfc0711cebee801bd6a1e8:118",
+    "legacy_id": 93489,
+    "metadata_status": "verified",
+    "name": "Video Quality Governor",
+    "options": [
+      {
+        "default": "480",
+        "description": "Select maximum video playback resolution ceiling: 1080 (1080p ExtremelyHigh), 720 (720p SuperHigh), 540 (540p H_High), 480 (480p High), or 360 (360p Standard).",
+        "key": "maxQuality",
+        "required": false,
+        "title": "Maximum Playback Resolution",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "1080",
+        "description": "Select maximum video download resolution ceiling: 1080 (1080p Maximum Quality), 720 (720p SuperHigh), 540 (540p H_High), 480 (480p High), or 360 (360p Standard).",
+        "key": "maxDownloadQuality",
+        "required": false,
+        "title": "Maximum Download Resolution",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "TikTok",
+        "icon_url": "https://play-lh.googleusercontent.com/U07AzIaLq2iMqMCMtnM5iiSrzy7__SmOkD5qeH1vWy745-0rCv6LbSRuyjlDN-4s8EDW1UkHJPrrpd5jYNNkgA",
+        "name": "com.ss.android.ugc.trill",
+        "versions": [
+          "47.0.3"
+        ]
+      },
+      {
+        "app_name": "TikTok - Videos, Shop & LIVE",
+        "icon_url": "https://play-lh.googleusercontent.com/2o7iuqPe-0msP3DvNhzoOgNo4eZ6GkL_RtGVeKyBn5UBQAW5cw-GW5V3wDOHB1yTQuqWzrFLFOv2u4_5ea1uhg",
+        "name": "com.zhiliaoapp.musically",
+        "versions": [
+          "47.0.3"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.vivaldi.browser": [
+        "8.2.4147.93"
+      ]
+    },
+    "dependencies": [
+      "Split Bundle Compatibility"
+    ],
+    "description": "Guards against fatal CompositorView NullPointerException crashes on cold startup and bypasses carrier partner customizations.",
+    "id": "f7dfc0711cebee801bd6a1e8:119",
+    "legacy_id": 93490,
+    "metadata_status": "verified",
+    "name": "Vivaldi Startup Performance Optimization",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Vivaldi Browser - Fast & Safe",
+        "icon_url": "https://play-lh.googleusercontent.com/RNTChezdp-FkUkw6pldhlIi3uCeP_J6fQ0x5NwWfVV9tTdFZidR-z1V9MNVHww4sNdNLOQLw0yW6NJjVF1H0Fw",
+        "name": "com.vivaldi.browser",
+        "versions": [
+          "8.2.4147.93"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses Xposed and hook detection, neutralizes VPN and ADB security checks, bypasses root and emulator detection, and hardens WebView JavaScript bridges.",
+    "id": "f7dfc0711cebee801bd6a1e8:120",
+    "legacy_id": 93491,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Anti-Tamper Bypass",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Xiaomi Earbuds Background Services Manifest Purge"
+    ],
+    "description": "Neutralizes KeepAliveForegroundService, background BLE observation, companion device manager, and MIUI Nearby discovery to eliminate persistent notifications, wakelocks, and background battery drain.",
+    "id": "f7dfc0711cebee801bd6a1e8:121",
+    "legacy_id": 93492,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Background Optimizer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Xiaomi Earbuds Telemetry Manifest Purge"
+    ],
+    "description": "Neutralizes Firebase Analytics, Xiaomi OneTrack, AutoReportHelper, and GlobalReport telemetry and event dispatching.",
+    "id": "f7dfc0711cebee801bd6a1e8:122",
+    "legacy_id": 93493,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Block Telemetry & Trackers",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Xiaomi Earbuds Device Privacy Guard Manifest Purge"
+    ],
+    "description": "Blinds hardware device IDs, anonymizes device identifiers, neutralizes environment info leakage, and bypasses location checks for Bluetooth scanning.",
+    "id": "f7dfc0711cebee801bd6a1e8:123",
+    "legacy_id": 93494,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Device Privacy Guard",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses startup privacy agreements, onboarding guides, region selector prompts, and Bluetooth permission nags, and disables in-app promotional banners, marketing activities, and store review nag dialogs.",
+    "id": "f7dfc0711cebee801bd6a1e8:124",
+    "legacy_id": 93495,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Disable Promos & Nags",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses mandatory Xiaomi account login checks for firmware update queries, allowing guest users to check and perform device OTA updates.",
+    "id": "f7dfc0711cebee801bd6a1e8:125",
+    "legacy_id": 93496,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Guest OTA Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces DeviceInfoListCache.isShowProduct to return true, bypassing version-gating and distribution restrictions so that all device models are always displayed and discoverable.",
+    "id": "f7dfc0711cebee801bd6a1e8:126",
+    "legacy_id": 93497,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Model Catalog Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Xiaomi Earbuds Network Security Config"
+    ],
+    "description": "Disables cleartext traffic, trusts user-installed certificates, and bypasses OkHttp certificate pinning.",
+    "id": "f7dfc0711cebee801bd6a1e8:127",
+    "legacy_id": 93498,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Network Security & TLS Inspection",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [
+      "Xiaomi Earbuds Offline Manifest Purge"
+    ],
+    "description": "Completely isolates the app from the network by revoking internet permissions and spoofing offline status to prevent background socket failures.",
+    "id": "f7dfc0711cebee801bd6a1e8:128",
+    "legacy_id": 93499,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Offline Only",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": false
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unblocks Spatial Audio, hearing enhancement, and voice wake-up restrictions, unbans Spatial Audio on 96kHz aptX Adaptive connections, and bypasses XPAN requirements.",
+    "id": "f7dfc0711cebee801bd6a1e8:129",
+    "legacy_id": 93500,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Sound Features Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  },
+  {
+    "bundle_id": "f7dfc0711cebee801bd6a1e8",
+    "compatiblePackages": {
+      "com.mi.earphone": [
+        "1.38.0i"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bypasses Xiaomi OEM hardware gating for SuperAivs (function 5009) and suppresses MIUI-specific spatial audio system dialog nags.",
+    "id": "f7dfc0711cebee801bd6a1e8:130",
+    "legacy_id": 93501,
+    "metadata_status": "verified",
+    "name": "Xiaomi Earbuds Surgical OEM Unlock",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Xiaomi Earbuds",
+        "icon_url": "https://play-lh.googleusercontent.com/XAmm2-iOiEdgY73G7iZ_6OPkQe4ig5Qk40IpNeI6Z_dHUPHyH0MheRfKwrBv5tH90bWuZEOquoytHJZsCk8-eA",
+        "name": "com.mi.earphone",
+        "versions": [
+          "1.38.0i"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.46.0",
+    "source_id": "789f3d8b840196ce",
+    "use": true
+  }
+]
