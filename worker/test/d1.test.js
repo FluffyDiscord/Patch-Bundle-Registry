@@ -351,3 +351,74 @@ test("D1 catalog file reads retry after a transient archive failure",async()=>{
   assert.equal(reads,2);
   f.sqlite.close();
 });
+
+test("Operator verifier retries temporary failures on the same REST and GraphQL page",async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  const f=d1Fixture(30),waits=[],logs=[],failures=new Map(),retried=[];
+  const result=await verifyHistoryApi("https://api.test",null,async(url,options)=>{
+    const parsed=new URL(url),body=options?.body && JSON.parse(options.body);
+    const rest=parsed.pathname==="/history/releases" && parsed.searchParams.has("after");
+    const graph=parsed.pathname==="/graphql" && body.query.includes("historical_patches(");
+    if(rest || graph) {
+      const key=JSON.stringify([url,options?.body]),attempt=failures.get(key)??0;
+      failures.set(key,attempt+1);
+      if(attempt===0) {
+        retried.push(key);
+        return Response.json({error:"Temporary upstream failure"},{status:rest?429:503,
+          headers:{"Retry-After":"2"}});
+      }
+    }
+    return worker.fetch(new Request(url,options),f.env);
+  },null,{wait:async delay=>waits.push(delay),log:message=>logs.push(message)});
+  assert.equal(result.releases,30);
+  assert.equal(result.entities.patches,2);
+  assert.equal(retried.length,2);
+  assert.deepEqual(waits,[2000,2000]);
+  assert.ok(retried.every(key=>failures.get(key)===2));
+  assert.ok(logs.some(line=>line.includes("patches offset=0 limit=25")));
+  f.sqlite.close();
+});
+
+test("Operator verifier bounds retries and reports the failed entity page",async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  const f=d1Fixture(),waits=[];
+  let failures=0;
+  try {
+    await assert.rejects(verifyHistoryApi("https://api.test",null,(url,options)=>{
+      if(new URL(url).pathname==="/graphql" &&
+          JSON.parse(options.body).query.includes("historical_patches(")) {
+        failures++;
+        return Response.json({error:"D1 unavailable"},{status:503});
+      }
+      return worker.fetch(new Request(url,options),f.env);
+    },null,{wait:async delay=>waits.push(delay),log:()=>{}}),
+    /HTTP 503 at \/graphql \(patches offset=0 limit=25\): D1 unavailable/);
+    assert.equal(failures,4);
+    assert.deepEqual(waits,[1000,2000,4000]);
+  } finally {f.sqlite.close();}
+});
+
+test("Operator verifier never retries permanent HTTP errors",async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  let calls=0;
+  await assert.rejects(verifyHistoryApi("https://api.test",null,()=>{
+    calls++;
+    return Response.json({error:"Wrong API route"},{status:404});
+  },null,{wait:async()=>assert.fail("Permanent errors must not retry"),log:()=>{}}),/HTTP 404/);
+  assert.equal(calls,1);
+});
+
+test("Operator verifier honors HTTP-date Retry-After without retrying early",async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  const deadline=new Date(Math.ceil(Date.now()/1000)*1000+60000).toUTCString();
+  let calls=0;
+  await assert.rejects(verifyHistoryApi("https://api.test",null,()=>{
+    calls++;
+    return Response.json({error:"Cooling down"},{status:503,headers:{"Retry-After":deadline}});
+  },null,{wait:async delay=>{
+    assert.ok(delay>0);
+    assert.ok(Date.now()+delay>=Date.parse(deadline));
+    throw new Error("Observed server-requested delay");
+  },log:()=>{}}),/Observed server-requested delay/);
+  assert.equal(calls,1);
+});

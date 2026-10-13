@@ -11,24 +11,41 @@ const entities=[
   ["apps","historical_apps",null]
 ];
 const selected=(row,fields)=>Object.fromEntries(fields.map(key=>[key,row[key]??null]));
-export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGeneration=null) {
+export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGeneration=null,
+  {wait=ms=>new Promise(resolve=>setTimeout(resolve,ms)),log=console.log}={}) {
   const origin=new URL(base);
   if(origin.protocol!=="https:" || origin.username || origin.password)
     throw new Error("API URL must use HTTPS without credentials");
   const url=base.replace(/\/$/,"");
-  const json=async(path,options)=>{
-    const response=await fetcher(url+path,options);
-    if(!response.ok) throw new Error("API verification failed with HTTP "+response.status+" at "+path.split("?")[0]);
-    return response.json();
+  const json=async(path,options,context=path)=>{
+    for(let attempt=0;;attempt++) {
+      const response=await fetcher(url+path,options);
+      if(response.ok)return response.json();
+      let detail="";
+      try {
+        const body=await response.json();
+        if(typeof body.error==="string")detail=": "+body.error.slice(0,300);
+      } catch { /* Provider error pages may not contain JSON. */ }
+      const message="API verification failed with HTTP "+response.status+" at "+
+        path.split("?")[0]+" ("+context+")"+detail;
+      if(attempt>=3 || ![429,500,502,503,504].includes(response.status))throw new Error(message);
+      const header=response.headers.get("Retry-After");
+      const retryAfter=header===null ? NaN : /^\d+(?:\.\d+)?$/.test(header.trim()) ?
+        Number(header)*1000 : Date.parse(header)-Date.now();
+      const delay=Math.max(1000*2**attempt,Number.isFinite(retryAfter)?retryAfter:0);
+      log("Retrying "+context+" after HTTP "+response.status+" in "+Math.ceil(delay/1000)+"s");
+      await wait(delay);
+    }
   };
-  const graph=async(query,variables)=>{
+  const graph=async(query,variables,context)=>{
     const result=await json("/graphql",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({query,variables})});
-    if(result.errors) throw new Error("GraphQL verification failed: "+result.errors.map(row=>row.message).join("; "));
+      body:JSON.stringify({query,variables})},context);
+    if(result.errors) throw new Error("GraphQL verification failed ("+context+"): "+result.errors.map(row=>row.message).join("; "));
     return result.data;
   };
   const ids=new Set();
-  let after=null,generation,prereleases=0,documentChunks=0,limit=25,releasesComplete=false;
+  let after=null,generation,prereleases=0,documentChunks=0,limit=25,releasesComplete=false,reported=0;
+  log("Verifying historical releases");
   do {
     const params=new URLSearchParams({limit:String(limit),order:"asc"});
     if(source)params.set("source",source);
@@ -39,7 +56,7 @@ export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGe
       generation??=rest.generation;
       if(expectedGeneration)assert.equal(generation,expectedGeneration,"API generation differs from selected backup");
       assert.equal(rest.generation,generation,"Catalog changed during verification; retry");
-      gql=await graph('query($source:String,$after:String,$limit:Int!){historical_releases(source:$source,after:$after,limit:$limit,order:"asc"){generation next_cursor data{'+releaseFields.join(" ")+'}}}',{source,after,limit});
+      gql=await graph('query($source:String,$after:String,$limit:Int!){historical_releases(source:$source,after:$after,limit:$limit,order:"asc"){generation next_cursor data{'+releaseFields.join(" ")+'}}}',{source,after,limit},"releases after="+(after??"start")+" limit="+limit);
     } catch(error) {
       if(limit>1 && /HTTP 422|Response too large/.test(error.message)) {limit=Math.ceil(limit/2);continue;}
       throw error;
@@ -54,7 +71,7 @@ export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGe
         let offset=0;
         do {
           const chunk=await json("/history/releases/"+row.id+"/document?offset="+offset);
-          const data=await graph('query($id:String!,$offset:Int!){historical_release(id:$id){document(offset:$offset){encoding data total_bytes next_offset}}}',{id:row.id,offset});
+          const data=await graph('query($id:String!,$offset:Int!){historical_release(id:$id){document(offset:$offset){encoding data total_bytes next_offset}}}',{id:row.id,offset},"release document id="+row.id+" offset="+offset);
           assert.deepEqual(data.historical_release.document,chunk);
           assert.equal(chunk.encoding,"base64");
           const length=Buffer.from(chunk.data,"base64").length;
@@ -66,11 +83,15 @@ export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGe
     }
     after=rest.next_cursor;
     releasesComplete=after===null;
+    if(releasesComplete || ids.size-reported>=2500) {
+      log("Verified "+ids.size+" historical releases");reported=ids.size;
+    }
   } while(!releasesComplete);
   const counts={};
   // Entity parity is installation-wide; source filters above scope release inventory only.
   for(const [path,root,selection] of entities) {
-    let offset=0,total,limit=25,entitiesComplete=false;
+    let offset=0,total,limit=25,entitiesComplete=false,reported=0;
+    log("Verifying historical "+path);
     do {
       const params=new URLSearchParams({limit:String(limit),offset:String(offset),generation});
       let rest,gql;
@@ -79,7 +100,7 @@ export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGe
         total??=rest.total;assert.equal(rest.total,total);
         assert.equal(rest.generation,generation);
         gql=await graph('query($offset:Int!,$generation:String!,$limit:Int!){catalog_generation '+root+
-          '(limit:$limit,offset:$offset,generation:$generation)'+(selection?'{'+selection+'}':'')+'}',{offset,generation,limit});
+          '(limit:$limit,offset:$offset,generation:$generation)'+(selection?'{'+selection+'}':'')+'}',{offset,generation,limit},path+" offset="+offset+" limit="+limit);
       } catch(error) {
         if(limit>1 && /HTTP 422|Response too large/.test(error.message)) {limit=Math.ceil(limit/2);continue;}
         throw error;
@@ -93,6 +114,9 @@ export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGe
       assert.deepEqual(gql[root],normalized,"Historical "+path+" differs between protocols");
       offset+=rest.data.length;
       entitiesComplete=offset>=total;
+      if(entitiesComplete || offset-reported>=2500) {
+        log("Verified "+path+" "+offset+"/"+total);reported=offset;
+      }
       if(!rest.data.length)break;
     } while(!entitiesComplete);
     assert.equal(offset,total,"Historical entity pagination missed rows");
