@@ -1,0 +1,3853 @@
+[
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [
+      "Moovit Custom Maps API Key"
+    ],
+    "description": "Restores Google Maps rendering by spoofing the original package signature to Google Play Services.",
+    "id": "24e078118eec11bce0fb5efd:22",
+    "legacy_id": 93683,
+    "metadata_status": "stale",
+    "name": "Fix Google Maps",
+    "options": [
+      {
+        "default": null,
+        "description": "Optional custom Google Maps Platform key. When omitted, built-in keys work automatically via signature spoofing.",
+        "key": "mapsApiKey",
+        "required": false,
+        "title": "Google Maps Platform API key",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables WorkManager background sync services, scheduled jobs, and boot receiver. The WorkManager startup initializer is intentionally preserved because removing it prevents application boot. WARNING: Disabling WorkManager can affect background photo uploads, syncing, and exports.",
+    "id": "24e078118eec11bce0fb5efd:23",
+    "legacy_id": 93684,
+    "metadata_status": "stale",
+    "name": "Lightroom Background Sync",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Purges non-functional build metadata, compiler properties, and duplicate license files from the APK root and META-INF.",
+    "id": "24e078118eec11bce0fb5efd:24",
+    "legacy_id": 93685,
+    "metadata_status": "stale",
+    "name": "Lightroom Junk Cleaner",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected language string tables, resources, and asset JSON files from the APK. Base fallback and English are always preserved.",
+    "id": "24e078118eec11bce0fb5efd:25",
+    "legacy_id": 93686,
+    "metadata_status": "stale",
+    "name": "Locale Slimmer",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to preserve (e.g. 'en, es, pt, fr, de'). Base fallback and English are always retained.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected language string tables and resources from base APK. Base fallback and English are always preserved.",
+    "id": "24e078118eec11bce0fb5efd:26",
+    "legacy_id": 93687,
+    "metadata_status": "stale",
+    "name": "Locale Slimmer",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to preserve (e.g. 'en, es, pt, fr, de'). Base fallback and English are always retained.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.instagram.android": [
+        "447.0.0.55.81"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disable MLKit component discovery and registrars. WARNING: this breaks in-app QR and barcode scanning.",
+    "id": "24e078118eec11bce0fb5efd:27",
+    "legacy_id": 93688,
+    "metadata_status": "stale",
+    "name": "MLKit Vision Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Instagram",
+        "icon_url": "https://play-lh.googleusercontent.com/yHi59jmO_lVamcyJ1i3rM1_E8bAiAspShnGjjURq05ipQQSUksO3QVEsXTegRSqul038-4YNA7O644XAcx251Q",
+        "name": "com.instagram.android",
+        "versions": [
+          "447.0.0.55.81"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips non-essential companion native libraries by zeroing bytes in-situ. Always zeroes AppLovin ad crash reporter. WARNING: Stripping speech recognition and synthesis engines (libspeech*.so) disables voice recognition, voiceover captions, and speech-to-text features.",
+    "id": "24e078118eec11bce0fb5efd:28",
+    "legacy_id": 93689,
+    "metadata_status": "stale",
+    "name": "Native Bloat Slimmer",
+    "options": [
+      {
+        "default": false,
+        "description": "WARNING: Stripping speech recognition and synthesis engines (libspeechengine.so, libspeechepg.so, libspeechsdk.so) breaks voice effects, text-to-speech, and automatic captions.",
+        "key": "trimSpeechEngines",
+        "required": false,
+        "title": "Trim Speech Engines (Breaks Voice Features)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Bottom navigation, FAB, tabs and bars",
+    "id": "24e078118eec11bce0fb5efd:29",
+    "legacy_id": 93690,
+    "metadata_status": "stale",
+    "name": "Navigation UI",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide badges and unread indicator counters from navigation bar icons",
+        "key": "hideBadges",
+        "required": false,
+        "title": "Hide Badges",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide secondary action expansion menu on floating action button",
+        "key": "hideFabMenu",
+        "required": false,
+        "title": "Hide FAB Menu",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle persistent bottom navigation bar behavior",
+        "key": "navigationBar",
+        "required": false,
+        "title": "Navigation Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Grok tab from bottom navigation bar",
+        "key": "grokTab",
+        "required": false,
+        "title": "Grok Tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle rich explore tab surfaces",
+        "key": "exploreTabs",
+        "required": false,
+        "title": "Explore Tabs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle rich search tab items and surfaces",
+        "key": "searchTabItems",
+        "required": false,
+        "title": "Search Tab Items",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle drawer sidebar items including Grok assistant entry",
+        "key": "sideBarItems",
+        "required": false,
+        "title": "Side Bar Items",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Expands t.co shortened URLs, removing the click-tracking intermediary",
+    "id": "24e078118eec11bce0fb5efd:30",
+    "legacy_id": 93691,
+    "metadata_status": "stale",
+    "name": "No Shortened URL",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Stops persisting search suggestions locally without breaking search",
+    "id": "24e078118eec11bce0fb5efd:31",
+    "legacy_id": 93692,
+    "metadata_status": "stale",
+    "name": "Pause Search Suggestions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Post actions, profile header and Grok surfaces",
+    "id": "24e078118eec11bce0fb5efd:32",
+    "legacy_id": 93693,
+    "metadata_status": "stale",
+    "name": "Post & Profile UI",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide Grok analysis action button in post headers",
+        "key": "hideGrokPostAction",
+        "required": false,
+        "title": "Hide Grok Post Action",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide Grok Imagine action button on profile header banner",
+        "key": "hideProfileGrokButton",
+        "required": false,
+        "title": "Hide Profile Grok Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle extra connect and media tabs on user profiles",
+        "key": "profileTabs",
+        "required": false,
+        "title": "Profile Tabs",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips optional companion native binaries (React Native and Hermes JavaScript runtime stack) via in-situ zeroing. WARNING: stripped libraries are load-bearing for React Native initialization - enabling this WILL crash the app with UnsatisfiedLinkError when Copilot or other React Native surfaces start, not merely hide those features.",
+    "id": "24e078118eec11bce0fb5efd:33",
+    "legacy_id": 93694,
+    "metadata_status": "stale",
+    "name": "PowerPoint Companion Native Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips drawables for unselected screen densities from PowerPoint base APK while preserving launcher icons and single-density assets. WARNING: Displays matching stripped densities will scale preserved assets.",
+    "id": "24e078118eec11bce0fb5efd:34",
+    "legacy_id": 93695,
+    "metadata_status": "stale",
+    "name": "PowerPoint DPI Slimmer",
+    "options": [
+      {
+        "default": "xxhdpi",
+        "description": "Screen density to preserve (ldpi, mdpi, tvdpi, hdpi, xhdpi, xxhdpi, xxxhdpi). Default is xxhdpi.",
+        "key": "dpi",
+        "required": false,
+        "title": "Target screen density",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected localized resource directories (res/values-<locale>/) from PowerPoint base APK. English (en, en-us) is always retained. WARNING: Application strings for stripped locales will fall back to English.",
+    "id": "24e078118eec11bce0fb5efd:35",
+    "legacy_id": 93696,
+    "metadata_status": "stale",
+    "name": "PowerPoint Locale Slimmer",
+    "options": [
+      {
+        "default": "en",
+        "description": "Comma-separated language codes to preserve (e.g. 'en, es, fr, de'). English fallback (en, en-us) is always retained.",
+        "key": "locales",
+        "required": false,
+        "title": "Locales to keep",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides banner and inline ads and neutralizes ad unit ID lookups.",
+    "id": "24e078118eec11bce0fb5efd:36",
+    "legacy_id": 93697,
+    "metadata_status": "stale",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes promoted posts, trends and ads from timeline",
+    "id": "24e078118eec11bce0fb5efd:37",
+    "legacy_id": 93698,
+    "metadata_status": "stale",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes premium upsell surfaces",
+    "id": "24e078118eec11bce0fb5efd:38",
+    "legacy_id": 93699,
+    "metadata_status": "stale",
+    "name": "Remove Premium Upsell",
+    "options": [
+      {
+        "default": true,
+        "description": "Hide Get Verified upsell pill on user profile",
+        "key": "hideProfileGetVerified",
+        "required": false,
+        "title": "Hide Profile Get Verified",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the sharedUserId attribute from the manifest to prevent installation conflicts.",
+    "id": "24e078118eec11bce0fb5efd:39",
+    "legacy_id": 93700,
+    "metadata_status": "stale",
+    "name": "Remove Shared User ID",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected screen density assets and purges non-phone UI mode qualifiers. Launcher icons, nodpi/anydpi, and single-density orphans are always preserved.",
+    "id": "24e078118eec11bce0fb5efd:40",
+    "legacy_id": 93701,
+    "metadata_status": "stale",
+    "name": "Screen Density Slimmer",
+    "options": [
+      {
+        "default": "xxhdpi",
+        "description": "Screen density to preserve (e.g. 'xxhdpi', 'xhdpi', 'hdpi', 'mdpi', 'xxxhdpi'). Single-density orphans, launcher icons, and nodpi/anydpi are always protected.",
+        "key": "density",
+        "required": false,
+        "title": "Target screen density",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Strips unselected screen density assets and purges non-phone UI mode qualifiers. Launcher icons, nodpi/anydpi, and single-density orphans are always preserved.",
+    "id": "24e078118eec11bce0fb5efd:41",
+    "legacy_id": 93702,
+    "metadata_status": "stale",
+    "name": "Screen Density Slimmer",
+    "options": [
+      {
+        "default": "xxhdpi",
+        "description": "Screen density to preserve (e.g. 'xxhdpi', 'xhdpi', 'hdpi', 'mdpi', 'xxxhdpi'). Single-density orphans, launcher icons, and nodpi/anydpi are always protected.",
+        "key": "density",
+        "required": false,
+        "title": "Target screen density",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Custom sharing domain, handle custom links and legacy share links",
+    "id": "24e078118eec11bce0fb5efd:42",
+    "legacy_id": 93703,
+    "metadata_status": "stale",
+    "name": "Share Links",
+    "options": [
+      {
+        "default": true,
+        "description": "Substitutes twitter.com/x.com with custom domain when sharing post links",
+        "key": "customSharingDomain",
+        "required": false,
+        "title": "Enable Custom Domain",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": "https://fxtwitter.com",
+        "description": "Domain replacing x.com when sharing post links, e.g. https://fxtwitter.com",
+        "key": "sharingDomain",
+        "required": false,
+        "title": "Custom Sharing Domain",
+        "type": "kotlin.String",
+        "values": {
+          "FixTweet (fxtwitter.com)": "https://fxtwitter.com",
+          "FixUpX (fixupx.com)": "https://fixupx.com",
+          "VXTwitter (vxtwitter.com)": "https://vxtwitter.com"
+        }
+      },
+      {
+        "default": true,
+        "description": "Enables in-app handling of alternative Twitter domains (vxtwitter.com, fxtwitter.com, fixupx.com)",
+        "key": "handleCustomLinks",
+        "required": false,
+        "title": "Handle Custom Links",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Restores post author username in shared links instead of the modern generic /i/status/ format",
+        "key": "legacyShareLinks",
+        "required": false,
+        "title": "Legacy Share Links",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Displays sensitive media directly without requiring tap to reveal",
+    "id": "24e078118eec11bce0fb5efd:43",
+    "legacy_id": 93704,
+    "metadata_status": "stale",
+    "name": "Show Sensitive Media",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Ensures compatibility for sideloaded lab installs by allowing local installer source checks to report success and completing Play Integrity token requests. Required for sideloaded lab installs: without it the app routes to the Play Store.",
+    "id": "24e078118eec11bce0fb5efd:44",
+    "legacy_id": 93705,
+    "metadata_status": "stale",
+    "name": "Sideload Install Support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Suppresses subscription paywalls, onboarding upgrade dialogs, and promotional cards.",
+    "id": "24e078118eec11bce0fb5efd:45",
+    "legacy_id": 93706,
+    "metadata_status": "stale",
+    "name": "Suppress Paywalls",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Timeline surfaces: posts, threads, banners, recommendations and video entry points",
+    "id": "24e078118eec11bce0fb5efd:46",
+    "legacy_id": 93707,
+    "metadata_status": "stale",
+    "name": "Timeline UI",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides new post banner",
+        "key": "hideBanner",
+        "required": false,
+        "title": "Hide Banner",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides promote button under self posts",
+        "key": "hidePromoteButton",
+        "required": false,
+        "title": "Hide Promote Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides follow/subscribe/follow back buttons on posts",
+        "key": "hideNudgeButton",
+        "required": false,
+        "title": "Hide Nudge Button",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides recommendation items such as Who to follow and Today's news in timeline, search, and replies",
+        "key": "hideRecommendationItems",
+        "required": false,
+        "title": "Hide Recommendation Items",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides Discover more recommendations in tweet reply threads",
+        "key": "hideDiscoverMore",
+        "required": false,
+        "title": "Hide Discover More",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides recommended users popup shown when following someone",
+        "key": "hideRecommendedUsers",
+        "required": false,
+        "title": "Hide Recommended Users",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides live threads",
+        "key": "hideLiveThreads",
+        "required": false,
+        "title": "Hide Live Threads",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide community notes and birdwatch contributions on posts",
+        "key": "hideCommunityNotes",
+        "required": false,
+        "title": "Hide Community Notes",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide like, repost, and reply count metrics on timeline posts",
+        "key": "hidePostMetrics",
+        "required": false,
+        "title": "Hide Post Metrics",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide post view count metrics on timeline and post detail",
+        "key": "hideViewCount",
+        "required": false,
+        "title": "Hide View Count",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle inline action buttons across notification timeline",
+        "key": "inlineActionBar",
+        "required": false,
+        "title": "Inline Action Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hide add tab (+) button in home timeline tab header",
+        "key": "timelineAddTab",
+        "required": false,
+        "title": "Timeline Add Tab",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Toggle top bar elements in home and custom timelines",
+        "key": "timelineTopBar",
+        "required": false,
+        "title": "Timeline Top Bar",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides live and broadcast pill at top of home timeline",
+        "key": "hideLiveBanner",
+        "required": false,
+        "title": "Hide Live Banner",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.microsoft.office.powerpoint": [
+        "16.0.20527.20034"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Microsoft 365 Family subscription features locally.",
+    "id": "24e078118eec11bce0fb5efd:47",
+    "legacy_id": 93708,
+    "metadata_status": "stale",
+    "name": "Unlock 365 Family",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Microsoft PowerPoint",
+        "icon_url": "https://play-lh.googleusercontent.com/T1Jpfdfi6q8x0da-eNvBve4UlTxxLBGDFEeXR9sH5uFwU5m6EUpaK6vL4J3t4Gc9RlzDCgmsp4N4E8aeNCmNCw",
+        "name": "com.microsoft.office.powerpoint",
+        "versions": [
+          "16.0.20527.20034"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.tranzmate": [
+        "5.201.1.1809"
+      ]
+    },
+    "dependencies": [],
+    "description": "Unlocks Moovit+ premium subscription features locally, including Safe Ride and address search in favorites.",
+    "id": "24e078118eec11bce0fb5efd:48",
+    "legacy_id": 93709,
+    "metadata_status": "stale",
+    "name": "Unlock Moovit+",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Moovit: Your Transit Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/pKE_kPsExlHJ3q68oDr4sMdhRoskymtTGak4QaS_TXVrdOXq5uANlza3UGnG94vzslF45crK3NcbWFMC7obNMw",
+        "name": "com.tranzmate",
+        "versions": [
+          "5.201.1.1809"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.lemon.lvoverseas": [
+        "19.7.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Forces CapCut VIP gates to return true (SubscribeImpl, PayVipImpl, UserVipInfo, UserDetailInfo, VipUserServiceImpl, SubscribeCloudImpl). Cloud-gated assets may still fail.",
+    "id": "24e078118eec11bce0fb5efd:49",
+    "legacy_id": 93710,
+    "metadata_status": "stale",
+    "name": "Unlock Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "CapCut - Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ",
+        "name": "com.lemon.lvoverseas",
+        "versions": [
+          "19.7.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.adobe.lrmobile": [
+        "11.6.01"
+      ]
+    },
+    "dependencies": [
+      "Sideload Install Support"
+    ],
+    "description": "Enables app features locked behind subscription paywalls by activating the internal Limited-Time Premium Unlock (LTPU) gate. Requires Sideload Install Support (applied automatically as dependency).",
+    "id": "24e078118eec11bce0fb5efd:50",
+    "legacy_id": 93711,
+    "metadata_status": "stale",
+    "name": "Unlock Premium Features",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Lightroom Photo & Video Editor",
+        "icon_url": "https://play-lh.googleusercontent.com/ALv_YzwUQTXc17qvu2oy7JTl8Qn-zm22M4FoZKVv2Ru541nDa2EltKPSlv_KyQGacLdpHLotR9Z98bamyEd9rKc",
+        "name": "com.adobe.lrmobile",
+        "versions": [
+          "11.6.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": true
+  },
+  {
+    "bundle_id": "24e078118eec11bce0fb5efd",
+    "compatiblePackages": {
+      "com.twitter.android": [
+        "12.33.1-prod.01"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables MLKit component discovery and registrars. WARNING: this breaks in-app QR and barcode scanning.",
+    "id": "24e078118eec11bce0fb5efd:51",
+    "legacy_id": 93712,
+    "metadata_status": "stale",
+    "name": "X MLKit Vision Slimmer",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "X",
+        "icon_url": "https://play-lh.googleusercontent.com/IsLsCD4eLC2CYvlkgTI6Z5TROj0BJIBgUF7BZ5eliTzyyTjqG_mbofeG4kw2s7oG_JZMSi5ErLz_qsDi169C8w",
+        "name": "com.twitter.android",
+        "versions": [
+          "12.33.1-prod.01"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.12.5",
+    "source_id": "3e350530cd31ae24",
+    "use": false
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Builds microG Maps, a separate app (org.ungoogled.android.apps.maps.microg) that signs in to your Google account through microG: saved places and lists, Timeline, location sharing, contributions and push messages. Remove sign-in prompts, Trim account menu and Remove permissions are left out of this build, Offline saved places keeps only its Local saved screen, which copies your account's saved lists to the phone (Pull from Google account), and its icon carries microG's C. Needs microG: MicroG-RE or ReVanced GmsCore. Not for root (mount) installs.",
+    "id": "29e11bd73a865c0734d58285:0",
+    "legacy_id": 93713,
+    "metadata_status": "verified",
+    "name": "Add microG support",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": false
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [
+      "Allow external media browser launch"
+    ],
+    "description": "Allows Google Maps, Android Auto, and third-party media controllers to connect to YouTube Music.",
+    "id": "29e11bd73a865c0734d58285:1",
+    "legacy_id": 93714,
+    "metadata_status": "verified",
+    "name": "Allow external media browser connections",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": null
+    },
+    "dependencies": [],
+    "description": "Adds MAIN and DEFAULT intent-filters to MusicActivity so external controllers like Google Maps can open the app.",
+    "id": "29e11bd73a865c0734d58285:2",
+    "legacy_id": 93715,
+    "metadata_status": "verified",
+    "name": "Allow external media browser launch",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "YouTube Music",
+        "icon_url": "https://play-lh.googleusercontent.com/MyptZXmcCyF59phIWPsNCfHq6zSO_ojEdw_4rMYYWPOGdikSjqeOXcoszBZ053VYpINe5K7ZR9KV1nkFWgxdOw",
+        "name": "com.google.android.apps.youtube.music",
+        "versions": []
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Allow Morphe YouTube Music package visibility"
+    ],
+    "description": "Enables YouTube Music and modded media apps as the navigation mini player.",
+    "id": "29e11bd73a865c0734d58285:3",
+    "legacy_id": 93716,
+    "metadata_status": "verified",
+    "name": "Allow Morphe YouTube Music mini player",
+    "options": [
+      {
+        "default": "app.morphe.android.apps.youtube.music",
+        "description": "Package name of your modded YouTube Music app.",
+        "key": "targetPackage",
+        "required": false,
+        "title": "YouTube Music package name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds package queries and permission to AndroidManifest.xml for full media apps visibility.",
+    "id": "29e11bd73a865c0734d58285:4",
+    "legacy_id": 93717,
+    "metadata_status": "verified",
+    "name": "Allow Morphe YouTube Music package visibility",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "AMOLED-black theme. Pins Maps' own dark mode and its separate navigation colour scheme, and remaps colour resources, drawable fills and draw-time paints so no surface is left grey.",
+    "id": "29e11bd73a865c0734d58285:5",
+    "legacy_id": 93718,
+    "metadata_status": "verified",
+    "name": "Black theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Restore map data"
+    ],
+    "description": "Makes Maps' bundled Play services signature and availability checks always pass, so it runs re-signed and with Play services disabled or absent, and lets it load tiles, search and routing by sending Google's own package and certificate in the identity headers the Maps backend checks. Where Play services rejects the re-signed app, Maps degrades instead of crashing.",
+    "id": "29e11bd73a865c0734d58285:6",
+    "legacy_id": 93719,
+    "metadata_status": "verified",
+    "name": "Bypass Play Services checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs alongside stock Google Maps under its own package name and adds MicroG spoofing.",
+    "id": "29e11bd73a865c0734d58285:7",
+    "legacy_id": 93720,
+    "metadata_status": "verified",
+    "name": "Change package name",
+    "options": [
+      {
+        "default": "app.morphe.android.apps.maps",
+        "description": "The package name to install under.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Customization row under Settings on the account sheet, with switches for the patches here that can be turned back off inside the app.",
+    "id": "29e11bd73a865c0734d58285:8",
+    "legacy_id": 93721,
+    "metadata_status": "verified",
+    "name": "Customization screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Elevates the right-side navigation buttons (Search, Sound, Report, Media) above the media player and bottom panel during turn-by-turn navigation in portrait mode.",
+    "id": "29e11bd73a865c0734d58285:9",
+    "legacy_id": 93722,
+    "metadata_status": "verified",
+    "name": "Elevate right navigation buttons",
+    "options": [
+      {
+        "default": 165,
+        "description": "Height in dp to elevate the right navigation buttons above the media player.",
+        "key": "elevationDp",
+        "required": false,
+        "title": "Elevation (dp)",
+        "type": "kotlin.Int",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds a Location source choice to the Customization screen: Android's own location providers, microG's (microg Services) or Google Play services' fused provider. With Android, neither is ever asked for a location. A source that is missing or disabled is never used, so location keeps working without it. Also keeps the network (Wi-Fi/cell) provider registered when no fused provider answers, instead of GPS only, so a fix does not go stale indoors.",
+    "id": "29e11bd73a865c0734d58285:10",
+    "legacy_id": 93723,
+    "metadata_status": "verified",
+    "name": "Location provider toggle",
+    "options": [
+      {
+        "default": false,
+        "description": "The location source Maps starts with. On: the fused provider -- Google Play services', or microG's in microG Maps -- whenever it is installed and enabled, Android's own providers otherwise. Off: Android's own providers. Can be changed later on the Customization screen.",
+        "key": "useFusedProvider",
+        "required": false,
+        "title": "Default to Play services location",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [
+      "Customization screen"
+    ],
+    "description": "Brings the Pixel-only power saving mode to every phone: while driving with navigation, press the power button and Maps shows only key information such as the next turn on a black screen. Turn it on or off in Settings > Navigation > Power saving mode. Pixels that have it built in keep Google's own version unless Power saving mode is turned on in Power Saving Options, a row on the account sheet under Customization, which also has: a navigation button that opens the power saving screen without locking the phone, switching to it by itself when idle, a speedometer on it, a lower frame rate, and its black map in navigation or all over Maps.",
+    "id": "29e11bd73a865c0734d58285:11",
+    "legacy_id": 93724,
+    "metadata_status": "verified",
+    "name": "Power saving mode",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes permissions that only serve Google-account features or Google's data collection: background location, physical activity, contacts, microphone (voice search stops working), camera (Lens and Live View stop working), car speed, advertising ID, push messages and Google services settings. Left out with Add microG support, whose account features need them.",
+    "id": "29e11bd73a865c0734d58285:12",
+    "legacy_id": 93725,
+    "metadata_status": "verified",
+    "name": "Remove permissions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Points the Firebase Installations and Play services compliance check-ins at an unresolvable host, stops every ad impression and click ping from being sent, and deregisters Google's logging, performance-monitoring, survey and Location History libraries and the on-device federated-learning services.",
+    "id": "29e11bd73a865c0734d58285:13",
+    "legacy_id": 93726,
+    "metadata_status": "verified",
+    "name": "Remove telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "29e11bd73a865c0734d58285",
+    "compatiblePackages": {
+      "com.google.android.apps.maps": [
+        "26.36.04.973607363"
+      ]
+    },
+    "dependencies": [],
+    "description": "Lets a re-signed Maps load tiles, search and routing, by sending Google's own package and certificate.",
+    "id": "29e11bd73a865c0734d58285:14",
+    "legacy_id": 93727,
+    "metadata_status": "verified",
+    "name": "Restore map data",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Google Maps",
+        "icon_url": "https://play-lh.googleusercontent.com/B8pdO_2K5nBsF0g1h6dKwV_jQFLP-XombGDEQGtJT-mw1EUKCKJpa9lBGCF4rP_MwCsozSXyvI3z19g9R3J4",
+        "name": "com.google.android.apps.maps",
+        "versions": [
+          "26.36.04.973607363"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.3.0",
+    "source_id": "25cb4160ad617030",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Changes the app name shown in the headset's library and in app info. The stock name is just \"YouTube\", which is easy to confuse with the store app.",
+    "id": "308fe30572831a595599a888:0",
+    "legacy_id": 93728,
+    "metadata_status": "stale",
+    "name": "App name",
+    "options": [
+      {
+        "default": "YouTube VR (patched)",
+        "description": "Shown in the headset library and in app info. A distinct name makes the patched app easy to tell apart from the store one.",
+        "key": "appName",
+        "required": true,
+        "title": "App name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables DRC (Dynamic Range Compression) audio.",
+    "id": "308fe30572831a595599a888:1",
+    "legacy_id": 93729,
+    "metadata_status": "stale",
+    "name": "Disable DRC audio",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to disable QUIC (Quick UDP Internet Connections) network protocol.",
+    "id": "308fe30572831a595599a888:2",
+    "legacy_id": 93730,
+    "metadata_status": "stale",
+    "name": "Disable QUIC protocol",
+    "options": [
+      {
+        "default": false,
+        "description": "",
+        "key": "disableQuic",
+        "required": false,
+        "title": "Disable QUIC protocol",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": false
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Injects the YouTube VR patch extension used by streaming patches.",
+    "id": "308fe30572831a595599a888:3",
+    "legacy_id": 93731,
+    "metadata_status": "stale",
+    "name": "Extension",
+    "options": [
+      {
+        "default": true,
+        "description": "",
+        "key": "enableStreamSpoof",
+        "required": false,
+        "title": "Ad-free streaming spoof (recommended)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "",
+        "key": "enableDiagnostics",
+        "required": false,
+        "title": "Verbose diagnostics (development only)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "",
+        "key": "enableIdentityMatrix",
+        "required": false,
+        "title": "Probe identity matrix (~14 requests; needs Verbose diagnostics)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "",
+        "key": "enableNativeFormats",
+        "required": false,
+        "title": "Native formats without SABR (retired experiment)",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "",
+        "key": "enable8k",
+        "required": false,
+        "title": "8K: accept the AV1 8K HDR tier as SDR (experiment)",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides video ads.",
+    "id": "308fe30572831a595599a888:4",
+    "legacy_id": 93732,
+    "metadata_status": "stale",
+    "name": "Hide ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the client side ad configuration and cue points for server-stitched (SSAI) streams. Does not remove the ad itself; off by default.",
+    "id": "308fe30572831a595599a888:5",
+    "legacy_id": 93733,
+    "metadata_status": "stale",
+    "name": "Hide stitched ads (SSAI)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": false
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Installs the patched app as a separate app by default, so it sits alongside the store's YouTube VR instead of replacing it. Replace mode keeps the official package name: the store copy has to be removed to satisfy the signing difference, Horizon OS then treats this build as the YouTube VR app (a restore prompt, and a warning on every reboot), and a store update will collide with it because this build is signed differently.",
+    "id": "308fe30572831a595599a888:6",
+    "legacy_id": 93734,
+    "metadata_status": "stale",
+    "name": "Install as clone",
+    "options": [
+      {
+        "default": "app.morphe.android.youtube",
+        "description": "Clone installs a second app under its own package name and leaves the store app untouched (recommended). Replace keeps com.google.android.apps.youtube.vr.oculus: the store app must be uninstalled first, Meta then warns on every reboot, and the next store update fails on the signature mismatch.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "app.morphe.android.youtube": "Clone — separate app next to the store app (recommended)",
+          "com.google.android.apps.youtube.vr.oculus": "Replace the official app — removes the store copy; Meta then treats this build as YouTube VR"
+        }
+      },
+      {
+        "default": true,
+        "description": "Update custom permissions declared by the app. Fixes installation conflicts, but can break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Update provider names declared by the app. Fixes installation conflicts, but can break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction.",
+    "id": "308fe30572831a595599a888:7",
+    "legacy_id": 93735,
+    "metadata_status": "stale",
+    "name": "Remove viewer discretion dialog",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Automatically skips SponsorBlock segments (sponsors, self-promos, intros, ...). Off by default; configure per-category behaviour below.",
+    "id": "308fe30572831a595599a888:8",
+    "legacy_id": 93736,
+    "metadata_status": "stale",
+    "name": "SponsorBlock",
+    "options": [
+      {
+        "default": "https://sponsor.ajay.app",
+        "description": "A self-hosted SponsorBlock instance works too. Must be the bare origin (scheme, host, optional port), no path.",
+        "key": "sponsorBlockApi",
+        "required": false,
+        "title": "SponsorBlock API base",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "skip-once",
+        "description": "",
+        "key": "sponsorCategory",
+        "required": false,
+        "title": "Sponsor",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "seekbar-only",
+        "description": "",
+        "key": "selfpromoCategory",
+        "required": false,
+        "title": "Self-promotion",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "seekbar-only",
+        "description": "",
+        "key": "interactionCategory",
+        "required": false,
+        "title": "Interaction reminder",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "seekbar-only",
+        "description": "",
+        "key": "introCategory",
+        "required": false,
+        "title": "Intermission/intro",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "seekbar-only",
+        "description": "",
+        "key": "outroCategory",
+        "required": false,
+        "title": "Outro/endcards",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "ignore",
+        "description": "",
+        "key": "previewCategory",
+        "required": false,
+        "title": "Preview/recap",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "ignore",
+        "description": "",
+        "key": "hookCategory",
+        "required": false,
+        "title": "Hook (padding after intro)",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "ignore",
+        "description": "",
+        "key": "fillerCategory",
+        "required": false,
+        "title": "Filler tangent",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "seekbar-only",
+        "description": "",
+        "key": "musicOfftopicCategory",
+        "required": false,
+        "title": "Music: non-music",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      },
+      {
+        "default": "seekbar-only",
+        "description": "",
+        "key": "poiHighlightCategory",
+        "required": false,
+        "title": "Highlight (jump to point)",
+        "type": "kotlin.String",
+        "values": {
+          "ignore": "Leave alone",
+          "manual-skip": "Show a Skip button -- no button here: same as seekbar-only",
+          "seekbar-only": "Show on the seekbar only (never skips)",
+          "skip": "Skip automatically (a backwards seek skips it again)",
+          "skip-once": "Skip automatically once (a backwards seek stays)"
+        }
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": false
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to trick the app into thinking you are running a different version.",
+    "id": "308fe30572831a595599a888:9",
+    "legacy_id": 93737,
+    "metadata_status": "stale",
+    "name": "Spoof app version",
+    "options": [
+      {
+        "default": "1.88.10",
+        "description": "",
+        "key": "spoofedVersionName",
+        "required": false,
+        "title": "Spoofed version name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Reports the app as an Android Automotive device, the way the phone patch set blocks video ads.",
+    "id": "308fe30572831a595599a888:10",
+    "legacy_id": 93738,
+    "metadata_status": "stale",
+    "name": "Spoof osName (Android Automotive)",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": false
+  },
+  {
+    "bundle_id": "308fe30572831a595599a888",
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.vr.oculus": [
+        "1.88.10"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an option to report a different app package name in the Cronet User-Agent.",
+    "id": "308fe30572831a595599a888:11",
+    "legacy_id": 93739,
+    "metadata_status": "stale",
+    "name": "Spoof package name in User-Agent",
+    "options": [
+      {
+        "default": "com.google.android.apps.youtube.vr.oculus",
+        "description": "",
+        "key": "spoofedPackageName",
+        "required": false,
+        "title": "Spoofed package name",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "com.google.android.apps.youtube.vr.oculus",
+        "icon_url": null,
+        "name": "com.google.android.apps.youtube.vr.oculus",
+        "versions": [
+          "1.88.10"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.23.1",
+    "source_id": "0d2ce8936e7956d5",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "org.cris.aikyam": [
+        "2.1.62"
+      ]
+    },
+    "dependencies": [
+      "Bypass signature check"
+    ],
+    "description": "Bypasses app usb debugging, wireless debugging and developer options checks.",
+    "id": "4bbeb7020332b329a9412200:0",
+    "legacy_id": 93740,
+    "metadata_status": "stale",
+    "name": "Bypass developer options",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RailOne",
+        "icon_url": "https://play-lh.googleusercontent.com/7XxvSU3Kzy0cfDKCPwHi3z6c8MG2HGklycjrfRR8OpujqdlV_5FbymMKSm3QNFvagNtoDcGAViKD-cEoZZPq-Q",
+        "name": "org.cris.aikyam",
+        "versions": [
+          "2.1.62"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "com.ipay.mobile": [
+        "4.17.2",
+        "4.17.0"
+      ]
+    },
+    "dependencies": [
+      "Disable Pairip license check"
+    ],
+    "description": "Bypasses startup validation: client-side licensing and Developer Option / USB / Wireless debugging state checks.",
+    "id": "4bbeb7020332b329a9412200:1",
+    "legacy_id": 93741,
+    "metadata_status": "stale",
+    "name": "Bypass device integrity checks",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "iPay Sri Lanka",
+        "icon_url": "https://play-lh.googleusercontent.com/-WVRhmAD-OD3Uvg0Pn7dkwiwd2WP9RH_Xlwv_zN757fpin4vbuBwUOx-H1lOT_vfMTCMQR3Xb2trHZ1N_M7YwA",
+        "name": "com.ipay.mobile",
+        "versions": [
+          "4.17.2",
+          "4.17.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "org.cris.aikyam": [
+        "2.1.62"
+      ]
+    },
+    "dependencies": [
+      "Spoof signature verification"
+    ],
+    "description": "Bypasses app anti-tampering protection so to work when signed by a different signature.",
+    "id": "4bbeb7020332b329a9412200:2",
+    "legacy_id": 93742,
+    "metadata_status": "stale",
+    "name": "Bypass signature check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "RailOne",
+        "icon_url": "https://play-lh.googleusercontent.com/7XxvSU3Kzy0cfDKCPwHi3z6c8MG2HGklycjrfRR8OpujqdlV_5FbymMKSm3QNFvagNtoDcGAViKD-cEoZZPq-Q",
+        "name": "org.cris.aikyam",
+        "versions": [
+          "2.1.62"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Changes the app package name to allow installing the same app multiple times. By default \".morphe\" is appended to the package name. Each cloned install must use a unique package name. Cloning does not work with all apps and using this patch may cause app crashes or other unexpected behavior.",
+    "id": "4bbeb7020332b329a9412200:3",
+    "legacy_id": 93743,
+    "metadata_status": "stale",
+    "name": "Clone app",
+    "options": [
+      {
+        "default": "Default",
+        "description": "Package name to use for the cloned app.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": false,
+        "description": "Update custom permissions declared by the app. Enabling this can fix installation conflicts, but this can also break features in certain apps.",
+        "key": "updatePermissions",
+        "required": false,
+        "title": "Update permissions",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Update provider names declared by the app. Enabling this can fix installation conflicts, but this can also break features in certain apps.",
+        "key": "updateProviders",
+        "required": false,
+        "title": "Update providers",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": false
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Disables Play Integrity API (pairip) client-side license check. This patch does not bypass Play Integrity attestation or pairipcore virtualization.",
+    "id": "4bbeb7020332b329a9412200:4",
+    "legacy_id": 93744,
+    "metadata_status": "stale",
+    "name": "Disable Pairip license check",
+    "options": [],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": false
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "com.laurencedawson.reddit_sync": [
+        "v23.06.30-13:39"
+      ]
+    },
+    "dependencies": [],
+    "description": "Uses Reddit search for Other discussions and applies the selected sort.",
+    "id": "4bbeb7020332b329a9412200:5",
+    "legacy_id": 93745,
+    "metadata_status": "stale",
+    "name": "Fix Other discussions",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.laurencedawson.reddit_sync",
+        "icon_url": null,
+        "name": "com.laurencedawson.reddit_sync",
+        "versions": [
+          "v23.06.30-13:39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "com.laurencedawson.reddit_sync": [
+        "v23.06.30-13:39"
+      ]
+    },
+    "dependencies": [],
+    "description": "Fixes an occasional crash while browsing Reddit.",
+    "id": "4bbeb7020332b329a9412200:6",
+    "legacy_id": 93746,
+    "metadata_status": "stale",
+    "name": "Fix random crash",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.laurencedawson.reddit_sync",
+        "icon_url": null,
+        "name": "com.laurencedawson.reddit_sync",
+        "versions": [
+          "v23.06.30-13:39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "com.laurencedawson.reddit_sync": [
+        "v23.06.30-13:39"
+      ]
+    },
+    "dependencies": [],
+    "description": null,
+    "id": "4bbeb7020332b329a9412200:7",
+    "legacy_id": 93747,
+    "metadata_status": "stale",
+    "name": "Fix Redgifs API",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.laurencedawson.reddit_sync",
+        "icon_url": null,
+        "name": "com.laurencedawson.reddit_sync",
+        "versions": [
+          "v23.06.30-13:39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "com.laurencedawson.reddit_sync": [
+        "v23.06.30-13:39"
+      ]
+    },
+    "dependencies": [],
+    "description": "Merges profile submissions and comments from Arctic Shift and Reddit.",
+    "id": "4bbeb7020332b329a9412200:8",
+    "legacy_id": 93748,
+    "metadata_status": "stale",
+    "name": "Merge profile feeds",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.laurencedawson.reddit_sync",
+        "icon_url": null,
+        "name": "com.laurencedawson.reddit_sync",
+        "versions": [
+          "v23.06.30-13:39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "com.laurencedawson.reddit_sync": [
+        "v23.06.30-13:39"
+      ]
+    },
+    "dependencies": [],
+    "description": "Falls back to Sync's in-app WebView when native Redgifs playback fails.",
+    "id": "4bbeb7020332b329a9412200:9",
+    "legacy_id": 93749,
+    "metadata_status": "stale",
+    "name": "Open Redgifs links in WebView on failure",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.laurencedawson.reddit_sync",
+        "icon_url": null,
+        "name": "com.laurencedawson.reddit_sync",
+        "versions": [
+          "v23.06.30-13:39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "com.laurencedawson.reddit_sync": [
+        "v23.06.30-13:39"
+      ]
+    },
+    "dependencies": [],
+    "description": "Restores deleted or removed post content from Arctic Shift when available.",
+    "id": "4bbeb7020332b329a9412200:10",
+    "legacy_id": 93750,
+    "metadata_status": "stale",
+    "name": "Restore deleted posts",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "com.laurencedawson.reddit_sync",
+        "icon_url": null,
+        "name": "com.laurencedawson.reddit_sync",
+        "versions": [
+          "v23.06.30-13:39"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the app's package certificate hash used by Firebase Installations so that push notifications, remote config, and other Firebase services continue to work as expected.",
+    "id": "4bbeb7020332b329a9412200:11",
+    "legacy_id": 93751,
+    "metadata_status": "stale",
+    "name": "Spoof Firebase certificate hash",
+    "options": [
+      {
+        "default": null,
+        "description": "The SHA-1 hash of the app's package certificate.",
+        "key": "certificateHash",
+        "required": true,
+        "title": "Certificate hash",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": false
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": null,
+    "dependencies": [],
+    "description": "Spoofs the signature verification when the app starts up. It is recommended to use the unmodified app to work properly.",
+    "id": "4bbeb7020332b329a9412200:12",
+    "legacy_id": 93752,
+    "metadata_status": "stale",
+    "name": "Spoof signature verification",
+    "options": [
+      {
+        "default": "Default",
+        "description": "The package name of the app, if modified. This must match the package name defined when the 'Change package name' patch is selected or as defined in the AndroidManifest.xml.",
+        "key": "packageName",
+        "required": true,
+        "title": "Package name",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      },
+      {
+        "default": "Default",
+        "description": "The base64-encoded signature from the original, unmodified APK. This extracts the certificate/signature in the APK by default if blank.",
+        "key": "signature",
+        "required": true,
+        "title": "Base64-encoded signature",
+        "type": "kotlin.String",
+        "values": {
+          "Default": "Default"
+        }
+      }
+    ],
+    "packages": [],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": false
+  },
+  {
+    "bundle_id": "4bbeb7020332b329a9412200",
+    "compatiblePackages": {
+      "tv.trakt.trakt": [
+        "3.19.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Remove ads, add VIP badge and allow to view 'Your Month in Review'.",
+    "id": "4bbeb7020332b329a9412200:13",
+    "legacy_id": 93753,
+    "metadata_status": "stale",
+    "name": "Unlock pro",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "trakt.TV Time To Watch",
+        "icon_url": "https://play-lh.googleusercontent.com/eUBvwF8qxYbAB-teSb1o3PSvKDUbjQzJO5xuqAiXzncQo55_Gp9aByEaJ79a1lDS6zecy-SvzOLSK-UIRmcTYQ",
+        "name": "tv.trakt.trakt",
+        "versions": [
+          "3.19.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.8.0",
+    "source_id": "78f1bdf7fad12036",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Adds an option to copy tracking numbers in the multi-shipment selection menu.",
+    "id": "4c42592bcd08b4be104937f5:0",
+    "legacy_id": 93754,
+    "metadata_status": "verified",
+    "name": "Add Copy Tracking Number Option",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.tripledot.blackjack": [
+        "2.22.09"
+      ]
+    },
+    "dependencies": [
+      "Add Custom Chip Store (Internal Raw Resource)"
+    ],
+    "description": "Replaces the unavailable store with a dialog to view and set your exact chip balance.",
+    "id": "4c42592bcd08b4be104937f5:1",
+    "legacy_id": 93755,
+    "metadata_status": "verified",
+    "name": "Add Custom Chip Store",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Blackjack",
+        "icon_url": "https://play-lh.googleusercontent.com/Fm2Nx1PEwye9dIgWVoEiaJtRdRjeRBRdqu_D3FS_2Xj0_AKB1Vgr-NEnbcXh3QA38kXhCIMab5RkNGf7nxFaqTA",
+        "name": "com.tripledot.blackjack",
+        "versions": [
+          "2.22.09"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sidelineswap.android": [
+        "1.52.0"
+      ]
+    },
+    "dependencies": [
+      "AMOLED Theme (Internal Resource)"
+    ],
+    "description": "Forces SidelineSwap into a pure-black AMOLED theme with dark system bars, black app surfaces, readable light text and icons, and force dark mode on embedded WebViews.",
+    "id": "4c42592bcd08b4be104937f5:2",
+    "legacy_id": 93756,
+    "metadata_status": "verified",
+    "name": "AMOLED Theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SidelineSwap",
+        "icon_url": "https://play-lh.googleusercontent.com/jVHP-cp5WTVmxypeLh6-aE-x5trfKodVYTnC-CYslB-ojN9HGOEPTM5ZyHWJCMPuPWLBKVjOmeDchQ5XXsoePJk",
+        "name": "com.sidelineswap.android",
+        "versions": [
+          "1.52.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sidelineswap.android": [
+        "1.52.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes first-party analytics (SidelineSwap backend), behavioral tracking (Amplitude, Firebase Analytics, Facebook App Events, Iterable), diagnostic telemetry (Firebase Crashlytics, Timber logging tree), payment gateway telemetry (Braintree FPTI), and zeros the Google Play Advertising ID (AAID).",
+    "id": "4c42592bcd08b4be104937f5:3",
+    "legacy_id": 93757,
+    "metadata_status": "verified",
+    "name": "Block Tracking and Telemetry",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "SidelineSwap",
+        "icon_url": "https://play-lh.googleusercontent.com/jVHP-cp5WTVmxypeLh6-aE-x5trfKodVYTnC-CYslB-ojN9HGOEPTM5ZyHWJCMPuPWLBKVjOmeDchQ5XXsoePJk",
+        "name": "com.sidelineswap.android",
+        "versions": [
+          "1.52.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [],
+    "description": "Neutralizes APK signature verification in libandroidsig-lib.so so API requests succeed when signed with custom keys.",
+    "id": "4c42592bcd08b4be104937f5:4",
+    "legacy_id": 93758,
+    "metadata_status": "verified",
+    "name": "Bypass Native Signature Check",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sidelineswap.android": [
+        "1.52.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customizes the primary accent brand color across SidelineSwap buttons, navigation highlights, badges, and accents.",
+    "id": "4c42592bcd08b4be104937f5:5",
+    "legacy_id": 93759,
+    "metadata_status": "verified",
+    "name": "Change Brand Color",
+    "options": [
+      {
+        "default": "#1E88E5",
+        "description": "Hex color string (e.g. #1E88E5 for Material Blue, #9C27B0 for Purple, #FF5722 for Orange, #000000 for Monochrome).",
+        "key": "primaryColor",
+        "required": false,
+        "title": "Primary Brand Color",
+        "type": "kotlin.String",
+        "values": null
+      },
+      {
+        "default": "#1565C0",
+        "description": "Hex color string for status bars and dark accents (defaults to #1565C0).",
+        "key": "primaryDarkColor",
+        "required": false,
+        "title": "Primary Dark Color",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "SidelineSwap",
+        "icon_url": "https://play-lh.googleusercontent.com/jVHP-cp5WTVmxypeLh6-aE-x5trfKodVYTnC-CYslB-ojN9HGOEPTM5ZyHWJCMPuPWLBKVjOmeDchQ5XXsoePJk",
+        "name": "com.sidelineswap.android",
+        "versions": [
+          "1.52.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Shows Google sign-in only and removes the unavailable phone sign-in controls.",
+    "id": "4c42592bcd08b4be104937f5:6",
+    "legacy_id": 93760,
+    "metadata_status": "verified",
+    "name": "Clean Authentication",
+    "options": [
+      {
+        "default": true,
+        "description": "Adds a patched-app caution warning below the Google sign-in message on the login screen.",
+        "key": "injectPatchWarning",
+        "required": false,
+        "title": "Inject patch warning",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Customizes items displayed in the Your Shortcuts carousel.",
+    "id": "4c42592bcd08b4be104937f5:7",
+    "legacy_id": 93761,
+    "metadata_status": "verified",
+    "name": "Configure Shortcuts",
+    "options": [
+      {
+        "default": true,
+        "description": "Hides the Refer a Friend shortcut from the Your Shortcuts carousel.",
+        "key": "hideReferAFriend",
+        "required": false,
+        "title": "Hide Refer a Friend",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the Giveaway shortcut from the Your Shortcuts carousel.",
+        "key": "hideGiveaway",
+        "required": false,
+        "title": "Hide Giveaway",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the Offers shortcut from the Your Shortcuts carousel.",
+        "key": "hideOffers",
+        "required": false,
+        "title": "Hide Offers",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the Rewards shortcut from the Your Shortcuts carousel.",
+        "key": "hideRewards",
+        "required": false,
+        "title": "Hide Rewards",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the Sezzle Mobile shortcut from the Your Shortcuts carousel.",
+        "key": "hideSezzleMobile",
+        "required": false,
+        "title": "Hide Sezzle Mobile",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the Amazon Deals shortcut from the Your Shortcuts carousel.",
+        "key": "hideAmazonDeals",
+        "required": false,
+        "title": "Hide Amazon Deals",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Hides the Pay Later Anywhere shortcut from the Your Shortcuts carousel.",
+        "key": "hidePayLaterAnywhere",
+        "required": false,
+        "title": "Hide Pay Later Anywhere",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Replaces the embedded Google Maps API key with a personal Google Cloud API key so native Google Maps renders on re-signed builds. Note: To use native Google Maps, disable the OpenStreetMap Drop-in Replacement patch.",
+    "id": "4c42592bcd08b4be104937f5:8",
+    "legacy_id": 93762,
+    "metadata_status": "verified",
+    "name": "Custom Google Maps API Key",
+    "options": [
+      {
+        "default": "",
+        "description": "Custom Google Maps API key from Google Cloud Console (with Maps SDK for Android enabled).",
+        "key": "apiKey",
+        "required": false,
+        "title": "Google Maps API Key",
+        "type": "kotlin.String",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Marks the app debuggable so patch developers can use ADB run-as after reinstalling.",
+    "id": "4c42592bcd08b4be104937f5:9",
+    "legacy_id": 93763,
+    "metadata_status": "verified",
+    "name": "Enable App Debugging",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.ashtoncofer.Buzz": [
+        "1.54.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Adds an in-app developer mod menu accessible via a top-bar header button, with controls for Mobile Studio.",
+    "id": "4c42592bcd08b4be104937f5:10",
+    "legacy_id": 93764,
+    "metadata_status": "verified",
+    "name": "Enable Developer Settings",
+    "options": [
+      {
+        "default": true,
+        "description": "Includes Mobile Studio trigger in the developer settings menu and permanently unlocks Mobile Studio access.",
+        "key": "mobileStudio",
+        "required": false,
+        "title": "Mobile Studio",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Fizz: Your Authentic Community",
+        "icon_url": "https://play-lh.googleusercontent.com/UcXmLP7O4cpFfrsG8I-wEcSiAJ61h_H-bGYGjq4cUn2Oqsmsf1A0z6LMGWgf6eWItEQmqmJpNuTDKJqWYkaozg",
+        "name": "com.ashtoncofer.Buzz",
+        "versions": [
+          "1.54.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Exposes the internal Debug Menu in Settings and provides selectors for LaunchDarkly feature flags, Remote Config controls, and remaining membership gates.",
+    "id": "4c42592bcd08b4be104937f5:11",
+    "legacy_id": 93765,
+    "metadata_status": "verified",
+    "name": "Enable Developer Tools and Feature Flags",
+    "options": [
+      {
+        "default": true,
+        "description": "Restores the internal Debug Menu item in Settings (LaunchDarkly overrides, Remote Config overrides, AutoLogger, Style/Component/Tooltip previews, and DebugSharedPrefs toggles).",
+        "key": "exposeDebugMenuInSettings",
+        "required": false,
+        "title": "Expose Debug Menu in Settings",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables the internal Debug.TEST_AWARD tap handler in AchievementActivity to test confetti and cycle achievement states.",
+        "key": "enableAchievementDebugTap",
+        "required": false,
+        "title": "Enable Achievement Debug Tap",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Unlocks Trails and Wheelchair Trails in MapTypeSelectionFragment when OpenStreetMap Drop-in Replacement is not enabled.",
+        "key": "unlockTrailsMapTypeGate",
+        "required": false,
+        "title": "Unlock Trails Map Types",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Unlocks newsletter language selection and hides the Basic-account upgrade banner in NewsletterSettingsFragment.",
+        "key": "unlockNewsletterSettingsGate",
+        "required": false,
+        "title": "Unlock Newsletter Language Settings",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enables Premium-only controls in HideCacheViewModel and ConversationViewModel GC code validation.",
+        "key": "unlockHideCachePremiumOption",
+        "required": false,
+        "title": "Unlock Hide Cache Premium Controls",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Enables the redesigned Geocache Details layout (cache-details-rework).",
+        "key": "enableCacheDetailsRedesign",
+        "required": false,
+        "title": "Enable Cache Details Redesign",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": true,
+        "description": "Shows the total log count in geocache activity and details (show-total-log-count).",
+        "key": "showTotalLogCount",
+        "required": false,
+        "title": "Show Total Log Count",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables in-app Shareables, filter, and FTUE (show-shareables-in-app, mobile-shareables-filter, mobile-shareables-ftue).",
+        "key": "enableShareablesInApp",
+        "required": false,
+        "title": "Enable Shareables",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables the collaborative lists feature in Listhub (collaborative-lists).",
+        "key": "enableCollaborativeLists",
+        "required": false,
+        "title": "Enable Collaborative Lists",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables Lodestone features across the app (show-lodestones-mobile).",
+        "key": "enableLodestones",
+        "required": false,
+        "title": "Enable Lodestones",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables editing geocache log dates and date selector (edit-geocache-log, show-log-date-selector).",
+        "key": "enableEditLogDate",
+        "required": false,
+        "title": "Enable Edit Log Date",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables Better Events filter, map, and AR attribute (better-events-filter, better-events-map, show-ar-attribute-in-filter).",
+        "key": "enableBetterEventsFilter",
+        "required": false,
+        "title": "Enable Better Events Filter",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables select cache types and filter settings saving (select-cache-types, save-filter-settings).",
+        "key": "enableSelectCacheTypes",
+        "required": false,
+        "title": "Enable Select Cache Types",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Enables diagnostic info, FCM token display, ANR data prompt, API regions, and map timeout.",
+        "key": "enableDiagnosticFlags",
+        "required": false,
+        "title": "Enable Diagnostic Flags",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Forces the map tray feature enabled (RemoteConfig.MAP_TRAY).",
+        "key": "forceMapTrayEnabled",
+        "required": false,
+        "title": "Force Map Tray Enabled",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Forces hiding the last log DNF count (RemoteConfig.HIDE_LAST_LOG_DNF).",
+        "key": "forceHideLastLogCount",
+        "required": false,
+        "title": "Force Hide Last Log DNF",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Forces the downtime maintenance banner visible (RemoteConfig.SHOW_DOWNTIME_BANNER).",
+        "key": "forceShowDowntimeBanner",
+        "required": false,
+        "title": "Force Show Downtime Banner",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Disables automatic map updating when panning/zooming (RemoteConfig.MAP_AUTO_UPDATE_DISABLED).",
+        "key": "forceDisableMapAutoUpdate",
+        "required": false,
+        "title": "Force Disable Map Auto Update",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Forces sending diagnostic logs with bug reports (RemoteConfig.SEND_DIAGNOSTIC_INFO_LOGS).",
+        "key": "forceSendDiagnosticLogs",
+        "required": false,
+        "title": "Force Send Diagnostic Logs",
+        "type": "kotlin.Boolean",
+        "values": null
+      },
+      {
+        "default": false,
+        "description": "Forces linear callout views enabled (RemoteConfig.LINEAR_CALLOUTS_ENABLED).",
+        "key": "forceLinearCalloutsEnabled",
+        "required": false,
+        "title": "Force Linear Callouts Enabled",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Themes AfterShip in pure AMOLED black by removing dark gray backgrounds from the bottom navigation bar, account items, cards, and windows.",
+    "id": "4c42592bcd08b4be104937f5:12",
+    "legacy_id": 93766,
+    "metadata_status": "verified",
+    "name": "Full AMOLED Theme",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Suppresses the unauthenticated blank white Google Maps view when neither a custom Google Maps API key nor OpenStreetMap is used.",
+    "id": "4c42592bcd08b4be104937f5:13",
+    "legacy_id": 93767,
+    "metadata_status": "verified",
+    "name": "Hide Broken Tracking Map",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [],
+    "description": "Hides Sezzle Mobile offers and account entry points.",
+    "id": "4c42592bcd08b4be104937f5:14",
+    "legacy_id": 93768,
+    "metadata_status": "verified",
+    "name": "Hide Sezzle Mobile",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": false
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Enables local Premium membership status across profile and account screens, removes upgrade promotions, banners, icons, and server-dependent profile statistics, and preserves loaded non-traditional cache details.",
+    "id": "4c42592bcd08b4be104937f5:15",
+    "legacy_id": 93769,
+    "metadata_status": "verified",
+    "name": "Local Premium",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Replaces the broken Google Maps view with a free, self-contained OpenStreetMap (Leaflet) engine that renders routes, checkpoints, and dark/light styled tiles without requiring an API key.",
+    "id": "4c42592bcd08b4be104937f5:16",
+    "legacy_id": 93770,
+    "metadata_status": "verified",
+    "name": "OpenStreetMap Drop-in Replacement",
+    "options": [
+      {
+        "default": false,
+        "description": "Displays floating + and − zoom buttons on the map.",
+        "key": "addZoomButtons",
+        "required": false,
+        "title": "Add Zoom Buttons",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [
+      "OpenStreetMap Resource Strings",
+      "OpenStreetMap Preview Assets"
+    ],
+    "description": "Replaces Google Maps with OpenStreetMap (MapLibre vector engine) and adds in-app OpenStreetMap style switching and custom URL configuration to Map settings.",
+    "id": "4c42592bcd08b4be104937f5:17",
+    "legacy_id": 93771,
+    "metadata_status": "verified",
+    "name": "OpenStreetMap Drop-in Replacement",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Replaces proprietary Google Map type preview webp images with rendered OpenStreetMap style thumbnails in a busy location.",
+    "id": "4c42592bcd08b4be104937f5:18",
+    "legacy_id": 93772,
+    "metadata_status": "verified",
+    "name": "OpenStreetMap Preview Assets",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.groundspeak.geocaching.intro": [
+        "10.21.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Updates map type names and descriptions in strings.xml to reflect OpenStreetMap styles.",
+    "id": "4c42592bcd08b4be104937f5:19",
+    "legacy_id": 93773,
+    "metadata_status": "verified",
+    "name": "OpenStreetMap Resource Strings",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Geocaching®",
+        "icon_url": "https://play-lh.googleusercontent.com/_67J_00F6qnX-c5jdXrbuv2_Tsx95RRnMFVtESliiEnxzfjVkdiIyVTJ6CNINFzKt4iHN5krfCXFtVrre3J-iLo",
+        "name": "com.groundspeak.geocaching.intro",
+        "versions": [
+          "10.21.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [
+      "Clean Authentication"
+    ],
+    "description": "Requires consent to a patched-app warning before opening Sezzle authentication.",
+    "id": "4c42592bcd08b4be104937f5:20",
+    "legacy_id": 93774,
+    "metadata_status": "verified",
+    "name": "Patch Consent Screen",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.tripledot.blackjack": [
+        "2.22.09"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes banner, interstitial, and rewarded advertising and removes ad-based chip offers.",
+    "id": "4c42592bcd08b4be104937f5:21",
+    "legacy_id": 93775,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Blackjack",
+        "icon_url": "https://play-lh.googleusercontent.com/Fm2Nx1PEwye9dIgWVoEiaJtRdRjeRBRdqu_D3FS_2Xj0_AKB1Vgr-NEnbcXh3QA38kXhCIMab5RkNGf7nxFaqTA",
+        "name": "com.tripledot.blackjack",
+        "versions": [
+          "2.22.09"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.ashtoncofer.Buzz": [
+        "1.54.0"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes sponsored feed advertisements and optional marketplace listing advertisements from the feed.",
+    "id": "4c42592bcd08b4be104937f5:22",
+    "legacy_id": 93776,
+    "metadata_status": "verified",
+    "name": "Remove Ads",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes marketplace listing advertisements injected into the feed.",
+        "key": "removeMarketplaceAds",
+        "required": false,
+        "title": "Remove Marketplace Ads",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Fizz: Your Authentic Community",
+        "icon_url": "https://play-lh.googleusercontent.com/UcXmLP7O4cpFfrsG8I-wEcSiAJ61h_H-bGYGjq4cUn2Oqsmsf1A0z6LMGWgf6eWItEQmqmJpNuTDKJqWYkaozg",
+        "name": "com.ashtoncofer.Buzz",
+        "versions": [
+          "1.54.0"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.adobe.scan.android": [
+        "26.09.25"
+      ]
+    },
+    "dependencies": [],
+    "description": "Disables Adobe, Branch, Facebook, Creative SDK, and Crashlytics telemetry; removes in-app ads and review prompts; blocks install-referrer collection; and zeroes the Google Play Advertising ID.",
+    "id": "4c42592bcd08b4be104937f5:23",
+    "legacy_id": 93777,
+    "metadata_status": "verified",
+    "name": "Remove Ads and Tracking",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes the Send usage info and Send crash info preferences and suppresses the crash reports dialog, whose telemetry backends are disabled by this patch.",
+        "key": "removeSettings",
+        "required": false,
+        "title": "Remove Settings",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Adobe Scan AI PDF Scanner, OCR",
+        "icon_url": "https://play-lh.googleusercontent.com/4xN2UipKYDSBDuW0FKLJQ1tnhvgZyfnKj7rnoBJYhWHwUuOTMta3m-Dwc4Lo881wOIz8YUQiFY6XpcJF5h1r",
+        "name": "com.adobe.scan.android",
+        "versions": [
+          "26.09.25"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Neutralizes in-app advertisements (Disco Network SDK shopping/cashback ads and list placements), removes the 'Leave us a 5-star review' in-app rating prompt dialogs, zeros the Google Play Advertising ID (AAID), disables first-party behavioral and impression analytics (StatisticsCenter, AbsListImpEventHelper, AutoUploadManager), and blocks diagnostic telemetry (Firebase Analytics, Crashlytics, Logan logging).",
+    "id": "4c42592bcd08b4be104937f5:24",
+    "legacy_id": 93778,
+    "metadata_status": "verified",
+    "name": "Remove Ads and Tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.sezzle.sezzlemobile": [
+        "5.3.9"
+      ]
+    },
+    "dependencies": [
+      "Remove Ads and Tracking (Internal Raw Resource)"
+    ],
+    "description": "Removes all ads (AppLovin MAX, Google Mobile Ads, Rokt, Thanks network, Playtime, InBrain Surveys) and disables analytics and tracking SDKs (AppsFlyer, FullStory, Braze, Firebase Analytics, mParticle, Facebook SDK, AppCenter).",
+    "id": "4c42592bcd08b4be104937f5:25",
+    "legacy_id": 93779,
+    "metadata_status": "verified",
+    "name": "Remove Ads and Tracking",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "Sezzle: Buy Now, Pay Later",
+        "icon_url": "https://play-lh.googleusercontent.com/gafNx4TLyCvjJk23yg_ik57cFAiM2rwyib2tOdwIogEOTtypTbYUycz6TV6GE-zQ7--QujGgBe_7j-KObZpAQA",
+        "name": "com.sezzle.sezzlemobile",
+        "versions": [
+          "5.3.9"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Removes the About the app, Share the app, and Feedback links from the Account screen.",
+    "id": "4c42592bcd08b4be104937f5:26",
+    "legacy_id": 93780,
+    "metadata_status": "verified",
+    "name": "Remove AfterShip Account Page Links",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.aftership.AfterShip": [
+        "5.25.8"
+      ]
+    },
+    "dependencies": [
+      "Bypass Native Signature Check"
+    ],
+    "description": "Removes prompting for feedback on shipments.",
+    "id": "4c42592bcd08b4be104937f5:27",
+    "legacy_id": 93781,
+    "metadata_status": "verified",
+    "name": "Remove Feedback",
+    "options": [],
+    "packages": [
+      {
+        "app_name": "AfterShip Package Tracker",
+        "icon_url": "https://play-lh.googleusercontent.com/8I1qvKhLoYm-ixpQgeCljDh2dLFn63Da6-5DiBNocBYcOphihpzKBbTK_e5HH_rswRtEcDimL4Qm3FaIIowaJ5E",
+        "name": "com.aftership.AfterShip",
+        "versions": [
+          "5.25.8"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  },
+  {
+    "bundle_id": "4c42592bcd08b4be104937f5",
+    "compatiblePackages": {
+      "com.tripledot.blackjack": [
+        "2.22.09"
+      ]
+    },
+    "dependencies": [],
+    "description": "Removes Internet permissions from AndroidManifest.xml to prevent network access.",
+    "id": "4c42592bcd08b4be104937f5:28",
+    "legacy_id": 93782,
+    "metadata_status": "verified",
+    "name": "Remove Internet Permissions",
+    "options": [
+      {
+        "default": true,
+        "description": "Removes Help Center buttons whose network-only content is unavailable without Internet access.",
+        "key": "removeBrokenScreens",
+        "required": false,
+        "title": "Remove Broken Screens",
+        "type": "kotlin.Boolean",
+        "values": null
+      }
+    ],
+    "packages": [
+      {
+        "app_name": "Blackjack",
+        "icon_url": "https://play-lh.googleusercontent.com/Fm2Nx1PEwye9dIgWVoEiaJtRdRjeRBRdqu_D3FS_2Xj0_AKB1Vgr-NEnbcXh3QA38kXhCIMab5RkNGf7nxFaqTA",
+        "name": "com.tripledot.blackjack",
+        "versions": [
+          "2.22.09"
+        ]
+      }
+    ],
+    "patch_metadata_version": "v1.7.0",
+    "source_id": "4b213a7886318687",
+    "use": true
+  }
+]
