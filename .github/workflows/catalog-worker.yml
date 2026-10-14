@@ -60,6 +60,13 @@ jobs:
           test "$CONFIRMATION" = ACTIVATE
           python -m pip install -r requirements-cloudflare.txt
           python -m scripts.cloudflare_catalog verify --require-complete
+      - name: Check staging Access configuration
+        if: inputs.target == 'staging'
+        env:
+          CATALOG_STAGING_API_URL: ${{ vars.CATALOG_STAGING_API_URL }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.STAGING_CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.STAGING_CF_ACCESS_CLIENT_SECRET }}
+        run: node scripts/api_access.mjs --check-config
       - name: Deploy reviewed Worker
         shell: bash
         run: |
@@ -70,3 +77,11 @@ jobs:
       - name: Verify production health
         if: inputs.target == 'production'
         run: curl --fail --retry 5 --retry-delay 3 https://patch-bundles.api.jmancentral.com/health
+
+      - name: Verify protected staging health
+        if: inputs.target == 'staging'
+        env:
+          CATALOG_STAGING_API_URL: ${{ vars.CATALOG_STAGING_API_URL }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.STAGING_CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.STAGING_CF_ACCESS_CLIENT_SECRET }}
+        run: node scripts/api_access.mjs

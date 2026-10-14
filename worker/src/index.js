@@ -58,6 +58,15 @@ async function jsonResponse(request, env, data, status, generation, cacheable = 
     return new Response(null, { status: 304, headers });
   return new Response(body, { status, headers });
 }
+function manifestResponse(request, env, manifest) {
+  // This immutable generation's file index is a static document, not a query page.
+  const headers = { ...corsHeaders(request, env), "Content-Type": "application/json; charset=utf-8",
+    "X-Content-Type-Options": "nosniff", "Cache-Control": "public, max-age=60",
+    "X-Catalog-Generation": manifest.generation, "ETag": '"manifest-' + manifest.generation + '"' };
+  if (request.headers.get("If-None-Match") === headers.ETag)
+    return new Response(null, { status: 304, headers });
+  return new Response(JSON.stringify(manifest), { headers });
+}
 function cacheFetcher(env, context) {
   let cacheReads = 0;
   return async url => {
@@ -498,7 +507,7 @@ export default {
       generation = catalog.manifest.generation;
       if (catalog.document && url.pathname.startsWith("/catalog/data/")) {
         if (url.pathname === "/catalog/data/manifest.json")
-          return jsonResponse(request,env,catalog.manifest,200,generation);
+          return manifestResponse(request,env,catalog.manifest);
         const match = url.pathname.match(/^\/catalog\/data\/snapshots\/([a-f0-9]{24})\/(.+)$/);
         if (!match) throw new CatalogError("Catalog file not found",404);
         let document = catalog.document;

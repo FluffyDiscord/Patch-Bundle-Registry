@@ -115,6 +115,8 @@ jobs:
       CATALOG_BACKEND: d1
       CATALOG_SOURCE: ${{ inputs.source }}
       CATALOG_FORCE: ${{ inputs.force }}
+      CATALOG_R2_WORKERS: ${{ vars.CATALOG_R2_WORKERS || '8' }}
+      CATALOG_OBJECT_CACHE_BYTES: ${{ vars.CATALOG_OBJECT_CACHE_BYTES || '1073741824' }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CATALOG_D1_ID: ${{ vars.CATALOG_D1_ID }}
@@ -137,8 +139,15 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e
+      - name: Cache verified immutable R2 objects
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: internal/r2-objects
+          key: catalog-r2-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: catalog-r2-v1-${{ runner.os }}-
       - run: python -m pip install -r requirements-cloudflare.txt
-      - run: python -m scripts.cloudflare_catalog download
+      - name: Restore refresh inputs without API shards
+        run: python -m scripts.cloudflare_catalog download --refresh-inputs
       - id: resume
         run: python -m scripts.cloudflare_catalog resume
       - name: Capture catalog before cloud refresh
@@ -182,4 +191,5 @@ jobs:
             internal/cache/refresh-jobs.json
             internal/cache/bundle-run-metadata.json
             internal/cache/history/archive.json
+            internal/cache/cloudflare-performance.json
           retention-days: 7

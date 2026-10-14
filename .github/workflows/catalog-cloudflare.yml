@@ -70,7 +70,7 @@ jobs:
       - name: Restore current progress before checkpointing
         if: inputs.operation == 'checkpoint'
         run: |
-          python -m scripts.cloudflare_catalog download
+          python -m scripts.cloudflare_catalog download --refresh-inputs
           python -m scripts.cloudflare_catalog resume
       - name: Run management operation
         if: inputs.operation != 'migrate' && inputs.operation != 'verify-api'
@@ -82,4 +82,8 @@ jobs:
           python -m scripts.cloudflare_catalog "${args[@]}"
       - name: Verify public historical API records
         if: inputs.operation == 'verify-api' || (inputs.operation == 'verify' && inputs.api_url != '')
+        env:
+          CATALOG_STAGING_API_URL: ${{ vars.CATALOG_STAGING_API_URL }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.STAGING_CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.STAGING_CF_ACCESS_CLIENT_SECRET }}
         run: node scripts/verify_history_api.mjs

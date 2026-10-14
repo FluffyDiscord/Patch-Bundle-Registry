@@ -522,3 +522,45 @@ test("API smoke retains the final rows after "+protocol+" page resizing at "+thr
     assert.equal(result.entity_rows_checked.patches,threshold===100?43:55);
   } finally {f.sqlite.close();}
 });
+
+
+test("large D1 manifest bootstraps the website while query responses stay bounded",async()=>{
+  const f=d1Fixture(2);
+  try {
+    const document=JSON.parse(f.objects.get("generations/test.json"));
+    for(let i=0;i<20000;i++) document.manifest.files["bundle-apps/"+i.toString(16).padStart(24,"0")+".json"]={
+      bytes:1234,sha256:"a".repeat(64)
+    };
+    assert.ok(Buffer.byteLength(JSON.stringify(document.manifest))>2*1024*1024);
+    f.objects.set("generations/test.json",JSON.stringify(document));
+    const origin="https://patch-bundles.jmancentral.com";
+    f.env.CORS_ORIGINS=origin;
+    const url="https://api.test/catalog/data/manifest.json";
+    const response=await worker.fetch(new Request(url,{headers:{Origin:origin}}),f.env);
+    assert.equal(response.status,200,await response.clone().text());
+    assert.deepEqual(await response.json(),document.manifest);
+    assert.equal(response.headers.get("Access-Control-Allow-Origin"),origin);
+    assert.equal(response.headers.get("X-Catalog-Generation"),document.manifest.generation);
+    assert.equal(response.headers.get("Cache-Control"),"public, max-age=60");
+    const conditional=await worker.fetch(new Request(url,{headers:{Origin:origin,
+      "If-None-Match":response.headers.get("ETag")}}),f.env);
+    assert.equal(conditional.status,304);
+    assert.equal(await conditional.text(),"");
+    assert.equal(conditional.headers.get("Access-Control-Allow-Origin"),origin);
+    assert.equal(conditional.headers.get("X-Catalog-Generation"),document.manifest.generation);
+    const {ApiCatalog}=await import("../../shared/api-catalog.js");
+    const originalFetch=globalThis.fetch;
+    globalThis.fetch=(url,options)=>worker.fetch(new Request(url,options),f.env);
+    try {
+      const catalog=await new ApiCatalog("https://api.test").initialize();
+      assert.equal(catalog.manifest.generation,document.manifest.generation);
+      assert.ok((await catalog.bundles()).length>0);
+      assert.ok((await catalog.apps()).length>0);
+    } finally {globalThis.fetch=originalFetch;}
+    f.sqlite.prepare("UPDATE catalog_records SET data=json_set(data,'$.changelog',?) WHERE kind='history_release'")
+      .run("x".repeat(1100000));
+    const oversized=await worker.fetch(new Request("https://api.test/history/releases?limit=2"),f.env);
+    assert.equal(oversized.status,422);
+    assert.match((await oversized.json()).error,/Response too large/);
+  } finally {f.sqlite.close();}
+});

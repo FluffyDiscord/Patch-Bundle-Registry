@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import {pathToFileURL} from "node:url";
+import {accessApiFetch} from "./api_access.mjs";
 
 const releaseFields="id source_id source_url upstream_id name tag version is_prerelease draft created_at published_at updated_at first_seen_at last_verified_at changelog release_notes release_url target_commitish availability binary_archived assets bundle_assets raw_metadata bundle_ids runtimes bundle_types metadata_document_url".split(" ");
 const entities=[
@@ -160,6 +161,9 @@ export async function verifyHistoryApi(base,source=null,fetcher=fetch,expectedGe
   console.log(JSON.stringify(result));
   return result;
 }
-if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href)
-  await verifyHistoryApi(process.env.CATALOG_VERIFY_API_URL??process.argv[2],process.env.CATALOG_VERIFY_SOURCE??null,fetch,process.env.GENERATION||null,{mode:process.env.CATALOG_VERIFY_MODE??"smoke"});
+if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href) {
+  const base=process.env.CATALOG_VERIFY_API_URL??process.argv[2];
+  await verifyHistoryApi(base,process.env.CATALOG_VERIFY_SOURCE??null,accessApiFetch(base),
+    process.env.GENERATION||null,{mode:process.env.CATALOG_VERIFY_MODE??"smoke"});
+}
 

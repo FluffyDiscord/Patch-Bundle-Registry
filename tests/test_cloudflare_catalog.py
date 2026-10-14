@@ -354,7 +354,10 @@ def test_conflicting_checkpoint_ids_leave_local_files_unchanged(tmp_path, monkey
     assert json.loads(cache.read_text()) == {"published": True}
 
 
-def test_rollback_download_reserves_ids_from_newer_ready_generations(tmp_path, monkeypatch):
+@pytest.mark.parametrize("refresh_inputs", [False, True])
+def test_rollback_download_reserves_ids_from_newer_ready_generations(
+    tmp_path, monkeypatch, refresh_inputs
+):
     memory = MemoryCloud(tmp_path)
     monkeypatch.setattr(cloud, "ROOT", tmp_path)
     catalog(tmp_path)
@@ -372,7 +375,7 @@ def test_rollback_download_reserves_ids_from_newer_ready_generations(tmp_path, m
     assert newest["seq"] > first["seq"]
     memory.sql("UPDATE catalog_state SET active_seq=? WHERE id=1", [first["seq"]])
     ids_path.unlink()  # Simulate a fresh checkout with no recent checkpoint.
-    memory.download_catalog(memory.document(first))
+    memory.download_catalog(memory.document(first), refresh_inputs=refresh_inputs)
     recovered = json.loads(ids_path.read_text())
     assert recovered["package"]['["com.retained","1.0"]'] == reserved
     assert all(recovered[table][key] == value
