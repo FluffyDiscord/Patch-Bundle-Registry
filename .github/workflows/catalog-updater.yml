@@ -1,8 +1,6 @@
 name: Refresh patch catalog
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
   push:
     branches: [bundles]
     paths: ['config/sources.json']

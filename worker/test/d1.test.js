@@ -422,3 +422,103 @@ test("Operator verifier honors HTTP-date Retry-After without retrying early",asy
   },log:()=>{}}),/Observed server-requested delay/);
   assert.equal(calls,1);
 });
+
+for(const phase of ["connect","body","timeout"])test("Operator verifier retries temporary network failures during "+phase,async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  const f=d1Fixture(),waits=[],attempts=[];
+  try {
+    const result=await verifyHistoryApi("https://api.test",null,(url,options)=>{
+      if(new URL(url).pathname==="/graphql" &&
+          JSON.parse(options.body).query.includes("historical_patches(")) {
+        attempts.push(options.body);
+        if(attempts.length===1) {
+          const error=phase==="timeout"?new DOMException("Request timed out","TimeoutError"):
+            new TypeError("fetch failed",{cause:Object.assign(new Error("reset"),{code:"ECONNRESET"})});
+          if(phase!=="body")throw error;
+          return {ok:true,json:async()=>{throw error;}};
+        }
+      }
+      return worker.fetch(new Request(url,options),f.env);
+    },null,{wait:async delay=>waits.push(delay),log:()=>{}});
+    assert.equal(result.entities.patches,2);
+    assert.equal(attempts.length,2);
+    assert.equal(attempts[0],attempts[1]);
+    assert.deepEqual(waits,[1000]);
+  } finally {f.sqlite.close();}
+});
+
+test("Operator verifier bounds network retries and preserves page context",async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  let calls=0;
+  await assert.rejects(verifyHistoryApi("https://api.test",null,()=>{
+    calls++;
+    throw new TypeError("fetch failed",{cause:Object.assign(new Error("reset"),{code:"ECONNRESET"})});
+  },null,{wait:async()=>{},log:()=>{}}),/request failed at \/history\/releases .*ECONNRESET/);
+  assert.equal(calls,4);
+});
+
+test("Operator verifier does not retry certificate failures",async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  let calls=0;
+  await assert.rejects(verifyHistoryApi("https://api.test",null,()=>{
+    calls++;
+    throw new TypeError("fetch failed",{cause:{code:"ERR_TLS_CERT_ALTNAME_INVALID"}});
+  },null,{wait:async()=>assert.fail("Certificate failures must not retry"),log:()=>{}}),/ERR_TLS_CERT_ALTNAME_INVALID/);
+  assert.equal(calls,1);
+});
+
+test("API smoke samples first middle and last pages with explicit partial coverage",async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  const f=d1Fixture(237),offsets=[];
+  const template=JSON.parse(f.sqlite.prepare("SELECT data FROM catalog_records WHERE kind='patch' LIMIT 1").get().data);
+  for(let i=0;i<237;i++) {
+    const id=(i+1000).toString(16).padStart(24,"0");
+    f.add("patch",id,{...template,id:i+1000,catalog_id:id});
+  }
+  try {
+    const result=await verifyHistoryApi("https://api.test",null,(url,options)=>{
+      const parsed=new URL(url);
+      if(parsed.pathname==="/history/patches")offsets.push(Number(parsed.searchParams.get("offset")));
+      return worker.fetch(new Request(url,options),f.env);
+    },null,{mode:"smoke",log:()=>{}});
+    assert.equal(result.mode,"smoke");assert.equal(result.coverage,"sampled");
+    assert.equal(result.releases,50);assert.equal(result.releases_complete,false);
+    assert.deepEqual(offsets,[0,100,225]);
+    assert.equal(result.entities.patches,239);
+    assert.equal(result.entity_rows_checked.patches,64);
+    assert.ok(result.requests<50);
+  } finally {f.sqlite.close();}
+});
+
+for(const [protocol,threshold] of [["REST",100],["REST",200],["GraphQL",100],["GraphQL",200]])
+test("API smoke retains the final rows after "+protocol+" page resizing at "+threshold,async()=>{
+  const {verifyHistoryApi}=await import("../../scripts/verify_history_api.mjs");
+  const f=d1Fixture(),pages=[];
+  const template=JSON.parse(f.sqlite.prepare("SELECT data FROM catalog_records WHERE kind='patch' LIMIT 1").get().data);
+  for(let i=0;i<237;i++) {
+    const id=(i+1000).toString(16).padStart(24,"0");
+    f.add("patch",id,{...template,id:i+1000,catalog_id:id});
+  }
+  try {
+    const result=await verifyHistoryApi("https://api.test",null,(url,options)=>{
+      const parsed=new URL(url),offset=Number(parsed.searchParams.get("offset"));
+      if(parsed.pathname==="/history/patches") {
+        const limit=Number(parsed.searchParams.get("limit"));
+        pages.push({offset,limit});
+        if(protocol==="REST" && offset>=threshold && limit>13)
+          return Response.json({error:"Response too large"},{status:422});
+      }
+      if(protocol==="GraphQL" && options?.body) {
+        const {query,variables}=JSON.parse(options.body);
+        if(query.includes("historical_patches(") && variables.offset>=threshold && variables.limit>13)
+          return Response.json({error:"Response too large"},{status:422});
+      }
+      return worker.fetch(new Request(url,options),f.env);
+    },null,{mode:"smoke",log:()=>{}});
+    const expected=threshold===100?[{offset:0,limit:25},{offset:100,limit:25},
+      {offset:100,limit:13},{offset:234,limit:13}]:[{offset:0,limit:25},{offset:100,limit:25},
+      {offset:225,limit:25},{offset:234,limit:13}];
+    assert.deepEqual(pages,expected);
+    assert.equal(result.entity_rows_checked.patches,threshold===100?43:55);
+  } finally {f.sqlite.close();}
+});

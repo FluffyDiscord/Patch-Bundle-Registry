@@ -5,16 +5,21 @@ on:
       operation:
         description: Provision, migrate, import, verify or recover the catalog
         type: choice
-        options: [provision, migrate, seed, verify, checkpoint, restore, rebuild, prune]
+        options: [provision, migrate, seed, verify, verify-api, checkpoint, restore, rebuild, prune]
         required: true
       generation:
         description: Ready generation ID for verify or restore; empty selects active
         type: string
         default: ''
       api_url:
-        description: Optional staging or production HTTPS API URL for complete REST/GraphQL history parity checks (verify only)
+        description: HTTPS API URL for REST/GraphQL checks; required for verify-api, optional for verify
         type: string
         default: ''
+      api_verify_mode:
+        description: Smoke checks sampled pages; full scans every record and can take hours
+        type: choice
+        options: [smoke, full]
+        default: smoke
       confirmation:
         description: RESTORE for rollback, REBUILD for database replacement, PRUNE for cleanup; empty prune is dry-run
         type: string
@@ -33,6 +38,7 @@ jobs:
       GENERATION: ${{ inputs.generation }}
       CONFIRMATION: ${{ inputs.confirmation }}
       CATALOG_VERIFY_API_URL: ${{ inputs.api_url }}
+      CATALOG_VERIFY_MODE: ${{ inputs.api_verify_mode || 'smoke' }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CATALOG_D1_ID: ${{ vars.CATALOG_D1_ID }}
@@ -67,13 +73,13 @@ jobs:
           python -m scripts.cloudflare_catalog download
           python -m scripts.cloudflare_catalog resume
       - name: Run management operation
-        if: inputs.operation != 'migrate'
+        if: inputs.operation != 'migrate' && inputs.operation != 'verify-api'
         shell: bash
         run: |
           args=("$OPERATION")
           if [ -n "$GENERATION" ]; then args+=(--generation "$GENERATION"); fi
           if [ -n "$CONFIRMATION" ]; then args+=(--confirm "$CONFIRMATION"); fi
           python -m scripts.cloudflare_catalog "${args[@]}"
-      - name: Verify all public historical API records
-        if: inputs.operation == 'verify' && inputs.api_url != ''
+      - name: Verify public historical API records
+        if: inputs.operation == 'verify-api' || (inputs.operation == 'verify' && inputs.api_url != '')
         run: node scripts/verify_history_api.mjs
