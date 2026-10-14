@@ -5,13 +5,16 @@ import hashlib
 import io
 import json
 import os
+import random
 import re
 import tarfile
 import tempfile
+import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
+from email.utils import parsedate_to_datetime
 from pathlib import Path
-from threading import Lock
+from threading import BoundedSemaphore, Lock
 
 from scripts.catalog_records import encode
 
@@ -29,6 +32,77 @@ REFRESH_ROOT_FILES = (
     "database/app-metadata.json",
     "database/source-availability.json",
 )
+
+
+def retry_after(response):
+    headers = response.get("ResponseMetadata", {}).get("HTTPHeaders", {})
+    header = headers.get("retry-after", "") if isinstance(headers, dict) else ""
+    if not isinstance(header, str) or not header.isascii():
+        return 0.0
+    header = header.strip()
+    if header.isdigit():
+        return float(header)
+    try:
+        date = parsedate_to_datetime(header)
+        return max(0.0, date.timestamp() - time.time()) if date.tzinfo else 0.0
+    except (ValueError, TypeError, OverflowError, OSError):
+        return 0.0
+
+
+class R2Reader:
+    """Bound R2 reads and coordinate backoff after transient service failures."""
+
+    def __init__(self, get, workers=4, transport_errors=()):
+        self.get = get
+        self.transport_errors = transport_errors
+        self.slots = BoundedSemaphore(min(4, max(1, workers)))
+        self.guard = Lock()
+        self.not_before = 0.0
+        self.retries = 0
+
+    def wait(self):
+        while True:
+            with self.guard:
+                delay = self.not_before - time.monotonic()
+            if delay <= 0:
+                return
+            time.sleep(delay)
+
+    def read(self, key):
+        # SDK GET retries are disabled so service/transport retries share this
+        # cooldown. Include failures while consuming the response body.
+        for attempt in range(3):
+            with self.slots:
+                self.wait()
+                try:
+                    return self.get(key)
+                except Exception as error:
+                    response = getattr(error, "response", {})
+                    if not isinstance(response, dict):
+                        response = {}
+                    code = response.get("Error", {}).get("Code")
+                    status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
+                    transient = (
+                        code in {
+                            "SlowDown",
+                            "ServiceUnavailable",
+                            "InternalError",
+                            "RequestTimeout",
+                        }
+                        or status in {429, 500, 502, 503, 504}
+                        or isinstance(error, self.transport_errors)
+                    )
+                    if not transient or attempt == 2:
+                        raise
+                    requested = retry_after(response)
+                    # Fail rather than retry early or wait indefinitely on a long hint.
+                    if requested > 60:
+                        raise
+                    backoff = 2 ** (attempt + 1) + random.uniform(0, 1)  # noqa: S311
+                    delay = max(requested, backoff)
+                    with self.guard:
+                        self.not_before = max(self.not_before, time.monotonic() + delay)
+                        self.retries += 1
 
 
 class BlobCache:

@@ -687,7 +687,7 @@ async def main() -> int:
                 canonical = normalize_source(repo).lower()
                 if error is None:
                     release_sets[canonical] = task.result()
-                elif not isinstance(error, (HTTPError, ValueError)):
+                elif not isinstance(error, HTTPError | ValueError):
                     raise error
                 elif (
                     isinstance(error, HTTPStatusError)

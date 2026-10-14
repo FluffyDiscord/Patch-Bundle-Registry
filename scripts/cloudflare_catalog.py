@@ -18,6 +18,7 @@ from scripts.cloudflare_storage import (
     REFRESH_FILES,
     REFRESH_ROOT_FILES,
     BlobCache,
+    R2Reader,
     pack_refresh,
     unpack_refresh,
 )
@@ -55,6 +56,14 @@ class Cloud:
     def __init__(self):
         import boto3
         from botocore.config import Config
+        from botocore.exceptions import (
+            ConnectionClosedError,
+            ConnectTimeoutError,
+            EndpointConnectionError,
+            IncompleteReadError,
+            ReadTimeoutError,
+            ResponseStreamingError,
+        )
 
         self.account = os.environ["CLOUDFLARE_ACCOUNT_ID"]
         self.database = os.environ.get("CATALOG_D1_ID")
@@ -65,17 +74,43 @@ class Cloud:
             timeout=60,
         )
         self.s3 = None
+        self.s3_reads = None
         if os.environ.get("R2_ACCESS_KEY_ID"):
+            options = {
+                "endpoint_url": "https://" + self.account + ".r2.cloudflarestorage.com",
+                "aws_access_key_id": os.environ["R2_ACCESS_KEY_ID"],
+                "aws_secret_access_key": os.environ["R2_SECRET_ACCESS_KEY"],
+                "region_name": "auto",
+            }
             self.s3 = boto3.client(
                 "s3",
-                endpoint_url="https://" + self.account + ".r2.cloudflarestorage.com",
-                aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
-                aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
-                region_name="auto",
+                **options,
                 config=Config(
                     retries={"max_attempts": 5, "mode": "standard"}, max_pool_connections=16
                 ),
             )
+            # Shared R2Reader policy must see failures before the SDK retries
+            # them independently. Writes retain the normal SDK retry policy.
+            self.s3_reads = boto3.client(
+                "s3",
+                **options,
+                config=Config(
+                    retries={"total_max_attempts": 1, "mode": "standard"},
+                    max_pool_connections=4,
+                ),
+            )
+        self._r2_reader = R2Reader(
+            self.read_object,
+            workers=int(os.environ.get("CATALOG_R2_WORKERS") or "8"),
+            transport_errors=(
+                ConnectionClosedError,
+                ConnectTimeoutError,
+                EndpointConnectionError,
+                IncompleteReadError,
+                ReadTimeoutError,
+                ResponseStreamingError,
+            ),
+        )
 
     def transfers(self):
         if not hasattr(self, "_transfers"):
@@ -95,6 +130,7 @@ class Cloud:
             "elapsed_seconds": round(time.perf_counter() - started, 3),
             **dict(cache.metrics),
             **getattr(self, "publication_metrics", {}),
+            "r2_read_retries": getattr(getattr(self, "_r2_reader", None), "retries", 0),
         }
         path = ROOT / "internal/cache/cloudflare-performance.json"
         try:
@@ -138,8 +174,15 @@ class Cloud:
     def put(self, key, body):
         self.s3.put_object(Bucket=self.bucket, Key=key, Body=body)
 
+    def read_object(self, key):
+        body = self.s3_reads.get_object(Bucket=self.bucket, Key=key)["Body"]
+        try:
+            return body.read()
+        finally:
+            body.close()
+
     def get(self, key):
-        return self.s3.get_object(Bucket=self.bucket, Key=key)["Body"].read()
+        return self._r2_reader.read(key)
 
     def blob(self, body, known):
         return self.transfers().upload(body, known)
