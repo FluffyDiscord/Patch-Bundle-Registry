@@ -224,14 +224,23 @@ def clean_snapshots(root):
     current = manifest.get("snapshot")
     if not re.fullmatch(r"snapshots/[a-f0-9]{24}", current or ""):
         raise ValueError("Invalid current snapshot for source cleanup")
-    removed = False
+    removed = []
     for folder in (root / "database/snapshots").iterdir():
         if not folder.is_dir() or folder.name == current.split("/")[-1]:
             continue
         sources = read(folder / "sources.json", [])
         if any(row["url"].lower() not in configured for row in sources):
+            removed.append(folder)
+    if removed:
+        history_path = root / "database/snapshot-history.json"
+        retained = read(history_path, None)
+        if isinstance(retained, list):
+            pruned = {folder.relative_to(root / "database").as_posix() for folder in removed}
+            # Stop publishing these snapshots before deleting their files, including
+            # when deletion is interrupted and cleanup must be retried.
+            write(history_path, [name for name in retained if name not in pruned])
+        for folder in removed:
             remove_tree(root, folder)
-            removed = True
     apps = {row["package_name"] for row in read(root / "database" / current / "apps.json", [])} | {
         row["name"] for row in read(root / "database" / current / "packages.json", [])
     }
@@ -242,4 +251,4 @@ def clean_snapshots(root):
             key: row for key, row in metadata.get("apps", {}).items() if key in apps
         }
         write(metadata_path, metadata)
-    return removed
+    return bool(removed)

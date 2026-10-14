@@ -58,6 +58,63 @@ def remove_demo(root):
     return db.build_database(root)
 
 
+@pytest.mark.parametrize("removed", [True, False])
+def test_site_build_after_source_removal_or_disabling(tmp_path, monkeypatch, removed):
+    monkeypatch.delenv("CATALOG_BACKEND", raising=False)
+    first = paired_catalog(tmp_path)
+    inventory = db.read_json(tmp_path / "config/sources.json")
+    for alias in list(inventory):
+        if alias.startswith("demo-"):
+            if removed:
+                del inventory[alias]
+            else:
+                inventory[alias]["disabled"] = True
+    write(tmp_path / "config/sources.json", inventory)
+    current = db.build_database(tmp_path)
+    (tmp_path / "web").mkdir()
+    (tmp_path / "shared").mkdir()
+    (tmp_path / "web/index.html").write_text("Catalog")
+    db.build_site(tmp_path)
+    expected = [current["snapshot"]] if removed else [first["snapshot"], current["snapshot"]]
+    assert db.read_json(tmp_path / "database/snapshot-history.json") == expected
+    public = tmp_path / "site-dist/database"
+    assert {path.name for path in (public / "snapshots").iterdir()} == {
+        name.split("/")[-1] for name in expected
+    }
+    assert (tmp_path / "database" / first["snapshot"]).exists() == (not removed)
+    assert db.read_json(public / "manifest.json") == current
+    for name in current["files"]:
+        assert (public / current["snapshot"] / name).is_file()
+
+
+@pytest.mark.parametrize("deleted_before_failure", [True, False])
+def test_interrupted_snapshot_cleanup_keeps_publication_registry_consistent(
+    tmp_path, monkeypatch, deleted_before_failure
+):
+    from scripts import source_cleanup
+
+    first = paired_catalog(tmp_path)
+    remove_tree = source_cleanup.remove_tree
+
+    def interrupt(root, path):
+        if path == tmp_path / "database" / first["snapshot"]:
+            if deleted_before_failure:
+                remove_tree(root, path)
+            raise RuntimeError("Snapshot deletion interrupted")
+        remove_tree(root, path)
+
+    monkeypatch.setattr(source_cleanup, "remove_tree", interrupt)
+    with pytest.raises(RuntimeError, match="Snapshot deletion interrupted"):
+        remove_demo(tmp_path)
+    current = db.read_json(tmp_path / "database/manifest.json")
+    assert db.read_json(tmp_path / "database/snapshot-history.json") == [current["snapshot"]]
+    monkeypatch.setattr(source_cleanup, "remove_tree", remove_tree)
+    source_cleanup.clean_snapshots(tmp_path)
+    assert not (tmp_path / "database" / first["snapshot"]).exists()
+    assert (tmp_path / "database" / current["snapshot"]).is_dir()
+    assert db.read_json(tmp_path / "database/snapshot-history.json") == [current["snapshot"]]
+
+
 def test_source_removal_purges_d1_r2_checkpoints_and_exclusive_apps(tmp_path, monkeypatch):
     memory = MemoryCloud(tmp_path)
     monkeypatch.setattr(cloud, "ROOT", tmp_path)
