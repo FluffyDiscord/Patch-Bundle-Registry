@@ -42,6 +42,12 @@ jobs:
           npm run build:worker
           npm run test:runtime
           npm run test:runtime:d1
+      - name: Cache pinned native inspectors
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: internal/cache/runtimes
+          key: catalog-native-runtimes-v1-${{ runner.os }}-${{ hashFiles('config/patcher-runtimes.json') }}
+          restore-keys: catalog-native-runtimes-v1-${{ runner.os }}-
       - name: Kotlin parser release validation
         env:
           GITHUB_ACTOR: ${{ github.repository_owner }}

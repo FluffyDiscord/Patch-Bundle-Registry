@@ -140,6 +140,41 @@ class HistoricalQueueTest {
         directory.deleteRecursively()
     }
 
+    @Test fun `larger history batches preserve deferred work and skip completed entries on resume`() {
+        try {
+            val first = entry("first", null, null)
+            val second = entry("second", null, null)
+            val third = entry("third", null, null)
+            val initial = historicalWork(directory, 1, "runtime")
+            assertEquals(listOf(first), initial.historical)
+            assertEquals(2, initial.deferred)
+            entry("first", null, null, verified = true)
+            val resumed = historicalWork(directory, DEFAULT_HISTORICAL_BATCH_SIZE, "runtime")
+            assertEquals(listOf(second, third), resumed.historical)
+            assertEquals(0, resumed.deferred)
+        } finally { directory.deleteRecursively() }
+    }
+
+    @Test fun `backfill accepts a full history batch and rejects invalid limits`() {
+        try {
+            assertEquals(emptyList(), historicalCandidates(directory, 10000, "runtime"))
+            for (limit in listOf(0, -1, 10001)) {
+                kotlin.test.assertFailsWith<IllegalArgumentException> {
+                    historicalCandidates(directory, limit, "runtime")
+                }
+            }
+        } finally { directory.deleteRecursively() }
+    }
+
+    @Test fun `default history queue is no longer limited to twenty five bundles`() {
+        try {
+            repeat(30) { entry("bundle-" + it.toString().padStart(2, '0'), null, null) }
+            val work = historicalWork(directory, DEFAULT_HISTORICAL_BATCH_SIZE, "runtime")
+            assertEquals(30, work.historical.size)
+            assertEquals(0, work.deferred)
+        } finally { directory.deleteRecursively() }
+    }
+
     @Test fun `opaque digests invalidate earlier extraction markers`() {
         assertEquals(false, matchesProviderDigest("new-digest", "hash", "old-digest"))
         assertEquals(true, matchesProviderDigest("new-digest", "hash", "new-digest"))

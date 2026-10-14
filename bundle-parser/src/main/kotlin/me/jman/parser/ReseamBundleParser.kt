@@ -12,8 +12,13 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
     val bundles = response.getValue("bundles").jsonArray
     require(bundles.size == 1) { "Expected one inspected bundle" }
     val bundle = bundles.single().jsonObject
-    if (bundle["problem"] != null && bundle["problem"] != JsonNull)
-        return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true)
+    if (bundle["problem"] != null && bundle["problem"] != JsonNull) {
+        val problem = bundle["problem"] as? JsonObject
+        val kind = (problem?.get("type") as? JsonPrimitive)?.contentOrNull
+        val required = if (kind in setOf("bundle_too_old", "bundle_too_new", "engine_too_old"))
+            (problem?.get("built") as? JsonPrimitive)?.contentOrNull else null
+        return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true, requiredEngine = required)
+    }
     fun JsonObject.text(key: String): String {
         val value = getValue(key).jsonPrimitive
         require(value.isString)
@@ -61,6 +66,19 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
         }
     return RuntimeResult(JsonArray(patches), "verified", hash, runtime, reseamBundle = publisher)
 }
+
+/** Supply an explicit key to older inspectors without changing their global trust store. */
+internal fun reseamSigningKey(artifact: java.io.File): String? = runCatching {
+    java.util.zip.ZipFile(artifact).use { archive ->
+        val entry = archive.getEntry("manifest.pubkey") ?: return@use null
+        require(entry.size == 32L)
+        archive.getInputStream(entry).use { input ->
+            val bytes = input.readNBytes(33)
+            require(bytes.size == 32)
+            bytes.joinToString("") { "%02x".format(it) }
+        }
+    }
+}.getOrNull()
 
 internal fun canonicalBundleFamily(value: String?): String? = when (value) {
     "ReVanced:V3" -> "ReVanced:v21"

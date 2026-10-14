@@ -564,6 +564,16 @@ fun main(args: Array<String>) {
         runtimeWorker(args)
         return
     }
+    val batchSetting = System.getenv("CATALOG_HISTORICAL_BATCH_SIZE")?.takeIf(String::isNotBlank)
+    val batchSize = batchSetting?.let {
+        it.toIntOrNull() ?: error("CATALOG_HISTORICAL_BATCH_SIZE must be an integer")
+    } ?: DEFAULT_HISTORICAL_BATCH_SIZE
+    require(batchSize in 1..MAX_HISTORICAL_BATCH_SIZE)
+    val secondsSetting = System.getenv("CATALOG_HISTORICAL_MAX_SECONDS")?.takeIf(String::isNotBlank)
+    val historySeconds = secondsSetting?.let {
+        it.toLongOrNull() ?: error("CATALOG_HISTORICAL_MAX_SECONDS must be an integer")
+    } ?: 900L
+    require(historySeconds in 1..21600)
     val policy = File("..", "internal/cache/disabled-extraction.json")
     val disabledFolders = if (policy.isFile)
         parsingJson.decodeFromString<Set<String>>(policy.readText()) else emptySet()
@@ -580,20 +590,21 @@ fun main(args: Array<String>) {
                 Logger.error("Something went wrong while processing ${directory.name}. ${e.formatForLog()}")
             }
         }
-    val batchSize = System.getenv("CATALOG_HISTORICAL_BATCH_SIZE")?.toIntOrNull() ?: 25
     val work = historicalWork(File("..", "internal/cache/history"), batchSize, runtimeFingerprint(), disabledFolders)
+    Logger.info("History extraction queue: ${work.latest.size} latest, ${work.historical.size} older selected, ${work.deferred} deferred")
     for (directory in work.latest) {
         Logger.info("Refreshing latest bundle from history ${directory.name}")
         processBundle(directory)
     }
     val historyStart = System.nanoTime()
-    val historySeconds = System.getenv("CATALOG_HISTORICAL_MAX_SECONDS")?.toLongOrNull() ?: 900L
-    require(historySeconds in 1..21600)
+    var attempted = 0
     for (directory in work.historical) {
         if ((System.nanoTime() - historyStart) / 1_000_000_000 >= historySeconds) break
         Logger.info("Refreshing historical bundle ${directory.name}")
         processBundle(directory)
+        attempted++
     }
+    Logger.info("Historical extraction attempted $attempted bundles; ${work.deferred + work.historical.size - attempted} deferred to the next refresh")
 }
 
 private data class ReleaseLocation(

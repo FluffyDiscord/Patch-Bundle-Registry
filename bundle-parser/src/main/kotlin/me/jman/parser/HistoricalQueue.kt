@@ -38,13 +38,18 @@ internal fun pausedFailure(
     canonicalBundleFamily(record.bundle_type) == family && record.failure_fingerprint == fingerprint &&
     matchesProviderDigest(providerDigest, record.file_hash, record.provider_digest)
 
-internal data class HistoricalWork(val latest: List<File>, val historical: List<File>)
+internal const val DEFAULT_HISTORICAL_BATCH_SIZE = 1000
+internal const val MAX_HISTORICAL_BATCH_SIZE = 10000
+
+internal data class HistoricalWork(
+    val latest: List<File>, val historical: List<File>, val deferred: Int = 0
+)
 
 internal fun historicalCandidates(root: File, limit: Int, fingerprint: String, disabledFolders: Set<String> = emptySet()): List<File> =
     historicalWork(root, limit, fingerprint, disabledFolders).let { it.latest + it.historical }
 
 internal fun historicalWork(root: File, limit: Int, fingerprint: String, disabledFolders: Set<String> = emptySet()): HistoricalWork {
-    require(limit in 1..1000)
+    require(limit in 1..MAX_HISTORICAL_BATCH_SIZE) { "Historical batch size must be between 1 and $MAX_HISTORICAL_BATCH_SIZE" }
     val registry = File(root, "sources.json")
     val settings = if (registry.isFile) {
         historyJson.parseToJsonElement(registry.readText()).jsonObject.values.mapNotNull { item ->
@@ -97,5 +102,6 @@ internal fun historicalWork(root: File, limit: Int, fingerprint: String, disable
         Triple(folder, attempted ?: "", input.name)
     }?.sortedWith(compareBy({ it.second }, { it.third })) ?: emptyList()
     val (latest, historical) = candidates.partition { settings?.get(it.first.name) == true }
-    return HistoricalWork(latest.map { it.first }, historical.take(limit).map { it.first })
+    return HistoricalWork(latest.map { it.first }, historical.take(limit).map { it.first },
+        (historical.size - limit).coerceAtLeast(0))
 }

@@ -53,12 +53,38 @@ class ReseamPatchParserTest {
         assertFails { parseReseamInspection(inspection().replace("a".repeat(64), "bad"), "hash", "runtime") }
     }
 
+    @Test fun engineRequirementReordersRemainingRuntimesWithoutDroppingFallbacks() {
+        val config = Json.decodeFromString<RuntimeConfiguration>(
+            java.io.File("../config/patcher-runtimes.json").readText())
+        val candidates = selectRuntimes(config, "Reseam", null).drop(1)
+        val selected = prioritizeReseamEngine(candidates, "0.18.1")
+        assertEquals("app.reseam:reseam:0.18.3", selected.first().coordinate)
+        assertEquals("app.reseam:reseam:0.12.0",
+            prioritizeReseamEngine(candidates, "0.12.0").first().coordinate)
+        assertEquals(candidates.map { it.id }.toSet(), selected.map { it.id }.toSet())
+        assertEquals(candidates.size, selected.size)
+        for (required in listOf("", "0.1.0", "0.7.0")) {
+            assertEquals("reseam-jvm", prioritizeReseamEngine(candidates, required).first().loader)
+        }
+        assertEquals(candidates, prioritizeReseamEngine(candidates, "broken"))
+        val problem = """{"type":"bundle_too_old","built":"0.18.1","running":"0.23.1"}"""
+        val rejected = parseReseamInspection(inspection(problem = problem), "hash", "runtime")
+        assertEquals("0.18.1", rejected.requiredEngine)
+        assertNull(rejected.patches)
+    }
+
     @Test fun configuredNativeLoaderAndLegacyFamilyMigration() {
         val config = Json.decodeFromString<RuntimeConfiguration>(
             java.io.File("../config/patcher-runtimes.json").readText())
-        val native = selectRuntimes(config, "Reseam", null).single()
+        val runtimes = selectRuntimes(config, "Reseam", null)
+        val native = runtimes.first()
         assertEquals("reseam", native.loader)
         assertEquals(setOf("linux-x64", "windows-x64"), native.executables.keys)
+        assertTrue(runtimes.any { it.loader == "reseam-jvm" })
+        assertTrue(runtimes.filter { it.loader == "reseam" }.all { "linux-x64" in it.executables })
+        for (version in listOf("0.8.1", "0.12.1", "0.16.0", "0.18.3", "0.20.2", "0.22.0")) {
+            assertTrue(runtimes.any { it.coordinate == "app.reseam:reseam:$version" })
+        }
         assertEquals("ReVanced:v21", canonicalBundleFamily("ReVanced:V3"))
         assertEquals("ReVanced:v22", canonicalBundleFamily("ReVanced:V4"))
         assertEquals("Morphe:V1", canonicalBundleFamily("Morphe:V1"))

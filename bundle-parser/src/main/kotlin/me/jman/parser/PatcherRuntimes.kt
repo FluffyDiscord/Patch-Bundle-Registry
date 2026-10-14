@@ -22,11 +22,13 @@ internal data class RuntimeExecutable(val url: String, val sha256: String)
 internal data class RuntimeDefinition(
     val id: String, val family: String, val loader: String, val coordinate: String,
     val dependencies: List<String>, val range: String? = null, val fallback: Boolean = false,
-    val executables: Map<String, RuntimeExecutable> = emptyMap()
+    val executables: Map<String, RuntimeExecutable> = emptyMap(),
+    val trust_publisher_for_inspection: Boolean = false
 )
 @Serializable
 internal data class RuntimeConfiguration(
-    val worker: WorkerSettings, val runtimes: List<RuntimeDefinition>
+    val worker: WorkerSettings, val runtimes: List<RuntimeDefinition>,
+    val extraction_policy_version: Int = 1
 )
 @Serializable
 internal data class InstalledRuntime(val classpath: String = "", val available: Boolean = false,
@@ -44,7 +46,8 @@ internal data class ExtractionRecord(
 internal data class RuntimeResult(val patches: JsonArray?, val status: String,
                                   val hash: String? = null, val runtime: String? = null,
                                   val terminal: Boolean = false, val paused: Boolean = false,
-                                  val reseamBundle: JsonObject? = null)
+                                  val reseamBundle: JsonObject? = null,
+                                  val requiredEngine: String? = null)
 
 private val runtimeJson = Json { ignoreUnknownKeys = true; prettyPrint = true }
 private val runtimeResults = mutableMapOf<String, RuntimeResult>()
@@ -112,15 +115,49 @@ internal fun selectRuntimes(config: RuntimeConfiguration, family: String, declar
     require(config.worker.restart_attempts in 0..3)
     require(Regex("^[1-9][0-9]*[mMgG]$").matches(config.worker.max_heap))
     require(config.runtimes.all { it.loader in setOf("revanced-modern", "revanced-legacy",
-                                                   "morphe", "revanced-v3", "legacy-bytecode", "reseam") })
-    // Only Morphe declares a version that selects a runtime range. ReVanced
-    // bundles use the ordered fallback chain, including older V3 APIs.
-    val ranged = family == "Morphe:V1" && declared != null
-    val candidates = config.runtimes.filter { it.family == family }.filter {
-        if (ranged) it.range?.let { range -> matchesPatcherRange(range, declared) } == true else it.fallback
+                                                   "morphe", "revanced-v3", "legacy-bytecode", "reseam", "reseam-jvm") })
+    // Family describes the bundle format, not the patcher's Maven major version.
+    // After the declared runtime, retry newest to oldest within this format only.
+    val candidates = config.runtimes.filter { it.family == family }.sortedWith(
+        compareByDescending<RuntimeDefinition> {
+            runCatching { PatcherVersion.parse(it.coordinate.substringAfterLast(':')) }.getOrNull()
+        }
+    )
+    val declaration = declared ?: return candidates
+    val version = runCatching { PatcherVersion.parse(declaration) }.getOrNull() ?: return candidates
+    val exact = candidates.firstOrNull {
+        runCatching { PatcherVersion.parse(it.coordinate.substringAfterLast(':')) }.getOrNull() == version
     }
-    require(!ranged || candidates.size <= 1) { "Overlapping runtime compatibility ranges" }
-    return candidates
+    val preferred = exact ?: if (family == "Morphe:V1") {
+        val matches = candidates.filter { it.range?.let { range -> matchesPatcherRange(range, declaration) } == true }
+        require(matches.size <= 1) { "Overlapping runtime compatibility ranges" }
+        matches.singleOrNull()
+    } else null
+    return if (preferred == null) candidates else
+        listOf(preferred) + candidates.filter { it.id != preferred.id }
+}
+
+/** Use the inspector's SDK requirement to avoid launching unrelated historical engines first. */
+internal fun prioritizeReseamEngine(candidates: List<RuntimeDefinition>, required: String?): List<RuntimeDefinition> {
+    if (required == null) return candidates
+    val wanted = if (required.isBlank()) null else {
+        runCatching { PatcherVersion.parse(required) }.getOrNull() ?: return candidates
+    }
+    if (wanted == null || wanted < PatcherVersion.parse("0.8.0")) {
+        candidates.firstOrNull { it.loader == "reseam-jvm" }?.let { preferred ->
+            return listOf(preferred) + candidates.filter { it.id != preferred.id }
+        }
+    }
+    val versions = candidates.filter { it.family == "Reseam" }.mapNotNull { runtime ->
+        runCatching { PatcherVersion.parse(runtime.coordinate.substringAfterLast(':')) }
+            .getOrNull()?.let { runtime to it }
+    }
+    val preferred = if (wanted == null) versions.minByOrNull { it.second }?.first else
+        versions.firstOrNull { it.second == wanted }?.first ?: versions.filter { (_, version) ->
+            version.numbers.take(2) == wanted.numbers.take(2) && version >= wanted
+        }.maxByOrNull { it.second }?.first
+    return if (preferred == null) candidates else
+        listOf(preferred) + candidates.filter { it.id != preferred.id }
 }
 
 private fun loadRuntimeConfiguration(): RuntimeConfiguration {
@@ -159,14 +196,18 @@ private fun extractWithRuntime(
         if (System.nanoTime() >= deadline) return RuntimeResult(null, "runtime_timeout", hash)
         val output = File.createTempFile("catalog-result", ".json")
         val log = File.createTempFile("catalog-worker", ".log")
+        val workspace = File(output.parentFile, output.name + ".jars")
         var process: Process? = null
         try {
             val java = File(System.getProperty("java.home"), "bin/java").absolutePath
             // Some patchers use the system loader as parent; isolate one runtime per JVM.
             val builder = if (runtime.loader == "reseam") {
                 require(installation.executable.isNotBlank())
-                ProcessBuilder(installation.executable, "bundle", "list", artifact.absolutePath, "--json")
-                    .redirectOutput(output).redirectError(log)
+                val arguments = mutableListOf(installation.executable, "bundle", "list", artifact.absolutePath, "--json")
+                if (runtime.trust_publisher_for_inspection) {
+                    reseamSigningKey(artifact)?.let { arguments += listOf("--trust", it) }
+                }
+                ProcessBuilder(arguments).redirectOutput(output).redirectError(log)
             } else ProcessBuilder(
                 java, "-Xmx${settings.max_heap}",
                 "-Drevanced.patcher22.classpath=${installation.classpath}",
@@ -181,16 +222,18 @@ private fun extractWithRuntime(
             val remaining = deadline - System.nanoTime()
             if (remaining <= 0 || !process.waitFor(remaining, TimeUnit.NANOSECONDS))
                 return RuntimeResult(null, "runtime_timeout", hash)
-            if (runtime.loader == "reseam") {
-                // Bundle rejections arrive in successful JSON responses. A process
-                // failure is transient: restart it without permanently pausing the artifact.
-                if (process.exitValue() != 0) continue
-                if (output.length() > 32L * 1024 * 1024)
-                    return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
-                return try {
-                    parseReseamInspection(output.readText(), hash, runtime.coordinate)
-                } catch (_: Exception) {
-                    RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
+            if (runtime.loader == "reseam" || runtime.loader == "reseam-jvm") {
+                // Native startup failures can recover; the JVM adapter uses the
+                // worker's explicit rejection exit codes handled below.
+                if (process.exitValue() != 0 && runtime.loader == "reseam") continue
+                if (process.exitValue() == 0) {
+                    if (output.length() > 32L * 1024 * 1024)
+                        return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
+                    return try {
+                        parseReseamInspection(output.readText(), hash, runtime.coordinate)
+                    } catch (_: Exception) {
+                        RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
+                    }
                 }
             }
             when (process.exitValue()) {
@@ -217,6 +260,9 @@ private fun extractWithRuntime(
                 try { process.waitFor(5, TimeUnit.SECONDS) }
                 catch (_: InterruptedException) { Thread.currentThread().interrupt() }
             }
+            if (workspace.exists() && !java.nio.file.Files.isSymbolicLink(workspace.toPath()) &&
+                workspace.canonicalFile.parentFile == output.parentFile.canonicalFile)
+                workspace.deleteRecursively()
             output.delete()
             log.delete()
         }
@@ -268,7 +314,10 @@ internal fun extractWithRuntimes(
         val installed = installedRuntimes()
         var failure = "runtime_initialization_failure"
         var allRejected = true
-        for (runtime in candidates) {
+        var remaining = candidates
+        while (remaining.isNotEmpty()) {
+            val runtime = remaining.first()
+            remaining = remaining.drop(1)
             val installation = installed[runtime.id]
             if (installation?.available != true) {
                 allRejected = false
@@ -277,6 +326,7 @@ internal fun extractWithRuntimes(
             val result = extractWithRuntime(artifact, hash, runtime, installation, config.worker)
             if (result.status == "verified") return result.also { runtimeResults[cacheKey] = it }
             if (Thread.currentThread().isInterrupted) return result
+            if (family == "Reseam") remaining = prioritizeReseamEngine(remaining, result.requiredEngine)
             allRejected = allRejected && result.terminal
             failure = result.status
         }
@@ -301,6 +351,18 @@ internal fun recordExtraction(
 }
 
 internal fun runtimeWorker(args: Array<String>) {
+    if (args[1] == "reseam-jvm") {
+        try {
+            File(args[3]).writeText(inspectLegacyReseam(File(args[2]), File(args[3] + ".jars")).toString())
+        } catch (_: Exception) {
+            System.err.println("Legacy Reseam inspector rejected bundle")
+            kotlin.system.exitProcess(2)
+        } catch (_: LinkageError) {
+            System.err.println("Legacy Reseam SDK is incompatible")
+            kotlin.system.exitProcess(2)
+        }
+        return
+    }
     val uri = File(args[2]).toURI()
     val patches = try {
         when (args[1]) {

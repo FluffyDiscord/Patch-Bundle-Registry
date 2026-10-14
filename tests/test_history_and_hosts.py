@@ -505,3 +505,74 @@ def test_upstream_outage_preserves_release_inventory_and_cached_prerelease(tmp_p
     assert bundles[0]["metadata_status"] == "verified"
     shutil.rmtree(tmp_path / "internal/cache")
     assert db.build_database(tmp_path) == manifest
+
+
+def test_historical_extraction_publishes_all_patches_and_restores_verified_list(tmp_path):
+    fixture(tmp_path)
+    inventory = db.read_json(tmp_path / "config/sources.json")
+    registry = save_history(
+        tmp_path,
+        inventory,
+        {
+            "https://github.com/owner/demo": [
+                {
+                    "tag_name": version,
+                    "published_at": stamp,
+                    "assets": [{"browser_download_url": url}],
+                }
+                for version, stamp, url in (
+                    ("v0", "2025-01-01T00:00:00Z", "https://example.test/v0.rvp"),
+                    ("v1", "2026-01-01T00:00:00Z", "https://example.test/demo.rvp"),
+                )
+            ]
+        },
+    )
+    key, settings = next(
+        (key, row) for key, row in registry.items()
+        if db.read_json(tmp_path / row["cache_path"])["version"] == "v0"
+    )
+    raw = tmp_path / settings["cache_path"]
+    patches = [
+        {
+            "name": name,
+            "use": enabled,
+            "description": "Historical patch",
+            "compatiblePackages": {"com.older": ["1.0"]},
+            "options": [{"key": "setting", "default": "old-value"}],
+            "dependencies": [],
+        }
+        for name, enabled in (("Historical patch", True), ("Optional patch", False), (None, True))
+    ]
+    patch_path = raw.with_name(f"{key}-patches-list.json")
+    write(patch_path, {
+        "version": "v0", "patches": patches,
+        "metadata_schema_version": db.PATCH_METADATA_SCHEMA_VERSION,
+    })
+    write(raw.with_name(f"{key}-extraction.json"), {
+        "version": "v0", "download_url": "https://example.test/v0.rvp",
+        "status": "verified", "file_hash": "a" * 64,
+        "runtime": "test:alternate:1", "patch_list_hash": db.digest(patch_path.read_bytes()),
+    })
+    for restored in (False, True):
+        if restored:
+            shutil.rmtree(tmp_path / "internal/cache")
+            db.restore_catalog_cache(tmp_path)
+        manifest = db.build_database(tmp_path)
+        output = tmp_path / "database" / manifest["snapshot"]
+        bundles = db.read_json(output / "bundles.json")
+        older = next(row for row in bundles if row["version"] == "v0")
+        assert older["metadata_status"] == "verified"
+        assert older["patch_count"] == len(patches)
+        assert older["patcher_runtime"] == "test:alternate:1"
+        pages = db.read_json(output / "patch-bundle-index.json")[older["id"]]
+        published = [
+            row for page in pages for row in db.read_json(output / page)
+            if row["bundle_id"] == older["id"]
+        ]
+        assert len(published) == len(patches)
+        assert {row.get("name") for row in published} == {row["name"] for row in patches}
+        assert any(row["use"] is False for row in published)
+        assert all(row["options"][0]["default"] == "old-value" for row in published)
+        assert all([(pkg["name"], pkg["versions"]) for pkg in row["packages"]]
+                   == [("com.older", ["1.0"])] for row in published)
+        assert next(row for row in bundles if row["version"] == "v1")["is_latest"]

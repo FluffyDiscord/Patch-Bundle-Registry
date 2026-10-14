@@ -14,6 +14,14 @@ on:
         description: Re-extract selected bundles (full rebuild when source is empty)
         type: boolean
         default: false
+      historical_batch_size:
+        description: Maximum older bundles to attempt (1-10000; blank uses variable or 1000)
+        type: string
+        default: ''
+      historical_max_seconds:
+        description: Older-bundle time budget in seconds (1-21600; blank uses variable or 900)
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -27,6 +35,9 @@ jobs:
   refresh:
     if: vars.CATALOG_DATA_ENABLED != 'true'
     runs-on: ubuntu-latest
+    env:
+      CATALOG_HISTORICAL_BATCH_SIZE: ${{ inputs.historical_batch_size || vars.CATALOG_HISTORICAL_BATCH_SIZE || '1000' }}
+      CATALOG_HISTORICAL_MAX_SECONDS: ${{ inputs.historical_max_seconds || vars.CATALOG_HISTORICAL_MAX_SECONDS || '900' }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -45,6 +56,12 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # v6.1.0
+      - name: Cache pinned native inspectors
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: internal/cache/runtimes
+          key: catalog-native-runtimes-v1-${{ runner.os }}-${{ hashFiles('config/patcher-runtimes.json') }}
+          restore-keys: catalog-native-runtimes-v1-${{ runner.os }}-
       - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: internal/cache/release_cache.json
@@ -117,6 +134,8 @@ jobs:
       CATALOG_BACKEND: d1
       CATALOG_SOURCE: ${{ inputs.source }}
       CATALOG_FORCE: ${{ inputs.force }}
+      CATALOG_HISTORICAL_BATCH_SIZE: ${{ inputs.historical_batch_size || vars.CATALOG_HISTORICAL_BATCH_SIZE || '1000' }}
+      CATALOG_HISTORICAL_MAX_SECONDS: ${{ inputs.historical_max_seconds || vars.CATALOG_HISTORICAL_MAX_SECONDS || '900' }}
       CATALOG_R2_WORKERS: ${{ vars.CATALOG_R2_WORKERS || '8' }}
       CATALOG_OBJECT_CACHE_BYTES: ${{ vars.CATALOG_OBJECT_CACHE_BYTES || '1073741824' }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -141,6 +160,12 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e
+      - name: Cache pinned native inspectors
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: internal/cache/runtimes
+          key: catalog-native-runtimes-v1-${{ runner.os }}-${{ hashFiles('config/patcher-runtimes.json') }}
+          restore-keys: catalog-native-runtimes-v1-${{ runner.os }}-
       - name: Cache verified immutable R2 objects
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:

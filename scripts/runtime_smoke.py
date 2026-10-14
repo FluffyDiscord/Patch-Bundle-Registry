@@ -171,9 +171,82 @@ public class PatchKt {
             jar.writestr(
                 "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 2.0.0\n\n"
             )
-        assert (
-            extract(morphe, "unsupported Morphe version")["status"] == "missing_compatible_runtime"
+        assert extract(morphe, "unmatched Morphe version tries fallback")["status"] == "verified"
+        with zipfile.ZipFile(morphe, "w") as jar:
+            jar.writestr(
+                "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: legacy\n\n"
+            )
+        assert extract(morphe, "non-semver declaration tries fallback")["status"] == "verified"
+        # Try the declared version, then newest to oldest. Exercise
+        # rejection and unavailable dependencies with isolated workers and no network.
+        morphe_facade = folder / "app/morphe/patcher/patch/PatchKt.java"
+        morphe_facade.write_text(
+            sources["app/morphe/patcher/patch/PatchKt.java"].replace(
+                "return List.of(new Patch());",
+                'throw new IllegalArgumentException("Preferred runtime rejected bundle");',
+            )
         )
+        rejected_classes = folder / "rejected-classes"
+        run([javac, "-cp", str(classes), "-d", str(rejected_classes), str(morphe_facade)])
+        rejected_runtime = folder / "rejected-runtime.jar"
+        with zipfile.ZipFile(rejected_runtime, "w") as jar:
+            for path in rejected_classes.rglob("*.class"):
+                jar.write(path, path.relative_to(rejected_classes).as_posix())
+        morphe_facade.write_text(sources["app/morphe/patcher/patch/PatchKt.java"])
+        morphe_definition = fixture_config["runtimes"][2]
+        fallback_config = {
+            **fixture_config,
+            "runtimes": [
+                {**morphe_definition, "id": "alternate", "coordinate": "test:alternate:1.0.0",
+                 "range": "<=1.0.0", "fallback": True},
+                {**morphe_definition, "id": "preferred", "coordinate": "test:preferred:2.0.0",
+                 "range": ">1.0.0", "fallback": False},
+            ],
+        }
+        fallback_manifest = {
+            "preferred": {"available": True, "classpath": str(rejected_runtime)},
+            "alternate": {"available": True, "classpath": str(runtime_jar)},
+        }
+        with zipfile.ZipFile(morphe, "w") as jar:
+            jar.writestr(
+                "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 1.0.0\n\n"
+            )
+        both_working = {
+            **fallback_manifest,
+            "preferred": {"available": True, "classpath": str(runtime_jar)},
+        }
+        declared = extract(morphe, "declared older runtime stays first",
+                           fallback_config, both_working)
+        assert declared["status"] == "verified" and declared["runtime"] == "test:alternate:1.0.0"
+        older_rejects = {
+            **both_working,
+            "alternate": {"available": True, "classpath": str(rejected_runtime)},
+        }
+        recovered = extract(morphe, "rejected declared runtime retries latest",
+                            fallback_config, older_rejects)
+        assert recovered["status"] == "verified" and recovered["runtime"] == "test:preferred:2.0.0"
+        with zipfile.ZipFile(morphe, "w") as jar:
+            jar.writestr("META-INF/MANIFEST.MF", "Manifest-Version: 1.0\n\n")
+        newest = extract(morphe, "missing declaration starts with latest",
+                         fallback_config, both_working)
+        assert newest["status"] == "verified" and newest["runtime"] == "test:preferred:2.0.0"
+        with zipfile.ZipFile(morphe, "w") as jar:
+            jar.writestr(
+                "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 2.0.0\n\n"
+            )
+        recovered = extract(morphe, "rejected preferred runtime falls back",
+                            fallback_config, fallback_manifest)
+        assert recovered["status"] == "verified" and recovered["runtime"] == "test:alternate:1.0.0"
+        unavailable = {**fallback_manifest, "preferred": {"available": False, "classpath": ""}}
+        recovered = extract(morphe, "unavailable preferred runtime falls back",
+                            fallback_config, unavailable)
+        assert recovered["status"] == "verified" and recovered["runtime"] == "test:alternate:1.0.0"
+        all_rejected = {
+            **fallback_manifest,
+            "alternate": {"available": True, "classpath": str(rejected_runtime)},
+        }
+        rejected = extract(morphe, "all Morphe runtimes reject", fallback_config, all_rejected)
+        assert rejected["terminal"] and rejected["status"] == "runtime_parsing_failure"
         assert extract(artifact, "unrelated bundle after failure")["status"] == "verified"
         # Null names and legitimate empty collections remain successful in both families.
         patch_source = folder / "app/revanced/patcher/patch/Patch.java"
@@ -383,7 +456,12 @@ public class PatchKt {
             invalid_reseam = folder / "invalid.reseam"
             invalid_reseam.write_bytes(b"invalid archive")
             rejected = extract(invalid_reseam, "Reseam rejects invalid archive", config, installed)
-            assert rejected["terminal"] and rejected["status"] == "runtime_parsing_failure"
+            native_candidates = [runtime for runtime in config["runtimes"]
+                                 if runtime["family"] == "Reseam"]
+            all_available = all(installed.get(runtime["id"], {}).get("available")
+                                for runtime in native_candidates)
+            assert rejected["terminal"] == all_available
+            assert rejected["status"] == "runtime_parsing_failure"
             # Local live-validation artifacts are optional and never committed.
             for artifact in (ROOT / "internal/reseam-fixtures").glob("*.reseam"):
                 inspected = extract(artifact, "real Reseam " + artifact.name, config, installed)

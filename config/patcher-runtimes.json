@@ -1,4 +1,5 @@
 {
+  "extraction_policy_version": 4,
   "worker": {
     "timeout_seconds": 90,
     "max_heap": "512m",
@@ -131,6 +132,294 @@
           "sha256": "89771432955cd4ad0578f4754c5cc27af7ac58cf77aa04396221e25362e9b6ab"
         }
       }
+    },
+    {
+      "id": "reseam-v0-22-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.22.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.22.0/reseam-linux-x64",
+          "sha256": "4e5eac0abdcd57802316e86f86001b34603fe26170c29c3c41f52713baa0501e"
+        },
+        "windows-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.22.0/reseam-windows-x64.exe",
+          "sha256": "83a4a6da0654c321dcfa202d880a638b874afef7fecedba762915dd9332f6db8"
+        }
+      }
+    },
+    {
+      "id": "reseam-v0-21-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.21.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.21.0/reseam-linux-x64",
+          "sha256": "65d31276193ca55064d013633ccaf2558bcfed08579c6a86f2f949da3487fdb4"
+        },
+        "windows-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.21.0/reseam-windows-x64.exe",
+          "sha256": "7b94467d9a1ef78a98d139060f0adf6861542bf7d800717b91f2be56398a7ced"
+        }
+      }
+    },
+    {
+      "id": "reseam-v0-20-2",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.20.2",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.20.2/reseam-linux-x64",
+          "sha256": "7cdfa83843edb1c518ffffffd336708bdb3cf12f1a36103fd6812dd58dced0de"
+        },
+        "windows-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.20.2/reseam-windows-x64.exe",
+          "sha256": "7cb40605d2af28e0a6b6d5cc8e28b4555d65668df6395574dfc9fad015106ce7"
+        }
+      }
+    },
+    {
+      "id": "reseam-v0-19-1",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.19.1",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.19.1/reseam-linux-x64",
+          "sha256": "0711b61fe3d8c014767df1ecfba9c9606ed3730f26d6f823a6fd1eb00138fd74"
+        },
+        "windows-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.19.1/reseam-windows-x64.exe",
+          "sha256": "458fdcbf0d1225a0835fd7a13b712435572de44e91726591f7c6b1f6144baa9f"
+        }
+      }
+    },
+    {
+      "id": "reseam-v0-18-3",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.18.3",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.18.3/reseam-linux-x64",
+          "sha256": "9bc87481b699e0eba588fbe194e92d8412f93e9d340b0a23da6f7b6f727129c4"
+        },
+        "windows-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.18.3/reseam-windows-x64.exe",
+          "sha256": "6cdde65f413426cad6eec556ce2d53f5a44ed6844f8a115711e72dedd91ab105"
+        }
+      }
+    },
+    {
+      "id": "reseam-v0-17-2",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.17.2",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.17.2/reseam-linux-x64",
+          "sha256": "efed306cef00d49c68cb3e3a070602c04069647300b5a58f5b7174c1a684e8a5"
+        },
+        "windows-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.17.2/reseam-windows-x64.exe",
+          "sha256": "df1b1a65a7446e1e66246ba2bf37895e8cc6bdb19c6e4e6be7ea262c6d4320f9"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-16-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.16.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.16.0/reseam-linux-x64",
+          "sha256": "27d2feba5ce51b1f63cb0cb6e07d8bdf0eb683d4e51d4950ef6a15b0c2c13e9e"
+        },
+        "windows-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.16.0/reseam-windows-x64.exe",
+          "sha256": "d4009c8ec9c0102eadc174b75715f7c658503337270b15313509804485651b14"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-15-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.15.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.15.0/reseam-linux-x64",
+          "sha256": "a742218d789fe8d226efa8a52bdc1533bbaaff871380bd76c6f0aa72b7b1c105"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-14-2",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.14.2",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.14.2/reseam-linux-x64",
+          "sha256": "a875e76611798168e84f36c78024a56b6fe5387094efab07c7611b846c1b1e44"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-13-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.13.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.13.0/reseam-linux-x64",
+          "sha256": "01cb2f4a930760c5b11a9e8aed9f81e41a1c8ed67a3bc0f64b65f6727cb0d3d2"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-12-1",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.12.1",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.12.1/reseam-linux-x64",
+          "sha256": "f697028a5504bba443773b7fe23219487a60ec2721d4b8663bbfb8b75f6f4509"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-12-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.12.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.12.0/reseam-linux-x64",
+          "sha256": "d8c267383190648f306cc48e9ce5cb4247916cd503c95c043182875db35a2482"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-11-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.11.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.11.0/reseam-linux-x64",
+          "sha256": "322bd362c74d8a12f38e3375d0b337d5c94ee96b7e419be37eec6b3e40f93dbe"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-10-0",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.10.0",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.10.0/reseam-linux-x64",
+          "sha256": "dca231a0b90fa693193132f278261d286132627212c5c92316db5794fa007bc7"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-9-1",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.9.1",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.9.1/reseam-linux-x64",
+          "sha256": "818bbb704a86cb8a6eede8f14df3454f93eff6f6bd2153af47c150c8112f718d"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-v0-8-1",
+      "family": "Reseam",
+      "loader": "reseam",
+      "coordinate": "app.reseam:reseam:0.8.1",
+      "dependencies": [],
+      "range": "*",
+      "fallback": true,
+      "executables": {
+        "linux-x64": {
+          "url": "https://git.reseam.app/reseam/reseam/releases/download/v0.8.1/reseam-linux-x64",
+          "sha256": "32f2fb6907cd713c2d30e3291a3bd27780b7c7fb1de5a406fb22581b86174358"
+        }
+      },
+      "trust_publisher_for_inspection": true
+    },
+    {
+      "id": "reseam-jvm-legacy",
+      "family": "Reseam",
+      "loader": "reseam-jvm",
+      "coordinate": "builtin:reseam-jvm-inspector:1",
+      "dependencies": [],
+      "range": "<0.8.0",
+      "fallback": true
     }
   ]
 }
