@@ -71,6 +71,17 @@ def test_large_patch_lists_split_without_losing_names():
     names = tuple(f"Patch {index:04}" for index in range(500))
     contents = notify.messages({}, {"source/release": release(names=names)}, "")
     assert len(contents) > 2
+    for content in contents:
+        fields = content["embeds"][0]["fields"]
+        headings = [field["name"] for field in fields if field["name"] != "\u200b"]
+        assert len(headings) == len(set(headings))
+        assert fields[0]["name"] != "\u200b"
+        assert "New Patches" in headings
+    assert any(
+        field["name"] == "\u200b"
+        for content in contents
+        for field in content["embeds"][0]["fields"]
+    )
     assert all(
         sum(
             notify.size(embed["title"])

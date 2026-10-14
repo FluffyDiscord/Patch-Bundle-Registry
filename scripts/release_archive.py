@@ -127,9 +127,13 @@ def reconcile_archive(root, inventory, release_sets):
             ):
                 record.update(availability="unavailable", last_verified_at=now)
         state.update(status="complete", error=None, verified_at=now, upstream_count=len(seen))
-    for canonical, state in archive["sources"].items():
-        if canonical not in configured:
-            state.update(configured=False, status="removed")
+    archive["sources"] = {
+        key: row for key, row in archive["sources"].items() if key in configured
+    }
+    archive["releases"] = {
+        key: row for key, row in archive["releases"].items()
+        if row["source_url"].lower() in configured
+    }
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(".tmp")
     temporary.write_text(

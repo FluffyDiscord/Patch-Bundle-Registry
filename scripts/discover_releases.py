@@ -88,6 +88,18 @@ RepoConfig = Mapping[str, Any]
 
 BUNDLE_METADATA: dict[str, Any] = {}
 DISCOVERY_STATUS: dict[str, str] = {}
+DISCOVERY_ISSUES: list[dict[str, str]] = []
+
+
+def issue(source, phase, error):
+    if isinstance(error, HTTPStatusError):
+        reason = f"HTTP {error.response.status_code}"
+    elif isinstance(error, HTTPError):
+        reason = type(error).__name__
+    else:
+        reason = "Invalid upstream release data"
+    DISCOVERY_ISSUES.append({"source": source, "phase": phase, "error": reason})
+
 
 GH_PAT = os.getenv("GH_PAT")
 GITLAB_TOKEN = os.getenv("GITLAB_TOKEN")
@@ -269,6 +281,24 @@ def _release_url(release: Mapping[str, Any]) -> str | None:
     return None
 
 
+def _validate_release_page(page):
+    if not isinstance(page, list) or any(not isinstance(row, dict) for row in page):
+        raise ValueError("Release response is not a list of objects")
+    for release in page:
+        if release.get("draft") or release.get("upcoming_release"):
+            continue
+        tag = release.get("tag_name")
+        if release.get("id") is None and not tag:
+            raise ValueError("Release has neither an upstream ID nor a tag")
+        if tag is not None and not isinstance(tag, str):
+            raise ValueError("Release tag must be a string")
+        if not release.get("html_url") and not isinstance(release.get("_links", {}), Mapping):
+            raise ValueError("Release links must be an object")
+        # Validate every published release, including non-selected channels,
+        # before caching or making its inventory authoritative for reconciliation.
+        release_assets(release)
+
+
 async def _fetch_releases(client: AsyncClient, api_url: str) -> list[dict[str, Any]]:
     releases = []
     next_url = api_url
@@ -300,11 +330,11 @@ async def _fetch_releases(client: AsyncClient, api_url: str) -> list[dict[str, A
             if cached is None:
                 raise ValueError(f"Received 304 without cached releases for {next_url}")
             page = cached["releases"]
+            _validate_release_page(page)
             following = cached.get("next_url")
         else:
             page = response.json()
-            if not isinstance(page, list) or any(not isinstance(r, dict) for r in page):
-                raise ValueError(f"Release response is not a list of objects: {next_url}")
+            _validate_release_page(page)
             following = response.links.get("next", {}).get("url")
             # GitLab can also paginate using X-Next-Page.
             if not following and response.headers.get("x-next-page"):
@@ -539,6 +569,7 @@ async def fetch_release_data(
                             required_extensions=(".apk",),
                         )
                     except (HTTPError, ValueError) as exc:
+                        issue(patches_repo, "Integrations", exc)
                         print(f"Optional integrations unavailable for {source}: {exc}")
                 if integrations_download_urls and integrations_download_urls[".apk"]:
                     apk_url = integrations_download_urls[".apk"]
@@ -572,17 +603,18 @@ async def fetch_release_data(
             BUNDLE_METADATA[source] = metadata_entry
         return True
     except HTTPStatusError as exc:
+        issue(repo.get("patches", source), "Release check", exc)
         DISCOVERY_STATUS[source] = "upstream_unavailable"
         status_code = exc.response.status_code
         if status_code in SKIPPABLE_SOURCE_STATUS_CODES:
             print(
-                f"Skipping {source}: release data unavailable "
-                f"({status_code}) for {exc.request.url}"
+                f"Skipping {source}: release data unavailable ({status_code}) for {exc.request.url}"
             )
             return None
         print(f"Error in fetch_release_data for {source}: {exc}")
         return False
-    except Exception as exc:
+    except (HTTPError, ValueError) as exc:
+        issue(repo.get("patches", source), "Release check", exc)
         DISCOVERY_STATUS[source] = "upstream_unavailable"
         print(f"Error in fetch_release_data for {source}: {exc}")
         return False
@@ -604,6 +636,7 @@ async def main() -> int:
     RELEASE_REQUESTS.clear()
     BUNDLE_METADATA.clear()
     DISCOVERY_STATUS.clear()
+    DISCOVERY_ISSUES.clear()
     try:
         # Recovery must use a completed check from this discovery run, never
         # restored channel statuses after a discovery process crashes.
@@ -654,6 +687,8 @@ async def main() -> int:
                 canonical = normalize_source(repo).lower()
                 if error is None:
                     release_sets[canonical] = task.result()
+                elif not isinstance(error, (HTTPError, ValueError)):
+                    raise error
                 elif (
                     isinstance(error, HTTPStatusError)
                     and error.response.status_code in PERMANENT_STATUS
@@ -675,8 +710,7 @@ async def main() -> int:
             if isinstance(result, Exception):
                 print(f"Task for {source} failed: {result}")
                 had_task_failure = True
-            elif result is False:
-                had_task_failure = True
+            # Expected provider failures have already been recorded as issues.
         incomplete_sources = [
             row
             for row in archive["sources"].values()
@@ -686,7 +720,12 @@ async def main() -> int:
             canonical = row["source_url"].lower()
             reason = availability.get(canonical) or row.get("error") or row["status"]
             print(f"Historical reconciliation incomplete for {row['source_url']}: {reason}")
-        had_task_failure = had_task_failure or bool(incomplete_sources)
+        try:
+            from scripts.refresh_issues import record_issue
+        except ModuleNotFoundError:
+            from refresh_issues import record_issue
+        for row in DISCOVERY_ISSUES:
+            record_issue(PROJECT_ROOT, **row)
         timestamp = datetime.now(timezone.utc).isoformat()  # noqa: UP017
         metadata_payload = {
             "generated_at": timestamp,
@@ -695,6 +734,7 @@ async def main() -> int:
             "error": (
                 "One or more release sources could not be refreshed" if had_task_failure else None
             ),
+            "issues": len(DISCOVERY_ISSUES),
             "bundles": BUNDLE_METADATA,
         }
         await asyncio.to_thread(_dump_json_sync, METADATA_PATH, metadata_payload)

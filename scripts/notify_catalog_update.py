@@ -169,7 +169,7 @@ def link(label, url):
         return label
 
 
-def messages(before, after, website):
+def messages(before, after, website, issues=()):
     """Return complete webhook payloads, one rich embed per message."""
     sections = {name: [] for name in ("New Bundles", "Updated Bundles", "New Apps", "New Patches")}
     known_sources = {key.rsplit("/", 1)[0] for key in before}
@@ -240,6 +240,11 @@ def messages(before, after, website):
                     app_url = new.get("app_urls", {}).get(package, app_url)
                     sections["New Apps"].append(f"• {link(name, app_url)} ({label})")
                     announced_apps.add(identity)
+    sections["Issues"] = [
+        f"• {link(row['source'], row['source'])} — {clean(row['phase'], 80)}: "
+        f"{clean(row['error'], 300)}"
+        for row in sorted(issues, key=lambda row: (row["source"], row["phase"], row["error"]))
+    ]
     fields = []
     for title, lines in sections.items():
         value = ""
@@ -253,16 +258,22 @@ def messages(before, after, website):
     result = []
     embed = None
     length = 0
+    headings = set()
     for field in fields:
-        field_size = size(field["name"]) + size(field["value"])
+        # Discord requires a field name; continuation chunks use an invisible one.
+        name = "\u200b" if field["name"] in headings else field["name"]
+        field_size = size(name) + size(field["value"])
         if embed is None or len(embed["fields"]) >= 25 or length + field_size > 6000:
             embed = {"title": "Patch Bundle Registry update", "color": 0x79D38A, "fields": []}
             if isinstance(website, str) and link("website", website) != "website":
                 embed["url"] = website
             result.append({"embeds": [embed], "allowed_mentions": {"parse": []}})
             length = size(embed["title"])
-        embed["fields"].append(field)
-        length += field_size
+            headings.clear()
+            name = field["name"]
+        embed["fields"].append({**field, "name": name})
+        headings.add(field["name"])
+        length += size(name) + size(field["value"])
     return result
 
 
@@ -306,8 +317,16 @@ def main():
     webhook = os.environ.get("WEBHOOK_URL")
     if not webhook:
         return
+    try:
+        from scripts.refresh_issues import read_issues
+    except ModuleNotFoundError:
+        from refresh_issues import read_issues
+    after = capture(ROOT)
+    before = read(args.baseline) if args.baseline.exists() else after
+    if os.environ.get("CATALOG_REFRESH_FAILED") == "true":
+        after = before  # Failed publication must not announce unpublished changes.
     contents = messages(
-        read(args.baseline), capture(ROOT), read(ROOT / "config/site.json")["website"]
+        before, after, read(ROOT / "config/site.json")["website"], read_issues(ROOT)
     )
     send(webhook, contents)
     print(f"Sent {len(contents)} catalog notification messages.")

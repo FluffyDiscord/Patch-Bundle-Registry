@@ -212,6 +212,17 @@ class Refresh:
             raise
 
     def _run(self):
+        try:
+            from scripts.refresh_issues import extraction_issues, read_issues
+            from scripts.source_cleanup import clean_inputs
+        except ModuleNotFoundError:
+            from refresh_issues import extraction_issues, read_issues
+            from source_cleanup import clean_inputs
+
+        issues = self.root / "internal/cache/refresh-issues.json"
+        issues.parent.mkdir(parents=True, exist_ok=True)
+        issues.write_bytes(encoded([]))
+        clean_inputs(self.root)
         restore_catalog_cache(self.root)
         python = sys.executable
         self.phase(
@@ -228,11 +239,16 @@ class Refresh:
         wrapper = self.root / "bundle-parser" / ("gradlew.bat" if os.name == "nt" else "gradlew")
         if os.name != "nt":
             wrapper.chmod(wrapper.stat().st_mode | 0o111)
-        self.phase("PATCHES", [str(wrapper), "--project-dir", "bundle-parser", "run"])
+        try:
+            self.phase("PATCHES", [str(wrapper), "--project-dir", "bundle-parser", "run"])
+        finally:
+            extraction_issues(self.root, self.jobs[1]["started_at"])
         subprocess.run(  # noqa: S603 -- fixed interpreter and local script
             [python, "scripts/refresh_app_metadata.py"], cwd=self.root, check=False
         )
         self.checkpoint(force=True)
+        if read_issues(self.root):
+            print(f"Refresh completed with {len(read_issues(self.root))} upstream issues")
         if self.cloudflare:
             build_database(self.root, restore=False)
             validate(self.root)

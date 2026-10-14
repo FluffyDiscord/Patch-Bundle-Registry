@@ -599,7 +599,9 @@ def test_release_endpoint_errors_persist_automatic_source_availability(
             transport=httpx.MockTransport(lambda request: httpx.Response(code)), **kwargs
         ),
     )
-    assert asyncio.run(bundles.main()) == 1
+    assert asyncio.run(bundles.main()) == 0
+    issues = json.loads((cache / "refresh-issues.json").read_text())
+    assert any(row["error"] == f"HTTP {code}" for row in issues)
     assert (
         source_availability(tmp_path)["https://github.com/example/patches"]
         == PERMANENT_STATUS[code]

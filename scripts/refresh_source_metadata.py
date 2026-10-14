@@ -45,8 +45,9 @@ def morphe_sources(root):
     folder = root / "database" / snapshot
     bundles = read_json(folder / "bundles.json", [])
     sources = read_json(folder / "sources.json", [])
-    identities = {row["source_id"] for row in bundles
-                  if str(row.get("bundle_type", "")).startswith("Morphe:")}
+    identities = {
+        row["source_id"] for row in bundles if str(row.get("bundle_type", "")).startswith("Morphe:")
+    }
     return {row["url"].lower() for row in sources if row["id"] in identities}
 
 
@@ -149,10 +150,14 @@ def refresh(root, client, limit=None, now=None):
             checked = datetime.fromisoformat(cached.get("checked_at", ""))
             icon_checked = (
                 datetime.fromisoformat(cached.get("icon_checked_at", ""))
-                if url.lower() in morphe else now
+                if url.lower() in morphe
+                else now
             )
-            if (url.lower() not in availability and now - checked < timedelta(days=1)
-                    and now - icon_checked < timedelta(days=1)):
+            if (
+                url.lower() not in availability
+                and now - checked < timedelta(days=1)
+                and now - icon_checked < timedelta(days=1)
+            ):
                 continue
         except (ValueError, TypeError):
             pass
@@ -174,7 +179,8 @@ def refresh(root, client, limit=None, now=None):
                 if not isinstance(payload, dict):
                     raise ValueError("Expected repository metadata")
                 updated["source_metadatum"] = {
-                    **cached.get("source_metadatum", {}), **metadata_for(url, payload)
+                    **cached.get("source_metadatum", {}),
+                    **metadata_for(url, payload),
                 }
                 updated["default_branch"] = payload.get("default_branch")
                 updated["etag"] = response.headers.get("etag")
@@ -190,6 +196,18 @@ def refresh(root, client, limit=None, now=None):
             print(f"Repository metadata unavailable: {url}")
         if url.lower() in morphe and updated.get("http_status") in {200, 304}:
             refresh_icon(client, url, updated, now)
+        if updated.get("http_status") not in {200, 304}:
+            try:
+                from scripts.refresh_issues import record_issue
+            except ModuleNotFoundError:
+                from refresh_issues import record_issue
+            code = updated.get("http_status")
+            record_issue(
+                root,
+                url,
+                "Repository metadata",
+                f"HTTP {code}" if code else "Repository request failed",
+            )
         result[url.lower()] = updated
         if updated.get("http_status") in {401, 429} or (
             updated.get("http_status") == 403

@@ -42,8 +42,7 @@ def test_full_metadata_survives_deletion_edits_and_source_removal(tmp_path):
     assert not edited["releases"][identity]["is_prerelease"]
     assert sum(row["availability"] == "unavailable" for row in edited["releases"].values()) == 236
     removed = reconcile_archive(tmp_path, {}, {})
-    assert len(removed["releases"]) == 237
-    assert removed["sources"][SOURCE]["status"] == "removed"
+    assert removed == {"releases": {}, "sources": {}}
 
 
 def test_failed_inventory_preserves_history_and_unchanged_release_hash(tmp_path):
@@ -61,7 +60,21 @@ class MemoryCloud(cloud.Cloud):
         self.database.row_factory = sqlite3.Row
         schema = (cloud.ROOT / "worker/migrations/0001_catalog.sql").read_text()
         self.database.executescript(schema)
+        from types import SimpleNamespace
+
         self.objects = {}
+        self.bucket = "test"
+        self.s3 = SimpleNamespace(
+            get_paginator=lambda name: SimpleNamespace(
+                paginate=lambda **kwargs: [{"Contents": [{"Key": key} for key in self.objects]}]
+            ),
+            delete_object=lambda **kwargs: self.objects.pop(kwargs["Key"], None),
+            delete_objects=lambda **kwargs: {
+                "Deleted": [
+                    self.objects.pop(row["Key"], None) for row in kwargs["Delete"]["Objects"]
+                ]
+            },
+        )
         self.fail_insert = False
         self.inserts = 0
 
@@ -163,26 +176,17 @@ def test_retired_records_and_relationships_remain_recoverable(tmp_path, monkeypa
     memory.publish()
     original = memory.read_records(memory.document(memory.active()))
     baseline = {(row["kind"], row["key"]) for row in original if row["kind"] != "refresh_jobs"}
-    (tmp_path / "config/sources.json").write_text("{}")
-    monkeypatch.setattr(
-        cloud,
-        "catalog_records",
-        lambda root: (
-            json.loads((root / "database/manifest.json").read_text()),
-            {
-                ("history_source", SOURCE): {
-                    "source_url": SOURCE,
-                    "configured": False,
-                    "status": "removed",
-                }
-            },
-        ),
-    )
+    inventory = json.loads((tmp_path / "config/sources.json").read_bytes())
+    from scripts.release_history import save_history
+
+    reconcile_archive(tmp_path, inventory, {SOURCE: [], "https://gitlab.com/team/empty": []})
+    save_history(tmp_path, inventory, {SOURCE: [], "https://gitlab.com/team/empty": []})
+    db.build_database(tmp_path)
     memory.publish()
     document = memory.document(memory.active())
     records = memory.read_records(document)
     assert baseline <= {(row["kind"], row["key"]) for row in records}
-    assert all(not row["data"]["enabled"] for row in records if row["kind"] == "source")
+    assert all(row["data"]["enabled"] for row in records if row["kind"] == "source")
     assert all(not row["data"]["is_latest"] for row in records if row["kind"] == "bundle")
     memory.verify_database(memory.active()["seq"], document)
 
@@ -378,8 +382,11 @@ def test_rollback_download_reserves_ids_from_newer_ready_generations(
     memory.download_catalog(memory.document(first), refresh_inputs=refresh_inputs)
     recovered = json.loads(ids_path.read_text())
     assert recovered["package"]['["com.retained","1.0"]'] == reserved
-    assert all(recovered[table][key] == value
-               for table, mapping in identifiers.items() for key, value in mapping.items())
+    assert all(
+        recovered[table][key] == value
+        for table, mapping in identifiers.items()
+        for key, value in mapping.items()
+    )
 
 
 def test_lost_checkpoint_does_not_leave_removed_sources_configured(tmp_path, monkeypatch):
@@ -394,11 +401,9 @@ def test_lost_checkpoint_does_not_leave_removed_sources_configured(tmp_path, mon
     db.build_database(tmp_path)
     memory.publish()
     records = memory.read_records(memory.document(memory.active()))
-    removed = next(item["data"] for item in records
-                   if item["kind"] == "history_source" and item["key"] == SOURCE)
-    assert removed["configured"] is False
-    assert removed["status"] == "removed"
-    assert any(item["kind"] == "history_release" for item in records)
+    assert not any(item["kind"] == "history_source" and item["key"] == SOURCE for item in records)
+    assert not any(item["kind"] == "history_release" for item in records)
+    assert len(memory.sql("SELECT * FROM catalog_generations")) == 1
 
 
 def test_cloud_refresh_stops_if_discovery_crashes_before_reconciliation(tmp_path, monkeypatch):
@@ -409,11 +414,13 @@ def test_cloud_refresh_stops_if_discovery_crashes_before_reconciliation(tmp_path
     catalog(tmp_path)  # A previously complete inventory must not hide the failed new check.
     monkeypatch.setattr(refresh, "restore_catalog_cache", lambda root: None)
     monkeypatch.setattr(
-        refresh.subprocess, "Popen",
+        refresh.subprocess,
+        "Popen",
         lambda *a, **k: SimpleNamespace(poll=lambda: 1, returncode=1),
     )
     monkeypatch.setattr(
-        refresh.subprocess, "run",
+        refresh.subprocess,
+        "run",
         lambda *a, **k: pytest.fail("Refresh continued after failed upstream reconciliation"),
     )
     state = refresh.Refresh(tmp_path, cloudflare=True)
@@ -438,8 +445,10 @@ def test_publication_requires_current_enabled_source_coverage(tmp_path, monkeypa
     saved = json.loads(archive_path.read_text())
     if previous != "missing":
         saved["sources"][new_source] = {
-            "source_url": new_source, "configured": previous == "disabled",
-            "required": previous != "disabled", "status": previous,
+            "source_url": new_source,
+            "configured": previous == "disabled",
+            "required": previous != "disabled",
+            "status": previous,
         }
         archive_path.write_text(json.dumps(saved))
     inventory["new"] = {"patches": new_source, "disabled": False}
@@ -449,8 +458,14 @@ def test_publication_requires_current_enabled_source_coverage(tmp_path, monkeypa
         memory.publish()
     assert memory.active() == active
     assert memory.objects == objects
-    reconcile_archive(tmp_path, inventory, {
-        SOURCE: [release(1)], "https://gitlab.com/team/empty": [], new_source: [],
-    })
+    reconcile_archive(
+        tmp_path,
+        inventory,
+        {
+            SOURCE: [release(1)],
+            "https://gitlab.com/team/empty": [],
+            new_source: [],
+        },
+    )
     memory.publish()
     assert memory.document(memory.active())["complete"] is True

@@ -301,6 +301,11 @@ def restore_catalog_cache(root=ROOT):
 
 
 def build_database(root=ROOT, *, restore=True):
+    try:
+        from scripts.source_cleanup import clean_inputs, clean_snapshots
+    except ModuleNotFoundError:
+        from source_cleanup import clean_inputs, clean_snapshots
+    clean_inputs(root)
     if restore:
         restore_catalog_cache(root)
     config = read_json(root / "config/site.json")
@@ -638,7 +643,6 @@ def build_database(root=ROOT, *, restore=True):
                 )
     for identity, item in history.items():
         if item["bundle"]["source_id"] not in sources:
-            retired.append(identity)
             continue
         bundle = item["bundle"].copy()
         if not reconcile_release(bundle, sources[bundle["source_id"]]["url"], observations):
@@ -928,7 +932,20 @@ def build_database(root=ROOT, *, restore=True):
                     "version": version,
                 }
     files["package-records.json"] = sorted(package_records.values(), key=lambda item: item["id"])
-    files["ids.json"] = identifiers
+    # Public indexes contain only published entities. The private root registry
+    # retains numeric reservations so deleted IDs cannot be reassigned.
+    public_id_keys = {
+        "source": set(sources),
+        "source_metadata": set(sources),
+        "bundle": set(bundles),
+        "patch": {row["id"] for row in rows},
+        "package": set(package_records),
+    }
+    files["ids.json"] = {
+        table: {key: value for key, value in mapping.items() if key in public_id_keys[table]}
+        for table, mapping in identifiers.items()
+        if table in public_id_keys
+    }
     run_metadata = read_json(root / "internal/cache/bundle-run-metadata.json", {})
     prior_jobs = (
         read_json(output / previous_path / "refresh-jobs.json", []) if previous_path else []
@@ -1146,6 +1163,7 @@ def build_database(root=ROOT, *, restore=True):
     temp.write_bytes(encoded(manifest))
     temp.replace(output / "manifest.json")
     apply_retention(output, plan)
+    clean_snapshots(root)
     print(f"Catalog {generation}: {manifest['counts']}")
     return manifest
 

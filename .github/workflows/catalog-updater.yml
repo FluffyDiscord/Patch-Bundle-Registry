@@ -56,6 +56,7 @@ jobs:
         continue-on-error: true
         run: python scripts/notify_catalog_update.py capture --baseline "$RUNNER_TEMP/catalog-before.json"
       - name: Refresh and publish catalog progress
+        id: refresh
         env:
           GITHUB_ACTOR: ${{ github.repository_owner }}
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
@@ -98,10 +99,11 @@ jobs:
           include-hidden-files: true
           retention-days: 2
       - name: Notify catalog update
-        if: steps.commit.outputs.changed == 'true'
+        if: always() && (steps.refresh.outcome == 'success' || steps.refresh.outcome == 'failure')
         continue-on-error: true
         env:
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          CATALOG_REFRESH_FAILED: ${{ job.status != 'success' }}
         run: python scripts/notify_catalog_update.py notify --baseline "$RUNNER_TEMP/catalog-before.json"
 
   cloudflare:
@@ -154,6 +156,7 @@ jobs:
         continue-on-error: true
         run: python scripts/notify_catalog_update.py capture --baseline "$RUNNER_TEMP/catalog-before.json"
       - name: Verify sources and reconcile full history
+        id: refresh
         env:
           GITHUB_ACTOR: ${{ github.repository_owner }}
           GH_PAT: ${{ secrets.GIT_TOKEN }}
@@ -167,9 +170,11 @@ jobs:
           python scripts/validate_database.py
           python -m scripts.cloudflare_catalog publish
       - name: Notify cloud catalog update
+        if: always() && (steps.refresh.outcome == 'success' || steps.refresh.outcome == 'failure')
         continue-on-error: true
         env:
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          CATALOG_REFRESH_FAILED: ${{ job.status != 'success' }}
         run: python scripts/notify_catalog_update.py notify --baseline "$RUNNER_TEMP/catalog-before.json"
       - name: Upload catalog for Pages
         if: vars.CATALOG_PAGES_ENABLED == 'true' && vars.CATALOG_BACKEND == 'd1'
@@ -192,4 +197,5 @@ jobs:
             internal/cache/bundle-run-metadata.json
             internal/cache/history/archive.json
             internal/cache/cloudflare-performance.json
+            internal/cache/refresh-issues.json
           retention-days: 7
