@@ -161,6 +161,45 @@ public class PatchKt {
             return result
 
         assert extract(artifact, "unavailable runtime falls back")["status"] == "verified"
+        # Exercise the repaired, installed legacy runtime without another fallback
+        # hiding a missing dependency or a class-loader failure.
+        legacy_id = "revanced-v3-11"
+        if installed.get(legacy_id, {}).get("available"):
+            legacy_source = folder / "LegacyPatch.java"
+            legacy_source.write_text(
+                "@app.revanced.patcher.patch.annotations.Patch\n"
+                '@app.revanced.patcher.annotation.Name(name="Legacy runtime fixture")\n'
+                "public class LegacyPatch {}\n"
+            )
+            legacy_classes = folder / "legacy-classes"
+            run(
+                [
+                    javac,
+                    "-cp",
+                    installed[legacy_id]["classpath"],
+                    "-d",
+                    str(legacy_classes),
+                    str(legacy_source),
+                ]
+            )
+            legacy_artifact = folder / "legacy-fixture.jar"
+            with zipfile.ZipFile(legacy_artifact, "w") as jar:
+                jar.writestr(
+                    "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 11.0.4\n\n"
+                )
+                jar.write(legacy_classes / "LegacyPatch.class", "LegacyPatch.class")
+            legacy_config = {
+                **config,
+                "runtimes": [r for r in config["runtimes"] if r["id"] == legacy_id],
+            }
+            inspected = extract(
+                legacy_artifact,
+                "installed patcher 11 legacy bundle",
+                legacy_config,
+                {legacy_id: installed[legacy_id]},
+            )
+            assert inspected["status"] == "verified" and inspected["patch_count"] == 1
+            assert inspected["runtime"] == "app.revanced:revanced-patcher:11.0.4"
         morphe = folder / "fixture.mpp"
         with zipfile.ZipFile(morphe, "w") as jar:
             jar.writestr(

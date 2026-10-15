@@ -209,16 +209,25 @@ private fun extractWithRuntime(
                     reseamSigningKey(artifact)?.let { arguments += listOf("--trust", it) }
                 }
                 ProcessBuilder(arguments).redirectOutput(output).redirectError(log)
-            } else ProcessBuilder(
-                java, "-Xmx${settings.max_heap}",
-                "-Drevanced.patcher22.classpath=${installation.classpath}",
-                "-Drevanced.patcher21.classpath=${installation.classpath}",
-                "-Dmorphe.patcher.classpath=${installation.classpath}",
-                "-cp", listOf(System.getProperty("java.class.path"), installation.classpath)
-                    .filter(String::isNotBlank).joinToString(File.pathSeparator),
-                "me.jman.parser.MainKt", "--runtime-worker", runtime.loader,
-                artifact.absolutePath, output.absolutePath
-            ).redirectErrorStream(true).redirectOutput(log)
+            } else {
+                // Repeating a long classpath for unrelated loaders can exceed
+                // Windows' process command limit before the worker even starts.
+                val property = when (runtime.loader) {
+                    "revanced-modern" -> "revanced.patcher22.classpath"
+                    "revanced-v3", "revanced-legacy" -> "revanced.patcher21.classpath"
+                    "morphe" -> "morphe.patcher.classpath"
+                    else -> null
+                }
+                val command = mutableListOf(java, "-Xmx${settings.max_heap}")
+                if (property != null) command += "-D$property=${installation.classpath}"
+                command += listOf(
+                    "-cp", listOf(System.getProperty("java.class.path"), installation.classpath)
+                        .filter(String::isNotBlank).joinToString(File.pathSeparator),
+                    "me.jman.parser.MainKt", "--runtime-worker", runtime.loader,
+                    artifact.absolutePath, output.absolutePath
+                )
+                ProcessBuilder(command).redirectErrorStream(true).redirectOutput(log)
+            }
             process = builder.start()
             val remaining = deadline - System.nanoTime()
             if (remaining <= 0 || !process.waitFor(remaining, TimeUnit.NANOSECONDS))

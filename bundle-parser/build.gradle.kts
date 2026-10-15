@@ -182,6 +182,19 @@ val configurableRuntimeDependencies = configuredRuntimes.associate { runtime ->
     val configuration = configurations.create("catalogRuntime_" + id.replace("-", "_")) {
         isCanBeConsumed = false
         isCanBeResolved = true
+        if (id == "revanced-v3-11") {
+            // Patcher 11 published the smali version as a nonexistent multidexlib2 version.
+            // The original multidexlib2 uses the same org.jf API as this smali fork:
+            // https://github.com/ReVanced/multidexlib2/blob/81179c643007e10b2885c63945da93090cc176d4/build.gradle
+            resolutionStrategy.dependencySubstitution {
+                substitute(module("app.revanced:multidexlib2:2.5.3-a3836654"))
+                    .using(module("com.github.lanchon.dexpatcher:multidexlib2:2.3.4.r2"))
+                    .because("Use the published original multidexlib2 for patcher 11")
+                substitute(module("org.smali:dexlib2"))
+                    .using(module("app.revanced:dexlib2:2.5.3-a3836654"))
+                    .because("Keep multidexlib2 on patcher 11's smali fork")
+            }
+        }
     }
     (runtime["dependencies"] as List<*>).forEach { coordinate ->
         dependencies.add(configuration.name, coordinate as String)
