@@ -6,6 +6,7 @@ import { runGraphQL } from "../src/graphql.js";
 import { Catalog, bundleImportPath, compareReleaseDates, matches, normalizeSource, packageFilterMatches } from "../../shared/catalog.js";
 
 import { fixture } from "./fixture.js";
+import { generatedCatalog } from "./generated-fixture.js";
 async function call(state, path, options = {}) {
   const response = await worker.fetch(new Request("https://api.test" + path, options), state.env);
   return { response, body: response.status === 304 ? null : await response.json() };
@@ -684,8 +685,8 @@ test("normalization supports GitLab subgroups and immutable request memoization"
   await Promise.all([catalog.sources(), catalog.sources()]);
   assert.equal(state.requests.filter(r => r.endsWith("/sources.json")).length, 1);
 });
-test("current generated catalog serves REST through a mocked Pages origin", async () => {
-  const root = new URL("../../database/", import.meta.url);
+test("generated catalog serves REST through a mocked Pages origin", async t => {
+  const root = await generatedCatalog(t);
   const env = { DATA_BASE_URL: "https://local.test/database/", FETCH: async input => {
     const path = new URL(input).pathname.replace("/database/", "");
     try { return new Response((await readFile(new URL(path, root))).toString("utf8").replace(/\r\n/g, "\n")); }
@@ -895,8 +896,8 @@ test("relationship aggregates filter, order and paginate without truncating tota
   assert.equal(result.body.data.bundle_aggregate.aggregate.count,1);
 });
 
-test("generated catalog serves global patch counts and pages through indexes", async () => {
-  const root=new URL("../../database/",import.meta.url);
+test("generated catalog serves global patch counts and pages through indexes", async t => {
+  const root=await generatedCatalog(t);
   const requests=[];
   const state={env:{DATA_BASE_URL:"https://local.test/database/",FETCH:async input=>{
     const target=new URL(input).pathname.replace("/database/","");
@@ -910,17 +911,16 @@ test("generated catalog serves global patch counts and pages through indexes", a
       count_complete:count(columns:[id,name]) sum { id } } nodes { id } }
   }`);
   const manifest = JSON.parse(await readFile(new URL("manifest.json", root), "utf8"));
-  if (!manifest.files["graphql-bundles.json"] &&
-      manifest.files["bundles.json"].bytes > 12 * 1024 * 1024) {
-    // The checked-in legacy snapshot predates the compact GraphQL index.
-    // It may exhaust the unchanged read budget before serving a patch page.
-    assert.match(JSON.stringify(result.body),/catalog budget|size limit/i);
-    return;
-  }
   const statistics = JSON.parse(await readFile(
     new URL(manifest.snapshot + "/patch-statistics.json", root), "utf8"));
   assert.equal(result.body.errors,undefined,JSON.stringify(result.body));
   assert.equal(result.body.data.patch.length,10);
+  assert.deepEqual(result.body.data.patch.map(patch=>patch.id),
+    Array.from({length:10},(_,index)=>index+11));
+  assert.equal(statistics.count,40);
+  assert.equal(result.body.data.patch_aggregate.aggregate.count_with_use,30);
+  assert.equal(result.body.data.patch_aggregate.aggregate.count_complete,32);
+  assert.equal(result.body.data.patch_aggregate.aggregate.sum.id,820);
   // The manifest includes retired/disabled source history; API aggregates
   // intentionally count only patches from enabled sources.
   assert(statistics.count <= manifest.counts.patches);
