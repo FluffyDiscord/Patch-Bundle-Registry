@@ -220,7 +220,6 @@ def test_oversized_originals_verify_and_rebuild_from_r2(tmp_path, monkeypatch):
 def test_retention_dry_run_and_active_rollback_protection(tmp_path, monkeypatch):
     memory = MemoryCloud(tmp_path)
     monkeypatch.setattr(cloud, "ROOT", tmp_path)
-    monkeypatch.setenv("CATALOG_RETENTION_GENERATIONS", "2")
     catalog(tmp_path)
     memory.publish()
     first = memory.active()
@@ -228,6 +227,7 @@ def test_retention_dry_run_and_active_rollback_protection(tmp_path, monkeypatch)
         archive(tmp_path, [release(1, body=str(number))])
         memory.publish()
     newest = memory.active()
+    monkeypatch.setenv("CATALOG_RETENTION_GENERATIONS", "2")
     memory.sql("UPDATE catalog_state SET active_seq=? WHERE id=1", [first["seq"]])
 
     class S3:
@@ -239,6 +239,11 @@ def test_retention_dry_run_and_active_rollback_protection(tmp_path, monkeypatch)
 
         def delete_object(self, **kwargs):
             del memory.objects[kwargs["Key"]]
+
+        def delete_objects(self, **kwargs):
+            for row in kwargs["Delete"]["Objects"]:
+                del memory.objects[row["Key"]]
+            return {}
 
     memory.s3 = S3()
     memory.bucket = "test"

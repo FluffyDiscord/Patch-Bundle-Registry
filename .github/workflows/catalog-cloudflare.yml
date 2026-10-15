@@ -44,6 +44,7 @@ jobs:
       CATALOG_D1_ID: ${{ vars.CATALOG_D1_ID }}
       CATALOG_D1_NAME: ${{ vars.CATALOG_D1_NAME }}
       CATALOG_R2_BUCKET: ${{ vars.CATALOG_R2_BUCKET }}
+      CATALOG_RETENTION_GENERATIONS: ${{ vars.CATALOG_RETENTION_GENERATIONS || '8' }}
       R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
       R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
     steps:

@@ -467,3 +467,86 @@ def test_promotions_do_not_reannounce_existing_source_apps_or_patches(existing_s
     assert "Existing App" not in apps
     assert "New patch" in patches
     assert "New App" in apps
+
+
+@pytest.mark.parametrize(
+    ("source", "label", "target"),
+    [
+        ("https://github.com/owner/repo", "owner/repo", "https://github.com/owner/repo"),
+        (
+            "https://gitlab.com/team/subgroup/patches/",
+            "team/subgroup/patches",
+            "https://gitlab.com/team/subgroup/patches/",
+        ),
+        (
+            "https://git.reseam.app/reseam/reseam",
+            "reseam/reseam",
+            "https://git.reseam.app/reseam/reseam",
+        ),
+        (
+            "https://github.com/owner/repo_(old)",
+            r"owner/repo\_(old)",
+            "https://github.com/owner/repo_%28old%29",
+        ),
+    ],
+)
+def test_issue_notifications_use_named_repository_links(source, label, target):
+    payloads = notify.messages(
+        {}, {}, "", [{"source": source, "phase": "Release check", "error": "HTTP 404"}]
+    )
+    assert payloads[0]["embeds"][0]["fields"] == [
+        {
+            "name": "Issues",
+            "value": f"• [{label}]({target}) — **Release check**: HTTP 404",
+            "inline": False,
+        }
+    ]
+
+
+def test_issue_provider_text_cannot_break_repository_links_or_add_headings():
+    payloads = notify.messages(
+        {},
+        {},
+        "",
+        [
+            {
+                "source": "https://github.com/owner/repo",
+                "phase": "Release **check**\nInjected",
+                "error": "HTTP 502\n[click](https://bad.test) **heading** @everyone",
+            }
+        ],
+    )
+    value = payloads[0]["embeds"][0]["fields"][0]["value"]
+    assert value.startswith("• [owner/repo](https://github.com/owner/repo) — ")
+    assert r"**Release \*\*check\*\* Injected**:" in value
+    assert r"\[click\](https://bad.test) \*\*heading\*\*" in value
+    assert len(value.splitlines()) == 1
+    assert payloads[0]["allowed_mentions"] == {"parse": []}
+
+
+def test_long_issue_notifications_keep_each_repository_link_intact():
+    source = "https://github.com/owner/repo"
+    issues = [
+        {"source": source, "phase": "Patch extraction", "error": f"v{n}: " + "😀" * 400}
+        for n in range(100)
+    ]
+    payloads = notify.messages({}, {}, "", issues)
+    lines = []
+    for payload in payloads:
+        embed = payload["embeds"][0]
+        fields = embed["fields"]
+        assert [f["name"] for f in fields].count("Issues") == 1
+        assert fields[0]["name"] == "Issues"
+        assert len(fields) <= 25
+        assert (
+            notify.size(embed["title"])
+            + sum(notify.size(f["name"]) + notify.size(f["value"]) for f in fields)
+            <= 6000
+        )
+        for field in fields:
+            assert notify.size(field["value"]) <= 1024
+            lines.extend(field["value"].splitlines())
+    assert len(lines) == len(issues)
+    assert all(
+        line.startswith(f"• [owner/repo]({source}) — **Patch extraction**: ") for line in lines
+    )

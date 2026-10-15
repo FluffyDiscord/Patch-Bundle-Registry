@@ -1,6 +1,7 @@
 """Cloudflare operations used by reviewed GitHub Actions; never called by ordinary tests."""
 
 import argparse
+import gzip
 import hashlib
 import json
 import os
@@ -209,6 +210,7 @@ class Cloud:
             | set(document["record_blocks"])
             | {document["ids"]}
             | ({document["refresh_inputs"]} if document.get("refresh_inputs") else set())
+            | set(document.get("record_objects", []))
         )
 
     def checkpoint(self):
@@ -456,13 +458,7 @@ class Cloud:
         exported = [
             {"kind": kind, "key": key, "data": row} for (kind, key), row in sorted(records.items())
         ]
-        blocks = {}
-        for item in exported:
-            bucket = hashlib.sha256((item["kind"] + "/" + item["key"]).encode()).hexdigest()[:2]
-            blocks.setdefault(bucket, []).append(item)
-        record_blocks = self.transfers().parallel(
-            lambda item: self.blob(encode(item[1]), known), sorted(blocks.items())
-        )
+        record_blocks = self.upload_records(exported, known)
         record_digest = hashlib.sha256(encode(record_blocks)).hexdigest()
         identity_digest = hashlib.sha256((ROOT / "database/ids.json").read_bytes()).hexdigest()
         generation = hashlib.sha256(
@@ -473,12 +469,14 @@ class Cloud:
         )
         if existing and active and active["generation"] == generation:
             self.finish_source_purge(active_document)
+            self.prune("PRUNE", verify=False)
             print("Catalog unchanged; no D1 writes or repeated full verification")
             return
         if existing:
             self.verify_document(self.document(existing[0]))
             self.sql("UPDATE catalog_state SET active_seq=? WHERE id=1", [existing[0]["seq"]])
             self.finish_source_purge(self.document(existing[0]))
+            self.prune("PRUNE", verify=False)
             print("Reactivated verified existing generation")
             return
         if active and active["generation"] == generation:
@@ -512,6 +510,11 @@ class Cloud:
             "identity_digest": identity_digest,
             "files": files,
             "record_blocks": record_blocks,
+            "record_block_encoding": "gzip",
+            "record_objects": sorted({
+                hashlib.sha256(encode(item["data"])).hexdigest() for item in exported
+                if item["kind"] == "history_release" and len(encode(item["data"])) > 1_500_000
+            }),
             "ids": self.blob((ROOT / "database/ids.json").read_bytes(), known),
             "complete": require_complete and inventory_complete,
             "source_purge_pending": bool(removed)
@@ -580,6 +583,7 @@ class Cloud:
         self.sql("UPDATE catalog_generations SET status='ready' WHERE seq=?", [seq])
         self.sql("UPDATE catalog_state SET active_seq=? WHERE id=1", [seq])
         self.finish_source_purge(document)
+        self.prune("PRUNE", verify=False)
         print(json.dumps({"generation": generation, "records_changed": writes, "records": count}))
 
     def finish_source_purge(self, document):
@@ -649,15 +653,29 @@ class Cloud:
         self.put(active["manifest_key"], encode(document))
         print(f"Purged removed sources; deleted {len(obsolete)} obsolete R2 objects")
 
-    def read_records(self, document):
-        self.transfers().prefetch(document["record_blocks"])
-        return [
-            row
-            for digest in document["record_blocks"]
-            for row in json.loads(self.verified_blob(digest))
-        ]
+    def upload_records(self, records, known):
+        blocks = {}
+        for item in records:
+            prefix = hashlib.sha256(item["key"].encode()).hexdigest()[:2]
+            # Mutable timestamps/jobs must not rewrite unrelated patch relationships.
+            blocks.setdefault((item["kind"], prefix), []).append(item)
+        return self.transfers().parallel(
+            lambda item: self.blob(gzip.compress(encode(item[1]), compresslevel=1, mtime=0), known),
+            sorted(blocks.items()),
+        )
 
-    def verify_document(self, document, skip_digests=()):
+    def read_records(self, document):
+        encoding = document.get("record_block_encoding", "json")
+        if encoding not in ("json", "gzip"):
+            raise ValueError("Unsupported record block encoding")
+        self.transfers().prefetch(document["record_blocks"])
+        result = []
+        for digest in document["record_blocks"]:
+            body = self.verified_blob(digest)
+            result.extend(json.loads(gzip.decompress(body) if encoding == "gzip" else body))
+        return result
+
+    def verify_document(self, document, skip_digests=(), *, metadata_only=False):
         record_digest = hashlib.sha256(encode(document["record_blocks"])).hexdigest()
         identity = [document["base_generation"], record_digest]
         if "identity_digest" in document:
@@ -681,6 +699,14 @@ class Cloud:
         for name, metadata in document["manifest"]["files"].items():
             if document["files"].get(name) != metadata["sha256"]:
                 raise ValueError("Snapshot file index mismatch")
+        if document.get("record_block_encoding", "json") not in ("json", "gzip"):
+            raise ValueError("Unsupported record block encoding")
+        if any(not isinstance(digest, str) or not re.fullmatch(r"[a-f0-9]{64}", digest)
+               for digest in document.get("record_objects", [])):
+            raise ValueError("Invalid external record object digest")
+        if metadata_only:
+            # Automatic retention only uses generations already verified before activation.
+            return document
         self.transfers().prefetch(self.object_digests(document) - set(skip_digests), fresh=True)
         if document.get("refresh_inputs"):
             self.refresh_entries(document)
@@ -690,10 +716,15 @@ class Cloud:
                 {(row["kind"], row["key"]) for row in records}
             ) != len(records):
                 raise ValueError("Snapshot record count or identity mismatch")
+            external = set()
             for row in records:
                 body = encode(row["data"])
                 if row["kind"] == "history_release" and len(body) > 1_500_000:
-                    self.verified_blob(hashlib.sha256(body).hexdigest(), fresh=True)
+                    digest = hashlib.sha256(body).hexdigest()
+                    external.add(digest)
+                    self.verified_blob(digest, fresh=True)
+            if "record_objects" in document and set(document["record_objects"]) != external:
+                raise ValueError("External record object index mismatch")
         return document
 
     def verify_database(self, sequence, document):
@@ -805,23 +836,38 @@ class Cloud:
             size += length
         flush()
 
-    def prune(self, confirmation):
-        retain = max(2, int(os.environ.get("CATALOG_RETENTION_GENERATIONS") or "96"))
+    def prune(self, confirmation, *, verify=True):
+        retain = int(os.environ.get("CATALOG_RETENTION_GENERATIONS") or "8")
+        if retain < 2:
+            raise ValueError("CATALOG_RETENTION_GENERATIONS must be at least 2")
         generations = self.sql("SELECT * FROM catalog_generations ORDER BY seq DESC")
         active = self.active()
         keep = generations[:retain] + [
-            row
-            for row in generations
+            row for row in generations
             if row["status"] == "staging" or (active and row["seq"] == active["seq"])
         ]
+        keep = list({row["seq"]: row for row in keep}.values())
         keys = {row["manifest_key"] for row in keep}
         objects = set()
         for row in keep:
-            document = self.verify_document(self.document(row))
+            document = self.verify_document(self.document(row), metadata_only=not verify)
             objects.update(self.object_digests(document))
-            for record in self.read_records(document):
-                if record["kind"] == "history_release" and len(encode(record["data"])) > 1_500_000:
-                    objects.add(hashlib.sha256(encode(record["data"])).hexdigest())
+        # Legacy manifests did not index oversized D1 documents. Read only their
+        # small D1 references, never all historical R2 record blocks for cleanup.
+        for start in range(0, len(keep), 40):
+            batch = keep[start:start + 40]  # Stay below D1's bound-parameter limit.
+            visible = " OR ".join("(from_seq<=? AND (to_seq IS NULL OR to_seq>?))" for _ in batch)
+            params = [number for row in batch for number in (row["seq"], row["seq"])]
+            for row in self.sql(
+                "SELECT DISTINCT json_extract(data,'$.document_key') AS digest "
+                "FROM catalog_records WHERE kind='history_release' "
+                "AND json_extract(data,'$.document_key') IS NOT NULL AND (" + visible + ")",
+                params,
+            ):
+                digest = row["digest"]
+                if not isinstance(digest, str) or not re.fullmatch(r"[a-f0-9]{64}", digest):
+                    raise ValueError("Invalid retained document reference")
+                objects.add(digest)
         obsolete = [row for row in generations if row["manifest_key"] not in keys]
         from scripts.cloudflare_checkpoint import evict_key, retained_keys
 
@@ -834,27 +880,39 @@ class Cloud:
                     key.startswith("generations/") and key not in keys
                 ) or (key.startswith("checkpoints/") and key not in checkpoints):
                     orphaned.append(key)
-        print(
-            json.dumps(
-                {
-                    "retained_generations": len(keys),
-                    "old_generations": len(obsolete),
-                    "orphaned_objects": len(orphaned),
-                    "dry_run": confirmation != "PRUNE",
-                }
-            )
-        )
+        print(json.dumps({"retained_generations": len(keys), "old_generations": len(obsolete),
+                          "orphaned_objects": len(orphaned), "dry_run": confirmation != "PRUNE"}))
         if confirmation != "PRUNE":
             return
         if not keep:
             raise ValueError("No recoverable generations; refusing retention cleanup")
-        floor = min(row["seq"] for row in keep)
-        self.sql("DELETE FROM catalog_records WHERE to_seq<=?", [floor])
-        for row in obsolete:
-            self.sql("DELETE FROM catalog_generations WHERE seq=?", [row["seq"]])
-        for key in orphaned:
-            self.s3.delete_object(Bucket=self.bucket, Key=key)
-            evict_key(self, key)
+        if obsolete or verify:
+            # A normal unchanged refresh has no expired versions to remove.
+            # Explicit maintenance can still clean previously orphaned D1 versions.
+            floor = min(row["seq"] for row in keep)
+            self.sql("DELETE FROM catalog_records WHERE to_seq<=?", [floor])
+        if obsolete:
+            self.sql(
+                "DELETE FROM catalog_generations WHERE seq IN (SELECT value FROM json_each(?))",
+                [encode([row["seq"] for row in obsolete]).decode()],
+            )
+
+        def delete(batch):
+            result = self.s3.delete_objects(
+                Bucket=self.bucket,
+                Delete={"Objects": [{"Key": key} for key in batch], "Quiet": True},
+            )
+            failed = {row["Key"] for row in result.get("Errors", [])}
+            for key in set(batch) - failed:
+                if key.startswith("objects/"):
+                    self.transfers().path(key[8:]).unlink(missing_ok=True)
+                evict_key(self, key)
+            if failed:
+                raise RuntimeError("R2 retention could not delete all obsolete objects")
+
+        self.transfers().parallel(
+            delete, [orphaned[start:start + 1000] for start in range(0, len(orphaned), 1000)]
+        )
 
     def provision(self):
         name = os.environ.get("CATALOG_D1_NAME") or "patch-bundle-registry"

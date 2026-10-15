@@ -7,7 +7,7 @@ import os
 import re
 import time
 from pathlib import Path
-from urllib.parse import quote, urlsplit
+from urllib.parse import quote, unquote, urlsplit
 
 import httpx
 
@@ -169,6 +169,17 @@ def link(label, url):
         return label
 
 
+def issue_line(row):
+    source = row["source"]
+    try:
+        parsed = urlsplit(source)
+        label = unquote(parsed.path).strip("/") or parsed.hostname or source
+    except ValueError:
+        label = source
+    # Match the named repository links used by the other notification sections.
+    return f"• {link(label, source)} — **{clean(row['phase'], 80)}**: {clean(row['error'], 300)}"
+
+
 def messages(before, after, website, issues=()):
     """Return complete webhook payloads, one rich embed per message."""
     sections = {name: [] for name in ("New Bundles", "Updated Bundles", "New Apps", "New Patches")}
@@ -241,8 +252,7 @@ def messages(before, after, website, issues=()):
                     sections["New Apps"].append(f"• {link(name, app_url)} ({label})")
                     announced_apps.add(identity)
     sections["Issues"] = [
-        f"• {link(row['source'], row['source'])} — {clean(row['phase'], 80)}: "
-        f"{clean(row['error'], 300)}"
+        issue_line(row)
         for row in sorted(issues, key=lambda row: (row["source"], row["phase"], row["error"]))
     ]
     fields = []

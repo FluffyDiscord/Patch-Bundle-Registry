@@ -38,8 +38,22 @@ def target(root, name):
     return path
 
 
-def bucket(name):
-    return f"{int(hashlib.sha256(name.encode()).hexdigest()[:2], 16) % 64:02x}"
+def bucket(name, version=3):
+    number = int(hashlib.sha256(name.encode()).hexdigest()[:2], 16)
+    if version == 2:
+        return f"{number % 64:02x}"
+    # Keep unchanged patch lists apart from frequently changing proofs and state.
+    if name.endswith("-patches-list.json"):
+        family, count = "patches", 64
+    elif name.endswith("-extraction.json"):
+        family, count = "extractions", 16
+    elif name.endswith("-patches-bundle.json"):
+        family, count = "bundles", 16
+    elif name.startswith("internal/cache/release-pages/"):
+        family, count = "releases", 32
+    else:
+        family, count = "state", 16
+    return f"{family}/{number % count:02x}"
 
 
 def encode(value):
@@ -54,7 +68,7 @@ def document(cloud, root):
             return None
         raise
     result = json.loads(body)
-    if (result.get("format_version") != 2 or not isinstance(result.get("files"), dict)
+    if (result.get("format_version") not in (2, 3) or not isinstance(result.get("files"), dict)
             or not isinstance(result.get("blocks"), dict)):
         raise ValueError("Invalid checkpoint manifest")
     for name in result["files"]:
@@ -62,7 +76,8 @@ def document(cloud, root):
     for digest in list(result["files"].values()) + list(result["blocks"].values()):
         if not isinstance(digest, str) or not re.fullmatch("[a-f0-9]{64}", digest):
             raise ValueError("Invalid checkpoint digest")
-    if set(result["blocks"]) != {bucket(name) for name in result["files"]}:
+    expected = {bucket(name, result["format_version"]) for name in result["files"]}
+    if set(result["blocks"]) != expected:
         raise ValueError("Checkpoint block index mismatch")
     return result
 
@@ -87,7 +102,9 @@ def block_cache(cloud):
     cache = BlobCache(
         transfers.directory,
         lambda key: gzip.decompress(cloud.get(PREFIX + key[8:] + ".json.gz")),
-        lambda key, body: cloud.put(PREFIX + key[8:] + ".json.gz", gzip.compress(body, mtime=0)),
+        lambda key, body: cloud.put(
+            PREFIX + key[8:] + ".json.gz", gzip.compress(body, compresslevel=1, mtime=0)
+        ),
         workers=transfers.workers,
     )
     cache.metrics, cache.guard, cache.locks = transfers.metrics, transfers.guard, transfers.locks
@@ -117,7 +134,9 @@ def save(cloud, root):
                 files[name] = hashlib.sha256(body).hexdigest()
                 group = bucket(name)
                 if group not in streams:
-                    streams[group] = (Path(temporary) / group).open("wb")
+                    block = Path(temporary) / group
+                    block.parent.mkdir(parents=True, exist_ok=True)
+                    streams[group] = block.open("wb")
                     streams[group].write(b"{")
                 stream = streams[group]
                 if stream.tell() > 1:
@@ -132,9 +151,10 @@ def save(cloud, root):
         for group in streams:
             with (Path(temporary) / group).open("rb") as stream:
                 blocks[group] = hashlib.file_digest(stream, "sha256").hexdigest()
-        manifest = {"format_version": 2, "files": files, "blocks": blocks}
+        manifest = {"format_version": 3, "files": files, "blocks": blocks}
         if manifest == previous:
             print("Checkpoint unchanged; no uploads", flush=True)
+            cleanup(cloud, root)
             return
         cache = block_cache(cloud)
         changed = {digest for digest in blocks.values() if digest not in known}
@@ -148,7 +168,44 @@ def save(cloud, root):
 
         cache.parallel(upload, sorted(blocks.items()))
         cloud.put(MANIFEST_KEY, encode(manifest))
+        cleanup(cloud, root)
         print(f"Checkpoint: {len(files)} files, {len(changed)} changed blocks uploaded", flush=True)
+
+
+def cleanup(cloud, root):
+    """Only a committed complete manifest makes old private blocks disposable.
+
+    All checkpoint writers/readers run under the catalog-refresh workflow lock.
+    Listing also removes leftovers from interrupted uploads on the next success.
+    """
+    current = document(cloud, root)
+    if current is None:
+        return
+    retained = {PREFIX + digest + ".json.gz" for digest in current["blocks"].values()}
+    obsolete = []
+    for page in cloud.s3.get_paginator("list_objects_v2").paginate(
+        Bucket=cloud.bucket, Prefix="checkpoints/"
+    ):
+        for item in page.get("Contents", []):
+            key = item["Key"]
+            if (key.startswith(PREFIX) or key == LEGACY_KEY) and key not in retained:
+                obsolete.append(key)
+
+    def delete(keys):
+        result = cloud.s3.delete_objects(
+            Bucket=cloud.bucket,
+            Delete={"Objects": [{"Key": key} for key in keys], "Quiet": True},
+        )
+        failed = {row["Key"] for row in result.get("Errors", [])}
+        for key in set(keys) - failed:
+            evict_key(cloud, key)
+        if failed:
+            raise RuntimeError("Checkpoint cleanup could not delete all obsolete blocks")
+
+    cloud.transfers().parallel(
+        delete, [obsolete[start:start + 1000] for start in range(0, len(obsolete), 1000)]
+    )
+
 
 def payloads(cloud, root, current):
     cache = block_cache(cloud)
@@ -164,7 +221,7 @@ def payloads(cloud, root, current):
                 raise ValueError("Invalid checkpoint block")
             for name, text in entries.items():
                 target(root, name)
-                if (name not in current["files"] or bucket(name) != group
+                if (name not in current["files"] or bucket(name, current["format_version"]) != group
                         or not isinstance(text, str)):
                     raise ValueError("Checkpoint block membership mismatch")
                 body = text.encode("utf-8")

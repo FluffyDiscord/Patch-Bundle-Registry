@@ -128,7 +128,7 @@ def test_checkpoint_blocks_bound_remote_reads_and_reuse_the_existing_object_cach
         (folder / f"entry-{index}.json").write_text(json.dumps({"value": index}))
     memory.checkpoint()
     manifest = json.loads(memory.objects[checkpoint.MANIFEST_KEY])
-    assert len(manifest["blocks"]) <= 64
+    assert len(manifest["blocks"]) <= 144
     assert len(manifest["files"]) == 130
     reads = []
     get = memory.get
@@ -151,7 +151,76 @@ def test_checkpoint_cleanup_evicts_removed_blocks_from_the_local_cache(tmp_path,
     assert removed
     for key in removed:
         digest = key[len(checkpoint.PREFIX):-len(".json.gz")]
-        assert memory.transfers().path(digest).exists()
-        checkpoint.evict_key(memory, key)
+        assert key not in memory.objects
         assert not memory.transfers().path(digest).exists()
     assert checkpoint.payloads(memory, tmp_path, checkpoint.document(memory, tmp_path))
+
+
+def test_v2_checkpoint_restores_and_migrates_without_losing_progress(tmp_path, monkeypatch):
+    import hashlib
+
+    memory, folder = setup(tmp_path, monkeypatch)
+    files, groups = {}, {}
+    for path in folder.glob("*.json"):
+        name = path.relative_to(tmp_path).as_posix()
+        body = path.read_bytes()
+        files[name] = hashlib.sha256(body).hexdigest()
+        groups.setdefault(checkpoint.bucket(name, 2), {})[name] = body.decode()
+    blocks = {}
+    for group, entries in groups.items():
+        body = checkpoint.encode(entries)
+        digest = hashlib.sha256(body).hexdigest()
+        blocks[group] = digest
+        memory.objects[checkpoint.PREFIX + digest + ".json.gz"] = gzip.compress(body)
+    memory.objects[checkpoint.MANIFEST_KEY] = checkpoint.encode(
+        {"format_version": 2, "files": files, "blocks": blocks}
+    )
+    (folder / "one.json").write_text("{}")
+    memory.restore_checkpoint()
+    assert json.loads((folder / "one.json").read_bytes()) == {"one": 1}
+    memory.checkpoint()
+    assert checkpoint.document(memory, tmp_path)["format_version"] == 3
+    assert checkpoint.payloads(memory, tmp_path, checkpoint.document(memory, tmp_path))
+    assert set(memory.objects) == checkpoint.retained_keys(memory, tmp_path)
+
+
+def test_mutable_proofs_do_not_rewrite_patch_lists_and_cleanup_bounds_storage(
+    tmp_path, monkeypatch
+):
+    memory, folder = setup(tmp_path, monkeypatch)
+    patches = folder / "history/demo-patches-list.json"
+    patches.parent.mkdir()
+    patches.write_text(json.dumps({"patches": [{"name": "Stable", "description": "x" * 100_000}]}))
+    proof = folder / "history/demo-extraction.json"
+    proof.write_text('{"attempted_at": "before"}')
+    memory.checkpoint()
+    first = checkpoint.document(memory, tmp_path)
+    patch_group = checkpoint.bucket(patches.relative_to(tmp_path).as_posix())
+    stable = first["blocks"][patch_group]
+    writes = []
+    put = memory.put
+    memory.put = lambda key, body: (writes.append(key), put(key, body))[-1]
+    for index in range(5):
+        proof.write_text(json.dumps({"attempted_at": str(index)}))
+        memory.checkpoint()
+        assert checkpoint.document(memory, tmp_path)["blocks"][patch_group] == stable
+        assert set(memory.objects) == checkpoint.retained_keys(memory, tmp_path)
+    assert checkpoint.PREFIX + stable + ".json.gz" not in writes
+    memory.restore_checkpoint()
+    assert json.loads(proof.read_bytes()) == {"attempted_at": "4"}
+
+
+def test_orphan_cleanup_retries_without_touching_committed_checkpoint(tmp_path, monkeypatch):
+    memory, folder = setup(tmp_path, monkeypatch)
+    memory.checkpoint()
+    orphan = checkpoint.PREFIX + "f" * 64 + ".json.gz"
+    memory.objects[orphan] = b"unfinished upload"
+    delete = memory.s3.delete_objects
+    memory.s3.delete_objects = lambda **kwargs: {"Errors": [{"Key": orphan}]}
+    with pytest.raises(RuntimeError, match="cleanup"):
+        memory.checkpoint()
+    memory.restore_checkpoint()
+    assert json.loads((folder / "one.json").read_bytes()) == {"one": 1}
+    memory.s3.delete_objects = delete
+    memory.checkpoint()
+    assert orphan not in memory.objects
