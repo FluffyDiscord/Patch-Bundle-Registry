@@ -1,7 +1,5 @@
-import io
 import json
 import shutil
-import tarfile
 
 import pytest
 from test_cloudflare_catalog import SOURCE, MemoryCloud, catalog, release
@@ -157,16 +155,17 @@ def test_source_removal_purges_d1_r2_checkpoints_and_exclusive_apps(tmp_path, mo
     )
     assert len(memory.sql("SELECT * FROM catalog_generations")) == 1
     assert all(row["to_seq"] is None for row in memory.sql("SELECT * FROM catalog_records"))
+    from scripts.cloudflare_checkpoint import payloads, retained_keys
+
     assert set(memory.objects) == (
         {"objects/" + digest for digest in memory.object_digests(document)}
-        | {active["manifest_key"], "checkpoints/latest.tgz"}
+        | {active["manifest_key"]} | retained_keys(memory, tmp_path)
     )
-    with tarfile.open(fileobj=io.BytesIO(memory.objects["checkpoints/latest.tgz"])) as archive:
-        for item in archive:
-            if item.name != "database/ids.json":  # Numeric IDs remain reserved, never recycled.
-                body = archive.extractfile(item).read()
-                assert SOURCE.encode() not in body
-                assert b"com.only" not in body
+    checkpoint = json.loads(memory.objects["checkpoints/latest.json"])
+    for name, body in payloads(memory, tmp_path, checkpoint).items():
+        if name != "database/ids.json":  # Numeric IDs remain reserved, never recycled.
+            assert SOURCE.encode() not in body
+            assert b"com.only" not in body
     assert (tmp_path / "database" / manifest["snapshot"]).exists()
     memory.restore_checkpoint()
     assert SOURCE not in db.read_json(tmp_path / "internal/cache/history/archive.json")["sources"]

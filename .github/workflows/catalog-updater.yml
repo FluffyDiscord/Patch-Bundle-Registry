@@ -38,6 +38,8 @@ jobs:
     env:
       CATALOG_HISTORICAL_BATCH_SIZE: ${{ inputs.historical_batch_size || vars.CATALOG_HISTORICAL_BATCH_SIZE || '1000' }}
       CATALOG_HISTORICAL_MAX_SECONDS: ${{ inputs.historical_max_seconds || vars.CATALOG_HISTORICAL_MAX_SECONDS || '900' }}
+      CATALOG_EXTRACTION_WORKERS: ${{ vars.CATALOG_EXTRACTION_WORKERS || '2' }}
+      CATALOG_METADATA_WORKERS: ${{ vars.CATALOG_METADATA_WORKERS || '4' }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -136,6 +138,8 @@ jobs:
       CATALOG_FORCE: ${{ inputs.force }}
       CATALOG_HISTORICAL_BATCH_SIZE: ${{ inputs.historical_batch_size || vars.CATALOG_HISTORICAL_BATCH_SIZE || '1000' }}
       CATALOG_HISTORICAL_MAX_SECONDS: ${{ inputs.historical_max_seconds || vars.CATALOG_HISTORICAL_MAX_SECONDS || '900' }}
+      CATALOG_EXTRACTION_WORKERS: ${{ vars.CATALOG_EXTRACTION_WORKERS || '2' }}
+      CATALOG_METADATA_WORKERS: ${{ vars.CATALOG_METADATA_WORKERS || '4' }}
       CATALOG_R2_WORKERS: ${{ vars.CATALOG_R2_WORKERS || '8' }}
       CATALOG_OBJECT_CACHE_BYTES: ${{ vars.CATALOG_OBJECT_CACHE_BYTES || '1073741824' }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -152,6 +156,10 @@ jobs:
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-cloudflare.txt
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version: '24'

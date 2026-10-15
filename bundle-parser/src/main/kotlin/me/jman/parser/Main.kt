@@ -502,12 +502,14 @@ internal fun processBundle(
                 val recordFile = File(bundleFolder, "$bundleName-${variant.releaseTag}-extraction.json")
                 val previous = runCatching {
                     parsingJson.decodeFromString<ExtractionRecord>(recordFile.readText())
-                }.getOrNull()?.takeIf {
+                }.getOrNull()
+                ExtractionCache.seed(family, previous, outputPatchesFile, existingContent)
+                val paused = previous?.takeIf {
                     pausedFailure(it, parsedBundle.version, parsedBundle.downloadUrl, family,
                                   parsedBundle.providerDigest, runtimeFingerprint())
                 }
                 val extracted = extract?.invoke(downloadUri, legacy)
-                    ?: extractWithRuntimes(downloadUri, legacy, family, previous)
+                    ?: extractWithRuntimes(downloadUri, legacy, family, paused)
                 val digestMatches = extracted.hash == null || matchesProviderDigest(
                     parsedBundle.providerDigest, extracted.hash, parsedBundle.providerDigest)
                 val extraction = if (digestMatches) extracted else
@@ -577,33 +579,20 @@ fun main(args: Array<String>) {
     val policy = File("..", "internal/cache/disabled-extraction.json")
     val disabledFolders = if (policy.isFile)
         parsingJson.decodeFromString<Set<String>>(policy.readText()) else emptySet()
+    val workers = System.getenv("CATALOG_EXTRACTION_WORKERS")?.takeIf(String::isNotBlank)?.let {
+        it.toIntOrNull() ?: error("CATALOG_EXTRACTION_WORKERS must be an integer")
+    } ?: 2
+    require(workers in 1..4) { "CATALOG_EXTRACTION_WORKERS must be between 1 and 4" }
     val bundleRoot = File("..", "internal/cache/bundles")
-    bundleRoot.listFiles()
-        ?.asSequence()
-        ?.filter { it.isDirectory && it.name !in disabledFolders }
-        ?.sortedBy { it.name }
-        ?.forEach { directory ->
-            Logger.info("Fetching bundle ${directory.name}")
-            try {
-                processBundle(directory)
-            } catch (e: Exception) {
-                Logger.error("Something went wrong while processing ${directory.name}. ${e.formatForLog()}")
-            }
-        }
+    val current = bundleRoot.listFiles()?.filter {
+        it.isDirectory && it.name !in disabledFolders
+    }?.sortedBy { it.name } ?: emptyList()
+    Logger.info("Extraction workers: $workers")
+    processDirectories(current, workers)
     val work = historicalWork(File("..", "internal/cache/history"), batchSize, runtimeFingerprint(), disabledFolders)
     Logger.info("History extraction queue: ${work.latest.size} latest, ${work.historical.size} older selected, ${work.deferred} deferred")
-    for (directory in work.latest) {
-        Logger.info("Refreshing latest bundle from history ${directory.name}")
-        processBundle(directory)
-    }
-    val historyStart = System.nanoTime()
-    var attempted = 0
-    for (directory in work.historical) {
-        if ((System.nanoTime() - historyStart) / 1_000_000_000 >= historySeconds) break
-        Logger.info("Refreshing historical bundle ${directory.name}")
-        processBundle(directory)
-        attempted++
-    }
+    processDirectories(work.latest, workers)
+    val attempted = processDirectories(work.historical, workers, historySeconds)
     Logger.info("Historical extraction attempted $attempted bundles; ${work.deferred + work.historical.size - attempted} deferred to the next refresh")
 }
 

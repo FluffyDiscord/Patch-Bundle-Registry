@@ -1,8 +1,11 @@
 """Refresh repository metadata daily within the existing updater; isolate upstream failures."""
 
 import argparse
+import os
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from threading import Event
 from urllib.parse import quote, urljoin, urlparse
 
 import httpx
@@ -111,8 +114,11 @@ def fetch_metadata(client, api, headers):
     raise ValueError("Too many repository metadata redirects")
 
 
-def refresh(root, client, limit=None, now=None):
+def refresh(root, client, limit=None, now=None, workers=None):
     now = now or datetime.now(UTC)
+    workers = int(os.environ.get("CATALOG_METADATA_WORKERS") or "4") if workers is None else workers
+    if not 1 <= workers <= 8:
+        raise ValueError("CATALOG_METADATA_WORKERS must be between 1 and 8")
     path = root / "database/repository-metadata.json"
     previous = read_json(path, {})
     inventory = read_json(root / "config/sources.json", {})
@@ -122,6 +128,7 @@ def refresh(root, client, limit=None, now=None):
         if isinstance(item, dict) and isinstance(item.get("patches"), str)
     }
     try:
+        from scripts.refresh_issues import record_issue
         from scripts.source_policy import (
             PERMANENT_STATUS,
             disabled_sources,
@@ -129,6 +136,7 @@ def refresh(root, client, limit=None, now=None):
             source_availability,
         )
     except ModuleNotFoundError:
+        from refresh_issues import record_issue
         from source_policy import (
             PERMANENT_STATUS,
             disabled_sources,
@@ -141,8 +149,10 @@ def refresh(root, client, limit=None, now=None):
     recovered = {url for url, completed in checks.items() if completed is True}
     result = {url.lower(): previous.get(url.lower(), {}) for url in sorted(urls)}
     morphe = morphe_sources(root)
-    attempted = 0
-    for url in sorted(urls):
+    candidates = []
+    # Cache identities are case-insensitive; dispatch each identity only once.
+    unique_urls = {url.lower(): url for url in sorted(urls, reverse=True)}
+    for url in sorted(unique_urls.values()):
         cached = result[url.lower()]
         if url.lower() in disabled:
             continue
@@ -150,81 +160,104 @@ def refresh(root, client, limit=None, now=None):
             checked = datetime.fromisoformat(cached.get("checked_at", ""))
             icon_checked = (
                 datetime.fromisoformat(cached.get("icon_checked_at", ""))
-                if url.lower() in morphe
-                else now
+                if url.lower() in morphe else now
             )
-            if (
-                url.lower() not in availability
-                and now - checked < timedelta(days=1)
-                and now - icon_checked < timedelta(days=1)
-            ):
+            if (url.lower() not in availability and now - checked < timedelta(days=1)
+                    and now - icon_checked < timedelta(days=1)):
                 continue
         except (ValueError, TypeError):
             pass
-        if limit is not None and attempted >= limit:
-            break
-        attempted += 1
+        candidates.append(url)
+    if limit is not None:
+        candidates = candidates[:max(0, limit)]
+    stop = Event()
+
+    def fetch(url):
+        if stop.is_set():
+            return None
+        cached = result[url.lower()]
+        updated = {**cached, "checked_at": now.isoformat(),
+                   "source_metadatum": dict(cached.get("source_metadatum", {}))}
         api = endpoint(url, releases=False)
         headers = auth_headers(url)
         if cached.get("etag") and (url.lower() not in morphe or cached.get("default_branch")):
             headers["If-None-Match"] = cached["etag"]
-        updated = {**cached, "checked_at": now.isoformat()}
+        response = None
         try:
             response = fetch_metadata(client, api, headers)
             updated["http_status"] = response.status_code
-            if response.status_code in PERMANENT_STATUS:
-                availability[url.lower()] = PERMANENT_STATUS[response.status_code]
             if response.status_code == 200:
                 payload = response.json()
                 if not isinstance(payload, dict):
                     raise ValueError("Expected repository metadata")
-                updated["source_metadatum"] = {
-                    **cached.get("source_metadatum", {}),
-                    **metadata_for(url, payload),
-                }
+                updated["source_metadatum"].update(metadata_for(url, payload))
                 updated["default_branch"] = payload.get("default_branch")
                 updated["etag"] = response.headers.get("etag")
-                if url.lower() in recovered:
-                    availability.pop(url.lower(), None)
-            elif response.status_code == 304:
-                if url.lower() in recovered:
-                    availability.pop(url.lower(), None)
-            else:
+            elif response.status_code != 304:
                 print(f"Repository metadata unavailable: {url} (HTTP {response.status_code})")
         except (httpx.HTTPError, ValueError, TypeError, AttributeError):
             updated["http_status"] = None
             print(f"Repository metadata unavailable: {url}")
-        if url.lower() in morphe and updated.get("http_status") in {200, 304}:
-            refresh_icon(client, url, updated, now)
-        if updated.get("http_status") not in {200, 304}:
-            try:
-                from scripts.refresh_issues import record_issue
-            except ModuleNotFoundError:
-                from refresh_issues import record_issue
-            code = updated.get("http_status")
-            record_issue(
-                root,
-                url,
-                "Repository metadata",
-                f"HTTP {code}" if code else "Repository request failed",
-            )
-        result[url.lower()] = updated
-        if updated.get("http_status") in {401, 429} or (
-            updated.get("http_status") == 403
-            and (
+        status = updated.get("http_status")
+        if status in {401, 429} or (
+            status == 403 and response is not None and (
                 response.headers.get("x-ratelimit-remaining") == "0"
                 or "retry-after" in response.headers
                 or "secondary rate limit" in response.text.lower()
             )
         ):
-            break
+            stop.set()
+        if url.lower() in morphe and status in {200, 304} and not stop.is_set():
+            refresh_icon(client, url, updated, now)
+        return url, updated
+
+    attempted = 0
+
+    def consume(item):
+        nonlocal attempted
+        if item is None:
+            return
+        attempted += 1
+        url, updated = item
+        status = updated.get("http_status")
+        if status in PERMANENT_STATUS:
+            availability[url.lower()] = PERMANENT_STATUS[status]
+        elif status in {200, 304} and url.lower() in recovered:
+            availability.pop(url.lower(), None)
+        if status not in {200, 304}:
+            record_issue(root, url, "Repository metadata",
+                         f"HTTP {status}" if status else "Repository request failed")
+        result[url.lower()] = updated
+
+    pending_urls = iter(candidates)
+    first = next(pending_urls, None)
+    # Probe once before filling the pool so bad credentials never fan out.
+    if first is not None:
+        consume(fetch(first))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        pending = set()
+        while not stop.is_set():
+            while len(pending) < workers and not stop.is_set():
+                url = next(pending_urls, None)
+                if url is None:
+                    break
+                pending.add(pool.submit(fetch, url))
+            if not pending:
+                break
+            finished, pending = wait(pending, return_when=FIRST_COMPLETED)
+            for future in finished:
+                consume(future.result())
+        # Already-started requests retain their valid results; dispatch stops immediately.
+        for future in pending:
+            consume(future.result())
     save_availability(root, availability)
     if result != previous:
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(encoded(result))
+        temporary = path.with_suffix(".tmp")
+        temporary.write_bytes(encoded(result))
+        temporary.replace(path)
     print(f"Repository metadata: {attempted} refresh attempts, {len(result)} registered sources")
     return result
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -23,11 +23,12 @@ private const val GITHUB_DOWNLOAD_USER_AGENT =
 
 inline fun <T> List<T>.forEachGroupLogged(groupName: (T) -> String, action: (T) -> Unit) {
     for (item in this) {
-        println("::group::${groupName(item)}")
+        val parallel = Thread.currentThread().name.startsWith("catalog-extractor-")
+        println(if (parallel) groupName(item) else "::group::${groupName(item)}")
         try {
             action(item)
         } finally {
-            println("::endgroup::")
+            if (!parallel) println("::endgroup::")
         }
     }
 }

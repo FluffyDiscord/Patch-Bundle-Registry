@@ -2,11 +2,9 @@
 
 import argparse
 import hashlib
-import io
 import json
 import os
 import re
-import tarfile
 import time
 from collections import Counter
 from pathlib import Path
@@ -214,57 +212,14 @@ class Cloud:
         )
 
     def checkpoint(self):
-        output = io.BytesIO()
-        with tarfile.open(fileobj=output, mode="w:gz") as archive:
-            paths = list((ROOT / "internal/cache").rglob("*.json"))
-            paths += [ROOT / "database/ids.json", ROOT / "database/repository-metadata.json"]
-            for path in paths:
-                if (
-                    path.is_file()
-                    and not path.is_symlink()
-                    and path.resolve().is_relative_to(ROOT.resolve())
-                ):
-                    body = path.read_bytes()
-                    json.loads(
-                        body
-                    )  # Refuse a partially written cache, rather than saving corruption.
-                    entry = tarfile.TarInfo(path.relative_to(ROOT).as_posix())
-                    entry.size = len(body)
-                    archive.addfile(entry, io.BytesIO(body))
-        self.put("checkpoints/latest.tgz", output.getvalue())
+        from scripts.cloudflare_checkpoint import save
+
+        save(self, ROOT)
 
     def restore_checkpoint(self):
-        try:
-            body = self.get("checkpoints/latest.tgz")
-        except Exception as error:
-            code = getattr(error, "response", {}).get("Error", {}).get("Code")
-            if code in ("NoSuchKey", "404"):
-                return
-            raise
-        restored = {}
-        with tarfile.open(fileobj=io.BytesIO(body), mode="r:gz") as archive:
-            for member in archive:
-                path = (ROOT / member.name).resolve()
-                allowed = path.is_relative_to((ROOT / "internal/cache").resolve()) or path in (
-                    ROOT / "database/ids.json",
-                    ROOT / "database/repository-metadata.json",
-                )
-                if not allowed or not member.isfile() or path.suffix != ".json":
-                    raise ValueError("Unsafe checkpoint entry")
-                payload = archive.extractfile(member).read()
-                json.loads(payload)
-                restored[path] = payload
-        ids_path = ROOT / "database/ids.json"
-        if ids_path in restored:
-            current = json.loads(ids_path.read_bytes()) if ids_path.exists() else {}
-            saved = json.loads(restored[ids_path])
-            merged = merge_ids(current, saved)
-            restored[ids_path] = encode(merged)
-        for path, payload in restored.items():
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes(payload)
-        if (ROOT / "config/sources.json").exists():
-            clean_inputs(ROOT)
+        from scripts.cloudflare_checkpoint import restore
+
+        restore(self, ROOT, merge_ids, clean_inputs)
 
     def download_catalog(self, document, refresh_inputs=False):
         manifest = document["manifest"]
@@ -659,11 +614,17 @@ class Cloud:
         clean_snapshots(ROOT)
         (ROOT / "internal/cache/source-removals.json").unlink(missing_ok=True)
         self.checkpoint()
+        from scripts.cloudflare_checkpoint import evict_key, retained_keys
+
+        retained.update(retained_keys(self, ROOT))
         obsolete = []
         for page in self.s3.get_paginator("list_objects_v2").paginate(Bucket=self.bucket):
             for item in page.get("Contents", []):
                 key = item["Key"]
-                if key.startswith(("objects/", "generations/")) and key not in retained:
+                if (
+                    key.startswith(("objects/", "generations/", "checkpoints/"))
+                    and key not in retained
+                ):
                     obsolete.append(key)
 
         def delete(keys):
@@ -675,6 +636,7 @@ class Cloud:
             for key in set(keys) - failed:
                 if key.startswith("objects/"):
                     self.transfers().path(key[8:]).unlink(missing_ok=True)
+                evict_key(self, key)
             if failed:
                 raise RuntimeError("R2 source purge could not delete all obsolete objects")
 
@@ -861,13 +823,16 @@ class Cloud:
                 if record["kind"] == "history_release" and len(encode(record["data"])) > 1_500_000:
                     objects.add(hashlib.sha256(encode(record["data"])).hexdigest())
         obsolete = [row for row in generations if row["manifest_key"] not in keys]
+        from scripts.cloudflare_checkpoint import evict_key, retained_keys
+
+        checkpoints = retained_keys(self, ROOT)
         orphaned = []
         for page in self.s3.get_paginator("list_objects_v2").paginate(Bucket=self.bucket):
             for item in page.get("Contents", []):
                 key = item["Key"]
                 if (key.startswith("objects/") and key[8:] not in objects) or (
                     key.startswith("generations/") and key not in keys
-                ):
+                ) or (key.startswith("checkpoints/") and key not in checkpoints):
                     orphaned.append(key)
         print(
             json.dumps(
@@ -889,6 +854,7 @@ class Cloud:
             self.sql("DELETE FROM catalog_generations WHERE seq=?", [row["seq"]])
         for key in orphaned:
             self.s3.delete_object(Bucket=self.bucket, Key=key)
+            evict_key(self, key)
 
     def provision(self):
         name = os.environ.get("CATALOG_D1_NAME") or "patch-bundle-registry"

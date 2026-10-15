@@ -304,8 +304,7 @@ def test_cloudflare_retries_accept_second_or_date_retry_after(monkeypatch):
 
 
 def test_checkpoint_validates_json_before_replacing_saved_progress(tmp_path, monkeypatch):
-    import io
-    import tarfile
+    from scripts.cloudflare_checkpoint import document, payloads
 
     memory = MemoryCloud(tmp_path)
     monkeypatch.setattr(cloud, "ROOT", tmp_path)
@@ -313,13 +312,13 @@ def test_checkpoint_validates_json_before_replacing_saved_progress(tmp_path, mon
     folder.mkdir(parents=True)
     (folder / "valid.json").write_text('{"progress": 1}')
     memory.checkpoint()
-    previous = memory.objects["checkpoints/latest.tgz"]
-    with tarfile.open(fileobj=io.BytesIO(previous), mode="r:gz") as checkpoint:
-        assert json.load(checkpoint.extractfile("internal/cache/valid.json")) == {"progress": 1}
+    previous = memory.objects["checkpoints/latest.json"]
+    entries = payloads(memory, tmp_path, document(memory, tmp_path))
+    assert json.loads(entries["internal/cache/valid.json"]) == {"progress": 1}
     (folder / "partial.json").write_text('{"unfinished":')
     with pytest.raises(ValueError):
         memory.checkpoint()
-    assert memory.objects["checkpoints/latest.tgz"] == previous
+    assert memory.objects["checkpoints/latest.json"] == previous
 
 
 def test_checkpoint_merges_published_and_unpublished_numeric_ids(tmp_path, monkeypatch):

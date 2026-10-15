@@ -50,7 +50,8 @@ internal data class RuntimeResult(val patches: JsonArray?, val status: String,
                                   val requiredEngine: String? = null)
 
 private val runtimeJson = Json { ignoreUnknownKeys = true; prettyPrint = true }
-private val runtimeResults = mutableMapOf<String, RuntimeResult>()
+private val runtimeResults = RuntimeResultCache()
+private val runtimeLocks = Array(64) { Any() }
 
 /** A deliberately bounded range language: whitespace-separated semver comparators. */
 internal data class PatcherVersion(val numbers: List<Int>, val prerelease: List<String>) :
@@ -283,7 +284,14 @@ internal fun extractWithRuntimes(
         else -> return RuntimeResult(null, "unsupported_format")
     }
     val cacheKey = "$family:$uri"
-    runtimeResults[cacheKey]?.let { return it }
+    return synchronized(runtimeLocks[Math.floorMod(cacheKey.hashCode(), runtimeLocks.size)]) {
+        runtimeResults[cacheKey] ?: extractArtifact(uri, family, previous).also {
+            if (it.status == "verified") runtimeResults[cacheKey] = it
+        }
+    }
+}
+
+private fun extractArtifact(uri: URI, family: String, previous: ExtractionRecord?): RuntimeResult {
     val artifact = File.createTempFile("catalog-bundle", ".jar")
     return try {
         try {
@@ -292,50 +300,58 @@ internal fun extractWithRuntimes(
             return RuntimeResult(null, "artifact_unavailable")
         }
         val hash = sha256(artifact)
-        // Download current releases to notice replacements even at an unchanged URL,
-        // but do not run workers again for an unchanged, permanently rejected binary.
+        // Still download and hash to detect replacements at unchanged URLs.
         if (previous?.terminal == true && previous.file_hash == hash &&
-            canonicalBundleFamily(previous.bundle_type) == family && previous.failure_fingerprint == runtimeFingerprint()) {
+            canonicalBundleFamily(previous.bundle_type) == family &&
+            previous.failure_fingerprint == runtimeFingerprint()) {
             return RuntimeResult(null, previous.status, hash, terminal = true, paused = true)
         }
-        val declared = if (family == "Reseam") null else try {
-            JarFile(artifact).use { it.manifest?.mainAttributes?.getValue("Patcher-Version") }
-                ?.trim()?.takeIf(String::isNotEmpty)
-        } catch (_: Exception) {
-            return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true)
-        }
-        val config = loadRuntimeConfiguration()
-        val candidates = try {
-            selectRuntimes(config, family, declared)
-        } catch (_: Exception) {
-            return RuntimeResult(null, "runtime_configuration_failure", hash, terminal = true)
-        }
-        if (candidates.isEmpty()) return RuntimeResult(null, "missing_compatible_runtime", hash, terminal = true)
-        val installed = installedRuntimes()
-        var failure = "runtime_initialization_failure"
-        var allRejected = true
-        var remaining = candidates
-        while (remaining.isNotEmpty()) {
-            val runtime = remaining.first()
-            remaining = remaining.drop(1)
-            val installation = installed[runtime.id]
-            if (installation?.available != true) {
-                allRejected = false
-                continue
+        ExtractionCache.withArtifact(family, hash) {
+            ExtractionCache.get(family, hash) ?: extractDownloadedArtifact(artifact, hash, family).also {
+                ExtractionCache.put(family, it)
             }
-            val result = extractWithRuntime(artifact, hash, runtime, installation, config.worker)
-            if (result.status == "verified") return result.also { runtimeResults[cacheKey] = it }
-            if (Thread.currentThread().isInterrupted) return result
-            if (family == "Reseam") remaining = prioritizeReseamEngine(remaining, result.requiredEngine)
-            allRejected = allRejected && result.terminal
-            failure = result.status
         }
-        RuntimeResult(null, failure, hash, terminal = allRejected)
     } catch (_: Exception) {
         RuntimeResult(null, "runtime_initialization_failure")
     } finally {
         artifact.delete()
     }
+}
+
+private fun extractDownloadedArtifact(artifact: File, hash: String, family: String): RuntimeResult {
+    val declared = if (family == "Reseam") null else try {
+        JarFile(artifact).use { it.manifest?.mainAttributes?.getValue("Patcher-Version") }
+            ?.trim()?.takeIf(String::isNotEmpty)
+    } catch (_: Exception) {
+        return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true)
+    }
+    val config = loadRuntimeConfiguration()
+    val candidates = try {
+        selectRuntimes(config, family, declared)
+    } catch (_: Exception) {
+        return RuntimeResult(null, "runtime_configuration_failure", hash, terminal = true)
+    }
+    if (candidates.isEmpty()) return RuntimeResult(null, "missing_compatible_runtime", hash, terminal = true)
+    val installed = installedRuntimes()
+    var failure = "runtime_initialization_failure"
+    var allRejected = true
+    var remaining = candidates
+    while (remaining.isNotEmpty()) {
+        val runtime = remaining.first()
+        remaining = remaining.drop(1)
+        val installation = installed[runtime.id]
+        if (installation?.available != true) {
+            allRejected = false
+            continue
+        }
+        val result = extractWithRuntime(artifact, hash, runtime, installation, config.worker)
+        if (result.status == "verified") return result
+        if (Thread.currentThread().isInterrupted) return result
+        if (family == "Reseam") remaining = prioritizeReseamEngine(remaining, result.requiredEngine)
+        allRejected = allRejected && result.terminal
+        failure = result.status
+    }
+    return RuntimeResult(null, failure, hash, terminal = allRejected)
 }
 
 internal fun recordExtraction(
