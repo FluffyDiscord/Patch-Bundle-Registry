@@ -376,28 +376,35 @@ async function loadBundles(refreshedCatalog = null) {
 }
 
 let catalogRefreshTimer;
+let activeCatalogRefresh = null;
 function scheduleCatalogRefresh() {
     clearTimeout(catalogRefreshTimer);
     catalogRefreshTimer = setTimeout(async () => {
         if (document.hidden || refreshingCatalog) { scheduleCatalogRefresh(); return; }
         refreshingCatalog = true;
-        try {
+        activeCatalogRefresh = (async () => {
             const next = await openCatalog();
-            if (next.manifest.generation !== catalog.manifest.generation) await loadBundles(next);
-        } catch { /* Preserve the current view during a transient origin failure. */ }
-        finally { refreshingCatalog = false; scheduleCatalogRefresh(); }
+            return next.manifest.generation !== catalog.manifest.generation ? loadBundles(next) : false;
+        })();
+        try { await activeCatalogRefresh; }
+        catch { /* Preserve the current view during a transient origin failure. */ }
+        finally { refreshingCatalog = false; activeCatalogRefresh = null; scheduleCatalogRefresh(); }
     },15000);
 }
 
-async function recoverGeneration(error) {
-    if (!error.generationUnavailable || refreshingCatalog) return false;
+async function recoverGeneration(error, waitActive = false) {
+    if (!error.generationUnavailable) return false;
+    if (refreshingCatalog)
+        return waitActive && activeCatalogRefresh ? activeCatalogRefresh.catch(() => false) : false;
     refreshingCatalog = true;
-    try {
+    activeCatalogRefresh = (async () => {
         const nextCatalog = await openCatalog();
         if (nextCatalog.manifest.generation === catalog.manifest.generation) return false;
-        return await loadBundles(nextCatalog);
-    } catch { return false; }
-    finally { refreshingCatalog = false; }
+        return loadBundles(nextCatalog);
+    })();
+    try { return await activeCatalogRefresh; }
+    catch { return false; }
+    finally { refreshingCatalog = false; activeCatalogRefresh = null; }
 }
 
 async function selectSource(sourceUrl) {
@@ -454,15 +461,21 @@ async function selectBundleVersion(version) {
 }
 
 function transformPatch(patch) {
-    return { name: patch.name, description: patch.description, options: patch.options || [],
+    return { name: patch.name, description: patch.description, hidden: patch.hidden === true, options: patch.options || [],
         universal: patch.packages.length === 0 && (patch.compatiblePackages == null || Object.keys(patch.compatiblePackages).length === 0),
         compatiblePackages: patch.packages.map(pkg => ({ name: pkg.name, appName: pkg.app_name || pkg.name, versions: pkg.versions })) };
 }
 
 async function bundlePatches(bundle) {
     if (!bundle.loadedPatches) {
-        const result = await catalog.patchRows({ bundle_id: bundle.id, package: bundle.appPackage,
-            all: true, include_unverified: true });
+        const load = () => catalog.patchRows({ bundle_id: bundle.id, package: bundle.appPackage,
+            all: true, include_unverified: true, compact: true });
+        let result;
+        try { result = await load(); }
+        catch (error) {
+            if (!await recoverGeneration(error, true)) throw error;
+            result = await load();
+        }
         bundle.loadedPatches = result.rows.map(transformPatch);
     }
     return bundle.loadedPatches;
@@ -895,7 +908,8 @@ function renderPatch(patch) {
         </span>`;
     }).join('');
 
-    const heading = escapeHtml(patch.name || "Unnamed patch");
+    const heading = escapeHtml(patch.name || "Unnamed patch") +
+        (patch.hidden ? ' <span class="badge">Internal patch</span>' : "");
     const overview = `${patch.description ? `<span class="patch-description">${escapeHtml(patch.description)}</span>` : ""}
         ${packages ? `<span class="patch-packages">${packages}</span>` : ""}`;
     const options = renderPatchOptions(patch.options, escapeHtml, heading, overview);

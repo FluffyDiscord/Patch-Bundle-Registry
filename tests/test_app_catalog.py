@@ -337,7 +337,8 @@ def test_unlisted_success_page_does_not_starve_later_play_lookups(tmp_path):
 
     with httpx.Client(transport=httpx.MockTransport(handler)) as client:
         state = refresh(tmp_path, client, now=NOW, sleep=lambda _: None)
-    assert state["apps"]["com.one"]["checked_at"] == NOW.isoformat()
+    assert "checked_at" not in state["apps"]["com.one"]
+    assert state["apps"]["com.one"]["play_status"] == "unrecognized"
     assert state["apps"]["com.two"]["app_name"] == "Two"
     assert "play_retry_after" not in state
 

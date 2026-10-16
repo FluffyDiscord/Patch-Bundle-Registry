@@ -34,36 +34,62 @@ inline fun <T> List<T>.forEachGroupLogged(groupName: (T) -> String, action: (T) 
 }
 
 fun downloadToFile(url: URL, outputFile: File) {
-    var current = url
-    repeat(10) {
-        val connection = current.openConnection().apply {
-            connectTimeout = 10_000
-            readTimeout = 30_000
-            setRequestProperty("User-Agent", GITHUB_DOWNLOAD_USER_AGENT)
-            if (this is java.net.HttpURLConnection) {
-                instanceFollowRedirects = false
-                gitHostHeaders(current).forEach { (name, value) -> setRequestProperty(name, value) }
-            }
-        }
-        if (connection is java.net.HttpURLConnection && connection.responseCode in setOf(301, 302, 303, 307, 308)) {
-            val location = connection.getHeaderField("Location") ?: error("Redirect without Location")
-            val next = URL(current, location)
-            require(next.protocol in setOf("http", "https"))
-            require(current.protocol != "https" || next.protocol == "https")
-            connection.disconnect()
-            current = next
-        } else {
-            try {
-                connection.getInputStream().use { input: InputStream ->
-                    outputFile.outputStream().use { fileOut -> input.copyTo(fileOut) }
-                }
-            } finally {
-                (connection as? java.net.HttpURLConnection)?.disconnect()
-            }
-            return
-        }
+    val maximum = System.getProperty("catalog.download.max_bytes", "268435456").toLong()
+    val seconds = System.getProperty("catalog.download.timeout_seconds", "120").toLong()
+    require(maximum in 1..1_073_741_824L && seconds in 1..600)
+    val deadline = System.nanoTime() + java.util.concurrent.TimeUnit.SECONDS.toNanos(seconds)
+    fun remaining(): Int {
+        val millis = java.util.concurrent.TimeUnit.NANOSECONDS.toMillis(deadline - System.nanoTime())
+        require(millis > 0) { "Bundle download deadline exceeded" }
+        return millis.coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
     }
-    error("Too many bundle download redirects")
+    var current = url
+    try {
+        repeat(10) {
+            val connection = current.openConnection().apply {
+                connectTimeout = minOf(10_000, remaining())
+                readTimeout = minOf(30_000, remaining())
+                setRequestProperty("User-Agent", GITHUB_DOWNLOAD_USER_AGENT)
+                if (this is java.net.HttpURLConnection) {
+                    instanceFollowRedirects = false
+                    gitHostHeaders(current).forEach { (name, value) -> setRequestProperty(name, value) }
+                }
+            }
+            try {
+                connection.connect()
+                connection.readTimeout = minOf(30_000, remaining())
+                if (connection is java.net.HttpURLConnection && connection.responseCode in setOf(301, 302, 303, 307, 308)) {
+                    val location = connection.getHeaderField("Location") ?: error("Redirect without Location")
+                    val next = URL(current, location)
+                    require(next.protocol in setOf("http", "https"))
+                    require(current.protocol != "https" || next.protocol == "https")
+                    current = next
+                } else {
+                    require(connection.contentLengthLong <= maximum) { "Bundle exceeds download size limit" }
+                    connection.getInputStream().use { input ->
+                        outputFile.outputStream().use { output ->
+                            val buffer = ByteArray(64 * 1024)
+                            var size = 0L
+                            while (true) {
+                                connection.readTimeout = minOf(30_000, remaining())
+                                val count = input.read(buffer)
+                                remaining()
+                                if (count < 0) break
+                                size += count
+                                require(size <= maximum) { "Bundle exceeds download size limit" }
+                                output.write(buffer, 0, count)
+                            }
+                        }
+                    }
+                    return
+                }
+            } finally { (connection as? java.net.HttpURLConnection)?.disconnect() }
+        }
+        error("Too many bundle download redirects")
+    } catch (error: Exception) {
+        outputFile.delete()
+        throw error
+    }
 }
 
 fun generatePatchesFromUrl(uri: URI): String {
@@ -80,7 +106,7 @@ fun generatePatchesFromUrl(uri: URI): String {
             ClassLoader.getSystemClassLoader()
         ).use { classLoader ->
             val patches = loadModernPatchesFromJar(patchesFile, classLoader, classpathFiles)
-            return JsonArray(patches.map(::convertRevancedPatch)).toString()
+            return completePatchMetadata(patchesFile, classLoader, "app/revanced/patcher", patches, ::convertRevancedPatch).toString()
         }
     } finally {
         patchesFile.delete()
@@ -101,7 +127,7 @@ fun generatePatchesFromUrlWithLegacyPatcher(uri: URI): String {
             ClassLoader.getSystemClassLoader()
         ).use { classLoader ->
             val patches = loadModernPatchesFromJar(patchesFile, classLoader, classpathFiles)
-            return JsonArray(patches.map(::convertRevancedPatch)).toString()
+            return completePatchMetadata(patchesFile, classLoader, "app/revanced/patcher", patches, ::convertRevancedPatch).toString()
         }
     } finally {
         patchesFile.delete()
@@ -111,7 +137,7 @@ fun generatePatchesFromUrlWithLegacyPatcher(uri: URI): String {
 internal fun generateV3PatchList(file: File): JsonArray {
     val classpath = runtimeClasspathFiles(LEGACY_PATCHER_CLASSPATH_PROPERTY, "V3 patcher classpath")
     return URLClassLoader(
-        classpath.map { it.toURI().toURL() }.toTypedArray(), ClassLoader.getSystemClassLoader()
+        (classpath + file).map { it.toURI().toURL() }.toTypedArray(), ClassLoader.getSystemClassLoader()
     ).use { loader ->
         val direct = runCatching { Class.forName("app.revanced.patcher.PatchBundleLoader\$Jar", true, loader) }
             .getOrNull()
@@ -124,7 +150,7 @@ internal fun generateV3PatchList(file: File): JsonArray {
         }
         val patches = loadedPatchObjects(loaded)
         if (patches.any { it is Class<*> }) parseLegacyPatchBundle(file, patches.filterIsInstance<Class<*>>().map { it.name }.toSet())
-        else JsonArray(patches.map(::convertRevancedPatch))
+        else completePatchMetadata(file, loader, "app/revanced/patcher", patches, ::convertRevancedPatch)
     }
 }
 
@@ -461,19 +487,13 @@ private fun readReflectiveBoolean(target: Any, vararg names: String): Boolean? {
 private fun readReflectiveMemberValue(target: Any, vararg names: String): Any? {
     for (name in names) {
         findReflectiveAccessor(target.javaClass, name)?.let { accessor ->
-            try {
-                return accessor.invoke(target)
-            } catch (_: Throwable) {
-                // Try the next accessor candidate.
-            }
+            accessor.isAccessible = true
+            return accessor.invoke(target)
         }
 
         target.javaClass.fields.firstOrNull { it.name == name }?.let { field ->
-            try {
-                return field.get(target)
-            } catch (_: Throwable) {
-                // Try the next accessor candidate.
-            }
+            field.isAccessible = true
+            return field.get(target)
         }
     }
 

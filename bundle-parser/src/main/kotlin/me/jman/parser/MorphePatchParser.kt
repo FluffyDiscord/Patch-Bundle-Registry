@@ -23,18 +23,17 @@ internal fun generateMorphePatchList(downloadUri: URI): JsonArray? {
         val classpathFiles = morpheClasspathFiles()
         downloadToFile(downloadUri.toURL(), patchesFile)
         URLClassLoader(
-            classpathFiles.map { it.toURI().toURL() }.toTypedArray(), ClassLoader.getSystemClassLoader()
+            (classpathFiles + patchesFile).map { it.toURI().toURL() }.toTypedArray(), ClassLoader.getSystemClassLoader()
         ).use { classLoader ->
             val patches = loadMorphePatchesFromJar(patchesFile, classLoader)
-            val jsonPatches = patches.map(::convertMorphePatch)
-            JsonArray(jsonPatches)
+            completePatchMetadata(patchesFile, classLoader, "app/morphe/patcher", patches, ::convertMorphePatch)
         }
     } catch (_: FileNotFoundException) {
         Logger.warning("The patch bundle file was not found.")
         null
     } catch (e: Exception) {
         Logger.warning("Failed to parse Morphe patch bundle. ${e.describeForLog()}")
-        null
+        throw e
     } finally {
         patchesFile.delete()
     }
@@ -296,19 +295,13 @@ private fun readBooleanMember(target: Any, vararg names: String): Boolean? {
 private fun readMemberValue(target: Any, vararg names: String): Any? {
     for (name in names) {
         findAccessor(target.javaClass, name)?.let { accessor ->
-            try {
-                return accessor.invoke(target)
-            } catch (_: Throwable) {
-                // Try the next accessor candidate.
-            }
+            accessor.isAccessible = true
+            return accessor.invoke(target)
         }
 
         target.javaClass.fields.firstOrNull { it.name == name }?.let { field ->
-            try {
-                return field.get(target)
-            } catch (_: Throwable) {
-                // Try the next accessor candidate.
-            }
+            field.isAccessible = true
+            return field.get(target)
         }
     }
 

@@ -112,7 +112,7 @@ class HistoricalQueueTest {
             patches.writeText("""{"version":"v1","patches":[],"metadata_schema_version":${PATCH_METADATA_SCHEMA_VERSION}}""")
             val marker = File(folder, "schema-stable-extraction.json")
             val record = Json.decodeFromString<ExtractionRecord>(marker.readText())
-            marker.writeText(Json.encodeToString(record.copy(patch_list_hash = sha256(patches))))
+            marker.writeText(Json.encodeToString(record.copy(patch_list_hash = sha256(patches), completeness_version = 1)))
             assertEquals(emptyList(), historicalCandidates(directory, 1, "runtime"))
             folder.deleteRecursively()
         }

@@ -5,6 +5,13 @@ if (!["legacy","d1"].includes(backend)) throw new Error("Invalid CATALOG_BACKEND
 const config = JSON.parse(readFileSync(new URL("../worker/wrangler.jsonc",import.meta.url),"utf8"));
 const target = config.env.production;
 target.vars = {...target.vars,CATALOG_BACKEND:backend};
+for (const name of ["CATALOG_SUBSCRIPTION_MAX_CONNECTIONS","CATALOG_SUBSCRIPTION_CONNECTIONS_PER_IP"])
+  if (process.env[name]) {
+    const number=Number(process.env[name]);
+    if (!Number.isSafeInteger(number) || number<1 || number>512) throw new Error(name+" must be 1-512");
+    target.vars[name]=String(number);
+  }
+
 if (backend === "d1") {
   const id = process.env.CATALOG_D1_ID;
   if (!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(id ?? "")) throw new Error("CATALOG_D1_ID must be a database UUID");

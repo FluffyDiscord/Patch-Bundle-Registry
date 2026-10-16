@@ -17,7 +17,8 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
         val kind = (problem?.get("type") as? JsonPrimitive)?.contentOrNull
         val required = if (kind in setOf("bundle_too_old", "bundle_too_new", "engine_too_old"))
             (problem?.get("built") as? JsonPrimitive)?.contentOrNull else null
-        return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true, requiredEngine = required)
+        return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true, requiredEngine = required,
+            cause = kind?.takeIf { Regex("[a-z0-9_]{1,80}").matches(it) })
     }
     fun JsonObject.text(key: String): String {
         val value = getValue(key).jsonPrimitive
@@ -29,9 +30,14 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
             put(key, bundle.text(key))
     }
     require(Regex("[a-fA-F0-9]{64}").matches(publisher.getValue("public_key").jsonPrimitive.content))
-    val patches = response.getValue("patches").jsonArray.map { it.jsonObject }
-        .filterNot { it.getValue("hidden").jsonPrimitive.boolean }
-        .map { patch ->
+    val inventory = response.getValue("patches").jsonArray.map { it.jsonObject }
+    val expected = (bundle["patch_count"] as? JsonPrimitive)?.intOrNull
+    if (expected != null && expected != inventory.size)
+        throw IncompletePatchInventory("Inspector patch count does not match its inventory")
+    val ids = inventory.mapNotNull { (it["id"] as? JsonPrimitive)?.contentOrNull }
+    if (ids.size != ids.distinct().size)
+        throw IncompletePatchInventory("Inspector repeated a patch ID")
+    val patches = inventory.map { patch ->
             val compatibility = patch.getValue("compatibility").jsonObject
             val packages = when (compatibility.text("kind")) {
                 "universal" -> JsonNull
@@ -45,6 +51,7 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
             }
             buildJsonObject {
                 put("name", patch.text("name"))
+                put("hidden", patch.getValue("hidden").jsonPrimitive.boolean)
                 put("description", patch.text("description"))
                 put("use", patch.getValue("enabled_by_default").jsonPrimitive.boolean)
                 put("dependencies", patch.getValue("dependencies").jsonArray)
@@ -64,7 +71,7 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
                 }))
             }
         }
-    return RuntimeResult(JsonArray(patches), "verified", hash, runtime, reseamBundle = publisher)
+    return RuntimeResult(JsonArray(patches), "verified", hash, runtime, reseamBundle = publisher, completenessVersion = 1)
 }
 
 /** Supply an explicit key to older inspectors without changing their global trust store. */

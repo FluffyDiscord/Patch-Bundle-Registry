@@ -36,7 +36,7 @@ const definitions = {
     metadata_status: "String", patcher_runtime: "String", extraction_status: "String",
     patch_count: "Int", release_status: "String" },
   patch: { id: "Int", catalog_id: "String", bundle_fk: "Int", bundle_id: "String",
-    source_id: "String", name: "String", description: "String", use: "Boolean",
+    source_id: "String", name: "String", description: "String", use: "Boolean", hidden: "Boolean",
     metadata_status: "String", patch_metadata_version: "String" },
   package: { id: "Int", name: "String", version: "String", app_name: "String", icon_url: "String" },
   patch_package: { package_fk: "Int", patch_fk: "Int", patch_id: "String" },
@@ -1007,8 +1007,10 @@ async function executeQuery(catalog, payload, options) {
       for (const op of ["min","max"]) aggregates[op] = extrema ?
         {...aggregates[op],...extrema[op]} :
         async () => (await defaultPatchAggregate({})).aggregate[op];
-      return { aggregate: {...aggregates,count:({columns,distinct}={})=>{
+      return { aggregate: {...aggregates,count:async ({columns,distinct}={})=>{
         if (!columns?.length) return stats.count;
+        if (columns.some(column=>!(stats.columns ?? []).includes(column)))
+          return (await defaultPatchAggregate({})).aggregate.count({columns,distinct});
         if (columns.length > 1) {
           if (distinct) throw new CatalogError("Narrow the patch filter for multi-column distinct counts",422);
           const required = columns.reduce((mask,key)=>mask | (1 << stats.columns.indexOf(key)),0);

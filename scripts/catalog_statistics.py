@@ -33,6 +33,7 @@ def patch_statistics(rows, bundles, locale="en_US.utf8"):
         "metadata_status",
         "patch_metadata_version",
         "use",
+        "hidden",
     ]
     result = {
         "count": len(records),

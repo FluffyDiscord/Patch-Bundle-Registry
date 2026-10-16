@@ -567,6 +567,7 @@ def terminal_fixture(root):
                 "bundle_type": "ReVanced:v22",
                 "failure_fingerprint": db.runtime_fingerprint(root),
                 "runtime_config_hash": db.runtime_config_hash(root),
+                "parser_revision": db.parser_revision(root),
                 "attempted_at": "2026-10-10T00:00:00Z",
             },
         )
@@ -983,3 +984,17 @@ def test_header_svg_dimensions_do_not_depend_on_cached_css():
         icon["width"] == icon["height"] and icon["width"] in {"18", "20"}
         for icon in markup.icons
     )
+
+
+def test_parser_adapter_fix_requeues_paused_failures_without_changing_runtime_configuration(
+    tmp_path,
+):
+    terminal_fixture(tmp_path)
+    config_hash = db.runtime_config_hash(tmp_path)
+    assert not snapshot(tmp_path, db.build_database(tmp_path))[1][0]["need_patches_update"]
+    adapter = tmp_path / "bundle-parser/src/main/kotlin/me/jman/parser/Adapter.kt"
+    adapter.parent.mkdir(parents=True)
+    adapter.write_text("// corrected adapter\n", encoding="utf8")
+    bundle = snapshot(tmp_path, db.build_database(tmp_path))[1][0]
+    assert db.runtime_config_hash(tmp_path) == config_hash
+    assert bundle["need_patches_update"] and not bundle["extraction_terminal"]

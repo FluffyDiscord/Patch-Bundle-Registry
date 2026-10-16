@@ -63,12 +63,45 @@ def runtime_config_hash(root):
     return digest(config.read_bytes() if config.is_file() else b"")
 
 
+_revision_cache = {}
+
+
+def parser_revision(root):
+    directory = root / "bundle-parser/src/main/kotlin/me/jman/parser"
+    paths = sorted(directory.glob("*.kt"))
+    script = root / "scripts/reseam_legacy.py"
+    signature = tuple(
+        (str(path), path.stat().st_mtime_ns, path.stat().st_size)
+        for path in [*paths, script]
+        if path.is_file()
+    )
+    key = str(root.resolve())
+    if key not in _revision_cache or _revision_cache[key][0] != signature:
+        content = b"".join(
+            path.name.encode() + b"\0" + path.read_bytes().replace(b"\r\n", b"\n") for path in paths
+        )
+        if script.is_file():
+            content += script.read_bytes().replace(b"\r\n", b"\n")
+        _revision_cache[key] = signature, digest(content)
+    return _revision_cache[key][1]
+
+
 def runtime_fingerprint(root):
     files = (
         root / "config/patcher-runtimes.json",
         root / "bundle-parser/build/runtime-classpaths.json",
     )
-    return digest(b"".join(path.read_bytes() for path in files if path.is_file()))
+    java_home = (
+        os.environ.get("CATALOG_WORKER_JAVA_HOME")
+        or os.environ.get("JAVA_HOME_21_X64")
+        or os.environ.get("JAVA_HOME")
+        or ""
+    )
+    return digest(
+        b"".join(path.read_bytes() for path in files if path.is_file())
+        + parser_revision(root).encode()
+        + java_home.encode()
+    )
 
 
 def paused_failure(root, status, raw, family):
@@ -82,6 +115,7 @@ def paused_failure(root, status, raw, family):
         and canonical_bundle_type(status.get("bundle_type")) == family
         and status.get("failure_fingerprint")
         and status.get("runtime_config_hash") == runtime_config_hash(root)
+        and status.get("parser_revision") == parser_revision(root)
         and (not manifest.is_file() or status["failure_fingerprint"] == runtime_fingerprint(root))
         and digest_matches(
             raw.get("provider_digest"), status["file_hash"], status.get("provider_digest")
@@ -201,7 +235,9 @@ def restore_catalog_cache(root=ROOT):
         channel = (
             "latest"
             if settings.get("latest")
-            else "dev" if settings.get("prerelease") else "stable"
+            else "dev"
+            if settings.get("prerelease")
+            else "stable"
         )
         if (source_id, channel) in missing_channels:
             discovery.setdefault(key, "no_matching_release")
@@ -273,6 +309,9 @@ def restore_catalog_cache(root=ROOT):
             "terminal": bundle.get("extraction_terminal", False),
             "bundle_type": bundle.get("bundle_type"),
             "runtime_config_hash": bundle.get("patcher_failure_config_hash"),
+            "parser_revision": bundle.get("patcher_parser_revision"),
+            "completeness_version": bundle.get("patch_completeness_version", 0),
+            "runtime_attempts": bundle.get("runtime_attempts", []),
             "patch_list_hash": (
                 digest(patch_path.read_bytes()) if bundle["metadata_status"] == "verified" else None
             ),
@@ -542,6 +581,9 @@ def build_database(root=ROOT, *, restore=True):
                 "need_patches_update": not (proof or paused),
                 "extraction_terminal": paused,
                 "patcher_failure_config_hash": status.get("runtime_config_hash"),
+                "patcher_parser_revision": status.get("parser_revision"),
+                "patch_completeness_version": status.get("completeness_version", 0),
+                "runtime_attempts": status.get("runtime_attempts", []),
                 "patch_list_available": valid,
                 "patch_metadata_version": patches.get("version"),
                 "patch_metadata_schema_version": patches.get("metadata_schema_version", 0),
@@ -571,6 +613,9 @@ def build_database(root=ROOT, *, restore=True):
                     extraction_terminal=paused,
                     patcher_failure_fingerprint=status.get("failure_fingerprint"),
                     patcher_failure_config_hash=status.get("runtime_config_hash"),
+                    patcher_parser_revision=status.get("parser_revision"),
+                    patch_completeness_version=status.get("completeness_version", 0),
+                    runtime_attempts=status.get("runtime_attempts", []),
                     need_patches_update=not (proof or paused),
                 )
         detail_rank = (
@@ -761,6 +806,9 @@ def build_database(root=ROOT, *, restore=True):
                 "provider_digest": bundle.get("extracted_provider_digest"),
                 "failure_fingerprint": bundle.get("patcher_failure_fingerprint"),
                 "runtime_config_hash": bundle.get("patcher_failure_config_hash"),
+                "parser_revision": bundle.get("patcher_parser_revision"),
+                "completeness_version": bundle.get("patch_completeness_version", 0),
+                "runtime_attempts": bundle.get("runtime_attempts", []),
             }
             if not paused_failure(root, status, bundle, bundle["bundle_type"]):
                 bundle.update(extraction_terminal=False, need_patches_update=True)
@@ -852,8 +900,8 @@ def build_database(root=ROOT, *, restore=True):
     # while projected bundle descriptions can read only a small shard.
     for bundle in summaries:
         shard = int(bundle["legacy_id"]) // 400
-        files.setdefault(f"graphql-descriptions/{shard}.json", {})[bundle["id"]] = (
-            bundle.get("description")
+        files.setdefault(f"graphql-descriptions/{shard}.json", {})[bundle["id"]] = bundle.get(
+            "description"
         )
     # App lookups need release selectors, not every historical changelog.
     app_bundle_fields = (
@@ -908,6 +956,7 @@ def build_database(root=ROOT, *, restore=True):
                 {
                     **patch,
                     "name": patch.get("name"),
+                    "hidden": patch.get("hidden", False),
                     "id": f"{identity}:{position}",
                     "legacy_id": numeric_id("patch", f"{identity}:{position}"),
                     "bundle_id": identity,
@@ -1048,14 +1097,14 @@ def build_database(root=ROOT, *, restore=True):
                 if any(ord(char) > 127 for char in original_text):
                     unicode_text.setdefault(page_id, []).append(original_text)
                 for gram in grams(original_text):
-                    search[f"{ord(gram[0]) % 16}-{ord(gram[1]) % 16}"].setdefault(
-                        gram, set()
-                    ).add(page_id)
+                    search[f"{ord(gram[0]) % 16}-{ord(gram[1]) % 16}"].setdefault(gram, set()).add(
+                        page_id
+                    )
                 text = ((row.get("name") or "") + " " + (row.get("description") or "")).lower()
                 for char in set(text):
-                    short_search.setdefault(f"1-{ord(char) % 16}", {}).setdefault(
-                        char, set()
-                    ).add(page_id)
+                    short_search.setdefault(f"1-{ord(char) % 16}", {}).setdefault(char, set()).add(
+                        page_id
+                    )
                 for position in range(len(text) - 1):
                     gram = text[position : position + 2]
                     short_search.setdefault(
@@ -1080,9 +1129,9 @@ def build_database(root=ROOT, *, restore=True):
                     gram, set()
                 ).add(page_id)
             for char in set(characters):
-                unicode_short.setdefault(f"1-{ord(char) % 16}", {}).setdefault(
-                    char, set()
-                ).add(page_id)
+                unicode_short.setdefault(f"1-{ord(char) % 16}", {}).setdefault(char, set()).add(
+                    page_id
+                )
             for position in range(len(characters) - 1):
                 gram = "".join(characters[position : position + 2])
                 unicode_short.setdefault(
@@ -1119,12 +1168,21 @@ def build_database(root=ROOT, *, restore=True):
     files["availability.json"] = {"missing": missing, "retired_history": retired}
     payloads = {
         name: (
-            (json.dumps(value, ensure_ascii=False, sort_keys=True,
-                        separators=(",", ":")) + "\n").encode("utf-8")
-            if name.startswith(("graphql-", "search-v2/", "search-short/",
-                                "search-unicode-v2/", "search-unicode-short/",
-                                "patch-bundle-index.json", "patch-package-counts.json",
-                                "patch-name-ids.json"))
+            (
+                json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n"
+            ).encode("utf-8")
+            if name.startswith(
+                (
+                    "graphql-",
+                    "search-v2/",
+                    "search-short/",
+                    "search-unicode-v2/",
+                    "search-unicode-short/",
+                    "patch-bundle-index.json",
+                    "patch-package-counts.json",
+                    "patch-name-ids.json",
+                )
+            )
             else encoded(value)
         )
         for name, value in files.items()
@@ -1224,7 +1282,8 @@ def build_site(root=ROOT):
     public.mkdir()
     (public / "manifest.json").write_bytes(encoded(manifest))
     for snapshot in (
-        [] if os.environ.get("CATALOG_BACKEND") == "d1"
+        []
+        if os.environ.get("CATALOG_BACKEND") == "d1"
         else published_snapshots(output, manifest["snapshot"])
     ):
         shutil.copytree(

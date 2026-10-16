@@ -36,20 +36,21 @@ class PatcherRuntimeSelectionTest {
 
     @Test fun shippedMorpheTriesDeclaredRuntimeThenNewestToOldest() {
         val config = shipped()
-        val expected = mapOf(
-            "0.9.0" to listOf("morphe-12", "morphe-latest", "morphe-early"),
-            "1.1.1" to listOf("morphe-early", "morphe-latest", "morphe-12"),
-            "1.2.0-rc.1" to listOf("morphe-12", "morphe-latest", "morphe-early"),
-            "1.2.0" to listOf("morphe-12", "morphe-latest", "morphe-early"),
-            "1.9.0" to listOf("morphe-latest", "morphe-12", "morphe-early"),
-            "2.0.0" to listOf("morphe-latest", "morphe-12", "morphe-early")
-        )
-        for ((declaration, order) in expected) {
-            assertEquals(order, selectRuntimes(config, "Morphe:V1", declaration).map { it.id })
+        val newestFirst = listOf("morphe-latest", "morphe-1-14-0", "morphe-1-12-0",
+            "morphe-1-7-0", "morphe-1-5-2", "morphe-1-4-2", "morphe-1-3-1",
+            "morphe-1-3-0", "morphe-12", "morphe-early")
+        val preferred = mapOf(
+            "0.9.0" to "morphe-12", "1.1.1" to "morphe-early",
+            "1.2.0-rc.1" to "morphe-12", "1.2.0" to "morphe-12",
+            "1.3.1" to "morphe-1-3-1", "1.5.2" to "morphe-1-5-2",
+            "1.12.0" to "morphe-1-12-0", "1.14.0" to "morphe-1-14-0",
+            "1.9.0" to "morphe-latest", "2.0.0" to "morphe-latest")
+        for ((declaration, first) in preferred) {
+            assertEquals(listOf(first) + newestFirst.filter { it != first },
+                selectRuntimes(config, "Morphe:V1", declaration).map { it.id })
         }
         for (declaration in listOf(null, "", "legacy")) {
-            assertEquals(listOf("morphe-latest", "morphe-12", "morphe-early"),
-                selectRuntimes(config, "Morphe:V1", declaration).map { it.id })
+            assertEquals(newestFirst, selectRuntimes(config, "Morphe:V1", declaration).map { it.id })
         }
     }
 
@@ -112,7 +113,7 @@ class PatcherRuntimeSelectionTest {
 
     @Test fun shippedReseamStartsWithLatestNativeEngineBeforeHistoricalAdapters() {
         val selected = selectRuntimes(shipped(), "Reseam", null)
-        assertEquals("app.reseam:reseam:0.24.0", selected.first().coordinate)
+        assertEquals("app.reseam:reseam:0.25.0", selected.first().coordinate)
         assertEquals("reseam-jvm-legacy", selected.last().id)
     }
 

@@ -36,8 +36,8 @@ class ReseamPatchParserTest {
 
     @Test fun emptyCatalogAndHiddenDependenciesAreHandled() {
         assertEquals(0, parseReseamInspection(inspection(), "hash", "runtime").patches?.size)
-        val hidden = patch.replace("\"hidden\":false", "\"hidden\":true")
-        assertEquals(1, parseReseamInspection(inspection("[$patch,$hidden]"), "hash", "runtime").patches?.size)
+        val hidden = patch.replace("\"hidden\":false", "\"hidden\":true").replace("example.ads", "example.hidden")
+        assertEquals(2, parseReseamInspection(inspection("[$patch,$hidden]"), "hash", "runtime").patches?.size)
         val universal = JsonObject(Json.parseToJsonElement(patch).jsonObject +
             ("compatibility" to buildJsonObject { put("kind", "universal") })).toString()
         val mapped = parseReseamInspection(inspection("[$universal]"), "hash", "runtime").patches!!.single()

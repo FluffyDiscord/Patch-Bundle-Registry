@@ -77,5 +77,20 @@ def extraction_issues(root, started_at):
                 "Patch extraction",
                 str(status.get("version") or "Unknown version")
                 + ": "
-                + str(status.get("status") or "Extraction failed"),
+                + str(status.get("status") or "Extraction failed")
+                + (
+                    " ("
+                    + "; ".join(
+                        dict.fromkeys(
+                            str(attempt.get("runtime", "unknown"))
+                            + ": "
+                            + str(attempt.get("status", "failed"))
+                            for attempt in status.get("runtime_attempts", [])
+                            if attempt.get("status") != "verified"
+                        )
+                    )[:600]
+                    + ")"
+                    if status.get("runtime_attempts")
+                    else ""
+                ),
             )

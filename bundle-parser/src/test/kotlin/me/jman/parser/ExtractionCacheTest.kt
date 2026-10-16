@@ -62,12 +62,23 @@ class ExtractionCacheTest {
             file_hash = "a".repeat(64), runtime = "test:patcher:1", patch_list_hash = sha256(list),
             bundle_type = "ReVanced:v22", runtime_config_hash = runtimeConfigHash())
         for (record in listOf(good.copy(status = "fallback"), good.copy(patch_list_hash = "bad"),
-            good.copy(runtime_config_hash = "old"), good.copy(bundle_type = "Morphe:V1"))) {
+            good.copy(bundle_type = "Morphe:V1"))) {
             ExtractionCache.seed("ReVanced:v22", record, list, content)
             assertNull(ExtractionCache.get("ReVanced:v22", good.file_hash!!))
         }
         ExtractionCache.seed("ReVanced:v22", good, list, content.copy(metadata_schema_version = 0))
         assertNull(ExtractionCache.get("ReVanced:v22", good.file_hash!!))
+    }
+
+    @Test fun verifiedNonemptyMetadataSurvivesAddingAnotherRuntime() = isolated { root ->
+        val list = File(root, "list.json")
+        val content = LocalPatchesFile("v1", patches, PATCH_METADATA_SCHEMA_VERSION)
+        list.writeText(Json.encodeToString(content))
+        val record = ExtractionRecord("v1","https://test/bundle.rvp","verified",
+            file_hash = "a".repeat(64), runtime = "test:patcher:1", patch_list_hash = sha256(list),
+            bundle_type = "ReVanced:v22", runtime_config_hash = "previous-config")
+        ExtractionCache.seed("ReVanced:v22",record,list,content)
+        assertNotNull(ExtractionCache.get("ReVanced:v22",record.file_hash!!))
     }
 
     @Test fun memoryCacheEvictionPreservesRecentResultsAndRejectsOversizedEntries() {

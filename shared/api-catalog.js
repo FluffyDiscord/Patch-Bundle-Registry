@@ -1,4 +1,4 @@
-import { Catalog, CatalogError } from "./catalog.js";
+import { Catalog, CatalogError, pagination } from "./catalog.js";
 
 // Bootstrap only current bundles; source history is requested when the source is selected.
 export class ApiCatalog extends Catalog {
@@ -51,17 +51,33 @@ export class ApiCatalog extends Catalog {
     if (!args.bundle_id || args.q) return super.patchRows(args);
     const rows=[];
     let cursor=args.page_cursor ?? 0;
+    let {limit}=pagination({limit:args.limit ?? 100});
     do {
       const params=new URLSearchParams({bundle_id:args.bundle_id,generation:this.manifest.generation,
-        page_cursor:String(cursor),include_unverified:String(Boolean(args.include_unverified))});
+        page_cursor:String(cursor),limit:String(limit),
+        include_unverified:String(Boolean(args.include_unverified))});
+      if (args.compact) params.set("compact","true");
       if (args.package) params.set("package",args.package);
       const response=await fetch(this.api+"/catalog/patches?"+params);
       if (!response.ok) {
-        const error = new CatalogError("Patch metadata unavailable; retry",response.status);
+        const detail=(await response.json().catch(()=>({}))) ?? {};
+        const oversized=response.status===422 && (detail.code==="response_too_large" ||
+          /^Response too large/.test(detail.error ?? ""));
+        if (oversized && limit>1) {
+          limit=Math.ceil(limit/2);
+          continue;
+        }
+        const message=response.status===409 ? "Catalog changed; reload the page" :
+          oversized ? "Patch metadata response exceeds the API size limit" :
+          detail.error || "Unable to load patches; retry";
+        const error = new CatalogError(message,response.status);
         error.generationUnavailable = response.status === 409;
         throw error;
       }
       const page=await response.json();
+      if (!Array.isArray(page.rows) || (page.next_cursor!==null &&
+          (!Number.isSafeInteger(page.next_cursor) || page.next_cursor<=Number(cursor) || !page.rows.length)))
+        throw new CatalogError("Invalid patch pagination response",502);
       rows.push(...page.rows);cursor=page.next_cursor;
       if (!args.all) return {...page,rows};
     } while(cursor !== null);

@@ -6,6 +6,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonObject
 import java.io.File
 import java.net.URI
 import java.security.MessageDigest
@@ -28,7 +29,8 @@ internal data class RuntimeDefinition(
 @Serializable
 internal data class RuntimeConfiguration(
     val worker: WorkerSettings, val runtimes: List<RuntimeDefinition>,
-    val extraction_policy_version: Int = 1
+    val extraction_policy_version: Int = 1,
+    val bundle_support: List<BundleSupport> = emptyList()
 )
 @Serializable
 internal data class InstalledRuntime(val classpath: String = "", val available: Boolean = false,
@@ -41,13 +43,18 @@ internal data class ExtractionRecord(
     val attempted_at: String? = null, val failure_fingerprint: String? = null,
     val provider_digest: String? = null,
     val terminal: Boolean = false, val bundle_type: String? = null,
-    val runtime_config_hash: String? = null, val reseam_bundle: JsonObject? = null
+    val runtime_config_hash: String? = null, val reseam_bundle: JsonObject? = null,
+    val parser_revision: String? = null, val completeness_version: Int = 0,
+    val runtime_attempts: List<RuntimeAttempt> = emptyList()
 )
 internal data class RuntimeResult(val patches: JsonArray?, val status: String,
                                   val hash: String? = null, val runtime: String? = null,
                                   val terminal: Boolean = false, val paused: Boolean = false,
                                   val reseamBundle: JsonObject? = null,
-                                  val requiredEngine: String? = null)
+                                  val requiredEngine: String? = null,
+                                  val attempts: List<RuntimeAttempt> = emptyList(),
+                                  val cause: String? = null,
+                                  val completenessVersion: Int = 0)
 
 private val runtimeJson = Json { ignoreUnknownKeys = true; prettyPrint = true }
 private val runtimeResults = RuntimeResultCache()
@@ -184,6 +191,48 @@ internal fun sha256(file: File): String {
     return hash.digest().joinToString("") { "%02x".format(it) }
 }
 
+private val diagnosticsGuard = Any()
+
+internal fun sanitizedWorkerLog(text: String, environment: Map<String, String> = System.getenv()): String {
+    var safe = text
+    environment.filter { (name, _) ->
+        Regex("(?i)token|secret|password|credential|access.key").containsMatchIn(name)
+    }.values.flatMap { value ->
+        val entries = runCatching {
+            (runtimeJson.parseToJsonElement(value) as? kotlinx.serialization.json.JsonObject)
+                ?.values?.mapNotNull { (it as? kotlinx.serialization.json.JsonPrimitive)?.content }
+                ?: emptyList()
+        }.getOrDefault(emptyList())
+        listOf(value) + entries
+    }.filter { it.length >= 4 }.sortedByDescending(String::length)
+        .forEach { safe = safe.replace(it, "[redacted]") }
+    safe = safe.replace(Regex("(?i)(bearer\\s+|basic\\s+|token[=: ]+|password[=: ]+|secret[=: ]+)[^\\s]+"), "$1[redacted]")
+    safe = safe.replace(Regex("https?://[^\\s]+")) { match ->
+        runCatching { java.net.URI(match.value).let { uri ->
+            java.net.URI(uri.scheme, null, uri.host, uri.port, uri.path, null, null).toString()
+        } }.getOrDefault("[redacted URL]")
+    }
+    return safe.filter { it == '\n' || it == '\t' || it.code >= 32 }.replace("::", ": :")
+}
+
+private fun retainWorkerLog(log: File, hash: String, runtime: String) = synchronized(diagnosticsGuard) {
+    runCatching {
+        val directory = File(System.getProperty("catalog.diagnostics.directory", File(catalogProjectRoot(), "internal/cache/extraction-diagnostics").path))
+        directory.mkdirs()
+        val tail = java.io.RandomAccessFile(log, "r").use { file ->
+            file.seek((file.length() - 65536).coerceAtLeast(0))
+            ByteArray((file.length() - file.filePointer).toInt()).also { file.readFully(it) }.toString(Charsets.UTF_8)
+        }
+        val name = runtime.replace(Regex("[^a-zA-Z0-9_-]"), "_")
+        val safe = sanitizedWorkerLog(if (log.length() > 65536) tail.substringAfter('\n', "") else tail)
+            .toByteArray(Charsets.UTF_8)
+        File(directory, "$hash-$name-${System.nanoTime()}.log").writeBytes(safe.copyOf(minOf(safe.size, 65536)))
+        directory.listFiles()?.filter { it.isFile && it.extension == "log" }
+            ?.sortedByDescending(File::lastModified)?.drop(100)?.forEach { it.delete() }
+    }
+    Unit
+}
+
 /** Independently implements upstream worker restart/deadline behavior.
  * Reference: https://github.com/brosssh/revanced-external-bundles/blob/3a59398d667c83cd7033f859f3cb59237da92b3f/src/main/kotlin/me/brosssh/bundles/workers/PatchWorkerClient.kt
  */
@@ -199,8 +248,9 @@ private fun extractWithRuntime(
         val log = File.createTempFile("catalog-worker", ".log")
         val workspace = File(output.parentFile, output.name + ".jars")
         var process: Process? = null
+        var successful = false
         try {
-            val java = File(System.getProperty("java.home"), "bin/java").absolutePath
+            val java = File(workerJavaHome(), "bin/java").absolutePath
             // Some patchers use the system loader as parent; isolate one runtime per JVM.
             val builder = if (runtime.loader == "reseam") {
                 require(installation.executable.isNotBlank())
@@ -219,9 +269,11 @@ private fun extractWithRuntime(
                     else -> null
                 }
                 val command = mutableListOf(java, "-Xmx${settings.max_heap}")
+                for (key in listOf("catalog.download.max_bytes", "catalog.download.timeout_seconds"))
+                    System.getProperty(key)?.let { command += "-D$key=$it" }
                 if (property != null) command += "-D$property=${installation.classpath}"
                 command += listOf(
-                    "-cp", listOf(System.getProperty("java.class.path"), installation.classpath)
+                    "-cp", listOf(System.getProperty("java.class.path"), installation.classpath, artifact.absolutePath)
                         .filter(String::isNotBlank).joinToString(File.pathSeparator),
                     "me.jman.parser.MainKt", "--runtime-worker", runtime.loader,
                     artifact.absolutePath, output.absolutePath
@@ -229,9 +281,15 @@ private fun extractWithRuntime(
                 ProcessBuilder(command).redirectErrorStream(true).redirectOutput(log)
             }
             process = builder.start()
-            val remaining = deadline - System.nanoTime()
-            if (remaining <= 0 || !process.waitFor(remaining, TimeUnit.NANOSECONDS))
-                return RuntimeResult(null, "runtime_timeout", hash)
+            while (true) {
+                val remaining = deadline - System.nanoTime()
+                if (remaining <= 0) return RuntimeResult(null, "runtime_timeout", hash)
+                if (output.length() > 32L * 1024 * 1024 || log.length() > 1024L * 1024)
+                    return RuntimeResult(null, "runtime_output_limit", hash)
+                if (process.waitFor(minOf(remaining, TimeUnit.MILLISECONDS.toNanos(200)), TimeUnit.NANOSECONDS)) break
+            }
+            if (output.length() > 32L * 1024 * 1024 || log.length() > 1024L * 1024)
+                return RuntimeResult(null, "runtime_output_limit", hash)
             if (runtime.loader == "reseam" || runtime.loader == "reseam-jvm") {
                 // Native startup failures can recover; the JVM adapter uses the
                 // worker's explicit rejection exit codes handled below.
@@ -240,7 +298,9 @@ private fun extractWithRuntime(
                     if (output.length() > 32L * 1024 * 1024)
                         return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
                     return try {
-                        parseReseamInspection(output.readText(), hash, runtime.coordinate)
+                        parseReseamInspection(output.readText(), hash, runtime.coordinate).also {
+                            successful = it.status == "verified"
+                        }
                     } catch (_: Exception) {
                         RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
                     }
@@ -248,13 +308,23 @@ private fun extractWithRuntime(
             }
             when (process.exitValue()) {
                 // Explicit responses mean the worker ran and rejected this bundle.
-                2 -> return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true)
+                2 -> {
+                    val problem = runCatching { runtimeJson.parseToJsonElement(output.readText()).jsonObject }.getOrNull()
+                    val allowed = setOf("runtime_java_incompatible", "runtime_incompatible_api",
+                        "runtime_missing_dependency", "incomplete_patch_inventory", "runtime_parsing_failure")
+                    val kind = (problem?.get("failure_kind") as? kotlinx.serialization.json.JsonPrimitive)?.content
+                        ?.takeIf { it in allowed } ?: "runtime_parsing_failure"
+                    val cause = (problem?.get("cause") as? kotlinx.serialization.json.JsonPrimitive)?.content
+                        ?.takeIf { Regex("[A-Za-z0-9_$ .<\\-]{1,500}").matches(it) }
+                    return RuntimeResult(null, kind, hash, terminal = true, cause = cause)
+                }
                 3 -> return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
                 0 -> {
                     val patches = runtimeJson.decodeFromString<JsonArray>(output.readText())
                     if (!isUsablePatchArray(patches))
                         return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
-                    return RuntimeResult(patches, "verified", hash, runtime.coordinate)
+                    successful = true
+                    return RuntimeResult(patches, "verified", hash, runtime.coordinate, completenessVersion = 1)
                 }
                 else -> failure = "runtime_initialization_failure"
             }
@@ -273,6 +343,7 @@ private fun extractWithRuntime(
             if (workspace.exists() && !java.nio.file.Files.isSymbolicLink(workspace.toPath()) &&
                 workspace.canonicalFile.parentFile == output.parentFile.canonicalFile)
                 workspace.deleteRecursively()
+            if (!successful) retainWorkerLog(log, hash, runtime.id)
             output.delete()
             log.delete()
         }
@@ -305,8 +376,13 @@ private fun extractArtifact(uri: URI, family: String, previous: ExtractionRecord
     return try {
         try {
             downloadToFile(uri.toURL(), artifact)
-        } catch (_: Exception) {
-            return RuntimeResult(null, "artifact_unavailable")
+        } catch (error: Exception) {
+            val status = when {
+                error is java.net.SocketTimeoutException || error.message == "Bundle download deadline exceeded" -> "artifact_download_timeout"
+                error.message == "Bundle exceeds download size limit" -> "artifact_size_limit"
+                else -> "artifact_unavailable"
+            }
+            return RuntimeResult(null, status)
         }
         val hash = sha256(artifact)
         // Still download and hash to detect replacements at unchanged URLs.
@@ -341,9 +417,17 @@ private fun extractDownloadedArtifact(artifact: File, hash: String, family: Stri
         return RuntimeResult(null, "runtime_configuration_failure", hash, terminal = true)
     }
     if (candidates.isEmpty()) return RuntimeResult(null, "missing_compatible_runtime", hash, terminal = true)
+    val support = try { supportArtifacts(config,hash) }
+        catch (_: IllegalArgumentException) {
+            return RuntimeResult(null,"runtime_configuration_failure",hash,terminal=true)
+        } catch (_: Exception) {
+            return RuntimeResult(null,"runtime_support_unavailable",hash,
+                attempts=listOf(RuntimeAttempt("bundle-support","runtime_support_unavailable")))
+        }
     val installed = installedRuntimes()
     var failure = "runtime_initialization_failure"
     var allRejected = true
+    val attempts = mutableListOf<RuntimeAttempt>()
     var remaining = candidates
     while (remaining.isNotEmpty()) {
         val runtime = remaining.first()
@@ -351,16 +435,21 @@ private fun extractDownloadedArtifact(artifact: File, hash: String, family: Stri
         val installation = installed[runtime.id]
         if (installation?.available != true) {
             allRejected = false
+            attempts += RuntimeAttempt(runtime.coordinate, "runtime_unavailable")
             continue
         }
-        val result = extractWithRuntime(artifact, hash, runtime, installation, config.worker)
-        if (result.status == "verified") return result
+        val ready = if (support.isEmpty()) installation else installation.copy(
+            classpath = (listOf(installation.classpath) + support.map { it.absolutePath })
+                .filter(String::isNotBlank).joinToString(File.pathSeparator))
+        val result = extractWithRuntime(artifact, hash, runtime, ready, config.worker)
+        attempts += RuntimeAttempt(runtime.coordinate, result.status, result.cause)
+        if (result.status == "verified") return result.copy(attempts = attempts)
         if (Thread.currentThread().isInterrupted) return result
         if (family == "Reseam") remaining = prioritizeReseamEngine(remaining, result.requiredEngine)
         allRejected = allRejected && result.terminal
         failure = result.status
     }
-    return RuntimeResult(null, failure, hash, terminal = allRejected)
+    return RuntimeResult(null, failure, hash, terminal = allRejected, attempts = attempts)
 }
 
 internal fun recordExtraction(
@@ -371,7 +460,8 @@ internal fun recordExtraction(
                                   result.runtime, if (result.status == "verified") sha256(list) else null,
                                   java.time.Instant.now().toString(),
                                   if (result.status == "verified") null else runtimeFingerprint(), providerDigest,
-                                  result.terminal, family, runtimeConfigHash(), result.reseamBundle)
+                                  result.terminal, family, runtimeConfigHash(), result.reseamBundle,
+                                  parserRevision(), result.completenessVersion, result.attempts.take(40))
     atomicWriteText(output, runtimeJson.encodeToString(record) + "\n")
 }
 
@@ -379,11 +469,11 @@ internal fun runtimeWorker(args: Array<String>) {
     if (args[1] == "reseam-jvm") {
         try {
             File(args[3]).writeText(inspectLegacyReseam(File(args[2]), File(args[3] + ".jars")).toString())
-        } catch (_: Exception) {
-            System.err.println("Legacy Reseam inspector rejected bundle")
+        } catch (error: Exception) {
+            reportWorkerFailure(File(args[3]), error)
             kotlin.system.exitProcess(2)
-        } catch (_: LinkageError) {
-            System.err.println("Legacy Reseam SDK is incompatible")
+        } catch (error: LinkageError) {
+            reportWorkerFailure(File(args[3]), error)
             kotlin.system.exitProcess(2)
         }
         return
@@ -399,7 +489,10 @@ internal fun runtimeWorker(args: Array<String>) {
             else -> error("Unsupported worker loader")
         }
     } catch (error: Exception) {
-        System.err.println("Patcher rejected bundle: " + error.javaClass.simpleName)
+        reportWorkerFailure(File(args[3]), error)
+        kotlin.system.exitProcess(2)
+    } catch (error: LinkageError) {
+        reportWorkerFailure(File(args[3]), error)
         kotlin.system.exitProcess(2)
     }
     if (!isUsablePatchArray(patches)) kotlin.system.exitProcess(3)

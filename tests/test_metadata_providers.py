@@ -162,7 +162,7 @@ def test_negative_cache_only_after_all_markets_and_retries_after_ttl(tmp_path):
         metadata.refresh(tmp_path, client, now=NOW + timedelta(days=1), sleep=lambda _: None)
         assert calls == ["US", "GB", "IN"]
         metadata.refresh(tmp_path, client, now=NOW + timedelta(days=8), sleep=lambda _: None)
-    assert calls == ["US", "GB", "IN"] * 2
+    assert calls == ["US", "GB", "IN"] * 2 + list(metadata.PLAY_EXTRA_COUNTRIES)
 
 
 @pytest.mark.parametrize(
@@ -201,7 +201,10 @@ def test_provider_errors_never_trigger_regional_fanout(tmp_path, status, body):
     assert len(calls) == 1
     assert state["apps"]["com.cached"]["app_name"] == "Keep me"
     assert state["apps"]["com.cached"]["icon_url"] == "https://img.test/icon.png"
-    assert state["play_retry_after"]
+    if status == 500:
+        assert state["apps"]["com.cached"]["play_status"] == "temporary_failure"
+    else:
+        assert state["play_retry_after"]
 
 
 def test_deadline_prevents_another_provider_or_regional_request(tmp_path, monkeypatch):

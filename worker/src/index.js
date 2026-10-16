@@ -1,3 +1,4 @@
+import { browseApps } from "./d1-apps.js";
 import site from "../../config/site.json" with { type: "json" };
 import { D1Catalog } from "./d1-catalog.js";
 import { Catalog, CatalogError, bundleImages, canonicalBundleType, catalogOrigins, compareReleaseDates, normalizeSource, pagination, selectRows } from "../../shared/catalog.js";
@@ -43,7 +44,7 @@ function corsHeaders(request, env) {
 async function jsonResponse(request, env, data, status, generation, cacheable = true) {
   let body = JSON.stringify(data);
   if (new TextEncoder().encode(body).length > MAX_RESPONSE) {
-    status = 422; body = JSON.stringify({ error: "Response too large; reduce the query limit" });
+    status = 422; body = JSON.stringify({ error: "Response too large; reduce the query limit", code: "response_too_large" });
     cacheable = false;
   }
   const headers = { ...corsHeaders(request, env), "Content-Type": "application/json; charset=utf-8",
@@ -171,13 +172,14 @@ async function selectedApps(catalog, params) {
   return { apps, bundles };
 }
 async function rest(catalog, url) {
-  const path = url.pathname.replace(/\/$/, "");
+  const originalPath = url.pathname.replace(/\/$/, "");
+  const path = originalPath.replace(/^\/api\/v1(?=\/(?:sources|bundles|releases|packages|patches|availability|apps)(?:\/|$))/, "");
   const params = url.searchParams;
   if (catalog.rows && path === "/catalog/bundles") {
     if (params.get("generation") !== catalog.manifest.generation)
       throw new CatalogError("Catalog changed; restart pagination",409);
     const where = {source:{enabled:{_eq:true}}};
-    if (params.has("source")) where.source.url = {_eq:normalizeSource(params.get("source"))};
+    if (params.has("source")) where.source.id = {_in:await catalog.sourceIds(params.get("source"))};
     else where.is_latest = {_eq:true};
     const args = {limit:Number(params.get("limit") ?? 100),offset:Number(params.get("offset") ?? 0),where};
     const data = await Promise.all((await catalog.rows("bundle",args)).map(row=>catalog.restRow(row)));
@@ -188,9 +190,29 @@ async function rest(catalog, url) {
     if (params.get("generation") !== catalog.manifest.generation)
       throw new CatalogError("Catalog changed; restart pagination",409);
     if (!params.has("bundle_id")) throw new CatalogError("bundle_id is required");
-    return catalog.patchRows({bundle_id:params.get("bundle_id"),package:params.get("package"),
-      include_unverified:params.get("include_unverified")==="true",
-      page_cursor:params.get("page_cursor") ?? 0,limit:100});
+    const {limit} = pagination({limit:params.get("limit") ?? 100});
+    const offset = Number(params.get("page_cursor") ?? 0);
+    const page = await catalog.patchRows({bundle_id:params.get("bundle_id"),package:params.get("package"),
+      include_unverified:params.get("include_unverified")==="true",page_cursor:offset,limit});
+    if (params.get("compact") === "true")
+      page.rows = page.rows.map(({bundle,patch_packages,...patch})=>patch);
+    // Keep complete patch records, but shorten pages to fit the response budget.
+    // Preserve the offset of the first omitted row so no patches are skipped.
+    const original = page.rows;
+    const bytes = value => new TextEncoder().encode(JSON.stringify(value)).length;
+    let size = bytes({...page,rows:[],next_cursor:offset+original.length}), count = 0;
+    for (const row of original) {
+      const added = bytes(row) + (count ? 1 : 0);
+      if (count && size + added > MAX_RESPONSE) break;
+      size += added;
+      count++;
+      if (size > MAX_RESPONSE) break; // A single oversized patch still returns a clear 422.
+    }
+    if (count < original.length) {
+      page.rows = original.slice(0,count);
+      page.next_cursor = offset + count;
+    }
+    return page;
   }
   const direct = path.replace(/^\/api\/v1/,"").match(/^\/(bundles|sources)\/([a-f0-9]+)$/);
   if (catalog.rows && direct) {
@@ -247,7 +269,7 @@ async function rest(catalog, url) {
       if (kind === "source") where.id = {_in:ids};
       else where.source_fk = {_in:ids};
     }
-    if (params.has("channel")) where.channels = null;
+
     const simple = !["q","package","channel","sort"].some(key=>params.has(key));
     if (simple) {
       const args = {...restArgs(params,["id"]),where,order_by:{catalog_id:"asc"}};
@@ -255,6 +277,9 @@ async function rest(catalog, url) {
       const data = await Promise.all((await catalog.rows(kind,args)).map(row=>catalog.restRow(row)));
       return {data,total:await catalog.count(kind,{where:args.where}),limit:args.limit,offset:args.offset};
     }
+    const args={...restArgs(params,kind==="bundle"?["id","version","created_at","patch_count"]:["id","url","repo"]),where};
+    return catalog.browse(kind,params,args,row=>kind==="bundle" ? filteredBundles([row],params).length>0 :
+      !(params.get("q")??"") || (row.url+" "+row.aliases.join(" ")).toLowerCase().includes(params.get("q").toLowerCase()));
   }
   if (path === "/health") return { ok: true, generation: catalog.manifest.generation,
                                   counts: catalog.manifest.counts };
@@ -297,7 +322,9 @@ async function rest(catalog, url) {
   }
   const numeric = path.match(/^\/api\/v1\/bundle\/([0-9]+)$/);
   if (numeric) {
-    const bundle = (await catalog.bundles()).find(b => b.legacy_id === Number(numeric[1]));
+    const bundle = catalog.rows ? await catalog.rows("bundle",{where:{id:{_eq:Number(numeric[1])}},limit:1})
+      .then(rows=>rows[0] && catalog.restRow(rows[0])) :
+      (await catalog.bundles()).find(b => b.legacy_id === Number(numeric[1]));
     if (!bundle) throw new CatalogError("Bundle not found", 404);
     return legacyDto({ ...bundle, ...(await catalog.file("bundles/" + bundle.id + ".json")) });
   }
@@ -312,7 +339,7 @@ async function rest(catalog, url) {
       params.get("prerelease") === "true" ? "dev" : "stable";
     // Reference v1/v2 lookups join repository metadata, regardless of host.
     // In particular, renamed repositories use their recorded current name.
-    const bundles = (await catalog.bundles()).filter(bundle => {
+    const bundles = (catalog.legacyBundles ? await catalog.legacyBundles(owner,repo,version,mode) : await catalog.bundles()).filter(bundle => {
       const metadata = bundle.source.source_metadatum ?? {};
       return (metadata.owner_name ?? bundle.source.namespace) === owner &&
         (metadata.repo_name ?? bundle.source.repo) === repo &&
@@ -329,7 +356,8 @@ async function rest(catalog, url) {
   const appMatch = normalized.match(/^\/apps\/([^/]+)(?:\/(bundles|patches))?$/);
   const bundleAppsMatch = normalized.match(/^\/bundles\/([a-f0-9]{24})\/apps$/);
   if (bundleAppsMatch) {
-    const bundle = (await catalog.bundles({ compact: true })).find(bundle => bundle.id === bundleAppsMatch[1]);
+    const bundle = catalog.rows ? await catalog.rows("bundle",{where:{catalog_id:{_eq:bundleAppsMatch[1]}},limit:1}).then(rows=>rows[0] && catalog.restRow(rows[0])) :
+      (await catalog.bundles({ compact: true })).find(bundle => bundle.id === bundleAppsMatch[1]);
     if (!bundle) throw new CatalogError("Bundle not found", 404);
     const q = (params.get("q") ?? "").toLowerCase();
     const apps = (await catalog.bundleApps(bundle.id)).filter(app =>
@@ -339,6 +367,10 @@ async function rest(catalog, url) {
       restArgs(params, ["package_name", "app_name", "patch_count"]));
   }
   if (normalized === "/apps" || (appMatch && appMatch[2] !== "patches")) {
+    if (catalog.rows) return browseApps(catalog,params,
+      restArgs(params,appMatch?.[2] === "bundles" ? ["id","version","created_at","patch_count"] :
+        ["package_name","app_name","bundle_count","patch_count"]),
+      appMatch ? decodeURIComponent(appMatch[1]) : null,appMatch?.[2] === "bundles");
     const { apps, bundles } = await selectedApps(catalog, params);
     if (!appMatch)
       return selectRows(apps.map(appSummary), restArgs(params, ["package_name", "app_name", "bundle_count", "patch_count"]));
@@ -379,6 +411,13 @@ async function rest(catalog, url) {
   const patchesMatch = normalized.match(/^\/bundles\/([a-f0-9]{24})\/patches$/);
   if (normalized === "/patches" || patchesMatch || appMatch?.[2] === "patches") {
     const bundleId = patchesMatch?.[1] ?? params.get("bundle_id");
+    if (catalog.patchWindow) {
+      if (params.has("bundle_type")) params.set("bundle_type",canonicalBundleType(params.get("bundle_type")));
+      const page=await catalog.patchWindow(params,bundleId);
+      const selected=selectRows(page.rows,restArgs(params,["id","name"]));
+      selected.data=await catalog.decoratePatches(selected.data.map(row=>row.id));
+      return {...selected,next_cursor:page.next_cursor,candidate_pages:page.candidate_pages};
+    }
     const eligibleBundles = filteredBundles(await catalog.bundles({ compact: Boolean(appMatch) }), new URLSearchParams(
       [...params].filter(([key]) => ["source", "source_url", "ecosystem", "bundle_type", "channel"].includes(key))));
     const result = await catalog.patchRows({ q: params.get("q") ?? "",
@@ -412,7 +451,7 @@ async function rest(catalog, url) {
 async function createCatalog(env, context) {
   if (env.CATALOG_BACKEND === "d1") {
     if (!env.DB || !env.ARCHIVE) throw new CatalogError("D1/R2 bindings are required",503);
-    const catalog = await new D1Catalog(env).initialize();
+    const catalog = await new D1Catalog(env,{cacheDocuments:Boolean(context?.waitUntil)}).initialize();
     catalog.regexLocale = env.POSTGRES_LOCALE ?? site.postgres_locale;
     if (env.REFRESH_STATUS || env.JOBS_FETCH) catalog.liveJobs = () => liveJobs(env);
     return catalog;
@@ -434,7 +473,9 @@ async function createCatalog(env, context) {
   throw failure;
 }
 export async function executeCatalogQuery(env, context, payload, options = {}) {
-  const result = await runGraphQL(await createCatalog({...env,LIVE_SUBSCRIPTION:true},context),payload,options);
+  const catalog=await createCatalog({...env,LIVE_SUBSCRIPTION:true},context);
+  const result = await runGraphQL(catalog,payload,options);
+  if (options.subscription) result.extensions={...result.extensions,registryGeneration:catalog.manifest.generation};
   if (new TextEncoder().encode(JSON.stringify(result)).length > MAX_RESPONSE)
     throw new CatalogError("Response too large; reduce the query limit",422);
   return result;

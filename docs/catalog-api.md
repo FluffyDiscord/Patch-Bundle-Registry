@@ -14,7 +14,9 @@ API base: `https://patch-bundles.api.jmancentral.com`. [OpenAPI specification](h
 | GET `/sources`, `/sources/:id` | Registered sources, aliases, enabled status and repository metadata. |
 | GET `/bundles`, `/releases`, `/bundles/:id` | Current and historical releases. |
 | GET `/packages` | Compatible package names and recorded app versions. |
-| GET `/patches`, `/bundles/:id/patches` | Patch descriptions and app compatibility. |
+| GET `/apps`, `/apps/:packageName`, `/apps/:packageName/bundles` | App names, icons and compatible bundles, with pagination and filters. |
+| GET `/patches`, `/bundles/:id/patches`, `/apps/:packageName/patches` | Patch descriptions and app compatibility. |
+| GET `/catalog/patches` | Complete bundle patch lists with generation-aware pagination; see below for availability and usage. |
 | GET `/availability` | Unavailable channels and retired source records. |
 | GET `/api/v3/bundle?source_url=...&version=...&channel=...` | Manager import information. |
 | GET `/api/reseam/bundle?source_url=...&version=...&channel=...` | Reseam Manager patch-source index with the verified publisher signing key. |
@@ -38,7 +40,17 @@ Lists return `{data,total,limit,offset}`. Defaults: limit 25, offset 0. Limits: 
 
 Patch search accepts `q`, exact `package`, `app_version`, `bundle_id`, source/ecosystem/channel filters and `include_unverified=true`. REST patch results default to verified metadata. A null version restriction means every app version is compatible. An explicitly empty version collection means no versions are supported and creates no package relationship. Legacy annotation defaults retain their unrestricted meaning.
 
-Patch searches return one window of candidate shards. Follow `next_cursor` as `page_cursor`, keeping filters unchanged. Use offset to read additional rows within that window. Counts and sorting apply to the current window.
+Patch searches return results in windows. On deployments with the historical API, a window covers up to 1,000 candidate patches. Counts and sorting apply to the current window. Read its remaining results with `offset`, then pass `next_cursor` as `page_cursor` to advance. Keep filters unchanged and continue until `next_cursor` is null.
+
+To retrieve a complete bundle patch list, use `/catalog/patches` on deployments that provide the historical API:
+
+1. Read the current `generation` from `/health`.
+2. Request `/catalog/patches?bundle_id=BUNDLE_ID&generation=GENERATION&limit=100&page_cursor=0`, replacing the placeholders with the bundle's catalog ID and the generation.
+3. Read patches from `rows`, then pass the returned `next_cursor` as `page_cursor` until it is null. Keep the bundle, filters, and generation unchanged.
+
+Pages may contain fewer rows than requested to stay within the 2 MiB response limit. A short page does not mean the list is complete. `limit` accepts 1–100 and defaults to 100. Add `compact=true` to omit repeated `bundle` and `patch_packages` relationships while keeping descriptions, options, and `packages` compatibility data. The default includes both relationships. An exact `package` filter and `include_unverified=true` are also supported.
+
+If publication changes the generation, the endpoint returns 409. Read `/health` again and restart from `page_cursor=0`; do not combine pages from different generations. If one patch alone exceeds the response limit, the endpoint returns 422 with `code: "response_too_large"`. Reducing page size cannot split an individual patch.
 
 Bundle collections/details and GraphQL bundle records expose the same `icon_url` and `owner_avatar_url`. For Morphe, `icon_url` prefers `patches-bundle.png` at the root of the repository's default branch. Otherwise it uses the owner avatar, as ReVanced and Reseam do. Source metadata includes the discovered `bundle_icon_url`. Images are checked during the daily repository-metadata refresh; temporary upstream failures preserve the last known image. The website falls back to the owner avatar if the preferred image fails to load, then to initials.
 
@@ -60,7 +72,9 @@ Bundle `created_at` and source metadata `repo_pushed_at` are strings, matching t
 
 Text range comparisons, sorting and string min/max use the same deterministic PostgreSQL collation. The default profile is libc `en_US.utf8` from glibc 2.36, including multi-character collation elements; `C`/`POSIX` and `C.UTF-8` use UTF-8 byte ordering. Precomputed patch statistics use the configured catalog locale as well.
 
-Morphe compatibility accepts iterable collections, and absent patch descriptions remain null for GraphQL filtering. Patch names can be null or empty; the website displays “Unnamed patch” and preserves their descriptions and compatibility. A verified bundle can contain zero patches. Permanent bundle rejections set `need_patches_update` to false without marking metadata verified. Artifact or runtime changes make those bundles eligible again; temporary download or worker failures remain eligible for retry.
+Patch names can be null or empty; the website displays “Unnamed patch” and preserves their descriptions and compatibility. Missing descriptions remain null in GraphQL. A verified bundle can contain zero patches. Reseam lists include internal dependency patches, identified by `hidden: true` and labeled “Internal patch” on the website. Use patch IDs to distinguish entries: separate patches can share the same name or displayed metadata.
+
+A bundle that cannot be extracted may have `need_patches_update: false` while its metadata remains unverified. This means extraction retries are paused, not that the patch list is complete. Upstream fixes or registry updates can make it eligible again; temporary download and extraction failures remain eligible for retry.
 
 GraphQL exposes recorded patch metadata, including fallback and stale lists. Inspect `metadata_status` and `patch_metadata_version`, or filter for `metadata_status: {_eq: "verified"}`. This makes freshness explicit without hiding historical records.
 
@@ -86,7 +100,9 @@ query Latest($url: String!) {
 }
 ```
 
-Live subscriptions use WebSockets at the same GraphQL paths. Both `graphql-transport-ws` and the legacy `graphql-ws` protocol are supported. GraphiQL can run subscription operations. Clients receive an initial result and changed results as the registry refreshes, checked every second against the latest published checkpoint. Every evaluation keeps the same query and response limits. Each connection supports four operations; idle connections require initialization within 30 seconds.
+Live subscriptions use WebSockets at the same GraphQL paths. Both `graphql-transport-ws` and the legacy `graphql-ws` protocol are supported, including in GraphiQL. Clients receive an initial result and changed results as new catalog data is published. Active subscriptions check for updates every second and use the same query and response limits as ordinary requests.
+
+Each connection supports four operations and must be initialized within 30 seconds. By default, the API allows 256 concurrent WebSocket connections in total and 16 per client IP. If capacity is reached, the upgrade request returns HTTP 429 with a `Retry-After` header. Sessions expire after one hour. Reconnect after expiry, honor `Retry-After`, and use backoff between unsuccessful connection attempts.
 
 Cursor streaming subscriptions are available as `bundle_stream`, `patch_stream`, `source_stream`, `source_metadata_stream`, `package_stream`, `patch_package_stream` and `refresh_jobs_stream`. Supply `batch_size` (1–100) and a `cursor` with `initial_value` and optional `ordering: ASC|DESC`. Each batch contains rows strictly after the previous cursor; the server retains progress across subscription polling and hibernation. Cursor columns need not appear in the selected response. Use a unique sortable cursor such as `id` to receive each record once. Non-unique cursors include boundary ties; a group exceeding 100 rows returns an error so records are not silently skipped. Existing query, shard and response budgets still apply. Empty polls do not emit a batch.
 
@@ -108,9 +124,13 @@ Mutations, triggering administrative jobs and database administration remain out
 
 ## Freshness and request limits
 
-Release history is discovered independently of current channels. Historical patch extraction uses the same runtime workers as current bundles, trying the declared patcher runtime first when a matching runtime is configured, then falling back from newest to oldest within that bundle's format family until extraction succeeds. Missing or unmatched declarations start with the newest configured runtime. ReVanced v21 and v22 families are kept separate. Reseam history retains compatible older engine series; early JVM-based containers are inspected using their embedded SDK after checking the signed manifest and payload hashes. Verified patch lists are retained across refreshes. History is processed in resumable batches, so a newly discovered version may initially have a missing or unverified patch list; successful extraction publishes its patches, options and app compatibility on that version. An unavailable artifact or a bundle rejected by every available runtime can still lack verified metadata. The website checks for a new generation every 15 seconds while visible; subscriptions check every second. Published updates can lag behind upstream releases while refreshes, extraction or caching are in progress.
+Release history is indexed independently of current release channels. Each indexed bundle version can provide its own patches, options, and app compatibility. Historical indexing progresses across refreshes, so a newly discovered version may initially have a missing or unverified patch list. Verified lists are retained for later browsing.
 
-A verified list was parsed from the matching binary artifact and has matching artifact and patch-list digests. Fallback metadata remains unverified. `need_patches_update` is true while extraction is missing, stale or unverified. Full release notes are available from bundle collections, detail and manager endpoints.
+For current and historical bundles, the registry tries the declared patcher runtime when available, then compatible runtimes from newest to oldest. Bundles without a matching declaration start with the newest configured runtime. ReVanced v21 and v22 are handled separately, and older Reseam bundles use compatible engines. Missing downloads, incomplete bundles, or unavailable dependencies can prevent verification. A recorded release does not guarantee that its patch list is available.
+
+The website checks for a new generation every 15 seconds while visible; active subscriptions check every second. Published data can lag behind upstream releases while discovery, extraction, or caching is in progress.
+
+A verified list was extracted from the matching bundle and passed the registry's metadata checks. Fallback metadata remains unverified. `need_patches_update` is true while extraction is pending or needs a retry; it can be false for a rejected bundle whose retries are paused. Check `metadata_status` to determine whether a list is verified. Full release notes are available from bundle collections, detail and manager endpoints.
 
 Each request uses one catalog generation. Responses support ETags and conditional GET, with a 60-second API cache lifetime. Refresh-status responses are not cached, and subscriptions evaluate against the latest published generation. Follow the generation checks below when reading multiple pages of history.
 
@@ -142,7 +162,9 @@ App summaries and app-to-bundle lookups support `q` (application name or package
 
 GraphQL `package` records expose `app_name` and `icon_url`. Patch responses include `app_name` and `icon_url` alongside each package's existing `name` and `versions`. Bundle detail and v3 import responses include `apps` (first 100 applications), `app_count`, and an `apps_url` path for pagination. These fields appear once the new catalog indexes have been published; existing import fields remain compatible.
 
-Application metadata is cached, so names and icons can lag behind provider changes. Temporary provider failures preserve the last known values; unknown applications keep their package names. Metadata changes do not require clients to change their API requests.
+Newly extracted applications are eligible for name and icon lookup during the same refresh, but some lookups may finish in later refreshes. Provider availability and regional listings can delay results. Names and icons are cached, so they can lag behind provider changes; temporary failures preserve the last known values. Unknown applications keep their package names.
+
+Names and icons describe an app; supported versions come from the bundle's patch metadata. A missing store listing does not remove recorded compatibility, and metadata updates do not require clients to change their API requests.
 
 ### Patch options
 

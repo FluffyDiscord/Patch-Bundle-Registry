@@ -1,4 +1,4 @@
-import { Catalog, CatalogError, bundleImages, normalizeSource, patchPackages } from "../../shared/catalog.js";
+import { Catalog, CatalogError, bundleImages, normalizeSource, patchPackages, selectRows } from "../../shared/catalog.js";
 import { execute, getNamedType, TypeInfo, visit, visitWithTypeInfo, valueFromASTUntyped } from "graphql";
 
 const relations = {
@@ -20,10 +20,13 @@ class Unsupported extends CatalogError {
   constructor() {super("Historical query uses an unsupported filter or ordering; use equality, membership and numeric ordering",422);}
 }
 
+const documentCaches = new WeakMap();
+
 export class D1Catalog extends Catalog {
-  constructor(env) {
+  constructor(env, {cacheDocuments = false} = {}) {
     super("https://catalog.invalid/", fetch);
     this.env = env;
+    this.cacheDocuments = cacheDocuments;
     const session = env.DB.withSession ? env.DB.withSession("first-primary") : env.DB;
     this.queryCache = new Map();
     this.db = {prepare: sql => {
@@ -46,9 +49,29 @@ export class D1Catalog extends Catalog {
       "SELECT g.* FROM catalog_state s JOIN catalog_generations g ON g.seq=s.active_seq " +
       "WHERE s.id=1 AND g.status='ready'").first();
     if (!active) throw new CatalogError("D1 catalog has not been imported", 503);
-    const object = await this.env.ARCHIVE.get(active.manifest_key);
-    if (!object) throw new CatalogError("Catalog snapshot unavailable", 503);
-    this.document = await object.json();
+    const load = async () => {
+      const object = await this.env.ARCHIVE.get(active.manifest_key);
+      if (!object) throw new CatalogError("Catalog snapshot unavailable",503);
+      const document = await object.json();
+      if (document.manifest.generation !== active.generation)
+        throw new CatalogError("Catalog generation mismatch",503);
+      return document;
+    };
+    if (this.cacheDocuments) {
+      let cache = documentCaches.get(this.env.ARCHIVE);
+      if (!cache) documentCaches.set(this.env.ARCHIVE,cache=new Map());
+      const key = active.generation + ":" + active.manifest_key;
+      if (!cache.has(key)) {
+        if (cache.size >= 2) cache.delete(cache.keys().next().value);
+        const pending = load();
+        cache.set(key,pending);
+        pending.then(document=>{
+          // Bound retained manifests by bytes as well as entry count.
+          if (new TextEncoder().encode(JSON.stringify(document)).length > 4*1024*1024 && cache.get(key)===pending) cache.delete(key);
+        },()=>{if (cache.get(key)===pending) cache.delete(key);});
+      }
+      this.document = await cache.get(key);
+    } else this.document = await load();
     this.manifest = this.document.manifest;
     if (this.manifest.generation !== active.generation)
       throw new CatalogError("Catalog generation mismatch", 503);
@@ -185,6 +208,89 @@ export class D1Catalog extends Catalog {
     return (await this.db.prepare("SELECT COUNT(*) AS n FROM ("+projected+")")
       .bind(...bindings).first()).n;
   }
+  async scan(kind, where = {}, extra = null) {
+    const bindings=[kind];
+    let filter=this.where(kind,this.publicFilter(kind,{where}),"r",bindings);
+    if (extra) {filter+=" AND ("+extra.sql+")";bindings.push(...extra.bindings);}
+    const result=[];
+    let after="";
+    while (true) {
+      const page=(await this.db.prepare("SELECT r.record_key,r.data FROM catalog_records r WHERE r.kind=? AND "+
+        this.visible("r")+" AND "+filter+" AND r.record_key>? ORDER BY r.record_key LIMIT 100")
+        .bind(...bindings,after).all()).results;
+      for (const item of page) result.push({...JSON.parse(item.data),__kind:kind});
+      if (page.length<100) break;
+      after=page.at(-1).record_key;
+    }
+    return result;
+  }
+  async browse(kind, params, args, accept) {
+    const sources=await this.scan("source");
+    const byId=new Map(sources.map(row=>[row.id,row]));
+    const bindings=[kind];
+    let filter=this.where(kind,this.publicFilter(kind,{where:args.where}),"r",bindings);
+    if (kind==="bundle") {
+      for (const [param,field] of [["package","packages"],["channel","channels"]]) if (params.has(param)) {
+        const aliases={any:"latest",latest:"latest",stable:"stable",dev:"dev",prerelease:"dev"};
+        const raw=params.get(param),value=param==="channel"?aliases[raw.trim().toLowerCase()]:raw;
+        if (typeof value!=="string") throw new CatalogError("Invalid channel");
+        filter+=" AND EXISTS(SELECT 1 FROM json_each(r.data,'$."+field+"') WHERE value=?)";
+        bindings.push(value);
+      }
+      const q=(params.get("q")??"").toLowerCase();
+      if (q && /^[\x00-\x7f]*$/.test(q)) {
+        const sourceIds=sources.filter(row=>(row.url+" "+(row.aliases??[]).join(" ")).toLowerCase().includes(q)).map(row=>row.id);
+        // SQLite lower() folds ASCII only. Include non-ASCII candidates and
+        // apply the exact JavaScript predicate below to preserve Unicode matches.
+        const text="COALESCE("+col("r","description")+",'')||' '||COALESCE("+col("r","version")+",'')";
+        filter+=" AND (instr(lower("+text+"),?)>0 OR "+text+" GLOB '*[^ -~]*' OR "+
+          col("r","source_fk")+" IN (SELECT value FROM json_each(?)))";
+        bindings.push(q,JSON.stringify(sourceIds));
+      }
+    }
+    const candidates=[];
+    let after="";
+    while (true) {
+      const page=(await this.db.prepare("SELECT r.record_key,r.data FROM catalog_records r WHERE r.kind=? AND "+
+        this.visible("r")+" AND "+filter+" AND r.record_key>? ORDER BY r.record_key LIMIT 100")
+        .bind(...bindings,after).all()).results;
+      for (const item of page) {
+        const raw={...JSON.parse(item.data),__kind:kind};
+        const row={...raw,id:raw.catalog_id,legacy_id:raw.id};
+        if (kind==="bundle") row.source=byId.get(raw.source_fk);
+        if (!accept(row)) continue;
+        // Sorting needs only scalar fields; do not retain growing release notes.
+        const {description,source,packages,channels,...small}=row;
+        candidates.push({id:small.id,version:small.version,created_at:small.created_at,
+          patch_count:small.patch_count,url:small.url,repo:small.repo});
+      }
+      if (page.length<100) break;
+      after=page.at(-1).record_key;
+    }
+    // SQL and accept already applied the filters before reducing rows to sort fields.
+    const selected=selectRows(candidates,{...args,where:undefined});
+    const wanted=selected.data.map(row=>row.id);
+    if (!wanted.length) return selected;
+    const data=(await this.db.prepare("SELECT r.data FROM catalog_records r WHERE r.kind=? AND "+
+      this.visible("r")+" AND "+col("r","catalog_id")+" IN (SELECT value FROM json_each(?))")
+      .bind(kind,JSON.stringify(wanted)).all()).results;
+    const rows=new Map(data.map(item=>{const row=JSON.parse(item.data);return [row.catalog_id,{...row,__kind:kind}];}));
+    selected.data=await Promise.all(wanted.map(id=>this.restRow(rows.get(id))));
+    return selected;
+  }
+  async legacyBundles(owner, repo, version, mode) {
+    const sources=(await this.scan("source")).filter(source=>
+      (source.source_metadatum?.owner_name??source.namespace)===owner &&
+      (source.source_metadatum?.repo_name??source.repo)===repo && source.enabled!==false);
+    const where={};
+    if (version==="latest") {
+      where.is_latest={_eq:true};
+      if (mode!=="latest") where.is_prerelease={_eq:mode==="dev"};
+    } else where.version={_eq:version};
+    const rows=await this.scan("bundle",where,{sql:col("r","source_fk")+" IN (SELECT value FROM json_each(?))",
+      bindings:[JSON.stringify(sources.map(row=>row.id))]});
+    return Promise.all(rows.map(row=>this.restRow(row)));
+  }
   async sourceIds(identifier) {
     const url = identifier.includes("/") ? normalizeSource(identifier).toLowerCase() : identifier.toLowerCase();
     const rows = await this.db.prepare("SELECT json_extract(r.data,'$.id') AS id FROM catalog_records r " +
@@ -201,6 +307,72 @@ export class D1Catalog extends Catalog {
     else if (selection.version) where.version = {_eq:selection.version};
     const rows = await this.rows("bundle",{where,limit:100});
     return Promise.all(rows.map(row=>this.restRow(row)));
+  }
+  async patchWindow(params, bundleId) {
+    const bindings=["patch"];
+    let filter=this.where("patch",this.publicFilter("patch",{}),"r",bindings);
+    const same=(field,value)=>{filter+=" AND "+col("r",field)+"=?";bindings.push(value);};
+    if (bundleId) same("bundle_id",bundleId);
+    if (params.get("include_unverified")!=="true") same("metadata_status","verified");
+    if (params.has("package")) {
+      filter+=" AND EXISTS(SELECT 1 FROM json_each(r.data,'$.packages') WHERE json_extract(value,'$.name')=?)";
+      bindings.push(params.get("package"));
+    }
+    const bundleWhere={};
+    for (const field of ["ecosystem","bundle_type"]) if (params.has(field))
+      bundleWhere[field]={_eq:params.get(field)};
+    let bundleFilter=this.where("bundle",bundleWhere,"b",bindings);
+    if (params.has("source") || params.has("source_url")) {
+      bundleFilter+=" AND "+col("b","source_fk")+" IN (SELECT value FROM json_each(?))";
+      bindings.push(JSON.stringify(await this.sourceIds(params.get("source")??params.get("source_url"))));
+    }
+    if (params.has("channel")) {
+      const aliases={any:"latest",latest:"latest",stable:"stable",dev:"dev",prerelease:"dev"};
+      const channel=aliases[params.get("channel").trim().toLowerCase()];
+      if (typeof channel!=="string") throw new CatalogError("Invalid channel");
+      bundleFilter+=" AND EXISTS(SELECT 1 FROM json_each(b.data,'$.channels') WHERE value=?)";
+      bindings.push(channel);
+    }
+    filter+=" AND EXISTS(SELECT 1 FROM catalog_records b WHERE b.kind='bundle' AND "+this.visible("b")+
+      " AND "+col("b","id")+"="+col("r","bundle_fk")+" AND "+bundleFilter+")";
+    const q=(params.get("q")??"").toLowerCase();
+    if (q.length>512) throw new CatalogError("Search text too long");
+    if (q && /^[\x00-\x7f]*$/.test(q)) {
+      const text="COALESCE("+col("r","name")+",'')||' '||COALESCE("+col("r","description")+",'')";
+      filter+=" AND (instr(lower("+text+"),?)>0 OR "+text+" GLOB '*[^ -~]*')";bindings.push(q);
+    }
+    const offset=Number(params.get("page_cursor")??0);
+    if (!Number.isSafeInteger(offset) || offset<0) throw new CatalogError("Invalid patch cursor");
+    const fields=["id","catalog_id","bundle_id","name","description","packages","metadata_status"];
+    const projection="json_object("+fields.map(field=>"'"+field+"',"+col("r",field)).join(",")+")";
+    const raw=(await this.db.prepare("SELECT "+projection+" AS data FROM catalog_records r WHERE r.kind=? AND "+
+      this.visible("r")+" AND "+filter+" ORDER BY "+col("r","id")+" LIMIT 1001 OFFSET ?")
+      .bind(...bindings,offset).all()).results;
+    const rows=raw.slice(0,1000).map(item=>JSON.parse(item.data)).filter(row=>
+      (!q || ((row.name??"")+" "+(row.description??"")).toLowerCase().includes(q)) &&
+      (!params.has("app_version") || row.packages.some(pkg=>(!params.has("package") || pkg.name===params.get("package")) &&
+        (!pkg.versions.length || pkg.versions.includes(params.get("app_version"))))))
+      .map(row=>({...row,id:row.catalog_id,legacy_id:row.id}));
+    return {rows,next_cursor:raw.length>1000?offset+1000:null,candidate_pages:1};
+  }
+  async decoratePatches(ids) {
+    if (!ids.length) return [];
+    const raw=(await this.db.prepare("SELECT r.data FROM catalog_records r WHERE r.kind='patch' AND "+
+      this.visible("r")+" AND "+col("r","catalog_id")+" IN (SELECT value FROM json_each(?))")
+      .bind(JSON.stringify(ids)).all()).results;
+    const rows=new Map(raw.map(item=>{const row=JSON.parse(item.data);return [row.catalog_id,row];}));
+    const bundles=new Map();
+    const result=[];
+    for (const id of ids) {
+      const row=rows.get(id);
+      if (!bundles.has(row.bundle_id)) {
+        const bundle=(await this.rows("bundle",{where:{catalog_id:{_eq:row.bundle_id}},limit:1}))[0];
+        if (bundle) bundles.set(row.bundle_id,await this.restRow(bundle));
+      }
+      if (bundles.has(row.bundle_id)) result.push({...row,id,legacy_id:row.id,
+        bundle:bundles.get(row.bundle_id),patch_packages:patchPackages({...row,id})});
+    }
+    return result;
   }
   async patchRows(args = {}) {
     if (args.q || args.reverse_pages || args.page_count && args.page_count !== 12)
@@ -424,6 +596,8 @@ export class D1Catalog extends Catalog {
         }
         if (info.parentType.name === "historical_release" && info.fieldName === "document")
           return this.historyDocument(source.id,args);
+        if (source?.__kind === "bundle" && ["icon_url","owner_avatar_url"].includes(info.fieldName))
+          return (await this.restRow(source))[info.fieldName];
         const value = source?.[info.fieldName];
         return typeof value === "function" ? value(args) : value;
       }

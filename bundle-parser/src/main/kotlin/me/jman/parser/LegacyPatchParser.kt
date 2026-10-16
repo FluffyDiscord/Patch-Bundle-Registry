@@ -105,6 +105,10 @@ fun parseLegacyPatchBundle(file: File, patchClassNames: Set<String>? = null): Js
             put("options", JsonArray(emptyList()))
         }
     }.toMap()
+    if (patches.isEmpty() && (
+        declaredPatchExportCount(file, "app/revanced/patcher") > 0 ||
+        declaredPatchExportCount(file, "app/morphe/patcher") > 0
+    )) throw IncompletePatchInventory("The legacy annotation reader cannot inspect JVM patch exports")
     return JsonArray(patches.values.map { patch ->
         JsonObject(patch + ("dependencies" to JsonArray(patch.getValue("dependencies").jsonArray.map {
             val className = it.jsonPrimitive.content

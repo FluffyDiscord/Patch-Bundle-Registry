@@ -11,7 +11,8 @@ internal class RuntimeResultCache(
     @Synchronized operator fun get(key: String): RuntimeResult? = entries[key]?.first
     @Synchronized operator fun set(key: String, result: RuntimeResult) {
         val weight = 256L + 2L * (result.patches?.toString()?.length ?: 0) +
-            2L * (result.reseamBundle?.toString()?.length ?: 0)
+            2L * (result.reseamBundle?.toString()?.length ?: 0) +
+            result.attempts.sumOf { 128L + 2L * (it.runtime.length + it.status.length + (it.cause?.length ?: 0)) }
         entries.remove(key)?.let { bytes -= it.second }
         if (weight > maxBytes) return
         entries[key] = result to weight
@@ -49,13 +50,14 @@ internal object ExtractionCache {
         if (System.getenv("CATALOG_FORCE") == "true" || record?.status != "verified" ||
             record.file_hash == null || record.runtime == null ||
             canonicalBundleFamily(record.bundle_type) != family ||
-            record.runtime_config_hash != runtimeConfigHash() ||
+
             content == null || content.version != record.version ||
             content.metadata_schema_version != PATCH_METADATA_SCHEMA_VERSION ||
-            !isUsablePatchArray(content.patches) || !list.isFile ||
+            !isUsablePatchArray(content.patches) ||
+            ((content.patches.isEmpty() || family == "Reseam") && record.completeness_version < 1) || !list.isFile ||
             record.patch_list_hash != sha256(list)) return
         put(family, RuntimeResult(content.patches, "verified", record.file_hash, record.runtime,
-            reseamBundle = record.reseam_bundle))
+            reseamBundle = record.reseam_bundle, completenessVersion = record.completeness_version))
     }
 
     internal fun clear() = results.clear()

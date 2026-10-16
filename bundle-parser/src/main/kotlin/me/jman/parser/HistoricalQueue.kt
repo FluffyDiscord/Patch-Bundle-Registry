@@ -20,6 +20,8 @@ internal fun runtimeFingerprint(): String {
     )
     val digest = MessageDigest.getInstance("SHA-256")
     files.forEach { if (it.isFile) digest.update(it.readBytes()) }
+    digest.update(parserRevision().toByteArray(Charsets.UTF_8))
+    digest.update(workerJavaHome().toByteArray(Charsets.UTF_8))
     return digest.digest().joinToString("") { "%02x".format(it) }
 }
 
@@ -93,7 +95,8 @@ internal fun historicalWork(root: File, limit: Int, fingerprint: String, disable
             matchesProviderDigest(providerDigest, record.file_hash, record.provider_digest) &&
             content != null && content.version == version && isUsablePatchArray(content.patches) &&
             content.metadata_schema_version == PATCH_METADATA_SCHEMA_VERSION &&
-            patches.isFile && record.patch_list_hash == sha256(patches)
+            patches.isFile && record.patch_list_hash == sha256(patches) &&
+            ((content.patches.isNotEmpty() && family != "Reseam") || record.completeness_version >= 1)
         if (verified || pausedFailure(record, version, download, family,
                 providerDigest, fingerprint))
             return@mapNotNull null

@@ -4,6 +4,7 @@ import argparse
 import json
 import re
 import time
+from contextlib import contextmanager
 from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from html import unescape
@@ -14,10 +15,14 @@ import httpx
 
 try:
     from scripts.app_catalog import safe_icon
-    from scripts.generate_database import ROOT, encoded, read_json
+    from scripts.generate_database import ROOT, encoded, packages_for, read_json
+    from scripts.git_hosts import normalize_source
+    from scripts.source_policy import disabled_sources, source_channels
 except ModuleNotFoundError:
     from app_catalog import safe_icon
-    from generate_database import ROOT, encoded, read_json
+    from generate_database import ROOT, encoded, packages_for, read_json
+    from git_hosts import normalize_source
+    from source_policy import disabled_sources, source_channels
 
 INDEXES = (
     "https://f-droid.org/repo/index-v2.json",
@@ -35,6 +40,7 @@ REPOSITORIES = (
     ),
 )
 PLAY_COUNTRIES = ("US", "GB", "IN")
+PLAY_EXTRA_COUNTRIES = ("DE", "BR", "JP", "KR", "ID")
 MAX_INDEX_BYTES = 256 * 1024 * 1024
 PACKAGE = re.compile(r"[A-Za-z][A-Za-z0-9_]*(?:\.[A-Za-z0-9_]+)+")
 
@@ -93,6 +99,10 @@ def fdroid_apps(payload, base_url="https://f-droid.org/repo/", source="fdroid"):
     return result
 
 
+class LookupBudget(Exception):
+    pass
+
+
 class PlayMetadata(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -119,7 +129,7 @@ class PlayMetadata(HTMLParser):
         if tag == "script" and self.in_json:
             try:
                 data = json.loads("".join(self.json_parts))
-                self.structured.extend(data if isinstance(data, list) else [data])
+                self.structured.extend(structured_applications(data))
             except ValueError:
                 pass
             self.in_json = False
@@ -130,6 +140,11 @@ class PlayMetadata(HTMLParser):
                 continue
             kinds = value.get("@type", [])
             kinds = [kinds] if isinstance(kinds, str) else kinds
+            kinds = (
+                [kind.rsplit("/", 1)[-1] for kind in kinds if isinstance(kind, str)]
+                if isinstance(kinds, list)
+                else []
+            )
             if isinstance(kinds, list) and any(
                 kind
                 in {
@@ -142,7 +157,12 @@ class PlayMetadata(HTMLParser):
                 name = value.get("name")
                 if isinstance(name, str) and name.strip():
                     image = value.get("image")
-                    image = image.get("url") if isinstance(image, dict) else image
+                    image = next(iter(image), None) if isinstance(image, list) else image
+                    image = (
+                        (image.get("url") or image.get("contentUrl"))
+                        if isinstance(image, dict)
+                        else image
+                    )
                     return {
                         "app_name": unescape(name.strip()),
                         "icon_url": safe_icon(image),
@@ -157,6 +177,77 @@ class PlayMetadata(HTMLParser):
                 "metadata_source": "google_play",
             }
         return None
+
+
+def structured_applications(value):
+    """Walk JSON-LD graphs without treating unrelated nested text as an app."""
+    pending, result = [value], []
+    while pending and len(result) < 2000:
+        item = pending.pop()
+        if isinstance(item, list):
+            pending.extend(reversed(item))
+        elif isinstance(item, dict):
+            result.append(item)
+            pending.extend(v for v in item.values() if isinstance(v, dict | list))
+    return result
+
+
+def fresh_packages(root):
+    """Read current extraction outputs directly; no second catalog build is needed."""
+    inventory = read_json(root / "config/sources.json", {})
+    channels = source_channels(inventory, root)
+    disabled = disabled_sources(inventory, root)
+    configured = {normalize_source(row["patches"], root).lower() for row in channels.values()}
+    history = read_json(root / "internal/cache/history/sources.json", {})
+    inputs = []
+    cache = (root / "internal/cache").resolve()
+    for alias, row in {**channels, **history}.items():
+        url = normalize_source(row["patches"], root).lower()
+        if url not in configured or url in disabled:
+            continue
+        base = row.get("alias") or re.sub(r"-(latest|stable|dev)$", "", alias)
+        relative = row.get("cache_path") or (
+            f"internal/cache/bundles/{base}-patch-bundles/{alias}-patches-bundle.json"
+        )
+        path = root / relative
+        if not path.resolve().is_relative_to(cache):
+            raise ValueError("Unsafe application extraction input")
+        inputs.append((alias, path))
+    wanted, seen = {}, set()
+    fresh = read_json(root / "internal/fresh-app-packages.json")
+    if isinstance(fresh, dict) and isinstance(fresh.get("folders"), dict):
+        allowed = {path.parent.name for _, path in inputs}
+        for folder, counts in fresh["folders"].items():
+            if folder not in allowed or not isinstance(counts, dict):
+                continue
+            for name, count in counts.items():
+                if PACKAGE.fullmatch(name) and isinstance(count, int) and count > 0:
+                    wanted.setdefault(name, {"package_name": name, "bundle_count": 0})[
+                        "bundle_count"
+                    ] += count
+        return wanted
+    # Standalone enrichment still supports extraction outputs from older parser builds.
+    for alias, path in inputs:
+        patches = read_json(path.with_name(alias + "-patches-list.json"), {})
+        raw = read_json(path, {})
+        if not isinstance(patches, dict) or not isinstance(raw, dict):
+            continue
+        metadata = raw.get("patches") if isinstance(raw.get("patches"), dict) else raw
+        version = metadata.get("version")
+        identity = (str(path.parent), version, metadata.get("download_url") or metadata.get("url"))
+        if identity in seen or not version or patches.get("version") != version:
+            continue
+        seen.add(identity)
+        names = {
+            package["name"]
+            for patch in patches.get("patches", [])
+            if isinstance(patch, dict)
+            for package in packages_for(patch)
+            if PACKAGE.fullmatch(package["name"])
+        }
+        for name in names:
+            wanted.setdefault(name, {"package_name": name, "bundle_count": 0})["bundle_count"] += 1
+    return wanted
 
 
 def expired(stamp, now, ttl):
@@ -220,6 +311,8 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
             for item in read_json(snapshot / "packages.json", [])
         ]
     wanted = {item["package_name"]: item for item in catalog_apps}
+    for package, item in fresh_packages(root).items():
+        wanted[package] = item
     overrides = read_json(root / "config/apps.json", {})
 
     def unchecked(package):
@@ -235,6 +328,8 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
     backfill = pending > 50 and (max_play is None or max_play > 50)
     max_play = (1500 if backfill else 50) if max_play is None else max_play
     budget = (1800 if backfill else 180) if budget is None else budget
+    if max_play < 0 or budget < 0 or delay < 0:
+        raise ValueError("Application metadata budgets must be nonnegative")
     deadline = started + budget
 
     def save_state():
@@ -316,13 +411,70 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
     )
     lookups = 0
 
+    @contextmanager
+    def play_stream(url):
+        nonlocal lookups
+        for attempt in range(2):
+            if (
+                lookups >= max_play
+                or time.monotonic() >= deadline
+                or not expired(state.get("play_retry_after"), current_time(), timedelta(0))
+            ):
+                raise LookupBudget
+            if lookups:
+                sleep(delay)
+            if time.monotonic() >= deadline:
+                raise LookupBudget
+            if lookups and lookups % 25 == 0:
+                save_state()
+                print(
+                    f"Application metadata: checkpoint after {lookups} Google Play lookups.",
+                    flush=True,
+                )
+            lookups += 1
+            stream = client.stream("GET", url)
+            try:
+                response = stream.__enter__()
+            except httpx.TransportError:
+                if attempt == 0 and time.monotonic() < deadline:
+                    sleep(0.5)
+                    continue
+                raise
+            if (
+                attempt == 0
+                and response.status_code in {500, 502, 504}
+                and "retry-after" not in response.headers
+            ):
+                stream.__exit__(None, None, None)
+                sleep(0.5)
+                continue
+            try:
+                yield response
+            finally:
+                stream.__exit__(None, None, None)
+            return
+
     halted = False
+    transient_failures = 0
     for package in candidates:
         if package in indexed or package in overrides or not PACKAGE.fullmatch(package):
             continue
         cached = apps.get(package, {})
         ttl = timedelta(days=30 if cached.get("app_name") else 7)
         countries = list(PLAY_COUNTRIES)
+        # Extra markets are an opt-in second pass for packages absent in all base markets.
+        if (
+            (
+                cached.get("play_status") == "not_found"
+                and expired(cached.get("checked_at"), now, ttl)
+            )
+            or cached.get("play_extended_markets")
+            or cached.get("play_country") in PLAY_EXTRA_COUNTRIES
+        ):
+            countries.extend(
+                country for country in PLAY_EXTRA_COUNTRIES if country not in countries
+            )
+            cached = {**cached, "play_extended_markets": True}
         if cached.get("play_country") in countries:
             countries.remove(cached["play_country"])
             countries.insert(0, cached["play_country"])
@@ -330,6 +482,8 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
         # Old negative entries covered the US only. Try the new regions now.
         if not attempted and cached.get("checked_at") and not cached.get("app_name"):
             attempted = ["US"]
+        if not expired(cached.get("play_retry_after"), now, timedelta(0)):
+            continue
         if not expired(cached.get("checked_at"), now, ttl):
             if cached.get("app_name") or set(countries).issubset(attempted):
                 continue
@@ -345,18 +499,6 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
             ):
                 halted = True
                 break
-            if lookups:
-                sleep(delay)
-            if time.monotonic() >= deadline:
-                halted = True
-                break
-            if lookups and lookups % 25 == 0:
-                save_state()
-                print(
-                    f"Application metadata: checkpoint after {lookups} Google Play lookups.",
-                    flush=True,
-                )
-            lookups += 1
             url = (
                 "https://play.google.com/store/apps/details?id="
                 + quote(package, safe="")
@@ -365,7 +507,7 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
             )
             try:
                 found = None
-                with client.stream("GET", url) as response:
+                with play_stream(url) as response:
                     if response.status_code in {429, 503}:
                         state["play_retry_after"] = provider_retry_after(response, current_time())
                         halted = True
@@ -393,14 +535,38 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
                         parser = PlayMetadata()
                         parser.feed(content)
                         found = parser.metadata()
+                        if not found and re.search(
+                            r"unusual traffic|automated queries|"
+                            r"<title[^>]*>[^<]*(?:captcha|access denied)",
+                            content,
+                            re.IGNORECASE,
+                        ):
+                            state["play_retry_after"] = (
+                                current_time() + timedelta(hours=1)
+                            ).isoformat()
+                            halted = True
+                            break
                 if found:
+                    transient_failures = 0
                     apps[package] = {
                         **found,
                         "icon_url": found.get("icon_url") or cached.get("icon_url"),
                         "checked_at": stamp,
                         "play_country": country,
+                        "play_extended_markets": country in PLAY_EXTRA_COUNTRIES
+                        or cached.get("play_extended_markets", False),
+                        "play_status": "found",
                     }
                     break
+                # Only an actual 404 is evidence that this market lacks the listing.
+                if response.status_code != 404:
+                    apps[package] = {
+                        **cached,
+                        "play_status": "unrecognized",
+                        "play_retry_after": (current_time() + timedelta(hours=1)).isoformat(),
+                    }
+                    break
+                transient_failures = 0
                 attempted = [*attempted, country]
                 cached = {
                     **cached,
@@ -409,10 +575,30 @@ def refresh(root, client, *, now=None, max_play=None, delay=1, sleep=time.sleep,
                 }
                 if set(countries).issubset(attempted):
                     cached["checked_at"] = stamp
+                    cached["play_status"] = "not_found"
                 apps[package] = cached
-            except (httpx.HTTPError, ValueError):
-                state["play_retry_after"] = (current_time() + timedelta(hours=1)).isoformat()
+            except LookupBudget:
                 halted = True
+                break
+            except (httpx.HTTPError, ValueError) as error:
+                # Isolated failures leave other packages eligible; repeated failures pause the host.
+                transient_failures += 1
+                provider_error = isinstance(error, httpx.HTTPStatusError) and (
+                    error.response.status_code in {401, 403, 429, 503}
+                    or "retry-after" in error.response.headers
+                )
+                if provider_error or transient_failures >= 3:
+                    state["play_retry_after"] = (
+                        provider_retry_after(error.response, current_time())
+                        if provider_error
+                        else (current_time() + timedelta(hours=1)).isoformat()
+                    )
+                    halted = True
+                apps[package] = {
+                    **cached,
+                    "play_status": "temporary_failure",
+                    "play_retry_after": (current_time() + timedelta(minutes=10)).isoformat(),
+                }
                 break
         if halted:
             break

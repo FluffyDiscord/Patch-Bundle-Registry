@@ -1,5 +1,6 @@
 import { subscriptionPayload } from "./graphql.js";
 import { executeCatalogQuery } from "./index.js";
+import {admission,handleAdmission,SESSION_MS} from "./subscription-admission.js";
 
 const INTERVAL = 1000;
 const bytes = value => new TextEncoder().encode(value).length;
@@ -12,6 +13,8 @@ export class CatalogSubscriptions {
   async fetch(request) {
     // This path is reachable only through the namespace binding, not the public
     // router. Give each evaluation its own invocation and subrequest budget.
+    if (new URL(request.url).pathname === "/admission" && request.method === "POST")
+      return handleAdmission(this.ctx,this.env,await request.json());
     if (new URL(request.url).pathname === "/evaluate" && request.method === "POST") {
       try {
         const {payload,cursor} = await request.json();
@@ -28,14 +31,22 @@ export class CatalogSubscriptions {
       offered.includes("graphql-ws") ? "graphql-ws" : null;
     if (!protocol) return new Response("Unsupported GraphQL WebSocket protocol",{status:400});
     if (this.ctx.getWebSockets().length >= 32) return new Response("Subscription capacity reached; retry",{status:503});
-    const [client,server] = Object.values(new WebSocketPair());
-    this.ctx.acceptWebSocket(server);
-    server.serializeAttachment({id:crypto.randomUUID(),protocol,initialized:false,opened:Date.now()});
-    await this.schedule();
-    return new Response(null,{status:101,webSocket:client,headers:{"Sec-WebSocket-Protocol":protocol}});
+    const id=crypto.randomUUID();
+    const clientKey=await fingerprint(request.headers.get("CF-Connecting-IP") ?? "unknown");
+    const lease=await admission(this.env,"reserve",id,clientKey);
+    if (!lease.ok) return lease;
+    try {
+      const [client,server] = Object.values(new WebSocketPair());
+      this.ctx.acceptWebSocket(server);
+      server.serializeAttachment({id,protocol,initialized:false,opened:Date.now(),lease:true,renewed:Date.now()});
+      await this.schedule();
+      return new Response(null,{status:101,webSocket:client,headers:{"Sec-WebSocket-Protocol":protocol}});
+    } catch (error) { await admission(this.env,"release",id);throw error; }
   }
   async schedule() {
-    if (await this.ctx.storage.getAlarm() === null) await this.ctx.storage.setAlarm(Date.now()+INTERVAL);
+    const due=Date.now()+INTERVAL;
+    const alarm=await this.ctx.storage.getAlarm();
+    if (alarm===null || alarm>due) await this.ctx.storage.setAlarm(due);
   }
   send(ws,type,id,payload) { ws.send(JSON.stringify({type,...(id === undefined ? {} : {id}),...(payload === undefined ? {} : {payload})})); }
   async webSocketMessage(ws,message) {
@@ -91,7 +102,12 @@ export class CatalogSubscriptions {
       const result = await response.json();
       if (!response.ok) throw new Error(result.error ?? "Subscription evaluation failed");
       const cursorStream = result.extensions?.registryStream;
-      if (cursorStream) delete result.extensions;
+      operation.generation=result.extensions?.registryGeneration;
+      operation.settled=!cursorStream || cursorStream.empty;
+      if (result.extensions) {
+        delete result.extensions.registryStream;delete result.extensions.registryGeneration;
+        if (!Object.keys(result.extensions).length) delete result.extensions;
+      }
       const text = JSON.stringify(result);
       const digest = await fingerprint(text);
       const current = await this.ctx.storage.get(key) ?? {};
@@ -117,14 +133,35 @@ export class CatalogSubscriptions {
   }
   async alarm() {
     const sockets = this.ctx.getWebSockets();
-    let active = false;
+    let active = false, busy = false;
+    let generation=null;
+    if (this.env.CATALOG_BACKEND==="d1" && this.env.DB) {
+      const db=this.env.DB.withSession?this.env.DB.withSession("first-primary"):this.env.DB;
+      try { generation=(await db.prepare("SELECT g.generation FROM catalog_state s JOIN catalog_generations g ON g.seq=s.active_seq WHERE s.id=1 AND g.status='ready'").first())?.generation; }
+      catch { /* Let normal evaluations report an outage; do not stop the alarm. */ }
+    }
     for (const ws of sockets) {
       const state = ws.deserializeAttachment();
       try {
+        if (state.lease) {
+          if (Date.now()-state.opened>=SESSION_MS) {ws.close(1000,"Session expired; reconnect");await admission(this.env,"release",state.id);continue;}
+          if (Date.now()-state.renewed>=60000) {
+            const renewed=await admission(this.env,"renew",state.id);
+            if (!renewed.ok) {ws.close(1013,"Subscription capacity changed; reconnect");continue;}
+            state.renewed=Date.now();ws.serializeAttachment(state);
+          }
+          active=true;
+        }
         if (!state.initialized && Date.now()-state.opened > 30000) { ws.close(4408,"Initialization timeout"); continue; }
         const operations = await this.ctx.storage.get("connection:" + state.id) ?? Object.create(null);
         if (!state.initialized || Object.keys(operations).length) active = true;
-        for (const [id,operation] of Object.entries(operations)) await this.emit(ws,state,id,operation);
+        if (!state.initialized) busy=true;
+        for (const [id,operation] of Object.entries(operations)) {
+          busy=true;
+          const volatile=/\brefresh_jobs(?:_by_pk|_stream)?\b/.test(operation.payload.query);
+          if (generation && operation.generation===generation && operation.settled && !volatile) continue;
+          await this.emit(ws,state,id,operation);
+        }
         if (state.initialized) this.send(ws,state.protocol === "graphql-transport-ws" ? "ping" : "ka");
       } catch {
         // A socket can close during an awaited fetch. Keep other clients running.
@@ -132,15 +169,18 @@ export class CatalogSubscriptions {
         try { ws.close(1011,"Connection failed"); } catch {}
       }
     }
-    if (active && this.ctx.getWebSockets().length) await this.ctx.storage.setAlarm(Date.now()+INTERVAL);
+    if (active && this.ctx.getWebSockets().length) await this.ctx.storage.setAlarm(Date.now()+(busy?INTERVAL:30000));
   }
   async webSocketClose(ws,code) {
     const state = ws.deserializeAttachment();
     await this.ctx.storage.delete("connection:" + state.id);
+    if (state.lease) await admission(this.env,"release",state.id);
     ws.close(code);
   }
   async webSocketError(ws) {
-    await this.ctx.storage.delete("connection:" + ws.deserializeAttachment().id);
+    const state=ws.deserializeAttachment();
+    await this.ctx.storage.delete("connection:" + state.id);
+    if (state.lease) await admission(this.env,"release",state.id);
     ws.close(1011,"Connection failed");
   }
 }

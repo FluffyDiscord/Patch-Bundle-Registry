@@ -532,6 +532,7 @@ internal fun processBundle(
                 }
                 val result = if (extraction.patches == null) extraction else extraction.copy(patches = created)
                 writePatchList(outputPatchesFile, parsedBundle.version, created)
+                FreshAppPackages.add(bundleFolder.name, parsedBundle.version, parsedBundle.downloadUrl, created)
                 recordExtraction(recordFile, outputPatchesFile, parsedBundle.version,
                     downloadUri, result, parsedBundle.providerDigest, family)
                 created
@@ -559,6 +560,8 @@ fun main(args: Array<String>) {
             put("runtime", result.runtime?.let(::JsonPrimitive) ?: JsonNull)
             put("file_hash", result.hash?.let(::JsonPrimitive) ?: JsonNull)
             put("patch_count", JsonPrimitive(result.patches?.size ?: 0))
+            put("parser_revision", JsonPrimitive(parserRevision()))
+            put("attempts", parsingJson.parseToJsonElement(parsingJson.encodeToString(result.attempts)))
         }.toString())
         return
     }
@@ -587,13 +590,16 @@ fun main(args: Array<String>) {
     val current = bundleRoot.listFiles()?.filter {
         it.isDirectory && it.name !in disabledFolders
     }?.sortedBy { it.name } ?: emptyList()
-    Logger.info("Extraction workers: $workers")
-    processDirectories(current, workers)
-    val work = historicalWork(File("..", "internal/cache/history"), batchSize, runtimeFingerprint(), disabledFolders)
-    Logger.info("History extraction queue: ${work.latest.size} latest, ${work.historical.size} older selected, ${work.deferred} deferred")
-    processDirectories(work.latest, workers)
-    val attempted = processDirectories(work.historical, workers, historySeconds)
-    Logger.info("Historical extraction attempted $attempted bundles; ${work.deferred + work.historical.size - attempted} deferred to the next refresh")
+    FreshAppPackages.reset()
+    try {
+        Logger.info("Extraction workers: $workers")
+        processDirectories(current, workers)
+        val work = historicalWork(File("..", "internal/cache/history"), batchSize, runtimeFingerprint(), disabledFolders)
+        Logger.info("History extraction queue: ${work.latest.size} latest, ${work.historical.size} older selected, ${work.deferred} deferred")
+        processDirectories(work.latest, workers)
+        val attempted = processDirectories(work.historical, workers, historySeconds)
+        Logger.info("Historical extraction attempted $attempted bundles; ${work.deferred + work.historical.size - attempted} deferred to the next refresh")
+    } finally { FreshAppPackages.flush() }
 }
 
 private data class ReleaseLocation(

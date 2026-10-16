@@ -98,6 +98,9 @@ def restore_history(root, history, inventory):
             "terminal": bundle.get("extraction_terminal", False),
             "bundle_type": bundle.get("bundle_type"),
             "runtime_config_hash": bundle.get("patcher_failure_config_hash"),
+            "parser_revision": bundle.get("patcher_parser_revision"),
+            "completeness_version": bundle.get("patch_completeness_version", 0),
+            "runtime_attempts": bundle.get("runtime_attempts", []),
             "patch_list_hash": hashlib.sha256(patch_path.read_bytes()).hexdigest()
             if bundle["metadata_status"] == "verified"
             else None,

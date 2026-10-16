@@ -139,7 +139,10 @@ class LegacyReseamParserTest {
             val file = artifact(root, laterSdk = true)
             val body = inspectLegacyReseam(file, File(root, "inspection"))
             assertEquals(2, body.getValue("patches").jsonArray.size)
-            val patch = parseReseamInspection(body.toString(), sha256(file), "legacy").patches!!.single().jsonObject
+            val mapped = parseReseamInspection(body.toString(), sha256(file), "legacy").patches!!
+            assertEquals(2, mapped.size)
+            val patch = mapped.first { !it.jsonObject.getValue("hidden").jsonPrimitive.boolean }.jsonObject
+            assertTrue(mapped.any { it.jsonObject.getValue("hidden").jsonPrimitive.boolean })
             assertEquals(listOf("Dependency"), patch.getValue("dependencies").jsonArray.map { it.jsonPrimitive.content })
             assertEquals("old-value", patch.getValue("options").jsonArray.single().jsonObject
                 .getValue("default").jsonPrimitive.content)

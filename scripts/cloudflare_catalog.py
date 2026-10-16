@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import re
+import ssl
 import time
 from collections import Counter
 from pathlib import Path
@@ -142,13 +143,36 @@ class Cloud:
         path.write_bytes(encode([*history[-23:], metrics]))
         print(json.dumps({"cloudflare_performance": metrics}), flush=True)
 
-    def api(self, method, path, **kwargs):
+    def api(self, method, path, *, retry_safe=False, **kwargs):
+        safe = retry_safe or method.upper() in {"GET", "HEAD"}
         for attempt in range(5):
-            response = self.http.request(method, path, **kwargs)
+            try:
+                response = self.http.request(method, path, **kwargs)
+            except httpx.TransportError as error:
+                cause = error
+                certificate_error = False
+                while cause is not None:
+                    certificate_error |= isinstance(cause, ssl.SSLError)
+                    cause = cause.__cause__
+                if certificate_error or not safe or attempt == 4:
+                    raise RuntimeError(
+                        "Cloudflare connection failed; verify any uncertain write before retrying"
+                    ) from error
+                time.sleep(2**attempt)
+                continue
             if response.status_code in (429, 500, 502, 503, 504):
-                # Cloudflare sends seconds; an HTTP-date or junk value must not stop retries.
+                if not safe and response.status_code != 429:
+                    raise RuntimeError(
+                        "Cloudflare write outcome is uncertain; verify before retrying"
+                    )
+                if attempt == 4:
+                    break
                 header = response.headers.get("Retry-After", "").strip()
                 requested = float(header) if header.isascii() and header.isdigit() else 0.0
+                if requested > 60:
+                    raise RuntimeError(
+                        "Cloudflare requested a cooldown longer than 60 seconds; retry later"
+                    )
                 time.sleep(max(requested, 2**attempt))
                 continue
             if not response.is_success:
@@ -164,6 +188,8 @@ class Cloud:
         result = self.api(
             "POST",
             "/d1/database/" + self.database + "/query",
+            retry_safe=sql.lstrip().upper().startswith(("SELECT", "UPDATE", "DELETE"))
+            or "ON CONFLICT" in sql.upper(),
             json={"sql": sql, "params": list(params)},
         )
         if not all(row.get("success") for row in result):
@@ -529,7 +555,7 @@ class Cloud:
         self.put(manifest_key, encode(document))
         self.sql(
             "INSERT INTO catalog_generations(seq,generation,manifest_key,status)"
-            " VALUES(?,?,?,'staging')",
+            " VALUES(?,?,?,'staging') ON CONFLICT DO NOTHING",
             [seq, generation, manifest_key],
         )
         pending_rows = []
@@ -779,7 +805,7 @@ class Cloud:
         key = "generations/" + manifest["generation"] + ".json"
         self.sql(
             "INSERT INTO catalog_generations(seq,generation,manifest_key,status)"
-            " VALUES(1,?,?,'staging')",
+            " VALUES(1,?,?,'staging') ON CONFLICT DO NOTHING",
             [manifest["generation"], key],
         )
         batch = []
