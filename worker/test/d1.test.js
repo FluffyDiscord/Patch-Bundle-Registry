@@ -321,16 +321,16 @@ test("Transient catalog detail failures can retry instead of sticking to the ses
         snapshot:"snapshots/"+"d".repeat(24),files:{}});
     assert.equal(url.pathname,"/bundles/"+id);
     details++;
-    if(details===1) return Response.json({error:"Temporary failure"},{status:503});
+    if(details<=3) return Response.json({error:"Temporary failure"},{status:503});
     return Response.json({id,description:"Release notes"},
       {headers:{"X-Catalog-Generation":"d".repeat(24)}});
   };
   try {
     const api=await new ApiCatalog("https://api.test").initialize();
-    await assert.rejects(api.file("bundles/"+id+".json"));
+    await assert.rejects(api.file("bundles/"+id+".json"),error=>error.status===503 && !error.generationUnavailable);
     const detail=await api.file("bundles/"+id+".json");
     assert.equal(detail.description,"Release notes");
-    assert.equal(details,2);
+    assert.equal(details,4);
   } finally {globalThis.fetch=original;}
 });
 

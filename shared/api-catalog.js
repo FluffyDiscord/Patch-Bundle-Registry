@@ -1,9 +1,32 @@
 import { Catalog, CatalogError, pagination } from "./catalog.js";
 
+// Retry only temporary read failures, at the same URL and pagination cursor.
+async function fetchCatalog(url, options) {
+  for (let attempt=0; ; attempt++) {
+    let response;
+    try { response=await fetch(url,options); }
+    catch (error) {
+      if (attempt>=2 || !(error instanceof TypeError || error.name==="TimeoutError")) throw error;
+    }
+    if (response && (![408,429,500,502,503,504].includes(response.status) || attempt>=2)) return response;
+    let delay=200*2**attempt;
+    const retryAfter=response?.headers.get("Retry-After");
+    if (retryAfter) {
+      const seconds=Number(retryAfter);
+      const requested=Number.isFinite(seconds) ? seconds*1000 : Date.parse(retryAfter)-Date.now();
+      // Do not retry earlier than a long server-requested cooldown.
+      if (requested>5000) return response;
+      if (Number.isFinite(requested)) delay=Math.max(delay,requested);
+    }
+    await response?.body?.cancel().catch(()=>{});
+    await new Promise(resolve=>setTimeout(resolve,delay));
+  }
+}
+
 // Bootstrap only current bundles; source history is requested when the source is selected.
 export class ApiCatalog extends Catalog {
   constructor(api) {
-    super(api.replace(/\/$/,"") + "/catalog/data/",fetch,false);
+    super(api.replace(/\/$/,"") + "/catalog/data/",fetchCatalog,false);
     this.api = api.replace(/\/$/,"");
     this.bundleRows = [];
     this.histories = new Map();
@@ -15,7 +38,7 @@ export class ApiCatalog extends Catalog {
       const params = new URLSearchParams({limit:String(limit),offset:String(offset),
         generation:this.manifest.generation});
       if (source) params.set("source",source);
-      const response = await fetch(this.api + "/catalog/bundles?" + params);
+      const response = await this.fetcher(this.api + "/catalog/bundles?" + params);
       if (response.status === 422 && limit > 1) {
         limit = Math.ceil(limit / 2);
         continue;
@@ -36,8 +59,16 @@ export class ApiCatalog extends Catalog {
     const match = name.match(/^bundles\/([a-f0-9]+)\.json$/);
     if (!match) return super.file(name);
     if (!this.loaded.has(name)) this.loaded.set(name,(async()=>{
-      const response=await fetch(this.api+"/bundles/"+match[1]);
-      if (!response.ok || response.headers.get("X-Catalog-Generation") !== this.manifest.generation) {
+      const response=await this.fetcher(this.api+"/bundles/"+match[1]);
+      if (!response.ok) {
+        const detail=await response.json().catch(()=>({}));
+        const error=new CatalogError(detail?.error || "Unable to load bundle; retry",response.status);
+        const generation=response.headers.get("X-Catalog-Generation");
+        error.generationUnavailable=response.status===409 ||
+          Boolean(generation && generation!==this.manifest.generation);
+        throw error;
+      }
+      if (response.headers.get("X-Catalog-Generation") !== this.manifest.generation) {
         const error=new CatalogError("Catalog generation unavailable",409);
         error.generationUnavailable=true;
         throw error;
@@ -58,7 +89,7 @@ export class ApiCatalog extends Catalog {
         include_unverified:String(Boolean(args.include_unverified))});
       if (args.compact) params.set("compact","true");
       if (args.package) params.set("package",args.package);
-      const response=await fetch(this.api+"/catalog/patches?"+params);
+      const response=await this.fetcher(this.api+"/catalog/patches?"+params);
       if (!response.ok) {
         const detail=(await response.json().catch(()=>({}))) ?? {};
         const oversized=response.status===422 && (detail.code==="response_too_large" ||

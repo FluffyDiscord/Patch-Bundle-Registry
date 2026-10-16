@@ -136,7 +136,7 @@ test("Frontend preserves generation and non-size errors, and rejects stalled cur
       globalThis.fetch=async()=>{calls++;return Response.json({error:message},{status});};
       await assert.rejects(api.patchRows({bundle_id:"a".repeat(24),all:true}),
         error=>error.status===status && error.message.includes(message) && error.generationUnavailable===(status===409));
-      assert.equal(calls,1);
+      assert.equal(calls,status===503?3:1);
     }
     globalThis.fetch=async()=>Response.json({rows:[{id:1}],next_cursor:0});
     await assert.rejects(api.patchRows({bundle_id:"a".repeat(24),all:true}),/Invalid patch pagination/);

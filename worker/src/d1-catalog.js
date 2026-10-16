@@ -67,7 +67,7 @@ export class D1Catalog extends Catalog {
         cache.set(key,pending);
         pending.then(document=>{
           // Bound retained manifests by bytes as well as entry count.
-          if (new TextEncoder().encode(JSON.stringify(document)).length > 4*1024*1024 && cache.get(key)===pending) cache.delete(key);
+          if (new TextEncoder().encode(JSON.stringify(document)).length > 8*1024*1024 && cache.get(key)===pending) cache.delete(key);
         },()=>{if (cache.get(key)===pending) cache.delete(key);});
       }
       this.document = await cache.get(key);
@@ -275,7 +275,7 @@ export class D1Catalog extends Catalog {
       this.visible("r")+" AND "+col("r","catalog_id")+" IN (SELECT value FROM json_each(?))")
       .bind(kind,JSON.stringify(wanted)).all()).results;
     const rows=new Map(data.map(item=>{const row=JSON.parse(item.data);return [row.catalog_id,{...row,__kind:kind}];}));
-    selected.data=await Promise.all(wanted.map(id=>this.restRow(rows.get(id))));
+    selected.data=await this.restRows(wanted.map(id=>rows.get(id)));
     return selected;
   }
   async legacyBundles(owner, repo, version, mode) {
@@ -289,7 +289,7 @@ export class D1Catalog extends Catalog {
     } else where.version={_eq:version};
     const rows=await this.scan("bundle",where,{sql:col("r","source_fk")+" IN (SELECT value FROM json_each(?))",
       bindings:[JSON.stringify(sources.map(row=>row.id))]});
-    return Promise.all(rows.map(row=>this.restRow(row)));
+    return this.restRows(rows);
   }
   async sourceIds(identifier) {
     const url = identifier.includes("/") ? normalizeSource(identifier).toLowerCase() : identifier.toLowerCase();
@@ -306,7 +306,7 @@ export class D1Catalog extends Catalog {
     if (selection.latest) where.is_latest = {_eq:true};
     else if (selection.version) where.version = {_eq:selection.version};
     const rows = await this.rows("bundle",{where,limit:100});
-    return Promise.all(rows.map(row=>this.restRow(row)));
+    return this.restRows(rows);
   }
   async patchWindow(params, bundleId) {
     const bindings=["patch"];
@@ -416,11 +416,21 @@ export class D1Catalog extends Catalog {
       .map(row=>({...row,id:row.catalog_id,legacy_id:row.id,bundle:bundles.get(row.bundle_id),patch_packages:patchPackages({...row,id:row.catalog_id})}));
     return {rows:data,next_cursor:rows.length>maximum?offset+maximum:null,candidate_pages:1};
   }
-  async restRow(row) {
+  async restRows(rows) {
+    const ids=[...new Set(rows.filter(row=>row.__kind==="bundle").map(row=>row.source_fk))];
+    const sources=new Map();
+    // Stay below the filter binding limit and avoid one D1 query per bundle.
+    for (let offset=0;offset<ids.length;offset+=80)
+      for (const source of await this.rows("source",{where:{id:{_in:ids.slice(offset,offset+80)}},limit:80}))
+        sources.set(source.id,source);
+    return Promise.all(rows.map(row=>this.restRow(row,sources)));
+  }
+  async restRow(row, sources = null) {
     const { __kind, __archived, catalog_id, ...result } = row;
     if (catalog_id) { result.legacy_id = row.id; result.id = catalog_id; }
     if (__kind === "bundle") {
-      const source = (await this.rows("source", {where:{id:{_eq:row.source_fk}},limit:1}))[0];
+      const source = sources ? sources.get(row.source_fk) :
+        (await this.rows("source", {where:{id:{_eq:row.source_fk}},limit:1}))[0];
       result.source = source ? await this.restRow(source) : null;
       Object.assign(result, bundleImages(result));
     }

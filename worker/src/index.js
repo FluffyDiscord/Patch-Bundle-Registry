@@ -182,7 +182,7 @@ async function rest(catalog, url) {
     if (params.has("source")) where.source.id = {_in:await catalog.sourceIds(params.get("source"))};
     else where.is_latest = {_eq:true};
     const args = {limit:Number(params.get("limit") ?? 100),offset:Number(params.get("offset") ?? 0),where};
-    const data = await Promise.all((await catalog.rows("bundle",args)).map(row=>catalog.restRow(row)));
+    const data = await catalog.restRows(await catalog.rows("bundle",args));
     if (params.has("source")) for (const row of data) row.description = row.description ? "Available" : "";
     return {data,generation:catalog.manifest.generation};
   }
