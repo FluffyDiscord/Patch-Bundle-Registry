@@ -1,5 +1,7 @@
 package me.jman.parser
 
+import java.io.File
+import kotlin.io.path.createTempDirectory
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.*
 import kotlin.test.*
@@ -42,6 +44,58 @@ class ReseamPatchParserTest {
             ("compatibility" to buildJsonObject { put("kind", "universal") })).toString()
         val mapped = parseReseamInspection(inspection("[$universal]"), "hash", "runtime").patches!!.single()
         assertEquals(JsonNull, mapped.jsonObject["compatiblePackages"])
+    }
+
+    @Test fun unnamedLegacyDependenciesRemainInTheVerifiedInventory() {
+        val hidden = patch.replace("\"name\":\"Hide ads\"", "\"name\":null")
+            .replace("\"description\":\"Remove ads\"", "\"description\":null")
+            .replace("\"hidden\":false", "\"hidden\":true")
+        val result = parseReseamInspection(inspection("[$hidden]"), "hash", "legacy")
+        assertEquals("verified", result.status)
+        val mapped = result.patches!!.single().jsonObject
+        assertEquals(JsonNull, mapped["name"])
+        assertEquals(JsonNull, mapped["description"])
+        assertEquals(JsonPrimitive(true), mapped["hidden"])
+        assertTrue(isUsablePatchArray(result.patches!!))
+        assertFails {
+            parseReseamInspection(inspection("[" + hidden.replace("\"name\":null", "\"name\":7") + "]"), "hash", "legacy")
+        }
+    }
+
+    @Test fun normalizationOmitsNullDependencyReferencesAndRetainsUnnamedPatches() {
+        val original = Json.parseToJsonElement(patch).jsonObject
+        val visible = JsonObject(original + ("dependencies" to JsonArray(listOf(
+            JsonNull, JsonPrimitive("patches/example.shared@source"), JsonPrimitive("null")
+        ))))
+        val hidden = JsonObject(original + mapOf(
+            "id" to JsonPrimitive("example.shared"), "name" to JsonNull,
+            "description" to JsonNull, "hidden" to JsonPrimitive(true),
+            "dependencies" to JsonArray(emptyList())
+        ))
+        val result = parseReseamInspection(inspection("[$visible,$hidden]"), "a".repeat(64), "legacy")
+        val root = createTempDirectory("reseam-null-dependencies-").toFile()
+        try {
+            val folder = File(root, "demo-patch-bundles").apply { mkdir() }
+            File(folder, "demo-stable-patches-bundle.json").writeText("""
+                {"version":"v1","download_url":"https://example.test/patches.reseam",
+                 "bundle_type":"Reseam"}
+            """.trimIndent())
+            processBundle(folder, extract = { _, _ -> result },
+                fallback = { _, _ -> error("Binary extraction should succeed") })
+            val output = Json.decodeFromString<LocalPatchesFile>(
+                File(folder, "demo-stable-patches-list.json").readText())
+            assertEquals(2, output.patches.size)
+            assertTrue(output.patches.any { it.jsonObject["name"] == JsonNull })
+            val exported = output.patches.single {
+                it.jsonObject["name"] == JsonPrimitive("Hide ads")
+            }.jsonObject
+            // A dependency explicitly named "null" remains a legitimate string.
+            assertEquals(listOf("patches/example.shared", "null"),
+                exported.getValue("dependencies").jsonArray.map { it.jsonPrimitive.content })
+            val record = Json.decodeFromString<ExtractionRecord>(
+                File(folder, "demo-stable-extraction.json").readText())
+            assertEquals("verified", record.status)
+        } finally { root.deleteRecursively() }
     }
 
     @Test fun failedInspectionIsNeverASuccessfulEmptyCatalog() {

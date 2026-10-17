@@ -12,7 +12,7 @@ function largeBundle(count, descriptionBytes = 32000, patchBytes = 0) {
     .run("x".repeat(descriptionBytes),count);
   for (let i=0;i<count;i++) {
     const id=f.old.bundle.id+":"+String(i).padStart(4,"0");
-    f.add("patch",id,{...template,id:i+1,catalog_id:id,name:"Patch "+i,
+    f.add("patch",id,{...template,id:i+1,catalog_id:id,bundle_fk:f.old.bundle.legacy_id,name:"Patch "+i,
       description:"\u00e9".repeat(patchBytes),options:[{key:"setting",default:"value"}]});
   }
   return f;

@@ -21,7 +21,11 @@ class TerminalFailureTest {
             val artifact = File(root, "bundle.rvp")
             JarOutputStream(artifact.outputStream(), Manifest().apply {
                 mainAttributes.putValue("Manifest-Version", "1.0")
-            }).use {}
+            }).use {
+                it.putNextEntry(java.util.jar.JarEntry("fixture/BundleMarker.class"))
+                it.write(fixtureJvmClass())
+                it.closeEntry()
+            }
             val folder = File(root, "demo-patch-bundles").apply { mkdir() }
             File(folder, "demo-latest-patches-bundle.json").writeText(
                 """{"version":"v1","download_url":"${artifact.toURI()}"}""")

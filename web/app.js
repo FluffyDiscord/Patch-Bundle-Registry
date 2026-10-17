@@ -13,7 +13,7 @@ import { createDetailsBrowser, renderPatchOptions } from "./shared/detail-browse
 import { iconAction, bindActions } from "./shared/actions.js";
 import { createSourcePicker } from "./shared/source-picker.js";
 import { gitHosts } from "./shared/hosts.js";
-import { latestReleaseIds, catalogStats, repositoryNames, matchesReleaseFilter, countLabel } from "./shared/site.js";
+import { latestReleaseIds, catalogStats, repositoryNames, matchesReleaseFilter, countLabel, patchDisplayName } from "./shared/site.js";
 import {
     Virtualizer,
     measureElement,
@@ -353,8 +353,10 @@ async function loadBundles(refreshedCatalog = null) {
         const nextCatalog = refreshedCatalog ||
             await openCatalog();
         const sources = ["bundles", "apps"].map(tab => browsePreferences.read(tab).source).filter(Boolean);
-        const nextSummaries = await nextCatalog.bundles({ sources });
-        applications = await nextCatalog.apps();
+        const [nextSummaries,nextApplications] = await Promise.all([
+            nextCatalog.bundles({ sources }), nextCatalog.apps()
+        ]);
+        applications = nextApplications;
         catalog = nextCatalog;
         scheduleCatalogRefresh();
         summaries = nextSummaries;
@@ -461,7 +463,8 @@ async function selectBundleVersion(version) {
 }
 
 function transformPatch(patch) {
-    return { name: patch.name, description: patch.description, hidden: patch.hidden === true, options: patch.options || [],
+    return { name: patch.name, display_name: patch.display_name, description: patch.description,
+        hidden: patch.hidden === true, options: patch.options || [],
         universal: patch.packages.length === 0 && (patch.compatiblePackages == null || Object.keys(patch.compatiblePackages).length === 0),
         compatiblePackages: patch.packages.map(pkg => ({ name: pkg.name, appName: pkg.app_name || pkg.name, versions: pkg.versions })) };
 }
@@ -908,7 +911,7 @@ function renderPatch(patch) {
         </span>`;
     }).join('');
 
-    const heading = escapeHtml(patch.name || "Unnamed patch") +
+    const heading = escapeHtml(patchDisplayName(patch)) +
         (patch.hidden ? ' <span class="badge">Internal patch</span>' : "");
     const overview = `${patch.description ? `<span class="patch-description">${escapeHtml(patch.description)}</span>` : ""}
         ${packages ? `<span class="patch-packages">${packages}</span>` : ""}`;

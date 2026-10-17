@@ -57,7 +57,11 @@ class ExtractionFailureTest {
                 mainAttributes.putValue("Manifest-Version", "1.0")
                 mainAttributes.putValue("Patcher-Version", "1.9.0")
             }
-            java.util.jar.JarOutputStream(artifact.outputStream(), manifest).use { }
+            java.util.jar.JarOutputStream(artifact.outputStream(), manifest).use {
+                it.putNextEntry(java.util.jar.JarEntry("fixture/BundleMarker.class"))
+                it.write(fixtureJvmClass())
+                it.closeEntry()
+            }
             val config = File(root, "runtimes.json").apply {
                 writeText("""{"worker":{},"runtimes":[{"id":"morphe","family":"Morphe:V1",
                     "loader":"morphe","coordinate":"test:morphe:1","dependencies":[],

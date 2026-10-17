@@ -324,7 +324,7 @@ private fun extractWithRuntime(
                     if (!isUsablePatchArray(patches))
                         return RuntimeResult(null, "invalid_patch_metadata", hash, terminal = true)
                     successful = true
-                    return RuntimeResult(patches, "verified", hash, runtime.coordinate, completenessVersion = 1)
+                    return RuntimeResult(patches, "verified", hash, runtime.coordinate, completenessVersion = 4)
                 }
                 else -> failure = "runtime_initialization_failure"
             }
@@ -409,6 +409,14 @@ private fun extractDownloadedArtifact(artifact: File, hash: String, family: Stri
             ?.trim()?.takeIf(String::isNotEmpty)
     } catch (_: Exception) {
         return RuntimeResult(null, "runtime_parsing_failure", hash, terminal = true)
+    }
+    if (family != "Reseam") {
+        try { requireJvmPatchClasses(artifact) }
+        catch (_: IncompletePatchInventory) {
+            // Changing JVM versions cannot load a DEX/metadata-only archive.
+            return RuntimeResult(null, "incomplete_patch_inventory", hash, terminal = true,
+                attempts = listOf(RuntimeAttempt("artifact", "incomplete_patch_inventory", "No JVM patch classes")))
+        }
     }
     val config = loadRuntimeConfiguration()
     val candidates = try {

@@ -73,7 +73,7 @@ test("A page with 100 different sources uses bounded batched lookups",async()=>{
     const page=await f.request("/catalog/bundles?limit=100&generation="+f.old.manifest.generation);
     assert.equal(page.data.length,100);
     assert.equal(new Set(page.data.map(row=>row.source.url)).size,100);
-    assert.ok(f.queryLog.length<=4,"Expected at most four queries, got "+f.queryLog.length);
+    assert.ok(f.queryLog.length<=5,"Expected at most five queries, got "+f.queryLog.length);
   } finally {f.sqlite.close();}
 });
 

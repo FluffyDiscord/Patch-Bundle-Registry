@@ -12,15 +12,27 @@ from pathlib import Path
 from urllib.parse import urlencode, urlparse
 
 try:
+    from scripts.extraction_policy import history_patch_inventory, patch_completeness_current
     from scripts.git_hosts import hosts
     from scripts.git_hosts import normalize_source as normalize_repository
-    from scripts.release_assets import canonical_bundle_type, digest_matches, migrate_bundle_types
+    from scripts.release_assets import (
+        auxiliary_bundle,
+        canonical_bundle_type,
+        digest_matches,
+        migrate_bundle_types,
+    )
     from scripts.release_history import reconcile_release, release_is_prerelease
     from scripts.snapshot_retention import apply_retention, published_snapshots, retention_plan
 except ModuleNotFoundError:
+    from extraction_policy import history_patch_inventory, patch_completeness_current
     from git_hosts import hosts
     from git_hosts import normalize_source as normalize_repository
-    from release_assets import canonical_bundle_type, digest_matches, migrate_bundle_types
+    from release_assets import (
+        auxiliary_bundle,
+        canonical_bundle_type,
+        digest_matches,
+        migrate_bundle_types,
+    )
     from release_history import reconcile_release, release_is_prerelease
     from snapshot_retention import apply_retention, published_snapshots, retention_plan
 
@@ -235,9 +247,7 @@ def restore_catalog_cache(root=ROOT):
         channel = (
             "latest"
             if settings.get("latest")
-            else "dev"
-            if settings.get("prerelease")
-            else "stable"
+            else "dev" if settings.get("prerelease") else "stable"
         )
         if (source_id, channel) in missing_channels:
             discovery.setdefault(key, "no_matching_release")
@@ -291,7 +301,7 @@ def restore_catalog_cache(root=ROOT):
                 encoded(
                     {
                         "version": bundle["patch_metadata_version"],
-                        "patches": item["patches"],
+                        "patches": history_patch_inventory(item),
                         "metadata_schema_version": bundle.get("patch_metadata_schema_version", 0),
                     }
                 )
@@ -478,6 +488,11 @@ def build_database(root=ROOT, *, restore=True):
         ):
             missing.append({"source_id": source_id, "channel": channel, "reason": "no_release"})
             continue
+        if auxiliary_bundle({"url": download}):
+            missing.append(
+                {"source_id": source_id, "channel": channel, "reason": "non_runtime_asset"}
+            )
+            continue
         if status.get("version") != version or status.get("download_url") != download:
             status = {}
         prior_release = next(
@@ -532,6 +547,9 @@ def build_database(root=ROOT, *, restore=True):
             valid
             and same_version
             and schema_current
+            and patch_completeness_current(
+                family, len(patch_array), status.get("completeness_version", 0), patch_array
+            )
             and status.get("status") == "verified"
             and status.get("download_url") == download
             and status.get("version") == version
@@ -690,13 +708,16 @@ def build_database(root=ROOT, *, restore=True):
         if item["bundle"]["source_id"] not in sources:
             continue
         bundle = item["bundle"].copy()
+        if auxiliary_bundle({"url": bundle.get("download_url", "")}):
+            retired.append(identity)
+            continue
         if not reconcile_release(bundle, sources[bundle["source_id"]]["url"], observations):
             retired.append(identity)
             continue
         if identity not in bundles:
             if sources[bundle["source_id"]]["enabled"]:
                 bundle.update(channels=[], is_latest=False, import_urls={})
-            bundles[identity], details[identity] = bundle, item["patches"]
+            bundles[identity], details[identity] = bundle, history_patch_inventory(item)
             sources[bundle["source_id"]]["bundles"].append(identity)
 
     # Upstream upserts one record per source/version/release category. Keep the
@@ -794,7 +815,15 @@ def build_database(root=ROOT, *, restore=True):
     for bundle in bundles.values():
         if (
             bundle["metadata_status"] == "verified"
-            and bundle.get("patch_metadata_schema_version") != PATCH_METADATA_SCHEMA_VERSION
+            and (
+                bundle.get("patch_metadata_schema_version") != PATCH_METADATA_SCHEMA_VERSION
+                or not patch_completeness_current(
+                    bundle["bundle_type"],
+                    bundle["patch_count"],
+                    bundle.get("patch_completeness_version", 0),
+                    details.get(bundle["id"], []),
+                )
+            )
         ):
             bundle.update(metadata_status="unverified", patch_count=0, need_patches_update=True)
         if bundle.get("extraction_terminal"):
@@ -847,6 +876,25 @@ def build_database(root=ROOT, *, restore=True):
             newest[category] = bundle
     for bundle in newest.values():
         bundle["is_latest"] = True
+    # Keep loader-excluded helper metadata in private history/checkpoints, not
+    # public patch counts, search results, or app compatibility indexes.
+    internal_details, public_positions = {}, {}
+    for identity, bundle in bundles.items():
+        inventory = details.get(identity, [])
+        internal_details[identity] = [
+            patch for patch in inventory if patch.get("loader_excluded") is True
+        ]
+        public_positions[identity] = [
+            position for position, patch in enumerate(inventory)
+            if patch.get("loader_excluded") is not True
+        ]
+        public = [inventory[position] for position in public_positions[identity]]
+        bundle["packages"] = sorted(
+            {package["name"] for patch in public for package in packages_for(patch)}
+        )
+        if bundle["metadata_status"] == "verified":
+            bundle["patch_count"] = len(public)
+
     identifiers = read_json(output / "ids.json", {})
     next_ids = {table: max(mapping.values(), default=0) for table, mapping in identifiers.items()}
 
@@ -882,12 +930,30 @@ def build_database(root=ROOT, *, restore=True):
     # release descriptions or repeating object keys thousands of times.
     # Keep the full text separately for description filters and projections.
     graphql_columns = (
-        "id", "legacy_id", "source_id", "bundle_type", "ecosystem", "version",
-        "created_at", "download_url", "signature_download_url", "file_hash",
-        "icon_url", "owner_avatar_url", "is_prerelease", "is_latest",
-        "need_patches_update", "patcher_failure_fingerprint", "metadata_status",
-        "patcher_runtime", "extraction_status", "patch_count", "release_status",
-        "channels", "import_urls", "release_url",
+        "id",
+        "legacy_id",
+        "source_id",
+        "bundle_type",
+        "ecosystem",
+        "version",
+        "created_at",
+        "download_url",
+        "signature_download_url",
+        "file_hash",
+        "icon_url",
+        "owner_avatar_url",
+        "is_prerelease",
+        "is_latest",
+        "need_patches_update",
+        "patcher_failure_fingerprint",
+        "metadata_status",
+        "patcher_runtime",
+        "extraction_status",
+        "patch_count",
+        "release_status",
+        "channels",
+        "import_urls",
+        "release_url",
     )
     files["graphql-bundles.json"] = {
         "columns": graphql_columns,
@@ -951,6 +1017,8 @@ def build_database(root=ROOT, *, restore=True):
     app_versions, rows = {}, []
     for identity, patches in sorted(details.items()):
         for position, patch in enumerate(patches):
+            if patch.get("loader_excluded") is True:
+                continue
             packages = packages_for(patch)
             rows.append(
                 {
@@ -1163,7 +1231,11 @@ def build_database(root=ROOT, *, restore=True):
         for name, versions in sorted(app_versions.items())
     ]
     files["history.json"] = {
-        key: {"bundle": value, "patches": details.get(key, [])} for key, value in bundles.items()
+        key: {"bundle": value,
+              "patches": [details[key][position] for position in public_positions[key]],
+              "internal_patches": internal_details.get(key, []),
+              "patch_positions": public_positions[key]}
+        for key, value in bundles.items()
     }
     files["availability.json"] = {"missing": missing, "retired_history": retired}
     payloads = {

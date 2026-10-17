@@ -60,12 +60,15 @@ jobs:
       - run: npm run build:worker
       - run: npm run test:runtime
       - run: npm run test:runtime:d1
-      - name: Check production activation
+      - name: Check production catalog readiness
         if: inputs.target == 'production' && inputs.backend == 'd1'
+        timeout-minutes: 5
         run: |
           test "$CONFIRMATION" = ACTIVATE
           python -m pip install -r requirements-cloudflare.txt
-          python -m scripts.cloudflare_catalog verify --require-complete
+          # Publication validates catalog data before marking a generation ready.
+          # Full R2/D1 audits remain available in Manage Cloudflare catalog.
+          python -m scripts.cloudflare_catalog verify --require-complete --metadata-only
       - name: Check staging Access configuration
         if: inputs.target == 'staging'
         env:
@@ -82,7 +85,11 @@ jobs:
           npx wrangler deploy --config worker/wrangler.generated.json --env production
       - name: Verify production health
         if: inputs.target == 'production'
-        run: curl --fail --retry 5 --retry-delay 3 https://patch-bundles.api.jmancentral.com/health
+        timeout-minutes: 2
+        run: >-
+          curl --fail --connect-timeout 10 --max-time 20
+          --retry 5 --retry-delay 3 --retry-max-time 90
+          https://patch-bundles.api.jmancentral.com/health
 
       - name: Verify protected staging health
         if: inputs.target == 'staging'

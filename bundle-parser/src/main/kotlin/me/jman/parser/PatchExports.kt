@@ -6,6 +6,14 @@ import java.util.jar.JarFile
 import kotlinx.serialization.json.*
 import org.objectweb.asm.*
 
+internal fun requireJvmPatchClasses(file: File) {
+    JarFile(file).use { jar ->
+        if (jar.entries().asSequence().none {
+            !it.isDirectory && it.name.endsWith(".class") && !it.name.startsWith("META-INF/")
+        }) throw IncompletePatchInventory("Bundle contains no loadable JVM patch classes")
+    }
+}
+
 private data class PatchExport(val owner: String, val member: String, val method: Boolean)
 
 /** Enumerate declared JVM patch exports independently of loaders that filter unnamed patches. */
@@ -62,33 +70,58 @@ internal fun completePatchMetadata(
     file: File, loader: ClassLoader, namespace: String, loaded: List<Any>,
     convert: (Any) -> JsonObject
 ): JsonArray {
+    requireJvmPatchClasses(file)
     val patches = mutableListOf<JsonObject>()
-    val converted = IdentityHashMap<Any, JsonObject>()
-    for (patch in loaded) {
-        if (!converted.containsKey(patch)) {
-            val metadata = convert(patch)
-            converted[patch] = metadata
-            patches += metadata
-        }
-    }
-    // Match loader results to exports by occurrence, rather than collapsing
-    // distinct patches whose public metadata happens to be identical.
-    val unmatchedLoaded = patches.groupingBy { it }.eachCount().toMutableMap()
-    val seenExports = IdentityHashMap<Any, Boolean>()
-    for (export in patchExports(file, namespace)) {
+    val labels = IdentityHashMap<Any, String>()
+    val exports = patchExports(file, namespace).map { export ->
         try {
             val owner = loader.loadClass(export.owner)
             val patch = if (export.method) owner.getMethod(export.member).invoke(null)
                 else owner.getField(export.member).get(null)
             if (patch == null) throw IncompletePatchInventory("Patch export returned null")
-            if (seenExports.put(patch, true) != null) continue
-            val metadata = converted.getOrPut(patch) { convert(patch) }
-            val matches = unmatchedLoaded[metadata] ?: 0
-            if (matches > 0) unmatchedLoaded[metadata] = matches - 1
-            else patches += metadata
+            val member = if (export.method && export.member.startsWith("get")) export.member.drop(3) else export.member
+            labels.putIfAbsent(patch, member.replace(Regex("([a-z0-9])([A-Z])"), "$1 $2")
+                .replaceFirstChar { it.uppercaseChar() })
+            patch
         } catch (error: Exception) {
             throw IncompletePatchInventory("Could not inspect " + export.owner + "." + export.member).apply { initCause(error) }
         }
+    }
+    val rawConverted = IdentityHashMap<Any, JsonObject>()
+    fun rawMetadata(patch: Any) = rawConverted.getOrPut(patch) { convert(patch) }
+    fun helperMetadata(patch: Any): JsonObject {
+        val value = rawMetadata(patch)
+        // Only exports excluded by the public loader belong to this separate inventory.
+        // A named export omitted by a runtime is an incomplete extraction, not a helper.
+        if (!(value["name"] as? JsonPrimitive)?.contentOrNull.isNullOrBlank())
+            throw IncompletePatchInventory("Public loader omitted a named patch export")
+        return buildJsonObject {
+            value.forEach { (key, field) -> put(key, field) }
+            put("loader_excluded", true)
+            labels[patch]?.let { put("display_name", it) }
+        }
+    }
+    val converted = IdentityHashMap<Any, JsonObject>()
+    val unmatchedLoaded = mutableMapOf<JsonObject, ArrayDeque<Int>>()
+    for (patch in loaded) {
+        if (!converted.containsKey(patch)) {
+            val raw = rawMetadata(patch)
+            unmatchedLoaded.getOrPut(raw) { ArrayDeque() }.addLast(patches.size)
+            if (namespace == "app/morphe/patcher" &&
+                (raw["name"] as? JsonPrimitive)?.contentOrNull.isNullOrBlank())
+                throw IncompletePatchInventory("Morphe public loader returned a patch without a name")
+            converted[patch] = raw
+            patches += raw
+        }
+    }
+    // Match raw publisher metadata by occurrence. Getters may return new instances;
+    // derived display labels must not turn those instances into duplicate patches.
+    val seenExports = IdentityHashMap<Any, Boolean>()
+    for (patch in exports) {
+        if (seenExports.put(patch, true) != null) continue
+        val matches = unmatchedLoaded[rawMetadata(patch)]
+        if (!matches.isNullOrEmpty()) matches.removeFirst()
+        else if (!converted.containsKey(patch)) patches += helperMetadata(patch)
     }
     return JsonArray(patches)
 }

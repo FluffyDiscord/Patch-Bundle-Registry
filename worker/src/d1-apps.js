@@ -10,7 +10,8 @@ export async function browseApps(catalog, params, args, packageName = null, bund
   if ([q,packageQuery,version].some(value=>value.length>512)) throw new CatalogError("Search text too long");
   const bindings = [];
   let filter = catalog.visible("a") + " AND " + catalog.visible("b") + " AND " + catalog.visible("s") +
-    " AND json_extract(s.data,'$.enabled')=1";
+    " AND json_extract(s.data,'$.enabled')=1"+
+    " AND COALESCE(json_extract(b.data,'$.availability'),'available')<>'unavailable'";
   const equal = (expression,value) => {filter+=" AND "+expression+"=?";bindings.push(value);};
   if (packageName !== null) equal("a.record_key",packageName);
   for (const field of ["ecosystem","bundle_type","version","metadata_status"]) if (params.has(field))

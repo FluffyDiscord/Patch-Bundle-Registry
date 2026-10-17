@@ -208,7 +208,9 @@ def filter_records(root, records):
         retained[("source", key)] = {
             **row,
             "bundles": sorted(
-                bundle for bundle, value in bundles.items() if value["source_id"] == key
+                bundle
+                for bundle, value in bundles.items()
+                if value["source_id"] == key and value.get("availability") != "unavailable"
             ),
         }
     metadata = {key: row for (kind, key), row in records.items() if kind == "app"}

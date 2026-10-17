@@ -13,6 +13,7 @@ from pathlib import Path
 
 import httpx
 
+from scripts.catalog_reconciliation import reconcile_retained_records
 from scripts.catalog_records import catalog_records, encode, record_hash
 from scripts.cloudflare_storage import (
     REFRESH_FILES,
@@ -459,6 +460,27 @@ class Cloud:
             for row in previous_records
             if row["kind"] in ("source", "history_source")
         } - configured
+        # A newly verified JVM inventory is authoritative for the same bundle ID.
+        # Historical retention must not resurrect exports now classified as helpers.
+        verified_inventories = {
+            key for (kind, key), row in records.items()
+            if kind == "bundle" and row.get("metadata_status") == "verified"
+        }
+        public_inventories = {
+            key for key in verified_inventories
+            if records["bundle", key].get("patch_completeness_version", 0) >= 4
+        }
+        superseded_patches, superseded_associations = set(), set()
+        for item in previous_records:
+            key = (item["kind"], item["key"])
+            if key in records:
+                continue
+            if key[0] == "patch" and item["data"]["bundle_id"] in public_inventories:
+                superseded_patches.add(key[1])
+            elif key[0] == "patch_package":
+                patch = records.get(("patch", item["data"]["patch_id"]))
+                if patch is not None and patch["bundle_id"] in verified_inventories:
+                    superseded_associations.add(key[1])
         # Retain upstream release deletions for configured (including disabled) sources.
         # Removing the source itself is an explicit purge.
         for item in previous_records:
@@ -466,6 +488,14 @@ class Cloud:
             if key in records or key[0] == "refresh_jobs":
                 continue
             row = item["data"]
+            if key[0] == "patch" and key[1] in superseded_patches:
+                continue
+            # Keep the new verified links, while retaining relationships for
+            # fallback patches and releases absent from the current snapshot.
+            if key[0] == "patch_package" and (
+                row["patch_id"] in superseded_patches or key[1] in superseded_associations
+            ):
+                continue
             if key[0] == "source":
                 row = {**row, "enabled": False, "configured": False}
             elif key[0] == "history_source":
@@ -480,7 +510,7 @@ class Cloud:
                     records[key][field] = sorted(
                         set(records[key].get(field, [])) | set(item["data"].get(field, []))
                     )
-        records = filter_records(ROOT, records)
+        records = filter_records(ROOT, reconcile_retained_records(records))
         exported = [
             {"kind": kind, "key": key, "data": row} for (kind, key), row in sorted(records.items())
         ]
@@ -972,8 +1002,15 @@ def main():
     parser.add_argument("--generation")
     parser.add_argument("--refresh-inputs", action="store_true")
     parser.add_argument("--require-complete", action="store_true")
+    parser.add_argument(
+        "--metadata-only",
+        action="store_true",
+        help="Verify ready generation metadata without scanning R2 objects or D1 records",
+    )
     parser.add_argument("--confirm")
     args = parser.parse_args()
+    if args.metadata_only and args.operation != "verify":
+        parser.error("--metadata-only is only supported for verify")
     cloud = Cloud()
     started = time.perf_counter()
     try:
@@ -1011,11 +1048,16 @@ def main():
             if args.require_complete and not document["complete"]:
                 raise ValueError("Historical backfill is not complete")
             if args.operation == "verify":
-                cloud.verify_document(document)
-                cloud.verify_database(active["seq"], document)
+                cloud.verify_document(document, metadata_only=args.metadata_only)
+                if not args.metadata_only:
+                    cloud.verify_database(active["seq"], document)
                 print(
                     json.dumps(
-                        {"generation": active["generation"], "complete": document["complete"]}
+                        {
+                            "generation": active["generation"],
+                            "complete": document["complete"],
+                            "verification": "metadata-only" if args.metadata_only else "full",
+                        }
                     )
                 )
             elif args.operation == "download":

@@ -36,9 +36,14 @@ export function catalogStats(bundles) {
     return stats;
 }
 
+export function patchDisplayName(patch) {
+    return [patch.name, patch.display_name].find(value =>
+        typeof value === "string" && value.trim()) || (patch.hidden === true ? "Internal patch" : "Name unavailable");
+}
+
 export function patchMatchesSearch(patch, query) {
     const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    const text = [patch.name, patch.description,
+    const text = [patch.name, patch.display_name, patch.description,
         ...(patch.compatiblePackages || []).flatMap(pkg => [pkg.name, pkg.appName || pkg.app_name, ...(pkg.versions || [])])]
         .filter(value => value != null).join(" ").toLowerCase();
     return terms.every(term => text.includes(term));

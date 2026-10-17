@@ -160,9 +160,13 @@ export class D1Catalog extends Catalog {
   }
   publicFilter(kind,args) {
     if (args.include_archived) return args.where;
-    const visibility = kind === "bundle" ? {source:{enabled:{_eq:true}}} :
-      kind === "patch" ? {bundle:{source:{enabled:{_eq:true}}}} :
-      kind === "patch_package" ? {patch:{bundle:{source:{enabled:{_eq:true}}}}} : null;
+    const bundle = {source:{enabled:{_eq:true}},_or:[
+      {availability:{_is_null:true}}, {availability:{_neq:"unavailable"}}
+    ]};
+    const visibility = kind === "bundle" ? bundle :
+      kind === "patch" ? {bundle} :
+      kind === "patch_package" ? {patch:{bundle}} :
+      kind === "package" ? {patch_packages:{patch:{bundle}}} : null;
     return visibility ? {_and:[args.where ?? {},visibility]} : args.where;
   }
   async rows(kind, args = {}, extra = null, maximum = 100) {
@@ -378,7 +382,8 @@ export class D1Catalog extends Catalog {
     if (args.q || args.reverse_pages || args.page_count && args.page_count !== 12)
       return super.patchRows(args);
     const bindings = ["patch"];
-    let filter = this.visible("r");
+    let filter = this.visible("r") + " AND " +
+      this.where("patch",this.publicFilter("patch",{}),"r",bindings);
     const many = (field, values) => {
       bindings.push(JSON.stringify(values));
       filter += " AND " + col("r",field) + " IN (SELECT value FROM json_each(?))";

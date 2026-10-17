@@ -5,7 +5,7 @@ import { runInNewContext } from "node:vm";
 import worker from "../src/index.js";
 import { fixture } from "./fixture.js";
 import { filterApps } from "../../shared/apps.js";
-import { latestReleaseIds, matchesReleaseFilter, countLabel, patchMatchesSearch } from "../../shared/site.js";
+import { latestReleaseIds, matchesReleaseFilter, countLabel, patchMatchesSearch, patchDisplayName } from "../../shared/site.js";
 import { renderPatchOptions } from "../../shared/detail-browser.js";
 import { Catalog } from "../../shared/catalog.js";
 
@@ -157,13 +157,16 @@ test("Apps rendering includes historical matches and opens a details window", as
 test("Bundle patch package labels show names and packages without app images", async () => {
   const source = await readFile(new URL("../../web/app.js",import.meta.url),"utf8");
   const code = source.slice(source.indexOf("function renderPatch("),source.indexOf("\nfunction sourceName("));
-  const context = { escapeHtml: value => String(value ?? ""), renderPatchOptions };
+  const context = { escapeHtml: value => String(value ?? ""), renderPatchOptions, patchDisplayName };
   runInNewContext(code, context);
   const html = context.renderPatch({name:"Hide ads",
     compatiblePackages:[{name:"com.video",appName:"Video App",versions:["1.0"]}]});
   assert.match(html,/Video App/);
   assert.match(html,/com.video/);
   assert.doesNotMatch(html,/<img/);
+  const internal = context.renderPatch({name:"  ",display_name:"Enable Android Debugging Patch",hidden:true});
+  assert.match(internal,/Enable Android Debugging Patch/);
+  assert.match(internal,/Internal patch/);
 });
 
 test("Apps tab hides irrelevant controls and supports keyboard navigation", async () => {

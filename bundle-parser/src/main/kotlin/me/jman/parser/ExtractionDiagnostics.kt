@@ -44,7 +44,12 @@ internal fun workerFailure(error: Throwable): Pair<String, String> {
         chain.any { it is IncompletePatchInventory } -> "incomplete_patch_inventory"
         else -> "runtime_parsing_failure"
     }
-    return status to chain.joinToString(" <- ") { it.javaClass.simpleName }.take(500)
+    val missing = chain.filter { it is ClassNotFoundException || it is NoClassDefFoundError }
+        .mapNotNull { it.message }.map(::sanitizedWorkerLog).firstOrNull {
+            Regex("[A-Za-z_$][A-Za-z0-9_$./]*").matches(it)
+        }?.replace('/', '.')
+    val cause = chain.joinToString(" <- ") { it.javaClass.simpleName }
+    return status to (cause + (missing?.let { " " + it } ?: "")).take(500)
 }
 
 internal class IncompletePatchInventory(message: String) : IllegalStateException(message)

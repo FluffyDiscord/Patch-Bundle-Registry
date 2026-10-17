@@ -1,6 +1,27 @@
 package me.jman.parser
 
 import java.io.File
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.contentOrNull
+
+/** Repair mixed Morphe public/helper inventories; retain healthy named checkpoints. */
+internal fun hasCurrentPatchCompleteness(family: String, patches: JsonArray, version: Int): Boolean {
+    if (family == "Morphe:V1" && patches.any {
+        val patch = it as? JsonObject
+        (patch?.get("name") as? JsonPrimitive)?.contentOrNull.isNullOrBlank() &&
+            patch?.get("loader_excluded") != JsonPrimitive(true)
+    }) return false
+    return version >= when {
+        family == "Reseam" -> 1
+        family == "Morphe:V1" && patches.any {
+            ((it as? JsonObject)?.get("name") as? JsonPrimitive)?.contentOrNull.isNullOrBlank()
+        } -> 4
+        patches.isEmpty() -> 2
+        else -> 0
+    }
+}
 
 /** Bound retained JSON as well as entry count; eviction only causes normal extraction. */
 internal class RuntimeResultCache(
@@ -54,7 +75,7 @@ internal object ExtractionCache {
             content == null || content.version != record.version ||
             content.metadata_schema_version != PATCH_METADATA_SCHEMA_VERSION ||
             !isUsablePatchArray(content.patches) ||
-            ((content.patches.isEmpty() || family == "Reseam") && record.completeness_version < 1) || !list.isFile ||
+            !hasCurrentPatchCompleteness(family, content.patches, record.completeness_version) || !list.isFile ||
             record.patch_list_hash != sha256(list)) return
         put(family, RuntimeResult(content.patches, "verified", record.file_hash, record.runtime,
             reseamBundle = record.reseam_bundle, completenessVersion = record.completeness_version))

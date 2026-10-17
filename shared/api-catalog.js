@@ -34,6 +34,55 @@ export class ApiCatalog extends Catalog {
   async bundlePages(source = null) {
     const rows = [];
     let offset = 0, limit = 100;
+    const read = async (start, size, partial = false) => {
+      const params = new URLSearchParams({limit:String(size),offset:String(start),
+        generation:this.manifest.generation});
+      if (source) params.set("source",source);
+      const response = await this.fetcher(this.api + "/catalog/bundles?" + params);
+      if (response.status === 422 && size > 1) {
+        const left = Math.ceil(size / 2);
+        if (partial) return read(start,left,true);
+        const first = await read(start,left);
+        if (first.data.length < left) return first;
+        const second = await read(start+left,size-left);
+        return {...first,data:[...first.data,...second.data]};
+      }
+      if (!response.ok) {
+        const error = new CatalogError("Catalog changed or unavailable; reload the page",response.status);
+        error.generationUnavailable = response.status === 409;
+        throw error;
+      }
+      const page = await response.json();
+      if (!Array.isArray(page.data) || page.data.length > size)
+        throw new CatalogError("Invalid bundle pagination response",502);
+      return {...page,pageLimit:size};
+    };
+    const first = await read(0,limit,true);
+    limit = first.pageLimit;
+    if (Number.isSafeInteger(first.total) && first.total >= first.data.length) {
+      const pages = new Map([[0,first.data]]);
+      let next = first.data.length;
+      if (!next && first.total) throw new CatalogError("Invalid bundle pagination response",502);
+      let failed = false;
+      const worker = async () => {
+        while (!failed && next < first.total) {
+          const start = next, size = Math.min(limit,first.total-start);
+          next += size;
+          try {
+            const page = await read(start,size);
+            if (page.total !== first.total || page.data.length !== size)
+              throw new CatalogError("Invalid bundle pagination response",502);
+            pages.set(start,page.data);
+          } catch (error) { failed = true;throw error; }
+        }
+      };
+      await Promise.all(Array.from({length:Math.min(3,Math.ceil((first.total-next)/limit))},worker));
+      return [...pages].sort((a,b)=>a[0]-b[0]).flatMap(([,data])=>data);
+    }
+    rows.push(...first.data);
+    if (first.data.length < limit) return rows;
+    offset = first.data.length;
+    // Older API deployments do not expose a total; retain sequential pagination.
     while (true) {
       const params = new URLSearchParams({limit:String(limit),offset:String(offset),
         generation:this.manifest.generation});
@@ -115,7 +164,10 @@ export class ApiCatalog extends Catalog {
     return {rows,next_cursor:null,candidate_pages:1};
   }
   async bundles({sources = []} = {}) {
-    if (!this.bundleRows.length) this.bundleRows = await this.bundlePages();
+    if (!this.bootstrap) this.bootstrap = this.bundlePages().then(rows=>{
+      this.bundleRows = [...new Map([...rows,...this.bundleRows].map(row=>[row.id,row])).values()];
+    }).catch(error=>{this.bootstrap = null;throw error;});
+    await this.bootstrap;
     for (const source of new Set(sources)) await this.historyBundles(source);
     return this.bundleRows;
   }

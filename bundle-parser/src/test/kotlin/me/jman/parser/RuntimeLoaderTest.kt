@@ -105,7 +105,7 @@ class RuntimeLoaderTest {
         }
     }
 
-    @Test fun morphePreservesUnnamedMetadataAndEmptyLists() {
+    @Test fun morpheRejectsMissingPublicNamesButAcceptsEmptyLists() {
         for (result in listOf("java.util.List.of()", """java.util.List.of(new app.revanced.patcher.patch.Patch() {
             public String getName() { return null; }
         })""")) withRuntime(
@@ -118,15 +118,9 @@ class RuntimeLoaderTest {
                }"""
         ) { jar, artifact ->
             System.setProperty("morphe.patcher.classpath", jar.path)
-            val patches = assertNotNull(generateMorphePatchList(artifact.toURI()))
-            if (result == "java.util.List.of()") assertTrue(patches.isEmpty())
-            else {
-                val patch = patches.single().jsonObject
-                assertEquals(JsonNull, patch["name"])
-                assertEquals("Isolated runtime", patch["description"]?.jsonPrimitive?.content)
-                assertEquals(listOf("1.0"), patch.getValue("compatiblePackages").jsonObject
-                    .getValue("com.runtime.app").jsonArray.map { it.jsonPrimitive.content })
-            }
+            if (result == "java.util.List.of()")
+                assertTrue(assertNotNull(generateMorphePatchList(artifact.toURI())).isEmpty())
+            else assertFailsWith<IncompletePatchInventory> { generateMorphePatchList(artifact.toURI()) }
         }
     }
 
@@ -252,7 +246,11 @@ class RuntimeLoaderTest {
                 }
             }
             val artifact = File(root, "fixture.rvp")
-            JarOutputStream(artifact.outputStream()).use {}
+            JarOutputStream(artifact.outputStream()).use {
+                it.putNextEntry(JarEntry("fixture/BundleMarker.class"))
+                it.write(fixtureJvmClass())
+                it.closeEntry()
+            }
             run(jar, artifact)
         } finally {
             previous.forEach { (key, value) ->

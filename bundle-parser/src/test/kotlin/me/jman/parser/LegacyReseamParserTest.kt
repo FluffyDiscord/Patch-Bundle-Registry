@@ -195,11 +195,13 @@ class LegacyReseamParserTest {
                 }
                 val result = parseReseamInspection(body.toString(), "hash", "historical-audit")
                 assertEquals("verified", result.status, row.getValue("url").jsonPrimitive.content)
-                assertEquals(expected, result.patches?.size)
+                assertEquals(body.getValue("patches").jsonArray.size, result.patches?.size)
+                assertEquals(body.getValue("patches").jsonArray.map { it.jsonObject["name"] },
+                    result.patches!!.map { it.jsonObject["name"] }, "Publisher names must pass through unchanged")
                 assertTrue(expected > 0)
                 report += buildJsonObject {
                     put("url", row.getValue("url")); put("version", row.getValue("version"))
-                    put("patches", expected); put("status", "verified")
+                    put("patches", result.patches!!.size); put("status", "verified")
                 }
             }
             File(File(manifest).parentFile, "catalog-results.json").writeText(JsonArray(report).toString())

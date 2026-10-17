@@ -54,7 +54,9 @@ def test_reseam_catalog_preserves_publisher_and_native_import(tmp_path):
         write(raw_path, raw)
         status_path = folder / f"demo-{channel}-extraction.json"
         status = db.read_json(status_path)
-        status.update(download_url=raw["download_url"], reseam_bundle=publisher)
+        status.update(
+            download_url=raw["download_url"], reseam_bundle=publisher, completeness_version=1
+        )
         write(status_path, status)
     first = db.build_database(tmp_path)
     _, bundles = snapshot(tmp_path, first)

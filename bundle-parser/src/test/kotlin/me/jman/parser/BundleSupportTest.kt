@@ -29,3 +29,20 @@ class BundleSupportTest {
         } finally {root.deleteRecursively()}
     }
 }
+
+
+class CompilerDependencySampleTest {
+    @Test fun missingCompileOnlyDependencyCanBeRecoveredFromPinnedSupport() {
+        val path = System.getenv("CATALOG_VOICEOVER_ARTIFACT") ?: return
+        val artifact = File(path)
+        val config = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+            .decodeFromString<RuntimeConfiguration>(
+                File(catalogProjectRoot(), "config/patcher-runtimes.json").readText())
+        val support = supportArtifacts(config, sha256(artifact))
+        assertTrue(support.isNotEmpty())
+        val result = extractWithRuntimes(artifact.toURI(), false, "ReVanced:v22")
+        assertEquals("verified", result.status, result.attempts.toString())
+        assertEquals(3, result.patches!!.size)
+        assertTrue(isUsablePatchArray(result.patches!!))
+    }
+}

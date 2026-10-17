@@ -4,9 +4,11 @@ import hashlib
 import json
 
 try:
+    from scripts.extraction_policy import history_patch_inventory
     from scripts.release_assets import canonical_bundle_type
     from scripts.release_history import reconcile_release
 except ModuleNotFoundError:
+    from extraction_policy import history_patch_inventory
     from release_assets import canonical_bundle_type
     from release_history import reconcile_release
 
@@ -77,7 +79,7 @@ def restore_history(root, history, inventory):
                 json.dumps(
                     {
                         "version": bundle["patch_metadata_version"],
-                        "patches": item["patches"],
+                        "patches": history_patch_inventory(item),
                         "metadata_schema_version": bundle.get("patch_metadata_schema_version", 0),
                     },
                     indent=2,

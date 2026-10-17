@@ -96,7 +96,7 @@ internal fun historicalWork(root: File, limit: Int, fingerprint: String, disable
             content != null && content.version == version && isUsablePatchArray(content.patches) &&
             content.metadata_schema_version == PATCH_METADATA_SCHEMA_VERSION &&
             patches.isFile && record.patch_list_hash == sha256(patches) &&
-            ((content.patches.isNotEmpty() && family != "Reseam") || record.completeness_version >= 1)
+            hasCurrentPatchCompleteness(family, content.patches, record.completeness_version)
         if (verified || pausedFailure(record, version, download, family,
                 providerDigest, fingerprint))
             return@mapNotNull null

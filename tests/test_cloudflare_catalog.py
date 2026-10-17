@@ -473,3 +473,86 @@ def test_publication_requires_current_enabled_source_coverage(tmp_path, monkeypa
     )
     memory.publish()
     assert memory.document(memory.active())["complete"] is True
+
+
+def test_repaired_public_inventory_does_not_restore_old_helpers_from_d1(tmp_path, monkeypatch):
+    from test_generate_database import write
+
+    memory = MemoryCloud(tmp_path)
+    monkeypatch.setattr(cloud, "ROOT", tmp_path)
+    catalog(tmp_path)
+    folder = tmp_path / "internal/cache/bundles/demo-patch-bundles"
+    helper = {"name": None, "compatiblePackages": {"com.helper.only": None}}
+    for repaired in (False, True):
+        for channel in ("latest", "stable"):
+            path = folder / f"demo-{channel}-patches-list.json"
+            payload = db.read_json(path)
+            if repaired:
+                payload["patches"][0]["loader_excluded"] = True
+            else:
+                payload["patches"].insert(0, helper.copy())
+            write(path, payload)
+            status_path = folder / f"demo-{channel}-extraction.json"
+            status = db.read_json(status_path)
+            status.update(patch_list_hash=db.digest(path.read_bytes()),
+                          completeness_version=4 if repaired else 0)
+            write(status_path, status)
+        db.build_database(tmp_path, restore=False)
+        memory.publish()
+        records = memory.read_records(memory.document(memory.active()))
+        patches = [row["data"] for row in records if row["kind"] == "patch"]
+        if not repaired:
+            assert len(patches) == 2
+            named_id = next(p["id"] for p in patches if p["name"])
+        else:
+            assert len(patches) == 1 and patches[0]["name"] == "Hide ads"
+            assert patches[0]["id"] == named_id
+            assert all(row["data"]["name"] != "com.helper.only"
+                       for row in records if row["kind"] == "package")
+            assert all(row["key"] != "com.helper.only"
+                       for row in records if row["kind"] == "app")
+            memory.verify_database(memory.active()["seq"], memory.document(memory.active()))
+
+
+@pytest.mark.parametrize(
+    "family,completeness", [("ReVanced:v22", 0), ("Reseam", 1), ("Morphe:V1", 4)]
+)
+def test_verified_repair_replaces_obsolete_compatibility_relationships(
+    tmp_path, monkeypatch, family, completeness
+):
+    from test_generate_database import write
+
+    memory = MemoryCloud(tmp_path)
+    monkeypatch.setattr(cloud, "ROOT", tmp_path)
+    catalog(tmp_path)
+    folder = tmp_path / "internal/cache/bundles/demo-patch-bundles"
+    for channel in ("latest", "stable"):
+        raw_path = folder / f"demo-{channel}-patches-bundle.json"
+        raw = db.read_json(raw_path)
+        raw["bundle_type"] = family
+        write(raw_path, raw)
+        status_path = folder / f"demo-{channel}-extraction.json"
+        status = db.read_json(status_path)
+        status["completeness_version"] = completeness
+        write(status_path, status)
+    db.build_database(tmp_path, restore=False)
+    memory.publish()
+    for channel in ("latest", "stable"):
+        patch_path = folder / f"demo-{channel}-patches-list.json"
+        payload = db.read_json(patch_path)
+        payload["patches"][0]["compatiblePackages"] = {"com.video": ["1.0"]}
+        write(patch_path, payload)
+        status_path = folder / f"demo-{channel}-extraction.json"
+        status = db.read_json(status_path)
+        status.update(
+            patch_list_hash=db.digest(patch_path.read_bytes()), completeness_version=completeness
+        )
+        write(status_path, status)
+    db.build_database(tmp_path, restore=False)
+    memory.publish()
+    records = memory.read_records(memory.document(memory.active()))
+    packages = [item["data"] for item in records if item["kind"] == "package"]
+    assert [(row["name"], row["version"]) for row in packages] == [("com.video", "1.0")]
+    associations = [item["data"] for item in records if item["kind"] == "patch_package"]
+    assert len(associations) == 1
+    memory.verify_database(memory.active()["seq"], memory.document(memory.active()))

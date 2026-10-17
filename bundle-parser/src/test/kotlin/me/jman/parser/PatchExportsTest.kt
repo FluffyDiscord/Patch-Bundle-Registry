@@ -77,14 +77,18 @@ class PatchExportsTest {
             val visible = exports.getMethod("getVisible").invoke(null)
             val hidden = exports.getMethod("getHidden").invoke(null)
             val second = exports.getMethod("getSecondHidden").invoke(null)
-            for (loaded in listOf(listOf(visible), listOf(visible, hidden, second))) {
-                val result = completePatchMetadata(jar, loader, "app/morphe/patcher", loaded) {
+            assertFailsWith<IncompletePatchInventory> {
+                completePatchMetadata(jar,loader,"app/morphe/patcher",listOf(visible,hidden,second)) {
                     val name = it.javaClass.getField("name").get(it) as? String
-                    buildJsonObject { put("name", name?.let(::JsonPrimitive) ?: JsonNull) }
+                    buildJsonObject { put("name",name?.let(::JsonPrimitive) ?: JsonNull) }
                 }
-                assertEquals(3, result.size)
-                assertEquals(2, result.count { it.jsonObject["name"] == JsonNull })
             }
+            val result = completePatchMetadata(jar, loader, "app/morphe/patcher", listOf(visible)) {
+                val name = it.javaClass.getField("name").get(it) as? String
+                buildJsonObject { put("name", name?.let(::JsonPrimitive) ?: JsonNull) }
+            }
+            assertEquals(3, result.size)
+            assertEquals(2, result.count { it.jsonObject["loader_excluded"] == JsonPrimitive(true) })
         }
 
     @Test fun modernExportsCannotBecomeAnEmptyVerifiedLegacyList() = fixture { jar, _ ->

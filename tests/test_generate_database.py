@@ -530,6 +530,7 @@ def test_unnamed_patches_and_empty_verified_bundles_survive_publication_and_rest
             status_path = folder / f"demo-{channel}-extraction.json"
             status = db.read_json(status_path)
             status["patch_list_hash"] = db.digest(patch_path.read_bytes())
+            status["completeness_version"] = 2
             write(status_path, status)
         manifest = db.build_database(tmp_path)
         path, bundles = snapshot(tmp_path, manifest)

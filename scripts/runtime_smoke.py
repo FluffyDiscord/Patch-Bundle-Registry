@@ -52,6 +52,7 @@ def smoke(real=False):
     with fixture_directory() as temporary:
         folder = Path(temporary)
         sources = {
+            "fixture/BundleMarker.java": "package fixture; public class BundleMarker {}",
             "app/revanced/patcher/patch/Patch.java": """
 package app.revanced.patcher.patch;
 public class Patch {
@@ -90,9 +91,10 @@ public class PatchKt {
         with zipfile.ZipFile(runtime_jar, "w") as jar:
             for path in classes.rglob("*.class"):
                 jar.write(path, path.relative_to(classes).as_posix())
-        # The bundle itself supplies metadata only; the fixture runtime supplies a reflective patch.
+        # Include compiled code in the bundle; the fixture runtime supplies a reflective patch.
         artifact = folder / "fixture.rvp"
         with zipfile.ZipFile(artifact, "w") as jar:
+            jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
             jar.writestr("META-INF/MANIFEST.MF", "Manifest-Version: 1.0\n\n")
         fixture_config = {
             # Windows JVM startup can take over two seconds for a crash/restart pair.
@@ -202,16 +204,19 @@ public class PatchKt {
             assert inspected["runtime"] == "app.revanced:revanced-patcher:11.0.4"
         morphe = folder / "fixture.mpp"
         with zipfile.ZipFile(morphe, "w") as jar:
+            jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
             jar.writestr(
                 "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 1.9.0\n\n"
             )
         assert extract(morphe, "declared Morphe runtime")["status"] == "verified"
         with zipfile.ZipFile(morphe, "w") as jar:
+            jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
             jar.writestr(
                 "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 2.0.0\n\n"
             )
         assert extract(morphe, "unmatched Morphe version tries fallback")["status"] == "verified"
         with zipfile.ZipFile(morphe, "w") as jar:
+            jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
             jar.writestr(
                 "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: legacy\n\n"
             )
@@ -257,6 +262,7 @@ public class PatchKt {
             "alternate": {"available": True, "classpath": str(runtime_jar)},
         }
         with zipfile.ZipFile(morphe, "w") as jar:
+            jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
             jar.writestr(
                 "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 1.0.0\n\n"
             )
@@ -277,12 +283,14 @@ public class PatchKt {
         )
         assert recovered["status"] == "verified" and recovered["runtime"] == "test:preferred:2.0.0"
         with zipfile.ZipFile(morphe, "w") as jar:
+            jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
             jar.writestr("META-INF/MANIFEST.MF", "Manifest-Version: 1.0\n\n")
         newest = extract(
             morphe, "missing declaration starts with latest", fallback_config, both_working
         )
         assert newest["status"] == "verified" and newest["runtime"] == "test:preferred:2.0.0"
         with zipfile.ZipFile(morphe, "w") as jar:
+            jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
             jar.writestr(
                 "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 2.0.0\n\n"
             )
@@ -302,7 +310,7 @@ public class PatchKt {
         rejected = extract(morphe, "all Morphe runtimes reject", fallback_config, all_rejected)
         assert rejected["terminal"] and rejected["status"] == "runtime_parsing_failure"
         assert extract(artifact, "unrelated bundle after failure")["status"] == "verified"
-        # Null names and legitimate empty collections remain successful in both families.
+        # Morphe requires named public patches; legacy nullable metadata remains readable.
         patch_source = folder / "app/revanced/patcher/patch/Patch.java"
         patch_source.write_text(
             sources["app/revanced/patcher/patch/Patch.java"].replace(
@@ -316,11 +324,15 @@ public class PatchKt {
         for path in (artifact, morphe):
             if path == morphe:
                 with zipfile.ZipFile(path, "w") as jar:
+                    jar.write(classes / "fixture/BundleMarker.class", "fixture/BundleMarker.class")
                     jar.writestr(
                         "META-INF/MANIFEST.MF", "Manifest-Version: 1.0\nPatcher-Version: 1.9.0\n\n"
                     )
             result = extract(path, "unnamed " + path.suffix)
-            assert result["status"] == "verified" and result["patch_count"] == 1
+            if path == morphe:
+                assert result["status"] == "incomplete_patch_inventory" and result["terminal"]
+            else:
+                assert result["status"] == "verified" and result["patch_count"] == 1
         for name in (
             "app/revanced/patcher/patch/PatchKt.java",
             "app/morphe/patcher/patch/PatchKt.java",

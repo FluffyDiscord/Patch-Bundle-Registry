@@ -38,6 +38,7 @@ private fun annotationReader(annotation: BinaryAnnotation): AnnotationVisitor =
     }
 
 fun parseLegacyPatchBundle(file: File, patchClassNames: Set<String>? = null): JsonArray {
+    requireJvmPatchClasses(file)
     val classes = linkedMapOf<String, AnnotatedClass>()
     JarFile(file).use { jar ->
         for (entry in jar.entries().asSequence()) {

@@ -313,7 +313,7 @@ private fun sanitizeDependencies(patches: JsonArray): JsonArray {
             val obj = element as? JsonObject ?: return@map element
             val dependencies = obj["dependencies"] as? JsonArray ?: return@map element
             val sanitized = JsonArray(
-                dependencies.map { dep ->
+                dependencies.filter { it != JsonNull }.map { dep ->
                     val primitive = dep as? JsonPrimitive ?: return@map dep
                     JsonPrimitive(primitive.content.substringBefore("@"))
                 }
@@ -692,16 +692,18 @@ private fun fetchReleaseMetadata(location: ReleaseLocation): JsonObject? {
     return null
 }
 
-private fun findPatchMetadataAsset(releaseJson: JsonObject): String? {
+internal fun findPatchMetadataAsset(releaseJson: JsonObject): String? {
     val assets = releaseJson["assets"]?.jsonArray ?: return null
     val candidates = assets.mapNotNull { it as? JsonObject }
     fun JsonObject.downloadUrl(): String? = this["browser_download_url"]?.jsonPrimitive?.contentOrNull
     fun JsonObject.assetName(): String = this["name"]?.jsonPrimitive?.contentOrNull.orEmpty()
 
     val prioritized = candidates.firstOrNull { it.assetName().equals("patches.json", ignoreCase = true) }
+        ?: candidates.firstOrNull { it.assetName().equals("patches-list.json", ignoreCase = true) }
         ?: candidates.firstOrNull {
             val lower = it.assetName().lowercase(Locale.ROOT)
-            lower.endsWith("patches.json") || (lower.contains("patch") && lower.endsWith(".json"))
+            lower != "patches-bundle.json" &&
+                (lower.endsWith("patches.json") || (lower.contains("patch") && lower.endsWith(".json")))
         }
     return prioritized?.downloadUrl()
 }

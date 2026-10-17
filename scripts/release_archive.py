@@ -8,10 +8,12 @@ try:
     from scripts.git_hosts import normalize_source
     from scripts.release_assets import release_assets
     from scripts.release_history import release_is_prerelease
+    from scripts.source_policy import source_availability
 except ModuleNotFoundError:
     from git_hosts import normalize_source
     from release_assets import release_assets
     from release_history import release_is_prerelease
+    from source_policy import source_availability
 
 
 def stable_id(*parts):
@@ -29,6 +31,7 @@ def reconcile_archive(root, inventory, release_sets):
     ):
         raise ValueError("Invalid historical archive; refusing to overwrite it")
     now = datetime.now(UTC).isoformat()
+    availability = source_availability(root)
     configured = {}
     for settings in inventory.values():
         if isinstance(settings, dict) and settings.get("patches"):
@@ -50,7 +53,9 @@ def reconcile_archive(root, inventory, release_sets):
             continue
         releases = release_sets.get(canonical)
         if releases is None:
-            state.update(status="incomplete", error="Complete upstream inventory unavailable")
+            reason = availability.get(canonical)
+            error = "Complete upstream inventory unavailable"
+            state.update(status="incomplete", error=f"{error}: {reason}" if reason else error)
             continue
         seen = set()
         for release in releases:
@@ -127,11 +132,10 @@ def reconcile_archive(root, inventory, release_sets):
             ):
                 record.update(availability="unavailable", last_verified_at=now)
         state.update(status="complete", error=None, verified_at=now, upstream_count=len(seen))
-    archive["sources"] = {
-        key: row for key, row in archive["sources"].items() if key in configured
-    }
+    archive["sources"] = {key: row for key, row in archive["sources"].items() if key in configured}
     archive["releases"] = {
-        key: row for key, row in archive["releases"].items()
+        key: row
+        for key, row in archive["releases"].items()
         if row["source_url"].lower() in configured
     }
     path.parent.mkdir(parents=True, exist_ok=True)

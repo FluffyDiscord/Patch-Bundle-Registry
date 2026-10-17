@@ -7,10 +7,14 @@ No upstream backend source is incorporated. See docs/source-attribution.md.
 import re
 from collections.abc import Mapping
 from pathlib import PurePosixPath
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
-BUNDLE_TYPES = {".rvp": "ReVanced:v22", ".mpp": "Morphe:V1", ".jar": "ReVanced:v21",
-                ".reseam": "Reseam"}
+BUNDLE_TYPES = {
+    ".rvp": "ReVanced:v22",
+    ".mpp": "Morphe:V1",
+    ".jar": "ReVanced:v21",
+    ".reseam": "Reseam",
+}
 
 
 def canonical_bundle_type(value):
@@ -61,11 +65,25 @@ def asset_extension(asset):
     return PurePosixPath(asset.get("name", "").split("?", 1)[0].split("#", 1)[0]).suffix.lower()
 
 
+def auxiliary_bundle(asset):
+    """Source, documentation and test archives are not runnable patch bundles."""
+    filename = unquote(urlsplit(asset["url"]).path.rsplit("/", 1)[-1])
+    if not PurePosixPath(filename).suffix:
+        filename = asset.get("name", "").split("?", 1)[0].split("#", 1)[0].rsplit("/", 1)[-1]
+    return bool(
+        re.search(
+            r"(?:^|[-_.])(?:sources?|javadoc|docs?|tests?|test-fixtures)$",
+            PurePosixPath(filename).stem,
+            re.IGNORECASE,
+        )
+    )
+
+
 def choose_patch_bundle(assets):
-    """Prefer the first explicit bundle in provider order, then the first JAR."""
+    """Prefer the first runnable explicit bundle in provider order, then a JAR."""
     for extensions in ({".rvp", ".mpp", ".reseam"}, {".jar"}):
         for asset in assets:
-            if asset_extension(asset) in extensions:
+            if asset_extension(asset) in extensions and not auxiliary_bundle(asset):
                 return asset
     return None
 
@@ -87,7 +105,11 @@ def _filename(asset, extension):
 def artifact_signature(download, assets):
     """Match URL/query first, then an unambiguous name; never guess across bundles."""
     assets = [{"url": item, "name": ""} if isinstance(item, str) else item for item in assets]
-    candidates = [item for item in assets if asset_extension(item) in BUNDLE_TYPES]
+    candidates = [
+        item
+        for item in assets
+        if asset_extension(item) in BUNDLE_TYPES and not auxiliary_bundle(item)
+    ]
     signatures = [item for item in assets if asset_extension(item) == ".asc"]
     bundle = next((item for item in candidates if item["url"] == download), None)
     if bundle is None:

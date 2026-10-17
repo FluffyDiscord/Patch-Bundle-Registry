@@ -72,7 +72,9 @@ Bundle `created_at` and source metadata `repo_pushed_at` are strings, matching t
 
 Text range comparisons, sorting and string min/max use the same deterministic PostgreSQL collation. The default profile is libc `en_US.utf8` from glibc 2.36, including multi-character collation elements; `C`/`POSIX` and `C.UTF-8` use UTF-8 byte ordering. Precomputed patch statistics use the configured catalog locale as well.
 
-Patch names can be null or empty; the website displays “Unnamed patch” and preserves their descriptions and compatibility. Missing descriptions remain null in GraphQL. A verified bundle can contain zero patches. Reseam lists include internal dependency patches, identified by `hidden: true` and labeled “Internal patch” on the website. Use patch IDs to distinguish entries: separate patches can share the same name or displayed metadata.
+Morphe patch lists follow the patcher's public loader and preserve publisher names. Helper exports excluded by that loader do not appear in public patch lists, counts, search results or app compatibility. If a Morphe runtime returns a public patch without a name or omits a named export, extraction remains unverified and other compatible runtimes are tried.
+
+Other formats can provide null or empty names. A missing name alone does not identify an internal patch; the website uses “Name unavailable” when no display label exists. Reseam's explicit `hidden: true` metadata identifies internal dependency patches and displays an “Internal patch” badge. Missing descriptions remain null in GraphQL. A verified bundle can contain zero public patches. Use patch IDs to distinguish entries: separate patches can share the same name or displayed metadata.
 
 A bundle that cannot be extracted may have `need_patches_update: false` while its metadata remains unverified. This means extraction retries are paused, not that the patch list is complete. Upstream fixes or registry updates can make it eligible again; temporary download and extraction failures remain eligible for retry.
 
@@ -116,7 +118,7 @@ subscription NewBundles {
 
 The `is_latest` flag identifies the newest stable release and newest prerelease separately for each source, across bundle formats and retained history. Configured channel pointers remain available independently through `channels` and REST channel filters; manager latest imports use `is_latest`.
 
-Promoted releases are reclassified without losing verified patch data. Standard browsing excludes deleted releases, drafts and releases without patch assets. The historical API preserves previously indexed published releases and marks missing upstream releases unavailable; it also includes releases without patch assets. Drafts are excluded. Temporary provider failures retain the last successful inventory. A latest prerelease import returns 404 when no eligible prerelease remains.
+Promoted releases are reclassified without losing verified patch data. Standard browsing excludes deleted releases, drafts and releases without patch assets. The historical API preserves previously indexed published releases and marks missing upstream releases unavailable; it also includes releases without patch assets. Drafts are excluded. Retired bundle identities and their patches remain available through historical endpoints and are excluded from ordinary browsing. Identical artifact aliases are reconciled without discarding distinct historical binaries. Temporary provider failures retain the last successful inventory. A latest prerelease import returns 404 when no eligible prerelease remains.
 
 Refresh-job queries combine separate `BUNDLES` discovery and `PATCHES` extraction records with recent GitHub Actions refresh runs (`ALL`). Statuses are STARTED (including queued phases), COMPLETED and FAILED; cancellation is reported as FAILED. The status endpoint accepts a phase's UUID `job_id` or a numeric Actions run ID and returns the upstream fields `jobId`, `type`, `status`, `startedAt`, `completedAt` and `error`. Collection and GraphQL records retain snake_case field names. Legacy phase status follows catalog checkpoints. Cloud mode publishes phase records with the next verified generation; numeric Actions status remains live during a refresh. Live Actions status can be cached for 15 seconds to two minutes.
 
@@ -129,6 +131,10 @@ Release history is indexed independently of current release channels. Each index
 For current and historical bundles, the registry tries the declared patcher runtime when available, then compatible runtimes from newest to oldest. Bundles without a matching declaration start with the newest configured runtime. ReVanced v21 and v22 are handled separately, and older Reseam bundles use compatible engines. Missing downloads, incomplete bundles, or unavailable dependencies can prevent verification. A recorded release does not guarantee that its patch list is available.
 
 The website checks for a new generation every 15 seconds while visible; active subscriptions check every second. Published data can lag behind upstream releases while discovery, extraction, or caching is in progress.
+
+Source-code, documentation and test archives are excluded from patch-bundle selection. If a release provides these alongside a compiled patch bundle, the compiled artifact is selected.
+
+Android DEX-only archives and metadata-only archives cannot be verified by the JVM extractor. Published patch metadata may still appear as an unverified fallback; an empty loader result does not verify these archives.
 
 A verified list was extracted from the matching bundle and passed the registry's metadata checks. Fallback metadata remains unverified. `need_patches_update` is true while extraction is pending or needs a retry; it can be false for a rejected bundle whose retries are paused. Check `metadata_status` to determine whether a list is verified. Full release notes are available from bundle collections, detail and manager endpoints.
 

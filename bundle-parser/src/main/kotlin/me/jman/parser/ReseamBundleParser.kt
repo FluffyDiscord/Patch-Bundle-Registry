@@ -37,6 +37,13 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
     val ids = inventory.mapNotNull { (it["id"] as? JsonPrimitive)?.contentOrNull }
     if (ids.size != ids.distinct().size)
         throw IncompletePatchInventory("Inspector repeated a patch ID")
+    fun JsonObject.patchText(key: String): JsonElement {
+        val value = getValue(key)
+        require(value == JsonNull || value is JsonPrimitive && value.isString) {
+            "Invalid Reseam patch $key"
+        }
+        return value
+    }
     val patches = inventory.map { patch ->
             val compatibility = patch.getValue("compatibility").jsonObject
             val packages = when (compatibility.text("kind")) {
@@ -50,9 +57,9 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
                 else -> error("Unsupported Reseam compatibility")
             }
             buildJsonObject {
-                put("name", patch.text("name"))
+                put("name", patch.patchText("name"))
                 put("hidden", patch.getValue("hidden").jsonPrimitive.boolean)
-                put("description", patch.text("description"))
+                put("description", patch.patchText("description"))
                 put("use", patch.getValue("enabled_by_default").jsonPrimitive.boolean)
                 put("dependencies", patch.getValue("dependencies").jsonArray)
                 put("compatiblePackages", packages)
