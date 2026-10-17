@@ -184,8 +184,12 @@ export class D1Catalog extends Catalog {
       filter += " AND " + col("r", extra.field) + "=?";
     }
     if (bindings.length > 95) throw new Unsupported();
-    const query = "SELECT r.data FROM catalog_records r WHERE r.kind=? AND " +
-      this.visible("r") + " AND " + filter + " ORDER BY " + this.order(args) + " LIMIT ? OFFSET ?";
+    // Sort only record identities: retaining full JSON bodies up to a deep offset
+    // exhausts D1's sorter memory. Load bodies after the requested page is known.
+    const query = "SELECT r.data FROM (SELECT r.kind,r.record_key,r.from_seq FROM catalog_records r WHERE r.kind=? AND " +
+      this.visible("r") + " AND " + filter + " ORDER BY " + this.order(args) + " LIMIT ? OFFSET ?) AS page " +
+      "CROSS JOIN catalog_records r ON r.kind=page.kind AND r.record_key=page.record_key AND r.from_seq=page.from_seq " +
+      "ORDER BY " + this.order(args);
     const result = await this.db.prepare(query).bind(...bindings, limit, offset).all();
     return result.results.map(item => ({ ...JSON.parse(item.data), __kind: kind, __archived:Boolean(args.include_archived) }));
   }

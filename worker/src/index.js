@@ -41,6 +41,16 @@ function corsHeaders(request, env) {
   if (origin && allowed.includes(origin)) headers["Access-Control-Allow-Origin"] = origin;
   return headers;
 }
+function matchesEtag(request, etag) {
+  if (!["GET", "HEAD"].includes(request.method)) return false;
+  const condition = request.headers.get("If-None-Match");
+  if (!condition || !etag) return false;
+  if (condition.trim() === "*") return true;
+  // If-None-Match uses weak comparison; proxies can weaken tags on compression.
+  const opaque = tag => tag.replace(/^W\//, "");
+  const tags = condition.match(/(?:W\/)?"[\x21\x23-\x7e\x80-\xff]*"/g) ?? [];
+  return tags.some(tag => opaque(tag) === opaque(etag));
+}
 async function jsonResponse(request, env, data, status, generation, cacheable = true) {
   let body = JSON.stringify(data);
   if (new TextEncoder().encode(body).length > MAX_RESPONSE) {
@@ -55,7 +65,7 @@ async function jsonResponse(request, env, data, status, generation, cacheable = 
     new TextEncoder().encode((generation ?? "") + body)))]
     .map(n => n.toString(16).padStart(2, "0")).join("");
   headers.ETag = '"' + hash + '"';
-  if (status === 200 && request.headers.get("If-None-Match") === headers.ETag)
+  if (status === 200 && matchesEtag(request, headers.ETag))
     return new Response(null, { status: 304, headers });
   return new Response(body, { status, headers });
 }
@@ -64,7 +74,7 @@ function manifestResponse(request, env, manifest) {
   const headers = { ...corsHeaders(request, env), "Content-Type": "application/json; charset=utf-8",
     "X-Content-Type-Options": "nosniff", "Cache-Control": "public, max-age=60",
     "X-Catalog-Generation": manifest.generation, "ETag": '"manifest-' + manifest.generation + '"' };
-  if (request.headers.get("If-None-Match") === headers.ETag)
+  if (matchesEtag(request, headers.ETag))
     return new Response(null, { status: 304, headers });
   return new Response(JSON.stringify(manifest), { headers });
 }
@@ -573,7 +583,7 @@ export default {
         const headers = {...corsHeaders(request,env),"Content-Type":"application/json",
           "Cache-Control":"public,max-age=31536000,immutable","ETag":'"'+document.files[name]+'"',
           "X-Catalog-Generation":match[1],"X-Content-Type-Options":"nosniff"};
-        if (request.headers.get("If-None-Match") === headers.ETag)
+        if (matchesEtag(request, headers.ETag))
           return new Response(null,{status:304,headers});
         return new Response(object.body ?? JSON.stringify(await object.json()),{headers});
       }
@@ -586,7 +596,7 @@ export default {
       const responseKey = new Request(cacheUrl);
       const cached = responseCache && await responseCache.match(responseKey);
       if (cached) {
-        if (request.headers.get("If-None-Match") === cached.headers.get("ETag"))
+        if (matchesEtag(request, cached.headers.get("ETag")))
           return new Response(null,{status:304,headers:cached.headers});
         return cached;
       }
