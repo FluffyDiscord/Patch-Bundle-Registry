@@ -52,9 +52,11 @@ export async function browseApps(catalog, params, args, packageName = null, bund
     "json_extract(a.data,'$.app_name') AS app_name,json_extract(a.data,'$.icon_url') AS icon_url,"+
     "json_extract(a.data,'$.metadata_source') AS metadata_source,ref.value AS reference,"+
     "json_extract(b.data,'$.source_id') AS source_id,json_extract(b.data,'$.metadata_status') AS metadata_status "+
-    "FROM catalog_records a JOIN json_each(a.data,'$.bundles') ref "+
-    "JOIN catalog_records b ON b.kind='bundle' AND b.record_key=json_extract(ref.value,'$.bundle_id') "+
-    "JOIN catalog_records s ON s.kind='source' AND s.record_key=json_extract(b.data,'$.source_id') "+
+    // Keep json_each before its keyed joins: reordering b before ref scans every
+    // bundle for every app and times out once the historical catalog grows.
+    "FROM catalog_records a CROSS JOIN json_each(a.data,'$.bundles') ref "+
+    "CROSS JOIN catalog_records b ON b.kind='bundle' AND b.record_key=json_extract(ref.value,'$.bundle_id') "+
+    "CROSS JOIN catalog_records s ON s.kind='source' AND s.record_key=json_extract(b.data,'$.source_id') "+
     "WHERE a.kind='app' AND "+filter;
   const terms=q.toLowerCase().trim().split(/\s+/).filter(Boolean);
   const [packagePart,exactVersion]=packageQuery.toLowerCase().split("@",2);

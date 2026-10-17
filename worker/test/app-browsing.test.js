@@ -114,3 +114,21 @@ test("D1 app versions stay sorted across release relationships and query paths",
     assert.deepEqual((await f.request("/apps/com.order?include_unverified=true")).versions,["1","10","2"]);
   } finally {f.sqlite.close();}
 });
+
+
+test("D1 app relationships use keyed lookups after expanding bundle references",async()=>{
+  const f=d1Fixture();apps(f);
+  try {
+    const page=await f.request("/apps?limit=1");
+    assert.equal(page.total,1);
+    const sql=f.queryLog.find(sql=>sql.startsWith("WITH links AS ("));
+    assert.ok(sql);
+    const plan=f.sqlite.prepare("EXPLAIN QUERY PLAN "+sql).all("verified").map(row=>row.detail);
+    const keyedBundle=plan.findIndex(detail=>/SEARCH b .*record_key=/.test(detail));
+    const references=plan.findIndex(detail=>detail.startsWith("SCAN ref "));
+    assert.ok(references>=0 && keyedBundle>references,JSON.stringify(plan));
+    assert.ok(plan.filter(detail=>detail.startsWith("SEARCH b ")).every(detail=>detail.includes("record_key=")),
+      "App browsing must not scan every bundle for each application");
+    assert.equal(page.data[0].bundle_count,1);
+  } finally {f.sqlite.close();}
+});
