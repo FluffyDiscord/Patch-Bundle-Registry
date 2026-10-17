@@ -370,8 +370,9 @@ internal fun sanitizeCompatiblePackages(patches: JsonArray): JsonArray {
             val sanitizedPackages = JsonArray(
                 compatiblePackages.mapNotNull { packageElement ->
                     val packageObject = packageElement as? JsonObject ?: return@mapNotNull null
-                    val fallbackName = packageObject["packageName"]?.jsonPrimitive?.contentOrNull
-                    val packageName = packageObject["name"]?.jsonPrimitive?.contentOrNull ?: fallbackName
+                    val fallbackName = (packageObject["packageName"] as? JsonPrimitive)
+                        ?.takeIf { it.isString }?.contentOrNull?.takeIf { it.isNotBlank() }
+                    val packageName = fallbackName ?: packageObject["name"]?.jsonPrimitive?.contentOrNull
                     if (packageName.isNullOrBlank()) {
                         return@mapNotNull null
                     }
@@ -513,7 +514,8 @@ internal fun processBundle(
                 val digestMatches = extracted.hash == null || matchesProviderDigest(
                     parsedBundle.providerDigest, extracted.hash, parsedBundle.providerDigest)
                 val extraction = if (digestMatches) extracted else
-                    extracted.copy(patches = null, status = "artifact_digest_mismatch", terminal = false, paused = false)
+                    extracted.copy(patches = null, embeddedMetadata = null,
+                        status = "artifact_digest_mismatch", terminal = false, paused = false)
                 if (extraction.paused) return@processVariant
                 // Revoke old proof before cleanup or writing, including failures
                 // after binary extraction returned a patch array.
@@ -523,6 +525,7 @@ internal fun processBundle(
                     downloadUri, pending, parsedBundle.providerDigest, family)
                 // Keep existing metadata fallback behavior; only binary extraction receives artifact proof.
                 val created = extraction.patches?.let(::canonicalizePatchArray)
+                    ?: embeddedFallbackPatches(extraction.embeddedMetadata, parsedBundle.version)?.let(::canonicalizePatchArray)
                     ?: if (fallback != null) fallback(downloadUri, parsedBundle.version)
                     else generateFallbackPatchList(downloadUri, parsedBundle.version, family)
                 if (created == null) {
@@ -785,7 +788,7 @@ private fun parseRepositoryPatchListPayload(payload: String, expectedVersion: St
     return parsed.patches
 }
 
-private fun versionsMatch(left: String, right: String): Boolean =
+internal fun versionsMatch(left: String, right: String): Boolean =
     normalizeVersionForComparison(left) == normalizeVersionForComparison(right)
 
 private fun normalizeVersionForComparison(value: String): String =
@@ -967,7 +970,10 @@ internal fun convertCompatibilityArray(array: JsonArray?): JsonElement {
     }
     val mapped = array.mapNotNull { entry ->
         val compatObj = entry as? JsonObject ?: return@mapNotNull null
-        val packageName = compatObj["name"]?.jsonPrimitive?.contentOrNull ?: return@mapNotNull null
+        val packageName = (compatObj["packageName"] as? JsonPrimitive)
+            ?.takeIf { it.isString }?.contentOrNull?.takeIf { it.isNotBlank() }
+            ?: compatObj["name"]?.jsonPrimitive?.contentOrNull
+            ?: return@mapNotNull null
         val versionsElement = compatObj["versions"]
         val versions = when (versionsElement) {
             is JsonArray -> versionsElement.mapNotNull { it.jsonPrimitive.contentOrNull }

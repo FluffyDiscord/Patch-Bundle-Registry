@@ -113,7 +113,7 @@ class PatcherRuntimeSelectionTest {
 
     @Test fun shippedReseamStartsWithLatestNativeEngineBeforeHistoricalAdapters() {
         val selected = selectRuntimes(shipped(), "Reseam", null)
-        assertEquals("app.reseam:reseam:0.25.0", selected.first().coordinate)
+        assertEquals("app.reseam:reseam:0.26.0", selected.first().coordinate)
         assertEquals("reseam-jvm-legacy", selected.last().id)
     }
 

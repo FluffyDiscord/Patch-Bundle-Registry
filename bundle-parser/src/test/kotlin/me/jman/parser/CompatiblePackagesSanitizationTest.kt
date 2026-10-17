@@ -40,6 +40,20 @@ class CompatiblePackagesSanitizationTest {
         assertEquals(listOf("1.0", "2.0"), entries.last().getValue("versions").jsonArray.map { it.jsonPrimitive.content })
     }
 
+    @Test fun `unusable package aliases preserve valid named compatibility`() {
+        for (alias in listOf("\"\"", "\"  \"", "null", "123", "{}")) {
+            val packages = Json.parseToJsonElement(
+                """[{"name":"com.example.app","packageName":$alias,"versions":["1.0"]}]"""
+            ).jsonArray
+            val converted = convertCompatibilityArray(packages).jsonObject
+            assertEquals(setOf("com.example.app"), converted.keys)
+            assertEquals("1.0", converted.getValue("com.example.app").jsonArray.single().jsonPrimitive.content)
+            val sanitized = compatiblePackage("""[{"compatiblePackages":$packages}]""")
+            assertEquals("com.example.app", sanitized.getValue("name").jsonPrimitive.content)
+            assertEquals("1.0", sanitized.getValue("versions").jsonArray.single().jsonPrimitive.content)
+        }
+    }
+
     private fun compatiblePackage(json: String) = sanitizeCompatiblePackages(
         Json.parseToJsonElement(json).jsonArray
     )[0].jsonObject["compatiblePackages"]!!.jsonArray[0].jsonObject

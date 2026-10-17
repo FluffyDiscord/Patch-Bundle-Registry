@@ -54,7 +54,8 @@ internal data class RuntimeResult(val patches: JsonArray?, val status: String,
                                   val requiredEngine: String? = null,
                                   val attempts: List<RuntimeAttempt> = emptyList(),
                                   val cause: String? = null,
-                                  val completenessVersion: Int = 0)
+                                  val completenessVersion: Int = 0,
+                                  val embeddedMetadata: EmbeddedPatchMetadata? = null)
 
 private val runtimeJson = Json { ignoreUnknownKeys = true; prettyPrint = true }
 private val runtimeResults = RuntimeResultCache()
@@ -415,7 +416,8 @@ private fun extractDownloadedArtifact(artifact: File, hash: String, family: Stri
         catch (_: IncompletePatchInventory) {
             // Changing JVM versions cannot load a DEX/metadata-only archive.
             return RuntimeResult(null, "incomplete_patch_inventory", hash, terminal = true,
-                attempts = listOf(RuntimeAttempt("artifact", "incomplete_patch_inventory", "No JVM patch classes")))
+                attempts = listOf(RuntimeAttempt("artifact", "incomplete_patch_inventory", "No JVM patch classes")),
+                embeddedMetadata = embeddedPatchMetadata(artifact))
         }
     }
     val config = loadRuntimeConfiguration()
@@ -457,7 +459,8 @@ private fun extractDownloadedArtifact(artifact: File, hash: String, family: Stri
         allRejected = allRejected && result.terminal
         failure = result.status
     }
-    return RuntimeResult(null, failure, hash, terminal = allRejected, attempts = attempts)
+    return RuntimeResult(null, failure, hash, terminal = allRejected, attempts = attempts,
+        embeddedMetadata = if (family == "Reseam") null else embeddedPatchMetadata(artifact))
 }
 
 internal fun recordExtraction(

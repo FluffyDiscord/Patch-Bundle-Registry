@@ -39,6 +39,28 @@ def record_issue(root, source, phase, error):
     temporary.replace(path)
 
 
+def extraction_cause(attempts):
+    """Expose known diagnoses, never arbitrary worker output or URL contents."""
+    causes = []
+    for attempt in attempts:
+        cause = attempt.get("cause")
+        if not isinstance(cause, str):
+            continue
+        if cause == "No JVM patch classes":
+            causes.append("No JVM patch classes; archive contains DEX or metadata only")
+        elif attempt.get("status") == "runtime_missing_dependency":
+            match = re.fullmatch(
+                r"(?:[A-Za-z_$][A-Za-z0-9_$]* <- )*[A-Za-z_$][A-Za-z0-9_$]* "
+                r"([A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)+)",
+                cause,
+            )
+            if match:
+                causes.append("Missing class " + match[1])
+        elif cause in {"bundle_too_old", "bundle_too_new", "engine_too_old"}:
+            causes.append(cause)
+    return "; ".join(dict.fromkeys(causes))[:400]
+
+
 def extraction_issues(root, started_at):
     try:
         from scripts.source_cleanup import configured_sources
@@ -78,6 +100,11 @@ def extraction_issues(root, started_at):
                 str(status.get("version") or "Unknown version")
                 + ": "
                 + str(status.get("status") or "Extraction failed")
+                + (
+                    ": " + explanation
+                    if (explanation := extraction_cause(status.get("runtime_attempts", [])))
+                    else ""
+                )
                 + (
                     " ("
                     + "; ".join(
