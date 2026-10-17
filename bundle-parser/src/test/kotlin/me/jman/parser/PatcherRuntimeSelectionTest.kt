@@ -112,9 +112,14 @@ class PatcherRuntimeSelectionTest {
     }
 
     @Test fun shippedReseamStartsWithLatestNativeEngineBeforeHistoricalAdapters() {
-        val selected = selectRuntimes(shipped(), "Reseam", null)
-        assertEquals("app.reseam:reseam:0.26.0", selected.first().coordinate)
-        assertEquals("reseam-jvm-legacy", selected.last().id)
+        val config = shipped()
+        val newestNative = config.runtimes.filter { it.family == "Reseam" && it.loader == "reseam" }
+            .maxBy { PatcherVersion.parse(it.coordinate.substringAfterLast(':')) }
+        for (runtimes in listOf(config.runtimes, config.runtimes.reversed())) {
+            val selected = selectRuntimes(config.copy(runtimes = runtimes), "Reseam", null)
+            assertEquals(newestNative.id, selected.first().id)
+            assertEquals("reseam-jvm-legacy", selected.last().id)
+        }
     }
 
     @Test fun prereleaseOrderingIsSemantic() {
