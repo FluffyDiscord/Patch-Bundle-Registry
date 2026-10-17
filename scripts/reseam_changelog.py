@@ -115,7 +115,8 @@ async def _fetch_reseam_metadata(client, repository: str, asset: str, tag: str, 
                             "release-assets.githubusercontent.com", "objects.githubusercontent.com"
                         }
                     ) or (
-                        origin.hostname == "gitlab.com" and parsed.hostname == "storage.googleapis.com"
+                        origin.hostname == "gitlab.com"
+                        and parsed.hostname == "storage.googleapis.com"
                     )
                     if (
                         parsed.scheme != "https"

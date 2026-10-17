@@ -350,7 +350,9 @@ def test_discovery_writes_selected_reseam_notes_for_the_catalog(tmp_path, monkey
     assert calls.count(ASSET) == 1
 
 
-def test_github_release_cdn_redirect_preserves_notes_without_forwarding_credentials(tmp_path, monkeypatch):
+def test_github_release_cdn_redirect_preserves_notes_without_forwarding_credentials(
+    tmp_path, monkeypatch
+):
     monkeypatch.setenv("GIT_HOST_TOKENS", '{"github.com":"private-token"}')
     source = "https://github.com/example/patches"
     asset = source + "/releases/download/v0.34.0/patches.json"
