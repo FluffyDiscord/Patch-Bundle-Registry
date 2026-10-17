@@ -20,6 +20,7 @@ try:
         release_assets,
         release_date,
     )
+    from scripts.reseam_changelog import publisher_release_notes
 except ModuleNotFoundError:
     from git_hosts import normalize_source
     from release_assets import (
@@ -31,6 +32,7 @@ except ModuleNotFoundError:
         release_assets,
         release_date,
     )
+    from reseam_changelog import publisher_release_notes
 
 
 def release_is_prerelease(release):
@@ -278,7 +280,10 @@ def save_history(root, inventory, release_sets):
                 raw = {
                     "created_at": release_date(release),
                     "provider_digest": asset.get("provider_digest"),
-                    "description": release.get("body") or release.get("description") or "",
+                    "description": (
+                        (release.get("_reseam_notes") or {}).get("description")
+                        or publisher_release_notes(release) or ""
+                    ),
                     "download_url": download,
                     "bundle_type": BUNDLE_TYPES[extension],
                     "signature_download_url": signature,

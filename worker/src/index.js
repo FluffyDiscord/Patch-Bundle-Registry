@@ -194,8 +194,8 @@ async function reseamReleaseIndex(bundle, env) {
       !releases.length || !releases.every(row => row && typeof row.version === "string" &&
         typeof row.download_url === "string" && typeof row.prerelease === "boolean" &&
         typeof row.description === "string" && typeof row.created_at === "string" &&
-        Array.isArray(row.patches)) ||
-      !releases.some(row => row.version.replace(/^v/, "") === tag.replace(/^v/, "")))
+        (!Object.hasOwn(row, "patches") || Array.isArray(row.patches))) ||
+      releases.filter(row => row.version.replace(/^v/, "") === tag.replace(/^v/, "")).length !== 1)
     throw new CatalogError("Reseam release index does not match the verified publisher and version",502);
   return document;
 }

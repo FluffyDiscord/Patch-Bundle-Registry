@@ -7,6 +7,7 @@ import httpx
 
 from scripts import reseam_changelog as reseam
 from scripts.release_archive import reconcile_archive, stable_id
+from scripts.release_history import save_history
 
 SOURCE = "https://git.reseam.app/reseam/patches"
 ASSET = "https://git.reseam.app/reseam/patches/releases/download/v0.34.0/patches.json"
@@ -348,6 +349,10 @@ def test_discovery_writes_selected_reseam_notes_for_the_catalog(tmp_path, monkey
     archived = json.loads((cache / "history/archive.json").read_text())
     assert archived["releases"][stable_id(SOURCE, "123")]["changelog"] == raw["description"]
     assert calls.count(ASSET) == 1
+    historical = json.loads((cache / "history/sources.json").read_text())
+    for settings in historical.values():
+        historical_raw = json.loads((tmp_path / settings["cache_path"]).read_text())
+        assert historical_raw["description"] == raw["description"]
 
 
 def test_github_release_cdn_redirect_preserves_notes_without_forwarding_credentials(
@@ -376,3 +381,54 @@ def test_github_release_cdn_redirect_preserves_notes_without_forwarding_credenti
 
     assert asyncio.run(check()) == "CDN release notes"
     assert len(calls) == 2
+
+
+def test_historical_inputs_keep_native_notes_on_cached_refresh(tmp_path):
+    inventory = configure(tmp_path)
+    current = release()
+    old_tag = "v0.29.0"
+    historical = release(old_tag, asset=ASSET.replace("v0.34.0", old_tag))
+    historical["id"] = 29
+    historical["published_at"] = "2026-10-12T19:15:07Z"
+    records = {SOURCE: [current, historical]}
+    calls = []
+
+    def handler(request):
+        calls.append(str(request.url))
+        tag = request.url.path.split("/")[-2]
+        return httpx.Response(200, json=document(tag.removeprefix("v"), "Notes " + tag))
+
+    async def enrich():
+        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
+            await reseam.enrich_reseam_releases(client, tmp_path, records)
+
+    asyncio.run(enrich())
+    reconcile_archive(tmp_path, inventory, records)
+    registry = save_history(tmp_path, inventory, records)
+    assert len(registry) == 2
+    for settings in registry.values():
+        raw = json.loads((tmp_path / settings["cache_path"]).read_text())
+        assert raw["description"] == "Notes " + raw["version"]
+
+    # Fresh API pages reuse the archived notes without extra asset downloads.
+    records = {SOURCE: [release(), release(old_tag, asset=ASSET.replace("v0.34.0", old_tag))]}
+    records[SOURCE][1]["id"] = 29
+    asyncio.run(enrich())
+    registry = save_history(tmp_path, inventory, records)
+    assert len(calls) == 2
+    for settings in registry.values():
+        raw = json.loads((tmp_path / settings["cache_path"]).read_text())
+        assert raw["description"] == "Notes " + raw["version"]
+
+    # The website reads bundle descriptions, not the separate release archive.
+    from test_generate_database import fixture, snapshot
+
+    from scripts.generate_database import build_database
+
+    fixture(tmp_path)
+    (tmp_path / "config/sources.json").write_text(json.dumps(inventory))
+    path, bundles = snapshot(tmp_path, build_database(tmp_path, restore=False))
+    assert len(bundles) == 2
+    for bundle in bundles:
+        detail = json.loads((path / bundle["detail_file"]).read_text())
+        assert detail["description"] == "Notes " + bundle["version"]

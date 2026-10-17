@@ -67,6 +67,24 @@ test("Reseam native JSON endpoint preserves publisher patch IDs and full release
   const result=await call(state,path);
   assert.equal(result.status,200);
   assert.deepEqual(result.body,upstream);
+  // Native indexes include patch inventories only on their primary release.
+  const older = {...upstream.releases[0], version:"0.33.0"};
+  delete older.patches;
+  const historicalIndex = {...upstream, releases:[upstream.releases[0], older]};
+  state.env.RESEAM_RELEASE_FETCH=async()=>Response.json(historicalIndex);
+  assert.deepEqual((await call(state,path)).body,historicalIndex);
+  for (const releases of [
+    [upstream.releases[0], {...older, patches:null}],
+    [upstream.releases[0], {...older, patches:{}}],
+    [upstream.releases[0], {...upstream.releases[0], version:"v0.34.0"}]
+  ]) {
+    state.env.RESEAM_RELEASE_FETCH=async()=>Response.json({...upstream,releases});
+    assert.equal((await call(state,path)).status,502);
+  }
+  // Early native indexes are valid Manager sources without any inline lists.
+  const legacyIndex = {...upstream,releases:[{...older,version:"0.34.0"}]};
+  state.env.RESEAM_RELEASE_FETCH=async()=>Response.json(legacyIndex);
+  assert.deepEqual((await call(state,path)).body,legacyIndex);
   assert.deepEqual(calls,["https://github.com/owner/repo/releases/download/v0.34.0/patches.json"]);
   assert.equal((await call(state,bundleImportPath(card,true))).body.releases[0].patches,undefined);
   state.env.RESEAM_RELEASE_FETCH=async()=>Response.json({...upstream,bundle:{...publisher,public_key:"b".repeat(64)}});
