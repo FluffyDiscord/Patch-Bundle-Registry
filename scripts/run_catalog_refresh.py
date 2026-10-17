@@ -248,7 +248,7 @@ class Refresh:
         )
         self.checkpoint(force=True)
         if read_issues(self.root):
-            print(f"Refresh completed with {len(read_issues(self.root))} upstream issues")
+            print(f"Refresh completed with {len(read_issues(self.root))} diagnostics")
         if self.cloudflare:
             build_database(self.root, restore=False)
             validate(self.root)

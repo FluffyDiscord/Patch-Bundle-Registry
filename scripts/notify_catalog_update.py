@@ -251,9 +251,12 @@ def messages(before, after, website, issues=()):
                     app_url = new.get("app_urls", {}).get(package, app_url)
                     sections["New Apps"].append(f"• {link(name, app_url)} ({label})")
                     announced_apps.add(identity)
+    ordered_issues = sorted(issues, key=lambda row: (row["source"], row["phase"], row["error"]))
+    sections["Metadata fallbacks"] = [
+        issue_line(row) for row in ordered_issues if row["phase"] == "Metadata fallback"
+    ]
     sections["Issues"] = [
-        issue_line(row)
-        for row in sorted(issues, key=lambda row: (row["source"], row["phase"], row["error"]))
+        issue_line(row) for row in ordered_issues if row["phase"] != "Metadata fallback"
     ]
     fields = []
     for title, lines in sections.items():

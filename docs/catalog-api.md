@@ -134,7 +134,7 @@ The website checks for a new generation every 15 seconds while visible; active s
 
 Source-code, documentation and test archives are excluded from patch-bundle selection. If a release provides these alongside a compiled patch bundle, the compiled artifact is selected.
 
-Android DEX-only archives and metadata-only archives cannot be verified by the JVM extractor. Published patch metadata may still appear as an unverified fallback, including patch lists embedded in the downloaded archive. Embedded lists with an explicit version must match the release. An empty loader result does not verify these archives.
+Android DEX-only archives and metadata-only archives cannot be verified by the JVM extractor. Published patch metadata may still appear as an unverified fallback, including patch lists embedded in the downloaded archive. Embedded lists with an explicit version must match the release. Unversioned repository lists are accepted only from the matching GitHub release tag, never from the default branch. An empty loader result does not verify these archives. Refresh notifications distinguish recovered, unverified metadata from extraction failures without a usable patch list.
 
 A verified list was extracted from the matching bundle and passed the registry's metadata checks. Fallback metadata remains unverified. `need_patches_update` is true while extraction is pending or needs a retry; it can be false for a rejected bundle whose retries are paused. Check `metadata_status` to determine whether a list is verified. Full release notes are available from bundle collections, detail and manager endpoints.
 

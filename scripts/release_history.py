@@ -162,6 +162,39 @@ def mark_latest_history(root, registry, inventory):
         item["is_latest"] = key in latest
 
 
+def retire_channel_inputs(root, channels, published):
+    """Stop extracting deleted/replaced channel pointers after a complete inventory."""
+    cache = (root / "internal/cache/bundles").resolve()
+    for alias, settings in channels:
+        base = re.sub(r"-(latest|stable|dev)$", "", alias)
+        path = cache / f"{base}-patch-bundles" / f"{alias}-patches-bundle.json"
+        if not path.resolve().is_relative_to(cache):
+            raise ValueError("Unsafe current release input path")
+        try:
+            raw = json.loads(path.read_bytes())
+        except (OSError, ValueError):
+            continue
+        if not isinstance(raw, dict):
+            continue
+        legacy = raw.get("patches")
+        legacy = legacy if isinstance(legacy, dict) else {}
+        version = raw.get("version") or legacy.get("version")
+        download = raw.get("download_url") or legacy.get("url")
+        if not isinstance(version, str) or not isinstance(download, str):
+            continue
+        selected = published.get(version)
+        if (
+            selected is None
+            or selected["url"] != download
+            or (
+                not settings.get("latest")
+                and bool(settings.get("prerelease")) != selected["prerelease"]
+            )
+        ):
+            # Preserve extraction records and lists for retained historical data.
+            path.unlink(missing_ok=True)
+
+
 def save_history(root, inventory, release_sets):
     directory = root / "internal/cache/history"
     registry_path = directory / "sources.json"
@@ -185,10 +218,14 @@ def save_history(root, inventory, release_sets):
         if normalize_source(item["patches"], root).lower() in active
     }
     try:
-        from scripts.source_policy import disabled_sources
+        from scripts.source_policy import disabled_sources, source_channels
     except ModuleNotFoundError:
-        from source_policy import disabled_sources
+        from source_policy import disabled_sources, source_channels
     disabled = disabled_sources(inventory, root)
+    channels = {}
+    for alias, settings in source_channels(inventory, root).items():
+        source = normalize_source(settings["patches"], root).lower()
+        channels.setdefault(source, []).append((alias, settings))
     by_source = {}
     for key, item in registry.items():
         canonical = normalize_source(item["patches"], root).lower()
@@ -209,6 +246,7 @@ def save_history(root, inventory, release_sets):
         for key, _ in by_source.get(source.lower(), []):
             registry.pop(key, None)
         observations[source.lower()] = {}
+        published = {}
         base = re.sub(r"-(latest|stable|dev)$", "", alias)
         for release in releases:
             if (
@@ -227,6 +265,9 @@ def save_history(root, inventory, release_sets):
                 extension = asset_extension(asset)
                 download = asset["url"]
                 version = str(release["tag_name"])
+                published[version] = {
+                    "url": download, "prerelease": release_is_prerelease(release)
+                }
                 identity = hashlib.sha256(
                     json.dumps([source.lower(), version, download], separators=(",", ":")).encode()
                 ).hexdigest()[:24]
@@ -258,6 +299,7 @@ def save_history(root, inventory, release_sets):
                     "cache_path": path.relative_to(root).as_posix(),
                     "prerelease": raw["is_prerelease"],
                 }
+        retire_channel_inputs(root, channels.get(source.lower(), []), published)
     observations = {
         source: versions for source, versions in observations.items() if source in active
     }

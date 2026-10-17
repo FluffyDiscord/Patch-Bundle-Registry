@@ -62,10 +62,12 @@ class EmbeddedPatchMetadataTest {
                 val output = File(folder, "$alias-latest-patches-list.json")
                 if (mismatch) {
                     assertEquals("artifact_digest_mismatch", record.status)
+                    assertNull(record.fallback_patch_count)
                     assertFalse(output.exists())
                     assertEquals(1, fallbacks)
                 } else {
                     assertEquals("incomplete_patch_inventory", record.status)
+                    assertEquals(1, record.fallback_patch_count)
                     assertEquals(0, fallbacks)
                     val list = Json.decodeFromString<LocalPatchesFile>(output.readText())
                     assertEquals("v1.0.1", list.version)

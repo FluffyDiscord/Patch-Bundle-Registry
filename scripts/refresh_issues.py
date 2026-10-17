@@ -93,12 +93,31 @@ def extraction_issues(root, started_at):
         except (ValueError, TypeError):
             current = False
         if current and status.get("status") != "verified":
+            count = status.get("fallback_patch_count")
+            fallback = type(count) is int and 0 <= count <= 50000
+            if fallback:
+                list_path = path.with_name(
+                    path.name.replace("-extraction.json", "-patches-list.json")
+                )
+                try:
+                    metadata = json.loads(list_path.read_bytes())
+                    fallback = (
+                        metadata.get("version") == status.get("version")
+                        and isinstance(metadata.get("patches"), list)
+                        and len(metadata["patches"]) == count
+                    )
+                except (OSError, ValueError, AttributeError):
+                    fallback = False
             record_issue(
                 root,
                 source,
-                "Patch extraction",
+                "Metadata fallback" if fallback else "Patch extraction",
                 str(status.get("version") or "Unknown version")
                 + ": "
+                + (
+                    f"{count} publisher patches available (unverified); binary extraction: "
+                    if fallback else ""
+                )
                 + str(status.get("status") or "Extraction failed")
                 + (
                     ": " + explanation
@@ -117,7 +136,7 @@ def extraction_issues(root, started_at):
                         )
                     )[:600]
                     + ")"
-                    if status.get("runtime_attempts")
+                    if status.get("runtime_attempts") and not fallback
                     else ""
                 ),
             )

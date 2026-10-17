@@ -533,7 +533,8 @@ internal fun processBundle(
                     downloadUri, extraction, parsedBundle.providerDigest, family)
                     return@processVariant
                 }
-                val result = if (extraction.patches == null) extraction else extraction.copy(patches = created)
+                val result = if (extraction.patches == null) extraction.copy(fallbackPatchCount = created.size)
+                    else extraction.copy(patches = created)
                 writePatchList(outputPatchesFile, parsedBundle.version, created)
                 FreshAppPackages.add(bundleFolder.name, parsedBundle.version, parsedBundle.downloadUrl, created)
                 recordExtraction(recordFile, outputPatchesFile, parsedBundle.version,
@@ -719,9 +720,9 @@ private fun generatePatchListFromRepositoryFile(
     val attempts = listOf(location.tag, null)
 
     for (ref in attempts) {
-        val payload = downloadRepositoryFile(location, "patches-list.json", ref) ?: continue
+        val payload = downloadRepositoryFile(location, "patches-list.json", ref?.let { "refs/tags/$it" }) ?: continue
         val sourceLabel = ref?.let { "ref $it" } ?: "default branch"
-        val parsed = parseRepositoryPatchListPayload(payload, expectedVersion)
+        val parsed = parseRepositoryPatchListPayload(payload, expectedVersion, ref?.takeIf { it == location.tag })
         if (parsed == null) {
             Logger.warning(
                 "Repository patches-list.json from ${location.owner}/${location.repo} ($sourceLabel) " +
@@ -767,7 +768,15 @@ private fun generatePatchListFromGitLabRepositoryFile(
     return null
 }
 
-private fun parseRepositoryPatchListPayload(payload: String, expectedVersion: String): JsonArray? {
+internal fun parseRepositoryPatchListPayload(
+    payload: String, expectedVersion: String, releaseTag: String? = null
+): JsonArray? {
+    val element = runCatching { Json.parseToJsonElement(payload) }.getOrNull() ?: return null
+    if (element is JsonArray) {
+        // A default branch's unversioned list cannot describe a historical release.
+        if (releaseTag == null || !versionsMatch(releaseTag, expectedVersion)) return null
+        return convertPatchMetadataPayload(payload)
+    }
     val parsed = try {
         parsingJson.decodeFromString<LocalPatchesFile>(payload)
     } catch (e: SerializationException) {
@@ -821,16 +830,17 @@ private fun downloadRepositoryFile(location: ReleaseLocation, path: String, ref:
                 HttpURLConnection.HTTP_OK -> {
                     val body = connection.inputStream.bufferedReader().use { it.readText() }
                     val response = Json.parseToJsonElement(body).jsonObject
-                    val downloadUrl = response["download_url"]?.jsonPrimitive?.contentOrNull
-                    if (!downloadUrl.isNullOrBlank()) {
-                        return downloadPlainText(downloadUrl)
-                    }
-
                     val content = response["content"]?.jsonPrimitive?.contentOrNull
                     val encoding = response["encoding"]?.jsonPrimitive?.contentOrNull
                     if (!content.isNullOrBlank() && encoding.equals("base64", ignoreCase = true)) {
                         val normalized = content.replace("\n", "").replace("\r", "")
                         return String(Base64.getDecoder().decode(normalized), StandardCharsets.UTF_8)
+                    }
+
+                    // Prefer the body bound to this exact ref; it also saves a second request.
+                    val downloadUrl = response["download_url"]?.jsonPrimitive?.contentOrNull
+                    if (!downloadUrl.isNullOrBlank()) {
+                        return downloadPlainText(downloadUrl)
                     }
 
                     Logger.warning(

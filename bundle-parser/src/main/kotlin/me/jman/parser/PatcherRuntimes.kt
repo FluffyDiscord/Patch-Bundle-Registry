@@ -45,7 +45,8 @@ internal data class ExtractionRecord(
     val terminal: Boolean = false, val bundle_type: String? = null,
     val runtime_config_hash: String? = null, val reseam_bundle: JsonObject? = null,
     val parser_revision: String? = null, val completeness_version: Int = 0,
-    val runtime_attempts: List<RuntimeAttempt> = emptyList()
+    val runtime_attempts: List<RuntimeAttempt> = emptyList(),
+    val fallback_patch_count: Int? = null
 )
 internal data class RuntimeResult(val patches: JsonArray?, val status: String,
                                   val hash: String? = null, val runtime: String? = null,
@@ -55,7 +56,8 @@ internal data class RuntimeResult(val patches: JsonArray?, val status: String,
                                   val attempts: List<RuntimeAttempt> = emptyList(),
                                   val cause: String? = null,
                                   val completenessVersion: Int = 0,
-                                  val embeddedMetadata: EmbeddedPatchMetadata? = null)
+                                  val embeddedMetadata: EmbeddedPatchMetadata? = null,
+                                  val fallbackPatchCount: Int? = null)
 
 private val runtimeJson = Json { ignoreUnknownKeys = true; prettyPrint = true }
 private val runtimeResults = RuntimeResultCache()
@@ -472,7 +474,7 @@ internal fun recordExtraction(
                                   java.time.Instant.now().toString(),
                                   if (result.status == "verified") null else runtimeFingerprint(), providerDigest,
                                   result.terminal, family, runtimeConfigHash(), result.reseamBundle,
-                                  parserRevision(), result.completenessVersion, result.attempts.take(40))
+                                  parserRevision(), result.completenessVersion, result.attempts.take(40), result.fallbackPatchCount)
     atomicWriteText(output, runtimeJson.encodeToString(record) + "\n")
 }
 
