@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {readFile} from "node:fs/promises";
 import {runInNewContext} from "node:vm";
 import {ApiCatalog} from "../../shared/api-catalog.js";
-import {patchMatchesSearch,patchDisplayName} from "../../shared/site.js";
+import {patchMatchesSearch,patchDisplayName,reseamInternalSearchAlias} from "../../shared/site.js";
 import {d1Fixture} from "./d1-fixture.js";
 
 test("Bundle summaries omit repeated inventories and load full changelogs on demand",async()=>{
@@ -82,6 +82,88 @@ test("Patch headings fall back from whitespace names while preserving publisher 
   assert.equal(patchDisplayName({name:"  Hide ads  ",display_name:"Helper"}),"  Hide ads  ");
   assert.equal(patchDisplayName({name:" ",display_name:"\t"}),"Name unavailable");
   assert.equal(patchDisplayName({name:null,hidden:true}),"Internal patch");
+});
+
+test("Reseam internal IDs render readable labels without changing patch identity",()=>{
+  const settings={name:"app.reseam.patches.tiktok.core.tiktokSettings",hidden:true};
+  const filter={name:"app.reseam.patches.tiktok.feed.feedFilter",hidden:true};
+  assert.equal(patchDisplayName(settings),"TikTok Settings");
+  assert.equal(patchDisplayName(filter),"Feed Filter");
+  assert.ok(patchMatchesSearch(filter,"Feed Filter"));
+  assert.ok(patchMatchesSearch(settings,"TikTok Settings"));
+  assert.equal(settings.name,"app.reseam.patches.tiktok.core.tiktokSettings");
+  assert.equal(patchDisplayName({...settings,display_name:"TikTok settings override"}),"TikTok settings override");
+  assert.equal(patchDisplayName({...settings,hidden:false}),settings.name);
+  assert.equal(patchDisplayName({name:"Hide ads",hidden:true}),"Hide ads");
+});
+
+test("Reseam Browse search generates bounded index aliases for readable internal labels",()=>{
+  assert.equal(reseamInternalSearchAlias("Feed Filter"),"feedfilter");
+  assert.equal(reseamInternalSearchAlias("TikTok Settings"),"tiktoksettings");
+  assert.equal(reseamInternalSearchAlias("Filter"),null);
+  assert.equal(reseamInternalSearchAlias("Settings   "),null);
+  assert.equal(reseamInternalSearchAlias("Feed / Filter"),null);
+  assert.equal(reseamInternalSearchAlias("x ".repeat(100)),null);
+});
+
+test("Browse includes Reseam internal patches found by readable-name search alias",async()=>{
+  const source=await readFile(new URL("../../web/app.js",import.meta.url),"utf8");
+  const code=source.slice(source.indexOf("async function renderFilteredBundles("),
+    source.indexOf("\nfunction renderFilteredApps("));
+  const bundle={id:"reseam-release",bundleType:"Reseam",version:"v0.37.0"};
+  const calls=[];
+  const env={currentTab:"bundles",currentSearchQuery:"feed filter",currentPackageFilter:"",
+    currentSourceUrl:"",currentBundleType:"",currentBundleVersion:"",currentFilter:"latest",
+    allBundles:[bundle],filteredBundles:[],searchSequence:0,status:{textContent:""},
+    document:{scrollingElement:{scrollTop:0}},saveBrowsePreferences(){},setupVirtualizer(){},updateStatus(){},
+    matchesReleaseFilter(){return true;},reseamInternalSearchAlias,patchDisplayName,
+    transformPatch:patch=>({...patch,compatiblePackages:[]}),
+    catalog:{async patchRows(args){
+      calls.push({q:args.q,ids:args.bundle_ids});
+      return {rows:args.q==="feedfilter" ? [{id:"patch-id",bundle_id:bundle.id,
+        name:"app.reseam.patches.tiktok.feed.feedFilter",description:"",packages:[],hidden:true}] : [],
+        next_cursor:null};
+    }}
+  };
+  runInNewContext(code+"\nthis.runBrowse=renderFilteredBundles;",env);
+  await env.runBrowse();
+  assert.deepEqual(calls.map(call=>call.q),["feed filter","feedfilter"]);
+  assert.equal(calls[1].ids.length,1);
+  assert.equal(env.filteredBundles.length,1);
+  assert.equal(env.filteredBundles[0].patches.length,1);
+  assert.equal(patchDisplayName(env.filteredBundles[0].patches[0]),"Feed Filter");
+
+  const ordinaryCalls=[];
+  const ordinary={...env,searchSequence:0,filteredBundles:[],
+    catalog:{async patchRows(args){
+      ordinaryCalls.push(args.q);
+      return {rows:[{id:"named",bundle_id:bundle.id,name:"Feed filter",
+        description:"",packages:[],hidden:false}],next_cursor:null};
+    }}};
+  runInNewContext(code+"\nthis.runBrowse=renderFilteredBundles;",ordinary);
+  await ordinary.runBrowse();
+  assert.deepEqual(ordinaryCalls,["feed filter","feedfilter"]);
+  assert.equal(ordinary.filteredBundles[0].patches.length,1);
+
+  // A normal hit from another publisher must not suppress the internal Reseam hit.
+  const otherBundle={id:"ordinary-release",bundleType:"ReVanced:v22",version:"v1"};
+  const mixed={...env,searchSequence:0,filteredBundles:[],allBundles:[bundle,otherBundle],
+    catalog:{async patchRows(args){
+      return {rows:args.q==="feed filter" ? [{id:"public-patch",bundle_id:otherBundle.id,
+        name:"Feed filter",description:"",packages:[],hidden:false}] :
+        [{id:"internal-patch",bundle_id:bundle.id,
+          name:"app.reseam.patches.tiktok.feed.feedFilter",description:"",packages:[],hidden:true}],
+        next_cursor:null};
+    }}};
+  runInNewContext(code+"\nthis.runBrowse=renderFilteredBundles;",mixed);
+  await mixed.runBrowse();
+  assert.deepEqual(mixed.filteredBundles.map(item=>item.id),[bundle.id,otherBundle.id]);
+  assert.equal(mixed.filteredBundles[0].patches.length,1);
+
+  const spaced={...env,searchSequence:0,filteredBundles:[],currentSearchQuery:"feed  filter"};
+  runInNewContext(code+"\nthis.runBrowse=renderFilteredBundles;",spaced);
+  await spaced.runBrowse();
+  assert.equal(spaced.filteredBundles[0].patches.length,1);
 });
 
 test("A missing public name does not turn a patch into an internal patch",async()=>{

@@ -19,8 +19,9 @@ class HistoricalQueueTest {
             writeText("""{"version":"v1","patches":[{"name":"Patch"}],"metadata_schema_version":${PATCH_METADATA_SCHEMA_VERSION}}""")
         }
         val record = ExtractionRecord("v1", "https://example.test/bundle.rvp",
-            if (verified) "verified" else "failed", "hash", null,
-            if (verified) sha256(patches) else null, attempted, fingerprint)
+            if (verified) "verified" else "failed", "a".repeat(64), if (verified) "test:runtime:1" else null,
+            if (verified) sha256(patches) else null, attempted, fingerprint,
+            bundle_type = if (verified) "ReVanced:v22" else null)
         File(folder, "$name-stable-extraction.json").writeText(Json.encodeToString(record))
         return folder
     }
@@ -62,6 +63,28 @@ class HistoricalQueueTest {
             "provider_digest":"sha256:${"b".repeat(64)}"}""")
         assertEquals(listOf(folder), historicalCandidates(directory, 1, "runtime"))
         directory.deleteRecursively()
+    }
+
+    @Test fun `verified history missing a runtime or with the wrong family is requeued`() {
+        val folder = entry("stale", null, null, true)
+        try {
+            val recordFile = File(folder, "stale-stable-extraction.json")
+            val record = Json.decodeFromString<ExtractionRecord>(recordFile.readText())
+            assertEquals(emptyList(), historicalCandidates(directory, 1, "runtime"))
+            recordFile.writeText(Json.encodeToString(record.copy(runtime = null)))
+            assertEquals(listOf(folder), historicalCandidates(directory, 1, "runtime"))
+            recordFile.writeText(Json.encodeToString(record.copy(bundle_type = "Morphe:V1")))
+            assertEquals(listOf(folder), historicalCandidates(directory, 1, "runtime"))
+            recordFile.writeText(Json.encodeToString(record.copy(file_hash = "invalid")))
+            assertEquals(listOf(folder), historicalCandidates(directory, 1, "runtime"))
+            val impossible = record.copy(runtime = null, terminal = true, failure_fingerprint = "runtime")
+            recordFile.writeText(Json.encodeToString(impossible))
+            assertEquals(listOf(folder), historicalCandidates(directory, 1, "runtime"))
+            kotlin.test.assertFalse(pausedFailure(impossible, record.version, record.download_url,
+                "ReVanced:v22", null, "runtime"))
+            recordFile.writeText(Json.encodeToString(record))
+            assertEquals(emptyList(), historicalCandidates(directory, 1, "runtime"))
+        } finally { directory.deleteRecursively() }
     }
 
     @Test fun `superseded history folders do not consume the extraction batch`() {
@@ -107,7 +130,8 @@ class HistoricalQueueTest {
             patches.writeText("""{"version":"v1","patches":[],"metadata_schema_version":2}""")
             val oldMarker = File(folder, "schema-stable-extraction.json")
             val oldRecord = Json.decodeFromString<ExtractionRecord>(oldMarker.readText())
-            oldMarker.writeText(Json.encodeToString(oldRecord.copy(patch_list_hash = sha256(patches))))
+            oldMarker.writeText(Json.encodeToString(oldRecord.copy(
+                bundle_type = family, patch_list_hash = sha256(patches))))
             assertEquals(listOf(folder), historicalCandidates(directory, 1, "runtime"))
             patches.writeText("""{"version":"v1","patches":[],"metadata_schema_version":${PATCH_METADATA_SCHEMA_VERSION}}""")
             val marker = File(folder, "schema-stable-extraction.json")

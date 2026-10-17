@@ -15,7 +15,8 @@ import kotlinx.serialization.json.*
 
 class LegacyReseamParserTest {
     private fun artifact(root: File, tampered: Boolean = false, laterSdk: Boolean = false,
-                         empty: Boolean = false): File {
+                         empty: Boolean = false, unnamedDependency: Boolean = false,
+                         oversizedClass: Boolean = false): File {
         val api = File(root, "src/app/reseam/patch/ReseamPatch.java").apply {
             parentFile.mkdirs()
             writeText("""
@@ -76,6 +77,10 @@ class LegacyReseamParserTest {
                     """.trimIndent())
                     .replace("getType()", "getKind()")
                     .replace("getDefaultString()", "getDefault()")
+            }.let { code ->
+                if (!unnamedDependency) code else code.replace(
+                    "public String getName() { return \"Dependency\"; }",
+                    "public String getName() { return null; }")
             })
         }
         val classes = File(root, "classes").apply { mkdirs() }
@@ -86,6 +91,11 @@ class LegacyReseamParserTest {
             classes.walkTopDown().filter { it.isFile }.forEach { file ->
                 output.putNextEntry(JarEntry(file.relativeTo(classes).invariantSeparatorsPath))
                 output.write(file.readBytes())
+                output.closeEntry()
+            }
+            if (oversizedClass) {
+                output.putNextEntry(JarEntry("fixture/Oversized.class"))
+                output.write(ByteArray(MAX_PATCH_CLASS_BYTES + 1))
                 output.closeEntry()
             }
         }
@@ -149,6 +159,19 @@ class LegacyReseamParserTest {
         } finally { root.deleteRecursively() }
     }
 
+    @Test fun unnamedLegacyObjectDependenciesReceiveStableInternalLabels() {
+        val root = createTempDirectory("legacy-reseam-unnamed-").toFile()
+        try {
+            val file = artifact(root, laterSdk = true, unnamedDependency = true)
+            val inspected = inspectLegacyReseam(file, File(root, "inspection"))
+            val patches = parseReseamInspection(inspected.toString(), sha256(file), "legacy").patches!!
+            val internal = patches.single { it.jsonObject["hidden"] == JsonPrimitive(true) }.jsonObject
+            assertEquals(JsonNull, internal["name"])
+            assertEquals("Dependency", internal["display_name"]?.jsonPrimitive?.content)
+            assertEquals(2, patches.size)
+        } finally { root.deleteRecursively() }
+    }
+
     @Test fun validSignedEmptyBundleProducesVerifiedEmptyPatchList() {
         val root = createTempDirectory("legacy-reseam-empty-").toFile()
         try {
@@ -166,6 +189,19 @@ class LegacyReseamParserTest {
             assertFails {
                 inspectLegacyReseam(artifact(root, true), File(root, "inspection"))
             }
+        } finally { root.deleteRecursively() }
+    }
+
+    @Test fun signedLegacyJarCannotExpandAnOversizedClassDuringInspection() {
+        val root = createTempDirectory("legacy-reseam-oversized-class-").toFile()
+        try {
+            // The outer container remains small and correctly signed, but the
+            // nested JVM ZIP entry expands past the class-inspection limit.
+            val file = artifact(root, oversizedClass = true)
+            val failure = assertFailsWith<IllegalArgumentException> {
+                inspectLegacyReseam(file, File(root, "inspection"))
+            }
+            assertContains(failure.message.orEmpty(), "Patch class exceeds inspection budget")
         } finally { root.deleteRecursively() }
     }
 

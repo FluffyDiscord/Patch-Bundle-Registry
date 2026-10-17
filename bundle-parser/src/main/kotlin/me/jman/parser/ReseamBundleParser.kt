@@ -2,6 +2,21 @@ package me.jman.parser
 
 import kotlinx.serialization.json.*
 
+/** Keep Reseam's stable patch name/id unchanged while labeling unnamed internal helpers. */
+internal fun reseamInternalDisplayName(id: String?): String? {
+    if (id.isNullOrBlank() || id.length > 512 ||
+        !Regex("[A-Za-z0-9_.$/:-]+").matches(id)) return null
+    val symbol = id.substringAfterLast('/').substringAfterLast('.').substringAfterLast(':')
+    if (symbol.isBlank()) return null
+    val words = symbol.replace(Regex("([a-z0-9])([A-Z])"), "$1 $2")
+        .replace(Regex("([A-Z])([A-Z][a-z])"), "$1 $2")
+        .replace(Regex("[_$-]+"), " ").trim()
+    if (words.isEmpty()) return null
+    return words.replaceFirstChar { it.uppercaseChar() }
+        .replace(Regex("(?i)\\bTik Tok\\b|\\bTiktok\\b"), "TikTok")
+        .replace(Regex("(?i)\\bYou Tube\\b|\\bYoutube\\b"), "YouTube")
+}
+
 /**
  * Independent adapter for Reseam's published CLI JSON protocol; no upstream code is copied.
  * https://git.reseam.app/reseam/reseam/src/commit/b0f1fcba5f4e681e5526c267eae453242c21ca8f/crates/model/src/sdk.rs
@@ -45,6 +60,14 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
         return value
     }
     val patches = inventory.map { patch ->
+            val name = patch.patchText("name")
+            val hidden = patch.getValue("hidden").jsonPrimitive.boolean
+            val id = (patch["id"] as? JsonPrimitive)?.takeIf { it.isString }?.contentOrNull
+            val officialLabel = (patch["display_name"] as? JsonPrimitive)
+                ?.takeIf { it.isString }?.contentOrNull?.takeIf { it.isNotBlank() }
+            val publishedName = (name as? JsonPrimitive)?.contentOrNull
+            val fallbackLabel = if (hidden && (publishedName.isNullOrBlank() || publishedName == id))
+                reseamInternalDisplayName(id) else null
             val compatibility = patch.getValue("compatibility").jsonObject
             val packages = when (compatibility.text("kind")) {
                 "universal" -> JsonNull
@@ -57,8 +80,9 @@ internal fun parseReseamInspection(payload: String, hash: String, runtime: Strin
                 else -> error("Unsupported Reseam compatibility")
             }
             buildJsonObject {
-                put("name", patch.patchText("name"))
-                put("hidden", patch.getValue("hidden").jsonPrimitive.boolean)
+                put("name", name)
+                (officialLabel ?: fallbackLabel)?.let { put("display_name", it) }
+                put("hidden", hidden)
                 put("description", patch.patchText("description"))
                 put("use", patch.getValue("enabled_by_default").jsonPrimitive.boolean)
                 put("dependencies", patch.getValue("dependencies").jsonArray)

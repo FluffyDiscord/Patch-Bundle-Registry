@@ -145,6 +145,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlin.stdlib)
     implementation(libs.asm)
+    implementation(libs.dex.translator)
     implementation(libs.smali)
     compileOnly(libs.jsr305)
     testImplementation(kotlin("test"))

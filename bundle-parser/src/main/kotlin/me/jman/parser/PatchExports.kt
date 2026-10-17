@@ -6,6 +6,19 @@ import java.util.jar.JarFile
 import kotlinx.serialization.json.*
 import org.objectweb.asm.*
 
+internal const val MAX_PATCH_CLASS_BYTES = 8 * 1024 * 1024
+private const val MAX_PATCH_CLASSES_TOTAL_BYTES = 256L * 1024 * 1024
+
+/** Bound expanded ZIP class contents before giving a class to ASM. */
+internal fun readPatchClass(jar: JarFile, entry: java.util.jar.JarEntry): ByteArray {
+    require(entry.size in 1..MAX_PATCH_CLASS_BYTES.toLong()) { "Patch class exceeds inspection budget" }
+    return jar.getInputStream(entry).use { input ->
+        input.readNBytes(MAX_PATCH_CLASS_BYTES + 1).also {
+            require(it.size in 1..MAX_PATCH_CLASS_BYTES) { "Patch class exceeds inspection budget" }
+        }
+    }
+}
+
 internal fun requireJvmPatchClasses(file: File) {
     JarFile(file).use { jar ->
         if (jar.entries().asSequence().none {
@@ -14,41 +27,45 @@ internal fun requireJvmPatchClasses(file: File) {
     }
 }
 
-private data class PatchExport(val owner: String, val member: String, val method: Boolean)
+private data class PatchExport(val owner: String, val member: String, val method: Boolean,
+                               val descriptor: String)
 
 /** Enumerate declared JVM patch exports independently of loaders that filter unnamed patches. */
 private fun patchExports(file: File, namespace: String): List<PatchExport> {
     val parents = mutableMapOf<String, String?>()
     val members = mutableListOf<Pair<PatchExport, String>>()
     JarFile(file).use { jar ->
+        var totalBytes = 0L
         for (entry in jar.entries().asSequence()) {
             if (!entry.name.endsWith(".class") || entry.name.startsWith("META-INF/")) continue
-            jar.getInputStream(entry).use { input ->
-                ClassReader(input).accept(object : ClassVisitor(Opcodes.ASM9) {
+            val bytes = readPatchClass(jar, entry)
+            totalBytes += bytes.size
+            require(totalBytes <= MAX_PATCH_CLASSES_TOTAL_BYTES) { "Patch classes exceed inspection budget" }
+            ClassReader(bytes).accept(object : ClassVisitor(Opcodes.ASM9) {
                     private lateinit var owner: String
                     override fun visit(version: Int, access: Int, name: String, signature: String?,
                                        superName: String?, interfaces: Array<out String>?) {
                         owner = name
                         parents[name] = superName
                     }
-                    private fun add(access: Int, name: String, type: Type, method: Boolean) {
+                    private fun add(access: Int, name: String, type: Type, method: Boolean,
+                                    descriptor: String) {
                         if (access and Opcodes.ACC_PUBLIC != 0 && access and Opcodes.ACC_STATIC != 0 &&
                             type.sort == Type.OBJECT)
-                            members += PatchExport(owner.replace('/', '.'), name, method) to type.internalName
+                            members += PatchExport(owner.replace('/', '.'), name, method, descriptor) to type.internalName
                     }
                     override fun visitField(access: Int, name: String, descriptor: String,
                                             signature: String?, value: Any?): FieldVisitor? {
-                        add(access, name, Type.getType(descriptor), false)
+                        add(access, name, Type.getType(descriptor), false, descriptor)
                         return null
                     }
                     override fun visitMethod(access: Int, name: String, descriptor: String,
                                              signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                         if (Type.getArgumentTypes(descriptor).isEmpty())
-                            add(access, name, Type.getReturnType(descriptor), true)
+                            add(access, name, Type.getReturnType(descriptor), true, descriptor)
                         return null
                     }
-                }, ClassReader.SKIP_CODE or ClassReader.SKIP_DEBUG or ClassReader.SKIP_FRAMES)
-            }
+            }, ClassReader.SKIP_CODE or ClassReader.SKIP_DEBUG or ClassReader.SKIP_FRAMES)
         }
     }
     val base = namespace + "/patch/"
@@ -65,6 +82,13 @@ private fun patchExports(file: File, namespace: String): List<PatchExport> {
 }
 
 internal fun declaredPatchExportCount(file: File, namespace: String): Int = patchExports(file, namespace).size
+
+/** Class-owned exports for comparing JVM/DEX representations of hybrid bundles. */
+internal fun declaredPatchExportSignatures(file: File, namespace: String): Map<String, Set<String>> =
+    patchExports(file, namespace).groupBy { it.owner.replace('.', '/') + ".class" }
+        .mapValues { (_, exports) -> exports.map {
+            (if (it.method) "method:" else "field:") + it.member + it.descriptor
+        }.toSet() }
 
 internal fun completePatchMetadata(
     file: File, loader: ClassLoader, namespace: String, loaded: List<Any>,

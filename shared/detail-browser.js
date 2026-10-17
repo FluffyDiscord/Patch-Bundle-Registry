@@ -1,6 +1,6 @@
-import { bundleImportPath, bundleTypeLabel } from "./catalog.js";
+import { bundleImportPath, reseamNativeImportPath, bundleTypeLabel } from "./catalog.js";
 import { patchMatchesSearch, repositoryNames, countLabel } from "./site.js";
-import { iconAction, bindActions } from "./actions.js";
+import { iconAction, importFormatAction, bindActions } from "./actions.js";
 import { groupBundlePatches, filterPatchGroups } from "./details.js";
 
 const disclosureArrow = '<span class="disclosure-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
@@ -47,9 +47,15 @@ export function renderPatchOptions(options, escape, heading = "Patch options", o
 }
 
 export function createDetailsBrowser({ getApplications, getSummaries, transformBundle,
-    bundlePatches, bundleChangelog, renderMarkdown, renderPatch, escapeHtml: escape, installAvatarFallback, formatDate, getApi }) {
+    bundlePatches, bundleChangelog, renderMarkdown, renderPatch, escapeHtml: escape, installAvatarFallback, formatDate, getApi,
+    onNavigate = () => {}, onClose = () => {} }) {
     let dialog, revision = 0, previousFocus;
-    function close() { dialog?.close(); }
+    function close({ notify = true } = {}) {
+        if (!dialog?.open) return;
+        revision++;
+        dialog.close();
+        if (notify) onClose();
+    }
     function shell(title, subtitle, icon, description = "", ownerAvatar = "", copyApp = false) {
         revision++;
         if (!dialog) {
@@ -57,7 +63,10 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
             dialog.className = "catalog-dialog";
             document.body.appendChild(dialog);
             dialog.addEventListener("click", event => { if (event.target === dialog) close(); });
+            dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
             dialog.addEventListener("close", () => {
+                // A queued close event must not invalidate a newly opened route.
+                if (dialog.open) return;
                 revision++;
                 document.documentElement.classList.remove("details-open");
                 document.querySelectorAll(".card-selected").forEach(card => card.classList.remove("card-selected"));
@@ -128,7 +137,7 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
         element.querySelectorAll(".details-group").forEach(group =>
             installAvatarFallback(group, group.dataset.label || "?"));
     }
-    async function openBundle(bundle, { section = "patches" } = {}) {
+    async function openBundle(bundle, { section = "patches", notify = true } = {}) {
         const name = repositoryNames(bundle).tracked;
         const view = shell(name, bundle.version + " · " + bundleTypeLabel(bundle.bundleType),
             bundle.iconUrl, bundle.repoDescription, bundle.ownerAvatarUrl);
@@ -171,7 +180,9 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
         })();
         const patchesButton = view.sections.querySelector('[data-details-section="patches"]');
         const changelogButton = view.sections.querySelector('[data-details-section="changelog"]');
-        const selectSection = selected => {
+        const selectSection = (selected, updateUrl = true) => {
+            if (updateUrl) onNavigate({ kind: "bundle", id: bundle.id,
+                source: bundle.sourceUrl, version: bundle.version, section: selected });
             const changelog = selected === "changelog";
             view.body.hidden = changelog;
             view.toolbar.hidden = changelog;
@@ -183,11 +194,12 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
         view.sections.hidden = false;
         patchesButton.addEventListener("click", () => { void selectSection("patches"); });
         changelogButton.addEventListener("click", () => { void selectSection("changelog"); });
-        const pending = selectSection(section);
+        const pending = selectSection(section, notify);
         if (section === "changelog") changelogButton.focus();
         await pending;
     }
-    function openApp(app) {
+    function openApp(app, { notify = true } = {}) {
+        if (notify) onNavigate({ kind: "app", package: app.package_name });
         const view = shell(app.app_name, app.package_name, app.icon_url, "", "", true);
         const summaries = new Map(getSummaries().map(bundle => [bundle.id, bundle]));
         const groups = app.bundles.flatMap(reference => {
@@ -223,9 +235,11 @@ export function createDetailsBrowser({ getApplications, getSummaries, transformB
                         <span class="details-group-actions">
                             ${iconAction("repository", "Open repository", escape, {href:bundle.sourceUrl})}
                             ${bundle.downloadUrl ? iconAction("download", "Download bundle", escape, {href:bundle.downloadUrl}) : ""}
-                            ${iconAction("link", "Copy this version URL", escape, {
-                                copy:url, disabled:bundle.bundleType === "Reseam" && bundle.metadataStatus !== "verified"
-                            })}</span>${disclosureArrow}</summary>
+                            ${bundle.bundleType === "Reseam"
+                                ? importFormatAction(escape, url,
+                                    new URL(reseamNativeImportPath(bundle, true), getApi()).href,
+                                    bundle.metadataStatus !== "verified")
+                                : iconAction("link", "Copy this version URL", escape, {copy:url})}</span>${disclosureArrow}</summary>
                     ${bundle.metadataStatus !== "verified" ? '<p class="metadata-note">Compatibility metadata for this release is unverified.</p>' : ""}
                     <div class="details-patches">${group.error ? `<p role="status">Unable to load patches: ${escape(group.error)}</p>` :
                         group.patches ? patchesHtml(group.patches, terms.every(term => (label(group) + " " + bundle.version).toLowerCase().includes(term)) ? "" : query) :

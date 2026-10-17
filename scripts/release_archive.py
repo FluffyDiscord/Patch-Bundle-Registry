@@ -8,11 +8,21 @@ try:
     from scripts.git_hosts import normalize_source
     from scripts.release_assets import release_assets
     from scripts.release_history import release_is_prerelease
+    from scripts.reseam_changelog import (
+        publisher_release_notes,
+        reseam_asset_revision,
+        reseam_metadata_asset,
+    )
     from scripts.source_policy import source_availability
 except ModuleNotFoundError:
     from git_hosts import normalize_source
     from release_assets import release_assets
     from release_history import release_is_prerelease
+    from reseam_changelog import (
+        publisher_release_notes,
+        reseam_asset_revision,
+        reseam_metadata_asset,
+    )
     from source_policy import source_availability
 
 
@@ -88,9 +98,37 @@ def reconcile_archive(root, inventory, release_sets):
                 "prerelease",
             )
             raw = {key: release[key] for key in keys if key in release}
-            text = release.get("body")
+            previous = archive["releases"].get(identity, {})
+            text = publisher_release_notes(release)
+            reseam_asset = reseam_metadata_asset(url, release)
+            reseam_revision = (
+                reseam_asset_revision(release, reseam_asset) if reseam_asset else None
+            )
+            reseam_info = release.get("_reseam_notes")
+            if (
+                reseam_asset
+                and isinstance(reseam_info, dict)
+                and reseam_info.get("url") == reseam_asset
+                and reseam_info.get("revision") == reseam_revision
+            ):
+                checked = reseam_info.get("verified", True)
+                reseam_description = reseam_info.get("description") if checked else None
+                attempted_at = None if checked else now
+            elif (reseam_asset and previous.get("reseam_metadata_url") == reseam_asset
+                  and previous.get("reseam_metadata_revision") == reseam_revision):
+                checked = previous.get("reseam_metadata_checked", False)
+                reseam_description = previous.get("reseam_metadata_description")
+                attempted_at = previous.get("reseam_metadata_attempted_at")
+            else:
+                checked, reseam_description = False, None
+                attempted_at = None
+            if isinstance(reseam_description, str) and reseam_description.strip():
+                text = reseam_description
             if text is None:
-                text = release.get("description")
+                # Preserve the legacy representation of genuinely empty notes.
+                text = release.get("body")
+                if text is None:
+                    text = release.get("description")
             record = {
                 "id": identity,
                 "source_id": source_id,
@@ -115,7 +153,13 @@ def reconcile_archive(root, inventory, release_sets):
                 "last_verified_at": now,
                 "binary_archived": False,
             }
-            previous = archive["releases"].get(identity, {})
+            if reseam_asset and (checked or attempted_at):
+                record["reseam_metadata_url"] = reseam_asset
+                record["reseam_metadata_revision"] = reseam_revision
+                record["reseam_metadata_checked"] = bool(checked)
+                record["reseam_metadata_description"] = reseam_description
+                if attempted_at and not checked:
+                    record["reseam_metadata_attempted_at"] = attempted_at
             record["first_seen_at"] = previous.get("first_seen_at", now)
             if previous:
                 ignored = {"first_seen_at", "last_verified_at"}

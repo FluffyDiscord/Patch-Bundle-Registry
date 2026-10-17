@@ -51,16 +51,34 @@ class NonJvmBundleTest {
         assertNull(findPatchMetadataAsset(onlyBundle))
     }
 
-    @Test fun cachedProductionArchivesAreRejectedByTheJvmInspector() {
+    @Test fun cachedProductionArchivesRecoverDexButRejectMissingImplementations() {
         val directory = System.getenv("CATALOG_NON_JVM_AUDIT") ?: return
-        for (name in listOf("dumketo", "anxyis", "pixel100", "pixel101")) {
+        for (name in listOf("dumketo", "anxyis", "pixel100", "pixel101", "ang3lo")) {
             val file = File(directory, "$name.mpp")
             assertTrue(file.isFile, name)
-            assertFailsWith<IncompletePatchInventory>(name) { requireJvmPatchClasses(file) }
+            if (name == "ang3lo") {
+                // v0.4.4 publishes JVM patches, but omits a required compatibility class.
+                requireJvmPatchClasses(file)
+            } else {
+                assertFailsWith<IncompletePatchInventory>(name) { requireJvmPatchClasses(file) }
+            }
             val result = extractWithRuntimes(file.toURI(), false, "Morphe:V1")
-            assertEquals("incomplete_patch_inventory", result.status, name)
-            assertTrue(result.terminal, name)
-            assertEquals(listOf("artifact"), result.attempts.map { it.runtime }, name)
+            if (name.startsWith("pixel")) {
+                assertEquals("verified", result.status, result.attempts.toString())
+                assertEquals(sha256(file), result.hash)
+                assertEquals(241, result.patches!!.size, name)
+                assertTrue(result.patches.any {
+                    it.jsonObject["name"]?.jsonPrimitive?.content == "Camera Looks Backport"
+                }, name)
+            } else if (name == "ang3lo") {
+                assertNull(result.patches)
+                assertEquals("runtime_missing_dependency", result.status, result.attempts.toString())
+                assertTrue(result.attempts.any { it.cause?.contains("app.template.patches.shared.Constants") == true })
+            } else {
+                assertEquals("incomplete_patch_inventory", result.status, name)
+                assertTrue(result.terminal, name)
+                assertEquals(listOf("artifact"), result.attempts.map { it.runtime }, name)
+            }
         }
     }
 }

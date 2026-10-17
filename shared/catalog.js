@@ -75,6 +75,10 @@ export function bundleImportPath(bundle, pinned = false) {
     channel: bundle.isPrerelease ? "prerelease" : "stable" });
   return (canonicalBundleType(bundle.bundleType ?? bundle.bundle_type) === "Reseam" ? "/api/reseam/bundle?" : "/api/v3/bundle?") + params;
 }
+export function reseamNativeImportPath(bundle, pinned = false) {
+  if (canonicalBundleType(bundle.bundleType ?? bundle.bundle_type) !== "Reseam") return null;
+  return bundleImportPath(bundle, pinned).replace(/^\/api\/reseam\/bundle\?/, "/api/reseam/patches.json?");
+}
 export function releaseTimestamp(value) {
   let date = String(value ?? "");
   // Legacy snapshots store UTC dates without a timezone suffix.

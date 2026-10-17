@@ -35,6 +35,13 @@ export const openapi = {
       parameter("source_url","Repository URL on a supported Git host",undefined,true),
       parameter("version","Exact release tag or latest",undefined,true),
       parameter("channel","Required for latest",{type:"string",enum:["any","stable","prerelease"]})]),
+    "/api/reseam/patches.json": get("Publisher's native Reseam Manager patches.json index for a release", [
+      parameter("source_url","Repository URL on a supported Git host",undefined,true),
+      parameter("version","Exact release tag or latest",undefined,true),
+      parameter("channel","Required for latest",{type:"string",enum:["any","stable","prerelease"]})],{
+      ...responses,200:{description:"Publisher's complete native patches.json, including bundle, releases and patch IDs",
+        content:{"application/json":{schema:{type:"object"}}}},
+      502:{description:"Publisher JSON does not match verified catalog metadata"}}),
     "/api/v1/bundle/{id}": get("Legacy numeric-ID import", [
       parameter("id","Stable catalog bundle ID",{type:"integer"},true,"path")]),
     "/api/v1/bundle/{owner}/{repo}/{version}": get("Legacy repository exact-version or latest import", [

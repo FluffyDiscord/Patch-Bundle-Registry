@@ -183,6 +183,7 @@ test("Apps tab hides irrelevant controls and supports keyboard navigation", asyn
     getElementById:id=>fields[id]??=node(id)}, results:node("results"),
     input:node("search"),
     currentTab:"bundles", browsePreferences:{activate(){}}, saveBrowsePreferences(){}, restoreBrowsePreferences(){},
+    detailsBrowser:{close(){}},writeNavigation(){},
     resetBundleSelection(){},clearVirtualizer(){},renderFilteredBundles(){}};
   runInNewContext(code,context);
   tabs[1].click();

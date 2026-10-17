@@ -71,11 +71,13 @@ async function frontend(prefs, suppliedSummaries) {
         getElementById:id=>fields[id]??=node(id)},results:node(),container:node(),viewToggle:node(),
         input:node(),packageFilter:node(),sourceFilter:node(),bundleVersionFilter:node(),bundleTypeFilter:node(),
         filterButtons:["all","latest","release","prerelease"].map(filter=>Object.assign(node(),{dataset:{filter}})),
+        navigationReady:true,navigationRevision:0,navigation:{read:()=>null,write(){return true;}},
+        detailsBrowser:{close(){},openApp(){},async openBundle(){}},
         bundleSelection:0,sourceSelection:0,sourcePicker:{sync(){}}, browsePreferences:prefs,currentTab:prefs.activeTab,
         summaries,latestBundles:[transformBundle(summaries[0])],sourceVersions:[],allBundles:[],catalog:{},
         transformBundle,compareReleaseDates,matchesReleaseFilter,bundleTypeLabel:x=>x,
         Option: function(label,value) { this.label=label; this.value=value; },
-        clearVirtualizer(){},renderFilteredBundles(){context.saveBrowsePreferences();}};
+        clearVirtualizer(){},renderFilteredBundles(options={}){context.saveBrowsePreferences({updateUrl:options.updateUrl !== false,userAction:options.userAction === true});}};
     runInNewContext(source.slice(source.indexOf("async function selectSource("),
         source.indexOf("\nfunction transformPatch(")), context);
     // Exercise the production selection/reconciliation functions, not a parallel implementation.
@@ -207,4 +209,147 @@ test("A source error awaiting generation recovery cannot overwrite a newer view"
     finishRecovery(false);
     await pending;
     assert.equal(c.status.textContent,"Current view");
+});
+
+test("A shared historical bundle loads source history before opening the selected section", async () => {
+    const {context:c} = await frontend(createBrowsePreferences(() => storage()));
+    const url="https://github.com/a/b", opened=[], requested=[];
+    c.catalog={async historyBundles(source) {
+        requested.push(source);
+        return [{id:"history",version:"v0",source:{url},bundle_type:"Morphe:V1",is_latest:false}];
+    }};
+    c.detailsBrowser.openBundle=async (bundle,options)=>opened.push({bundle,options});
+    await c.restoreNavigation({tab:"bundles",browse:{release:"latest"},
+        detail:{kind:"bundle",id:"history",source:url,version:"v0",section:"changelog"}});
+    assert.deepEqual(requested,[url]);
+    assert.equal(opened.length,1);
+    assert.equal(opened[0].bundle.version,"v0");
+    assert.equal(opened[0].options.section,"changelog");
+    assert.equal(opened[0].options.notify,false);
+});
+
+test("A slow shared-link request cannot reopen details after the user changes tabs", async () => {
+    const {context:c,tabs} = await frontend(createBrowsePreferences(() => storage()));
+    let resolve;
+    const waiting=new Promise(done=>resolve=done), opened=[];
+    c.catalog={historyBundles:()=>waiting};
+    c.detailsBrowser.openBundle=async bundle=>opened.push(bundle);
+    const pending=c.restoreNavigation({tab:"bundles",browse:{release:"latest"},
+        detail:{kind:"bundle",id:"old",source:"https://github.com/a/b",version:"v1",section:"patches"}});
+    tabs[1].click();
+    resolve([]);
+    await pending;
+    assert.equal(c.currentTab,"apps");
+    assert.equal(opened.length,0);
+});
+
+test("Shared links cannot bypass disabled sources in a static catalog", async () => {
+    const {context:c} = await frontend(createBrowsePreferences(() => storage()));
+    let filesRead = 0;
+    c.catalog={async file(){filesRead++;return {id:"disabled"};}};
+    c.status={textContent:""};
+    c.recoverGeneration=async()=>false;
+    await c.restoreNavigation({tab:"bundles",browse:{},detail:{
+        kind:"bundle",id:"disabled",section:"patches"
+    }});
+    assert.equal(filesRead,0);
+    assert.match(c.status.textContent,/no longer in the catalog/);
+});
+
+test("Shared details finish opening after a catalog generation recovery", async () => {
+    const {context:c} = await frontend(createBrowsePreferences(() => storage()));
+    const opened=[],url="https://github.com/a/b";
+    let attempts=0;
+    c.catalog={async historyBundles() {
+        if (++attempts===1) throw Object.assign(new Error("Catalog changed"),{generationUnavailable:true});
+        return [];
+    }};
+    c.recoverGeneration=async()=>{c.saveBrowsePreferences();return true;};
+    c.detailsBrowser.openBundle=async bundle=>opened.push(bundle);
+    await c.restoreNavigation({tab:"bundles",browse:{},detail:{
+        kind:"bundle",id:"old",source:url,version:"v1",section:"patches"
+    }});
+    assert.equal(attempts,2);
+    assert.equal(opened.length,1);
+    assert.equal(opened[0].bundleType,"Morphe:V1");
+});
+
+test("Tab selection during catalog startup replaces a pending shared detail", async () => {
+    const {context:c,tabs} = await frontend(createBrowsePreferences(() => storage()));
+    c.navigationReady=false;
+    let route={tab:"bundles",browse:{},detail:{kind:"bundle",id:"old"}};
+    c.navigation={read:()=>route,write:next=>{route=next;}};
+    tabs[1].click();
+    assert.equal(route.tab,"apps");
+    assert.equal(route.detail,null);
+});
+
+test("Unchanged URL writes do not cancel a shared link while history is loading", async () => {
+    const {context:c} = await frontend(createBrowsePreferences(() => storage()));
+    let resolve;
+    const waiting=new Promise(done=>resolve=done),opened=[];
+    c.catalog={historyBundles:()=>waiting};
+    c.navigation.write=()=>false;
+    c.detailsBrowser.openBundle=async bundle=>opened.push(bundle);
+    const pending=c.restoreNavigation({tab:"bundles",browse:{},detail:{
+        kind:"bundle",id:"old",source:"https://github.com/a/b",version:"v1",section:"patches"
+    }});
+    c.saveBrowsePreferences();
+    resolve([]);
+    await pending;
+    assert.equal(opened.length,1);
+});
+
+test("Typing during catalog startup cancels the pending detail and shares the new filter", async () => {
+    const {context:c} = await frontend(createBrowsePreferences(() => storage()));
+    c.navigationReady=false;
+    c.renderAfterInput=()=>{};
+    let route={tab:"bundles",browse:{},detail:{kind:"bundle",id:"old"}};
+    c.navigation={read:()=>route,write:next=>{route=next;return true;}};
+    const source=await readFile(new URL("../../web/app.js",import.meta.url),"utf8");
+    runInNewContext(source.slice(source.indexOf('input.addEventListener("input"'),
+        source.indexOf('\npackageFilter.addEventListener("input"')),c);
+    c.input.value="New search";
+    c.input.handlers.input();
+    assert.equal(route.detail,null);
+    assert.equal(route.browse.search,"New search");
+});
+
+test("Catalog recovery may canonicalize a shared URL without dropping its detail", async () => {
+    const {context:c} = await frontend(createBrowsePreferences(() => storage()));
+    const opened=[],url="https://github.com/a/b";
+    let attempts=0;
+    let route={tab:"bundles",browse:{},detail:{
+        kind:"bundle",id:"old",source:url,version:"v1",section:"patches"
+    }};
+    c.navigation={read:()=>route,write:next=>{route=next;return true;}};
+    c.catalog={async historyBundles() {
+        if (++attempts===1) throw Object.assign(new Error("Catalog changed"),{generationUnavailable:true});
+        return [];
+    }};
+    // The recovered catalog renders and fills in default URL filters/layout.
+    c.recoverGeneration=async()=>{c.saveBrowsePreferences();return true;};
+    c.detailsBrowser.openBundle=async bundle=>opened.push(bundle);
+    await c.restoreNavigation(route);
+    assert.equal(attempts,2);
+    assert.equal(opened.length,1);
+});
+
+test("User navigation during catalog recovery cancels the earlier shared detail", async () => {
+    const {context:c,tabs} = await frontend(createBrowsePreferences(() => storage()));
+    const opened=[];
+    let recovering,finishRecovery;
+    const started=new Promise(resolve=>recovering=resolve);
+    c.catalog={async historyBundles() {throw new Error("Catalog changed");}};
+    c.recoverGeneration=()=>{recovering();return new Promise(resolve=>finishRecovery=resolve);};
+    c.detailsBrowser.openBundle=async bundle=>opened.push(bundle);
+    const pending=c.restoreNavigation({tab:"bundles",browse:{},detail:{
+        kind:"bundle",id:"old",source:"https://github.com/a/b",version:"v1",section:"patches"
+    }});
+    await started;
+    tabs[1].click();
+    finishRecovery(true);
+    await pending;
+    assert.equal(c.currentTab,"apps");
+    assert.equal(opened.length,0);
 });

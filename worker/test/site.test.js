@@ -1,4 +1,6 @@
 import test from "node:test";
+import { importFormatAction } from "../../shared/actions.js";
+import { reseamNativeImportPath } from "../../shared/catalog.js";
 import assert from "node:assert/strict";
 import {
   latestReleaseIds, catalogStats, patchMatchesSearch, repositoryNames, matchesReleaseFilter, countLabel
@@ -94,7 +96,8 @@ function cardHarness(bundleType = "ReVanced:v21", overrides = {}, fetchChangelog
     }
   };
   const context = {
-    iconAction, bindActions() {}, URL, siteConfig:{api:"https://api.test"},
+    iconAction, importFormatAction, reseamNativeImportPath,
+    bindActions() {}, URL, siteConfig:{api:"https://api.test"},
     document, detailsBrowser:{activateCard(card,fn){card.openDetails=fn;},openBundle(...args){opened.push(args);}}, escapeHtml: value => String(value || ""), repositoryNames,
     releaseTagUrl: () => "", bundleTypeLabel: type => type,
     formatDate: () => "", bundleImportPath: () => "/v3/bundle",

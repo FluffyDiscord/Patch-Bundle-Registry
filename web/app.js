@@ -6,14 +6,15 @@ import { ApiCatalog } from "./shared/api-catalog.js";
  * catalog API import URLs, source management, catalog totals, Latest filtering,
  * cached app labels, application browsing, and searchable app/bundle detail dialogs. See COPYING.
  */
-import { bundleTypeLabel, bundleImages, Catalog, catalogOrigins, bundleImportPath, compareReleaseDates, packageFilterMatches, releaseTimestamp } from "./shared/catalog.js";
+import { bundleTypeLabel, bundleImages, Catalog, catalogOrigins, bundleImportPath, reseamNativeImportPath, compareReleaseDates, packageFilterMatches, releaseTimestamp } from "./shared/catalog.js";
 import { filterApps } from "./shared/apps.js";
 import { createBrowsePreferences } from "./shared/preferences.js";
+import { createSiteNavigation } from "./shared/site-navigation.js";
 import { createDetailsBrowser, renderPatchOptions } from "./shared/detail-browser.js";
-import { iconAction, bindActions } from "./shared/actions.js";
+import { iconAction, importFormatAction, bindActions } from "./shared/actions.js";
 import { createSourcePicker } from "./shared/source-picker.js";
 import { gitHosts } from "./shared/hosts.js";
-import { latestReleaseIds, catalogStats, repositoryNames, matchesReleaseFilter, countLabel, patchDisplayName } from "./shared/site.js";
+import { latestReleaseIds, catalogStats, repositoryNames, matchesReleaseFilter, countLabel, patchDisplayName, reseamInternalSearchAlias } from "./shared/site.js";
 import {
     Virtualizer,
     measureElement,
@@ -177,6 +178,13 @@ function setupVirtualizer(anchorBundleIndex = null) {
 }
 
 const browsePreferences = createBrowsePreferences(() => localStorage, !matchMedia("(max-width: 700px)").matches);
+const navigation = createSiteNavigation(window, route => restoreNavigation(route));
+const initialRoute = navigation.read();
+if (initialRoute) {
+    browsePreferences.save(initialRoute.tab, initialRoute.browse);
+    browsePreferences.activate(initialRoute.tab);
+}
+let navigationReady = false, navigationRevision = 0;
 let currentTab = browsePreferences.activeTab;
 let applications = [];
 let currentFilter = "latest";
@@ -197,7 +205,9 @@ const detailsBrowser = createDetailsBrowser({
     getApplications: () => applications,
     getSummaries: () => summaries, transformBundle, bundlePatches, bundleChangelog, renderMarkdown, renderPatch,
     escapeHtml, installAvatarFallback, formatDate,
-    getApi: () => siteConfig.api
+    getApi: () => siteConfig.api,
+    onNavigate: detail => writeNavigation({ detail }, { userAction: true }),
+    onClose: () => writeNavigation({ detail: null }, { userAction: true })
 });
 const sourcePicker = createSourcePicker({
     button: document.getElementById("source-picker"), select: sourceFilter,
@@ -210,12 +220,76 @@ adminAccess.addEventListener("click", () => {
         "/blob/" + (siteConfig?.data_branch || "bundles") + "/config/sources.json",
         "_blank", "noopener,noreferrer");
 });
-function saveBrowsePreferences() {
+function saveBrowsePreferences({ updateUrl = true, userAction = false } = {}) {
     browsePreferences.save(currentTab, {
         search: input.value, package: packageFilter.value, source: currentSourceUrl,
         version: currentBundleVersion, type: currentBundleType, release: currentFilter,
         grid: results.classList.contains("grid-view")
     });
+    if (updateUrl) writeNavigation(userAction ? { detail: null } : {}, { replace: true, userAction });
+}
+function writeNavigation(changes = {}, { replace = false, userAction = false } = {}) {
+    if (!navigationReady && !userAction) return;
+    const changed = navigation.write({ tab: currentTab, browse: browsePreferences.read(currentTab),
+        detail: navigation.read()?.detail ?? null, ...changes }, { replace });
+    // Only user navigation cancels a pending link. Background renders may
+    // normalize default filters/layout while recovering a new catalog.
+    if (changed && userAction) navigationRevision++;
+}
+async function restoreNavigation(route) {
+    const sequence = ++navigationRevision;
+    detailsBrowser.close({ notify: false });
+    // Back to the original URL means the default browse view, not another
+    // person's saved filters from this browser.
+    route ??= { tab: "bundles", browse: { release: "latest" }, detail: null };
+    browsePreferences.save(route.tab, route.browse);
+    selectTab(route.tab, { render: false, initial: true, updateUrl: false });
+    if (!catalog) return;
+    try {
+        const sources = new Set([route.browse.source, route.detail?.source].filter(Boolean));
+        for (const source of sources) {
+            if (!catalog.historyBundles) continue;
+            const history = await catalog.historyBundles(source);
+            if (sequence !== navigationRevision) return;
+            summaries = [...new Map([...summaries, ...history].map(bundle => [bundle.id, bundle])).values()];
+        }
+        if (sequence !== navigationRevision) return;
+        restoreBrowsePreferences();
+        await renderFilteredBundles({ updateUrl: false });
+        if (sequence !== navigationRevision) return;
+        const detail = route.detail;
+        if (detail?.kind === "app") {
+            const app = applications.find(app => app.package_name === detail.package);
+            if (!app) throw new Error("This app is no longer in the catalog");
+            const eligible = summaries.filter(bundle =>
+                (!currentSourceUrl || bundle.source.url === currentSourceUrl) &&
+                (!currentBundleType || bundle.bundle_type === currentBundleType) &&
+                matchesReleaseFilter(transformBundle(bundle), currentFilter));
+            const selected = filterApps([app], eligible)[0] || app;
+            detailsBrowser.openApp(selected, { notify: false });
+        } else if (detail?.kind === "bundle") {
+            let bundle = summaries.find(bundle => bundle.id === detail.id);
+            bundle ??= summaries.find(bundle => detail.source && detail.version &&
+                bundle.source.url === detail.source && bundle.version === detail.version);
+            if (!bundle) {
+                // Static indexes already contain every visible bundle. Do not
+                // bypass disabled-source filtering through a raw catalog file.
+                if (!catalog.historyBundles) throw new Error("This bundle is no longer in the catalog");
+                bundle = await catalog.file("bundles/" + detail.id + ".json");
+                if (sequence !== navigationRevision) return;
+            }
+            await detailsBrowser.openBundle(transformBundle(bundle), { section: detail.section, notify: false });
+        }
+    } catch (error) {
+        if (sequence !== navigationRevision) return;
+        if (await recoverGeneration(error)) {
+            // Catalog recovery rebuilds the browse view; finish opening the
+            // requested detail unless the user has since navigated elsewhere.
+            if (sequence === navigationRevision) await restoreNavigation(navigation.read() ?? route);
+            return;
+        }
+        if (sequence === navigationRevision) status.textContent = "Unable to open shared link: " + error.message;
+    }
 }
 function restoreBrowsePreferences() {
     bundleSelection++;
@@ -251,8 +325,11 @@ function restoreBrowsePreferences() {
         ? sourceVersions.filter(bundle => bundle.version === currentBundleVersion).map(transformBundle) : latestBundles;
 }
 const catalogTabs = [...document.querySelectorAll(".catalog-tab")];
-function selectTab(tab, { render = true, initial = false } = {}) {
-    if (!initial) saveBrowsePreferences();
+function selectTab(tab, { render = true, initial = false, updateUrl = true } = {}) {
+    if (!initial) {
+        saveBrowsePreferences({ updateUrl: false });
+        detailsBrowser.close({ notify: false });
+    }
     currentTab = tab;
     browsePreferences.activate(tab);
     restoreBrowsePreferences();
@@ -269,6 +346,7 @@ function selectTab(tab, { render = true, initial = false } = {}) {
     input.placeholder = tab === "apps" ? "Search apps by name or package..." : "Search bundles by source URL or name...";
     input.setAttribute("aria-label", tab === "apps" ? "Search apps" : "Search bundles");
     clearVirtualizer();
+    if (updateUrl && !initial) writeNavigation({ detail: null }, { userAction: true });
     if (render) void renderFilteredBundles();
 }
 catalogTabs.forEach((button, index) => {
@@ -286,13 +364,13 @@ void loadBundles();
 
 input.addEventListener("input", () => {
     currentSearchQuery = input.value.trim().toLowerCase();
-    saveBrowsePreferences();
+    saveBrowsePreferences({ userAction: true });
     renderAfterInput();
 });
 
 packageFilter.addEventListener("input", () => {
     currentPackageFilter = packageFilter.value.trim().toLowerCase();
-    saveBrowsePreferences();
+    saveBrowsePreferences({ userAction: true });
     renderAfterInput();
 });
 
@@ -304,7 +382,7 @@ bundleTypeFilter.addEventListener("change", () => {
     currentBundleType = bundleTypeFilter.value;
     resetBundleSelection();
     populateVersionOptions();
-    renderFilteredBundles();
+    renderFilteredBundles({ userAction: true });
 });
 
 filterButtons.forEach(btn => {
@@ -314,7 +392,7 @@ filterButtons.forEach(btn => {
         currentFilter = btn.dataset.filter;
         resetBundleSelection();
         populateVersionOptions();
-        renderFilteredBundles();
+        renderFilteredBundles({ userAction: true });
     });
 });
 
@@ -324,7 +402,7 @@ viewToggle.addEventListener("click", () => {
     container.classList.toggle("grid-view-enabled", gridEnabled);
     viewToggle.setAttribute("aria-pressed", String(gridEnabled));
     viewToggle.textContent = gridEnabled ? "List view" : "Grid view";
-    saveBrowsePreferences();
+    saveBrowsePreferences({ userAction: true });
     // Rebuild the row grouping while keeping the first visible bundle anchored.
     setupVirtualizer(anchorBundleIndex);
     updateStatus();
@@ -369,6 +447,12 @@ async function loadBundles(refreshedCatalog = null) {
         populateSourceOptions();
         restoreBrowsePreferences();
         await renderFilteredBundles({ resetScroll: !refreshedCatalog });
+        if (!navigationReady) {
+            navigationReady = true;
+            const route = navigation.read();
+            if (route) await restoreNavigation(route);
+            else writeNavigation({}, { replace: true });
+        }
         return true;
     } catch (error) {
         console.error(error);
@@ -415,7 +499,8 @@ async function selectSource(sourceUrl) {
     sourceFilter.value = sourceUrl;
     sourcePicker.sync();
     currentSourceUrl = sourceUrl;
-    if (sourceUrl && catalog.historyBundles) {
+    saveBrowsePreferences({ userAction: true });
+    if (sourceUrl && catalog?.historyBundles) {
         try {
             const history = await catalog.historyBundles(sourceUrl);
             if (selection !== sourceSelection) return;
@@ -440,8 +525,9 @@ async function selectSource(sourceUrl) {
 }
 
 async function selectBundleVersion(version) {
+    navigationRevision++;
     const selection = ++bundleSelection;
-    if (version && catalog.historyBundles) {
+    if (version && catalog?.historyBundles) {
         try {
             for (const bundle of sourceVersions.filter(bundle => bundle.version === version)) {
                 const detail = await catalog.file("bundles/" + bundle.id + ".json");
@@ -459,7 +545,7 @@ async function selectBundleVersion(version) {
     currentBundleVersion = version;
     allBundles = version
         ? sourceVersions.filter(bundle => bundle.version === version).map(transformBundle) : latestBundles;
-    await renderFilteredBundles();
+    await renderFilteredBundles({ userAction: true });
 }
 
 function transformPatch(patch) {
@@ -627,8 +713,8 @@ function transformBundle(bundle) {
     };
 }
 
-async function renderFilteredBundles({ resetScroll = true } = {}) {
-    saveBrowsePreferences();
+async function renderFilteredBundles({ resetScroll = true, updateUrl = true, userAction = false } = {}) {
+    saveBrowsePreferences({ updateUrl, userAction });
     const sequence = ++searchSequence;
     if (currentTab === "apps") {
         try { renderFilteredApps(resetScroll); }
@@ -647,19 +733,34 @@ async function renderFilteredBundles({ resetScroll = true } = {}) {
             const candidates = allBundles.filter(bundle =>
                 (!currentSourceUrl || bundle.sourceUrl === currentSourceUrl) &&
                 (!currentBundleType || bundle.bundleType === currentBundleType));
-            let cursor = 0;
-            do {
-                const page = await catalog.patchRows({ q: packageQuery ? "" : search, bundle_ids: candidates.map(b => b.id),
-                    page_cursor: cursor, include_unverified: true });
-                if (sequence !== searchSequence) return;
-                for (const patch of page.rows) {
-                    if (packageQuery && !packageFilterMatches(patch.packages, packageQuery))
-                        continue;
-                    if (!patchMatches.has(patch.bundle_id)) patchMatches.set(patch.bundle_id, []);
-                    patchMatches.get(patch.bundle_id).push(transformPatch(patch));
-                }
-                cursor = page.next_cursor;
-            } while (cursor !== null);
+            const reseamBundles = candidates.filter(bundle => bundle.bundleType === "Reseam");
+            const alias = !packageQuery && reseamBundles.length ? reseamInternalSearchAlias(search) : null;
+            const queries = [{ q: packageQuery ? "" : search, ids: candidates.map(b => b.id), alias: false }];
+            if (alias && alias !== search.toLowerCase())
+                queries.push({ q: alias, ids: reseamBundles.map(b => b.id), alias: true });
+            const seen = new Set();
+            for (const request of queries) {
+                // A different matching patch must not hide an internal Reseam
+                // result whose readable name is absent from the search index.
+                let cursor = 0;
+                do {
+                    const page = await catalog.patchRows({ q: request.q, bundle_ids: request.ids,
+                        page_cursor: cursor, include_unverified: true });
+                    if (sequence !== searchSequence) return;
+                    for (const patch of page.rows) {
+                        if (packageQuery && !packageFilterMatches(patch.packages, packageQuery)) continue;
+                        const transformed = transformPatch(patch);
+                        if (request.alias && !patchDisplayName(transformed).toLowerCase()
+                            .replace(/\s+/g, " ").includes(search.replace(/\s+/g, " "))) continue;
+                        const key = `${patch.bundle_id}:${patch.id ?? patch.legacy_id ?? patch.name}`;
+                        if (seen.has(key)) continue;
+                        seen.add(key);
+                        if (!patchMatches.has(patch.bundle_id)) patchMatches.set(patch.bundle_id, []);
+                        patchMatches.get(patch.bundle_id).push(transformed);
+                    }
+                    cursor = page.next_cursor;
+                } while (cursor !== null);
+            }
         } catch (error) {
             if (sequence === searchSequence && await recoverGeneration(error)) return;
             if (sequence === searchSequence) status.textContent = "Search failed: " + error.message;
@@ -676,7 +777,8 @@ async function renderFilteredBundles({ resetScroll = true } = {}) {
         const text = [bundle.sourceUrl, bundle.ownerName, bundle.repoName, bundle.repoDescription,
             bundle.version, bundle.description].filter(Boolean).join(" ").toLowerCase();
         const patchTextMatches = (patchMatches.get(bundle.id) || []).some(patch =>
-            ((patch.name || "") + " " + (patch.description || "")).toLowerCase().includes(search));
+            ((patch.name || "") + " " + (patch.description || "") + " " + patchDisplayName(patch))
+                .toLowerCase().replace(/\s+/g, " ").includes(search.replace(/\s+/g, " ")));
         return (!search || text.includes(search) || patchTextMatches) &&
             (!packageQuery || patchMatches.has(bundle.id));
     }).map(bundle => patchMatches.has(bundle.id) ?
@@ -781,14 +883,17 @@ function renderBundle(bundle, target) {
     const repoLinkText = escapeHtml(trackedName);
 
     const copyLabel = currentBundleVersion || bundle.pinVersion ? "Copy this version URL" : "Copy remote bundle URL";
+    const pinImport = Boolean(currentBundleVersion) || bundle.pinVersion;
+    const registryUrl = new URL(bundleImportPath(bundle, pinImport), siteConfig.api).href;
     card.innerHTML = `
         <div class="bundle-actions" aria-label="Bundle actions">
             ${iconAction("download", "Download bundle", escapeHtml, {href: bundle.downloadUrl})}
             ${bundle.signatureDownloadUrl ? iconAction("signature", "Download signature", escapeHtml, {href: bundle.signatureDownloadUrl}) : ""}
-            ${iconAction("link", copyLabel, escapeHtml, {
-                copy: new URL(bundleImportPath(bundle, Boolean(currentBundleVersion) || bundle.pinVersion), siteConfig.api).href,
-                disabled: bundle.bundleType === "Reseam" && bundle.metadataStatus !== "verified"
-            })}
+            ${bundle.bundleType === "Reseam"
+                ? importFormatAction(escapeHtml, registryUrl,
+                    new URL(reseamNativeImportPath(bundle, pinImport), siteConfig.api).href,
+                    bundle.metadataStatus !== "verified")
+                : iconAction("link", copyLabel, escapeHtml, {copy: registryUrl})}
         </div>
         ${v3WarningHtml}
         ${metadataWarning}

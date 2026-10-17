@@ -56,10 +56,39 @@ class ReseamPatchParserTest {
         assertEquals(JsonNull, mapped["name"])
         assertEquals(JsonNull, mapped["description"])
         assertEquals(JsonPrimitive(true), mapped["hidden"])
+        assertEquals("Ads", mapped["display_name"]?.jsonPrimitive?.content)
         assertTrue(isUsablePatchArray(result.patches!!))
         assertFails {
             parseReseamInspection(inspection("[" + hidden.replace("\"name\":null", "\"name\":7") + "]"), "hash", "legacy")
         }
+    }
+
+    @Test fun technicalReseamInternalNamesGetReadableLabelsWithoutLosingPublishedNames() {
+        val original = Json.parseToJsonElement(patch).jsonObject
+        val settingsId = "app.reseam.patches.tiktok.core.tiktokSettings"
+        val filterId = "app.reseam.patches.tiktok.feed.feedFilter"
+        val settings = JsonObject(original + mapOf(
+            "id" to JsonPrimitive(settingsId), "name" to JsonPrimitive(settingsId),
+            "hidden" to JsonPrimitive(true)))
+        val filter = JsonObject(original + mapOf(
+            "id" to JsonPrimitive(filterId), "name" to JsonPrimitive(filterId),
+            "hidden" to JsonPrimitive(true)))
+        val result = parseReseamInspection(inspection("[$settings,$filter]"), "hash", "reseam")
+        val patches = result.patches!!.map { it.jsonObject }
+        assertEquals(listOf(settingsId, filterId), patches.map { it["name"]?.jsonPrimitive?.content })
+        assertEquals(listOf("TikTok Settings", "Feed Filter"),
+            patches.map { it["display_name"]?.jsonPrimitive?.content })
+        assertEquals(listOf(true, true), patches.map { it["hidden"]?.jsonPrimitive?.boolean })
+        val blank = JsonObject(original + mapOf(
+            "id" to JsonPrimitive(filterId), "name" to JsonPrimitive("  "),
+            "hidden" to JsonPrimitive(true)))
+        val blankMapped = parseReseamInspection(inspection("[$blank]"), "hash", "reseam")
+            .patches!!.single().jsonObject
+        assertEquals("  ", blankMapped["name"]?.jsonPrimitive?.content)
+        assertEquals("Feed Filter", blankMapped["display_name"]?.jsonPrimitive?.content)
+        val public = parseReseamInspection(inspection("[$patch]"), "hash", "reseam").patches!!.single().jsonObject
+        assertEquals("Hide ads", public["name"]?.jsonPrimitive?.content)
+        assertNull(public["display_name"])
     }
 
     @Test fun normalizationOmitsNullDependencyReferencesAndRetainsUnnamedPatches() {

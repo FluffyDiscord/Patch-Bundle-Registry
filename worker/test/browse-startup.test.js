@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { runInNewContext } from "node:vm";
 import { createBrowsePreferences } from "../../shared/preferences.js";
 const script = readFileSync(new URL("../../web/browse-startup.js", import.meta.url), "utf8");
-function startup(saved, { blocked = false, mobile = false, readyState = "loading" } = {}) {
+function startup(saved, { blocked = false, mobile = false, readyState = "loading", search = "" } = {}) {
     function node(id) {
         const classes = new Set(), attrs = new Map();
         return { id, dataset: {}, attrs, classes, value: "", options: [],
@@ -26,7 +26,7 @@ function startup(saved, { blocked = false, mobile = false, readyState = "loading
     const document = Object.assign(new EventTarget(), { readyState, documentElement: root,
         getElementById: get, querySelector: get,
         querySelectorAll: selector => selector === ".filter-btn" ? filters : tabs });
-    runInNewContext(script, { document, localStorage: { getItem() {
+    runInNewContext(script, { document, URLSearchParams, location: {search}, localStorage: { getItem() {
         if (blocked) throw Error("Storage blocked"); return saved;
     } }, matchMedia: () => ({matches: mobile}),
     Option: function(label, value) { this.label = label; this.value = value; } });
@@ -77,7 +77,7 @@ test("Malformed and blocked preferences show usable defaults without waiting for
 test("Early restored grid settings do not become defaults for the other tab", () => {
     const app = readFileSync(new URL("../../web/app.js", import.meta.url), "utf8");
     const declaration = app.slice(app.indexOf("const browsePreferences ="),
-        app.indexOf("\nlet currentTab ="));
+        app.indexOf("\nconst navigation ="));
     for (const mobile of [false, true]) {
         const saved = JSON.stringify({activeTab:"apps",tabs:{apps:{grid:mobile}}});
         const context = {
@@ -90,4 +90,14 @@ test("Early restored grid settings do not become defaults for the other tab", ()
         assert.equal(runInNewContext('browsePreferences.read("apps").grid', context), mobile);
         assert.equal(runInNewContext('browsePreferences.read("bundles").grid', context), !mobile);
     }
+});
+
+test("Shared links restore their tab and filters before saved preferences", () => {
+    const saved = JSON.stringify({activeTab:"bundles",tabs:{apps:{search:"Old search",release:"all"}}});
+    const view = startup(saved, {search:"?tab=apps&app=com.video&q=Video&view=list"});
+    view.parsed();
+    assert.equal(view.tabs.find(button => button.classes.has("active")).id, "apps-tab");
+    assert.equal(view.get("search").value,"Video");
+    assert.equal(view.filters.find(button => button.classes.has("active")).id, "latest");
+    assert.equal(view.get("results").classes.has("grid-view"),false);
 });

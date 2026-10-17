@@ -61,11 +61,11 @@ internal fun inspectLegacyReseam(artifact: File, workspace: File): JsonObject {
         try {
             val seen = IdentityHashMap<Any, Boolean>()
             val patchType = loader.loadClass("app.reseam.patch.ReseamPatch")
-            fun visit(patch: Any) {
+            fun visit(patch: Any, exportLabel: String? = null) {
                 require(patchType.isInstance(patch)) { "Invalid legacy Reseam dependency" }
                 if (seen.put(patch, true) != null) return
                 require(seen.size <= 50000) { "Legacy Reseam patch graph exceeds its budget" }
-                patches += legacyReseamPatch(patch)
+                patches += legacyReseamPatch(patch, exportLabel)
                 for (dependency in patch.property("getDependencies") as Iterable<*>) {
                     if (dependency != null && dependency !is String) visit(dependency)
                 }
@@ -76,7 +76,7 @@ internal fun inspectLegacyReseam(artifact: File, workspace: File): JsonObject {
                     val patch = if (export.method) owner.getDeclaredMethod(export.name).invoke(null)
                         else owner.getDeclaredField(export.name).apply { isAccessible = true }.get(null)
                     require(patch != null) { "Legacy Reseam patch export is null" }
-                    visit(patch)
+                    visit(patch, export.name.removePrefix("get"))
                 }
             }
         } finally { Thread.currentThread().contextClassLoader = oldContext }
@@ -90,10 +90,13 @@ internal fun inspectLegacyReseam(artifact: File, workspace: File): JsonObject {
 private fun reseamExports(file: File): List<ReseamExport> {
     val exports = mutableListOf<ReseamExport>()
     JarFile(file).use { jar ->
+        var totalClassBytes = 0L
         for (entry in jar.entries().asSequence().filter { it.name.endsWith(".class") &&
             !it.name.startsWith("META-INF/") && !it.name.startsWith("app/reseam/patch/") }) {
-            jar.getInputStream(entry).use { input ->
-                ClassReader(input).accept(object : ClassVisitor(Opcodes.ASM9) {
+            val bytes = readPatchClass(jar, entry)
+            totalClassBytes += bytes.size
+            require(totalClassBytes <= 128L * 1024 * 1024) { "Legacy Reseam classes exceed inspection budget" }
+            ClassReader(bytes).accept(object : ClassVisitor(Opcodes.ASM9) {
                     private lateinit var owner: String
                     override fun visit(version: Int, access: Int, name: String, signature: String?,
                                        superName: String?, interfaces: Array<out String>?) {
@@ -113,8 +116,7 @@ private fun reseamExports(file: File): List<ReseamExport> {
                             exports += ReseamExport(owner, name, true)
                         return null
                     }
-                }, ClassReader.SKIP_CODE or ClassReader.SKIP_DEBUG or ClassReader.SKIP_FRAMES)
-            }
+            }, ClassReader.SKIP_CODE or ClassReader.SKIP_DEBUG or ClassReader.SKIP_FRAMES)
         }
     }
     return exports.sortedWith(compareBy({ it.owner }, { it.name }, { it.method }))
@@ -134,10 +136,17 @@ private fun Any?.jsonValue(): JsonElement = when (this) {
         else error("Unsupported legacy Reseam metadata value: ${javaClass.name}")
 }
 
-private fun legacyReseamPatch(patch: Any): JsonObject = buildJsonObject {
-    put("name", patch.property("getName").jsonValue())
+private fun legacyReseamPatch(patch: Any, exportLabel: String? = null): JsonObject = buildJsonObject {
+    val name = patch.property("getName") as? String
+    val hidden = patch.optionalProperty("getHidden") as? Boolean ?: false
+    put("name", name.jsonValue())
+    if (hidden && name.isNullOrBlank()) {
+        reseamInternalDisplayName(exportLabel ?: patch.javaClass.simpleName)?.let {
+            put("display_name", it)
+        }
+    }
     put("description", patch.property("getDescription").jsonValue())
-    put("hidden", patch.optionalProperty("getHidden") as? Boolean ?: false)
+    put("hidden", hidden)
     put("enabled_by_default", patch.property("getEnabled").jsonValue())
     put("dependencies", JsonArray((patch.property("getDependencies") as Iterable<*>).map { dependency ->
         if (dependency is String) JsonPrimitive(dependency)

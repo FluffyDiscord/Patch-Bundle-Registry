@@ -14,7 +14,51 @@ export function iconAction(kind, label, escape, {href, copy, disabled = false} =
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[kind]}</svg>
         <span class="action-tooltip" role="tooltip">${escape(label)}</span></${tag}>`;
 }
+
+/** Reseam releases support two import contracts; keep the choice local to this card. */
+export function importFormatAction(escape, registryUrl, reseamUrl, registryDisabled = false) {
+    const choices = [
+        ["Registry URL (URV)", registryUrl, registryDisabled],
+        ["Reseam Manager JSON", reseamUrl, false]
+    ];
+    return `<span class="copy-format-menu">
+        <button type="button" class="icon-action copy-format-trigger" aria-haspopup="true"
+            aria-expanded="false" aria-label="Choose import link format" data-tooltip="Choose import link format"
+            >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths.link}</svg>
+            <span class="action-tooltip" role="tooltip">Choose import link format</span>
+        </button>
+        <span class="copy-format-options" role="group" aria-label="Import link format" hidden>
+            ${choices.map(([label, url, disabled]) => `<button type="button" class="icon-action copy-format-option"
+                data-copy-text="${escape(url)}" data-tooltip="Copy ${escape(label)}"
+                aria-label="Copy ${escape(label)}" ${disabled ? "disabled" : ""}>${escape(label)}
+                <span class="action-tooltip" role="tooltip">Copy ${escape(label)}</span></button>`).join("")}
+        </span>
+    </span>`;
+}
 export function bindActions(container) {
+    container.querySelectorAll(".copy-format-trigger").forEach(trigger => {
+        if (!trigger.classList?.contains?.("copy-format-trigger")) return;
+        trigger.addEventListener("click", event => {
+            event.preventDefault();
+            event.stopPropagation();
+            const options = trigger.parentElement.querySelector(".copy-format-options");
+            options.hidden = !options.hidden;
+            trigger.setAttribute("aria-expanded", String(!options.hidden));
+        });
+        // Escape must also work after keyboard focus moves into a copy option.
+        trigger.parentElement.addEventListener("keydown", event => {
+            if (event.key !== "Escape") return;
+            const options = trigger.parentElement.querySelector(".copy-format-options");
+            if (options.hidden) return;
+            event.preventDefault();
+            event.stopPropagation();
+            options.hidden = true;
+            trigger.setAttribute("aria-expanded", "false");
+            trigger.focus();
+        });
+    });
     container.querySelectorAll(".icon-action").forEach(action => {
         let holdTimer, hideTimer, held = false;
         const clearHold = () => clearTimeout(holdTimer);
@@ -62,6 +106,13 @@ export function bindActions(container) {
             let message;
             try { await navigator.clipboard.writeText(action.dataset.copyText); message = "Copied!"; }
             catch { message = "Unable to copy"; }
+            if (message === "Copied!" && action.classList.contains?.("copy-format-option")) {
+                const menu = action.closest(".copy-format-menu");
+                menu.querySelector(".copy-format-options").hidden = true;
+                const trigger = menu.querySelector(".copy-format-trigger");
+                trigger.setAttribute("aria-expanded", "false");
+                trigger.focus();
+            }
             tip.textContent = message;
             action.setAttribute("aria-label", message);
             placeTooltip();

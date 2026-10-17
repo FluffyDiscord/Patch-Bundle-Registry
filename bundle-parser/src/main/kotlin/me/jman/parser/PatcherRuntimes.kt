@@ -389,7 +389,7 @@ private fun extractArtifact(uri: URI, family: String, previous: ExtractionRecord
         }
         val hash = sha256(artifact)
         // Still download and hash to detect replacements at unchanged URLs.
-        if (previous?.terminal == true && previous.file_hash == hash &&
+        if (previous?.terminal == true && previous.status != "verified" && previous.file_hash == hash &&
             canonicalBundleFamily(previous.bundle_type) == family &&
             previous.failure_fingerprint == runtimeFingerprint()) {
             return RuntimeResult(null, previous.status, hash, terminal = true, paused = true)
@@ -416,10 +416,13 @@ private fun extractDownloadedArtifact(artifact: File, hash: String, family: Stri
     if (family != "Reseam") {
         try { requireJvmPatchClasses(artifact) }
         catch (_: IncompletePatchInventory) {
-            // Changing JVM versions cannot load a DEX/metadata-only archive.
-            return RuntimeResult(null, "incomplete_patch_inventory", hash, terminal = true,
-                attempts = listOf(RuntimeAttempt("artifact", "incomplete_patch_inventory", "No JVM patch classes")),
-                embeddedMetadata = embeddedPatchMetadata(artifact))
+            // Root DEX patches can be inspected inside the isolated runtime worker.
+            // Extension-only and metadata-only archives still cannot prove an inventory.
+            if (!hasRootPatchDex(artifact)) {
+                return RuntimeResult(null, "incomplete_patch_inventory", hash, terminal = true,
+                    attempts = listOf(RuntimeAttempt("artifact", "incomplete_patch_inventory", "No JVM patch classes")),
+                    embeddedMetadata = embeddedPatchMetadata(artifact))
+            }
         }
     }
     val config = loadRuntimeConfiguration()
@@ -491,11 +494,17 @@ internal fun runtimeWorker(args: Array<String>) {
         }
         return
     }
-    val uri = File(args[2]).toURI()
     val patches = try {
+        val namespace = when (args[1]) {
+            "morphe" -> "app/morphe/patcher"
+            "revanced-modern" -> "app/revanced/patcher"
+            else -> null
+        }
+        val artifact = jvmInspectionArtifact(File(args[2]), File(args[3] + ".jars"), namespace)
+        val uri = artifact.toURI()
         when (args[1]) {
-            "legacy-bytecode" -> parseLegacyPatchBundle(File(args[2]))
-            "revanced-v3" -> generateV3PatchList(File(args[2]))
+            "legacy-bytecode" -> parseLegacyPatchBundle(artifact)
+            "revanced-v3" -> generateV3PatchList(artifact)
             "revanced-modern" -> runtimeJson.decodeFromString<JsonArray>(generatePatchesFromUrl(uri))
             "revanced-legacy" -> runtimeJson.decodeFromString<JsonArray>(generatePatchesFromUrlWithLegacyPatcher(uri))
             "morphe" -> generateMorphePatchList(uri) ?: error("Morphe runtime rejected bundle")

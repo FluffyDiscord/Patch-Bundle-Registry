@@ -1217,6 +1217,16 @@ html[data-browse-pending] :is(.catalog-tabs, .search-row, .filter-row, .filter-b
 .icon-action.tooltip-visible > .action-tooltip { visibility: visible; opacity: 1; }
 .bundle-actions { display: flex; justify-content: flex-end; gap: 6px; align-self: flex-end; margin: -4px -4px 8px; }
 .details-group-actions { display: inline-flex; flex-wrap: nowrap; gap: 6px; padding: 0; }
+.copy-format-menu { position: relative; display: inline-flex; flex: 0 0 auto; }
+.copy-format-options { position: absolute; top: calc(100% + 5px); right: 0; z-index: 60;
+    min-width: 200px; padding: 5px; border: 1px solid var(--border); border-radius: 7px;
+    background: var(--surface); box-shadow: var(--card-shadow); }
+.copy-format-options[hidden] { display: none; }
+.copy-format-options .copy-format-option { width: 100%; height: auto; min-height: 34px;
+    padding: 8px 10px; justify-content: flex-start; font: inherit; font-size: 12px;
+    white-space: nowrap; text-align: left; border: 0; }
+.bundle-actions:has(.copy-format-options:not([hidden])),
+.details-group-actions:has(.copy-format-options:not([hidden])) { z-index: 60; }
 .details-group:has(.details-group-actions) > summary { grid-template-columns: 48px minmax(0, 1fr) auto auto 32px; }
 .details-heading h2 .icon-action, .details-heading .app-package .icon-action { margin-inline-start: 8px; width: 28px; height: 28px; }
 .details-heading .app-package { margin-bottom: 0; }

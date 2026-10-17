@@ -379,3 +379,32 @@ test("App windows provide name and package copy controls and actions in the bund
     assert.match(body, /data-copy-text="https:\/\/api.test\//);
     assert.doesNotMatch(body, /<div class="details-group-actions"/);
 });
+
+test("Detail navigation records bundle sections and apps, with silent history restoration", async t => {
+    const routes = [];
+    let closed = 0;
+    const {api,dialog} = browser(t, async()=>[video], {
+        onNavigate: route=>routes.push(route), onClose:()=>closed++
+    });
+    const bundle = {id:"a".repeat(24),version:"v1",bundleType:"Morphe:V1",sourceUrl:"https://github.com/o/a"};
+    await api.openBundle(bundle);
+    assert.deepEqual(routes.at(-1), {kind:"bundle",id:bundle.id,
+        source:bundle.sourceUrl,version:"v1",section:"patches"});
+    const sections = dialog.querySelector(".details-sections");
+    sections.querySelector('[data-details-section="changelog"]').handlers.click();
+    assert.equal(routes.at(-1).section,"changelog");
+    api.close({notify:false});
+    assert.equal(closed,0);
+    await api.openBundle(bundle,{notify:false,section:"changelog"});
+    assert.equal(routes.length,2);
+    let prevented=false;
+    dialog.handlers.cancel({preventDefault(){prevented=true;}});
+    assert(prevented);
+    assert.equal(closed,1);
+    api.openApp({app_name:"Video App",package_name:"com.video",bundles:[]});
+    assert.deepEqual(routes.at(-1),{kind:"app",package:"com.video"});
+    api.close();
+    assert.equal(closed,2);
+    api.openApp({app_name:"Video App",package_name:"com.video",bundles:[]},{notify:false});
+    assert.equal(routes.length,3);
+});

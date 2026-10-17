@@ -694,6 +694,50 @@ async def main() -> int:
                     and error.response.status_code in PERMANENT_STATUS
                 ):
                     availability[canonical] = PERMANENT_STATUS[error.response.status_code]
+        try:
+            from scripts.reseam_changelog import (
+                enrich_reseam_releases,
+                publisher_release_notes,
+            )
+        except ModuleNotFoundError:
+            from reseam_changelog import enrich_reseam_releases, publisher_release_notes
+        # The extra asset fetch is optional. It cannot invalidate an otherwise
+        # authoritative release inventory or force binary extraction to rerun.
+        prioritized_reseam = {
+            (
+                normalize_source(sources[alias]["patches"], PROJECT_ROOT).lower(),
+                metadata["patches"]["version"],
+            )
+            for alias, metadata in BUNDLE_METADATA.items()
+            if metadata.get("type") == "reseam"
+        }
+        async with AsyncClient(timeout=HTTP_TIMEOUT) as client:
+            await enrich_reseam_releases(
+                client, PROJECT_ROOT, release_sets, prioritized=prioritized_reseam
+            )
+        for alias, metadata in BUNDLE_METADATA.items():
+            if metadata.get("type") != "reseam":
+                continue
+            repository = normalize_source(sources[alias]["patches"], PROJECT_ROOT).lower()
+            selected = next(
+                (release for release in release_sets.get(repository, [])
+                 if release.get("tag_name") == metadata["patches"]["version"]),
+                None,
+            )
+            if selected is None:
+                continue
+            notes = (
+                (selected.get("_reseam_notes") or {}).get("description")
+                or publisher_release_notes(selected)
+            )
+            if not isinstance(notes, str) or not notes.strip():
+                continue
+            metadata["patches"]["notes"] = notes
+            path = PROJECT_ROOT / metadata["artifact_path"]
+            raw = json.loads(path.read_text(encoding="utf-8"))
+            if raw.get("description") != notes:
+                raw["description"] = notes
+                await asyncio.to_thread(_dump_json_sync, path, raw)
         await asyncio.to_thread(save_availability, PROJECT_ROOT, availability)
         await asyncio.to_thread(
             _dump_json_sync, checks_path, {canonical: True for canonical in release_sets}

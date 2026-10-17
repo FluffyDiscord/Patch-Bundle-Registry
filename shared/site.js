@@ -36,14 +36,35 @@ export function catalogStats(bundles) {
     return stats;
 }
 
+function reseamInternalLabel(patch) {
+    if (patch.hidden !== true || typeof patch.name !== "string" ||
+        !/^app\.reseam\.patches\.(?:[A-Za-z0-9_$]+\.)+[A-Za-z_$][A-Za-z0-9_$]*$/.test(patch.name)) return null;
+    const member = patch.name.split(".").at(-1);
+    const words = member.replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+        .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2")
+        .replace(/[_$]+/g, " ").trim();
+    if (!words) return null;
+    return words.replace(/^\S/, letter => letter.toUpperCase())
+        .replace(/\bTik Tok\b|\bTiktok\b/gi, "TikTok")
+        .replace(/\bYou Tube\b|\bYoutube\b/gi, "YouTube");
+}
+
 export function patchDisplayName(patch) {
-    return [patch.name, patch.display_name].find(value =>
+    const fallback = reseamInternalLabel(patch);
+    return [fallback && patch.display_name, fallback, patch.name, patch.display_name].find(value =>
         typeof value === "string" && value.trim()) || (patch.hidden === true ? "Internal patch" : "Name unavailable");
+}
+
+/** Reseam's internal camelCase identifiers omit spaces in the catalog search index. */
+export function reseamInternalSearchAlias(query) {
+    const value = query.trim();
+    if (!/^[A-Za-z][A-Za-z0-9 ]{2,79}$/.test(value) || !value.includes(" ")) return null;
+    return value.replace(/ +/g, "").toLowerCase();
 }
 
 export function patchMatchesSearch(patch, query) {
     const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    const text = [patch.name, patch.display_name, patch.description,
+    const text = [patch.name, patch.display_name, patchDisplayName(patch), patch.description,
         ...(patch.compatiblePackages || []).flatMap(pkg => [pkg.name, pkg.appName || pkg.app_name, ...(pkg.versions || [])])]
         .filter(value => value != null).join(" ").toLowerCase();
     return terms.every(term => text.includes(term));

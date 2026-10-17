@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import worker from "../src/index.js";
-import { bundleImportPath, bundleTypeLabel, Catalog } from "../../shared/catalog.js";
+import { bundleImportPath, reseamNativeImportPath, bundleTypeLabel, Catalog } from "../../shared/catalog.js";
 import { fixture } from "./fixture.js";
 
 async function call(state, path) {
@@ -40,6 +40,84 @@ test("Reseam imports use the signed publisher's native index, with channel and p
   const unavailable = fixture({ "bundles.json": [failed], ["bundles/" + failed.id + ".json"]: failed });
   assert.equal((await call(unavailable, bundleImportPath(card))).status, 503);
   assert.equal((await call(original, bundleImportPath(card))).status, 404);
+});
+
+test("Reseam native JSON endpoint preserves publisher patch IDs and full release notes", async () => {
+  const original=fixture();
+  const publisher={name:"reseam-patches",author:"Reseam",description:"Patches",public_key:"a".repeat(64)};
+  const bundle={...original.bundle,version:"v0.34.0",bundle_type:"Reseam",ecosystem:"reseam",
+    reseam_bundle:publisher,download_url:"https://api.reseam.app/patches/v0.34.0/reseam-patches.reseam"};
+  const upstream={bundle:{...publisher,homepage:"https://reseam.app"},releases:[{
+    version:"0.34.0",created_at:bundle.created_at,description:"- feat: official changelog",
+    download_url:bundle.download_url,prerelease:false,patches:[{
+      bundle:"reseam-patches",id:"app.reseam.patches.tiktok.feed.feedFilter",
+      name:"app.reseam.patches.tiktok.feed.feedFilter",hidden:true,
+      description:"",enabled_by_default:false,dependencies:[],compatibility:{kind:"universal"},options:[]
+    }]}]};
+  const calls=[];
+  const state=fixture({"bundles.json":[bundle],["bundles/"+bundle.id+".json"]:bundle});
+  state.env.RESEAM_RELEASE_FETCH=async (url, options)=>{
+    calls.push(url);
+    assert.equal(options.redirect,"manual");
+    return Response.json(upstream);
+  };
+  const card={bundleType:"Reseam",sourceUrl:"https://github.com/owner/repo",version:bundle.version,isPrerelease:false};
+  const path=reseamNativeImportPath(card,true);
+  assert.match(path,/^\/api\/reseam\/patches\.json\?/);
+  const result=await call(state,path);
+  assert.equal(result.status,200);
+  assert.deepEqual(result.body,upstream);
+  assert.deepEqual(calls,["https://github.com/owner/repo/releases/download/v0.34.0/patches.json"]);
+  assert.equal((await call(state,bundleImportPath(card,true))).body.releases[0].patches,undefined);
+  state.env.RESEAM_RELEASE_FETCH=async()=>Response.json({...upstream,bundle:{...publisher,public_key:"b".repeat(64)}});
+  assert.equal((await call(state,path)).status,502);
+  state.env.RESEAM_RELEASE_FETCH=async()=>new Response("missing",{status:404});
+  assert.equal((await call(state,path)).status,404);
+  const pending={...bundle,metadata_status:"unverified",reseam_bundle:null};
+  const pendingState=fixture({"bundles.json":[pending],["bundles/"+pending.id+".json"]:pending});
+  pendingState.env.RESEAM_RELEASE_FETCH=async()=>Response.json(upstream);
+  assert.equal((await call(pendingState,path)).status,200);
+  const wrong=fixture({"bundles.json":[original.bundle],["bundles/"+original.bundle.id+".json"]:original.bundle});
+  assert.equal((await call(wrong,path)).status,404);
+});
+
+test("Reseam native index only follows trusted release-asset redirects and rejects malformed release types", async () => {
+  const original=fixture();
+  const publisher={name:"reseam-patches",public_key:"a".repeat(64)};
+  const bundle={...original.bundle,bundle_type:"Reseam",reseam_bundle:publisher};
+  const index={bundle:publisher,releases:[{
+    version:bundle.version,created_at:"2026-10-17T12:00:00Z",description:"Notes",
+    download_url:"https://github.com/owner/repo/releases/download/v1/patches.reseam",
+    prerelease:false,patches:[]
+  }]};
+  const state=fixture({"bundles.json":[bundle],["bundles/"+bundle.id+".json"]:bundle});
+  const path="/api/reseam/patches.json?source_url=https%3A%2F%2Fgithub.com%2Fowner%2Frepo&version="+bundle.version;
+  const requested=[];
+  state.env.RESEAM_RELEASE_FETCH=async (url,options)=>{
+    requested.push(url);
+    assert.equal(options.redirect,"manual");
+    if (requested.length===1)
+      return Response.redirect("https://release-assets.githubusercontent.com/asset?token=123",302);
+    return Response.json(index);
+  };
+  assert.equal((await call(state,path)).status,200);
+  assert.equal(requested.length,2);
+  assert.equal(new URL(requested[1]).hostname,"release-assets.githubusercontent.com");
+
+  for (const destination of ["https://127.0.0.1/admin", "http://release-assets.githubusercontent.com/asset",
+    "https://untrusted.example/asset"]) {
+    const attempts=[];
+    state.env.RESEAM_RELEASE_FETCH=async url=>{
+      attempts.push(url);
+      return Response.redirect(destination,302);
+    };
+    assert.equal((await call(state,path)).status,503);
+    assert.equal(attempts.length,1);
+  }
+  state.env.RESEAM_RELEASE_FETCH=async()=>Response.json({
+    ...index,releases:[{...index.releases[0],prerelease:"false"}]
+  });
+  assert.equal((await call(state,path)).status,502);
 });
 
 test("manager imports read only their compact source index and selected release", async () => {

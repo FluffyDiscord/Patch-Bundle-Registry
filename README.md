@@ -20,17 +20,17 @@ Patch Bundle Registry brings ReVanced, Morphe, and Reseam patch sources together
 - **Explore a bundle** to read its changelog and patch list.
 - **Browse Apps** to see app names, package names, icons, and compatible bundles across matching releases. Names and icons come from cached F-Droid and IzzyOnDroid JSON indexes, then regional Google Play listings; unlisted apps use their package names.
 
-Switch between list and grid views to browse the way you prefer.
+Switch between list and grid views to browse the way you prefer. The address bar follows your tab, filters, and open app or bundle. Copy that URL to share the same view, including a bundle's changelog or historical version. Browser Back and Forward restore previous tabs and details.
 
 ## Add a bundle to your manager
 
 1. Open the [catalog](https://patch-bundles.jmancentral.com/) and find a source.
 2. Choose a bundle format your manager supports.
-3. Click **Copy remote bundle URL** and paste it into your manager's patch source settings.
+3. Click **Copy remote bundle URL** and paste it into your manager's patch source settings. For Reseam bundles, click the link icon and choose **Registry URL (URV)** or **Reseam Manager JSON**.
 
 The default remote URL follows new releases in the selected channel. Select a historical bundle version to copy a URL pinned to that version.
 
-ReVanced formats appear as **ReVanced v21** and **ReVanced v22**. Morphe bundles appear as **Morphe**. ReVanced v21 and Reseam bundles require their respective runtime plugins when used in URV. Reseam bundles use a Reseam Manager patch-source URL with the bundle publisher's signing key.
+ReVanced formats appear as **ReVanced v21** and **ReVanced v22**. Morphe bundles appear as **Morphe**. ReVanced v21 and Reseam bundles require their respective runtime plugins when used in URV. The Reseam Manager JSON choice returns the publisher's complete `patches.json` index with its patch IDs, release history and release notes. The Registry URL choice keeps the existing import format.
 
 You can also download the bundle directly from its card. Available formats and import support depend on the manager you use.
 

@@ -6,8 +6,17 @@
     let saved;
     try { saved = JSON.parse(localStorage.getItem("patch-bundle-registry:browsing:v1") || "null"); }
     catch { /* Storage is optional. */ }
-    const tab = saved?.activeTab === "apps" ? "apps" : "bundles";
-    const state = saved?.tabs?.[tab] || {};
+    const params = new URLSearchParams(location.search);
+    const shared = ["tab", "q", "package", "source", "version", "type", "release", "view",
+        "app", "bundle", "bundle_source", "bundle_version", "section"].some(key => params.has(key));
+    const tab = shared ? params.get("tab") === "apps" ||
+        (!params.has("tab") && params.has("app")) ? "apps" : "bundles" :
+        saved?.activeTab === "apps" ? "apps" : "bundles";
+    const state = shared ? {
+        search: params.get("q"), package: params.get("package"), source: params.get("source"),
+        version: params.get("version"), type: params.get("type"), release: params.get("release"),
+        ...(params.has("view") ? { grid: params.get("view") !== "list" } : {})
+    } : saved?.tabs?.[tab] || {};
     const text = key => typeof state[key] === "string"
         ? (key === "type" ? state[key].replace(/^ReSeam/, "Reseam") : state[key]).slice(0, 512) : "";
     const release = ["all", "latest", "release", "prerelease"].includes(state.release) ? state.release : "latest";

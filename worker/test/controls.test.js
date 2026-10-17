@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { matchingSources } from "../../shared/source-picker.js";
-import { bindActions, iconAction } from "../../shared/actions.js";
+import { bindActions, iconAction, importFormatAction } from "../../shared/actions.js";
 import { createBrowsePreferences } from "../../shared/preferences.js";
 
 test("Source search matches multiple terms across repository labels and hosts", () => {
@@ -73,6 +73,33 @@ test("Icon links preserve downloads and external repository navigation", () => {
     assert.match(disabled,/data-copy-text="https:\/\/api.test"/);
 });
 
+test("Reseam import choices close on Escape while an option has keyboard focus", () => {
+    const markup = importFormatAction(value => value, "https://api.test/urv", "https://api.test/reseam", true);
+    assert.match(markup, /Registry URL \(URV\)/);
+    assert.match(markup, /Reseam Manager JSON/);
+    assert.match(markup, /data-copy-text="https:\/\/api.test\/reseam"/);
+    const options = {hidden:true}, attributes = new Map();
+    const parent = Object.assign(new EventTarget(), {querySelector:()=>options});
+    const trigger = Object.assign(new EventTarget(), {
+        parentElement:parent,
+        classList:{contains:name=>name==="copy-format-trigger",add(){},remove(){}},
+        setAttribute:(key,value)=>attributes.set(key,value),
+        hasAttribute:()=>false,
+        focus(){this.focused=true;}
+    });
+    bindActions({querySelectorAll:()=>[trigger]});
+    trigger.dispatchEvent(new Event("click",{cancelable:true}));
+    assert.equal(options.hidden,false);
+    assert.equal(attributes.get("aria-expanded"),"true");
+    // In the browser, an Escape keydown from the focused option bubbles to its menu.
+    const escape = Object.assign(new Event("keydown",{cancelable:true}),{key:"Escape"});
+    parent.dispatchEvent(escape);
+    assert.equal(options.hidden,true);
+    assert.equal(attributes.get("aria-expanded"),"false");
+    assert.equal(trigger.focused,true);
+    assert.equal(escape.defaultPrevented,true);
+});
+
 
 // Exercise popup selection and refresh while keeping search outside the scroll list.
 test("Source popup searches, updates its live list, selects a source and restores focus", async t => {
@@ -126,3 +153,40 @@ test("Source popup searches, updates its live list, selects a source and restore
     assert.equal(button.attrs["aria-expanded"],"false");
 });
 
+
+
+test("Copying an import choice returns keyboard focus to the menu trigger",async t=>{
+    t.mock.timers.enable({apis:["setTimeout"]});
+    const attributes=new Map(),options={hidden:false},tip={},classes=new Set(["copy-format-option"]);
+    const trigger=Object.assign(new EventTarget(),{
+        classList:{contains:()=>true},parentElement:null,
+        setAttribute:(key,value)=>attributes.set(key,value),
+        focus(){this.focused=true;}
+    });
+    const menu=Object.assign(new EventTarget(),{
+        querySelector:selector=>selector===".copy-format-options"?options:trigger
+    });
+    trigger.parentElement=menu;
+    const option=Object.assign(new EventTarget(),{
+        dataset:{copyText:"https://api.test/reseam",tooltip:"Copy Reseam Manager JSON"},
+        classList:{contains:name=>classes.has(name),add:name=>classes.add(name),remove:name=>classes.delete(name)},
+        hasAttribute:name=>name==="data-copy-text",
+        querySelector:()=>tip,closest:selector=>selector===".copy-format-menu"?menu:null,
+        setAttribute(){}
+    });
+    const previous=Object.getOwnPropertyDescriptor(globalThis,"navigator"),copied=[];
+    Object.defineProperty(globalThis,"navigator",{configurable:true,value:{
+        clipboard:{writeText:async value=>copied.push(value)}
+    }});
+    t.after(()=>{
+        if(previous)Object.defineProperty(globalThis,"navigator",previous);
+        else delete globalThis.navigator;
+    });
+    bindActions({querySelectorAll:selector=>selector===".copy-format-trigger"?[trigger]:[option]});
+    option.dispatchEvent(new Event("click",{cancelable:true}));
+    await new Promise(resolve=>setImmediate(resolve));
+    assert.deepEqual(copied,["https://api.test/reseam"]);
+    assert.equal(options.hidden,true);
+    assert.equal(attributes.get("aria-expanded"),"false");
+    assert.equal(trigger.focused,true);
+});

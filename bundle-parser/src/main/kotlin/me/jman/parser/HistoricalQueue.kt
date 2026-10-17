@@ -35,7 +35,7 @@ internal fun runtimeConfigHash(): String {
 internal fun pausedFailure(
     record: ExtractionRecord?, version: String?, download: String?, family: String?,
     providerDigest: String?, fingerprint: String
-): Boolean = record?.terminal == true && record.file_hash != null &&
+): Boolean = record?.terminal == true && record.status != "verified" && record.file_hash != null &&
     record.version == version && record.download_url == download &&
     canonicalBundleFamily(record.bundle_type) == family && record.failure_fingerprint == fingerprint &&
     matchesProviderDigest(providerDigest, record.file_hash, record.provider_digest)
@@ -90,7 +90,9 @@ internal fun historicalWork(root: File, limit: Int, fingerprint: String, disable
             else if (download?.substringBefore('?')?.endsWith(".reseam", ignoreCase = true) == true) "Reseam"
             else if (download?.substringBefore('?')?.endsWith(".mpp", ignoreCase = true) == true) "Morphe:V1"
             else "ReVanced:v22"
-        val verified = record?.status == "verified" && record.file_hash != null &&
+        val verified = record?.status == "verified" &&
+            record.file_hash?.matches(Regex("[a-f0-9]{64}")) == true &&
+            record.runtime != null && canonicalBundleFamily(record.bundle_type) == family &&
             record.version == version && record.download_url == download &&
             matchesProviderDigest(providerDigest, record.file_hash, record.provider_digest) &&
             content != null && content.version == version && isUsablePatchArray(content.patches) &&
