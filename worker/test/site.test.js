@@ -3,7 +3,7 @@ import { importFormatAction } from "../../shared/actions.js";
 import { reseamNativeImportPath } from "../../shared/catalog.js";
 import assert from "node:assert/strict";
 import {
-  latestReleaseIds, catalogStats, patchMatchesSearch, repositoryNames, matchesReleaseFilter, countLabel
+  latestReleaseIds, catalogStats, historicalCatalogStats, patchMatchesSearch, repositoryNames, matchesReleaseFilter, countLabel
 } from "../../shared/site.js";
 
 test("Latest selects one overall release per source without changing category latest", () => {
@@ -39,6 +39,20 @@ test("Statistics count only one newest release per source across history", () =>
   assert.deepEqual(stats.ReVanced, {bundles:1, patches:5});
   assert.deepEqual(stats.Morphe, {bundles:1, patches:8});
   assert.deepEqual(stats.Reseam, {bundles:1, patches:4});
+});
+
+test("Historical statistics count all historical bundle releases and patches across all runtimes", () => {
+  const bundles = [
+    {id:"a1", source_id:"a", is_latest:true, created_at:"2026-01-01", bundle_type:"ReVanced:v21", patch_count:3},
+    {id:"a2", source_id:"a", is_latest:true, created_at:"2026-01-02", bundle_type:"Morphe:V1", patch_count:8},
+    {id:"a0", source_id:"a", is_latest:false, created_at:"2025-01-01", bundle_type:"ReVanced:v21", patch_count:999},
+    {id:"b1", source_id:"b", is_latest:true, created_at:"2026-01-01", bundle_type:"ReVanced:v22", patch_count:5},
+    {id:"c1", source_id:"c", is_latest:true, created_at:"2026-01-01", bundle_type:"Reseam", patch_count:4},
+  ];
+  assert.deepEqual(historicalCatalogStats(bundles), {bundles: 5, patches: 1019});
+  assert.deepEqual(historicalCatalogStats(bundles, { counts: { bundles: 18, patches: 450 } }), {bundles: 18, patches: 450});
+  assert.deepEqual(historicalCatalogStats([]), {bundles: 0, patches: 0});
+  assert.deepEqual(historicalCatalogStats(null), {bundles: 0, patches: 0});
 });
 
 test("Patch search combines names, descriptions, package names, and version fragments", () => {

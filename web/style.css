@@ -935,42 +935,200 @@ a.version-text:hover {
     gap: 12px;
 }
 
+.catalog-stats:not(:has(.stat-card)) {
+    display: block;
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .catalog-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .catalog-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-banner-metrics {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card dl {
+        grid-template-columns: repeat(2, minmax(60px, 90px));
+        gap: 6px 24px;
+    }
+}
+
 .stat-card {
     min-width: 0;
     padding: 14px 16px;
     border-radius: 8px;
     background: var(--surface);
     box-shadow: var(--card-shadow);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .stat-card h2 {
     font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-weight: 600;
+    margin: 0 0 6px;
     color: var(--text-muted);
+    text-align: center;
+    width: 100%;
 }
 
-.stat-card dl {
+.stat-card:not(.stat-banner) dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(64px, 96px));
+    justify-content: center;
+    align-items: center;
+    gap: 6px 24px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.stat-metric {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.stat-metric dt,
+.stat-metric dd {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .stat-card dt {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-muted);
+    white-space: nowrap;
+    margin-bottom: 2px;
 }
 
 .stat-card dd {
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+    transition: color 0.3s ease;
+}
+
+.stat-banner {
+    grid-column: 1 / -1;
+    padding: 18px 24px;
+    gap: 12px;
+}
+
+.stat-banner-content {
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-banner h2 {
+    font-size: 18px;
     font-weight: 600;
     color: var(--text);
+    margin: 0 0 4px;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+.stat-banner-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.stat-banner .stat-banner-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 180px));
+    justify-content: center;
+    align-items: center;
+    gap: 10px 48px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.stat-banner .stat-metric dt {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    white-space: nowrap;
+    margin-bottom: 3px;
+}
+
+.stat-banner .stat-metric dd {
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 800;
+    color: var(--accent-text);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.stat-metric dd.turning {
+    animation: statNumberTurn 0.25s ease-in-out infinite alternate;
+    transform-origin: center center;
+}
+
+.stat-metric dd.turn-complete {
+    animation: statNumberPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center center;
+}
+
+@keyframes statNumberTurn {
+    0% {
+        transform: translateY(-1.5px);
+        opacity: 0.88;
+    }
+    100% {
+        transform: translateY(1.5px);
+        opacity: 1;
+    }
+}
+
+@keyframes statNumberPop {
+    0% {
+        transform: scale(0.97);
+    }
+    50% {
+        transform: scale(1.06);
+        color: var(--accent);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .stats-note {
-    margin-top: 8px;
+    margin-top: 10px;
     font-size: 12px;
     color: var(--text-muted);
+    text-align: center;
 }
 
 .repo-popularity {
@@ -1019,12 +1177,6 @@ a.version-text:hover {
     padding: 12px;
     color: var(--text-muted);
     font-size: 13px;
-}
-
-@media (max-width: 700px) {
-    .catalog-stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
 }
 
 .catalog-tabs { display: flex; gap: 8px; margin: 20px 0 12px; }

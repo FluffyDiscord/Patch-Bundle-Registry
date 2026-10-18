@@ -14,7 +14,7 @@ import { createDetailsBrowser, renderPatchOptions } from "./shared/detail-browse
 import { iconAction, importFormatAction, bindActions } from "./shared/actions.js";
 import { createSourcePicker } from "./shared/source-picker.js";
 import { gitHosts } from "./shared/hosts.js";
-import { latestReleaseIds, catalogStats, repositoryNames, matchesReleaseFilter, countLabel, patchDisplayName, reseamInternalSearchAlias } from "./shared/site.js";
+import { latestReleaseIds, catalogStats, historicalCatalogStats, repositoryNames, matchesReleaseFilter, countLabel, patchDisplayName, reseamInternalSearchAlias } from "./shared/site.js";
 import {
     Virtualizer,
     measureElement,
@@ -414,7 +414,7 @@ addEventListener("resize", () => {
 });
 
 async function openCatalog() {
-    if (siteConfig.catalog_backend === "d1") return new ApiCatalog(siteConfig.api).initialize();
+    if (siteConfig.catalog_backend === "d1") return new ApiCatalog(siteConfig.catalog_api || siteConfig.api).initialize();
     let failure;
     for (const origin of catalogOrigins(siteConfig,new URL("./database/",location.href).href)) {
         try { return await new Catalog(origin,fetch,false).initialize(); }
@@ -845,11 +845,111 @@ function renderApp(app, target) {
 
 function renderStats() {
     const target = document.getElementById("catalog-stats");
-    target.innerHTML = Object.entries(catalogStats(summaries)).map(([name, values]) =>
-        `<div class="stat-card"><h2>${escapeHtml(name)}</h2><dl>
-            <div><dt>Bundles</dt><dd>${values.bundles.toLocaleString()}</dd></div>
-            <div><dt>Patches</dt><dd>${values.patches.toLocaleString()}</dd></div>
-        </dl></div>`).join("");
+    if (!target) return;
+    const historical = historicalCatalogStats(summaries, catalog?.manifest);
+    const stats = catalogStats(summaries);
+
+    if (!target.querySelector(".stat-banner")) {
+        const banner = `<div class="stat-card stat-banner">
+            <div class="stat-banner-content">
+                <h2>All historical & latest releases across all runtimes</h2>
+                <p class="stat-banner-subtitle">Comprehensive catalog volume across every historical version and latest release across all patcher ecosystems</p>
+            </div>
+            <dl class="stat-banner-metrics">
+                <div class="stat-metric">
+                    <dt>Bundle releases</dt>
+                    <dd data-stat="historical-bundles">0</dd>
+                </div>
+                <div class="stat-metric">
+                    <dt>Total patches</dt>
+                    <dd data-stat="historical-patches">0</dd>
+                </div>
+            </dl>
+        </div>`;
+        const cards = Object.entries(stats).map(([name]) => {
+            const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            return `<div class="stat-card">
+                <h2>${escapeHtml(name)}</h2>
+                <dl>
+                    <div class="stat-metric">
+                        <dt>Bundles</dt>
+                        <dd data-stat="${slug}-bundles">0</dd>
+                    </div>
+                    <div class="stat-metric">
+                        <dt>Patches</dt>
+                        <dd data-stat="${slug}-patches">0</dd>
+                    </div>
+                </dl>
+            </div>`;
+        }).join("");
+        target.innerHTML = banner + cards;
+    }
+
+    animateStatNumber(target.querySelector('[data-stat="historical-bundles"]'), historical.bundles);
+    animateStatNumber(target.querySelector('[data-stat="historical-patches"]'), historical.patches);
+    for (const [name, values] of Object.entries(stats)) {
+        const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        animateStatNumber(target.querySelector(`[data-stat="${slug}-bundles"]`), values.bundles);
+        animateStatNumber(target.querySelector(`[data-stat="${slug}-patches"]`), values.patches);
+    }
+}
+
+function animateStatNumber(element, targetValue, duration = 1200) {
+    if (!element) return;
+    const target = Math.max(0, Number(targetValue) || 0);
+    const start = element._currentValue !== undefined ? element._currentValue : 0;
+    element._statValue = target;
+
+    if (element._animationFrame) {
+        cancelAnimationFrame(element._animationFrame);
+        element._animationFrame = null;
+    }
+    if (element._popTimeout) {
+        clearTimeout(element._popTimeout);
+        element._popTimeout = null;
+    }
+    element.classList.remove("turning", "turn-complete");
+
+    if (start === target) {
+        element._currentValue = target;
+        element.textContent = target.toLocaleString();
+        return;
+    }
+
+    if (typeof requestAnimationFrame === "undefined" ||
+        (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches)) {
+        element._currentValue = target;
+        element.textContent = target.toLocaleString();
+        return;
+    }
+
+    element.classList.add("turning");
+    const startTime = performance.now();
+
+    function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + (target - start) * ease);
+        element._currentValue = current;
+        element.textContent = current.toLocaleString();
+
+        if (progress < 1) {
+            element._animationFrame = requestAnimationFrame(step);
+        } else {
+            element._currentValue = target;
+            element.textContent = target.toLocaleString();
+            element._animationFrame = null;
+            element.classList.remove("turning");
+            element.classList.add("turn-complete");
+            element._popTimeout = setTimeout(() => {
+                element.classList.remove("turn-complete");
+                element._popTimeout = null;
+            }, 500);
+        }
+    }
+
+    element._animationFrame = requestAnimationFrame(step);
 }
 
 function updateStatus() {

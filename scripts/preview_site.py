@@ -4,6 +4,8 @@ import argparse
 import mimetypes
 import re
 import shutil
+import urllib.error
+import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -52,16 +54,96 @@ def prepare_preview(root=ROOT, *, refresh_apps=False):
     return preview
 
 
-def preview_handler(root, preview):
+def preview_handler(root, preview=None, *, live=False):
+    root = Path(root)
+    site_config = read_json(root / "config/site.json")
+
     class Handler(BaseHTTPRequestHandler):
+        def proxy(self, target_url):
+            req_headers = {
+                "User-Agent": self.headers.get("User-Agent")
+                or "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Patch-Bundle-Preview/1.0"
+            }
+            if if_none_match := self.headers.get("If-None-Match"):
+                req_headers["If-None-Match"] = if_none_match
+            if not target_url.startswith(("http://", "https://")):
+                raise ValueError("Only http and https schemes are permitted")
+            req = urllib.request.Request(target_url, headers=req_headers)  # noqa: S310
+            try:
+                with urllib.request.urlopen(req, timeout=30) as resp:  # noqa: S310
+                    body = resp.read()
+                    self.send_response(resp.status)
+                    self.send_header(
+                        "Content-Type",
+                        resp.headers.get("Content-Type", "application/json"),
+                    )
+                    self.send_header("Content-Length", str(len(body)))
+                    self.send_header("Access-Control-Allow-Origin", "*")
+                    self.send_header("Access-Control-Expose-Headers", "ETag, X-Catalog-Generation")
+                    self.send_header("Cache-Control", "no-store")
+                    if gen := resp.headers.get("X-Catalog-Generation"):
+                        self.send_header("X-Catalog-Generation", gen)
+                    if etag := resp.headers.get("ETag"):
+                        self.send_header("ETag", etag)
+                    self.end_headers()
+                    self.wfile.write(body)
+            except urllib.error.HTTPError as err:
+                body = err.read()
+                self.send_response(err.code)
+                self.send_header(
+                    "Content-Type",
+                    err.headers.get("Content-Type", "application/json"),
+                )
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Access-Control-Expose-Headers", "ETag, X-Catalog-Generation")
+                if gen := err.headers.get("X-Catalog-Generation"):
+                    self.send_header("X-Catalog-Generation", gen)
+                if etag := err.headers.get("ETag"):
+                    self.send_header("ETag", etag)
+                self.end_headers()
+                self.wfile.write(body)
+            except Exception as err:
+                self.send_error(502, f"Proxy error: {err}")
+
+        def do_OPTIONS(self):
+            self.send_response(204)
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS")
+            self.send_header("Access-Control-Allow-Headers", "*")
+            self.send_header("Access-Control-Expose-Headers", "ETag, X-Catalog-Generation")
+            self.end_headers()
+
         def do_GET(self):
             name = unquote(urlsplit(self.path).path).lstrip("/")
             if name == "config.json":
-                config = read_json(root / "config/site.json")
-                config["live_data"] = False
+                config = dict(site_config)
+                if not live and preview:
+                    config["live_data"] = False
+                    config.pop("catalog_backend", None)
+                else:
+                    config["catalog_backend"] = "d1"
+                    host = self.headers.get("Host") or f"localhost:{self.server.server_port}"
+                    config["catalog_api"] = f"http://{host}"
                 body, kind = encoded(config), "application/json"
+            elif (live or not preview) and (
+                name.startswith("catalog/")
+                or name.startswith("bundles/")
+                or name.startswith("api/")
+            ):
+                api_base = site_config.get(
+                    "api", "https://patch-bundles.api.jmancentral.com"
+                ).rstrip("/")
+                self.proxy(api_base + self.path)
+                return
+            elif (live or not preview) and name.startswith("database/"):
+                site_base = site_config.get(
+                    "website", "https://patch-bundles.jmancentral.com"
+                ).rstrip("/")
+                self.proxy(site_base + self.path)
+                return
             else:
-                if name.startswith("database/"):
+                if not live and preview and name.startswith("database/"):
                     base, relative = preview / "database", name.removeprefix("database/")
                 elif name.startswith("shared/"):
                     base, relative = root / "shared", name.removeprefix("shared/")
@@ -92,6 +174,11 @@ def preview_handler(root, preview):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "--live",
+        action="store_true",
+        help="Preview UI using live remote catalog data without generating a local database",
+    )
+    parser.add_argument(
         "--refresh-apps",
         action="store_true",
         help="Fetch cached F-Droid/Google Play names and icons",
@@ -99,12 +186,24 @@ def main():
     parser.add_argument("--port", type=int, default=8790)
     parser.add_argument("--prepare-only", action="store_true")
     args = parser.parse_args()
-    preview = prepare_preview(refresh_apps=args.refresh_apps)
-    if args.prepare_only:
-        print("Preview catalog ready in " + str(preview))
-        return
+    if args.live:
+        preview = None
+    else:
+        try:
+            preview = prepare_preview(refresh_apps=args.refresh_apps)
+        except ValueError as err:
+            if not (ROOT / "database/manifest.json").exists():
+                print("Local database snapshot not found; defaulting to live catalog data.")
+                preview = None
+                args.live = True
+            else:
+                raise err
+        if args.prepare_only:
+            print("Preview catalog ready in " + str(preview))
+            return
     print(f"Preview: http://localhost:{args.port} (Ctrl+C to stop)", flush=True)
-    with ThreadingHTTPServer(("127.0.0.1", args.port), preview_handler(ROOT, preview)) as server:
+    handler = preview_handler(ROOT, preview, live=args.live)
+    with ThreadingHTTPServer(("127.0.0.1", args.port), handler) as server:
         try:
             server.serve_forever()
         except KeyboardInterrupt:

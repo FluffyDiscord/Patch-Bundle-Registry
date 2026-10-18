@@ -36,6 +36,22 @@ export function catalogStats(bundles) {
     return stats;
 }
 
+export function historicalCatalogStats(bundles, manifest = null) {
+    if (manifest?.counts &&
+        Number.isFinite(Number(manifest.counts.bundles)) &&
+        Number.isFinite(Number(manifest.counts.patches))) {
+        return {
+            bundles: Math.max(0, Number(manifest.counts.bundles)),
+            patches: Math.max(0, Number(manifest.counts.patches))
+        };
+    }
+    const list = Array.isArray(bundles) ? bundles : [];
+    return {
+        bundles: list.length,
+        patches: list.reduce((sum, bundle) => sum + (Math.max(0, Number(bundle?.patch_count)) || 0), 0)
+    };
+}
+
 function reseamInternalLabel(patch) {
     if (patch.hidden !== true || typeof patch.name !== "string" ||
         !/^app\.reseam\.patches\.(?:[A-Za-z0-9_$]+\.)+[A-Za-z_$][A-Za-z0-9_$]*$/.test(patch.name)) return null;
