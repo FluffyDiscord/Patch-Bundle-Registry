@@ -108,6 +108,11 @@ class R2Reader:
 class BlobCache:
     def __init__(self, directory, get, put, workers=8):
         self.directory = Path(directory)
+        try:
+            self.directory.mkdir(parents=True, exist_ok=True)
+        except (FileExistsError, PermissionError):
+            if not self.directory.is_dir():
+                raise
         self.get = get
         self.put = put
         self.workers = min(16, max(1, workers))
@@ -126,7 +131,11 @@ class BlobCache:
 
     def remember(self, digest, body):
         path = self.path(digest)
-        path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+        except (FileExistsError, PermissionError):
+            if not path.parent.is_dir():
+                raise
         temporary = None
         try:
             with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as output:

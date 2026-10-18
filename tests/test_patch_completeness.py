@@ -129,3 +129,61 @@ def test_unexplained_missing_morphe_public_name_is_never_current_proof():
 
     assert not patch_completeness_current("Morphe:V1", 1, 4, [{"name": None}])
     assert patch_completeness_current("Reseam", 1, 1, [{"name": None, "hidden": True}])
+
+
+def test_reseam_hidden_patches_isolated_from_public_catalog_and_survive_restore(tmp_path):
+    from scripts.catalog_records import catalog_records
+    from scripts.validate_database import validate
+
+    folder = fixture(tmp_path)
+    hidden_patch = {
+        "name": None,
+        "display_name": "Internal dependency",
+        "hidden": True,
+        "compatiblePackages": {"com.reseam.hidden.only": None},
+    }
+    for channel in ("latest", "stable"):
+        raw_path = folder / f"demo-{channel}-patches-bundle.json"
+        raw = db.read_json(raw_path)
+        raw["bundle_type"] = "Reseam"
+        write(raw_path, raw)
+        patch_path = folder / f"demo-{channel}-patches-list.json"
+        payload = db.read_json(patch_path)
+        payload["patches"].insert(0, hidden_patch)
+        write(patch_path, payload)
+        status_path = folder / f"demo-{channel}-extraction.json"
+        status = db.read_json(status_path)
+        status.update(patch_list_hash=db.digest(patch_path.read_bytes()), completeness_version=1)
+        write(status_path, status)
+    manifest = db.build_database(tmp_path, restore=False)
+    validate(tmp_path)
+    path, bundles = snapshot(tmp_path, manifest)
+    assert bundles[0]["patch_count"] == 1
+    assert bundles[0]["packages"] == ["com.video"]
+    assert manifest["counts"]["patches"] == 1
+    _, records = catalog_records(tmp_path)
+    public = [row for (kind, _), row in records.items() if kind == "patch"]
+    assert [patch["name"] for patch in public] == ["Hide ads"]
+    assert public[0]["catalog_id"].endswith(":1")
+    original_id = public[0]["id"]
+    assert "com.reseam.hidden.only" not in db.read_json(path / "patch-index.json")["packages"]
+    assert "com.reseam.hidden.only" not in [
+        pkg["name"] for pkg in db.read_json(path / "packages.json")
+    ]
+    history = db.read_json(path / "history.json")
+    assert all(item["internal_patches"] == [hidden_patch] for item in history.values())
+    for file in folder.iterdir():
+        file.unlink()
+    db.restore_catalog_cache(tmp_path)
+    for cache in (tmp_path / "internal/cache").rglob("*-patches-list.json"):
+        payload = db.read_json(cache)
+        assert len(payload["patches"]) == 2
+        assert hidden_patch in payload["patches"]
+    _, rebuilt = snapshot(tmp_path, db.build_database(tmp_path, restore=False))
+    assert rebuilt[0]["metadata_status"] == "verified"
+    assert rebuilt[0]["patch_count"] == 1
+    _, restored_records = catalog_records(tmp_path)
+    assert [
+        row["id"] for (kind, _), row in restored_records.items() if kind == "patch"
+    ] == [original_id]
+

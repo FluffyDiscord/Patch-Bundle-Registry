@@ -1,6 +1,13 @@
 """Completeness checks shared by snapshot generation and retained D1 records."""
 
 
+def is_internal_patch(patch):
+    """Check if a patch is an internal dependency patch excluded from the public catalog."""
+    if not isinstance(patch, dict):
+        return False
+    return patch.get("loader_excluded") is True or patch.get("hidden") is True
+
+
 def patch_completeness_current(family, patch_count, version, patches=()):
     # Re-extract mixed Morphe inventories to establish the public loader's selection.
     unnamed = family == "Morphe:V1" and any(
@@ -8,7 +15,7 @@ def patch_completeness_current(family, patch_count, version, patches=()):
     )
     required = 1 if family == "Reseam" else 4 if unnamed else 2 if patch_count == 0 else 0
     public_name_missing = family == "Morphe:V1" and any(
-        not (patch.get("name") or "").strip() and patch.get("loader_excluded") is not True
+        not (patch.get("name") or "").strip() and not is_internal_patch(patch)
         for patch in patches
     )
     return not public_name_missing and isinstance(version, int) and version >= required

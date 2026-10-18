@@ -12,7 +12,11 @@ from pathlib import Path
 from urllib.parse import urlencode, urlparse
 
 try:
-    from scripts.extraction_policy import history_patch_inventory, patch_completeness_current
+    from scripts.extraction_policy import (
+        history_patch_inventory,
+        is_internal_patch,
+        patch_completeness_current,
+    )
     from scripts.git_hosts import hosts
     from scripts.git_hosts import normalize_source as normalize_repository
     from scripts.release_assets import (
@@ -24,7 +28,11 @@ try:
     from scripts.release_history import reconcile_release, release_is_prerelease
     from scripts.snapshot_retention import apply_retention, published_snapshots, retention_plan
 except ModuleNotFoundError:
-    from extraction_policy import history_patch_inventory, patch_completeness_current
+    from extraction_policy import (
+        history_patch_inventory,
+        is_internal_patch,
+        patch_completeness_current,
+    )
     from git_hosts import hosts
     from git_hosts import normalize_source as normalize_repository
     from release_assets import (
@@ -876,17 +884,17 @@ def build_database(root=ROOT, *, restore=True):
             newest[category] = bundle
     for bundle in newest.values():
         bundle["is_latest"] = True
-    # Keep loader-excluded helper metadata in private history/checkpoints, not
+    # Keep internal dependency helper metadata in private history/checkpoints, not
     # public patch counts, search results, or app compatibility indexes.
     internal_details, public_positions = {}, {}
     for identity, bundle in bundles.items():
         inventory = details.get(identity, [])
         internal_details[identity] = [
-            patch for patch in inventory if patch.get("loader_excluded") is True
+            patch for patch in inventory if is_internal_patch(patch)
         ]
         public_positions[identity] = [
             position for position, patch in enumerate(inventory)
-            if patch.get("loader_excluded") is not True
+            if not is_internal_patch(patch)
         ]
         public = [inventory[position] for position in public_positions[identity]]
         bundle["packages"] = sorted(
@@ -1017,7 +1025,7 @@ def build_database(root=ROOT, *, restore=True):
     app_versions, rows = {}, []
     for identity, patches in sorted(details.items()):
         for position, patch in enumerate(patches):
-            if patch.get("loader_excluded") is True:
+            if is_internal_patch(patch):
                 continue
             packages = packages_for(patch)
             rows.append(
