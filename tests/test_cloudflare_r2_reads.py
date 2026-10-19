@@ -38,7 +38,13 @@ def clock(monkeypatch):
 
 @pytest.mark.parametrize(
     ("code", "status"),
-    [("ServiceUnavailable", 503), ("SlowDown", 503), ("InternalError", 500), ("Unknown", 429)],
+    [
+        ("ServiceUnavailable", 503),
+        ("SlowDown", 503),
+        ("InternalError", 500),
+        ("Unknown", 429),
+        ("Conflict", 409),
+    ],
 )
 def test_r2_reads_retry_transient_responses_and_close_successful_body(clock, code, status):
     body = io.BytesIO(b"verified data")

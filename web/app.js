@@ -565,7 +565,7 @@ async function bundlePatches(bundle) {
             if (!await recoverGeneration(error, true)) throw error;
             result = await load();
         }
-        bundle.loadedPatches = result.rows.map(transformPatch);
+        bundle.loadedPatches = result.rows.filter(patch => !patch.hidden && !patch.loader_excluded).map(transformPatch);
     }
     return bundle.loadedPatches;
 }

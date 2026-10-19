@@ -23,6 +23,7 @@ from scripts.cloudflare_storage import (
     pack_refresh,
     unpack_refresh,
 )
+from scripts.extraction_policy import is_internal_patch
 from scripts.git_hosts import normalize_source
 from scripts.refresh_issues import read_issues
 from scripts.source_cleanup import clean_inputs, clean_snapshots, configured_sources, filter_records
@@ -198,7 +199,32 @@ class Cloud:
         return result[0].get("results", [])
 
     def put(self, key, body):
-        self.s3.put_object(Bucket=self.bucket, Key=key, Body=body)
+        for attempt in range(5):
+            try:
+                self.s3.put_object(Bucket=self.bucket, Key=key, Body=body)
+                return
+            except Exception as error:
+                response = getattr(error, "response", {})
+                if not isinstance(response, dict):
+                    response = {}
+                code = response.get("Error", {}).get("Code")
+                status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
+                transient = (
+                    code in {
+                        "SlowDown",
+                        "ServiceUnavailable",
+                        "InternalError",
+                        "RequestTimeout",
+                        "RequestTimeoutException",
+                        "Conflict",
+                        "TooManyRequests",
+                        "BandwidthLimitExceeded",
+                    }
+                    or status in {408, 409, 429, 500, 502, 503, 504}
+                )
+                if not transient or attempt == 4:
+                    raise
+                time.sleep(2**attempt * 0.25)
 
     def read_object(self, key):
         body = self.s3_reads.get_object(Bucket=self.bucket, Key=key)["Body"]
@@ -468,14 +494,22 @@ class Cloud:
         }
         public_inventories = {
             key for key in verified_inventories
-            if records["bundle", key].get("patch_completeness_version", 0) >= 4
+            if (
+                records["bundle", key].get("patch_completeness_version", 0) >= 4
+                or (
+                    records["bundle", key].get("bundle_type") == "Reseam"
+                    and records["bundle", key].get("patch_completeness_version", 0) >= 1
+                )
+            )
         }
         superseded_patches, superseded_associations = set(), set()
         for item in previous_records:
             key = (item["kind"], item["key"])
             if key in records:
                 continue
-            if key[0] == "patch" and item["data"]["bundle_id"] in public_inventories:
+            if key[0] == "patch" and (
+                item["data"]["bundle_id"] in public_inventories or is_internal_patch(item["data"])
+            ):
                 superseded_patches.add(key[1])
             elif key[0] == "patch_package":
                 patch = records.get(("patch", item["data"]["patch_id"]))
@@ -488,7 +522,7 @@ class Cloud:
             if key in records or key[0] == "refresh_jobs":
                 continue
             row = item["data"]
-            if key[0] == "patch" and key[1] in superseded_patches:
+            if key[0] == "patch" and (key[1] in superseded_patches or is_internal_patch(row)):
                 continue
             # Keep the new verified links, while retaining relationships for
             # fallback patches and releases absent from the current snapshot.

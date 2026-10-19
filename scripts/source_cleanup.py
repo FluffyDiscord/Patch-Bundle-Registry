@@ -7,11 +7,13 @@ import shutil
 try:
     from scripts.app_catalog import build_apps
     from scripts.catalog_records import encode
+    from scripts.extraction_policy import is_internal_patch
     from scripts.git_hosts import endpoint, normalize_source
     from scripts.source_policy import source_channels
 except ModuleNotFoundError:
     from app_catalog import build_apps
     from catalog_records import encode
+    from extraction_policy import is_internal_patch
     from git_hosts import endpoint, normalize_source
     from source_policy import source_channels
 
@@ -182,7 +184,7 @@ def filter_records(root, records):
     patches = {
         key: row
         for (kind, key), row in records.items()
-        if kind == "patch" and row["bundle_id"] in bundles
+        if kind == "patch" and row["bundle_id"] in bundles and not is_internal_patch(row)
     }
     associations = {
         key: row

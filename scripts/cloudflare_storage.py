@@ -88,8 +88,12 @@ class R2Reader:
                             "ServiceUnavailable",
                             "InternalError",
                             "RequestTimeout",
+                            "RequestTimeoutException",
+                            "Conflict",
+                            "TooManyRequests",
+                            "BandwidthLimitExceeded",
                         }
-                        or status in {429, 500, 502, 503, 504}
+                        or status in {408, 409, 429, 500, 502, 503, 504}
                         or isinstance(error, self.transport_errors)
                     )
                     if not transient or attempt == 2:

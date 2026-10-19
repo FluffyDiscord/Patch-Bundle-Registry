@@ -556,3 +556,64 @@ def test_verified_repair_replaces_obsolete_compatibility_relationships(
     associations = [item["data"] for item in records if item["kind"] == "patch_package"]
     assert len(associations) == 1
     memory.verify_database(memory.active()["seq"], memory.document(memory.active()))
+
+
+def test_reseam_internal_patches_are_superseded_and_never_retained(tmp_path, monkeypatch):
+    from test_generate_database import write
+
+    memory = MemoryCloud(tmp_path)
+    monkeypatch.setattr(cloud, "ROOT", tmp_path)
+    catalog(tmp_path)
+    folder = tmp_path / "internal/cache/bundles/demo-patch-bundles"
+    for channel in ("latest", "stable"):
+        raw_path = folder / f"demo-{channel}-patches-bundle.json"
+        raw = db.read_json(raw_path)
+        raw["bundle_type"] = "Reseam"
+        write(raw_path, raw)
+        status_path = folder / f"demo-{channel}-extraction.json"
+        status = db.read_json(status_path)
+        status["completeness_version"] = 1
+        write(status_path, status)
+    db.build_database(tmp_path, restore=False)
+    memory.publish()
+
+    bundles = memory.sql("SELECT record_key FROM catalog_records WHERE kind='bundle'")
+    bundle_id = bundles[0]["record_key"]
+    internal_row = {
+        "kind": "patch",
+        "key": f"{bundle_id}:internal",
+        "data": {
+            "id": f"{bundle_id}:internal",
+            "bundle_id": bundle_id,
+            "name": "internal.patch",
+            "hidden": True,
+        },
+    }
+    memory.sql(
+        "INSERT INTO catalog_records(kind, record_key, from_seq, to_seq, data, content_hash) "
+        "VALUES('patch', ?, 1, NULL, ?, 'digest')",
+        [
+            internal_row["key"],
+            json.dumps(internal_row["data"]),
+        ],
+    )
+    first_gen = memory.active()["generation"]
+    original_read_records = memory.read_records
+
+    def mock_read_records(doc):
+        rows = original_read_records(doc)
+        if doc["manifest"]["generation"] == first_gen:
+            return [*rows, internal_row]
+        return rows
+
+    monkeypatch.setattr(memory, "read_records", mock_read_records)
+    archive(tmp_path, [release(1, body="New release notes")])
+    memory.publish()
+    records = memory.read_records(memory.document(memory.active()))
+    patch_keys = [item["key"] for item in records if item["kind"] == "patch"]
+    assert f"{bundle_id}:internal" not in patch_keys
+    d1_patches = memory.sql(
+        "SELECT record_key, data FROM catalog_records WHERE kind='patch' AND to_seq IS NULL"
+    )
+    assert all("internal.patch" not in row["data"] for row in d1_patches)
+

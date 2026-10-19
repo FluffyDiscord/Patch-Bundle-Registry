@@ -319,6 +319,7 @@ export class D1Catalog extends Catalog {
   async patchWindow(params, bundleId) {
     const bindings=["patch"];
     let filter=this.where("patch",this.publicFilter("patch",{}),"r",bindings);
+    filter += " AND " + col("r","hidden") + " IS NOT 1 AND " + col("r","loader_excluded") + " IS NOT 1";
     const same=(field,value)=>{filter+=" AND "+col("r",field)+"=?";bindings.push(value);};
     if (bundleId) same("bundle_id",bundleId);
     if (params.get("include_unverified")!=="true") same("metadata_status","verified");
@@ -388,6 +389,7 @@ export class D1Catalog extends Catalog {
     const bindings = ["patch"];
     let filter = this.visible("r") + " AND " +
       this.where("patch",this.publicFilter("patch",{}),"r",bindings);
+    filter += " AND " + col("r","hidden") + " IS NOT 1 AND " + col("r","loader_excluded") + " IS NOT 1";
     const many = (field, values) => {
       bindings.push(JSON.stringify(values));
       filter += " AND " + col("r",field) + " IN (SELECT value FROM json_each(?))";
