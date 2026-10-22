@@ -35,6 +35,7 @@ jobs:
   refresh:
     if: vars.CATALOG_DATA_ENABLED != 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     env:
       CATALOG_HISTORICAL_BATCH_SIZE: ${{ inputs.historical_batch_size || vars.CATALOG_HISTORICAL_BATCH_SIZE || '1000' }}
       CATALOG_HISTORICAL_MAX_SECONDS: ${{ inputs.historical_max_seconds || vars.CATALOG_HISTORICAL_MAX_SECONDS || '900' }}
@@ -146,6 +147,7 @@ jobs:
   cloudflare:
     if: vars.CATALOG_DATA_ENABLED == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     environment: catalog-data
     permissions:
       contents: read

@@ -88,7 +88,10 @@ class Cloud:
                 "s3",
                 **options,
                 config=Config(
-                    retries={"max_attempts": 5, "mode": "standard"}, max_pool_connections=16
+                    retries={"max_attempts": 5, "mode": "standard"},
+                    max_pool_connections=16,
+                    connect_timeout=30,
+                    read_timeout=60,
                 ),
             )
             # Shared R2Reader policy must see failures before the SDK retries
@@ -99,6 +102,8 @@ class Cloud:
                 config=Config(
                     retries={"total_max_attempts": 1, "mode": "standard"},
                     max_pool_connections=4,
+                    connect_timeout=30,
+                    read_timeout=60,
                 ),
             )
         self._r2_reader = R2Reader(
@@ -652,12 +657,7 @@ class Cloud:
             "timestamp_only_changes_by_kind": dict(metadata_only),
         }
         print(json.dumps(self.publication_metrics), flush=True)
-        for kind, key in prior.keys() - records.keys():
-            self.sql(
-                "UPDATE catalog_records SET to_seq=? WHERE kind=? AND record_key=?"
-                " AND to_seq IS NULL",
-                [seq, kind, key],
-            )
+        self.expire_rows(seq, sorted(prior.keys() - records.keys()))
         count = self.sql(
             "SELECT COUNT(*) AS n FROM catalog_records WHERE from_seq<=?"
             " AND (to_seq IS NULL OR to_seq>?)",
@@ -923,6 +923,33 @@ class Cloud:
                 self.transfers().add("d1_insert_batches")
                 continue
             batch.append(row)
+            size += length
+        flush()
+
+    def expire_rows(self, seq, keys):
+        if not keys:
+            return
+        batch, size = [], 2
+
+        def flush():
+            if not batch:
+                return
+            self.sql(
+                "UPDATE catalog_records SET to_seq=? WHERE to_seq IS NULL AND "
+                "(kind, record_key) IN ("
+                "SELECT json_extract(value, '$[0]'), json_extract(value, '$[1]') "
+                "FROM json_each(?)"
+                ")",
+                [seq, encode(batch).decode()],
+            )
+            self.transfers().add("d1_expire_batches")
+
+        for key in keys:
+            length = len(encode(key)) + 1
+            if batch and (len(batch) >= 200 or size + length > 512_000):
+                flush()
+                batch, size = [], 2
+            batch.append(key)
             size += length
         flush()
 
